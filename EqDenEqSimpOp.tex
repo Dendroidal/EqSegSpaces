@@ -470,8 +470,6 @@ the local equivalences between local objects match the
 initial weak equivalences.
 \end{proof}
 
-{\color{red} HERE}
-
 The prototypical example of Proposition \ref{COMBMODSTR PROP}
 is given by the category $\mathsf{ssSet}$ of bisimplicial sets together with the two possible Reedy structures (over the Kan model structure on $\mathsf{sSet}$).
 
@@ -502,11 +500,17 @@ while for the vertical Reedy model structure the generating trivial cofibrations
 	\left( \partial \Delta[m] \to \Delta[m] \right),
 \qquad n \geq i \geq 0,m\geq 0.
 \]
-We caution the reader about a possible hiccup  
+We caution the reader about a possible hiccup with the terminology: 
+the weak equivalences for the horizontal Reedy structure are the 
+\textit{vertical equivalences},
+i.e. maps inducing Kan equivalences of simplicial sets
+$X_{n,\bullet} \to Y_{n,\bullet}$
+for each $n \geq 0$, and dually for the vertical Reedy structure.
 
-{\color{red} HERE}  kk kkk
+In the next result we refer to the localized model structure given by Proposition \ref{COMBMODSTR PROP} as the 
+\textit{joint Reedy model structure}.
 
-\begin{proposition}
+\begin{proposition}\label{SSSETJREE PROP}
 	Suppose that $X, Y \in \mathsf{ssSet}$ are horizontal Reedy fibrant. Then:
 \begin{itemize}
 	\item[(i)] for each fixed $m$ all vertex maps $X_{\bullet,m} \to X_{\bullet,0}$ are trivial Kan fibrations;
@@ -539,9 +543,24 @@ follows by noting that by (i) the map
 $X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 \end{proof}
 
+\begin{corollary}
+	A map $f\colon X \to Y$ in $\mathsf{ssSet}$ is a joint equivalence iff it induces a Kan equivalence on diagonals
+	$\Delta(X) \to \Delta(Y)$ in $\mathsf{sSet}$.
+\end{corollary}
 
+\begin{proof}
+	Since horizontal Reedy fibrant replacement maps
+	$X \to \tilde{X}$ are diagonal equivalences, 
+	one reduces to the case of $X,Y$ horizontal Reedy fibrant.
+	
+	But Proposition \ref{SSSETJREE PROP} (i) and (iii) then combine to say that $X \to Y$ is a joint equivalence iff
+	$X_{\bullet,0} \to Y_{\bullet,0}$ is a Kan equivalence, 
+	so that the result follows from Proposition \ref{SSSETJREE PROP} (iv).
+\end{proof}
 
 {\color{red} HERE HERE}
+
+
 
 \begin{proposition}
 	There is a model structure on $\mathsf{sdSet}$ such that 
