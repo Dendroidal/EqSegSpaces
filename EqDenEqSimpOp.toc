@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}Equivariant dendroidal sets}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Preliminaries}{1}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Actual Stuff}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Equivariant simplicial dendroidal sets}{6}{section.2}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{8}{appendix.A}
