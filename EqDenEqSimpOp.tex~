@@ -78,7 +78,7 @@ Bla, also obtain an equivariant notion of Reedy category}
       Let $\Phi(T)$ denote the poset (under inclusion) of face maps whose image is
       strictly containined in $T_0$.
       Given an inner edge $e \in T$, let
-      $\Phi^{Ge}(T) = \Phi(T) \setminus (T_0 \setminus H e)$.
+      $\Phi^{Ge}(T) = \Phi(T) \setminus (T_0 \setminus He)$.
       Define the \textit{$Ge$-horn} of $T$ to be the subdendroidal set
       \begin{equation}
             \Lambda^{Ge}[T] := \mathop{\colim}\limits_{\Phi^{Ge}(T)}\Omega[G \cdot S_0].
@@ -98,7 +98,7 @@ Bla, also obtain an equivariant notion of Reedy category}
       \end{equation}
 
       Given an inner edge $e \in T$, let
-      $\Phi_{\mathrm{Orb}}^{Ge}(T) := \Phi_{o}(T) \setminus (T_0\setminus H e)$
+      $\Phi_{\mathrm{Orb}}^{Ge}(T) := \Phi_{o}(T) \setminus (T_0\setminus He)$
       where $H = \mathrm{Stab}_G(T_0)$
       (that is; those faces $S_0$ such that either $T \setminus (G.f(S_0) \cup Ge) \neq \varnothing$, or
       outer faces removing a stump).
@@ -114,7 +114,7 @@ Bla, also obtain an equivariant notion of Reedy category}
       let $K = \mathrm{Stab}_H(U_0)$.
       Suppose we have another subdendroidal set $X \subseteq \Omega[T]$ which contains all outer faces of $U$, and
       an edge $e \in U_0$.
-      We say that $K e \subseteq U_0$ is a \textit{characteristic edge orbit} of
+      We say that $H e \subseteq U_0$ is a \textit{characteristic edge orbit} of
       $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U_0]$
       if we have
       \begin{equation}
@@ -125,26 +125,26 @@ Bla, also obtain an equivariant notion of Reedy category}
 
 \begin{proposition}
       \label{CHAR_EDGE_ANODYNE_PROP}
-      Given $T$, $T_0$, $H$, $U_0$, $K$, and $X$ as above, we have that
-      $K e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U]$
+      Given $T$, $T_0$, $H$, $U_0$, and $X$ as above, we have that
+      $H e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U]$
       implies that $X \to \X \cup \Omega[G \cdot U]$ is inner $G$-anodyne.
 \end{proposition}
 \begin{proof}
       If $\Omega[U]$ is already contained in $X$, we are done.
       Assuming otherwise, it suffices to show that for all
-      $C \subseteq C'$ $K$-closed concave subsets of $\Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
+      $C \subseteq C'$ $K$-closed concave subsets of $\Phi_{\mathrm{Inn}}^{H e}(U_0) \setminus X$, the map
       \begin{equation}
             X \cup G \cdot_K \left( \bigcup\limits_{E \in C}\Omega[U_0 \setminus E] \right)
             \to
             X \cup G \cdot_K \left( \bigcup\limits_{E' \in C'}\Omega[U_0 \setminus E'] \right)                     
       \end{equation}
       is inner $G$-anodyne.
-      Indeed, once $C = \Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
+      Indeed, once $C = \Phi_{\mathrm{Inn}}^{H e}(U_0) \setminus X$, we have the pushout
       \begin{equation}
             \begin{tikzcd}
-                  G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d] \arrow[r]
+                  G \cdot_K \left( \Lambda^{H e}[U_0] \right) \arrow[d] \arrow[r]
                   &
-                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \Phi_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
+                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \Phi_{\mathrm{Inn}}^{H e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
                   \\
                   G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot U_0] \arrow[r]
                   &
@@ -187,7 +187,7 @@ Bla, also obtain an equivariant notion of Reedy category}
 
 \begin{lemma}
       Suppose $U_0$ is a minimal outer face of $T$ not in $\Lambda_0^{Ge}[T]$, and suppose $e\in U_0$.
-      Then $K e$ is a characteristic edge orbit for $\Lambda_0^{Ge}[T] \subseteq \Omega[T] \supseteq[G \cdot U_0]$.
+      Then $H e$ is a characteristic edge orbit for $\Lambda_0^{Ge}[T] \subseteq \Omega[T] \supseteq[G \cdot U_0]$.
 \end{lemma}
 \begin{proof}
       Consider an inner face $U_0 \setminus D$ of $U_0$, with $\bar K = \mathrm{Stab}_H(U_0 \setminus D) \leq K$, and
@@ -198,7 +198,7 @@ Bla, also obtain an equivariant notion of Reedy category}
       \end{equation}
       so the outer face $U_0$ is $K_r$-closed and not in $\Lambda_0^{Ge}[T]$, and hence we conclude that $U_0$ must be $T_0$.
       However, if $\Lambda^{Ge}_0[T] \neq \Lambda^{Ge}[T]$, $T_0$ is not a minimal outer face not in $\Lambda_0^{Ge}[T]$.
-      Thus, in these cases, $K e$ is a characteristic edge orbit vacuously.
+      Thus, in these cases, $H e$ is a characteristic edge orbit vacuously.
       If in fact $\Lambda_o^{Ge}[T] = \Lambda^{Ge}[T]$, then $T \simeq G \cdot T_0$, so $H = \bar K = K_r = \set{e}$.
       Now, since $U_0 \setminus D \cup e \in \Lambda_0^{Ge}[T]$,
       $D \setminus e \neq \varnothing$, so
@@ -229,7 +229,7 @@ Bla, also obtain an equivariant notion of Reedy category}
       $U_0 \setminus D \cup \bar K e \in \Lambda_o^{Ge}[T]$.
       But then $U_0$ is contained in $R_0$ since both are outer faces, or again we apply the previous lemma.
       Both lead to contradictions, and thus we may conclude that
-      $K e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \supseteq \Omega[G \cdot U_0]$.
+      $H e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \supseteq \Omega[G \cdot U_0]$.
       Thus, the result holds by Proposition \ref{CHAR_EDGE_ANODYNE_PROP}.
 \end{proof}
 
