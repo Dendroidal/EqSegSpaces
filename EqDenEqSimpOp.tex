@@ -465,6 +465,8 @@ concerning the simplicial Reedy model structure all generalized mutatis mutandis
 	Then there is a smallest common left Bousfield localization 
 	$(C,W,F)$ and for any $(C,W,F)$-local 
 	$c,d$ objects one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
+	
+	Moreover, an object $X$ is local in the common left Bousfield localization iff it is simultaneously fibrant in both of the two initial model structures.
 \end{proposition}
 
 \begin{proof}
@@ -472,6 +474,8 @@ concerning the simplicial Reedy model structure all generalized mutatis mutandis
 	The claim concerning local $c,d$ follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hi03}, stating that
 the local equivalences between local objects match the
 initial weak equivalences.
+
+{\color{red} HERE}
 \end{proof}
 
 The prototypical example of Proposition \ref{COMBMODSTR PROP}
@@ -564,6 +568,88 @@ $X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 
 {\color{red} HERE HERE}
 
+We now turn to our main application of Proposition \ref{COMBMODSTR PROP}, the category 
+$\mathsf{sdSet}^G = \mathsf{Set}^{\Delta^{op} \times \Omega^{op} \times G}$
+of $G$-equivariant simplicial dendroidal sets.
+
+Using the fact that $\Delta$ is a (usual) Reedy category
+and the model structure on $\mathsf{dSet}^G$ given by 
+\cite[Thm. 2.1]{Pe17}
+yields a model structure on $\mathsf{sdSet}^G$
+that we will refer to as the \textit{simplicial Reedy model structure}.
+
+On the other hand, in the context of Definition \ref{GENRED DEF},
+$\Omega^{op} \times G$ is a generalized Reedy category such that the families $\{\mathcal{F}_{U}^{\Gamma}\}_{U \in \Omega}$
+of $G$-graph subgroups are Reedy-admissible 
+(see Example \ref{GGRAPHREEDY EX}), 
+and hence using the underlying 
+Kan model structure on $\mathsf{sSet}$, 
+Theorem \ref{REEDYADM THM} yields
+a model structure on $\mathsf{sdSet}^G$
+that we will refer to as the \textit{equivariant dendroidal Reedy model structure}, 
+or simply as \textit{dendroidal Reedy model structure} for the sake of brevity.
+
+\begin{proposition}
+	Both the simplicial and dendroidal Reedy model structures on 
+	$\mathsf{sdSet}^G$ have generating cofibrations given by the maps
+\[
+	\left(\partial \Delta [n] \to \Delta[n]\right)
+		\square
+	\left(\partial \Omega[T] \to \Omega[T]\right),
+	\qquad
+	n\geq 0, T \in \Omega_G.
+\]
+Further, the dendroidal Reedy structure has generating trivial cofibrations the maps
+\[
+	\left(\Lambda^i [n] \to \Delta[n]\right)
+		\square
+	\left(\partial \Omega[T] \to \Omega[T]\right),
+	\qquad
+	n\geq i \geq 0, T \in \Omega_G.
+\]
+while the simplicial Reedy structure has generating trivial cofibrations the maps
+\[
+	\left(\partial \Delta [n] \to \Delta[n]\right)
+		\square
+	\left(A \to B\right),
+	\qquad
+	n\geq 0
+\]
+for $\{A \to B\}$ a set of generating trivial cofibrations of
+$\mathsf{dSet}^G$.
+\end{proposition}
+
+\begin{proof}
+	For the claims concerning the dendroidal Reedy structure, 
+	note that the presheaves $\Omega[T] \in \mathsf{dSet}^G$
+	are precisely the quotients $(G \cdot \Omega[U])/K$ for $U\in \Omega$ and $K \leq G \times \Sigma_U$ a $G$-graph subgroup,
+	so that $\partial \Omega[T] \to \Omega[T]$
+	represents the maps $X^K \to (M_U X)^K$ for $X \in \mathsf{dSet}^G$.
+	
+	The claims concerning the simplicial Reedy structure are immediate.
+\end{proof}
+
+
+{\color{red} HERE HERE}
+
+
+\[
+	\left(\partial \Delta [n] \to \Delta[n]\right)
+		\square
+	\left(\Lambda^{G e} \Omega[T] \to \Omega[T]\right),
+	\qquad
+	n\geq 0, T \in \Omega_G, e \in Inn(T)
+\]
+and 
+\[
+	\left(\partial \Delta [n] \to \Delta[n]\right)
+		\square
+	\left(
+	\Omega[T] \otimes \left( \{i\} \to J_d \right)
+	\right),
+	\qquad
+	n\geq 0, T \in \Omega_G, i = \{0,1\}
+\]
 
 
 \begin{proposition}
@@ -701,7 +787,7 @@ is Reedy-admissible.
 \end{example}
 
 
-\begin{example}
+\begin{example}\label{GGRAPHREEDY EX}
 	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM08} and $G$ a group,
 	we set $\mathbb{R} = G \times \mathbb{S}$
 	with $\mathbb{R}^+ = G \times \mathbb{S}^+$ and 
@@ -722,21 +808,21 @@ Our primary example of interest will come by setting
 $\mathbb{S} = \Omega^{op}$ in the previous example.
 In fact, in this case we will also be interested 
 in certain subfamilies
-$\{\mathcal{F}_T\}_{T \in \Omega}
-\subset \{\mathcal{F}_T^{\Gamma}\}_{T \in \Omega}$.
+$\{\mathcal{F}_U\}_{U \in \Omega}
+\subset \{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
 
 \begin{example}
 	Let $\mathbb{R} = G \times \Omega^{op}$ and let
-	$\{\mathcal{F}_T\}_{T \in \Omega}$ be the family of graph subgroups determined by a weak indexing system $\mathcal{F}$.
-	Then $\{\mathcal{F}_T\}$ is Reedy-admissible.
-	To see this, recall first that each $K \in \mathcal{F}_T$ encodes 
-	an $H$-action on $T \in \Omega$ for some $H \leq G$
-	so that $G \cdot_H T$ is a $\mathcal{F}$-tree.
-	Given a face map $f \colon T' \hookrightarrow T$, 
-	the subgroup $\pi^{-1}_T(K)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
-	$T'$ inherits the $\bar{H}$-action from $T$ along $f$ (so that $f$ becomes a $\bar{H}$-map), 
-	so that $\pi_{T'}(\pi^{-1}_T(K))$ encodes the $\bar{H}$-action on $T'$. Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
-	$G \cdot_{\bar{H}} T' \to G \cdot_H T$.
+	$\{\mathcal{F}_U\}_{U \in \Omega}$ be the family of graph subgroups determined by a weak indexing system $\mathcal{F}$.
+	Then $\{\mathcal{F}_U\}$ is Reedy-admissible.
+	To see this, recall first that each $K \in \mathcal{F}_U$ encodes 
+	an $H$-action on $U \in \Omega$ for some $H \leq G$
+	so that $G \cdot_H U$ is a $\mathcal{F}$-tree.
+	Given a face map $f \colon U' \hookrightarrow U$, 
+	the subgroup $\pi^{-1}_U(K)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
+	$U'$ inherits the $\bar{H}$-action from $U$ along $f$ (so that $f$ becomes a $\bar{H}$-map), 
+	so that $\pi_{U'}(\pi^{-1}_U(K))$ encodes the $\bar{H}$-action on $U'$. Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
+	$G \cdot_{\bar{H}} U' \to G \cdot_H U$.
 \end{example}
 
 We now state the main result.
