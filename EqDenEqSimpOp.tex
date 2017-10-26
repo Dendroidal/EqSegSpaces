@@ -256,7 +256,7 @@ both $f$ and $gf$ are in the class, then so is $g$.
 The following is an equivariant generalization of 
 \cite[Props. 2.4 and 2.5]{CM13a}.
 
-\begin{proposition}
+\begin{proposition}\label{HYPER PROP}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
@@ -601,13 +601,13 @@ Further, the dendroidal Reedy structure has generating trivial cofibrations the 
 	n\geq i \geq 0, T \in \Omega_G.
 \end{equation}
 while the simplicial Reedy structure has generating trivial cofibrations the maps
-\[
+\begin{equation}\label{SIMPTRIVCOF EQ}
 	\left(\partial \Delta [n] \to \Delta[n]\right)
 		\square
 	\left(A \to B\right),
 	\qquad
 	n\geq 0
-\]
+\end{equation}
 for $\{A \to B\}$ a set of generating trivial cofibrations of
 $\mathsf{dSet}^G$.
 \end{proposition}
@@ -622,8 +622,6 @@ $\mathsf{dSet}^G$.
 	The claims concerning the simplicial Reedy structure are immediate.
 \end{proof}
 
-
-{\color{red} HERE HERE}
 
 \begin{corollary}
 The joint fibrant objects $X \in \mathsf{sdSet}^G$ have the following equivalent characterizations:
@@ -642,26 +640,41 @@ for $T \in \Omega_G$ are Kan equivalences in $\mathsf{sSet}$.
 \end{corollary}
 
 
-{\color{red} HERE }
-
 \begin{proof}
-	(i) simply reiterates the last part of Proposition \ref{COMBMODSTR PROP}.
-	
-	For (ii), note first that $X$ is simplicial fibrant iff for 	any monomorphism $K \to L$ in $\mathsf{sSet}$
-the map
-$X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$. 
+	(i) simply repeats the last part of Proposition \ref{COMBMODSTR PROP}. In the remainder we write $K \to L$ for a generic monomorphism in 
+$\mathsf{sSet}$
+and $A \to B$ a generic normal monomorphism in $\mathsf{dSet}^G$.
+
+	For (ii), note first that $X$ is simplicial fibrant iff 
+$X^L \to X^K$ is always a fibration in $\mathsf{dSet}^G$. 
 Hence, such $X$ will have the right lifting property againt all maps in (\ref{DENDTRIVCOF EQ}) iff 
 $X^L \to X^K$ is a trivial fibration whenever $K \to L$ is anodyne. But Remark \ref{HYPERSATKAN REM}
 implies that it suffices to verify this for
 the vertex inclusions $\Delta[0] \to \Delta[n]$.
 
-For (iii), one first notes that $X$ is dendroidal fibrant iff for any normal monomorphism $A \to B$ in $\mathsf{dSet}^G$
-the map $X^B \to X^A$ is a Kan fibration in $\mathsf{sSet}$.
-	
-
-{\color{red} HERE }
+For (iii), note first that $X$ is dendroidal fibrant iff $X^B \to X^A$ is always a Kan fibration in $\mathsf{sSet}$.
+Therefore, $X$ will have the right lifting property against all maps (\ref{SIMPTRIVCOF EQ}) iff 
+$X^B \to X^A$ is a trivial Kan fibration whenever $A\to B$ is a generating trivial of $\mathsf{dSet}^G$.
+By adjunction, this is equivalent to showing that
+$X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Pe17}
+(see also the beginning of \cite[\S 8.1]{Pe17})
+it suffices to verify that the maps $X^L \to X^K$ have the right lifting property against the maps
+\[
+	\Lambda^{G e} \Omega[T] \to \Omega[T],
+	\quad
+	T \in \Omega_G, e \in Inn(T)
+\qquad
+\text{and}
+\qquad
+	\Omega[T] \otimes \left( \{i\} \to J_d\right),
+	\quad
+	T \in \Omega_G, i = \{0,1\}
+\]
+and it thus suffices to check that $X^B \to X^A$ is a trivial Kan fibration whenever $A\to B$ is one of these maps.
+Proposition \ref{HYPER PROP} now finishes the proof.
 \end{proof}
 
+{\color{red} HERE HERE}
 
 \begin{remark}
 	Note that simplicial replacement after dendroidal replacement works but not vice versa.
@@ -669,23 +682,7 @@ the map $X^B \to X^A$ is a Kan fibration in $\mathsf{sSet}$.
 \end{remark}
 
 
-\[
-	\left(\partial \Delta [n] \to \Delta[n]\right)
-		\square
-	\left(\Lambda^{G e} \Omega[T] \to \Omega[T]\right),
-	\qquad
-	n\geq 0, T \in \Omega_G, e \in Inn(T)
-\]
-and 
-\[
-	\left(\partial \Delta [n] \to \Delta[n]\right)
-		\square
-	\left(
-	\Omega[T] \otimes \left( \{i\} \to J_d \right)
-	\right),
-	\qquad
-	n\geq 0, T \in \Omega_G, i = \{0,1\}
-\]
+
 
 
 \begin{proposition}
