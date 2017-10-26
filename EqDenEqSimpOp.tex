@@ -647,23 +647,26 @@ for $T \in \Omega_G$ are Kan equivalences in $\mathsf{sSet}$.
 \begin{proof}
 	(i) simply reiterates the last part of Proposition \ref{COMBMODSTR PROP}.
 	
-	For (ii), note first that a simplicial fibrant $X$ will be joint fibrant iff it is local with respect to the dendroidal generating trivial cofibrations (\ref{DENDTRIVCOF EQ}), and by 
-	Remark \ref{HYPERSATKAN REM}, this is equivalent to being local with respect to all maps
-	\begin{equation}\label{DENDTRIVCOF2 EQ}
-	\left(\Delta[0] \to \Delta[n]\right)
-		\square
-	\left(\partial \Omega[T] \to \Omega[T]\right),
-	\qquad
-	n\geq 0, T \in \Omega_G.
-\end{equation}
-The right lifting properties againt these maps say precisely that all vertex maps $X_n \to X_0$ are trivial fibrations in 
-$\mathsf{dSet}^G$, hence the given condition is necessary.
+	For (ii), note first that $X$ is simplicial fibrant iff for 	any monomorphism $K \to L$ in $\mathsf{sSet}$
+the map
+$X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$. 
+Hence, such $X$ will have the right lifting property againt all maps in (\ref{DENDTRIVCOF EQ}) iff 
+$X^L \to X^K$ is a trivial fibration whenever $K \to L$ is anodyne. But Remark \ref{HYPERSATKAN REM}
+implies that it suffices to verify this for
+the vertex inclusions $\Delta[0] \to \Delta[n]$.
+
+For (iii), one first notes that $X$ is dendroidal fibrant iff for any normal monomorphism $A \to B$ in $\mathsf{dSet}^G$
+the map $X^B \to X^A$ is a Kan fibration in $\mathsf{sSet}$.
+	
 
 {\color{red} HERE }
 \end{proof}
 
 
-
+\begin{remark}
+	Note that simplicial replacement after dendroidal replacement works but not vice versa.
+	Example, $X^{(\Delta_{\bullet})} \to X^{\Delta_{\bullet}}$.
+\end{remark}
 
 
 \[
