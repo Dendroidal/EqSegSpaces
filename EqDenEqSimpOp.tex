@@ -1,28 +1,25 @@
-\documentclass[a4paper,10pt]{article}%
+\documentclass[a4paper,10pt,draft]{article}%
+
 
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
-%  colorlinks,
-  linktoc=page
+  % colorlinks,
+  final,
+  linktoc=page 
 }
 \usepackage{bookmark}
 
-
 \input{commands.tex}%
 
-\usepackage{showkeys}
+\usepackage[draft]{showkeys}
+\usepackage[obeyDraft]{todonotes}
 
-\author{Peter Bonventre, Lu\'is A. Pereira}%
-\title{Equivariant dendroidal sets and simplicial operads}%
 
-\usepackage{stmaryrd}
 
-\usepackage{upgreek}
-\usepackage{mathtools}
 
-\usepackage{geometry}
-
+%-------- TIKZ -----------------------------------------
 \usepackage{tikz}%
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,cd,patterns}
 \tikzset{%
   treenode/.style = {shape=rectangle, rounded corners,%
                      draw, align=center,%
@@ -37,6 +34,33 @@
 % \makeatletter
 % \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
 % \makeatother
+
+
+% --------Background Coloring IFDRAFT--------------------------
+\usepackage{ifdraft}
+\ifdraft{
+  \color[RGB]{63,63,63}
+  % \pagecolor[rgb]{0.5,0.5,0.5}
+  \pagecolor[RGB]{220,220,204}
+  % \color[rgb]{1,1,1}
+}
+
+
+% -------- Referenece Numbering
+\numberwithin{equation}{section}%
+
+
+% ------- Author Info -----------------------
+
+\author{Peter Bonventre, Lu\'is A. Pereira}%
+\title{Equivariant dendroidal sets and simplicial operads}%
+\date{\today}
+
+
+
+%----- Document ---------------------------------
+
+
 
 \begin{document}	\maketitle%
 
@@ -68,11 +92,12 @@ Bla, also obtain an equivariant notion of Reedy category}
       Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
       $T_0$ denote the component of $T$ containing the image of $S_0$.
 
-      We say $f$ is a (non-equivariant) \textit{(inner) face map} if
+      We say $f$ is a (non-equivariant) \textit{(inner, resp. outer) face map} if
       $f: S_0 \to T_0$ is a non-equivariant (inner) face map.
 
       Given a subseteq $E$ of inner edges, let
       $\Phi_{\mathrm{Inn}}^E(T)$ denote the subposet of faces such that miss all of $E$.
+      Moveover, let $\Phi_{\mathrm{Out}}^(T)$ denote the subposet of outer faces.
 \end{definition}
 
 \begin{definition}
@@ -87,6 +112,34 @@ Bla, also obtain an equivariant notion of Reedy category}
             \Lambda^{Ge}[T] := \mathop{\colim}\limits_{\Phi^{Ge}(T)}\Omega[G \cdot S_0].
       \end{equation}
 \end{definition}
+
+\begin{remark}
+      Equivalently, if $T \simeq G \cdot_H T_0$, then
+      \begin{equation}
+            \Lambda^{G e}[T] \simeq G \cdot_H \Lambda^{H e}[T_0].
+      \end{equation}
+\end{remark}
+
+\begin{definition}
+      For $T \in \Omega_G$, let $\Phi_{SC}(T) \subseteq \Phi_{\mathrm{Out}}()$ denote the poset of outer faces
+      with precisely one vertex
+      (that is, every element records precisely one generating broad relation
+      $e^\uparrow \leq e$ from $T$).
+      We define the \textit{Segal core} of $T$ to be the subdendroidal set
+      \begin{equation}
+            Sc[T] := \mathop{\colim}\limits_{\Phi_{SC}(T)}\Omega[G \cdot C].
+      \end{equation}
+\end{definition}
+
+\begin{remark}
+      Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_v)$ for each $v \in V_G(T)$
+      which are compatible on overlapping edges.
+\end{remark}
+
+\begin{remark}
+      We observe that, if $T \simeq G \cdot_H T_0$, then
+      $Sc[T] \simeq G \cdot_H Sc[T_0]$.
+\end{remark}
 
 \begin{definition}
       A face map $f: S_0 \to T$ is called \textit{orbital} if
@@ -115,7 +168,8 @@ Bla, also obtain an equivariant notion of Reedy category}
       Given $T$, $T_0$, and $H$ as above,
       let $U_0 \subseteq T_0$ be a (non-equivariant) subtree, and
       let $K = \mathrm{Stab}_H(U_0)$.
-      Suppose we have another subdendroidal set $X \subseteq \Omega[T]$ which contains all outer faces of $U$, and
+      Suppose we have another subdendroidal set $X \subseteq \Omega[T]$
+      which contains all proper outer faces of $U_0$, and
       an edge $e \in U_0$.
       We say that $K e \subseteq U_0$ is a \textit{characteristic edge orbit} of
       $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U_0]$
@@ -166,8 +220,8 @@ Bla, also obtain an equivariant notion of Reedy category}
 
       Second, we claim that no face $S_0 = U_0 \setminus D \cup \bar e$, with $\bar e \subseteq K e$, is in the domain.
       Suppose $U_0 \setminus D \cup \bar e$ is contained in some $U_0 \setminus E$ already attached.
-      Then, since $E \cap K e = \varnothing$< we have $U_0 \setminus D \subseteq U_0 \setminus E$, so
-      $U_0 \setminus D$ is also in the domain, a contradiction.
+      Then, since $E \cap K e = \varnothing$ we have $U_0 \setminus D \subseteq U_0 \setminus E$, so
+      $U_0 \setminus D$ is also in the domain, a contradiction. \todo{this doesn't make sense}
       Further, if $U_0 \setminus D \cup \bar e$ is in $X$, then so is $U_0 \setminus D \cup K e$, and hence
       so is $U_0 \setminus D$ (by definition of characteristic edge orbit), also a contradiction.
 
@@ -209,6 +263,7 @@ Bla, also obtain an equivariant notion of Reedy category}
 \end{proof}
 
 \begin{proposition}
+      \label{GOHORN_GHORN_PROP}
       $\Lambda_o^{Ge}[T] \to \Omega[T]$ is inner $G$-anodyne, and hence
       the (hyper)saturated class of the orbital horn inclusions is contained in
       the (hyper)saturated class of the horn inclusions.
@@ -236,6 +291,139 @@ Bla, also obtain an equivariant notion of Reedy category}
       Thus, the result holds by Proposition \ref{CHAR_EDGE_ANODYNE_PROP}.
 \end{proof}
 
+\begin{corollary}
+      Generalized orbital horn inclusions $\Lambda^{E}_o[T] \to \Omega[T]$ are inner $G$-anodyne,
+      where $E$ is any $G$-closed set of inner edges of $T$.
+\end{corollary}
+\begin{proof}
+      Suffices to show that $\Lambda^{E}_o[T] \to \Lambda^{E \setminus G e}_o[T]$ is inner $G$-anodyne.
+      This follows from the observation that the diagram below is a pushout.
+      \begin{equation}
+            \begin{tikzcd}
+                  \Lambda^{E \setminus G e}[T \setminus G e] \arrow[d] \arrow[r]
+                  &
+                  \Lambda^E_o[T] \arrow[d]
+                  \\
+                  \Omega[T \setminus G e] \arrow[r]
+                  &
+                  \Lambda^{E \setminus G e}_o[T].
+            \end{tikzcd}
+      \end{equation}
+\end{proof}
+
+While the direct dual of the above isn't true,
+the following proposition immediately implies that
+the hypersaturated class of the orbital horn inclusions contains
+the (anodyne) horn inclusions.
+
+\begin{proposition}
+      \label{GHORN_GOHORN_PROP}
+      For any $T \in \Omega_G$, the map
+      $\Lambda^{G e}_o[T] \into \Lambda^{G e}[T]$
+      is cellular on orbital horn inclusions.
+\end{proposition}
+\begin{proof}
+      It suffices to show that
+      \begin{equation}
+            \Lambda^{G e}_o[T] \cup \mathop{\bigcup}\limits_{U_0 \in B} \Omega[G \cdot U_0]
+            \to
+            \Lambda_0^{G e}[T] \cup \mathop{\bigcup}\limits_{U_0' \in B'} \Omega[G \cdot U_0']
+      \end{equation}
+      is cellular on orbital horn inclusions, where
+      $B \subseteq B'$ are $G$-closede $G$-concave subposets of faces
+      $e \in U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
+      which contain $e$.
+      In fact, it suffices to consider when $B' = B \cup \set{U_0}$, where $U_0 \subseteq T_0$.
+      Let $H$ be the stabilizer of $T_0$, $K$ the stabilizer of $U_0$, and $K_r$ the root-isotropy.
+
+      We claim that the above map is a pushout over the map
+      \begin{equation}
+            \Lambda^{G e}_o[G \cdot_K U_0] \to \Omega[G \cdot_K U_0].
+      \end{equation}
+      First, we check that the left-hand-side is in the domain.
+      Any face $R_0$ in $\Lambda^{G e}_0[G \cdot_K U_0]$ with stabilizer $\bar K$ and root-isotropy $\bar K_r$
+      factors through an equivariant face $V_0$ of $U_0$ which misses outside of $H e$.
+      Thus there exist an edge $t\in U_0$ (or an outer cluster $C \in U_0$) such that
+      $\bar K_r t \cap R_0 = \bar K_r t \cap V_0 = \varnothing$
+      (or $\bar K_r C \cap R_0 = \bar K_r C \cap V_0 = \varnothing$\footnote{
+        meaning neither the leaves of $C$
+        nor the broad relation defined by $C$ and its orbit
+        are in $R_0$ or $V_0$})
+      Thus $R_0$ factors through the orbital face $T_0 \setminus H t$ (or $T_0 \setminus H C$),
+      and so is in $\Lambda^{G e}_o[T]$.
+
+      Second, we show that $\Omega[G \cdot_K U_0] \setminus \Lambda^{G e}_o[G \cdot_K U_0]$ is not in the domain.
+      \begin{enumerate*}[label=(\itshape\roman*\upshape)]
+      \item If $R_0 = U_0 \setminus \bar e$ for $\bar e \subseteq K e$ is in $\Lambda^{G e}_o[T]$, then
+            $R_0$ is necessarily $K_r$-closed and misses a full $K_r$-orbit of edges not in $H e$,
+            so in particular is in $\Lambda^{G e}_o[G \cdot_K U_0]$
+            % $= U_0 \setminus K_r e$ and misses already an orbital face of $G \cdot_K U_0$.
+      \item If $R_0 = U_0 \setminus \bar e$ is in another face $W_0$ containing $e$ which has already been attached, then
+            $U_0$ is contained in $\Omega[G \cdot W_0]$, and so $U_0$ is the domain, a contradiction.
+      \item If $R_0$ is a non-equivariant face of $U_0$ with image in $\Lambda^{G e}_o[T]$
+            \todo[inline]{come back}
+      \item If $R_0$ is a non-equivariant face of $U_0$ with image in another face $W_0$ containin g$e$ already attached, then
+            \todo[inline]{come back}
+      \end{enumerate*}
+      Thus, the desired result holds.
+\end{proof}
+
+By \cite[6.17]{Pe17}, we have the generalized horn inclusions
+$\Lambda^E[T] \to \Omega[T]$ are also inner $G$-anodyne.
+By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
+By the alternative descriptions of inner $G$-horns and $G$-Segal cores, the following is immediate.
+\begin{lemma}
+      \label{SC_IN_GHORN_LEM}
+      For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
+\end{lemma}
+
+Similarly, the proof of \cite[2.5]{CM13a} yields that
+$Sc[T_0] \to \Lambda^e[T_0]$ is cellular on Segal core inclusions, and thus
+$Sc[T] \to \Lambda[T]$ is cellular on $G$-Segal core inclusions.
+Again, this implies the following.
+\begin{lemma}
+      \label{GHORN_IN_SC_LEM}
+      The inner $G$-horn inclusions are contained in the hypersaturation of the Segal core inclusions.
+\end{lemma}
+
+Combining Propositions \ref{GOHORN_GHORN_PROP}, \ref{GHORN_GOHORN_PROP} and Lemmas \ref{SC_IN_GHORN_LEM}, \ref{GHORN_IN_SC_LEM}, yields Proposition \ref{HYPER PROP}.
+
+
+
+
+
+
+% \begin{example}[A Problem with the Reverse]
+%       With $G = C_4$, consider the tree
+%       \begin{equation}
+%             \begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize},level distance = 1.9em, auto]%
+%                   \tikzstyle{level 3}=[sibling distance=5.75em]%
+%                   \tikzstyle{level 4}=[sibling distance=2em]%
+%                   \node {$T$}
+%                   child{node [dummy] {}
+%                     child{node [dummy] {}
+%                       child{node [dummy] {}
+%                         child{edge from parent node [swap] {$a+3$}}
+%                         child{edge from parent node {$a+1$}}
+%                         edge from parent node [swap] {$b+1$}
+%                       }
+%                       child{node [dummy] {}
+%                         child{edge from parent node [swap]{$a+2$}}
+%                         child{edge from parent node {$a$}}
+%                         edge from parent node {$b$}
+%                       }
+%                       edge from parent node [swap] {$e$}
+%                     }
+%                     edge from parent node [swap] {$c$}
+%                   };
+%             \end{tikzpicture}
+%       \end{equation}
+%       The map $\Lambda^{G e}[T] \to \Omega[T]$ does not appear to be in the hypersaturation of orbital horn inclusions.
+%       In particular, the map itself cannot be built out of orbital horn inclusions (too few missing dendricies),
+%       and the map $\Lambda^{G e}_o[T] \to \Lambda^{G e}[T]$
+%       does not appear to be cellular on orbital horn inclusions.
+% \end{example}
+
 \subsection{Actual Stuff}
 
 
@@ -256,7 +444,8 @@ both $f$ and $gf$ are in the class, then so is $g$.
 The following is an equivariant generalization of 
 \cite[Props. 2.4 and 2.5]{CM13a}.
 
-\begin{proposition}\label{HYPER PROP}
+\begin{proposition}
+      \label{HYPER PROP}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
