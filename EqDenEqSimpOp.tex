@@ -73,6 +73,20 @@ Bla, also obtain an equivariant notion of Reedy category}
 
 \tableofcontents
 
+
+\section{Overview}
+
+The following are the categories currently with model structures and the right adjoints of already established Quillen equivalences.
+\[
+	\begin{tikzcd}
+		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} &
+		\mathsf{dSet}^G
+	\end{tikzcd}
+\]
+
+\newpage
+
+
 \section{Equivariant dendroidal sets}
 
 
@@ -920,7 +934,122 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 
 \section{Pre-operads}
 
-kl
+Recall that the category $\mathsf{PreOp}$
+of \textit{pre-operads} is the full subcategory
+$\mathsf{PreOp} \subset \mathsf{sdSet}$
+of those $X$ such that $X(\eta)$ is a discrete simplicial set.
+Writing $\gamma^{\**}$ for the inclusion one has left and right adjoints $\gamma_!$ and $\gamma_{\**}$
+\begin{equation}
+\begin{tikzcd}[column sep =5em]
+	\mathsf{PreOp}^G \ar{r}[swap]{\gamma^{\**}} 
+	&
+	\mathsf{sdSet}^G
+	\ar[bend right]{l}[swap,midway]{\gamma_{!}}
+	\ar[bend left]{l}{\gamma_{\**}}
+\end{tikzcd}
+\end{equation}
+described as follows \cite[\S 7]{CM13a}:
+$\gamma_{!}X (T) = X(T)$ if $T \not \in \Delta$
+while $\gamma_{!}X ([n])$ for $[n] \in \Delta$ is given by the pushout on the left below; 
+$\gamma_{\**}X(T)$ is given by the pullback on the right below.
+\[
+\begin{tikzcd}
+	X(\eta) \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]  &
+	\pi_0 X(\eta) \ar{d}
+&& 
+	\gamma_{\**}X(T) \ar{r} \ar{d} & X(T) \ar{d}
+\\
+	X([n]) \ar{r} & \gamma_! X([n]) 
+&&
+	\coprod_{Edges(T)} X(\eta)_0 \ar{r} &
+	\coprod_{Edges(T)} X(\eta)
+	\arrow[lu, phantom, "\lrcorner", very near start]
+\end{tikzcd}
+\]
+
+\begin{remark}\label{MONOPREOP REM}
+	If $X \in \mathsf{PreOp}^G$
+	then for any monomorphism $Y \to X$ in $\mathsf{sdSet}^G$
+	it must also be $Y \in \mathsf{PreOp}^G$.
+	In particular, note that this holds for any retract $Y \to X \to Y$.
+\end{remark}
+
+
+\begin{remark}\label{PULLPREOP REM}
+ Consider any pushout diagram in $\mathsf{sdSet}^G$ such that the vertical maps are monomorphisms
+as on the left below.
+\[
+\begin{tikzcd}
+	A \ar{r} \ar[>->]{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	C \ar[>->]{d}
+&&
+	A \ar[->>]{r} \ar[>->]{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	A'\ar[>->]{r} \ar[>->]{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	C \ar[>->]{d}
+\\
+	B \ar{r} & D 
+&&
+	B \ar[->>]{r} &
+	B'\ar[>->]{r} &
+	D 
+\end{tikzcd}
+\]
+Then in the rightmost diagram, obtained by factorizing 
+the horizontal maps as surjections followed by monomorphisms,
+both squares are also pushout squares.
+\end{remark}
+
+
+\begin{lemma}\label{PREOPMAPS LEMMA}
+	Let $\mathcal{S}$ be a set of monomorphisms of $\mathsf{sdSet}^G$ and let $\bar{\mathcal{S}}$ consist of representatives of pushouts of the form	
+\[
+\begin{tikzcd}
+	A \ar[->>]{r} \ar[>->]{d}[swap]{s} \arrow[dr, phantom, "\ulcorner", very near start]&
+	A' \ar[>->]{d}{\bar{s}}
+\\
+	B \ar[->>]{r} & B'
+\end{tikzcd}
+\]
+such that $s \in \mathcal{S}$, the horizontal maps are surjections, and $A',B' \in \mathsf{PreOp}^G$.
+Then $\bar{\mathcal{S}}$ is a set of monormorphisms of $\mathsf{PreOp}$ and, moreover, 
+a monomorphism $C\to D$ in $\mathsf{PreOp}^G$
+is in the saturation of $f\colon \mathcal{S}$ in $\mathsf{sdSet}^G$
+iff it is in the saturation of $\bar{\mathcal{S}}$ in $\mathsf{PreOp}^G$.
+\end{lemma}
+
+\begin{proof}
+	That $\bar{\mathcal{S}}$ is a set is obvious.
+	Remark \ref{MONOPREOP REM} guarantees that the retraction and transfinite composition closure conditions for the two saturations
+	coincide when restricted to maps in $\mathsf{PreOp}^G$.
+	Remark \ref{PULLPREOP REM} guarantees the analogous condition for pushouts.
+\end{proof}
+
+
+\begin{theorem}
+	The category $\mathsf{Preop}^G$ of $G$-preoperads has a model structure such that
+	\begin{itemize}
+		\item the cofibrations are the normal monomorphisms;
+		\item the weak equivalences are the maps 
+		that become joint equivalences when regarded as maps on 
+		$\mathsf{sdSet}^G$.
+	\end{itemize}
+\end{theorem}
+
+{\color{red} HERE}
+
+\begin{proof}
+Letting $I$ (resp. $J$) be a set of generating (resp. trivial) cofibrations of $\mathsf{sdSet}^G$, we build our intended sets 
+$\bar{I}$ (resp. $\bar{J}$) of generating (resp. trivial) cofibrations of $\mathsf{Preop}^G$ as described in 
+Lemma \ref{PREOPMAPS LEMMA}.
+We now need to verify the conditions for \cite[Thm. 2.1.19]{Ho98}. All conditions are obvious except for 5 (in particular, note that 4 and 6 are immediate from Lemma \ref{PREOPMAPS LEMMA}).
+
+Finish  by copying \cite[Lemma 8.12]{CM13a} or find something better.
+\end{proof}
+
+
+
+
+%\arrow[dr, phantom, "\ulcorner", very near start]
 
 
 \newpage
@@ -1355,7 +1484,7 @@ Since the cofibration half of the projective analogue of Corollary \ref{RESGEN C
 \begin{proof}[proof of Theorem \ref{REEDYADM THM}]
 Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizations of trivial cofibrations (resp. trivial fibrations) in the statement of Theorem \ref{REEDYADM THM} are correct, i.e. that they describe the maps that are both cofibrations (resp. fibrations) and weak equivalences.	
 
-	We refer to the model category axioms in \cite[Def. 1.1.3]{Hov98}. 	
+	We refer to the model category axioms in \cite[Def. 1.1.3]{Ho98}. 	
 	Both 2-out-of-3 and the retract axioms are immediate
 (recall that retracts commute with limits/colimits).	
 	The lifting axiom follows from Corollary \ref{BLALIFT COR}
