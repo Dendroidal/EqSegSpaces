@@ -31,7 +31,7 @@
 
 \usetikzlibrary[decorations.pathreplacing]
 % \usetikzlibrary{external}\tikzexternalize
-% \makeatletter
+% \makeatletters
 % \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
 % \makeatother
 
@@ -191,9 +191,9 @@ Bla, also obtain an equivariant notion of Reedy category}
       Assuming otherwise, it suffices to show that for all
       $C \subseteq C'$ $K$-closed concave subsets of $\Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
       \begin{equation}
-            X \cup G \cdot_K \left( \bigcup\limits_{E \in C}\Omega[U_0 \setminus E] \right)
+            X \cup G \cdot_K \left( \bigcup\limits_{C}\Omega[U_0 \setminus E] \right)
             \to
-            X \cup G \cdot_K \left( \bigcup\limits_{E' \in C'}\Omega[U_0 \setminus E'] \right)                     
+            X \cup G \cdot_K \left( \bigcup\limits_{C'}\Omega[U_0 \setminus E'] \right)                     
       \end{equation}
       is inner $G$-anodyne.
       Indeed, once $C = \Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
@@ -221,7 +221,7 @@ Bla, also obtain an equivariant notion of Reedy category}
       Second, we claim that no face $S_0 = U_0 \setminus D \cup \bar e$, with $\bar e \subseteq K e$, is in the domain.
       Suppose $U_0 \setminus D \cup \bar e$ is contained in some $U_0 \setminus E$ already attached.
       Then, since $E \cap K e = \varnothing$ we have $U_0 \setminus D \subseteq U_0 \setminus E$, so
-      $U_0 \setminus D$ is also in the domain, a contradiction. \todo{this doesn't make sense}
+      $U_0 \setminus D$ is also in the domain, a contradiction.
       Further, if $U_0 \setminus D \cup \bar e$ is in $X$, then so is $U_0 \setminus D \cup K e$, and hence
       so is $U_0 \setminus D$ (by definition of characteristic edge orbit), also a contradiction.
 
@@ -330,10 +330,11 @@ the (anodyne) horn inclusions.
             \Lambda_0^{G e}[T] \cup \mathop{\bigcup}\limits_{U_0' \in B'} \Omega[G \cdot U_0']
       \end{equation}
       is cellular on orbital horn inclusions, where
-      $B \subseteq B'$ are $G$-closede $G$-concave subposets of faces
-      $e \in U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
-      which contain $e$.
-      In fact, it suffices to consider when $B' = B \cup \set{U_0}$, where $U_0 \subseteq T_0$.
+      $B \subseteq B'$ are $G$-closed $G$-concave subposets of faces
+      $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
+      such that $\mathrm{Stab}_H(r(U_0)) e \subseteq U_0$. 
+      \todo[inline]{this obviously is not correct as stated - in particular, the last case at the very bottom fails miserably.}
+      In fact, it suffices to consider when $B' = B \cup H \set{U_0}$, where $U_0 \subseteq T_0$.
       Let $H$ be the stabilizer of $T_0$, $K$ the stabilizer of $U_0$, and $K_r$ the root-isotropy.
 
       We claim that the above map is a pushout over the map
@@ -354,17 +355,23 @@ the (anodyne) horn inclusions.
 
       Second, we show that $\Omega[G \cdot_K U_0] \setminus \Lambda^{G e}_o[G \cdot_K U_0]$ is not in the domain.
       \begin{enumerate*}[label=(\itshape\roman*\upshape)]
-      \item If $R_0 = U_0 \setminus \bar e$ for $\bar e \subseteq K e$ is in $\Lambda^{G e}_o[T]$, then
-            $R_0$ is necessarily $K_r$-closed and misses a full $K_r$-orbit of edges not in $H e$,
-            so in particular is in $\Lambda^{G e}_o[G \cdot_K U_0]$
-            % $= U_0 \setminus K_r e$ and misses already an orbital face of $G \cdot_K U_0$.
-      \item If $R_0 = U_0 \setminus \bar e$ is in another face $W_0$ containing $e$ which has already been attached, then
-            $U_0$ is contained in $\Omega[G \cdot W_0]$, and so $U_0$ is the domain, a contradiction.
-      \item If $R_0$ is a non-equivariant face of $U_0$ with image in $\Lambda^{G e}_o[T]$
-            \todo[inline]{come back}
-      \item If $R_0$ is a non-equivariant face of $U_0$ with image in another face $W_0$ containin g$e$ already attached, then
-            \todo[inline]{come back}
-      \end{enumerate*}
+      \item Let $R_0$ be a face of $U_0$ with image in $\Lambda^{G e}_o[T]$.
+            Then $R_0$ factors through some $\mathrm{Stab}_H(r(R_0))$-closed face $V_0$ of $T_0$.
+            But then $V_0 \cap U_0$ is $\mathrm{Stab}_H(r(R_0)) \cap K = \mathrm{Stab}_K(r(R_0))$-closed,
+            and hence $R_0$ is in $\Lambda^{G e}_0[G \cdot_K U_0]$.
+      % \item If $R_0 = U_0 \setminus \bar e$ for $\bar e \subseteq K e$ is in $\Lambda^{G e}_o[T]$, then
+      %       $R_0$ factors through an equivariant face $V_0$ of $T_0$ which misses outside of $H e$,
+      %       but this implies that $U_0$ factors through the equivariant face $V_0 \cup H e$,
+      %       and hence $U_0$ is in the orbital horn, a contradiction.
+      \item Now let $R_0$ be a of $U_0$ with image in another face $W_0$ containing $e$ already attached. Then
+            \begin{enumerate*}
+            \item If $R_0 = U_0 \setminus \bar e$, then 
+                  $U_0$ is contained in $\Omega[G \cdot W_0]$, and so $U_0$ is the domain, a contradiction.
+            \item If $R_0$ is non-equivariant but misses only outside of $K e$, 
+            \end{enumerate*}
+
+            \todo[inline]{come back} 
+      \item  \end{enumerate*}
       Thus, the desired result holds.
 \end{proof}
 
