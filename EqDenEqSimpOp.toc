@@ -2,6 +2,6 @@
 \contentsline {section}{\numberline {2}Equivariant dendroidal sets}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Preliminaries}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Actual Stuff}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{7}{section.3}
+\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{8}{section.3}
 \contentsline {section}{\numberline {4}Pre-operads}{11}{section.4}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{12}{appendix.A}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{13}{appendix.A}

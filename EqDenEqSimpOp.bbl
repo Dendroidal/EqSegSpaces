@@ -1,4 +1,9 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Be00}
+T.~Beke.
+\newblock Sheafifiable homotopy model categories.
+\newblock {\em Math. Proc. Cambridge Philos. Soc.}, 129(3):447--475, 2000.
 
 \bibitem{BM08}
 C.~Berger and I.~Moerdijk.
@@ -27,10 +32,17 @@ P.~S. Hirschhorn.
   Mathematical Surveys and Monographs}.
 \newblock American Mathematical Society, Providence, RI, 2003.
 
-\bibitem{Hov98}
+\bibitem{Ho98}
 M.~Hovey.
-\newblock Monoidal model categories.
-\newblock arXiv preprint: 9803002, 1998.
+\newblock {\em Model categories}, volume~63 of {\em Mathematical Surveys and
+  Monographs}.
+\newblock American Mathematical Society, Providence, RI, 1999.
+
+\bibitem{Lu09}
+J.~Lurie.
+\newblock {\em Higher topos theory}, volume 170 of {\em Annals of Mathematics
+  Studies}.
+\newblock Princeton University Press, Princeton, NJ, 2009.
 
 \bibitem{Pe17}
 L.~A. Pereira.
