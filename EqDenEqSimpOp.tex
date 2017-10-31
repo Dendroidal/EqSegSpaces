@@ -79,7 +79,9 @@ Bla, also obtain an equivariant notion of Reedy category}
 The following are the categories currently with model structures and the right adjoints of already established Quillen equivalences.
 \[
 	\begin{tikzcd}
-		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} &
+		\mathsf{PreOp}^G
+\\
+		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} \ar{u}{\gamma_{\**}} &
 		\mathsf{dSet}^G
 	\end{tikzcd}
 \]
@@ -977,7 +979,7 @@ Proposition \ref{HYPER PROP} now finishes the proof.
 
 We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}. Note that the equivalences in the simplicial Reedy model structure are the dendroidal equivalences and vice versa.
 
-\begin{corollary}
+\begin{corollary}\label{SDSETG COR}
 	Suppose that $X, Y \in \mathsf{sdSet}^G$ are dendroidal Reedy fibrant. Then:
 \begin{itemize}
 	\item[(i)] for each fixed $m$ all vertex maps $X_{\bullet,m} \to X_{\bullet,0}$ are trivial fibrations in $\mathsf{dSet}^G$;
@@ -1095,8 +1097,6 @@ $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$.
 	$\{\emptyset \to G/H\cdot \eta\} \cup \gamma_!(I')$.
 \end{proof}
 
-{\color{red} HERE}
-
 
 \begin{lemma}\label{TRIVFIB LEM}
 	Any map in $\mathsf{PreOp}^G$ which has the right lifting property against all normal monomorphisms in $\mathsf{PreOp}^G$
@@ -1104,7 +1104,24 @@ $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$.
 \end{lemma}
 
 \begin{proof}
-Copy \cite[Lemma 8.12]{CM13a} or find something better.
+We need simply adapt the proof of \cite[Lemma 8.12]{CM13a} mutatis mutandis. 
+
+Choose a normalization $E_{\infty}$ of $\**$ in 
+$\mathsf{sdSet}^G$, i.e. a normal object such that 
+$E_{\infty} \to \**$ is a trivial fibration. 
+Regarding $E_{\infty}$ as a simplicially constant object in $\mathsf{sdSet}^G$, a map $X\to Y$ in $\mathsf{PreOp}^G$ will have the right lifting property against all monomorphisms iff so does 
+$E_{\infty}\times (X\to Y)$, so that one is free to assume $X,Y$ are normal.
+
+One is thus free to pick a section $s\colon Y \to X$
+of $p\colon X\to Y$ and regarding $J_d \in \mathsf{dSet}^G$ as a simplicially constant object of $\mathsf{sdSet}^G$ our assumption yields the lift below, so that $p$ is a homotopy equivalence.
+\begin{equation}
+\begin{tikzcd}[column sep = 4em]
+	X \coprod X \ar{r}{(id_X,sp)} \ar{d} &
+	X \ar{d}{p}
+\\
+	X \otimes J_d \ar[dashed]{ru} \ar{r} & Y
+\end{tikzcd}
+\end{equation}
 \end{proof}
 
 
@@ -1119,8 +1136,6 @@ Copy \cite[Lemma 8.12]{CM13a} or find something better.
 	\end{itemize}
 \end{theorem}
 
-{\color{red} HERE}
-
 \begin{proof}
 One repeats the proof of the non-equivariant analogue \cite[Thm. 8.13]{CM13a}, applying J. Smith's theorem \cite[Thm. 1.7]{Be00} with the required set of generating cofibrations the 
 set $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$ given by Lemma \ref{GENSET LEM}.
@@ -1131,6 +1146,25 @@ The technical ``solution set'' condition c3 follows from
 $\mathsf{sdSet}^G$ 
 (see \cite[Cor. A.2.6.5]{Lu09} and \cite[Cor. A.2.6.6]{Lu09}). 
 \end{proof}
+
+
+\begin{theorem}
+	The adjunction
+\[
+	\gamma^{\**} \colon \mathsf{PreOp}^G	
+\rightleftarrows
+	\mathsf{sdSet}^G \colon \gamma_{\**}
+\]
+is a Quillen equivalence.
+\end{theorem}
+
+\begin{proof}
+	It it tautological that the left adjoint $\gamma^{\**}$
+	preserves and detects cofibrations and weak equivalences, so it suffices to show that for all fibrant $X \in \mathsf{sdSet}^G$ there exists $Y \in \mathsf{PreOp}^G$ and a weak equivalence
+	$\gamma^{\**}Y \to X$.
+	But by Corollary \ref{SDSETG COR} it suffices to take $Y=X_0$, regarded as a simplicially trivial object.
+\end{proof}
+
 
 
 
