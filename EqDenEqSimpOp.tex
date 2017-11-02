@@ -79,7 +79,9 @@ Bla, also obtain an equivariant notion of Reedy category}
 The following are the categories currently with model structures and the right adjoints of already established Quillen equivalences.
 \[
 	\begin{tikzcd}
-		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} &
+		\mathsf{PreOp}^G
+\\
+		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} \ar{u}{\gamma_{\**}} &
 		\mathsf{dSet}^G
 	\end{tikzcd}
 \]
@@ -1054,7 +1056,7 @@ Proposition \ref{HYPER PROP} now finishes the proof.
 
 We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}. Note that the equivalences in the simplicial Reedy model structure are the dendroidal equivalences and vice versa.
 
-\begin{corollary}
+\begin{corollary}\label{SDSETG COR}
 	Suppose that $X, Y \in \mathsf{sdSet}^G$ are dendroidal Reedy fibrant. Then:
 \begin{itemize}
 	\item[(i)] for each fixed $m$ all vertex maps $X_{\bullet,m} \to X_{\bullet,0}$ are trivial fibrations in $\mathsf{dSet}^G$;
@@ -1098,8 +1100,6 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 
 
 
-{\color{red} HERE HERE}
-
 \section{Pre-operads}
 
 Recall that the category $\mathsf{PreOp}$
@@ -1135,62 +1135,72 @@ $\gamma_{\**}X(T)$ is given by the pullback on the right below.
 \end{tikzcd}
 \]
 
-\begin{remark}\label{MONOPREOP REM}
-	If $X \in \mathsf{PreOp}^G$
-	then for any monomorphism $Y \to X$ in $\mathsf{sdSet}^G$
-	it must also be $Y \in \mathsf{PreOp}^G$.
-	In particular, note that this holds for any retract $Y \to X \to Y$.
+
+\begin{remark}
+	Let $A \to B$ denote a monomorphism in $\mathsf{sdSet}^G$ of the form
+\begin{equation}\label{BOUNDRED EQ}
+	\left( \partial \Delta[n] \to \Delta [n] \right)
+\square
+	\left( \partial \Omega[T] \to \Omega [T] \right),
+\qquad
+	n\geq 0, T\in \Omega_G, T \not = G/H \cdot \eta.
+\end{equation}
+Then one has an isomorphism $A(\eta) \simeq B(\eta)$
+so that the square below is a pushout square.
+\begin{equation}\label{GAMMASH EQ}
+\begin{tikzcd}
+	A \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\gamma_! A \ar{d}
+\\
+	B \ar{r} & \gamma_! B 
+\end{tikzcd}
+\end{equation}
 \end{remark}
 
-
-\begin{remark}\label{PULLPREOP REM}
- Consider any pushout diagram in $\mathsf{sdSet}^G$ such that the vertical maps are monomorphisms
-as on the left below.
-\[
-\begin{tikzcd}
-	A \ar{r} \ar[>->]{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	C \ar[>->]{d}
-&&
-	A \ar[->>]{r} \ar[>->]{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	A'\ar[>->]{r} \ar[>->]{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	C \ar[>->]{d}
-\\
-	B \ar{r} & D 
-&&
-	B \ar[->>]{r} &
-	B'\ar[>->]{r} &
-	D 
-\end{tikzcd}
-\]
-Then in the rightmost diagram, obtained by factorizing 
-the horizontal maps as surjections followed by monomorphisms,
-both squares are also pushout squares.
-\end{remark}
+In the next results we write $I'$ for the set of maps in (\ref{BOUNDRED EQ}).
 
 
-\begin{lemma}\label{PREOPMAPS LEMMA}
-	Let $\mathcal{S}$ be a set of monomorphisms of $\mathsf{sdSet}^G$ and let $\bar{\mathcal{S}}$ consist of representatives of pushouts of the form	
-\[
-\begin{tikzcd}
-	A \ar[->>]{r} \ar[>->]{d}[swap]{s} \arrow[dr, phantom, "\ulcorner", very near start]&
-	A' \ar[>->]{d}{\bar{s}}
-\\
-	B \ar[->>]{r} & B'
-\end{tikzcd}
-\]
-such that $s \in \mathcal{S}$, the horizontal maps are surjections, and $A',B' \in \mathsf{PreOp}^G$.
-Then $\bar{\mathcal{S}}$ is a set of monormorphisms of $\mathsf{PreOp}$ and, moreover, 
-a monomorphism $C\to D$ in $\mathsf{PreOp}^G$
-is in the saturation of $f\colon \mathcal{S}$ in $\mathsf{sdSet}^G$
-iff it is in the saturation of $\bar{\mathcal{S}}$ in $\mathsf{PreOp}^G$.
+\begin{lemma}\label{GENSET LEM}
+	The normal monomorphisms of $\mathsf{PreOp}^G$ are the saturation of the set of maps
+$\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$.
+\end{lemma}
+
+
+\begin{proof}
+	Using the cellular filtration in $\mathsf{sdSet}^G$, 
+	any monomorphism $A \to B$ in $\mathsf{PreOp}^G$ can be written as a transfinite composition of pushouts of maps in 
+	$\{\emptyset \to G/H\cdot \eta\} \cup I'$.
+	But, since the squares (\ref{GAMMASH EQ}) are pushouts, the same also holds for the maps 
+	$\{\emptyset \to G/H\cdot \eta\} \cup \gamma_!(I')$.
+\end{proof}
+
+
+\begin{lemma}\label{TRIVFIB LEM}
+	Any map in $\mathsf{PreOp}^G$ which has the right lifting property against all normal monomorphisms in $\mathsf{PreOp}^G$
+	is a joint equivalence in $\mathsf{sdSet}^G$.
 \end{lemma}
 
 \begin{proof}
-	That $\bar{\mathcal{S}}$ is a set is obvious.
-	Remark \ref{MONOPREOP REM} guarantees that the retraction and transfinite composition closure conditions for the two saturations
-	coincide when restricted to maps in $\mathsf{PreOp}^G$.
-	Remark \ref{PULLPREOP REM} guarantees the analogous condition for pushouts.
+We need simply adapt the proof of \cite[Lemma 8.12]{CM13a} mutatis mutandis. 
+
+Choose a normalization $E_{\infty}$ of $\**$ in 
+$\mathsf{sdSet}^G$, i.e. a normal object such that 
+$E_{\infty} \to \**$ is a trivial fibration. 
+Regarding $E_{\infty}$ as a simplicially constant object in $\mathsf{sdSet}^G$, a map $X\to Y$ in $\mathsf{PreOp}^G$ will have the right lifting property against all monomorphisms iff so does 
+$E_{\infty}\times (X\to Y)$, so that one is free to assume $X,Y$ are normal.
+
+One is thus free to pick a section $s\colon Y \to X$
+of $p\colon X\to Y$ and regarding $J_d \in \mathsf{dSet}^G$ as a simplicially constant object of $\mathsf{sdSet}^G$ our assumption yields the lift below, so that $p$ is a homotopy equivalence.
+\begin{equation}
+\begin{tikzcd}[column sep = 4em]
+	X \coprod X \ar{r}{(id_X,sp)} \ar{d} &
+	X \ar{d}{p}
+\\
+	X \otimes J_d \ar[dashed]{ru} \ar{r} & Y
+\end{tikzcd}
+\end{equation}
 \end{proof}
+
 
 
 \begin{theorem}
@@ -1203,16 +1213,35 @@ iff it is in the saturation of $\bar{\mathcal{S}}$ in $\mathsf{PreOp}^G$.
 	\end{itemize}
 \end{theorem}
 
-{\color{red} HERE}
+\begin{proof}
+One repeats the proof of the non-equivariant analogue \cite[Thm. 8.13]{CM13a}, applying J. Smith's theorem \cite[Thm. 1.7]{Be00} with the required set of generating cofibrations the 
+set $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$ given by Lemma \ref{GENSET LEM}.
+Indeed, conditions c0 and c2 in \cite{Be00} are inherited from 
+$\mathsf{sdSet}^G$ and c1 follows from Lemma \ref{TRIVFIB LEM}.
+The technical ``solution set'' condition c3 follows from 
+\cite[Prop. 1.15]{Be00} since weak equivalences are accessible, being the preimage by $\gamma^{\**}$ of the weak equivalences in 
+$\mathsf{sdSet}^G$ 
+(see \cite[Cor. A.2.6.5]{Lu09} and \cite[Cor. A.2.6.6]{Lu09}). 
+\end{proof}
+
+
+\begin{theorem}
+	The adjunction
+\[
+	\gamma^{\**} \colon \mathsf{PreOp}^G	
+\rightleftarrows
+	\mathsf{sdSet}^G \colon \gamma_{\**}
+\]
+is a Quillen equivalence.
+\end{theorem}
 
 \begin{proof}
-Letting $I$ (resp. $J$) be a set of generating (resp. trivial) cofibrations of $\mathsf{sdSet}^G$, we build our intended sets 
-$\bar{I}$ (resp. $\bar{J}$) of generating (resp. trivial) cofibrations of $\mathsf{Preop}^G$ as described in 
-Lemma \ref{PREOPMAPS LEMMA}.
-We now need to verify the conditions for \cite[Thm. 2.1.19]{Ho98}. All conditions are obvious except for 5 (in particular, note that 4 and 6 are immediate from Lemma \ref{PREOPMAPS LEMMA}).
-
-Finish  by copying \cite[Lemma 8.12]{CM13a} or find something better.
+	It it tautological that the left adjoint $\gamma^{\**}$
+	preserves and detects cofibrations and weak equivalences, so it suffices to show that for all fibrant $X \in \mathsf{sdSet}^G$ there exists $Y \in \mathsf{PreOp}^G$ and a weak equivalence
+	$\gamma^{\**}Y \to X$.
+	But by Corollary \ref{SDSETG COR} it suffices to take $Y=X_0$, regarded as a simplicially trivial object.
 \end{proof}
+
 
 
 

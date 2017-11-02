@@ -1,5 +1,7 @@
-\contentsline {section}{\numberline {1}Equivariant dendroidal sets}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Preliminaries}{1}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Actual Stuff}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Equivariant simplicial dendroidal sets}{6}{section.2}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{8}{appendix.A}
+\contentsline {section}{\numberline {1}Overview}{1}{section.1}
+\contentsline {section}{\numberline {2}Equivariant dendroidal sets}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Preliminaries}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Actual Stuff}{5}{subsection.2.2}
+\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{8}{section.3}
+\contentsline {section}{\numberline {4}Pre-operads}{11}{section.4}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{13}{appendix.A}

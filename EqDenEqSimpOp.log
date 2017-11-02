@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.11)  24 OCT 2017 19:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.11)  31 OCT 2017 18:33
 entering extended mode
 **./EqDenEqSimpOp.tex
 (EqDenEqSimpOp.tex
@@ -93,6 +93,7 @@ File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
+Package hyperref Info: Option `draft' set `true' on input line 4374.
 Package hyperref Info: Hyper figures OFF on input line 4498.
 Package hyperref Info: Link nesting OFF on input line 4503.
 Package hyperref Info: Hyper index ON on input line 4506.
@@ -139,6 +140,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
+Package hyperref Info: Option `final' set `true' on input line 9.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bookmark.sty"
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
 
@@ -146,19 +149,7 @@ Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
 File: bkm-pdftex.def 2016/05/17 v1.26 bookmark driver for pdfTeX (HO)
 \BKM@id=\count97
 ))
-(commands.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
-Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks15
-\inpenc@posthook=\toks16
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks17
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(commands.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2016/11/05 v2.16a AMS math features
 \@mathmargin=\skip44
 
@@ -168,7 +159,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks18
+\@emptytoks=\toks15
 \ex@=\dimen107
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
@@ -198,21 +189,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \dotsspace@=\muskip11
 \c@parentequation=\count105
 \dspbrk@lvl=\count106
-\tag@help=\toks19
+\tag@help=\toks16
 \row@=\count107
 \column@=\count108
 \maxfields@=\count109
-\andhelp@=\toks20
+\andhelp@=\toks17
 \eqnshift@=\dimen110
 \alignsep@=\dimen111
 \tagshift@=\dimen112
 \tagwidth@=\dimen113
 \totwidth@=\dimen114
 \lineht@=\dimen115
-\@envbody=\toks21
+\@envbody=\toks18
 \multlinegap=\skip45
 \multlinetaggap=\skip46
-\mathdisplay@stack=\toks22
+\mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
@@ -226,6 +217,221 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks20
+\thm@bodyfont=\toks21
+\thm@headfont=\toks22
+\thm@notefont=\toks23
+\thm@headpunct=\toks24
+\thm@preskip=\skip47
+\thm@postskip=\skip48
+\thm@headsep=\skip49
+\dth@everypar=\toks25
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xy.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xy.tex" Bootstrap'ing:
+catcodes, docmode, ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyrecat.tex"
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyidioms.tex")
+
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state,
+\X@c=\dimen116
+\Y@c=\dimen117
+\U@c=\dimen118
+\D@c=\dimen119
+\L@c=\dimen120
+\R@c=\dimen121
+\Edge@c=\toks26
+\X@p=\dimen122
+\Y@p=\dimen123
+\U@p=\dimen124
+\D@p=\dimen125
+\L@p=\dimen126
+\R@p=\dimen127
+\Edge@p=\toks27
+\X@origin=\dimen128
+\Y@origin=\dimen129
+\X@xbase=\dimen130
+\Y@xbase=\dimen131
+\X@ybase=\dimen132
+\Y@ybase=\dimen133
+\X@min=\dimen134
+\Y@min=\dimen135
+\X@max=\dimen136
+\Y@max=\dimen137
+\lastobjectbox@=\box28
+\zerodotbox@=\box29
+\almostz@=\dimen138
+ direction,
+\d@X=\dimen139
+\d@Y=\dimen140
+\K@=\count110
+\KK@=\count111
+\Direction=\count112
+\K@dXdY=\dimen141
+\K@dYdX=\dimen142
+\xyread@=\read1
+\xywrite@=\write3
+\csp@=\count113
+\quotPTK@=\dimen143
+
+utility macros; pictures: \xy, positions,
+\swaptoks@@=\toks28
+\connectobjectbox@@=\box30
+ objects,
+\styletoks@=\toks29
+ decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+Package: xy 2013/10/06 Xy-pic version 3.8.9
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xycmtip.tex"
+ Xy-pic option: Computer Modern tip extension v.3.7
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xytips.tex"
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyall.tex"
+ Xy-pic option: All features v.3.8
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xycurve.tex"
+ Xy-pic option: Curve and Spline extension v.3.12 curve,
+\crv@cnt@=\count114
+\crvpts@=\toks30
+\splinebox@=\box31
+\splineval@=\dimen144
+\splinedepth@=\dimen145
+\splinetol@=\dimen146
+\splinelength@=\dimen147
+ circles,
+\L@=\dimen148
+ loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyframe.tex"
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyline.tex"
+ Xy-pic option: Line styles extension v.3.10
+\xylinethick@=\dimen149
+ loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyrotate.tex"
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xycolor.tex"
+ Xy-pic option: Colour extension v.3.11 loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xymatrix.tex"
+ Xy-pic option: Matrix feature v.3.14
+\Row=\count115
+\Col=\count116
+\queue@=\toks31
+\queue@@=\toks32
+\qcount@=\count117
+\qcount@@=\count118
+\matrixsize@=\count119
+ loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyarrow.tex"
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xygraph.tex"
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf.tex"
+ Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-co.tex" loaded)
+Xy-pic pdf driver: `curve' extension support
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-cu.tex" loaded)
+Xy-pic pdf driver: `frame' extension support
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-fr.tex" loaded)
+Xy-pic pdf driver: `line' extension support
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-li.tex" loaded)
+Xy-pic pdf driver: `rotate' extension support
+("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-ro.tex" loaded) loaded))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen150
+\extrarowheight=\dimen151
+\NC@list=\toks33
+\extratabsurround=\skip50
+\backup@length=\skip51
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+\Gread@gobject=\count120
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\ulem\ulem.sty
+\UL@box=\box32
+\UL@hyphenbox=\box33
+\UL@skip=\skip52
+\UL@hook=\toks34
+\UL@height=\dimen152
+\UL@pe=\count121
+\UL@pixel=\dimen153
+\ULC@box=\box34
+Package: ulem 2012/05/18
+\ULdepth=\dimen154
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\doublestroke\dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\paralist\paralist.sty
+Package: paralist 2017/01/22 v2.7 Extended list environments
+\pltopsep=\skip53
+\plpartopsep=\skip54
+\plitemsep=\skip55
+\plparsep=\skip56
+\pl@lab=\toks35
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count122
+\Gm@cntv=\count123
+\c@Gm@tempcnt=\count124
+\Gm@bindingoffset=\dimen155
+\Gm@wd@mp=\dimen156
+\Gm@odd@mp=\dimen157
+\Gm@even@mp=\dimen158
+\Gm@layoutwidth=\dimen159
+\Gm@layoutheight=\dimen160
+\Gm@layouthoffset=\dimen161
+\Gm@layoutvoffset=\dimen162
+\Gm@dimlist=\toks36
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks37
+\inpenc@posthook=\toks38
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\mnsymbol\MnSymbol.sty
 Package: MnSymbol 2007/01/21 v1.4 support for the MnSymbol font
 
@@ -386,214 +592,102 @@ LaTeX Font Info:    Redeclaring math accent \widehat on input line 1845.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 1846.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1848.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
-Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks23
-\thm@bodyfont=\toks24
-\thm@headfont=\toks25
-\thm@notefont=\toks26
-\thm@headpunct=\toks27
-\thm@preskip=\skip47
-\thm@postskip=\skip48
-\thm@headsep=\skip49
-\dth@everypar=\toks28
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\stmaryrd\stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xy.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xy.tex" Bootstrap'ing:
-catcodes, docmode, ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyrecat.tex"
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyidioms.tex")
-
- Xy-pic version 3.8.9 <2013/10/06>
- Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
- Xy-pic is free software: see the User's Guide for details.
-
-Loading kernel: messages; fonts; allocations: state,
-\X@c=\dimen116
-\Y@c=\dimen117
-\U@c=\dimen118
-\D@c=\dimen119
-\L@c=\dimen120
-\R@c=\dimen121
-\Edge@c=\toks29
-\X@p=\dimen122
-\Y@p=\dimen123
-\U@p=\dimen124
-\D@p=\dimen125
-\L@p=\dimen126
-\R@p=\dimen127
-\Edge@p=\toks30
-\X@origin=\dimen128
-\Y@origin=\dimen129
-\X@xbase=\dimen130
-\Y@xbase=\dimen131
-\X@ybase=\dimen132
-\Y@ybase=\dimen133
-\X@min=\dimen134
-\Y@min=\dimen135
-\X@max=\dimen136
-\Y@max=\dimen137
-\lastobjectbox@=\box28
-\zerodotbox@=\box29
-\almostz@=\dimen138
- direction,
-\d@X=\dimen139
-\d@Y=\dimen140
-\K@=\count110
-\KK@=\count111
-\Direction=\count112
-\K@dXdY=\dimen141
-\K@dYdX=\dimen142
-\xyread@=\read1
-\xywrite@=\write3
-\csp@=\count113
-\quotPTK@=\dimen143
-
-utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks31
-\connectobjectbox@@=\box30
- objects,
-\styletoks@=\toks32
- decorations;
-kernel objects: directionals, circles, text; options; algorithms: directions,
-edges, connections;  Xy-pic loaded)
-Package: xy 2013/10/06 Xy-pic version 3.8.9
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xycmtip.tex"
- Xy-pic option: Computer Modern tip extension v.3.7
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xytips.tex"
- Xy-pic option: More Tips extension v.3.11 loaded) loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyall.tex"
- Xy-pic option: All features v.3.8
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xycurve.tex"
- Xy-pic option: Curve and Spline extension v.3.12 curve,
-\crv@cnt@=\count114
-\crvpts@=\toks33
-\splinebox@=\box31
-\splineval@=\dimen144
-\splinedepth@=\dimen145
-\splinetol@=\dimen146
-\splinelength@=\dimen147
- circles,
-\L@=\dimen148
- loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyframe.tex"
- Xy-pic option: Frame and Bracket extension v.3.14 loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyline.tex"
- Xy-pic option: Line styles extension v.3.10
-\xylinethick@=\dimen149
- loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyrotate.tex"
- Xy-pic option: Rotate and Scale extension v.3.8 loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xycolor.tex"
- Xy-pic option: Colour extension v.3.11 loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xymatrix.tex"
- Xy-pic option: Matrix feature v.3.14
-\Row=\count115
-\Col=\count116
-\queue@=\toks34
-\queue@@=\toks35
-\qcount@=\count117
-\qcount@@=\count118
-\matrixsize@=\count119
- loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xyarrow.tex"
- Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xygraph.tex"
- Xy-pic option: Graph feature v.3.11 loaded) loaded)
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf.tex"
- Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-co.tex" loaded)
-Xy-pic pdf driver: `curve' extension support
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-cu.tex" loaded)
-Xy-pic pdf driver: `frame' extension support
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-fr.tex" loaded)
-Xy-pic pdf driver: `line' extension support
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-li.tex" loaded)
-Xy-pic pdf driver: `rotate' extension support
-("C:\Program Files\MiKTeX 2.9\tex\generic\xypic\xypdf-ro.tex" loaded) loaded))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
-\col@sep=\dimen150
-\extrarowheight=\dimen151
-\NC@list=\toks36
-\extratabsurround=\skip50
-\backup@length=\skip51
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\was\upgreek.sty
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup11
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
 )
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.sty
+Package: mathtools 2017/05/24 v1.19 mathematical typesetting tools
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
-File: color.cfg 2016/01/02 v1.6 sample color configuration
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count125
+\calc@Bcount=\count126
+\calc@Adimen=\dimen163
+\calc@Bdimen=\dimen164
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count127
+\calc@Cskip=\skip59
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-\Gread@gobject=\count120
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count128
+\l_MT_multwidth_dim=\dimen165
+\origjot=\skip60
+\l_MT_shortvdotswithinadjustabove_dim=\dimen166
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen167
+\l_MT_above_intertext_sep=\dimen168
+\l_MT_below_intertext_sep=\dimen169
+\l_MT_above_shortintertext_sep=\dimen170
+\l_MT_below_shortintertext_sep=\dimen171
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks39
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip61
+\enit@outerparindent=\dimen172
+\enit@toks=\toks40
+\enit@inbox=\box35
+\enitdp@description=\count129
+)
+\c@innercustomgeneric=\count130
+\c@exercise=\count131
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\showkeys.sty"
+Package: showkeys 2014/10/28 v3.17 Show cite and label keys (DPC, MH)
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\todonotes\todonotes.sty
+Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
+Package: todonotes 2012/07/25
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks41
+\XKV@tempa@toks=\toks42
+)
+\XKV@depth=\count132
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\ulem\ulem.sty
-\UL@box=\box32
-\UL@hyphenbox=\box33
-\UL@skip=\skip52
-\UL@hook=\toks37
-\UL@height=\dimen152
-\UL@pe=\count121
-\UL@pixel=\dimen153
-\ULC@box=\box34
-Package: ulem 2012/05/18
-\ULdepth=\dimen154
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\doublestroke\dsfont.sty
-Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\bbm.sty
-Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
-LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
-(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
-LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
-(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\paralist\paralist.sty
-Package: paralist 2017/01/22 v2.7 Extended list environments
-\pltopsep=\skip53
-\plpartopsep=\skip54
-\plitemsep=\skip55
-\plparsep=\skip56
-\pl@lab=\toks38
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
-Package: relsize 2003/07/04 ver 3.1
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\tikz-cd\tikz-cd.sty
-Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
-
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer\tikz.sty
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-co
 mmon.tex
-\pgfutil@everybye=\toks39
-\pgfutil@tempdima=\dimen155
-\pgfutil@tempdimb=\dimen156
+\pgfutil@everybye=\toks43
+\pgfutil@tempdima=\dimen173
+\pgfutil@tempdimb=\dimen174
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-co
 mmon-lists.tex))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-la
 tex.def
-\pgfutil@abb=\box35
+\pgfutil@abb=\box36
  (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
@@ -618,8 +712,8 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 )
-\Gin@req@height=\dimen157
-\Gin@req@width=\dimen158
+\Gin@req@height=\dimen175
+\Gin@req@width=\dimen176
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
 
@@ -629,30 +723,30 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.co
 de.tex
-\pgfkeys@pathtoks=\toks40
-\pgfkeys@temptoks=\toks41
+\pgfkeys@pathtoks=\toks44
+\pgfkeys@temptoks=\toks45
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfil
 tered.code.tex
-\pgfkeys@tmptoks=\toks42
+\pgfkeys@tmptoks=\toks46
 ))
-\pgf@x=\dimen159
-\pgf@y=\dimen160
-\pgf@xa=\dimen161
-\pgf@ya=\dimen162
-\pgf@xb=\dimen163
-\pgf@yb=\dimen164
-\pgf@xc=\dimen165
-\pgf@yc=\dimen166
+\pgf@x=\dimen177
+\pgf@y=\dimen178
+\pgf@xa=\dimen179
+\pgf@ya=\dimen180
+\pgf@xb=\dimen181
+\pgf@yb=\dimen182
+\pgf@xc=\dimen183
+\pgf@yc=\dimen184
 \w@pgf@writea=\write4
 \r@pgf@reada=\read2
-\c@pgf@counta=\count122
-\c@pgf@countb=\count123
-\c@pgf@countc=\count124
-\c@pgf@countd=\count125
-\t@pgf@toka=\toks43
-\t@pgf@tokb=\toks44
-\t@pgf@tokc=\toks45
+\c@pgf@counta=\count133
+\c@pgf@countb=\count134
+\c@pgf@countc=\count135
+\c@pgf@countd=\count136
+\t@pgf@toka=\toks47
+\t@pgf@tokb=\toks48
+\t@pgf@tokc=\toks49
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -670,8 +764,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysso
 ftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count126
-\pgfsyssoftpath@bigbuffer@items=\count127
+\pgfsyssoftpath@smallbuffer@items=\count137
+\pgfsyssoftpath@bigbuffer@items=\count138
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyspr
 otocol.code.tex
@@ -689,12 +783,12 @@ e.tex
 e.tex)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.c
 ode.tex
-\pgfmath@dimen=\dimen167
-\pgfmath@count=\count128
-\pgfmath@box=\box36
-\pgfmath@toks=\toks46
-\pgfmath@stack@operand=\toks47
-\pgfmath@stack@operation=\toks48
+\pgfmath@dimen=\dimen185
+\pgfmath@count=\count139
+\pgfmath@box=\box37
+\pgfmath@toks=\toks50
+\pgfmath@stack@operand=\toks51
+\pgfmath@stack@operation=\toks52
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
 s.code.tex
@@ -716,57 +810,57 @@ s.misc.code.tex)
 s.integerarithmetics.code.tex)))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.co
 de.tex
-\c@pgfmathroundto@lastzeros=\count129
+\c@pgfmathroundto@lastzeros=\count140
 ))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepo
 ints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen168
-\pgf@picmaxx=\dimen169
-\pgf@picminy=\dimen170
-\pgf@picmaxy=\dimen171
-\pgf@pathminx=\dimen172
-\pgf@pathmaxx=\dimen173
-\pgf@pathminy=\dimen174
-\pgf@pathmaxy=\dimen175
-\pgf@xx=\dimen176
-\pgf@xy=\dimen177
-\pgf@yx=\dimen178
-\pgf@yy=\dimen179
-\pgf@zx=\dimen180
-\pgf@zy=\dimen181
+\pgf@picminx=\dimen186
+\pgf@picmaxx=\dimen187
+\pgf@picminy=\dimen188
+\pgf@picmaxy=\dimen189
+\pgf@pathminx=\dimen190
+\pgf@pathmaxx=\dimen191
+\pgf@pathminy=\dimen192
+\pgf@pathmaxy=\dimen193
+\pgf@xx=\dimen194
+\pgf@xy=\dimen195
+\pgf@yx=\dimen196
+\pgf@yy=\dimen197
+\pgf@zx=\dimen198
+\pgf@zy=\dimen199
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
 thconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen182
-\pgf@path@lasty=\dimen183
+\pgf@path@lastx=\dimen256
+\pgf@path@lasty=\dimen257
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
 thusage.code.tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen184
-\pgf@shorten@start@additional=\dimen185
+\pgf@shorten@end@additional=\dimen258
+\pgf@shorten@start@additional=\dimen259
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoresc
 opes.code.tex
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
-\pgfpic=\box37
-\pgf@hbox=\box38
-\pgf@layerbox@main=\box39
-\pgf@picture@serial@count=\count130
+\pgfpic=\box38
+\pgf@hbox=\box39
+\pgf@layerbox@main=\box40
+\pgf@picture@serial@count=\count141
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregr
 aphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen186
+\pgflinewidth=\dimen260
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretr
 ansformations.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen187
-\pgf@pt@y=\dimen188
-\pgf@pt@temp=\dimen189
+\pgf@pt@x=\dimen261
+\pgf@pt@y=\dimen262
+\pgf@pt@temp=\dimen263
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequ
 ick.code.tex
@@ -783,13 +877,13 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorear
 rows.code.tex
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen190
+\pgfarrowsep=\dimen264
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoresh
 ade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen191
-\pgf@sys@shading@range@num=\count131
+\pgf@max=\dimen265
+\pgf@sys@shading@range@num=\count142
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreim
 age.code.tex
@@ -798,7 +892,7 @@ File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreex
 ternal.code.tex
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
-\pgfexternal@startupbox=\box40
+\pgfexternal@startupbox=\box41
 ))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorela
 yers.code.tex
@@ -815,7 +909,7 @@ File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulesha
 pes.code.tex
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
-\pgfnodeparttextbox=\box41
+\pgfnodeparttextbox=\box42
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplo
 t.code.tex
@@ -824,8 +918,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-
 version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen192
-\pgf@nodesepend=\dimen193
+\pgf@nodesepstart=\dimen266
+\pgf@nodesepend=\dimen267
 )
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-
 version-1-18.sty
@@ -844,10 +938,10 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
 x)
-\pgffor@iter=\dimen194
-\pgffor@skip=\dimen195
-\pgffor@stack=\toks49
-\pgffor@toks=\toks50
+\pgffor@iter=\dimen268
+\pgffor@skip=\dimen269
+\pgffor@stack=\toks53
+\pgffor@toks=\toks54
 ))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\t
 ikz.code.tex
@@ -856,43 +950,77 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
 plothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count132
-\pgfplotmarksize=\dimen196
+\pgf@plot@mark@count=\count143
+\pgfplotmarksize=\dimen270
 )
-\tikz@lastx=\dimen197
-\tikz@lasty=\dimen198
-\tikz@lastxsaved=\dimen199
-\tikz@lastysaved=\dimen256
-\tikzleveldistance=\dimen257
-\tikzsiblingdistance=\dimen258
-\tikz@figbox=\box42
-\tikz@figbox@bg=\box43
-\tikz@tempbox=\box44
-\tikz@tempbox@bg=\box45
-\tikztreelevel=\count133
-\tikznumberofchildren=\count134
-\tikznumberofcurrentchild=\count135
-\tikz@fig@count=\count136
+\tikz@lastx=\dimen271
+\tikz@lasty=\dimen272
+\tikz@lastxsaved=\dimen273
+\tikz@lastysaved=\dimen274
+\tikzleveldistance=\dimen275
+\tikzsiblingdistance=\dimen276
+\tikz@figbox=\box43
+\tikz@figbox@bg=\box44
+\tikz@tempbox=\box45
+\tikz@tempbox@bg=\box46
+\tikztreelevel=\count144
+\tikznumberofchildren=\count145
+\tikznumberofcurrentchild=\count146
+\tikz@fig@count=\count147
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulemat
 rix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count137
-\pgfmatrixcurrentcolumn=\count138
-\pgf@matrix@numberofcolumns=\count139
+\pgfmatrixcurrentrow=\count148
+\pgfmatrixcurrentcolumn=\count149
+\pgf@matrix@numberofcolumns=\count150
 )
-\tikz@expandcount=\count140
+\tikz@expandcount=\count151
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
 ibraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\tikz-cd\tikzlibrarycd.co
-de.tex
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
+)
+\c@@todonotes@numberoftodonotes=\count152
+)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
 ibraries\tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
 )
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
+arrows.code.tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
+\arrowsize=\dimen277
+))
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarydecorations.code.tex
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduledec
+orations.code.tex
+\pgfdecoratedcompleteddistance=\dimen278
+\pgfdecoratedremainingdistance=\dimen279
+\pgfdecoratedinputsegmentcompleteddistance=\dimen280
+\pgfdecoratedinputsegmentremainingdistance=\dimen281
+\pgf@decorate@distancetomove=\dimen282
+\pgf@decorate@repeatstate=\count153
+\pgfdecorationsegmentamplitude=\dimen283
+\pgfdecorationsegmentlength=\dimen284
+)
+\tikz@lib@dec@box=\box47
+)
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\decoration
+s\pgflibrarydecorations.pathmorphing.code.tex))
+(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\tikz-cd\tikzlibrarycd.co
+de.tex
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
 ibraries\tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2014/03/21 v3.0.1a (rcs-revision 1.4)
@@ -900,11 +1028,11 @@ File: tikzlibraryquotes.code.tex 2014/03/21 v3.0.1a (rcs-revision 1.4)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
 arrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2015/05/13 v3.0.1a (rcs-revision 1.13)
-\pgfarrowinset=\dimen259
-\pgfarrowlength=\dimen260
-\pgfarrowwidth=\dimen261
-\pgfarrowlinewidth=\dimen262
-)))
+\pgfarrowinset=\dimen285
+\pgfarrowlength=\dimen286
+\pgfarrowwidth=\dimen287
+\pgfarrowlinewidth=\dimen288
+))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
 ibraries\tikzlibrarypatterns.code.tex
 File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.1a (rcs-revision 1.2)
@@ -913,150 +1041,40 @@ File: tikzlibrarypatterns.code.tex 2008/01/15 v3.0.1a (rcs-revision 1.2)
 patterns.code.tex
 File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.1a (rcs-revision 1.13)
 ))
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\todonotes\todonotes.sty
-Package: todonotes 2015/07/09 .dtx Todonotes source and documentation.
-Package: todonotes 2012/07/25
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty"
-Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
-("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
-\XKV@toks=\toks51
-\XKV@tempa@toks=\toks52
-)
-\XKV@depth=\count141
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
-ibraries\tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
-Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count142
-\calc@Bcount=\count143
-\calc@Adimen=\dimen263
-\calc@Bdimen=\dimen264
-\calc@Askip=\skip57
-\calc@Bskip=\skip58
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count144
-\calc@Cskip=\skip59
-)
-\c@@todonotes@numberoftodonotes=\count145
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
-Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip60
-\enit@outerparindent=\dimen265
-\enit@toks=\toks53
-\enit@inbox=\box46
-\enitdp@description=\count146
-)
-\c@innercustomgeneric=\count147
-\c@exercise=\count148
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\showkeys.sty"
-Package: showkeys 2014/10/28 v3.17 Show cite and label keys (DPC, MH)
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\stmaryrd\stmaryrd.sty
-Package: stmaryrd 1994/03/03 St Mary's Road symbol package
-\symstmry=\mathgroup10
-LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
-(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\was\upgreek.sty
-Package: upgreek 2003/02/12 v2.0 (WaS)
-Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
-\symugrf@m=\mathgroup11
-LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
-(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
-)
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.sty
-Package: mathtools 2017/05/24 v1.19 mathematical typesetting tools
-
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
-Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
-)
-LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
-LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
-LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
-LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count149
-\l_MT_multwidth_dim=\dimen266
-\origjot=\skip61
-\l_MT_shortvdotswithinadjustabove_dim=\dimen267
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen268
-\l_MT_above_intertext_sep=\dimen269
-\l_MT_below_intertext_sep=\dimen270
-\l_MT_above_shortintertext_sep=\dimen271
-\l_MT_below_shortintertext_sep=\dimen272
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
-Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count150
-\Gm@cntv=\count151
-\c@Gm@tempcnt=\count152
-\Gm@bindingoffset=\dimen273
-\Gm@wd@mp=\dimen274
-\Gm@odd@mp=\dimen275
-\Gm@even@mp=\dimen276
-\Gm@layoutwidth=\dimen277
-\Gm@layoutheight=\dimen278
-\Gm@layouthoffset=\dimen279
-\Gm@layoutvoffset=\dimen280
-\Gm@dimlist=\toks54
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
 ibraries\tikzlibrarydecorations.pathreplacing.code.tex
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
-ibraries\tikzlibrarydecorations.code.tex
-(C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduledec
-orations.code.tex
-\pgfdecoratedcompleteddistance=\dimen281
-\pgfdecoratedremainingdistance=\dimen282
-\pgfdecoratedinputsegmentcompleteddistance=\dimen283
-\pgfdecoratedinputsegmentremainingdistance=\dimen284
-\pgf@decorate@distancetomove=\dimen285
-\pgf@decorate@repeatstate=\count153
-\pgfdecorationsegmentamplitude=\dimen286
-\pgfdecorationsegmentlength=\dimen287
-)
-\tikz@lib@dec@box=\box47
-)
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\decoration
-s\pgflibrarydecorations.pathreplacing.code.tex)) (EqDenEqSimpOp.aux)
+s\pgflibrarydecorations.pathreplacing.code.tex))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\ifdraft.sty"
+Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
+)
+\GPT@outputbox=\box48
+
+(EqDenEqSimpOp.aux)
 \openout1 = `EqDenEqSimpOp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 41.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 65.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 41.
-\AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 41.
+LaTeX Font Info:    ... okay on input line 65.
+\AtBeginShipoutBox=\box49
+Package hyperref Info: Link coloring OFF on input line 65.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1066,34 +1084,34 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count154
 )
-LaTeX Info: Redefining \ref on input line 41.
-LaTeX Info: Redefining \pageref on input line 41.
-LaTeX Info: Redefining \nameref on input line 41.
-LaTeX Font Info:    Try loading font information for U+msa on input line 41.
+LaTeX Info: Redefining \ref on input line 65.
+LaTeX Info: Redefining \pageref on input line 65.
+LaTeX Info: Redefining \nameref on input line 65.
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 41.
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 41.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 65.
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\latex\stmaryrd\ustmry.fd)
-Package xypdf Info: Line width: 0.44975pt on input line 41.
+Package xypdf Info: Line width: 0.44975pt on input line 65.
 
 (C:\Users\luisa\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count155
-\scratchdimen=\dimen288
-\scratchbox=\box49
+\scratchdimen=\dimen289
+\scratchbox=\box50
 \nofMPsegments=\count156
 \nofMParguments=\count157
 \everyMPshowfont=\toks55
 \MPscratchCnt=\count158
-\MPscratchDim=\dimen289
+\MPscratchDim=\dimen290
 \MPnumerator=\count159
 \makeMPintoPDFobject=\count160
 \everyMPtoPDFconversion=\toks56
@@ -1110,7 +1128,6 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-ABD: EveryShipout initializing macros
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1145,94 +1162,103 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(EqDenEqSimpOp.toc)
+ABD: EveryShipout initializing macros (EqDenEqSimpOp.toc)
 \tf@toc=\write5
 \openout5 = `EqDenEqSimpOp.toc'.
 
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 189.
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
+Overfull \hbox (0.23407pt too wide) in paragraph at lines 339--342
+[]\OT1/cmr/m/n/9 Let $[]\OMX/MnSymbolE/m/n/9 à\OML/cmm/m/it/9 T\OMX/MnSymbolE/
+m/n/9 ç$ \OT1/cmr/m/n/9 de-note the poset of faces $\OML/cmm/m/it/9 U[] \U/MnSy
+mbolD/m/n/9 > \OT1/cmr/m/n/9 []\OMX/MnSymbolE/m/n/9  \OML/cmm/m/it/9 T\OMX/MnS
+ymbolE/m/n/9  \U/MnSymbolC/m/n/9  \OT1/cmr/m/n/9 []\OMX/MnSymbolE/m/n/9  \OM
+L/cmm/m/it/9 T\OMX/MnSymbolE/m/n/9 $ \OT1/cmr/m/n/9 of ``maximially-equivarian
+t|
+ []
 
-[2] [3] [4] [5]
-Overfull \hbox (8.44089pt too wide) in paragraph at lines 465--468
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 359.
+
+Overfull \hbox (24.68039pt too wide) in paragraph at lines 379--398
+[][][] \OT1/cmr/m/n/9 Thus,|
+ []
+
+[4] [5] [6] [7]
+Overfull \hbox (8.44089pt too wide) in paragraph at lines 762--765
 []\OT1/cmr/m/it/9 Then there is a small-est com-mon left Bous-field lo-cal-iza-
 tion $\OMX/MnSymbolE/m/n/9 à\OML/cmm/m/it/9 C; W; F\OMX/MnSymbolE/m/n/9 ç$ \OT1
 /cmr/m/it/9 and for any $\OMX/MnSymbolE/m/n/9 à\OML/cmm/m/it/9 C; W; F\OMX/MnSy
-mbolE/m/n/9 ç$\OT1/cmr/m/it/9 -
+mbolE/m/n/9 ç$\OT1/cmr/m/it/9 -|
  []
 
-[6]
+[8]
+Overfull \hbox (9.47011pt too wide) in paragraph at lines 867--870
+[]\OT1/cmr/m/n/9 We now turn to our main ap-pli-ca-tion of Propo-si-tion [][][]
+3.1[], the cat-e-gory $[][] \U/MnSymbolD/m/n/9   [][]$|
+ []
 
-LaTeX Warning: Reference `SSSETJREE PROP' on page 7 undefined on input line 560
-.
+[9] [10] [11] [12] [13] [14] [15] (EqDenEqSimpOp.bbl [16]) [17]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1632.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1632.
 
-
-LaTeX Warning: Reference `SSSETJREE PROP' on page 7 undefined on input line 562
-.
-
-[7] [8] [9] [10] (EqDenEqSimpOp.bbl [11]) [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1057.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1057.
- (EqDenEqSimpOp.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1057.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1057.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1057.
+(EqDenEqSimpOp.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1632.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1632.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1632.
  ) 
 Here is how much of TeX's memory you used:
- 25126 strings out of 493323
- 461714 string characters out of 3139066
- 566162 words of memory out of 3000000
- 28047 multiletter control sequences out of 15000+200000
- 31792 words of font info for 119 fonts, out of 3000000 for 9000
+ 26350 strings out of 493323
+ 493935 string characters out of 3139066
+ 590273 words of memory out of 3000000
+ 29210 multiletter control sequences out of 15000+200000
+ 32966 words of font info for 123 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,17n,84p,3276b,1047s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,17n,86p,3276b,1731s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi
-600\MnSymbolA6.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\pub
-lic\mnsymbol\dpi600\MnSymbolD5.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolS6.pk> <C:\Users\luisa\AppData\Loca
-l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm0900.pk> <C:\Users\luisa\Ap
-pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti0900.pk> <C:\User
+600\MnSymbolD5.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\pub
+lic\mnsymbol\dpi600\MnSymbolS6.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fon
+ts\pk\ljfour\jknappen\ec\dpi600\tcrm0900.pk> <C:\Users\luisa\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti0900.pk> <C:\Users\luisa\AppData\
+Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolE8.pk> <C:\User
 s\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbo
-lC5.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbo
+lC8.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbo
 l\dpi600\MnSymbolD6.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
 r\public\mnsymbol\dpi600\MnSymbolF9.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.
-9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC6.pk> <C:\Users\luisa\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolS9.pk> <C:\Use
+9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolS9.pk> <C:\Users\luisa\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolA6.pk> <C:\Use
 rs\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymb
-olE6.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymb
-ol\dpi600\MnSymbolD9.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
-ur\public\mnsymbol\dpi600\MnSymbolE9.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2
-.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolA9.pk> <C:\Users\luisa\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC9.pk><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-tt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on EqDenEqSimpOp.pdf (12 pages, 358421 bytes).
+olD9.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymb
+ol\dpi600\MnSymbolE9.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
+ur\public\mnsymbol\dpi600\MnSymbolA9.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2
+.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC9.pk> <C:\Users\luisa\AppDat
+a\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC5.pk> <C:\Us
+ers\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSym
+bolC6.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsym
+bol\dpi600\MnSymbolE6.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+bx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmtt8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7
+.pfb>
+Output written on EqDenEqSimpOp.pdf (17 pages, 441817 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 614 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 
