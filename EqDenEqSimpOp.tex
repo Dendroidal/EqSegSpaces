@@ -184,18 +184,18 @@ The following are the categories currently with model structures and the right a
       let $K = \mathrm{Stab}_H(U_0)$.
       Suppose we have another subdendroidal set $X \subseteq \Omega[T]$
       which contains all proper outer faces of $U_0$, and
-      an edge $e \in U_0$.
+      an inner edge edge $e \in U_0$.
       We say that $K e \subseteq U_0$ is a \textit{characteristic edge orbit} of
-      $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U_0]$
-      if we have
+      $X \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$
+      if we have, for any $R_0 \in \Phi_{\mathrm{Inn}}(U_0)$ containing $e$ as an inner edge,
       \begin{equation}
-            e\in R_0 \in \Phi_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \Phi_{\mathrm{Inn}}(U) \cap X,
+            R_0 \in \Phi_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \Phi_{\mathrm{Inn}}(U) \cap X,
       \end{equation}
       where $\bar K = \mathrm{Stab}_{K}(R_0)$. 
 \end{definition}
 
 \begin{proposition}
-      \label{CHAR_EDGE_ANODYNE_PROP}
+      \label{CHAR_HORN_PROP}
       Given $T$, $T_0$, $H$, $U_0$, and $X$ as above, we have that
       $K e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U]$
       implies that $X \to \X \cup \Omega[G \cdot U]$ is inner $G$-anodyne.
@@ -223,7 +223,7 @@ The following are the categories currently with model structures and the right a
             \end{tikzcd}
       \end{equation}
       Moreover, it suffices to consider $C' = C \cup H.D$ for $D \subseteq U_0$, where
-      without loss of generality $e \in D$ and $U_0 \setminus D$ is not in the domain.
+      without loss of generality $e \not\in D$ and $U_0 \setminus D$ is not in the domain.
       Let $\bar K = \mathrm{Stab}_H(D)$.
 
       We first claim that $\Lambda^{K e}[U_0 \setminus D]$ is in the domain.
@@ -243,12 +243,11 @@ The following are the categories currently with model structures and the right a
       (else $D \cap K e \neq \varnothing$).
       Thus the desired map is the pushout of
       \begin{equation}
+            \label{CHAR_HORN_EQ}
             G \cdot_{\bar K} \left( \Lambda^{\bar K e}[U_0 \setminus D] \to \Omega[U_0 \setminus D] \right),
       \end{equation}
       and hence is anodyne, as required.
 \end{proof}
-
-
 
 
 
@@ -273,8 +272,10 @@ The following are the categories currently with model structures and the right a
       $U_0 \setminus D \in \Lambda_0^{Ge}[T]$.
 \end{proof}
 
+\todo[inline]{come back: the above proof is less-than-illuminating. Either combine with the below proof, or reconfigure}
+
 \begin{proposition}
-      \label{GOHORN_GHORN_PROP}
+      \label{ORB_HORN_PROP}
       $\Lambda_o^{Ge}[T] \to \Omega[T]$ is inner $G$-anodyne, and hence
       the (hyper)saturated class of the orbital horn inclusions is contained in
       the (hyper)saturated class of the horn inclusions.
@@ -322,6 +323,104 @@ The following are the categories currently with model structures and the right a
       \end{equation}
 \end{proof}
 
+The reverse inclusion is only true on the hypersaturation.
+\begin{definition}
+      Let $W_o$ be the hypersaturation of the orbital horn inclusions.
+\end{definition}
+\begin{proposition}
+      For any $T \in \Omega_G$, the map
+      $\Lambda^{G e}[T] \to \Omega[T]$
+      is in $W_o$.
+\end{proposition}
+\begin{proof}
+      We go by induction on $|G| \times |Inn(T)|$ \todo{replace $Inn(T)$ with $Inn_G(T)$? $E(T)$? $V(T)$? $V_G(T)$?}
+      When $G = \set{e}$, the orbital horns are actually regular inner horns, and so the result holds.
+
+      Now, the proof of Proposition \ref{CHAR_HORN_PROP} says that,
+      for any face $U_0 \subseteq T_0$,
+      if $K e$ is a characteristic edge orbit for $X \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$, then
+      \begin{equation}
+            \label{CHAR_ATTACH_EQ}
+            X \to X \cup \Omega[G \cdot_K U_0]
+      \end{equation}
+      is cellular on maps of the form in \ref{CHAR_HORN_EQ}, where $D$ is a set of inner edges.
+      % (containing all of $\bar K e$ if it is non-empty).
+      Thus, by induction, any such maps (\ref{CHAR_ATTACH_EQ}) are in $W_o$.
+      Thus, the proof of Proposition \ref{ORB_HORN_PROP} implies, in particular, that
+      \begin{equation}
+            \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \mathrm{Out}^{-o}_p(T) =: A
+      \end{equation}
+      is in $W_o$, where $\mathrm{Out}^{-o}_p(T)$ is the poset of proper outer faces of $T$ not in $\Lambda^{G e}_o[T]$.
+      It then suffices to show that, for any $H$-closed $H$-concave subposets $B \subseteq B' \subseteq \mathrm{Inn}^{G e,-o}(T)$,
+      \begin{equation}
+            \label{ORB_HORN_ATTACH_EQ}
+            A \cup \mathop{\bigcup}\limits_{U_0 \in  B}\Omega[G \cdot_{K} U_0]
+            \to
+            A \cup \mathop{\bigcup}\limits_{U_0 \in B'}\Omega[G \cdot_{K} U_0]
+      \end{equation}
+      is in $W_o$,
+      where $\mathrm{Inn}^{G e,-o}(T)$ is the poset of inner faces of $T$ which contain $H e$ and are not in $\Lambda^{G e}_o[T]$.
+      Indeed, $A \cup \mathop{\bigcup}\limits_{\mathrm{Inn}^{G e,-o}(T)}\Omega[G \cdot_K U_0] = \Lambda^{G e}[T]$,
+      so the result follows from the cancelation property in the definition of hypersaturation.
+
+      We may assume that $B' = B \cup (G\cdot_K \set{U_0})$, for $U_0 = T_0 \setminus D$,
+      and let's call the domain of (\ref{ORB_HORN_ATTACH_EQ}) $A'$.
+      Then, it suffices to show that $K e$ is a characteristic edge orbit for
+      $A' \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$.
+      Since $A'$ contains all outer faces of $T$ (and hence all outer faces of $U_0$),
+      let $R_0 = T_0 \setminus D \cup E$ be an inner face of $U_0$ with isotropy $\bar K$, and suppose
+      $R_0 \setminus \bar K e$ is in $A'$.
+      We see $R_0 \setminus \bar K e \in \Lambda^{G e}_o[T]$ iff $D \cup E$ contains a full $H$-orbit $H t$ of edges, in which case
+      \begin{equation}
+            R_0 \setminus \bar K e = T_0 \setminus D \cup E \cup K e
+            \into
+            T_0 \setminus H t \in \Lambda^{G e}_o[T].
+      \end{equation}
+      But then we also have $R_0 = T_0 \setminus D \cup E \into T_0 \setminus H t$, as required.
+      Moreover, no inner face factors through an outer face of $T$.
+      Finally, if $R_0 \setminus \bar K e$ is in some $S_0 = T_0 \setminus D'$ already attached, then
+      $D \cup E \cup \bar K e \supseteq D'$;
+      but since $D' \cap K e = \varnothing$, this implies
+      $D \cup E \supseteq D'$, and hence $R_0$ also factors through $S_0$, as required.
+      Thus $K e$ is a characteristic edge orbit, and the result is proven.
+\end{proof}
+
+% \begin{example}
+%       Let $G = C_2$, and consider the tree below$T = G/G \circ e+G/2 \circ G/2$.
+% \end{example}
+% \begin{example}
+%       Let $G = C_4$, $T = G/G \circ e+G/G \circ G/2 \circ G/4$.
+% \end{example}
+
+
+\todo[inline]{come back - fix this. Don't reprove everything.}
+
+By \cite[6.17]{Pe17}, we have the generalized horn inclusions
+$\Lambda^E[T] \to \Omega[T]$ are also inner $G$-anodyne.
+By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
+By the alternative descriptions of inner $G$-horns and $G$-Segal cores, the following is immediate.
+\begin{lemma}
+      \label{SC_IN_GHORN_LEM}
+      For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
+\end{lemma}
+
+Similarly, the proof of \cite[2.5]{CM13a} yields that
+$Sc[T_0] \to \Lambda^e[T_0]$ is cellular on Segal core inclusions, and thus
+$Sc[T] \to \Lambda[T]$ is cellular on $G$-Segal core inclusions.
+Again, this implies the following.
+\begin{lemma}
+      \label{GHORN_IN_SC_LEM}
+      The inner $G$-horn inclusions are contained in the hypersaturation of the Segal core inclusions.
+\end{lemma}
+
+Combining Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} and Lemmas \ref{SC_IN_GHORN_LEM}, \ref{GHORN_IN_SC_LEM}, yields Proposition \ref{HYPER PROP}.
+
+
+
+
+
+\subsubsection{Outdated}
+
 While the direct dual of the above isn't true,
 the following proposition immediately implies that
 the hypersaturated class of the orbital horn inclusions contains
@@ -335,9 +434,9 @@ the (anodyne) horn inclusions.
 \end{proposition}
 \begin{proof}
       Let $\Phi^{-o}(T)$ denote the poset of faces $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
-      of ``maximially-equivariant faces''; that is, those $U_0$ such that
+      of ``maximally-equivariant faces''; that is, those $U_0$ such that
       \begin{enumerate}
-      \item $U_0$ contains the orbit $K e$, where $K = \mathrm{Stab}_H(U_0)$.
+      \item $U_0$ contains the orbit $K_r e$, where $K_r = \mathrm{Stab}_H(r(U_0))$.
       \item If $U_0 \into R_0$ for $R_0 \in \Lambda^{G e}[T]$, then $K \geq \mathrm{Stab}_H(R_0)$. 
       \end{enumerate}
       Let $O_G \wr \Phi^{-o}(T)$ denote the poset of pairs $(H/K, U_0)$ such that
@@ -478,28 +577,6 @@ the (anodyne) horn inclusions.
             \end{tikzpicture}
       \end{equation}
 \end{example}
-
-
-By \cite[6.17]{Pe17}, we have the generalized horn inclusions
-$\Lambda^E[T] \to \Omega[T]$ are also inner $G$-anodyne.
-By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
-By the alternative descriptions of inner $G$-horns and $G$-Segal cores, the following is immediate.
-\begin{lemma}
-      \label{SC_IN_GHORN_LEM}
-      For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
-\end{lemma}
-
-Similarly, the proof of \cite[2.5]{CM13a} yields that
-$Sc[T_0] \to \Lambda^e[T_0]$ is cellular on Segal core inclusions, and thus
-$Sc[T] \to \Lambda[T]$ is cellular on $G$-Segal core inclusions.
-Again, this implies the following.
-\begin{lemma}
-      \label{GHORN_IN_SC_LEM}
-      The inner $G$-horn inclusions are contained in the hypersaturation of the Segal core inclusions.
-\end{lemma}
-
-Combining Propositions \ref{GOHORN_GHORN_PROP}, \ref{GHORN_GOHORN_PROP} and Lemmas \ref{SC_IN_GHORN_LEM}, \ref{GHORN_IN_SC_LEM}, yields Proposition \ref{HYPER PROP}.
-
 
 
 
