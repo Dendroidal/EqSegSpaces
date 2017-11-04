@@ -66,7 +66,7 @@
 
 
 
-\abstract{bla bla, generalizing \cite{CM13a}.
+\abstract{bla bla, generalizing \cite{CM13a} and possibly \cite{CM13b}.
 
 Bla, also obtain an equivariant notion of Reedy category}
 
@@ -397,7 +397,7 @@ The reverse inclusion is only true on the hypersaturation.
 
 \todo[inline]{come back - fix this. Don't reprove everything.}
 
-By \cite[6.17]{Pe17}, we have the generalized horn inclusions
+By \cite[6.17]{Per17}, we have the generalized horn inclusions
 $\Lambda^E[T] \to \Omega[T]$ are also inner $G$-anodyne.
 By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
 By the alternative descriptions of inner $G$-horns and $G$-Segal cores, the following is immediate.
@@ -844,8 +844,8 @@ concerning the simplicial Reedy model structure all generalized mutatis mutandis
 \end{proposition}
 
 \begin{proof}
-	The model structure $(C,W,F)$ can be obtained by either localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hi03}.
-	The claim concerning local $c,d$ follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hi03}, stating that
+	The model structure $(C,W,F)$ can be obtained by either localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
+	The claim concerning local $c,d$ follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
 the local equivalences between local objects match the
 initial weak equivalences.
 
@@ -947,7 +947,7 @@ of $G$-equivariant simplicial dendroidal sets.
 
 Using the fact that $\Delta$ is a (usual) Reedy category
 and the model structure on $\mathsf{dSet}^G$ given by 
-\cite[Thm. 2.1]{Pe17}
+\cite[Thm. 2.1]{Per17}
 yields a model structure on $\mathsf{sdSet}^G$
 that we will refer to as the \textit{simplicial Reedy model structure}.
 
@@ -1036,8 +1036,8 @@ For (iii), note first that $X$ is dendroidal fibrant iff $X^B \to X^A$ is always
 Therefore, $X$ will have the right lifting property against all maps (\ref{SIMPTRIVCOF EQ}) iff 
 $X^B \to X^A$ is a trivial Kan fibration whenever $A\to B$ is a generating trivial of $\mathsf{dSet}^G$.
 By adjunction, this is equivalent to showing that
-$X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Pe17}
-(see also the beginning of \cite[\S 8.1]{Pe17})
+$X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Per17}
+(see also the beginning of \cite[\S 8.1]{Per17})
 it suffices to verify that the maps $X^L \to X^K$ have the right lifting property against the maps
 \[
 	\Lambda^{G e} \Omega[T] \to \Omega[T],
@@ -1105,7 +1105,7 @@ A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
 	$\mathsf{sdSet}^G$ is given by 
 	$X^{J_d(m)}$.
 	Moreover, note that it follows from 
-	\cite[Cor. 8.21]{Pe17}
+	\cite[Cor. 8.21]{Per17}
 	that $u_{\**}(X^{J_d(m)}) = X^{(J_d(m))} \to X^{(\Delta_m)}$
 	is a trivial fibration in $\mathsf{sdSet_G}$, 
 	so that $X^{J_d(m)}(T) \sim k(\Omega[T],X)$.
@@ -1225,14 +1225,14 @@ of $p\colon X\to Y$ and regarding $J_d \in \mathsf{dSet}^G$ as a simplicially co
 \end{theorem}
 
 \begin{proof}
-One repeats the proof of the non-equivariant analogue \cite[Thm. 8.13]{CM13a}, applying J. Smith's theorem \cite[Thm. 1.7]{Be00} with the required set of generating cofibrations the 
+One repeats the proof of the non-equivariant analogue \cite[Thm. 8.13]{CM13a}, applying J. Smith's theorem \cite[Thm. 1.7]{Bek00} with the required set of generating cofibrations the 
 set $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$ given by Lemma \ref{GENSET LEM}.
-Indeed, conditions c0 and c2 in \cite{Be00} are inherited from 
+Indeed, conditions c0 and c2 in \cite{Bek00} are inherited from 
 $\mathsf{sdSet}^G$ and c1 follows from Lemma \ref{TRIVFIB LEM}.
 The technical ``solution set'' condition c3 follows from 
-\cite[Prop. 1.15]{Be00} since weak equivalences are accessible, being the preimage by $\gamma^{\**}$ of the weak equivalences in 
+\cite[Prop. 1.15]{Bek00} since weak equivalences are accessible, being the preimage by $\gamma^{\**}$ of the weak equivalences in 
 $\mathsf{sdSet}^G$ 
-(see \cite[Cor. A.2.6.5]{Lu09} and \cite[Cor. A.2.6.6]{Lu09}). 
+(see \cite[Cor. A.2.6.5]{Lur09} and \cite[Cor. A.2.6.6]{Lur09}). 
 \end{proof}
 
 
@@ -1257,11 +1257,11 @@ is a Quillen equivalence.
 We will find it useful to also have a characterization of the
 fibrant objects in $\mathsf{PreOp}^G$.
 In doing so, it becomes useful to consider a fourth model structure on the category $\mathsf{sdSet}^G$ whose fibrant objects ``interpolate'' between the fibrant objects in the two model structures in Theorem \ref{ANOQUEQUIV THM}.
-This is the model structure of equivariant Segal spaces, that we discuss in the next section.
+This is the model structure of equivariant dendroidal Segal spaces, that we discuss in the next section.
 
 
 
-\section{Equivariant Segal spaces}
+\section{Equivariant dendroidal Segal spaces}
 
 
 \begin{definition}
@@ -1286,6 +1286,22 @@ Further, a pre-operad $X \in \mathsf{PreOp}^G$ is called \textit{fibrant}
 if $\gamma^{\**}X$ is a dendroidal Segal space.
 \end{notation}
 
+\begin{remark}
+If $X \in \mathsf{sdSet}^G$ is a dendroidal Segal space, then
+$\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant. Indeed, the equality $Sc[T](\eta)=\Omega[T](\eta)$ implies that the square below is a pullback square.
+\[
+\begin{tikzcd}
+	\gamma_{\**}X(T) \ar{r} \ar{d} & X(T) \ar{d}
+\\
+	\left(\gamma_{\**}X\right)^{Sc[T]} \ar{r} &
+	X^{Sc[T]}
+	\arrow[lu, phantom, "\lrcorner", very near start]
+\end{tikzcd}
+\]
+\end{remark}
+
+
+
 The following is a variation on Definition \ref{MAPSPACE DEF}
 
 \begin{definition}\label{MAPSPACESEG DEF}
@@ -1305,9 +1321,19 @@ $X(x_1,\cdots,x_n ; x_0)$ via the pullback
 \]
 \end{definition}
 
+\begin{definition}
+	Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space.
+	The \textit{homotopy genuine operad} 
+	$ho(X)\in \mathsf{dSet_G}$ is defined by
+	\[
+	ho(X) = \pi_0 \left( u_{\**} \left( \gamma_{\**}X \right) \right).
+	\]
+\end{definition}
+
 \begin{remark}
 	It is immediate that 
-	$X(x_1,\cdots,x_k;x_0) = \gamma^{\**}X(x_1,\cdots,x_k;x_0)$.
+	$X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$, so that both of the previous definitions depend only on 
+	the fibrant pre-operad $\gamma_{\**}X$.
 \end{remark}
 
 \begin{remark}
@@ -1321,6 +1347,44 @@ the fact that these two spaces are homotopic follows
 from Remark \ref{CONCRECOM REM}, since $X$ must then be both dendroidally and simplicially equivalent to $X_0^{J_d(m)}$. 
 The claim that this holds without completeness is harder, with the rest of the section devoted to establishing this.
 \end{remark}
+
+
+\begin{remark}
+	Writing $\iota$ for the inclusion $\Delta \to \Omega$
+	and $\iota_G$ for the composite inclusion
+	$\Delta \times \mathsf{O}_G \to 
+	\Omega \times \mathsf{O}_G \to
+	\Omega_G$,
+	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories formed by the homotopy categories
+	$ho \left(\iota^{\**}\left(X^H\right)\right) = 
+	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)$.
+\end{remark}
+
+\begin{definition}
+	A map $f \colon X \to Y$ of equivariant dendroidal Segal spaces is called 
+\begin{itemize}
+	\item \textit{fully faithful} is for all $C\in \Sigma_G$ and $C$-profile $(x_1,\cdots,x_n;x_0)$ on $X$ the map
+\[
+	X(x_1,\cdots,x_k;x_0) \to
+	Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
+\]
+is a Kan equivalence in $\mathsf{sSet}$;
+	\item \textit{essentially surjective} if
+	the map $\iota_G^{\**}ho(X) \to \iota_G^{\**}ho(Y)$
+	is essentially surjective on all category levels of the $G$-coefficient system;
+	\item a \textit{DK-equivalence}\footnote{Here DK stands for Dwyer and Kan.} if it is both fully faithful and essentially surjective.
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+This definition depends only on the map
+$\gamma_{\**} X \to \gamma_{\**} Y$
+of fibrant pre-operads.
+\end{remark}
+
+{\color{red} HERE}
+
+\cite{Rez01}
 
 {\color{red} HERE}
 
@@ -1483,6 +1547,15 @@ $\Lambda^0[1]$ are unneeded since (\ref{INVER EQ}) is an isomorphism on $0$-simp
 \]
 
 
+\begin{remark}
+	Noting that 
+	$\iota \colon \Delta \to \Omega$
+	is the inclusion of the ``linear trees'', 
+	we will similarly write
+	$\iota \colon \Delta \times \mathsf{O}_G \to \Omega_G$
+\end{remark}
+
+
 
 
 \newpage
@@ -1491,7 +1564,7 @@ $\Lambda^0[1]$ are unneeded since (\ref{INVER EQ}) is an isomorphism on $0$-simp
 
 \section{Equivariant Reedy model structures}
 
-In \cite{BM08} Berger and Moerdijk extend the notion of Reedy category so as to allow for categories $\mathbb{R}$
+In \cite{BM11} Berger and Moerdijk extend the notion of Reedy category so as to allow for categories $\mathbb{R}$
  with non-trivial automorphism groups 
  $\mathsf{Aut}(r)$ for $r \in \mathbb{R}$.
 For such $\mathbb{R}$ and suitable model category $\mathcal{C}$ they then show that there is a 
@@ -1499,7 +1572,7 @@ For such $\mathbb{R}$ and suitable model category $\mathcal{C}$ they then show t
 on $\mathcal{C}^{\mathbb{R}}$
 that is defined by modifying the usual characterizations of
 Reedy cofibrations, weak equivalences and fibrations
-(see \cite[Thm. 1.6]{BM08} or
+(see \cite[Thm. 1.6]{BM11} or
 Theorem \ref{REEDYADM THM} below)
  to be determined by the $\mathsf{Aut}(r)$-projective model structures
 on $\mathcal{C}^{\mathsf{Aut}(r)}$
@@ -1528,7 +1601,7 @@ $\mathsf{Aut}(r \to r')$ for its automorphim group in the arrow category and wri
 \end{equation}
 for the obvious projections. We now introduce our equivariant generalization of
 the ``generalized Reedy categories''
-of \cite[Def. 1.1]{BM08}.
+of \cite[Def. 1.1]{BM11}.
 
 \begin{definition}\label{GENRED DEF}
 A \textit{generalized Reedy category structure} on a
@@ -1556,15 +1629,15 @@ The collection $\{\mathcal{F}_r\}$ is called
 
 We note that condition (iv) above should be thought as of a constraint on the pair 
 $(\mathbb{R},\{\mathcal{F}_r\})$.
-The original setup of \cite{BM08} then deals with the case
+The original setup of \cite{BM11} then deals with the case
 where $\{ \mathcal{F}_r \} =
  \left\{ \left\{ e \right\} \right\}$
 is the collection of trivial families. Indeed, our setup recovers
-the setup in \cite{BM08}, as follows.
+the setup in \cite{BM11}, as follows.
 
 \begin{example}
 	When $\{ \mathcal{F}_r \} =
- \left\{ \left\{ e \right\} \right\}$, Reedy-admissibility coincides with axiom (iv) in \cite[Def. 1.1]{BM08},
+ \left\{ \left\{ e \right\} \right\}$, Reedy-admissibility coincides with axiom (iv) in \cite[Def. 1.1]{BM11},
 stating that if $\theta \circ f^{-} = f^{-}$
 for some $f^- \in \mathbb{R}^{-}$ and 
 $\theta \in \mathsf{Iso}(\mathbb{R})$ then $\theta$ is an identity.
@@ -1590,7 +1663,7 @@ is Reedy-admissible.
 
 
 \begin{example}\label{GGRAPHREEDY EX}
-	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM08} and $G$ a group,
+	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} and $G$ a group,
 	we set $\mathbb{R} = G \times \mathbb{S}$
 	with $\mathbb{R}^+ = G \times \mathbb{S}^+$ and 
 	$\mathbb{R}^- = G \times \mathbb{S}^+$.
@@ -1603,7 +1676,7 @@ is Reedy-admissible.
 	$s \twoheadrightarrow s'$ in $\mathbb{S}^-$ one has that the homomorphism
 	$\pi_s \colon \mathsf{Aut}_{\mathbb{S}}(s \twoheadrightarrow s')
 	\to \mathsf{Aut}_{\Omega}(s)$ is injective
-	(we note that this is equivalent to axiom (iv) in \cite[Def. 1.1]{BM08} for $\mathbb{S}$).
+	(we note that this is equivalent to axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
 \end{example}
 
 Our primary example of interest will come by setting
@@ -1646,7 +1719,7 @@ $\mathcal{C}^{\mathbb{R}}$ such that a map $A \to B$ is
 \end{itemize}
 \end{theorem}
 
-The proof of this result is given at the end of the section after establishing some routine generalizations of the key lemmas in \cite{BM08}
+The proof of this result is given at the end of the section after establishing some routine generalizations of the key lemmas in \cite{BM11}
 (indeed, the true novelty in this appendix is the Reedy-admissibility condition in part (iv) of Definition \ref{GENRED DEF}).
 
 We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}
@@ -1684,7 +1757,7 @@ $\mathsf{res}^{\bar{G}}_G \colon
 preserves all four classes of genuine cofibrations, trivial cofibrations, fibrations and trivial fibrations.
 \end{corollary}
 
-The following formalizes an argument implicit in the proof of \cite[Lemma 5.2]{BM08}).
+The following formalizes an argument implicit in the proof of \cite[Lemma 5.2]{BM11}).
 
 \begin{definition}
 Consider a commutative diagram
@@ -1785,7 +1858,7 @@ This follows dually to the previous proof.
 \end{proof}
 
 \begin{remark}
-Lemmas \ref{GINJ LEM} and \ref{GINJMIN LEM} generalize key parts of the proofs of \cite[Lemmas 5.3 and 5.5]{BM08}.  
+Lemmas \ref{GINJ LEM} and \ref{GINJMIN LEM} generalize key parts of the proofs of \cite[Lemmas 5.3 and 5.5]{BM11}.  
 The duality of their proofs reflects the duality in 
 Corollary \ref{RESGEN COR}.
 \end{remark}
@@ -1902,22 +1975,22 @@ are similar, but not dual, since
 Lemma \ref{REEDYTRFIB LEM} uses Reedy-admissibility 
 while Lemma \ref{REEDYTRCOF LEM} does not.
 This reflects the difference in the proofs of 
-\cite[Lemmas 5.3 and 5.5]{BM08} as discussed in 
-\cite[Remark 5.6]{BM08}, albeit with a caveat.
+\cite[Lemmas 5.3 and 5.5]{BM11} as discussed in 
+\cite[Remark 5.6]{BM11}, albeit with a caveat.
 
 Setting $K=\{e\}$ in Lemma \ref{GINJ LEM} yields that
 $\mathsf{lim}_{\mathbb{S}} (A \to B)$ is a cofibration provided that $A \to B$ is a genuine Reedy cofibration, i.e. a Reedy cofibration for $\{\mathcal{F}_{\text{all}}\}$ the families of all subgroups. 
-On the other hand, the proof of \cite[Lemma 5.3]{BM08} argues that 
+On the other hand, the proof of \cite[Lemma 5.3]{BM11} argues that 
 $\mathsf{lim}_{\mathbb{S}} (A \to B)$ is a cofibration provided that $A \to B$ is a projective Reedy cofibration, i.e. a Reedy cofibration for $\{\{e\}\}$ the trivial families 
 (note that all projective cofibrations are genuine cofibrations, so that our claim is more general).
-Since the cofibration half of the projective analogue of Corollary \ref{RESGEN COR} only holds if $\phi$ is a monormorphism, the argument in the proof of \cite[Lemma 5.3]{BM08} also includes an injectivity check that is not needed for our proof of Lemma \ref{REEDYTRCOF LEM}.
+Since the cofibration half of the projective analogue of Corollary \ref{RESGEN COR} only holds if $\phi$ is a monormorphism, the argument in the proof of \cite[Lemma 5.3]{BM11} also includes an injectivity check that is not needed for our proof of Lemma \ref{REEDYTRCOF LEM}.
 \end{remark}
 
 
 \begin{proof}[proof of Theorem \ref{REEDYADM THM}]
 Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizations of trivial cofibrations (resp. trivial fibrations) in the statement of Theorem \ref{REEDYADM THM} are correct, i.e. that they describe the maps that are both cofibrations (resp. fibrations) and weak equivalences.	
 
-	We refer to the model category axioms in \cite[Def. 1.1.3]{Ho98}. 	
+	We refer to the model category axioms in \cite[Def. 1.1.3]{Hov99}. 	
 	Both 2-out-of-3 and the retract axioms are immediate
 (recall that retracts commute with limits/colimits).	
 	The lifting axiom follows from Corollary \ref{BLALIFT COR}
@@ -1926,10 +1999,8 @@ Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizati
 	X_r \amalg_{L_r X} L_r A \to Y_r \times_{M_r Y} M_r A
 \]
 in $\mathcal{C}^{\mathsf{Aut}(r)}$, 
-thus building both $A$ and the factorization inductively (see, e.g., the proof of \cite[Thm. 1.6]{BM08}).
+thus building both $A$ and the factorization inductively (see, e.g., the proof of \cite[Thm. 1.6]{BM11}).
 \end{proof}
-
-
 
 
 
@@ -1938,7 +2009,7 @@ thus building both $A$ and the factorization inductively (see, e.g., the proof o
 
 
 
-\bibliographystyle{abbrv}
+\bibliographystyle{alpha}
 
 
 

@@ -1,56 +1,66 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{HHM16}
 
-\bibitem{Be00}
-T.~Beke.
+\bibitem[Bek00]{Bek00}
+Tibor Beke.
 \newblock Sheafifiable homotopy model categories.
 \newblock {\em Math. Proc. Cambridge Philos. Soc.}, 129(3):447--475, 2000.
 
-\bibitem{BM08}
-C.~Berger and I.~Moerdijk.
+\bibitem[BM11]{BM11}
+Clemens Berger and Ieke Moerdijk.
 \newblock On an extension of the notion of {R}eedy category.
 \newblock {\em Math. Z.}, 269(3-4):977--1004, 2011.
 
-\bibitem{BP17}
-P.~Bonventre and L.~A. Pereira.
+\bibitem[BP17]{BP17}
+Peter Bonventre and Lu{\'i}s~Alexandre Pereira.
 \newblock Genuine equivariant operads.
 \newblock arXiv preprint: 1707.02226, 2017.
 
-\bibitem{CM13a}
-D.-C. Cisinski and I.~Moerdijk.
+\bibitem[CM13a]{CM13a}
+Denis-Charles Cisinski and Ieke Moerdijk.
 \newblock Dendroidal {S}egal spaces and {$\infty$}-operads.
 \newblock {\em J. Topol.}, 6(3):675--704, 2013.
 
-\bibitem{HHM16}
-G.~Heuts, V.~Hinich, and I.~Moerdijk.
+\bibitem[CM13b]{CM13b}
+Denis-Charles Cisinski and Ieke Moerdijk.
+\newblock Dendroidal sets and simplicial operads.
+\newblock {\em J. Topol.}, 6(3):705--756, 2013.
+
+\bibitem[HHM16]{HHM16}
+Gijs Heuts, Vladimir Hinich, and Ieke Moerdijk.
 \newblock On the equivalence between {L}urie's model and the dendroidal model
   for infinity-operads.
 \newblock {\em Adv. Math.}, 302:869--1043, 2016.
 
-\bibitem{Hi03}
-P.~S. Hirschhorn.
+\bibitem[Hir03]{Hir03}
+Philip~S. Hirschhorn.
 \newblock {\em Model categories and their localizations}, volume~99 of {\em
   Mathematical Surveys and Monographs}.
 \newblock American Mathematical Society, Providence, RI, 2003.
 
-\bibitem{Ho98}
-M.~Hovey.
+\bibitem[Hov99]{Hov99}
+Mark Hovey.
 \newblock {\em Model categories}, volume~63 of {\em Mathematical Surveys and
   Monographs}.
 \newblock American Mathematical Society, Providence, RI, 1999.
 
-\bibitem{Lu09}
-J.~Lurie.
+\bibitem[Lur09]{Lur09}
+Jacob Lurie.
 \newblock {\em Higher topos theory}, volume 170 of {\em Annals of Mathematics
   Studies}.
 \newblock Princeton University Press, Princeton, NJ, 2009.
 
-\bibitem{Pe17}
-L.~A. Pereira.
+\bibitem[Per17]{Per17}
+Lu{\'i}s~Alexandre Pereira.
 \newblock Equivariant dendroidal sets.
 \newblock arXiv preprint: 1702.08119, 2017.
 
-\bibitem{Ste16}
-M.~Stephan.
+\bibitem[Rez01]{Rez01}
+Charles Rezk.
+\newblock A model for the homotopy theory of homotopy theory.
+\newblock {\em Trans. Amer. Math. Soc.}, 353(3):973--1007, 2001.
+
+\bibitem[Ste16]{Ste16}
+Marc Stephan.
 \newblock On equivariant homotopy theory for model categories.
 \newblock {\em Homology Homotopy Appl.}, 18(2):183--208, 2016.
 
