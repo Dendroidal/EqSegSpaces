@@ -696,7 +696,7 @@ are weak equivalences in $\mathsf{sSet}$;
 \end{proposition}
 
 
-\begin{definition}
+\begin{definition}\label{PROF DEF}
 	Let $X$ be a $G$-$\infty$-operad.
 	A \textit{$G$-profile} on $X$ is a map
 \[
@@ -716,7 +716,7 @@ $(x_1,\cdots,x_k;x_0)$, and refer to it as a
 \end{definition}
 
 
-\begin{definition}
+\begin{definition}\label{MAPSPACE DEF}
 Given a $G$-$\infty$-operad and a $C$-profile 
 $(x_1,\cdots,x_k;x_0)$ we define the space of maps
 $X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
@@ -1088,10 +1088,11 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 \begin{proof}
 	It is clear that the inclusion preserves both normal monomorphisms and all weak equivalences, hence the adjunction is Quillen. 
 	Consider any map $\iota(A) \to X$ with $X$ joint fibrant and perform a trivial cofibration followed by fibration factorization on the left
-	\[\iota(A) \xrightarrow{\sim} \widetilde{\iota(A)} \to X
-		\qquad
-		A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
-	\]
+\[
+\iota(A) \xrightarrow{\sim} \widetilde{\iota(A)} \to X
+	\qquad
+A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
+\]
 	for the simplicial Reedy model structure. 
 	Corollary \ref{JOINTFIBCHAR COR} (ii) now implies that 
 	$\widetilde{\iota(A)}$ is in fact joint fibrant
@@ -1099,6 +1100,16 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 \end{proof}
 
 
+\begin{remark}\label{CONCRECOM REM}
+	Given a $G$-$\infty$-operad $X$, a joint fibrant model in 
+	$\mathsf{sdSet}^G$ is given by 
+	$X^{J_d(m)}$.
+	Moreover, note that it follows from 
+	\cite[Cor. 8.21]{Pe17}
+	that $u_{\**}(X^{J_d(m)}) = X^{(J_d(m))} \to X^{(\Delta_m)}$
+	is a trivial fibration in $\mathsf{sdSet_G}$, 
+	so that $X^{J_d(m)}(T) \sim k(\Omega[T],X)$.
+\end{remark}
 
 \section{Pre-operads}
 
@@ -1225,7 +1236,7 @@ $\mathsf{sdSet}^G$
 \end{proof}
 
 
-\begin{theorem}
+\begin{theorem}\label{ANOQUEQUIV THM}
 	The adjunction
 \[
 	\gamma^{\**} \colon \mathsf{PreOp}^G	
@@ -1242,6 +1253,83 @@ is a Quillen equivalence.
 	But by Corollary \ref{SDSETG COR} it suffices to take $Y=X_0$, regarded as a simplicially trivial object.
 \end{proof}
 
+
+We will find it useful to also have a characterization of the
+fibrant objects in $\mathsf{PreOp}^G$.
+In doing so, it becomes useful to consider a fourth model structure on the category $\mathsf{sdSet}^G$ whose fibrant objects ``interpolate'' between the fibrant objects in the two model structures in Theorem \ref{ANOQUEQUIV THM}.
+This is the model structure of equivariant Segal spaces, that we discuss in the next section.
+
+
+
+\section{Equivariant Segal spaces}
+
+
+\begin{definition}
+	The \textit{equivariant Segal space model structure} on the category $\mathsf{sdSet}^G$, which we denote 
+	$\mathsf{sdSet}^G_S$, 
+	is the left Bousfield localization of the dendroidal Reedy model structure with respect to the equivariant Segal core inclusions
+\[
+	Sc[T] \to \Omega[T], \qquad T \in \Omega_G.
+\]
+\end{definition}
+
+\begin{remark}
+	By Proposition \ref{HYPER PROP} this model structure can equivalently be obtained by localizing with respect to the $G$-inner horn inclusions $\Lambda^{Ge}[T] \to \Omega[T]$.
+\end{remark}
+
+\begin{notation}
+We will refer to the fibrant objects in 
+$\mathsf{sdSet}^G_S$
+as \textit{equivariant dendroidal Segal spaces}, 
+or just \textit{dendroidal Segal spaces}.
+Further, a pre-operad $X \in \mathsf{PreOp}^G$ is called \textit{fibrant}
+if $\gamma^{\**}X$ is a dendroidal Segal space.
+\end{notation}
+
+The following is a variation on Definition \ref{MAPSPACE DEF}
+
+\begin{definition}\label{MAPSPACESEG DEF}
+Given a dendroidal Segal space $X \in \mathsf{sdSet}^G_S$
+and a $C$-profile $(x_1,\cdots,x_n ; x_0)$
+on $X$ (defined exactly as in Definition \ref{PROF DEF})
+we define the space of maps 
+$X(x_1,\cdots,x_n ; x_0)$ via the pullback
+\[
+\begin{tikzcd}
+	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
+	X(C) \ar{d}
+\\
+	G \cdot \eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
+	\prod_{0\leq i \leq k} X(\eta)^{H_i}
+\end{tikzcd}
+\]
+\end{definition}
+
+\begin{remark}
+	It is immediate that 
+	$X(x_1,\cdots,x_k;x_0) = \gamma^{\**}X(x_1,\cdots,x_k;x_0)$.
+\end{remark}
+
+\begin{remark}
+It is important not to confuse Definitions \ref{MAPSPACE DEF} 
+and \ref{MAPSPACESEG DEF}. Indeed, when $X$ is a dendroidal Segal, its $0$-th level $X_0$ is a $G$-$\infty$-operad, and one can thus form two ``spaces of maps'' 
+$X_0(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACE DEF})
+and
+$X(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACESEG DEF}).
+The constructions leading to these spaces are quite different. When $X$ is complete Segal, 
+the fact that these two spaces are homotopic follows 
+from Remark \ref{CONCRECOM REM}, since $X$ must then be both dendroidally and simplicially equivalent to $X_0^{J_d(m)}$. 
+The claim that this holds without completeness is harder, with the rest of the section devoted to establishing this.
+\end{remark}
+
+{\color{red} HERE}
+
+
+\[
+	u^{\**} \colon \mathsf{dSet}_G 
+\rightleftarrows 
+	\mathsf{dSet}^G \colon u_{\**}
+\]
 
 
 \newpage
@@ -1270,8 +1358,129 @@ is a Quillen equivalence.
 \end{corollary}
 
 \begin{proof}
-	k
+k
 \end{proof}
+
+
+
+
+
+{\color{red} HERE}
+
+
+\begin{remark}
+The smallest hypersaturated class containing the inner horns and the left horn inclusion
+$\Lambda^0[2] \to \Delta[2]$
+in fact contains all left horn inclusions
+$\Lambda^0[n] \to \Delta[n]$ for $n \geq 2$.
+Indeed, this follows inductively from the following diagram since
+the bottom map is inner
+\begin{equation}
+\begin{tikzcd}
+	\Lambda^{0,1}[n] \ar{r} \ar{d} &
+	\Lambda^{0}[n] \ar{d}
+\\
+	\Lambda^{1}[n] \ar{r} & \Delta[n] 
+\end{tikzcd}
+\end{equation}
+and the top and left maps are given by following pushouts
+\begin{equation}
+\begin{tikzcd}
+	\Lambda^{0}[n-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[n] \ar{d}
+&
+	\Lambda^{0}[n-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[n] \ar{d}
+\\
+	\Delta[n-1] \ar{r}[swap]{d^1} & \Lambda^0[n] 
+&
+	\Delta[n-1] \ar{r}[swap]{d^0} & \Lambda^1[n] 
+\end{tikzcd}
+\end{equation}
+\end{remark}
+
+
+\begin{remark}
+Write $\widetilde{[n]}$
+for the contractible groupoid on objects $\{0,1,\cdots,n\}$. Note that the $k$-simplices of $\widetilde{[n]}$
+are encoded as strings $a_0 a_1 \cdots a_k$
+with $a_{i} \in \{0,1,\cdots,n\}$, and that a simplex is non-degenerate iff $a_{i-1}\not = a_{i}, 1 \leq i \leq k$.
+Then the maps
+\begin{equation}\label{INVER EQ}
+%	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
+%\qquad
+	\Delta[n] = N [n] \xrightarrow{012\cdots n} N \widetilde{[n]},\quad n \geq 1
+\end{equation}
+are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 2$.
+
+Indeed, we show a little more. Call subcomplex 
+$A \subset N \widetilde{[n]}$ is \textit{$0$-stable}
+if a $n$-simplex $\underline{a}$ is in $A$ iff the $n+1$-simplex $0\underline{a}$ is.
+We claim that any inclusion $A \to A'$ of $0$-stable subcomplexes is built cellularly from left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 1$.
+Indeed, it suffices to check this when $A'$ attaches as little as 
+possible to $A$, and $0$-simplicity guarantees that in that case the only two non-degenerate simplices in $A-A'$
+have the form 
+$\underline{a}$ and $0\underline{a}$
+(note that $\underline{a}$ can not start with a $0$).
+But then $A\to A'$ is a pushout of 
+$\Lambda^{0}[k+1] \to \Delta[k+1]$ where $k$ is the dimension of $\underline{a}$.
+
+The desired claim follows by noting that both the domain and codomain of (\ref{INVER EQ}) are $0$-stable and that the horns 
+$\Lambda^0[1]$ are unneeded since (\ref{INVER EQ}) is an isomorphism on $0$-simplices.
+\end{remark}
+
+
+{\color{red} HERE}
+
+
+\[
+\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
+	W_1 \times_{W_0} W_1 \times_{W_0} W_1 
+	\ar[bend left=17,dashed]{r}
+	\ar[bend right=30,dashed]{d}&
+	W_1 \times_{W_0} W_2 \ar[->>]{l}{\sim} \ar[->>]{r} 
+	\ar[bend right=30,dashed]{d}&
+	W_1 \times_{W_0} W_1
+	\ar[bend right=30,dashed]{d}
+\\
+	W_2 \times_{W_0} W_1 \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+	\ar[bend left=17,dashed]{r}& 
+	W_3 \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
+	\ar[->>]{d}&
+	W_2 \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+\\
+	W_1 \times_{W_0} W_1 
+	\ar[bend left=17,dashed]{r}&
+	W_2 \ar[->>]{r} \ar[->>]{l}{\sim}&
+	W_1
+\end{tikzcd}
+\]
+
+
+
+\[
+\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
+	X^{\mathsf{Sc}[T]} 
+	\ar[bend left=17,dashed]{r}
+	\ar[bend right=30,dashed]{d}&
+	X^{\mathsf{Sc}_{T[e]}[T]}
+	 \ar[->>]{l}{\sim} \ar[->>]{r} 
+	\ar[bend right=30,dashed]{d}&
+	X^{\mathsf{Sc}[T-e]}
+	\ar[bend right=30,dashed]{d}
+\\
+	X^{\mathsf{Sc}_{T[f]}[T]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+	\ar[bend left=17,dashed]{r}& 
+	X^{\Omega[T]} \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
+	\ar[->>]{d}&
+	X^{\Omega[T-e]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+\\
+	X^{\mathsf{Sc}[T-f]} 
+	\ar[bend left=17,dashed]{r}&
+	X^{\Omega[T-f]} \ar[->>]{r} \ar[->>]{l}{\sim}&
+	X^{\Omega[T-e-f]}
+\end{tikzcd}
+\]
 
 
 
