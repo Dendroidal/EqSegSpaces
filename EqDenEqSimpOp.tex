@@ -13,6 +13,8 @@
 
 \usepackage[draft]{showkeys}
 \usepackage[obeyDraft]{todonotes}
+\usepackage{mathtools}  
+\mathtoolsset{showonlyrefs}  
 
 
 
@@ -99,7 +101,7 @@ The following are the categories currently with model structures and the right a
 \begin{definition}
       A map $f: S_0 \to T_0$ in $\Omega$ is called a \textit{face map} if it is injective on underlying sets.
       A face map is \textit{inner} if it is of the form $T_0 \setminus E \into T_0$, where $E$ is a subset of the set of inner edges of $T$.      
-      Fixing such a subset $E$, let $\Phi_{\mathrm{Inn}}^E(T_0)$ denote the poset (under inclusion) of
+      Fixing such a subset $E$, let $\mathscr{F}_{\mathrm{Inn}}^E(T_0)$ denote the poset (under inclusion) of
       all inner face maps $S_0 \into T_0$
       such that $E \subseteq T_0 \setminus S_0$.
 \end{definition}
@@ -108,47 +110,59 @@ The following are the categories currently with model structures and the right a
       Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
       $T_0$ denote the component of $T$ containing the image of $S_0$.
 
-      We say $f$ is a (non-equivariant) \textit{(inner, resp. outer) face map} if
-      $f: S_0 \to T_0$ is a non-equivariant (inner) face map.
+      We say $f$ is an \textit{(inner, resp. outer) face map} if
+      $f: S_0 \to T_0$ is an (inner, outer) face map on underlying trees.
 
       Given a subseteq $E$ of inner edges, let
-      $\Phi_{\mathrm{Inn}}^E(T)$ denote the subposet of faces such that miss all of $E$.
-      Moveover, let $\Phi_{\mathrm{Out}}^(T)$ denote the subposet of outer faces.
+      $\mathrm{Inn}^E(T)$ denote the subposet of faces such that miss all of $E$.
+      Moveover, let $\mathrm{Out}(T)$ denote the subposet of outer faces.
 \end{definition}
 
 \begin{definition}
       Fix $T\in \Omega_G$, and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
       
-      Let $\Phi(T)$ denote the poset (under inclusion) of face maps whose image is
+      Let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps whose image is
       strictly containined in $T_0$.
-      Given an inner edge $e \in T$, let
-      $\Phi^{Ge}(T) = \Phi(T) \setminus (T_0 \setminus H e)$.
-      Define the \textit{$Ge$-horn} of $T$ to be the subdendroidal set
+      Given a $G$-closed subset $E$ of inner edges, let
+      $\mathscr{F}^{E}(T) = \mathscr{F}(T) \setminus (T_0 \setminus \bar E)_{\bar E \subseteq E \cap T_0}$.\footnote{
+        In the case $E = G e$ for a single inner edge $e \in T$, we have
+      $\mathscr{F}^{G e}(T) = \mathscr{F}(T) \setminus (T_0 \setminus \bar e)_{\bar e \subseteq H e}$.}
+      Define the \textit{$E$-horn} of $T$ to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}[T] := \mathop{\colim}\limits_{\Phi^{Ge}(T)}\Omega[G \cdot S_0].
+            \Lambda^{E}[T] := \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
       \end{equation}
+      where $K = \mathrm{Stab}_H(S_0)$.
 \end{definition}
 
 \begin{remark}
       Equivalently, if $T \simeq G \cdot_H T_0$, then
       \begin{equation}
-            \Lambda^{G e}[T] \simeq G \cdot_H \Lambda^{H e}[T_0].
+            \Lambda^{E}[T] \simeq G \cdot_H \Lambda^{E \cap T_0}[T_0].
       \end{equation}
 \end{remark}
 
+\begin{remark}
+      If $E$ is the entire set of inner edges, we denote $\Lambda^{E}[T]$ by $\partial^{out}[T]$,
+      and call it the \textit{outer boundary}.\footnote{
+        in \cite{CM13a}, this was called the \textit{external} boundary.}
+\end{remark}
+
 \begin{definition}
-      For $T \in \Omega_G$, let $\Phi_{SC}(T) \subseteq \Phi_{\mathrm{Out}}()$ denote the poset of outer faces
-      with precisely one vertex
+      For $T \in \Omega_G$, let $\mathscr{SC}(T) \subseteq \mathrm{Out}(T)$ denote the poset of outer faces
+      with precisely one (non-equviariant) vertex
       (that is, every element records precisely one generating broad relation
       $e^\uparrow \leq e$ from $T$).
       We define the \textit{Segal core} of $T$ to be the subdendroidal set
       \begin{equation}
-            Sc[T] := \mathop{\colim}\limits_{\Phi_{SC}(T)}\Omega[G \cdot C].
+            Sc[T] := \mathop{\colim}\limits_{\mathscr{SC}(T)}\Omega[G \cdot_K C_0],
       \end{equation}
+      where $K = \mathrm{Stab}_H(C_0)$. 
 \end{definition}
 
 \begin{remark}
-      Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_v)$ for each $v \in V_G(T)$
+      Explicitly, a map $Sc[T] \to X$ is given by an element in $X(G \cdot_K T_v)$ for each $v \in V(T_0)$,
+      which are compatible on overlapping edges and under the action of $H$.
+      Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_{G v})$ for each $G v \in V_G(T)$
       which are compatible on overlapping edges.
 \end{remark}
 
@@ -162,23 +176,25 @@ The following are the categories currently with model structures and the right a
       $f(S_0) \subseteq T$ is $K$-closed, where $K = \mathrm{Stab}_G(f(r_s))$, for $r_S$ the root of $S_0$.
 
       Fixing a component $T_0$ of $T$,
-      let $\Phi_{o}(T)$ denote the poset (under inclusion) of orbital face maps whose image is
+      let $\mathscr{F}_{o}(T)$ denote the poset (under inclusion) of orbital face maps whose image is
       strictly contained in $T_0$.
       Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
       \begin{equation}
-            \partial_{o}\Omega[T] := \colim\limits_{\Phi_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
+            \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
       \end{equation}
 
       Given an inner edge $e \in T$, let
-      $\Phi_{\mathrm{Orb}}^{Ge}(T) := \Phi_{o}(T) \setminus (T_0\setminus H e)$
+      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \setminus (T_0\setminus H e)$
       where $H = \mathrm{Stab}_G(T_0)$
       (that is; those faces $S_0$ such that either $T \setminus (G.f(S_0) \cup Ge) \neq \varnothing$, or
       outer faces removing a stump).
       Define the \textit{$Ge$-orbital horn} to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}_{o}[T] := \colim\limits_{\Phi_{o}^{Ge}(T)}\Omega[G\cdot S_0]. 
+            \Lambda^{Ge}_{o}[T] := \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)}\Omega[G\cdot S_0]. 
       \end{equation}
 \end{definition}
+
+\subsection{Proof of \ref{HYPER PROP}}
 
 \begin{definition}
       Given $T$, $T_0$, and $H$ as above,
@@ -189,9 +205,9 @@ The following are the categories currently with model structures and the right a
       an inner edge edge $e \in U_0$.
       We say that $K e \subseteq U_0$ is a \textit{characteristic edge orbit} of
       $X \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$
-      if we have, for any $R_0 \in \Phi_{\mathrm{Inn}}(U_0)$ containing $e$ as an inner edge,
+      if we have, for any $R_0 \in \mathscr{F}_{\mathrm{Inn}}(U_0)$ containing $e$ as an inner edge,
       \begin{equation}
-            R_0 \in \Phi_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \Phi_{\mathrm{Inn}}(U) \cap X,
+            R_0 \in \mathscr{F}_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \mathscr{F}_{\mathrm{Inn}}(U) \cap X,
       \end{equation}
       where $\bar K = \mathrm{Stab}_{K}(R_0)$. 
 \end{definition}
@@ -205,19 +221,19 @@ The following are the categories currently with model structures and the right a
 \begin{proof}
       If $\Omega[U]$ is already contained in $X$, we are done.
       Assuming otherwise, it suffices to show that for all
-      $C \subseteq C'$ $K$-closed concave subsets of $\Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
+      $C \subseteq C'$ $K$-closed concave subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
       \begin{equation}
             X \cup G \cdot_K \left( \bigcup\limits_{C}\Omega[U_0 \setminus E] \right)
             \to
             X \cup G \cdot_K \left( \bigcup\limits_{C'}\Omega[U_0 \setminus E'] \right)                     
       \end{equation}
       is inner $G$-anodyne.
-      Indeed, once $C = \Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
+      Indeed, once $C = \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
       \begin{equation}
             \begin{tikzcd}
                   G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d] \arrow[r]
                   &
-                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \Phi_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
+                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
                   \\
                   G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot U_0] \arrow[r]
                   &
@@ -302,7 +318,7 @@ The following are the categories currently with model structures and the right a
       But then $U_0$ is contained in $R_0$ since both are outer faces, or again we apply the previous lemma.
       Both lead to contradictions, and thus we may conclude that
       $K e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \supseteq \Omega[G \cdot U_0]$.
-      Thus, the result holds by Proposition \ref{CHAR_EDGE_ANODYNE_PROP}.
+      Thus, the result holds by Proposition \ref{CHAR_HORN_PROP}.
 \end{proof}
 
 \begin{corollary}
@@ -329,7 +345,9 @@ The reverse inclusion is only true on the hypersaturation.
 \begin{definition}
       Let $W_o$ be the hypersaturation of the orbital horn inclusions.
 \end{definition}
+
 \begin{proposition}
+      \label{HORN_ORB_PROP}
       For any $T \in \Omega_G$, the map
       $\Lambda^{G e}[T] \to \Omega[T]$
       is in $W_o$.
@@ -345,9 +363,9 @@ The reverse inclusion is only true on the hypersaturation.
             \label{CHAR_ATTACH_EQ}
             X \to X \cup \Omega[G \cdot_K U_0]
       \end{equation}
-      is cellular on maps of the form in \ref{CHAR_HORN_EQ}, where $D$ is a set of inner edges.
+      is cellular on maps of the form in \eqref{CHAR_HORN_EQ}, where $D$ is a set of inner edges.
       % (containing all of $\bar K e$ if it is non-empty).
-      Thus, by induction, any such maps (\ref{CHAR_ATTACH_EQ}) are in $W_o$.
+      Thus, by induction, any such maps \eqref{CHAR_ATTACH_EQ} are in $W_o$.
       Thus, the proof of Proposition \ref{ORB_HORN_PROP} implies, in particular, that
       \begin{equation}
             \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \mathrm{Out}^{-o}_p(T) =: A
@@ -366,7 +384,7 @@ The reverse inclusion is only true on the hypersaturation.
       so the result follows from the cancelation property in the definition of hypersaturation.
 
       We may assume that $B' = B \cup (G\cdot_K \set{U_0})$, for $U_0 = T_0 \setminus D$,
-      and let's call the domain of (\ref{ORB_HORN_ATTACH_EQ}) $A'$.
+      and let's call the domain of \eqref{ORB_HORN_ATTACH_EQ} $A'$.
       Then, it suffices to show that $K e$ is a characteristic edge orbit for
       $A' \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$.
       Since $A'$ contains all outer faces of $T$ (and hence all outer faces of $U_0$),
@@ -395,33 +413,296 @@ The reverse inclusion is only true on the hypersaturation.
 % \end{example}
 
 
+
+
+
 \todo[inline]{come back - fix this. Don't reprove everything.}
 
-By \cite[6.17]{Per17}, we have the generalized horn inclusions
+
+
+
+
 $\Lambda^E[T] \to \Omega[T]$ are also inner $G$-anodyne.
 By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
-By the alternative descriptions of inner $G$-horns and $G$-Segal cores, the following is immediate.
 \begin{lemma}
-      \label{SC_IN_GHORN_LEM}
+      \label{SC_IN_GHORN_PROP}
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
 \end{lemma}
+\begin{proof}
+      Let $Out^n(T)$ denote the poset of outer faces $U_0$ of $T$ (factoring through $T_0$) such that
+      $|V(U_0)| = n$,
+      and define $\Omega[T]_n \subseteq \Omega[T]$ to be the subdendroidal set
+      \begin{equation}
+            \mathop{\bigcup}\limits_{Out^n(T)}\Omega[G \cdot_K U_0] 
+      \end{equation}
+      where $K = \mathrm{Stab}(U_0)$.
+      As in the proof of \cite[2.4]{CM13a}, these give a filtration
+      \begin{equation}
+            Sc[T] = \Omega[T]_1 \subseteq \Omega[T]_2 \subseteq \cdots \subseteq \Omega[T]_{|V(T)|-1} = \partial^{out}[T]
+            \to \Omega[T]_{|V(T)|} = \Omega[T].
+      \end{equation}
+      We will show that $\Omega[T]_{n-1} \to \Omega[T]_n$ is inner $G$-anodyne for all $n$.
+      More specifically, given $B \subseteq Out^n(T)$ an $H$-concave subset,
+      let $S_B$ be the pushout
+      \begin{equation}
+            \begin{tikzcd}
+                  \bigcup_B Sc[G \cdot_K U_0] \arrow[r] \arrow[d]
+                  &
+                  Sc[T] \arrow[d]
+                  \\
+                  \bigcup_B \Omega[G \cdot_K U_0] \arrow[r]
+                  &
+                  S_B \subseteq \Omega[T]
+            \end{tikzcd}
+      \end{equation}
+      (or equivalently, $\bigcup_B \mathsf{im}\Omega[G \cdot_K U_0]$),
+      and we will show that $S_B \cup \Omega[T]_{n-1} \to S_B$
+      is inner $G$-anodyne, by induction on $|B|$.
 
-Similarly, the proof of \cite[2.5]{CM13a} yields that
-$Sc[T_0] \to \Lambda^e[T_0]$ is cellular on Segal core inclusions, and thus
-$Sc[T] \to \Lambda[T]$ is cellular on $G$-Segal core inclusions.
-Again, this implies the following.
+      If $|B| = 1$, then
+      \begin{equation}
+            \Omega[G \cdot_K U_0] \cap \Omega[T]_{n-1} = G \cdot_K \partial^{out}[U_0] = \partial^{out}[G \cdot_K U_0].
+      \end{equation}
+      By \cite[6.17]{Per17}, we have the generalized horn inclusions are inner $G$-anodyne, so in particular
+      the outer boundary inclusions are all inner $G$-anodyne.
+      If $|B| = j$, then let $B' = B \setminus H \cdot_K \set{U_0}$.
+      Defining $\cap$ and $\cup$ in $\mathsf{dSet} \downarrow \Omega[T]$ as in Remark \ref{CAP_CUP_REM},
+      we may follow the proof of \cite[2.4]{CM13a} to conclude that
+      the map in question is inner $G$-anodyne for all $|B|$.
+      When $B$ is all of $Out^n(T)$, $S_B = \Omega[T]_n$, so we have that
+      \begin{equation}
+            S_B \cap \Omega[T]_{n-1}  = \Omega[T]_{n-1} \to S_B = \Omega[T]_n
+      \end{equation}
+      is inner $G$-anodyne, as desired.
+\end{proof}
+
+\begin{definition}
+      Let $W = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
+\end{definition}
+
 \begin{lemma}
-      \label{GHORN_IN_SC_LEM}
+      \label{GHORN_IN_SC_PROP}
       The inner $G$-horn inclusions are contained in the hypersaturation of the Segal core inclusions.
 \end{lemma}
+\begin{proof}
+      We follow the proof of \cite[2.5]{CM13a}, but again account for the equivariant peculiarities.
+      It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $W$
+      for any $T\in \Omega_G$ and inner edge $e$ of $T$.
 
-Combining Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} and Lemmas \ref{SC_IN_GHORN_LEM}, \ref{GHORN_IN_SC_LEM}, yields Proposition \ref{HYPER PROP}.
+      Suppose we have a decomposition $T \simeq G \cdot_H T_0$, where $H = \mathrm{Stab}(T_0)$.
+      We go by induction on $|H| \times |V_G(T_0)|$. \todo{$V_G$ or $V$?}
+
+      Suppose $H = e$.
+      Then, since $G \cdot SCI \subseteq SCI_G$,
+      and by \cite[2.5]{CM13a} we know $IHI \subseteq \hat{W}(SCI)$, we conclude that
+      \begin{equation}
+            G \cdot IHI \subseteq G \cdot (\hat{W}(SCI)) \subseteq \hat{W}(G \cdot SCI) \subseteq \hat{W}(SCI_G).
+      \end{equation}
+      
+      If $H \neq e$, and $V_G(T_0) = 2$, then there is only one inner edge orbit, so
+      the Segal core is an inner horn.
+      Thus, we may assume that $V_G(T_0) > 2$.
+
+      Let $B \subseteq \mathsf{Out}^m(T)$ be an $H$-concave subseteq of maximal outer faces of $T$
+      (factoring through $T_0$)
+      such that $|B| \geq 2$.
+      Using Remark \ref{CAP_CUP_REM} on the category $\mathsf{dSet} \downarrow \Omega[T]$, we define
+      $S_B \subseteq$ to be the pushout
+      \begin{equation}
+            \begin{tikzcd}
+                  \bigcup_{B/H} Sc[G \cdot_{K_i}U_i] \arrow[r] \arrow[d]
+                  &
+                  Sc[T] \arrow[d]
+                  \\
+                  \bigcup_{B/H} \Omega[G \cdot_{K_i}U_i] \arrow[r]
+                  &
+                  S_B,
+            \end{tikzcd}
+      \end{equation}
+      or equivalently (using Corollary \ref{IM_COR}),
+      \begin{equation}
+            S_B = \mathsf{im}\left(\bigcup_B \Omega[G \cdot_{K_i} U_i] \right)
+            = \bigcup_B \mathsf{im} \left( \Omega[G \cdot_{K_i} U_i] \right)
+            \subseteq \Omega[T].
+      \end{equation}
+
+      Dually, let $C \subseteq \mathsf{Inn}^{G e}(T)$ be an $H$-concave subset of inner faces containing $H e$,
+      and we define $R_C$ to be the pushout
+      \begin{equation}
+            \begin{tikzcd}
+                  \bigcup_{C/H} \partial^{out}[G \cdot_{K_i} U_i] \arrow[r] \arrow[d]
+                  &
+                  \partial^{out}[T] \arrow[d]
+                  \\
+                  \bigcup_{C/H} \Omega[G \cdot_{K_i} U_i] \arrow[r]
+                  &
+                  R_C
+            \end{tikzcd}
+      \end{equation}
+      or equivalently $R_C = \mathsf{im}(\bigcup_C \Omega[G \cdot_{K_i} U_i]) \cup \Lambda^{I(T)}[T]$.
+
+      The Segal core inclusion $Sc[T] \to \Omega[T]$ may be realized as the composition
+      \begin{equation}
+            Sc[T] \to S_B \to \partial^{out}[T] \to R_C \to \Lambda^{G e}[T] \to \Omega[T].
+      \end{equation}
+      We will show, in order, that each map in this factorization is in $W$.
+
+      First, we will show $Sc[T] \to S_B$ is in $W$, by induction on $|B/H|$. 
+      If $|B/H| = 1$, with $B = H \cdot_K \set{U_0}$ and $[H: K] \geq 2$, then we have a pushout
+      \begin{equation}
+            \begin{tikzcd}
+                  Sc[G \cdot_K U_0] \arrow[r] \arrow[d]
+                  &
+                  Sc[T] \arrow[d]
+                  \\
+                  \Omega[G \cdot_K U_0] \arrow[r]
+                  &
+                  S_B = \mathsf{im}(\Omega[G \cdot_K U_0]) \subseteq \Omega[T].
+            \end{tikzcd}
+      \end{equation}
+      The left vertical map is in $W$ since $K < H$, and hence so is the right vertical map.
+
+      Now suppose $|B/H| = 2$, so $B = H \cdot_{K_0} \set{U_0} \cup H \cdot_{K_1} \set{U_1}$,
+      and let $K_{01} = K_0 \cap K_1 = \mathrm{Stab}(U_1 \cap U_0)$. 
+      Then
+      \begin{equation}
+            Sc[G \cdot_{K_{01}} U_1 \cap U_2] \to \Omega[G \cdot_{K_{01}} U_1 \cap U_2]
+            = \Omega[G \cdot_{K_1} U_1] \cap \Omega[G \cdot_{K_2} U_2]
+      \end{equation}
+      is in $W$, as either $K < H$ or $|V_G(G \cdot_H(U_1 \cap U_2))| < |V_G(T)|$.
+      For the same reasons, we have that both
+      \begin{equation}
+            Sc[G \cdot_{K_i} U_i] \to \Omega[G \cdot_{K_i} U_i]
+      \end{equation}
+      are in $W$.
+      With this setup, we may follow the proof in \cite[2.4]{CM13a}
+      (using Remark \ref{CAP_CUP_REM} and Corollary \ref{IM_COR} when necessary)
+      and conclude that the left vertical map in the pushout below is in $W$,
+      and hence so is the right map.
+      \begin{equation}
+            \begin{tikzcd}
+                  Sc[G \cdot_{K_0} U_0] \cup Sc[G \cdot_{K_1} U_1] \arrow[d] \arrow[r]
+                  &
+                  Sc[T] \arrow[d]
+                  \\
+                  \Omega[G \cdot_{K_0} U_0] \cup \Omega[G \cdot_{K_1} U_1] \arrow[r]
+                  &
+                  S_B.
+            \end{tikzcd}
+      \end{equation}
+      The induction step also follows as in \cite{CM13a}:
+      letting $B' = B \setminus H\cdot_{K_0}U_0$, we may assume the same inductive step
+      (using again that either $K \leq H$ or $V_G$ is strictly smaller),
+      and conclude that the top map in the pushout below is in $W$, implying
+      by induction that the bottom composite is as well.
+      \begin{equation}
+            \begin{tikzcd}
+                  &
+                  \bigcup_{B' / H}\Omega[G \cdot_{K_i}U_i] \arrow[d] \arrow[r]
+                  &
+                  \bigcup_{B / H}\Omega[G \cdot_{K_i}U_i] \arrow[d]
+                  \\
+                  Sc[T] \arrow[r]
+                  &
+                  S_{B'} \arrow[r]
+                  &
+                  S_B.
+            \end{tikzcd}
+      \end{equation}
+
+      
+      \todo[inline]{come back: do inner edges}
+\end{proof}
 
 
 
 
 
-\subsubsection{Outdated}
+Combining Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} \ref{SC_IN_GHORN_PROP}, and \ref{GHORN_IN_SC_PROP}, yields Proposition \ref{HYPER PROP}.
+
+\subsubsection{Needed Lemmas/Facts}
+
+\begin{definition}
+      Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let $\hat{W}(\mathcal C)$ denote
+      the hypersaturation of $\mathcal C$. 
+\end{definition}
+The following is immediate.
+\begin{lemma}
+      If $L$ is a left adjoint, then $L(\hat{W}(\mathcal C)) \subseteq \hat{W}(L(\mathcal C))$.
+\end{lemma}
+
+\begin{definition}
+      Fix a set $X$. Then we have two natural functors out of $\mathsf{Set} \downarrow X$.
+      The \textit{forgetful} functor $\mathsf{fgt}: \mathsf{Set} \downarrow X \to \mathsf{Set}$ sends
+      an object $Y \to X$ to the set $Y$.
+      The \textit{image} functor $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
+      sends a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
+\end{definition}
+
+The following are straightforward.
+
+\begin{lemma}
+      Fix a commuting square $D$ in $\mathsf{Set} \downarrow X$. The following are equivalent.
+      \begin{enumerate}
+      \item $D$ is a pullback (respecitvely, pushout).
+      \item The image of $D$ under $\mathsf{fgt}$ is a pullback (pushout).
+      \item The image of $D$ under $\mathsf{im}$ is a pullback (pushout).
+      \end{enumerate}
+
+      More generally, let $D$ be any ``$n$-faceted diamond'' as below.
+      \begin{equation}
+            \begin{tikzcd}
+                  A \arrow[r] \arrow[dr, phantom, "\cdots"] \arrow[d]
+                  &
+                  B_1 \arrow[d]
+                  \\
+                  B_n \arrow[r]
+                  &
+                  C
+            \end{tikzcd}
+      \end{equation}
+      Then $A$ is the limit of $D$ (respectively, $C$ is a colimit of $D$)
+      iff
+      its image under $\mathsf{fgt}$ is so
+      iff
+      its image under $\mathsf{im}$ is so.
+\end{lemma}
+
+\begin{remark}
+      \label{CAP_CUP_REM}
+      In particular, this says that, for objects $Y_i \to X$,
+      $\mathsf{im}(\cap Y_i) = \cap \mathsf{im}(Y_i)$
+      and
+      $\mathsf{im}(\cup Y_i) = \cup \mathsf{im}(Y_i)$
+      where $\cap Y_i$ and $\cup Y_i$ are given by the generalized pullback and pushout
+      \begin{equation}
+            \cap Y_i = \lim_i(Y_i \to X), \qquad \qquad \cup Y_i = \colim_{i,j}(Y_i \cap Y_j \to Y_i).
+      \end{equation}
+\end{remark}
+
+Since (co)limits in diagram categories are computed levelwise, the following is immediate.
+\begin{corollary}
+      \label{IM_COR}
+      An $n$-faceted diamond in $\mathsf{dSet} \downarrow \Omega[T]$ is a (co)limit diagram
+      iff
+      its image under $\mathsf{fgt}$ is so
+      iff
+      its image under $\mathsf{im}$ is so.
+\end{corollary}
+
+\begin{remark}
+      This will be necessary, as we have the inconvenience that,
+      for an outer face $U_0$ of $T \simeq G \cdot_H T_0$ with isotropy $K$ strictly smaller than $H$,
+      the natural map $\Omega[G \cdot_K U_0] \to \Omega[T]$
+      will not be injective.
+      However, the above corollary says that this is a non-issue.
+\end{remark}
+
+
+
+
+
+\subsubsection{Outdated (i.e. Wrong)}
 
 While the direct dual of the above isn't true,
 the following proposition immediately implies that
@@ -435,14 +716,14 @@ the (anodyne) horn inclusions.
       is cellular on orbital horn inclusions.
 \end{proposition}
 \begin{proof}
-      Let $\Phi^{-o}(T)$ denote the poset of faces $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
+      Let $\mathscr{F}^{-o}(T)$ denote the poset of faces $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
       of ``maximally-equivariant faces''; that is, those $U_0$ such that
       \begin{enumerate}
       \item $U_0$ contains the orbit $K_r e$, where $K_r = \mathrm{Stab}_H(r(U_0))$.
       \item If $U_0 \into R_0$ for $R_0 \in \Lambda^{G e}[T]$, then $K \geq \mathrm{Stab}_H(R_0)$. 
       \end{enumerate}
-      Let $O_G \wr \Phi^{-o}(T)$ denote the poset of pairs $(H/K, U_0)$ such that
-      $U_0 \in \Phi^{-o}(T)$ and
+      Let $O_G \wr \mathscr{F}^{-o}(T)$ denote the poset of pairs $(H/K, U_0)$ such that
+      $U_0 \in \mathscr{F}^{-o}(T)$ and
       $K = \mathrm{Stab}_H(U_0)$, where 
       $(H/K, U_0) \leq (H/K', U_0')$ iff there exists a map $H/K \to H/K'$ and $U_0 \leq U_0'$.
       It suffices to show that
@@ -452,7 +733,7 @@ the (anodyne) horn inclusions.
             \Lambda_0^{G e}[T] \cup \mathop{\bigcup}\limits_{U_0' \in B'} \Omega[G \cdot U_0']
       \end{equation}
       is cellular on orbital horn inclusions, where
-      $B \subseteq B'$ are $G$-closed $G$-concave subposets of $O_G \wr \Phi^{-o}(T)$.
+      $B \subseteq B'$ are $G$-closed $G$-concave subposets of $O_G \wr \mathscr{F}^{-o}(T)$.
       % $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
       % such that $\mathrm{Stab}_H(r(U_0)) e \subseteq U_0$. 
       \todo[inline]{this is still not correct as stated}.
@@ -555,7 +836,7 @@ the (anodyne) horn inclusions.
                   };
             \end{tikzpicture}
       \end{equation}
-      Both $U_0$ and $R_0$ are in $\Phi^{-o}(T)$, and have actions by $2G$.
+      Both $U_0$ and $R_0$ are in $\mathscr{F}^{-o}(T)$, and have actions by $2G$.
       They are also only contained in faces in $\Lambda^{G e}[T]$ which have strictly smaller isotropy,
       meaning they need to be attached themselves, as not as part of a larger face.
       However, both orbital horns $\Lambda^{G e}_o[G \cdot_{2G} U_0]$ and $\Lambda^{G e}_o[G \cdot_{2G} R_0]$
@@ -614,6 +895,25 @@ the (anodyne) horn inclusions.
 %       and the map $\Lambda^{G e}_o[T] \to \Lambda^{G e}[T]$
 %       does not appear to be cellular on orbital horn inclusions.
 % \end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Actual Stuff}
 
@@ -779,23 +1079,23 @@ are precisely the $C$-profiles $(x_1,\cdots,x_k,x_0)$,
 fully faithfulness can be reinterpreted as saying that all fiber maps
 $p^{-1}(x_1,\cdots,x_k,x_0) \to 
 q^{-1}(f(x_1),\cdots,f(x_k),f(x_0))$
-are weak equivalences. But since $p,q$ are Kan fibrations, this is equivalent to the condition that (\ref{COMSQ EQ})
+are weak equivalences. But since $p,q$ are Kan fibrations, this is equivalent to the condition that \eqref{COMSQ EQ}
 is a homotopy pullback (see \cite[Lemma 3.9]{CM13a}), and the first half follows.
 
 For the second half, note first that the bottom map in 
-(\ref{COMSQ EQ}) can be rewritten as
+\eqref{COMSQ EQ} can be rewritten as
 \[
 	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, X \right) \to 
 	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, Y \right).
 \]
 
-Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in (\ref{COMSQ EQ})
+Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in \eqref{COMSQ EQ}
 are weak equivalences, so that the square is a pull back square, and thus $f$ is fully faithful. 
 That $f$ is essentially surjective follows from the identity
 $k \left(G/H \cdot \eta, X \right) = k(\iota^{\**}(Z^H))$, so that 
 $\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$ is essentially surjective at the level of maximal groupoids, and this suffices for essential surjectivity.
 
-Assume now that $f$ is fully faithful and essentially surjective. Since (\ref{COMSQ EQ}), Proposition \ref{TFAE PROP} now implies that one needs only check that the maps of Kan complexes
+Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ}, Proposition \ref{TFAE PROP} now implies that one needs only check that the maps of Kan complexes
 \begin{equation}\label{KANMAP EQ}
 	k \left(G/H \cdot \eta, X \right) \to 
 	k \left(G/H \cdot \eta, Y \right)
@@ -803,7 +1103,7 @@ Assume now that $f$ is fully faithful and essentially surjective. Since (\ref{CO
 	k\left(\iota^{\**}\left(X^H\right)\right) \to 
 	k\left(\iota^{\**}\left(Y^H\right)\right)
 \end{equation}
-are weak equivalences. As before, essential surjectivity is equivalent to the fact that the maps (\ref{KANMAP EQ}) induce surjections on connected components. Hence, it now suffices to show that for each $0$-simplex $x \in X^H$ the top map of loop spaces in 
+are weak equivalences. As before, essential surjectivity is equivalent to the fact that the maps \eqref{KANMAP EQ} induce surjections on connected components. Hence, it now suffices to show that for each $0$-simplex $x \in X^H$ the top map of loop spaces in 
 \begin{equation}\label{OMEGASQ EQ}
 \begin{tikzcd}
 	\Omega(k(\iota^{\**}X^H),x) \ar{r} \ar{d} &
@@ -814,12 +1114,12 @@ are weak equivalences. As before, essential surjectivity is equivalent to the fa
 \end{tikzcd}
 \end{equation}
 is a weak equivalence. Noting that the bottom map in 
-(\ref{OMEGASQ EQ})
+\eqref{OMEGASQ EQ}
 is a weak equivalence since $F$ is fully faithful
  and that the vertical maps are the inclusion of the connected components corresponding to automorphisms of $x$ in 
  $\tau(\iota^{\**} X^H)$.
  It thus suffices to check that the top map in
- (\ref{OMEGASQ EQ}) is an isomorphism on $\pi_0$,
+ \eqref{OMEGASQ EQ} is an isomorphism on $\pi_0$,
  and this follows since the map of categories
  $\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
  is fully faithful. 
@@ -1027,13 +1327,13 @@ and $A \to B$ a generic normal monomorphism in $\mathsf{dSet}^G$.
 
 	For (ii), note first that $X$ is simplicial fibrant iff 
 $X^L \to X^K$ is always a fibration in $\mathsf{dSet}^G$. 
-Hence, such $X$ will have the right lifting property againt all maps in (\ref{DENDTRIVCOF EQ}) iff 
+Hence, such $X$ will have the right lifting property againt all maps in \eqref{DENDTRIVCOF EQ} iff 
 $X^L \to X^K$ is a trivial fibration whenever $K \to L$ is anodyne. But Remark \ref{HYPERSATKAN REM}
 implies that it suffices to verify this for
 the vertex inclusions $\Delta[0] \to \Delta[n]$.
 
 For (iii), note first that $X$ is dendroidal fibrant iff $X^B \to X^A$ is always a Kan fibration in $\mathsf{sSet}$.
-Therefore, $X$ will have the right lifting property against all maps (\ref{SIMPTRIVCOF EQ}) iff 
+Therefore, $X$ will have the right lifting property against all maps \eqref{SIMPTRIVCOF EQ} iff 
 $X^B \to X^A$ is a trivial Kan fibration whenever $A\to B$ is a generating trivial of $\mathsf{dSet}^G$.
 By adjunction, this is equivalent to showing that
 $X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Per17}
@@ -1168,7 +1468,7 @@ so that the square below is a pushout square.
 \end{equation}
 \end{remark}
 
-In the next results we write $I'$ for the set of maps in (\ref{BOUNDRED EQ}).
+In the next results we write $I'$ for the set of maps in \eqref{BOUNDRED EQ}.
 
 
 \begin{lemma}\label{GENSET LEM}
@@ -1181,7 +1481,7 @@ $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (I')$.
 	Using the cellular filtration in $\mathsf{sdSet}^G$, 
 	any monomorphism $A \to B$ in $\mathsf{PreOp}^G$ can be written as a transfinite composition of pushouts of maps in 
 	$\{\emptyset \to G/H\cdot \eta\} \cup I'$.
-	But, since the squares (\ref{GAMMASH EQ}) are pushouts, the same also holds for the maps 
+	But, since the squares \eqref{GAMMASH EQ} are pushouts, the same also holds for the maps 
 	$\{\emptyset \to G/H\cdot \eta\} \cup \gamma_!(I')$.
 \end{proof}
 
@@ -1434,7 +1734,7 @@ the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
 
 \begin{proof}
 	This is immediate once one notes that, writing $E = T-Ge$ for the ``composite $G$-corolla'', all solid maps in 
-	(\ref{HOMOTCIRC EQ}) are compatible with the projections
+	\eqref{HOMOTCIRC EQ} are compatible with the projections
 	to $X^{\partial \Omega[E]}$.
 \end{proof}
 
@@ -1673,8 +1973,8 @@ $\underline{a}$ and $0\underline{a}$
 But then $A\to A'$ is a pushout of 
 $\Lambda^{0}[k+1] \to \Delta[k+1]$ where $k$ is the dimension of $\underline{a}$.
 
-The desired claim follows by noting that both the domain and codomain of (\ref{INVER EQ}) are $0$-stable and that the horns 
-$\Lambda^0[1]$ are unneeded since (\ref{INVER EQ}) is an isomorphism on $0$-simplices.
+The desired claim follows by noting that both the domain and codomain of \eqref{INVER EQ} are $0$-stable and that the horns 
+$\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simplices.
 \end{remark}
 
 
@@ -1956,14 +2256,14 @@ Consider a commutative diagram
 \end{equation}
 in $\C^{\mathbb{R}}$. A collection of maps 
 $f_s \colon B_s \to X_s$ for $|s|\leq n$ 
-that induce a lift of the restriction of (\ref{BLA EQ})
+that induce a lift of the restriction of \eqref{BLA EQ}
  to $\C^{\mathbb{R}_{\leq n}}$ will be called a 
 \textit{$n$-partial lift}. 
 \end{definition}
 
 
 \begin{lemma}\label{BLALIFT LEM}
-	Let $\C$ be any bicomplete category, and consider a commutative diagram as in (\ref{BLA EQ}). Then any $(n-1)$-partial lift uniquely induces commutative diagrams
+	Let $\C$ be any bicomplete category, and consider a commutative diagram as in \eqref{BLA EQ}. Then any $(n-1)$-partial lift uniquely induces commutative diagrams
 \begin{equation}\label{BLALIFT EQ}
 	\begin{tikzcd}
 		A_r \amalg_{L_r A} L_r B \ar{r} \ar{d} & X_r \ar{d}
@@ -1973,7 +2273,7 @@ that induce a lift of the restriction of (\ref{BLA EQ})
 \end{equation}
 in $\mathcal{C}^{\mathsf{Aut}(r)}$
 for each $r$ such that $|r|=n$. Furthermore, extensions of the 
-$(n-1)$-partial lift to a $n$-partial lift are in bijection with choices of $\mathsf{Aut}(r)$-equivariant lifts of the diagrams (\ref{BLALIFT EQ}) for $r$ ranging over representatives of the isomorphism classes of $r$ with $|r|=n$.
+$(n-1)$-partial lift to a $n$-partial lift are in bijection with choices of $\mathsf{Aut}(r)$-equivariant lifts of the diagrams \eqref{BLALIFT EQ} for $r$ ranging over representatives of the isomorphism classes of $r$ with $|r|=n$.
 \end{lemma}
 
 In the next result, by $\{\mathcal{F}_r\}$-cofibration/trivial cofibration/fibration/trivial fibration 
@@ -2138,7 +2438,7 @@ $K = H$ and
 $\mathbb{S} = H \ltimes \mathbb{R}^-(r)$
 to the map $t^{\**}A \to t^{\**}B$. 
 Note that for each $(r \twoheadrightarrow r') \in \mathbb{S}$ one has $\mathsf{Aut}_{\mathbb{S}}(r \to r') = \pi_r^{-1}(H)$
-(where $\pi_r$ is as in (\ref{PIDEFR EQ})), so that the trivial fibrancy requirement in Lemma \ref{GINJMIN LEM} follows from 
+(where $\pi_r$ is as in \eqref{PIDEFR EQ}), so that the trivial fibrancy requirement in Lemma \ref{GINJMIN LEM} follows from 
 $\{\mathcal{F}_r\}$ being Reedy-admissible.
 It follows that the maps labelled $\sim$
 \[
