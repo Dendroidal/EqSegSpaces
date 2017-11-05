@@ -1,7 +1,10 @@
 \contentsline {section}{\numberline {1}Overview}{1}{section.1}
 \contentsline {section}{\numberline {2}Equivariant dendroidal sets}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Preliminaries}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Actual Stuff}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{8}{section.3}
-\contentsline {section}{\numberline {4}Pre-operads}{11}{section.4}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{13}{appendix.A}
+\contentsline {subsubsection}{\numberline {2.1.1}Outdated}{5}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}Actual Stuff}{6}{subsection.2.2}
+\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{9}{section.3}
+\contentsline {section}{\numberline {4}Pre-operads}{12}{section.4}
+\contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{13}{section.5}
+\contentsline {section}{\numberline {6}Scratchwork (to be folded into previous sections eventually)}{17}{section.6}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{19}{appendix.A}
