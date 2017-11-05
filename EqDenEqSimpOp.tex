@@ -99,7 +99,7 @@ The following are the categories currently with model structures and the right a
 \begin{definition}
       A map $f: S_0 \to T_0$ in $\Omega$ is called a \textit{face map} if it is injective on underlying sets.
       A face map is \textit{inner} if it is of the form $T_0 \setminus E \into T_0$, where $E$ is a subset of the set of inner edges of $T$.      
-      Fixing such a subset $E$, let $\Phi_{\mathrm{Inn}}^E(T_0)$ denote the poset (under inclusion) of
+      Fixing such a subset $E$, let $\mathscr{F}_{\mathrm{Inn}}^E(T_0)$ denote the poset (under inclusion) of
       all inner face maps $S_0 \into T_0$
       such that $E \subseteq T_0 \setminus S_0$.
 \end{definition}
@@ -108,25 +108,26 @@ The following are the categories currently with model structures and the right a
       Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
       $T_0$ denote the component of $T$ containing the image of $S_0$.
 
-      We say $f$ is a (non-equivariant) \textit{(inner, resp. outer) face map} if
-      $f: S_0 \to T_0$ is a non-equivariant (inner) face map.
+      We say $f$ is an \textit{(inner, resp. outer) face map} if
+      $f: S_0 \to T_0$ is an (inner, outer) face map on underlying trees.
 
       Given a subseteq $E$ of inner edges, let
-      $\Phi_{\mathrm{Inn}}^E(T)$ denote the subposet of faces such that miss all of $E$.
-      Moveover, let $\Phi_{\mathrm{Out}}^(T)$ denote the subposet of outer faces.
+      $\mathrm{Inn}^E(T)$ denote the subposet of faces such that miss all of $E$.
+      Moveover, let $\mathrm{Out}(T)$ denote the subposet of outer faces.
 \end{definition}
 
 \begin{definition}
       Fix $T\in \Omega_G$, and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
       
-      Let $\Phi(T)$ denote the poset (under inclusion) of face maps whose image is
+      Let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps whose image is
       strictly containined in $T_0$.
       Given an inner edge $e \in T$, let
-      $\Phi^{Ge}(T) = \Phi(T) \setminus (T_0 \setminus H e)$.
+      $\mathscr{F}^{G e}(T) = \mathscr{F}(T) \setminus (T_0 \setminus \bar e)_{\bar e \subseteq H e}$.
       Define the \textit{$Ge$-horn} of $T$ to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}[T] := \mathop{\colim}\limits_{\Phi^{Ge}(T)}\Omega[G \cdot S_0].
+            \Lambda^{Ge}[T] := \mathop{\colim}\limits_{\mathscr{F}^{G e}(T)}\Omega[G \cdot_K S_0],
       \end{equation}
+      where $K = \mathrm{Stab}_H(S_0)$.
 \end{definition}
 
 \begin{remark}
@@ -137,18 +138,21 @@ The following are the categories currently with model structures and the right a
 \end{remark}
 
 \begin{definition}
-      For $T \in \Omega_G$, let $\Phi_{SC}(T) \subseteq \Phi_{\mathrm{Out}}()$ denote the poset of outer faces
-      with precisely one vertex
+      For $T \in \Omega_G$, let $\mathscr{SC}(T) \subseteq \mathrm{Out}(T)$ denote the poset of outer faces
+      with precisely one (non-equviariant) vertex
       (that is, every element records precisely one generating broad relation
       $e^\uparrow \leq e$ from $T$).
       We define the \textit{Segal core} of $T$ to be the subdendroidal set
       \begin{equation}
-            Sc[T] := \mathop{\colim}\limits_{\Phi_{SC}(T)}\Omega[G \cdot C].
+            Sc[T] := \mathop{\colim}\limits_{\mathscr{SC}(T)}\Omega[G \cdot_K C_0],
       \end{equation}
+      where $K = \mathrm{Stab}_H(C_0)$. 
 \end{definition}
 
 \begin{remark}
-      Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_v)$ for each $v \in V_G(T)$
+      Explicitly, a map $Sc[T] \to X$ is given by an element in $X(G \cdot_K T_v)$ for each $v \in V(T_0)$,
+      which are compatible on overlapping edges and under the action of $H$.
+      Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_{G v})$ for each $G v \in V_G(T)$
       which are compatible on overlapping edges.
 \end{remark}
 
@@ -162,21 +166,21 @@ The following are the categories currently with model structures and the right a
       $f(S_0) \subseteq T$ is $K$-closed, where $K = \mathrm{Stab}_G(f(r_s))$, for $r_S$ the root of $S_0$.
 
       Fixing a component $T_0$ of $T$,
-      let $\Phi_{o}(T)$ denote the poset (under inclusion) of orbital face maps whose image is
+      let $\mathscr{F}_{o}(T)$ denote the poset (under inclusion) of orbital face maps whose image is
       strictly contained in $T_0$.
       Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
       \begin{equation}
-            \partial_{o}\Omega[T] := \colim\limits_{\Phi_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
+            \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
       \end{equation}
 
       Given an inner edge $e \in T$, let
-      $\Phi_{\mathrm{Orb}}^{Ge}(T) := \Phi_{o}(T) \setminus (T_0\setminus H e)$
+      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \setminus (T_0\setminus H e)$
       where $H = \mathrm{Stab}_G(T_0)$
       (that is; those faces $S_0$ such that either $T \setminus (G.f(S_0) \cup Ge) \neq \varnothing$, or
       outer faces removing a stump).
       Define the \textit{$Ge$-orbital horn} to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}_{o}[T] := \colim\limits_{\Phi_{o}^{Ge}(T)}\Omega[G\cdot S_0]. 
+            \Lambda^{Ge}_{o}[T] := \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)}\Omega[G\cdot S_0]. 
       \end{equation}
 \end{definition}
 
@@ -189,9 +193,9 @@ The following are the categories currently with model structures and the right a
       an inner edge edge $e \in U_0$.
       We say that $K e \subseteq U_0$ is a \textit{characteristic edge orbit} of
       $X \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$
-      if we have, for any $R_0 \in \Phi_{\mathrm{Inn}}(U_0)$ containing $e$ as an inner edge,
+      if we have, for any $R_0 \in \mathscr{F}_{\mathrm{Inn}}(U_0)$ containing $e$ as an inner edge,
       \begin{equation}
-            R_0 \in \Phi_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \Phi_{\mathrm{Inn}}(U) \cap X,
+            R_0 \in \mathscr{F}_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \mathscr{F}_{\mathrm{Inn}}(U) \cap X,
       \end{equation}
       where $\bar K = \mathrm{Stab}_{K}(R_0)$. 
 \end{definition}
@@ -205,19 +209,19 @@ The following are the categories currently with model structures and the right a
 \begin{proof}
       If $\Omega[U]$ is already contained in $X$, we are done.
       Assuming otherwise, it suffices to show that for all
-      $C \subseteq C'$ $K$-closed concave subsets of $\Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
+      $C \subseteq C'$ $K$-closed concave subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
       \begin{equation}
             X \cup G \cdot_K \left( \bigcup\limits_{C}\Omega[U_0 \setminus E] \right)
             \to
             X \cup G \cdot_K \left( \bigcup\limits_{C'}\Omega[U_0 \setminus E'] \right)                     
       \end{equation}
       is inner $G$-anodyne.
-      Indeed, once $C = \Phi_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
+      Indeed, once $C = \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
       \begin{equation}
             \begin{tikzcd}
                   G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d] \arrow[r]
                   &
-                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \Phi_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
+                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
                   \\
                   G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot U_0] \arrow[r]
                   &
@@ -302,7 +306,7 @@ The following are the categories currently with model structures and the right a
       But then $U_0$ is contained in $R_0$ since both are outer faces, or again we apply the previous lemma.
       Both lead to contradictions, and thus we may conclude that
       $K e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \supseteq \Omega[G \cdot U_0]$.
-      Thus, the result holds by Proposition \ref{CHAR_EDGE_ANODYNE_PROP}.
+      Thus, the result holds by Proposition \ref{CHAR_HORN_PROP}.
 \end{proof}
 
 \begin{corollary}
@@ -330,6 +334,7 @@ The reverse inclusion is only true on the hypersaturation.
       Let $W_o$ be the hypersaturation of the orbital horn inclusions.
 \end{definition}
 \begin{proposition}
+      \label{HORN_ORB_PROP}
       For any $T \in \Omega_G$, the map
       $\Lambda^{G e}[T] \to \Omega[T]$
       is in $W_o$.
@@ -435,14 +440,14 @@ the (anodyne) horn inclusions.
       is cellular on orbital horn inclusions.
 \end{proposition}
 \begin{proof}
-      Let $\Phi^{-o}(T)$ denote the poset of faces $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
+      Let $\mathscr{F}^{-o}(T)$ denote the poset of faces $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
       of ``maximally-equivariant faces''; that is, those $U_0$ such that
       \begin{enumerate}
       \item $U_0$ contains the orbit $K_r e$, where $K_r = \mathrm{Stab}_H(r(U_0))$.
       \item If $U_0 \into R_0$ for $R_0 \in \Lambda^{G e}[T]$, then $K \geq \mathrm{Stab}_H(R_0)$. 
       \end{enumerate}
-      Let $O_G \wr \Phi^{-o}(T)$ denote the poset of pairs $(H/K, U_0)$ such that
-      $U_0 \in \Phi^{-o}(T)$ and
+      Let $O_G \wr \mathscr{F}^{-o}(T)$ denote the poset of pairs $(H/K, U_0)$ such that
+      $U_0 \in \mathscr{F}^{-o}(T)$ and
       $K = \mathrm{Stab}_H(U_0)$, where 
       $(H/K, U_0) \leq (H/K', U_0')$ iff there exists a map $H/K \to H/K'$ and $U_0 \leq U_0'$.
       It suffices to show that
@@ -452,7 +457,7 @@ the (anodyne) horn inclusions.
             \Lambda_0^{G e}[T] \cup \mathop{\bigcup}\limits_{U_0' \in B'} \Omega[G \cdot U_0']
       \end{equation}
       is cellular on orbital horn inclusions, where
-      $B \subseteq B'$ are $G$-closed $G$-concave subposets of $O_G \wr \Phi^{-o}(T)$.
+      $B \subseteq B'$ are $G$-closed $G$-concave subposets of $O_G \wr \mathscr{F}^{-o}(T)$.
       % $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
       % such that $\mathrm{Stab}_H(r(U_0)) e \subseteq U_0$. 
       \todo[inline]{this is still not correct as stated}.
@@ -555,7 +560,7 @@ the (anodyne) horn inclusions.
                   };
             \end{tikzpicture}
       \end{equation}
-      Both $U_0$ and $R_0$ are in $\Phi^{-o}(T)$, and have actions by $2G$.
+      Both $U_0$ and $R_0$ are in $\mathscr{F}^{-o}(T)$, and have actions by $2G$.
       They are also only contained in faces in $\Lambda^{G e}[T]$ which have strictly smaller isotropy,
       meaning they need to be attached themselves, as not as part of a larger face.
       However, both orbital horns $\Lambda^{G e}_o[G \cdot_{2G} U_0]$ and $\Lambda^{G e}_o[G \cdot_{2G} R_0]$
