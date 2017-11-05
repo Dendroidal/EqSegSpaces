@@ -1382,9 +1382,193 @@ $\gamma_{\**} X \to \gamma_{\**} Y$
 of fibrant pre-operads.
 \end{remark}
 
+DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
+{\color{red} whatever below}. We now introduce some auxiliary notions.
+
+Suppose $C,D \in \Sigma_G$ are $G$-corollas that can be grafted,
+i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
+and write $T= C \amalg_{G e} D$ for the grafted $G$-tree. 
+For any dendroidal Segal space $X$ one then has
+$X^{Sc[T]} \simeq X(C) \times_{X(\eta)^H} X(D)$
+and one can hence form the section in the middle row below
+\begin{equation}\label{HOMOTCIRC EQ}
+\begin{tikzcd}
+	\{\varphi\} \times X(z_1,\cdots,z_l;e)
+	\ar[dashed]{rr}{\varphi \circ_{Ge} (-)}
+&&
+	X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)
+\\
+	X(C) \times_{X(\eta)^H} X(D) \ar[bend left=17,dashed]{r}
+	\ar[hookleftarrow]{u}
+&
+	X(T) \ar[->>]{l}{\sim} \ar[->>]{r}
+&
+	X(T-Ge)
+	\ar[hookleftarrow]{u}
+\\
+	X(e,y_2,\cdots,y_k;x) \times \{\psi\}
+	\ar[hookrightarrow]{u}
+	\ar[dashed]{rr}[swap]{(-)\circ_{Ge} \psi}
+&&
+	X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)
+	\ar[hookrightarrow]{u}
+\end{tikzcd}
+\end{equation}
+thus defining maps 
+$\varphi \circ_{Ge} (-)$ (resp. $(-)\circ_{Ge} \psi$)
+for any choice of
+$\varphi \in X(e,y_2,\cdots,y_k;x)$
+(resp. $\psi \in X(z_1,\cdots,z_l;e)$).
+
+\begin{proposition}
+	The maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
+are well defined up to homotopy. Further, if 
+$\varphi,\bar{\varphi} \in X(e,y_2,\cdots,y_k;x)$ are homotopic 
+(i.e. in the same connected component), then 
+the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
+	are homotopic, and likewise for $\psi$.
+	
+	In particular, $\varphi \circ_{Ge} \psi \in X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)$
+	is well defined up to homotopy.
+\end{proposition}
+
+\begin{proof}
+	This is immediate once one notes that, writing $E = T-Ge$ for the ``composite $G$-corolla'', all solid maps in 
+	(\ref{HOMOTCIRC EQ}) are compatible with the projections
+	to $X^{\partial \Omega[E]}$.
+\end{proof}
+
+	We will now show that the operations   
+	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
+	satisfy the obvious compatibilities one expects, but we will find it convenient to first package these compatibilities into a common format. In the categorical case (corresponding to linear trees), there are three types of compatibilities, corresponding to homotopies
+\[
+	\varphi \circ \left( \psi \circ (-) \right)
+		\sim
+	(\varphi \circ \psi) \circ (-) 
+\qquad
+	\varphi \circ \left( (-)  \circ \psi \right)
+		\sim
+	\left( \varphi \circ (-) \right) \circ \psi 
+\qquad
+	\left( (-) \circ \varphi \right) \circ \psi 
+		\sim
+	(-) \circ (\varphi \circ \psi) 
+\]	
+but in the operadic case there are instead five cases, corresponding to the different possible roles of the nodes in 
+$G$-trees with exactly three $G$-nodes, whose \textit{orbital} representation falls into one of the two cases illustrated below.
+\[%
+	\begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize}]%
+	\begin{scope}[level distance = 1.9em]
+	\tikzstyle{level 2}=[sibling distance=3em]%
+	\tikzstyle{level 3}=[sibling distance=1.25em]%
+		\node at (5.5,0) {}%
+			child{node [dummy] {}%
+				child{node {}}%
+				child{node [dummy] {}%
+					child{}%
+					child{}%
+					child{}%
+				}%
+				child{node {}}%
+				child{node [dummy] {}%
+					child{}%
+					child{}%
+				}%
+			};%
+	\end{scope}
+	\begin{scope}[level distance = 1.425em]
+	\tikzstyle{level 2}=[sibling distance=4em]%
+	\tikzstyle{level 3}=[sibling distance=1.5em]%
+	\tikzstyle{level 4}=[sibling distance=1em]%
+		\node at (0,0) {}%
+			child{node [dummy] {}%
+				child{node {}}%
+				child{node [dummy] {}%
+					child{}%
+					child{node [dummy] {}
+						child
+						child}%
+					child{}%
+					child{}%
+				}%
+				child{node {}}%
+			};%
+	\end{scope}
+	\end{tikzpicture}%
+\]%
+Since all these compatibilities can be simultaneously encoded in terms of such trees, we will simply refer to all types of compatibility as ``associativity''.
+
+In the next result, note that a $G$-tree $T$ with three $G$-nodes contains precisely two inner edge orbits $Ge$ and $Gf$. We will write $T[Ge]$ (resp. $T[Gf]$) for the unique orbital outer face of $T$ with $Ge$ (resp. $Gf$) has its single inner edge orbit. 
+
+\begin{proposition}
+	The operations   
+	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
+	satisfy all associativity conditions with respect to 
+	$3$-nodal $G$-trees.
+\end{proposition}
+
 {\color{red} HERE}
 
+\begin{proof}
+	For any $3$-nodal $G$-tree $T$ with inner edge orbits $Ge$, $Gf$, consider the following diagram, 
+	where all solid maps are fibrations, and the maps labelled $\sim$ are trivial fibrations.
+	\[
+\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
+	X^{\mathsf{Sc}[T]} 
+	\ar[bend left=17,dashed]{r}
+	\ar[bend right=30,dashed]{d}&
+	X^{\mathsf{Sc}_{T[Ge]}[T]}
+	 \ar[->>]{l}{\sim} \ar[->>]{r} 
+	\ar[bend right=30,dashed]{d}&
+	X^{\mathsf{Sc}[T-Ge]}
+	\ar[bend right=30,dashed]{d}
+\\
+	X^{\mathsf{Sc}_{T[Gf]}[T]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+	\ar[bend left=17,dashed]{r}& 
+	X^{\Omega[T]} \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
+	\ar[->>]{d}&
+	X^{\Omega[T-Ge]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+\\
+	X^{\mathsf{Sc}[T-Gf]} 
+	\ar[bend left=17,dashed]{r}&
+	X^{\Omega[T-Gf]} \ar[->>]{r} \ar[->>]{l}{\sim}&
+	X^{\Omega[T-Ge-Gf]}
+\end{tikzcd}
+\]
+Noting that the pullback of 
+$
+X^{Sc_{T[Ge]}[T]} \to 
+X^{Sc[T]} \leftarrow
+X^{Sc_{T[Gf]}[T]}
+$
+is $X^{\Lambda_o^{Ge,Gf}[T]}$, 
+one sees that the sections in the top left corner can be chosen to be compatible in the sense that the two composites
+$X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
+{\color{red} HERE}
+
+\end{proof}
+
+{\color{red} HERE}
+
+\begin{remark}
+	This structure is crude, misses the interesting pullback 
+	data.
+\end{remark}
+
+\begin{remark}
+	Note that cover inclusions are inner $G$-anodyne, relate to Rezk.
+\end{remark}
+
+
+{\color{red} Need to remark on the possibility of $X$ not being normal?}
+
+
 \cite{Rez01}
+
+\begin{proposition}
+	Let $X$ be a dendroidal Segal space. 
+	Then the map $X \to X^{J_d}$
+\end{proposition}
 
 {\color{red} HERE}
 
@@ -1547,13 +1731,15 @@ $\Lambda^0[1]$ are unneeded since (\ref{INVER EQ}) is an isomorphism on $0$-simp
 \]
 
 
+
 \begin{remark}
-	Noting that 
-	$\iota \colon \Delta \to \Omega$
-	is the inclusion of the ``linear trees'', 
-	we will similarly write
-	$\iota \colon \Delta \times \mathsf{O}_G \to \Omega_G$
+Indexing systems are precisely the Segal sieves of $\Omega_G$.
 \end{remark}
+
+
+\begin{lemma}
+	A non-equivariant face $U \hookrightarrow T$ generates an equivariant face $G\cdot U \hookrightarrow T$ iff the $G$-isotropy of $r_U$ matches the isotropy of $U$.
+\end{lemma}
 
 
 
