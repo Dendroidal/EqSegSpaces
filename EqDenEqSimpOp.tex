@@ -917,16 +917,9 @@ the (anodyne) horn inclusions.
 
 \subsection{Actual Stuff}
 
-
-\begin{notation}
-Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
-$H_0 \geq H_i$, $1 \leq i \leq k$ we write
-$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
-$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
-\end{notation}
-
-
-Following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if is closed under pushouts, transfinite composition, retracts, and satisfies the following cancellation property: if in
+Recall that a class of maps is called \textit{saturated}
+if it is closed under pushouts, transfinite composition and retracts.
+Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
 \[
 A \xrightarrow{f} B \xrightarrow{g} C
 \]
@@ -935,30 +928,33 @@ both $f$ and $gf$ are in the class, then so is $g$.
 The following is an equivariant generalization of 
 \cite[Props. 2.4 and 2.5]{CM13a}.
 
-\begin{proposition}
-      \label{HYPER PROP}
+\begin{proposition}\label{HYPER PROP}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
 $\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
-\item the $G$-inner orbital horn inclusions
+\item the orbital $G$-inner horn inclusions
 $\Lambda^{Ge}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
 \item the $G$-segal core inclusions
 $Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
 \end{itemize}
-
+Moreover, one also has the following:
+\begin{itemize}
+	\item[(a)] orbital $G$-inner horn inclusions are in the saturation of $G$-inner horn inclusions;
+	\item[(b)] $G$-segal core inclusions are in the saturation of both orbital $G$-inner horn and $G$-inner horn inclusions.
+\end{itemize}
 \end{proposition}
 
-{\color{red} HERE}
 
 \begin{remark}
 	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
-	one recovers the more well known claim that 
-	the hypersaturation (in fact, saturation) of the simplicial inner horns
+	one recovers the well known claim that 
+	the hypersaturation of the simplicial inner horns
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\}$.
+	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
 \end{remark}
+
 
 \begin{remark}\label{HYPERSATKAN REM}
 	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
@@ -971,6 +967,13 @@ $Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
 	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
 	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
 \end{remark}
+
+\begin{notation}
+Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
+$H_0 \geq H_i$, $1 \leq i \leq k$ we write
+$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
+$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
+\end{notation}
 
 
 The following is the equivariant generalization of 
@@ -1892,9 +1895,6 @@ $X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
 
 
 
-{\color{red} HERE}
-
-
 \begin{proposition}
 	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is fully faithful and essentially surjective.
 \end{proposition}
@@ -1904,16 +1904,6 @@ $X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
 	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
 	$\mathsf{sdSet}^G$.
 \end{corollary}
-
-\begin{proof}
-k
-\end{proof}
-
-
-
-
-
-{\color{red} HERE}
 
 
 \begin{remark}
@@ -1978,9 +1968,6 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{remark}
 
 
-{\color{red} HERE}
-
-
 \[
 \begin{tikzcd}[column sep =3.5em,row sep =3.5em]
 	W_1 \times_{W_0} W_1 \times_{W_0} W_1 
@@ -2043,11 +2030,11 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 
 
 
-\begin{remark}\label{OUTINP REM}
-	Let $U \hookrightarrow T$ be an outer face.
-	Then for any string of descendancy relations
-	$e <_d e' <_d r$ such that $e,r\in U$ it is also $e' \in U$.
-\end{remark}
+%\begin{remark}\label{OUTINP REM}
+%	Let $U \hookrightarrow T$ be an outer face.
+%	Then for any string of descendancy relations
+%	$e <_d e' <_d r$ such that $e,r\in U$ it is also $e' \in U$.
+%\end{remark}
 
 
 
