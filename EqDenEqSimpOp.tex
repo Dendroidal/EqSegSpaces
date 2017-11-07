@@ -142,7 +142,7 @@ The following are the categories currently with model structures and the right a
 \end{remark}
 
 \begin{remark}
-      If $E$ is the entire set of inner edges, we denote $\Lambda^{E}[T]$ by $\partial^{out}[T]$,
+      If $E$ is the entire set of inner edges, we denote $\Lambda^{E}[T]$ by $\partial^{out}\Omega[T]$,
       and call it the \textit{outer boundary}.\footnote{
         in \cite{CM13a}, this was called the \textit{external} boundary.}
 \end{remark}
@@ -197,6 +197,23 @@ The following are the categories currently with model structures and the right a
 \subsection{Proof of \ref{HYPER PROP}}
 
 \begin{definition}
+      We observe that, for any face $U_0$ of $T \simeq G \cdot_H T_0$ with $\mathrm{Stab}(U_0) = K < H$, that
+      $\Omega[G \cdot_K H] \to \Omega[T]$
+      is not injective.
+      This adds minor complications.
+      To that end, given $X,Y \in \mathsf{dSet} \downarrow \Omega[T]$, we let
+      $X \cup_T Y$ denote the union of their images in $\Omega[T]$.
+\end{definition}
+
+\begin{remark}
+      By Remark \ref{CAP_CUP_REM} and Corollary \ref{IM_COR}, we have that
+      \begin{equation}
+            X \cup_T Y = \mathsf{im}(X) \cup \mathsf{im}(Y) \simeq \mathsf{im}(X \cup Y).
+      \end{equation}
+\end{remark}
+
+
+\begin{definition}
       Given $T$, $T_0$, and $H$ as above,
       let $U_0 \subseteq T_0$ be a (non-equivariant) subtree, and
       let $K = \mathrm{Stab}_H(U_0)$.
@@ -204,47 +221,50 @@ The following are the categories currently with model structures and the right a
       which contains all proper outer faces of $U_0$, and
       an inner edge edge $e \in U_0$.
       We say that $K e \subseteq U_0$ is a \textit{characteristic edge orbit} of
-      $X \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$
+      $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$
       if we have, for any $R_0 \in \mathscr{F}_{\mathrm{Inn}}(U_0)$ containing $e$ as an inner edge,
       \begin{equation}
-            R_0 \in \mathscr{F}_{\mathrm{Inn}}(U) \cap X \mbox{ if and only if } R_0/ \bar K e \in \mathscr{F}_{\mathrm{Inn}}(U) \cap X,
+            R_0 \in \mathscr{F}_{\mathrm{Inn}}(U_0) \cap X
+            \mbox{ if and only if }
+            R_0 / \bar K e \in \mathscr{F}_{\mathrm{Inn}}(U_0) \cap X,
       \end{equation}
       where $\bar K = \mathrm{Stab}_{K}(R_0)$. 
 \end{definition}
 
 \begin{proposition}
       \label{CHAR_HORN_PROP}
-      Given $T$, $T_0$, $H$, $U_0$, and $X$ as above, we have that
-      $K e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \supseteq \Omega[G \cdot U]$
-      implies that $X \to \X \cup \Omega[G \cdot U]$ is inner $G$-anodyne.
+      Given $T$, $T_0$, $H$, $U_0$, $K$, and $X$ as above, we have that
+      $K e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$
+      implies that $X \to X \cup_T \Omega[G \cdot_K U_0]$ is inner $G$-anodyne.
 \end{proposition}
 \begin{proof}
-      If $\Omega[U]$ is already contained in $X$, we are done.
+      If $\mathsf{im}(\Omega[G \cdot_K U_0])$ is already contained in $X$, we are done.
       Assuming otherwise, it suffices to show that for all
       $C \subseteq C'$ $K$-closed concave subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
       \begin{equation}
-            X \cup G \cdot_K \left( \bigcup\limits_{C}\Omega[U_0 \setminus E] \right)
+            X \cup_T G \cdot_K \left( \bigcup\limits_{C}\Omega[U_0 \setminus E] \right)
             \to
-            X \cup G \cdot_K \left( \bigcup\limits_{C'}\Omega[U_0 \setminus E'] \right)                     
+            X \cup_T G \cdot_K \left( \bigcup\limits_{C'}\Omega[U_0 \setminus E'] \right)                     
       \end{equation}
-      is inner $G$-anodyne.
+      is inner $G$-anodyne
+      (where the union $\cup$ takes place in $\Omega[U_0] \subseteq \Omega[T_0]$).
       Indeed, once $C = \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
       \begin{equation}
             \begin{tikzcd}
-                  G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d] \arrow[r]
+                  G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d, hookrightarrow] \arrow[r]
                   &
-                  X \cup G \cdot_K \left( \bigcup\limits_{E \in \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right)
+                  X \cup_T G \cdot_K \left( \bigcup\limits_{E \in \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right) \subseteq \Omega[T]
                   \\
-                  G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot U_0] \arrow[r]
+                  G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot_K U_0] \arrow[r]
                   &
-                  X \cup \Omega[G \cdot U_0].
+                  X \cup_T \Omega[G \cdot_K U_0] \subseteq \Omega[T].
             \end{tikzcd}
       \end{equation}
       Moreover, it suffices to consider $C' = C \cup H.D$ for $D \subseteq U_0$, where
       without loss of generality $e \not\in D$ and $U_0 \setminus D$ is not in the domain.
       Let $\bar K = \mathrm{Stab}_H(D)$.
 
-      We first claim that $\Lambda^{K e}[U_0 \setminus D]$ is in the domain.
+      We first claim that (the image of) $\Lambda^{K e}[U_0 \setminus D]$ is in the domain.
       If $S_0$ is an outer face of $U_0 \setminus D$, then
       $S_0$ factors through an outer face of $U_0$, and so $S_0$ is in $X$.
       Further, if $S_0 = U_0 \setminus (D \cup E)$ with $E \cap K e = \varnothing$,
@@ -270,27 +290,27 @@ The following are the categories currently with model structures and the right a
 
 
 
-\begin{lemma}
-      Suppose $U_0$ is a minimal outer face of $T$ not in $\Lambda_0^{Ge}[T]$, and suppose $e\in U_0$.
-      Then $K e$ is a characteristic edge orbit for $\Lambda_0^{Ge}[T] \subseteq \Omega[T] \supseteq[G \cdot U_0]$.
-\end{lemma}
-\begin{proof}
-      Consider an inner face $U_0 \setminus D$ of $U_0$, with $\bar K = \mathrm{Stab}_H(U_0 \setminus D) \leq K$, and
-      suppose $U_0 \setminus D \cup \bar K e \in \Lambda_0^{Ge}[T]$.
-      Then
-      \begin{equation}
-            K_r = \mathrm{Stab}_H(r_U) \leq \mathrm{Stab}_H(U_0 \setminus D \cup \bar K e) \leq \mathrm{Stab}_H(U_0) \leq Kr,
-      \end{equation}
-      so the outer face $U_0$ is $K_r$-closed and not in $\Lambda_0^{Ge}[T]$, and hence we conclude that $U_0$ must be $T_0$.
-      However, if $\Lambda^{Ge}_0[T] \neq \Lambda^{Ge}[T]$, $T_0$ is not a minimal outer face not in $\Lambda_0^{Ge}[T]$.
-      Thus, in these cases, $K e$ is a characteristic edge orbit vacuously.
-      If in fact $\Lambda_o^{Ge}[T] = \Lambda^{Ge}[T]$, then $T \simeq G \cdot T_0$, so $H = \bar K = K_r = \set{e}$.
-      Now, since $U_0 \setminus D \cup e \in \Lambda_0^{Ge}[T]$,
-      $D \setminus e \neq \varnothing$, so
-      $U_0 \setminus D \in \Lambda_0^{Ge}[T]$.
-\end{proof}
+% \begin{lemma}
+%       Suppose $U_0$ is a minimal outer face of $T$ not in $\Lambda_0^{Ge}[T]$, and suppose $e\in U_0$.
+%       Then $K e$ is a characteristic edge orbit for $\Lambda_0^{Ge}[T] \subseteq \Omega[T] \leftarrow[G \cdot_K U_0]$.
+% \end{lemma}
+% \begin{proof}
+%       Consider an inner face $U_0 \setminus D$ of $U_0$, with $\bar K = \mathrm{Stab}_H(U_0 \setminus D) \leq K$, and
+%       suppose $U_0 \setminus D \cup \bar K e \in \Lambda_0^{Ge}[T]$.
+%       Then
+%       \begin{equation}
+%             K_r = \mathrm{Stab}_H(r_U) \leq \mathrm{Stab}_H(U_0 \setminus D \cup \bar K e) \leq \mathrm{Stab}_H(U_0) \leq Kr,
+%       \end{equation}
+%       so the outer face $U_0$ is $K_r$-closed and not in $\Lambda_0^{Ge}[T]$, and hence we conclude that $U_0$ must be $T_0$.
+%       However, if $\Lambda^{Ge}_0[T] \neq \Lambda^{Ge}[T]$, $T_0$ is not a minimal outer face not in $\Lambda_0^{Ge}[T]$.
+%       Thus, in these cases, $K e$ is a characteristic edge orbit vacuously.
+%       If in fact $\Lambda_o^{Ge}[T] = \Lambda^{Ge}[T]$, then $T \simeq G \cdot T_0$, so $H = \bar K = K_r = \set{e}$.
+%       Now, since $U_0 \setminus D \cup e \in \Lambda_0^{Ge}[T]$,
+%       $D \setminus e \neq \varnothing$, so
+%       $U_0 \setminus D \in \Lambda_0^{Ge}[T]$.
+% \end{proof}
 
-\todo[inline]{come back: the above proof is less-than-illuminating. Either combine with the below proof, or reconfigure}
+% \todo[inline]{come back: the above proof is less-than-illuminating. Either combine with the below proof, or reconfigure}
 
 \begin{proposition}
       \label{ORB_HORN_PROP}
@@ -309,39 +329,52 @@ The following are the categories currently with model structures and the right a
       is inner $G$-anodyne.
       Again, suffices to show when $B' = B \cup \set{U_0}$. Let $K = \mathrm{Stab}_G(U_0)$, and
       without loss of generality assume $e \in U_0$.
-      The case $B = \varnothing$ is the previous lemma.
+      For the final reduction, Proposition \ref{CHAR_HORN_PROP} implies it suffices to show
+      $K e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \leftarrow \Omega[G \cdot U_0]$.
+      To that end, let $U_0 \setminus D$ be an inner face with stabilizer $\bar K$.
+      
+      For $B = \varnothing$, we suppose $U_0 \setminus \bar K e \in \Lambda_o^{G e}[T]$. This implies that
+      \begin{equation}
+            K_r := \mathrm{Stab}_H(r_U) \leq \mathrm{Stab}_H(U_0 \setminus D \cup \bar K e) \leq \mathrm{Stab}_H(U_0) \leq Kr,
+      \end{equation}
+      so the outer face $U_0$ is $K_r$-closed and not in $\Lambda_0^{Ge}[T]$, and hence we conclude that $U_0$ must be $T_0$.
+      However, if $\Lambda^{Ge}_0[T] \neq \Lambda^{Ge}[T]$, $T_0$ is not a minimal outer face not in $\Lambda_0^{Ge}[T]$.
+      Thus, in these cases, $K e$ is a characteristic edge orbit vacuously.
+      If in fact $\Lambda_o^{Ge}[T] = \Lambda^{Ge}[T]$, then $T \simeq G \cdot T_0$, so $H = \bar K = K_r = \set{e}$.
+      Now, since $U_0 \setminus D \cup e \in \Lambda_0^{Ge}[T]$,
+      $D \setminus e \neq \varnothing$, so
+      $U_0 \setminus D \in \Lambda_0^{Ge}[T]$.
+      
       For general $B$, we know the domain contains all outer faces of $U_0$ by convexity.
       Now, let $U_0 \setminus D$ be an inner face, with stabilizer $\bar K$.
       Then $U_0 \setminus D \cup \bar K e$ is in the domain if either
       $U_0 \setminus D \cup \bar K e$ is contained in some $\Omega[G \cdot R_0]$, or
       $U_0 \setminus D \cup \bar K e \in \Lambda_o^{Ge}[T]$.
       But then $U_0$ is contained in $R_0$ since both are outer faces, or again we apply the previous lemma.
-      Both lead to contradictions, and thus we may conclude that
-      $K e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \supseteq \Omega[G \cdot U_0]$.
-      Thus, the result holds by Proposition \ref{CHAR_HORN_PROP}.
+      Both lead to contradictions, and thus the result follows.
 \end{proof}
 
-\begin{corollary}
-      Generalized orbital horn inclusions $\Lambda^{E}_o[T] \to \Omega[T]$ are inner $G$-anodyne,
-      where $E$ is any $G$-closed set of inner edges of $T$.
-\end{corollary}
-\begin{proof}
-      Suffices to show that $\Lambda^{E}_o[T] \to \Lambda^{E \setminus G e}_o[T]$ is inner $G$-anodyne.
-      This follows from the observation that the diagram below is a pushout.
-      \begin{equation}
-            \begin{tikzcd}
-                  \Lambda^{E \setminus G e}[T \setminus G e] \arrow[d] \arrow[r]
-                  &
-                  \Lambda^E_o[T] \arrow[d]
-                  \\
-                  \Omega[T \setminus G e] \arrow[r]
-                  &
-                  \Lambda^{E \setminus G e}_o[T].
-            \end{tikzcd}
-      \end{equation}
-\end{proof}
+% \begin{corollary}
+%       Generalized orbital horn inclusions $\Lambda^{E}_o[T] \to \Omega[T]$ are inner $G$-anodyne,
+%       where $E$ is any $G$-closed set of inner edges of $T$.
+% \end{corollary}
+% \begin{proof}
+%       Suffices to show that $\Lambda^{E}_o[T] \to \Lambda^{E \setminus G e}_o[T]$ is inner $G$-anodyne.
+%       This follows from the observation that the diagram below is a pushout.
+%       \begin{equation}
+%             \begin{tikzcd}
+%                   \Lambda^{E \setminus G e}[T \setminus G e] \arrow[d] \arrow[r]
+%                   &
+%                   \Lambda^E_o[T] \arrow[d]
+%                   \\
+%                   \Omega[T \setminus G e] \arrow[r]
+%                   &
+%                   \Lambda^{E \setminus G e}_o[T].
+%             \end{tikzcd}
+%       \end{equation}
+% \end{proof}
 
-The reverse inclusion is only true on the hypersaturation.
+The reverse inclusion is only true on the level of hypersaturations.
 \begin{definition}
       Let $W_o$ be the hypersaturation of the orbital horn inclusions.
 \end{definition}
@@ -358,10 +391,10 @@ The reverse inclusion is only true on the hypersaturation.
 
       Now, the proof of Proposition \ref{CHAR_HORN_PROP} says that,
       for any face $U_0 \subseteq T_0$,
-      if $K e$ is a characteristic edge orbit for $X \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$, then
+      if $K e$ is a characteristic edge orbit for $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$, then
       \begin{equation}
             \label{CHAR_ATTACH_EQ}
-            X \to X \cup \Omega[G \cdot_K U_0]
+            X \to X \cup_T \Omega[G \cdot_K U_0]
       \end{equation}
       is cellular on maps of the form in \eqref{CHAR_HORN_EQ}, where $D$ is a set of inner edges.
       % (containing all of $\bar K e$ if it is non-empty).
@@ -374,22 +407,22 @@ The reverse inclusion is only true on the hypersaturation.
       It then suffices to show that, for any $H$-closed $H$-concave subposets $B \subseteq B' \subseteq \mathrm{Inn}^{G e,-o}(T)$,
       \begin{equation}
             \label{ORB_HORN_ATTACH_EQ}
-            A \cup \mathop{\bigcup}\limits_{U_0 \in  B}\Omega[G \cdot_{K} U_0]
+            A_B := A \cup_T \mathop{\bigcup}\limits_{U_0 \in  B}\Omega[G \cdot_{K} U_0]
             \to
-            A \cup \mathop{\bigcup}\limits_{U_0 \in B'}\Omega[G \cdot_{K} U_0]
+            A \cup_T \mathop{\bigcup}\limits_{U_0 \in B'}\Omega[G \cdot_{K} U_0] =: A_B'
       \end{equation}
       is in $W_o$,
       where $\mathrm{Inn}^{G e,-o}(T)$ is the poset of inner faces of $T$ which contain $H e$ and are not in $\Lambda^{G e}_o[T]$.
-      Indeed, $A \cup \mathop{\bigcup}\limits_{\mathrm{Inn}^{G e,-o}(T)}\Omega[G \cdot_K U_0] = \Lambda^{G e}[T]$,
+      Indeed, $A \cup_T \mathop{\bigcup}\limits_{\mathrm{Inn}^{G e,-o}(T)}\Omega[G \cdot_K U_0] = \Lambda^{G e}[T]$,
       so the result follows from the cancelation property in the definition of hypersaturation.
 
-      We may assume that $B' = B \cup (G\cdot_K \set{U_0})$, for $U_0 = T_0 \setminus D$,
-      and let's call the domain of \eqref{ORB_HORN_ATTACH_EQ} $A'$.
+      We may assume that $B' = B \cup (G\cdot_K \set{U_0})$, for $U_0 = T_0 \setminus D$.
+      % and let's call the domain of \eqref{ORB_HORN_ATTACH_EQ} $A_B$.
       Then, it suffices to show that $K e$ is a characteristic edge orbit for
-      $A' \subseteq \Omega[T] \supseteq \Omega[G \cdot_K U_0]$.
-      Since $A'$ contains all outer faces of $T$ (and hence all outer faces of $U_0$),
+      $A_B \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$.
+      Since $A_B$ contains all outer faces of $T$ (and hence all outer faces of $U_0$),
       let $R_0 = T_0 \setminus D \cup E$ be an inner face of $U_0$ with isotropy $\bar K$, and suppose
-      $R_0 \setminus \bar K e$ is in $A'$.
+      $R_0 \setminus \bar K e$ is in $A_B$.
       We see $R_0 \setminus \bar K e \in \Lambda^{G e}_o[T]$ iff $D \cup E$ contains a full $H$-orbit $H t$ of edges, in which case
       \begin{equation}
             R_0 \setminus \bar K e = T_0 \setminus D \cup E \cup K e
@@ -415,15 +448,8 @@ The reverse inclusion is only true on the hypersaturation.
 
 
 
+We will now compare Segal core inclusions with the inner horn inclusions.
 
-\todo[inline]{come back - fix this. Don't reprove everything.}
-
-
-
-
-
-$\Lambda^E[T] \to \Omega[T]$ are also inner $G$-anodyne.
-By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
 \begin{lemma}
       \label{SC_IN_GHORN_PROP}
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
@@ -431,42 +457,57 @@ By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
 \begin{proof}
       Let $Out^n(T)$ denote the poset of outer faces $U_0$ of $T$ (factoring through $T_0$) such that
       $|V(U_0)| = n$,
-      and define $\Omega[T]_n \subseteq \Omega[T]$ to be the subdendroidal set
+      and for $B \subseteq Out^n(T)$ an $H$-concave subset,
+      define $S_B \subseteq \Omega[T]$ to be the subdendroidal set given by the pushout
       \begin{equation}
-            \mathop{\bigcup}\limits_{Out^n(T)}\Omega[G \cdot_K U_0] 
-      \end{equation}
-      where $K = \mathrm{Stab}(U_0)$.
-      As in the proof of \cite[2.4]{CM13a}, these give a filtration
-      \begin{equation}
-            Sc[T] = \Omega[T]_1 \subseteq \Omega[T]_2 \subseteq \cdots \subseteq \Omega[T]_{|V(T)|-1} = \partial^{out}[T]
-            \to \Omega[T]_{|V(T)|} = \Omega[T].
-      \end{equation}
-      We will show that $\Omega[T]_{n-1} \to \Omega[T]_n$ is inner $G$-anodyne for all $n$.
-      More specifically, given $B \subseteq Out^n(T)$ an $H$-concave subset,
-      let $S_B$ be the pushout
-      \begin{equation}
+            \label{SB_DEFN_EQ}
             \begin{tikzcd}
-                  \bigcup_B Sc[G \cdot_K U_0] \arrow[r] \arrow[d]
+                  \bigcup_{B/H} Sc[G \cdot_K U_0] \arrow[r] \arrow[d]
                   &
                   Sc[T] \arrow[d]
                   \\
-                  \bigcup_B \Omega[G \cdot_K U_0] \arrow[r]
+                  \bigcup_{B/H} \Omega[G \cdot_K U_0] \arrow[r]
                   &
-                  S_B \subseteq \Omega[T]
+                  S_B \subseteq \Omega[T],
             \end{tikzcd}
       \end{equation}
-      (or equivalently, $\bigcup_B \mathsf{im}\Omega[G \cdot_K U_0]$),
-      and we will show that $S_B \cup \Omega[T]_{n-1} \to S_B$
+      or equivalently
+      \begin{equation}
+            \Omega[T]_n
+            = \mathsf{im}\left(\mathop{\bigcup}\limits_{B}\Omega[G \cdot_K U_0]\right)
+            = \mathop{\bigcup}\limits_{B}\mathsf{im}(\Omega[G \cdot_K U_0],
+      \end{equation}
+      where $K = \mathrm{Stab}(U_0)$.
+      With $B = Out^n(T)$, we denote $S_B$ by $\Omega[T]_n$.
+      As in the proof of \cite[2.4]{CM13a}, these give a filtration
+      \begin{equation}
+            Sc[T] = \Omega[T]_1 \subseteq \Omega[T]_2 \subseteq \cdots \subseteq \Omega[T]_{|V(T)|-1} = \partial^{out}\Omega[T]
+            \to \Omega[T]_{|V(T)|} = \Omega[T].
+      \end{equation}
+      We will show that $\Omega[T]_{n-1} \to \Omega[T]_n$ is inner $G$-anodyne for all $n$.
+      More specifically, we will show that $S_B \cap \Omega[T]_{n-1} \to S_B$
       is inner $G$-anodyne, by induction on $|B|$.
 
       If $|B| = 1$, then
       \begin{equation}
-            \Omega[G \cdot_K U_0] \cap \Omega[T]_{n-1} = G \cdot_K \partial^{out}[U_0] = \partial^{out}[G \cdot_K U_0].
+            \Omega[G \cdot_K U_0] \cap_T \Omega[T]_{n-1} = G \cdot_K \partial^{out}\Omega[U_0] = \partial^{out}\Omega[G \cdot_K U_0].
       \end{equation}
       By \cite[6.17]{Per17}, we have the generalized horn inclusions are inner $G$-anodyne, so in particular
-      the outer boundary inclusions are all inner $G$-anodyne.
+      the outer boundary inclusions are all inner $G$-anodyne,
+      and hence so is the right vertical map
+      \begin{equation}
+            \begin{tikzcd}
+                  \partial^{out}\Omega[G \cdot_K U_0] \arrow[r] \arrow[d]
+                  &
+                  S_B \cap \Omega[T]_{n-1} \arrow[d]
+                  \\
+                  \Omega[G \cdot_K U_0] \arrow[r]
+                  &
+                  S_B.
+            \end{tikzcd}
+      \end{equation}
       If $|B| = j$, then let $B' = B \setminus H \cdot_K \set{U_0}$.
-      Defining $\cap$ and $\cup$ in $\mathsf{dSet} \downarrow \Omega[T]$ as in Remark \ref{CAP_CUP_REM},
+      Continuing to define $\cap_T$ and $\cup_T$ in $\mathsf{dSet} \downarrow \Omega[T]$ as in Remark \ref{CAP_CUP_REM},
       we may follow the proof of \cite[2.4]{CM13a} to conclude that
       the map in question is inner $G$-anodyne for all $|B|$.
       When $B$ is all of $Out^n(T)$, $S_B = \Omega[T]_n$, so we have that
@@ -477,77 +518,61 @@ By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
 \end{proof}
 
 \begin{definition}
-      Let $W = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
+      Let $W_{SC} = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
 \end{definition}
 
 \begin{lemma}
       \label{GHORN_IN_SC_PROP}
-      The inner $G$-horn inclusions are contained in the hypersaturation of the Segal core inclusions.
+      The inner $G$-horn inclusions are contained in $W_{SC}$.
 \end{lemma}
 \begin{proof}
       We follow the proof of \cite[2.5]{CM13a}, but again account for the equivariant peculiarities.
-      It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $W$
+      It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $W_{SC}$
       for any $T\in \Omega_G$ and inner edge $e$ of $T$.
 
       Suppose we have a decomposition $T \simeq G \cdot_H T_0$, where $H = \mathrm{Stab}(T_0)$.
-      We go by induction on $|H| \times |V_G(T_0)|$. \todo{$V_G$ or $V$?}
+      We go by induction on $|H| \times |V_H(T_0)|$.
 
       Suppose $H = e$.
       Then, since $G \cdot SCI \subseteq SCI_G$,
       and by \cite[2.5]{CM13a} we know $IHI \subseteq \hat{W}(SCI)$, we conclude that
       \begin{equation}
-            G \cdot IHI \subseteq G \cdot (\hat{W}(SCI)) \subseteq \hat{W}(G \cdot SCI) \subseteq \hat{W}(SCI_G).
+            G \cdot IHI \subseteq G \cdot (\hat{W}(SCI)) \subseteq \hat{W}(G \cdot SCI) \subseteq \hat{W}(SCI_G) = W_{SC}.
       \end{equation}
       
-      If $H \neq e$, and $V_G(T_0) = 2$, then there is only one inner edge orbit, so
+      If $H \neq e$, and $V_H(T_0) = 2$, then there is only one inner edge orbit, so
       the Segal core is an inner horn.
-      Thus, we may assume that $V_G(T_0) > 2$.
+      Thus, we may assume that $V_H(T_0) > 2$.
 
-      Let $B \subseteq \mathsf{Out}^m(T)$ be an $H$-concave subseteq of maximal outer faces of $T$
+      Let $B \subseteq \mathsf{Out}^{max}(T)$ be an $H$-concave subseteq of maximal outer faces of $T$
       (factoring through $T_0$)
-      such that $|B| \geq 2$.
-      Using Remark \ref{CAP_CUP_REM} on the category $\mathsf{dSet} \downarrow \Omega[T]$, we define
-      $S_B \subseteq$ to be the pushout
-      \begin{equation}
-            \begin{tikzcd}
-                  \bigcup_{B/H} Sc[G \cdot_{K_i}U_i] \arrow[r] \arrow[d]
-                  &
-                  Sc[T] \arrow[d]
-                  \\
-                  \bigcup_{B/H} \Omega[G \cdot_{K_i}U_i] \arrow[r]
-                  &
-                  S_B,
-            \end{tikzcd}
-      \end{equation}
-      or equivalently (using Corollary \ref{IM_COR}),
-      \begin{equation}
-            S_B = \mathsf{im}\left(\bigcup_B \Omega[G \cdot_{K_i} U_i] \right)
-            = \bigcup_B \mathsf{im} \left( \Omega[G \cdot_{K_i} U_i] \right)
-            \subseteq \Omega[T].
-      \end{equation}
+      such that $|B| \geq 2$, and
+      define $S_B \subseteq \Omega[T]$ as in \eqref{SB_DEFN_EQ}.
 
       Dually, let $C \subseteq \mathsf{Inn}^{G e}(T)$ be an $H$-concave subset of inner faces containing $H e$,
-      and we define $R_C$ to be the pushout
+      and we define $R_C \subseteq \Omega[T]$ to be the pushout
       \begin{equation}
             \begin{tikzcd}
-                  \bigcup_{C/H} \partial^{out}[G \cdot_{K_i} U_i] \arrow[r] \arrow[d]
+                  \bigcup_{C/H} \partial^{out}\Omega[G \cdot_{K_i} U_i] \arrow[r] \arrow[d]
                   &
-                  \partial^{out}[T] \arrow[d]
+                  \partial^{out}\Omega[T] \arrow[d]
                   \\
                   \bigcup_{C/H} \Omega[G \cdot_{K_i} U_i] \arrow[r]
                   &
                   R_C
             \end{tikzcd}
       \end{equation}
-      or equivalently $R_C = \mathsf{im}(\bigcup_C \Omega[G \cdot_{K_i} U_i]) \cup \Lambda^{I(T)}[T]$.
+      or equivalently
+      $R_C = \mathsf{im}(\bigcup_{C/H} \Omega[G \cdot_{K_i} U_i]) \cup \partial^{out}\Omega[T]
+       = (\bigcup_{C/H} \Omega[G \cdot_{K_i} U_i]) \cup_T \partial^{out}\Omega[T]$.
 
       The Segal core inclusion $Sc[T] \to \Omega[T]$ may be realized as the composition
       \begin{equation}
-            Sc[T] \to S_B \to \partial^{out}[T] \to R_C \to \Lambda^{G e}[T] \to \Omega[T].
+            Sc[T] \to S_B \to \partial^{out}\Omega[T] \to R_C \to \Lambda^{G e}[T] \to \Omega[T].
       \end{equation}
-      We will show, in order, that each map in this factorization is in $W$.
+      We will show, in order, that each map in this factorization is in $W_{SC}$.
 
-      First, we will show $Sc[T] \to S_B$ is in $W$, by induction on $|B/H|$. 
+      First, we will show $Sc[T] \to S_B$ is in $W_{SC}$, by induction on $|B/H|$. 
       If $|B/H| = 1$, with $B = H \cdot_K \set{U_0}$ and $[H: K] \geq 2$, then we have a pushout
       \begin{equation}
             \begin{tikzcd}
@@ -560,7 +585,7 @@ By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
                   S_B = \mathsf{im}(\Omega[G \cdot_K U_0]) \subseteq \Omega[T].
             \end{tikzcd}
       \end{equation}
-      The left vertical map is in $W$ since $K < H$, and hence so is the right vertical map.
+      The left vertical map is in $W_{SC}$ since $K < H$, and hence so is the right vertical map.
 
       Now suppose $|B/H| = 2$, so $B = H \cdot_{K_0} \set{U_0} \cup H \cdot_{K_1} \set{U_1}$,
       and let $K_{01} = K_0 \cap K_1 = \mathrm{Stab}(U_1 \cap U_0)$. 
@@ -569,15 +594,15 @@ By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
             Sc[G \cdot_{K_{01}} U_1 \cap U_2] \to \Omega[G \cdot_{K_{01}} U_1 \cap U_2]
             = \Omega[G \cdot_{K_1} U_1] \cap \Omega[G \cdot_{K_2} U_2]
       \end{equation}
-      is in $W$, as either $K < H$ or $|V_G(G \cdot_H(U_1 \cap U_2))| < |V_G(T)|$.
+      is in $W_{SC}$, as either $K < H$ or $|V_G(G \cdot_H(U_1 \cap U_2))| < |V_G(T)|$.
       For the same reasons, we have that both
       \begin{equation}
             Sc[G \cdot_{K_i} U_i] \to \Omega[G \cdot_{K_i} U_i]
       \end{equation}
-      are in $W$.
+      are in $W_{SC}$.
       With this setup, we may follow the proof in \cite[2.4]{CM13a}
       (using Remark \ref{CAP_CUP_REM} and Corollary \ref{IM_COR} when necessary)
-      and conclude that the left vertical map in the pushout below is in $W$,
+      and conclude that the left vertical map in the pushout below is in $W_{SC}$,
       and hence so is the right map.
       \begin{equation}
             \begin{tikzcd}
@@ -591,9 +616,15 @@ By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
             \end{tikzcd}
       \end{equation}
       The induction step also follows as in \cite{CM13a}:
-      letting $B' = B \setminus H\cdot_{K_0}U_0$, we may assume the same inductive step
-      (using again that either $K \leq H$ or $V_G$ is strictly smaller),
-      and conclude that the top map in the pushout below is in $W$, implying
+      letting $B' = B \setminus H\cdot_{K_0}U_0$, we have by induction that
+      \begin{equation}
+            Sc[G \cdot_{K_0} U_0] \to \mathop{\bigcup}\limits_{U_i \in B'/H} \Omega[G \cdot_{K_{0i}} (U_0 \cap U_i)]
+      \end{equation}
+      is in $W_{SC}$
+      (as the target is $S_{B''}$ for $B'' =  \mathsf{Out}^{max}(G \cdot_{K_0} U_0)$, and again either
+      $K_0 < H$ or $|V_H(U_0)| = |V_H(T_0) - 1|$),
+      and thus (for the same reasons as in \cite{CM13a})
+      we may conclude that the top map in the pushout below is in $W_{SC}$, implying
       by induction that the bottom composite is as well.
       \begin{equation}
             \begin{tikzcd}
@@ -610,8 +641,33 @@ By \cite[2.4]{CM13a}, $Sc[T_0] \to \Omega[T_0]$ is inner anodyne.
             \end{tikzcd}
       \end{equation}
 
-      
-      \todo[inline]{come back: do inner edges}
+      Now, we will show each $\partial^{out}\Omega[T] \to R_C$ is in $W_{SC}$, by induction on $|C/H|$. 
+      If $|C/H| = 1$, then
+      $\partial^{out}\Omega[G \cdot_{K_0} \partial^{t_0}T_0] \to \Omega[G \cdot_{K_0} \partial^{t_0}T_0]$
+      is in $W_{SC}$ by induction (as again, either $K_0 < H$ or $|V_H(\partial^{t_0} T_0)| < |V_H(T_0)|$),
+      and hence so is the given inclusion by definition.
+
+      For the general case, let $C' = C \setminus H\cdot_{K_0}\set{\partial^{t_0} T_0}$,
+      and let $\partial^{t_0}C'$ denote the induced subset of $Inn^{K_0 e}[G \cdot_{K_0} \partial^{t_0} T_0]$.
+      Then we observe that $R_{C'} \cap \Omega[G \cdot_{K_0} \partial^{t_0} T_0] = R_{\partial^{t_0}C'}$,
+      and hence we have a pushout as below \todo{really?},
+      \begin{equation}
+            \begin{tikzcd}
+                  R_{\partial^{t_0} C'} \arrow[r] \arrow[d]
+                  &
+                  \Omega[G \cdot_{K_0} \partial^{t_0} T_0] \arrow[d]
+                  \\
+                  R_{C'} \arrow[r]
+                  &
+                  R_C
+            \end{tikzcd}
+      \end{equation}
+      where the top map is in $W_{SC}$ by induction (as above).
+      Thus the composite $\partial^{out}[T] \to R_C$ is in $W_{SC}$ for all $C$,
+      and so in particular $\partial^{out}[T] \to \Lambda^{G e}[T]$ is in $W_{SC}$.
+      Combining the above, we have that $Sc[T] \to \Lambda^{G e}[T]$ is in $W_{SC}$, and hence
+      by the closure property of hypersaturations, the inner horn inclusion $\Lambda^{G e}[T] \to \Omega[T]$
+      is in $W_{SC}$, as desired.
 \end{proof}
 
 
@@ -671,9 +727,13 @@ The following are straightforward.
 \begin{remark}
       \label{CAP_CUP_REM}
       In particular, this says that, for objects $Y_i \to X$,
-      $\mathsf{im}(\cap Y_i) = \cap \mathsf{im}(Y_i)$
+      \begin{equation}
+            \cap_T Y_i := \mathsf{im}(\cap Y_i) = \cap \mathsf{im}(Y_i)
+      \end{equation}
       and
-      $\mathsf{im}(\cup Y_i) = \cup \mathsf{im}(Y_i)$
+      \begin{equation}
+            \cup_T Y_i := \mathsf{im}(\cup Y_i) = \cup \mathsf{im}(Y_i)
+      \end{equation}
       where $\cap Y_i$ and $\cup Y_i$ are given by the generalized pullback and pushout
       \begin{equation}
             \cap Y_i = \lim_i(Y_i \to X), \qquad \qquad \cup Y_i = \colim_{i,j}(Y_i \cap Y_j \to Y_i).
