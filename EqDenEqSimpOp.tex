@@ -70,7 +70,7 @@
 
 \abstract{bla bla, generalizing \cite{CM13a} and possibly \cite{CM13b}.
 
-Bla, also obtain an equivariant notion of Reedy category}
+Bla, also obtain an equivariant notion of Reedy category.}
 
 
 \tableofcontents
@@ -977,16 +977,9 @@ the (anodyne) horn inclusions.
 
 \subsection{Actual Stuff}
 
-
-\begin{notation}
-Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
-$H_0 \geq H_i$, $1 \leq i \leq k$ we write
-$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
-$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
-\end{notation}
-
-
-Following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if is closed under pushouts, transfinite composition, retracts, and satisfies the following cancellation property: if in
+Recall that a class of maps is called \textit{saturated}
+if it is closed under pushouts, transfinite composition and retracts.
+Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
 \[
 A \xrightarrow{f} B \xrightarrow{g} C
 \]
@@ -995,30 +988,33 @@ both $f$ and $gf$ are in the class, then so is $g$.
 The following is an equivariant generalization of 
 \cite[Props. 2.4 and 2.5]{CM13a}.
 
-\begin{proposition}
-      \label{HYPER PROP}
+\begin{proposition}\label{HYPER PROP}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
 $\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
-\item the $G$-inner orbital horn inclusions
+\item the orbital $G$-inner horn inclusions
 $\Lambda^{Ge}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
 \item the $G$-segal core inclusions
 $Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
 \end{itemize}
-
+Moreover, one also has the following:
+\begin{itemize}
+	\item[(a)] orbital $G$-inner horn inclusions are in the saturation of $G$-inner horn inclusions;
+	\item[(b)] $G$-segal core inclusions are in the saturation of both orbital $G$-inner horn and $G$-inner horn inclusions.
+\end{itemize}
 \end{proposition}
 
-{\color{red} HERE}
 
 \begin{remark}
 	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
-	one recovers the more well known claim that 
-	the hypersaturation (in fact, saturation) of the simplicial inner horns
+	one recovers the well known claim that 
+	the hypersaturation of the simplicial inner horns
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\}$.
+	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
 \end{remark}
+
 
 \begin{remark}\label{HYPERSATKAN REM}
 	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
@@ -1031,6 +1027,13 @@ $Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
 	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
 	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
 \end{remark}
+
+\begin{notation}
+Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
+$H_0 \geq H_i$, $1 \leq i \leq k$ we write
+$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
+$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
+\end{notation}
 
 
 The following is the equivariant generalization of 
@@ -1867,12 +1870,10 @@ In the next result, note that a $G$-tree $T$ with three $G$-nodes contains preci
 	$3$-nodal $G$-trees.
 \end{proposition}
 
-{\color{red} HERE}
-
 \begin{proof}
 	For any $3$-nodal $G$-tree $T$ with inner edge orbits $Ge$, $Gf$, consider the following diagram, 
 	where all solid maps are fibrations, and the maps labelled $\sim$ are trivial fibrations.
-	\[
+\begin{equation}\label{FOURSQ EQ}
 \begin{tikzcd}[column sep =3.5em,row sep =3.5em]
 	X^{\mathsf{Sc}[T]} 
 	\ar[bend left=17,dashed]{r}
@@ -1894,40 +1895,78 @@ In the next result, note that a $G$-tree $T$ with three $G$-nodes contains preci
 	X^{\Omega[T-Gf]} \ar[->>]{r} \ar[->>]{l}{\sim}&
 	X^{\Omega[T-Ge-Gf]}
 \end{tikzcd}
+\end{equation}
+Noting that the following three diagrams,
+where $\Lambda_o^{Ge,Gf}[T]$ is a generalized orbital $G$-horn
+and $\Lambda_{o,c}^{Ge}[T]$, $\Lambda_{o,c}^{Gf}[T]$
+are characteristic orbital $G$-horns (cf. {\color{red} ref}), are pullbacks
+\[
+\begin{tikzcd}[column sep =12]
+	X^{\mathsf{Sc}[T]} 
+	\arrow[rd, phantom, "\ulcorner", near start]& 
+	X^{\mathsf{Sc}_{T[Ge]}[T]}
+	\ar[->>]{l}{\sim}
+&
+	X^{\mathsf{Sc}_{T[Ge]}[T]}
+	\ar[->>]{r} &
+	X^{\mathsf{Sc}[T-Ge]}
+	\arrow[ld, phantom, "\urcorner", near start]
+&
+	X^{\mathsf{Sc}_{T[Gf]}[T]}   \ar[->>]{d}
+	& 
+	X^{\Lambda_{o,c}^{Ge}[T]} \ar[->>]{l}{\sim}  \ar[->>]{d}
+\\
+	X^{\mathsf{Sc}_{T[Gf]}[T]} \ar[->>]{u}[swap]{\sim} &
+	X^{\Lambda_o^{Ge,Gf}[T]} \ar[->>]{u}[swap]{\sim}
+	\ar[->>]{l}{\sim}
+&
+	X^{\Lambda_{o,c}^{Gf}[T]} \ar[->>]{u}[swap]{\sim}
+	\ar[->>]{r} &
+	X^{\Omega[T-Ge]} \ar[->>]{u}[swap]{\sim}
+&
+	X^{\mathsf{Sc}[T-Gf]} 
+	\arrow[ur, phantom, "\llcorner", near start]
+	&
+	X^{\Omega[T-Gf]} \ar[->>]{l}{\sim}&
+\end{tikzcd}
 \]
-Noting that the pullback of 
-$
-X^{Sc_{T[Ge]}[T]} \to 
-X^{Sc[T]} \leftarrow
-X^{Sc_{T[Gf]}[T]}
-$
-is $X^{\Lambda_o^{Ge,Gf}[T]}$, 
-one sees that the sections in the top left corner can be chosen to be compatible in the sense that the two composites
-$X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
-{\color{red} HERE}
-
+one sees that:
+\begin{inparaenum}
+	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+$X^{Sc[T]} \to X^{\Omega[T]}$ coincide;
+	\item[(ii)] 
+	sections in the top right and bottom left squares of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+$X^{Sc[T-Ge]} \to X^{\Omega[T]}$ and $X^{Sc[T-Gf]} \to X^{\Omega[T]}$ coincide.
+\end{inparaenum}
+Note that we do not claim (or need) that (i) and (ii) hold simultaneously.
+We thus conclude that the possible choices of maps 
+$X^{\mathsf{Sc}[T]} \to X^{\Omega[T-Ge-Gf]}$
+given by outer paths in \eqref{FOURSQ EQ}
+are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X^{\partial \Omega[T-Ge-Gf]}$.
 \end{proof}
 
-{\color{red} HERE}
+
 
 \begin{remark}
-	This structure is crude, misses the interesting pullback 
-	data.
+	While in the non-equivariant case the associativity conditions in the previous result capture all the key compatibilities of the
+	$\varphi \circ_{e} (-)$, $(-)\circ_{e} \psi$
+	operations, 
+	in the equivariant case there are further 
+	``compatibilities with pullback of $G$-trees'', which are closely related to the genuine equivariant operads introduced in \cite{BP17}. 
+	However, describing these extra compatibilities would require using $G$-trees with more than $3$ $G$-nodes, and since such compatibilites are not needed for our current goals, 
+	we omit their discussion. 
 \end{remark}
 
-\begin{remark}
-	Note that cover inclusions are inner $G$-anodyne, relate to Rezk.
-\end{remark}
+	
+	{\color{red} HERE}
 
-
-{\color{red} Need to remark on the possibility of $X$ not being normal?}
 
 
 \cite{Rez01}
 
 \begin{proposition}
-	Let $X$ be a dendroidal Segal space. 
-	Then the map $X \to X^{J_d}$
+	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
+	Then the map $X \to X^{J_d}$ is a $DK$-equivalence.
 \end{proposition}
 
 {\color{red} HERE}
@@ -1938,6 +1977,10 @@ $X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
 \rightleftarrows 
 	\mathsf{dSet}^G \colon u_{\**}
 \]
+
+
+
+{\color{red} discuss characteristic horns}
 
 
 \newpage
@@ -1952,9 +1995,6 @@ $X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
 
 
 
-{\color{red} HERE}
-
-
 \begin{proposition}
 	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is fully faithful and essentially surjective.
 \end{proposition}
@@ -1964,16 +2004,6 @@ $X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
 	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
 	$\mathsf{sdSet}^G$.
 \end{corollary}
-
-\begin{proof}
-k
-\end{proof}
-
-
-
-
-
-{\color{red} HERE}
 
 
 \begin{remark}
@@ -2038,9 +2068,6 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{remark}
 
 
-{\color{red} HERE}
-
-
 \[
 \begin{tikzcd}[column sep =3.5em,row sep =3.5em]
 	W_1 \times_{W_0} W_1 \times_{W_0} W_1 
@@ -2064,32 +2091,12 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{tikzcd}
 \]
 
-
-
-\[
-\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
-	X^{\mathsf{Sc}[T]} 
-	\ar[bend left=17,dashed]{r}
-	\ar[bend right=30,dashed]{d}&
-	X^{\mathsf{Sc}_{T[e]}[T]}
-	 \ar[->>]{l}{\sim} \ar[->>]{r} 
-	\ar[bend right=30,dashed]{d}&
-	X^{\mathsf{Sc}[T-e]}
-	\ar[bend right=30,dashed]{d}
-\\
-	X^{\mathsf{Sc}_{T[f]}[T]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
-	\ar[bend left=17,dashed]{r}& 
-	X^{\Omega[T]} \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
-	\ar[->>]{d}&
-	X^{\Omega[T-e]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
-\\
-	X^{\mathsf{Sc}[T-f]} 
-	\ar[bend left=17,dashed]{r}&
-	X^{\Omega[T-f]} \ar[->>]{r} \ar[->>]{l}{\sim}&
-	X^{\Omega[T-e-f]}
-\end{tikzcd}
-\]
-
+\begin{remark}
+	Note that $\mathsf{Sc}_{T[Ge]}$, $\mathsf{Sc}_{T[Gf]}$
+	in \eqref{FOURSQ EQ}
+	are cover inclusions, and thus $G$-anodyne, relate to 
+	\cite[\S 6.2]{Rez10}.
+\end{remark}
 
 
 \begin{remark}
@@ -2101,6 +2108,168 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 	A non-equivariant face $U \hookrightarrow T$ generates an equivariant face $G\cdot U \hookrightarrow T$ iff the $G$-isotropy of $r_U$ matches the isotropy of $U$.
 \end{lemma}
 
+
+
+%\begin{remark}\label{OUTINP REM}
+%	Let $U \hookrightarrow T$ be an outer face.
+%	Then for any string of descendancy relations
+%	$e <_d e' <_d r$ such that $e,r\in U$ it is also $e' \in U$.
+%\end{remark}
+
+
+
+\begin{proposition}
+	Any non-equivariant face $U \hookrightarrow T$ has a minimal factorization
+	$U \hookrightarrow GU \hookrightarrow T$
+	through an equivariant face $GU$.
+\end{proposition}
+
+\begin{proof}
+	Our first task is that of building $GU$. The edges of $GU$ will be given by combining 
+	the $G$-orbits of the edges in $U$, but describing the broad relations requires some caution.
+
+	We first assume that $U$ is an outer face and write	$H \leq G$ for the isotropy of the root $r_U$ in $T$.
+	We form a (non-equivariant) subtree $HU$ of $T$ with edges (resp. generating broad relations) those edges
+	$h u$ (resp. relations $h u^{\uparrow} \leq hu$) in some $hU$ for $h \in H$.
+	Indeed, while a priori $HU$ is merely a pre-broad poset of $T$, the antisymmetry and simplicity axioms in \cite[Defs. 5.1 and 5.3]{Per17} are inherited from $T$, and the nodal axiom in
+	\cite[Def. 5.9]{Per17} follows since the $h U$, $h \in H$ have a common root. It is now clear that $HU$ inherits a $H$-action and we thus set $GU = G \cdot_H HU$.
+	Both the factorization $U \to GU \to T$ and its minimality are immediate from the description of $HU$.
+	
+	Before tackling the general case, we collect some useful observations. Firstly, the assumption that $U$ is outer implies that so are the (non-equivariant) face $HU$ and the equivariant face $GH$. Secondly, the root tuple of 
+	$GU$ is $G\cdot_H r_U$.
+	Lastly, we need a characterization of the leaf tuple of $GU$: we call a leaf $l$ of $U$ orbital if 
+all the edges in $Hl \cap U$ are leaves of $U$, 
+	and claim that the leaves of $GU$ are the tuple $\underline{l}$ formed by the $G$-orbits of the orbital leaves of $U$. Indeed, a leaf $l\in U$ will be a leaf of $HU$ iff whenever $l \in hU$ for some $h\in H$ then $l$ is a leaf of $hU$ iff
+	whenever $h^{-1} l \in U$ for some $h\in H$ then $h^{-1}l$ is a leaf of $U$.
+	
+	In the general case, write $U \to V \to T$ for the factorization
+	\cite[Prop. 3.31]{BP17} as a inner face followed by an outer face. 
+	We now define $GU$ to be the equivariant inner face of $GV$ that removes all edge orbits that are not represented in $U$
+	(that all such edge orbits are inner follows from the description of the roots and leaves of $GV$ in the previous paragraph).
+	It is now clear that $U \to GV \to T$ is the minimal factorization with $GV$ an \textit{outer} equivariant face,
+	so that the desired factorization $U \to GU \to T$
+	follows since inner faces are full while minimality follows
+	from the equivariant analogue of the inner face followed by outer face factorization.
+%
+%	We first assume that $U$ is an outer face and write	$H \leq G$ for the isotropy of the root $r_U$ in $T$.
+%	We say that a leaf $l$ of $U$ is orbital if 
+%all the edges in $Hl \cap U$ are leaves of $U$, 
+%and we write $\underline{l}$ for the tuple formed by the $H$-orbits of the orbital leaves of $U$.
+%Note that edges in $\underline{l}$ are $<_d$-incomparable: 
+%indeed, whenever it is $l <_d hl' <_d r_V$ with $l,l'$ leaves of $U$
+%and $h\in H$ then Remark \ref{OUTINP REM} yields $hl' \in U$, so that $l'$ can not be an orbital leaf.	
+%	
+%Given $e \in U$, we next write $\underline{l}_e \subseteq \underline{l}$ for the subtuple of those $l$ such that $l \leq_d e$.
+%We now make the following key claim:
+%for any broad relation $\underline{e} \leq e$ in one of the conjugate trees $hU$ (for $h\in H$) it is 
+%$\underline{l}_e \leq \underline{e}$ in $T$.
+%The argument is by $\leq_d$ induction on $e$. The base case is that of $e \in \underline{l}$, which holds since $\leq$-incomparability of the edges of $\underline{l}$ then implies
+%$\underline{l}_e = e$.
+%	Otherwise, there exists some $h \in H$ such that the relation
+%	$h e^{\uparrow} \leq he$ is in $hU$ (recall that we are assuming $U$ is outer)
+%	and by decomposing the broad relation $h \underline{e} \leq (h e)^{\uparrow}$
+%	the induction hypothesis yields
+%	$\underline{l}_{h e} \leq h \underline{e}$ and thus also
+%	$\underline{l}_e = h^{-1} \underline{l}_{h e} \leq \underline{e}$, as desired.
+%	
+%	The key claim now yields that $\underline{l} \leq r_U$ and,
+%	noting that the relation $\underline{l} \leq r_U$ is $H$-equivariant so that the outer subtree $T_{\underline{l} \leq r_U}$
+%	inherits a $H$-action, we define $GU = G \cdot_H T_{\underline{l} \leq r_U}$. 
+%	The desired factorization $U \to GU \to T$ is also immediate from the key claim, which further implies that all edges $gu$ and generating relations $gu^{\uparrow}\leq gu$ of the $gU$ are edges and generating relations of $GU$.
+%	To check minimality of $GU$, consider any string
+%	$u_k <_d u_{k-1} <_d \cdots <_d u_0 = r_U$ in $GU$ where the $\leq_g$ relations are induced by generating $\leq$ relations of $U$. We claim by induction on $k$ that the $u_i$ and generating relations are in some conjugate $g U$. The base case $k=0$ is obvious. Otherwise, by the induction hypothesis it is
+%	$u_{k-1} \in gH$ for some $g$, and since it must be  
+%	$u_{k-1} \not \in \underline{l}$ (or else $u_k$ it could not be $u_k \in GU$), the relation $g'u_{k-1}^{\uparrow} \leq g' u_{k-1}$ must be in $g'gU$ for some $g' \in G$, and thus minimality of $GU$ follows. 
+%	
+%	Write $U \to V \to T$ for the factorization
+%	\cite[Prop. 3.31]{BP17} as a tall map followed by an outer face
+%	as well as $H \leq G$ for the isotropy of the root $r_U=r_V$ in $T$. 
+%	We say that a leaf $l$ of $U$ (or, equivalently, of $V$) is orbital if 
+%all the edges in $Hl \cap V$ are leaves of $V$.
+%
+%We now write $\underline{l}$ for the tuple formed by the $H$-orbits of the orbital leaves of $U$.
+%Note that edges in $\underline{l}$ are $<_d$-incomparable: 
+%indeed, whenever it is $l <_d hl' <_d r_V$ with $l,l'$ leaves of $V$
+%and $h\in H$ then Remark \ref{OUTINP REM} yields $hl' \in V$, so that $l'$ can not be an orbital leaf.
+\end{proof}
+
+\begin{example}
+When $T$ is open then $GU$ is necessarily a full equivariant face, i.e. broad relations coincide with those in $T$, 
+and this fact can be leveraged to obtain a simpler proof.
+
+However, the presence of stumps can make the situation 
+substantially more subtle, especially in the non-outer case, as illustrated by the following example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
+\[%
+	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
+	\begin{scope}[level distance = 1.9em]
+	\tikzstyle{level 2}=[sibling distance=2em]%
+	\tikzstyle{level 3}=[sibling distance=0.75em]%
+		\node at (0,0) {$U$}%
+			child{node [dummy] {}%
+				child{
+				edge from parent node [swap, near end] {$d$}}%
+				child{
+				edge from parent node [near end] {$\phantom{d}c$}}%
+			edge from parent node [swap] {$r$}};%
+	\end{scope}
+	\begin{scope}[level distance = 2.1em]
+	\tikzstyle{level 2}=[sibling distance=2.85em]%
+	\tikzstyle{level 3}=[sibling distance=0.75em]%
+		\node at (2,0) {$GU$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+				edge from parent node [swap] {$-c$}}%
+				child[level distance = 2.4em]{
+				edge from parent node [swap] {$d$}}%
+				child{node [dummy] {}%
+				edge from parent node {$\phantom{-}c$}}%
+			edge from parent node [swap] {$r$}};%
+		\node at (4.5,0) {$V$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+					edge from parent node [swap] {$-a$}}%
+				edge from parent node [swap] {$-c$}}%
+				child[level distance = 2.4em]{
+				edge from parent node [swap] {$d$}}%
+				child{
+				edge from parent node {$\phantom{-}c$}}%
+			edge from parent node [swap] {$r$}};%
+		\node at (7.5,0) {$GV$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+					edge from parent node [swap] {$-a$}}%
+				edge from parent node [swap] {$-c$}}%
+				child[level distance = 2.4em]{
+				edge from parent node [swap] {$d$}}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+					edge from parent node {$\phantom{-}a$}}%
+				edge from parent node {$\phantom{-}c$}}%
+			edge from parent node [swap] {$r$}};%
+		\node at (10.5,0) {$T$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+					edge from parent node [swap] {$-a$}}%
+				edge from parent node [swap] {$-c$}}%
+				child[level distance = 2.4em]{node [dummy] {}%
+					child{
+					edge from parent node [near end,swap]{$-b$}}%
+					child{
+					edge from parent node [near end]{$\phantom{-}b$}}%
+				edge from parent node [swap] {$d$}}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+					edge from parent node {$\phantom{-}a$}}%
+				edge from parent node {$\phantom{-}c$}}%
+			edge from parent node [swap] {$r$}};%
+	\end{scope}
+	\end{tikzpicture}%
+\]%
+
+\end{example}
 
 
 
