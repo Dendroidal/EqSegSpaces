@@ -70,7 +70,7 @@
 
 \abstract{bla bla, generalizing \cite{CM13a} and possibly \cite{CM13b}.
 
-Bla, also obtain an equivariant notion of Reedy category}
+Bla, also obtain an equivariant notion of Reedy category.}
 
 
 \tableofcontents
@@ -1810,12 +1810,10 @@ In the next result, note that a $G$-tree $T$ with three $G$-nodes contains preci
 	$3$-nodal $G$-trees.
 \end{proposition}
 
-{\color{red} HERE}
-
 \begin{proof}
 	For any $3$-nodal $G$-tree $T$ with inner edge orbits $Ge$, $Gf$, consider the following diagram, 
 	where all solid maps are fibrations, and the maps labelled $\sim$ are trivial fibrations.
-	\[
+\begin{equation}\label{FOURSQ EQ}
 \begin{tikzcd}[column sep =3.5em,row sep =3.5em]
 	X^{\mathsf{Sc}[T]} 
 	\ar[bend left=17,dashed]{r}
@@ -1837,40 +1835,78 @@ In the next result, note that a $G$-tree $T$ with three $G$-nodes contains preci
 	X^{\Omega[T-Gf]} \ar[->>]{r} \ar[->>]{l}{\sim}&
 	X^{\Omega[T-Ge-Gf]}
 \end{tikzcd}
+\end{equation}
+Noting that the following three diagrams,
+where $\Lambda_o^{Ge,Gf}[T]$ is a generalized orbital $G$-horn
+and $\Lambda_{o,c}^{Ge}[T]$, $\Lambda_{o,c}^{Gf}[T]$
+are characteristic orbital $G$-horns (cf. {\color{red} ref}), are pullbacks
+\[
+\begin{tikzcd}[column sep =12]
+	X^{\mathsf{Sc}[T]} 
+	\arrow[rd, phantom, "\ulcorner", near start]& 
+	X^{\mathsf{Sc}_{T[Ge]}[T]}
+	\ar[->>]{l}{\sim}
+&
+	X^{\mathsf{Sc}_{T[Ge]}[T]}
+	\ar[->>]{r} &
+	X^{\mathsf{Sc}[T-Ge]}
+	\arrow[ld, phantom, "\urcorner", near start]
+&
+	X^{\mathsf{Sc}_{T[Gf]}[T]}   \ar[->>]{d}
+	& 
+	X^{\Lambda_{o,c}^{Ge}[T]} \ar[->>]{l}{\sim}  \ar[->>]{d}
+\\
+	X^{\mathsf{Sc}_{T[Gf]}[T]} \ar[->>]{u}[swap]{\sim} &
+	X^{\Lambda_o^{Ge,Gf}[T]} \ar[->>]{u}[swap]{\sim}
+	\ar[->>]{l}{\sim}
+&
+	X^{\Lambda_{o,c}^{Gf}[T]} \ar[->>]{u}[swap]{\sim}
+	\ar[->>]{r} &
+	X^{\Omega[T-Ge]} \ar[->>]{u}[swap]{\sim}
+&
+	X^{\mathsf{Sc}[T-Gf]} 
+	\arrow[ur, phantom, "\llcorner", near start]
+	&
+	X^{\Omega[T-Gf]} \ar[->>]{l}{\sim}&
+\end{tikzcd}
 \]
-Noting that the pullback of 
-$
-X^{Sc_{T[Ge]}[T]} \to 
-X^{Sc[T]} \leftarrow
-X^{Sc_{T[Gf]}[T]}
-$
-is $X^{\Lambda_o^{Ge,Gf}[T]}$, 
-one sees that the sections in the top left corner can be chosen to be compatible in the sense that the two composites
-$X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
-{\color{red} HERE}
-
+one sees that:
+\begin{inparaenum}
+	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+$X^{Sc[T]} \to X^{\Omega[T]}$ coincide;
+	\item[(ii)] 
+	sections in the top right and bottom left squares of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+$X^{Sc[T-Ge]} \to X^{\Omega[T]}$ and $X^{Sc[T-Gf]} \to X^{\Omega[T]}$ coincide.
+\end{inparaenum}
+Note that we do not claim (or need) that (i) and (ii) hold simultaneously.
+We thus conclude that the possible choices of maps 
+$X^{\mathsf{Sc}[T]} \to X^{\Omega[T-Ge-Gf]}$
+given by outer paths in \eqref{FOURSQ EQ}
+are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X^{\partial \Omega[T-Ge-Gf]}$.
 \end{proof}
 
-{\color{red} HERE}
+
 
 \begin{remark}
-	This structure is crude, misses the interesting pullback 
-	data.
+	While in the non-equivariant case the associativity conditions in the previous result capture all the key compatibilities of the
+	$\varphi \circ_{e} (-)$, $(-)\circ_{e} \psi$
+	operations, 
+	in the equivariant case there are further 
+	``compatibilities with pullback of $G$-trees'', which are closely related to the genuine equivariant operads introduced in \cite{BP17}. 
+	However, describing these extra compatibilities would require using $G$-trees with more than $3$ $G$-nodes, and since such compatibilites are not needed for our current goals, 
+	we omit their discussion. 
 \end{remark}
 
-\begin{remark}
-	Note that cover inclusions are inner $G$-anodyne, relate to Rezk.
-\end{remark}
+	
+	{\color{red} HERE}
 
-
-{\color{red} Need to remark on the possibility of $X$ not being normal?}
 
 
 \cite{Rez01}
 
 \begin{proposition}
-	Let $X$ be a dendroidal Segal space. 
-	Then the map $X \to X^{J_d}$
+	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
+	Then the map $X \to X^{J_d}$ is a $DK$-equivalence.
 \end{proposition}
 
 {\color{red} HERE}
@@ -1881,6 +1917,10 @@ $X^{Sc[T]} \to X^{\Omega[T]}$ coincide.
 \rightleftarrows 
 	\mathsf{dSet}^G \colon u_{\**}
 \]
+
+
+
+{\color{red} discuss characteristic horns}
 
 
 \newpage
@@ -1991,32 +2031,12 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{tikzcd}
 \]
 
-
-
-\[
-\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
-	X^{\mathsf{Sc}[T]} 
-	\ar[bend left=17,dashed]{r}
-	\ar[bend right=30,dashed]{d}&
-	X^{\mathsf{Sc}_{T[e]}[T]}
-	 \ar[->>]{l}{\sim} \ar[->>]{r} 
-	\ar[bend right=30,dashed]{d}&
-	X^{\mathsf{Sc}[T-e]}
-	\ar[bend right=30,dashed]{d}
-\\
-	X^{\mathsf{Sc}_{T[f]}[T]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
-	\ar[bend left=17,dashed]{r}& 
-	X^{\Omega[T]} \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
-	\ar[->>]{d}&
-	X^{\Omega[T-e]} \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
-\\
-	X^{\mathsf{Sc}[T-f]} 
-	\ar[bend left=17,dashed]{r}&
-	X^{\Omega[T-f]} \ar[->>]{r} \ar[->>]{l}{\sim}&
-	X^{\Omega[T-e-f]}
-\end{tikzcd}
-\]
-
+\begin{remark}
+	Note that $\mathsf{Sc}_{T[Ge]}$, $\mathsf{Sc}_{T[Gf]}$
+	in \eqref{FOURSQ EQ}
+	are cover inclusions, and thus $G$-anodyne, relate to 
+	\cite[\S 6.2]{Rez10}.
+\end{remark}
 
 
 \begin{remark}
