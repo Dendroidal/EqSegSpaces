@@ -197,24 +197,37 @@ The following are the categories currently with model structures and the right a
 \subsection{Proof of \ref{HYPER PROP}}
 
 \begin{definition}
-      We observe that, for any face $U_0$ of $T \simeq G \cdot_H T_0$ with $\mathrm{Stab}(U_0) = K < H$, that
-      $\Omega[G \cdot_K H] \to \Omega[T]$
-      is not injective.
-      This adds minor complications.
-      To that end, given $X,Y \in \mathsf{dSet} \downarrow \Omega[T]$, we let
-      $X \cup_T Y$ denote the union of their images in $\Omega[T]$.
+      Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let $\hat{W}(\mathcal C)$ denote
+      the hypersaturation of $\mathcal C$. 
+\end{definition}
+The following is immediate.
+\begin{lemma}
+      If $L$ is a left adjoint, then $L(\hat{W}(\mathcal C)) \subseteq \hat{W}(L(\mathcal C))$.
+\end{lemma}
+\begin{remark}
+      In particular, this applies to the ``free $G$-object'' functor $G \cdot (-)$.
+\end{remark}
+
+\begin{definition}
+      Fix a set $X$.
+      Let $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
+      denote the \textit{image} functor,
+      sending a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
 \end{definition}
 
 \begin{remark}
-      By Remark \ref{CAP_CUP_REM} and Corollary \ref{IM_COR}, we have that
-      \begin{equation}
-            X \cup_T Y = \mathsf{im}(X) \cup \mathsf{im}(Y) \simeq \mathsf{im}(X \cup Y).
-      \end{equation}
+      This naturally extends to any category of presheaves on sets,
+      in particular $\mathsf{dSet}$ and $\mathsf{dSet}_G$.
+      These arise naturally when considering horns and boundaries, as the natural map
+      $\Omega[G \cdot_K U_0] \to \Omega[T]$
+      is not injective for a face $U_0 \subseteq T_0$ of $T \simeq G \cdot_H T_0$
+      with isotropy $K$ strictly contained in $H$.
 \end{remark}
 
 
+
 \begin{definition}
-      Given $T$, $T_0$, and $H$ as above,
+      Given $T \simeq G \cdot_H T_0$,
       let $U_0 \subseteq T_0$ be a (non-equivariant) subtree, and
       let $K = \mathrm{Stab}_H(U_0)$.
       Suppose we have another subdendroidal set $X \subseteq \Omega[T]$
@@ -233,34 +246,32 @@ The following are the categories currently with model structures and the right a
 
 \begin{proposition}
       \label{CHAR_HORN_PROP}
-      Given $T$, $T_0$, $H$, $U_0$, $K$, and $X$ as above, we have that
-      $K e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$
-      implies that $X \to X \cup_T \Omega[G \cdot_K U_0]$ is inner $G$-anodyne.
+      Given $T$, $T_0$, $H$, $U_0$, $K$, and $X$ as above.
+      If $K e$ is a characteristic edge orbit of $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$
+      then $X \to X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0] \right)$ is inner $G$-anodyne.
 \end{proposition}
 \begin{proof}
       If $\mathsf{im}(\Omega[G \cdot_K U_0])$ is already contained in $X$, we are done.
       Assuming otherwise, it suffices to show that for all
-      $C \subseteq C'$ $K$-closed concave subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
+      $C \subseteq C'$ $K$-closed convex subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
+      $X_C \to X_{C'}$ is inner $G$-anodyne, where we define
       \begin{equation}
-            X \cup_T G \cdot_K \left( \bigcup\limits_{C}\Omega[U_0 \setminus E] \right)
-            \to
-            X \cup_T G \cdot_K \left( \bigcup\limits_{C'}\Omega[U_0 \setminus E'] \right)                     
+            X_C := X \cup \mathsf{im} \left( G \cdot_K \mathop{\bigcup}\limits_{C/K} \Omega[U_0 \setminus E] \right),
       \end{equation}
-      is inner $G$-anodyne
-      (where the union $\cup$ takes place in $\Omega[U_0] \subseteq \Omega[T_0]$).
+      with $\cup$ and $\cup_{C/K}$ taking place in $\Omega[T]$ and $\Omega[U_0] \subseteq \Omega[T_0]$, resectively.
       Indeed, once $C = \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
       \begin{equation}
             \begin{tikzcd}
                   G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d, hookrightarrow] \arrow[r]
                   &
-                  X \cup_T G \cdot_K \left( \bigcup\limits_{E \in \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0)} \Omega[U_0 \setminus E] \arrow[d] \right) \subseteq \Omega[T]
+                  X_C \subseteq \Omega[T] \arrow[d]
                   \\
                   G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot_K U_0] \arrow[r]
                   &
-                  X \cup_T \Omega[G \cdot_K U_0] \subseteq \Omega[T].
+                  X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0]\right) \subseteq \Omega[T].
             \end{tikzcd}
       \end{equation}
-      Moreover, it suffices to consider $C' = C \cup H.D$ for $D \subseteq U_0$, where
+      Moreover, it suffices to consider $C' = C \cup G\cdot_K(U_0 \setminus D)$ for a set of inner edges $D$,
       without loss of generality $e \not\in D$ and $U_0 \setminus D$ is not in the domain.
       Let $\bar K = \mathrm{Stab}_H(D)$.
 
@@ -279,7 +290,7 @@ The following are the categories currently with model structures and the right a
 
       Now, all faces $U_0 \setminus D \cup \bar e$ with $\varnothing \subseteq \bar e \subseteq K e$ have stabilizer $\bar K$
       (else $D \cap K e \neq \varnothing$).
-      Thus the desired map is the pushout of
+      Thus $X_C \to X_{C'}$ is the pushout of
       \begin{equation}
             \label{CHAR_HORN_EQ}
             G \cdot_{\bar K} \left( \Lambda^{\bar K e}[U_0 \setminus D] \to \Omega[U_0 \setminus D] \right),
@@ -289,29 +300,6 @@ The following are the categories currently with model structures and the right a
 
 
 
-
-% \begin{lemma}
-%       Suppose $U_0$ is a minimal outer face of $T$ not in $\Lambda_0^{Ge}[T]$, and suppose $e\in U_0$.
-%       Then $K e$ is a characteristic edge orbit for $\Lambda_0^{Ge}[T] \subseteq \Omega[T] \leftarrow[G \cdot_K U_0]$.
-% \end{lemma}
-% \begin{proof}
-%       Consider an inner face $U_0 \setminus D$ of $U_0$, with $\bar K = \mathrm{Stab}_H(U_0 \setminus D) \leq K$, and
-%       suppose $U_0 \setminus D \cup \bar K e \in \Lambda_0^{Ge}[T]$.
-%       Then
-%       \begin{equation}
-%             K_r = \mathrm{Stab}_H(r_U) \leq \mathrm{Stab}_H(U_0 \setminus D \cup \bar K e) \leq \mathrm{Stab}_H(U_0) \leq Kr,
-%       \end{equation}
-%       so the outer face $U_0$ is $K_r$-closed and not in $\Lambda_0^{Ge}[T]$, and hence we conclude that $U_0$ must be $T_0$.
-%       However, if $\Lambda^{Ge}_0[T] \neq \Lambda^{Ge}[T]$, $T_0$ is not a minimal outer face not in $\Lambda_0^{Ge}[T]$.
-%       Thus, in these cases, $K e$ is a characteristic edge orbit vacuously.
-%       If in fact $\Lambda_o^{Ge}[T] = \Lambda^{Ge}[T]$, then $T \simeq G \cdot T_0$, so $H = \bar K = K_r = \set{e}$.
-%       Now, since $U_0 \setminus D \cup e \in \Lambda_0^{Ge}[T]$,
-%       $D \setminus e \neq \varnothing$, so
-%       $U_0 \setminus D \in \Lambda_0^{Ge}[T]$.
-% \end{proof}
-
-% \todo[inline]{come back: the above proof is less-than-illuminating. Either combine with the below proof, or reconfigure}
-
 \begin{proposition}
       \label{ORB_HORN_PROP}
       $\Lambda_o^{Ge}[T] \to \Omega[T]$ is inner $G$-anodyne, and hence
@@ -319,18 +307,21 @@ The following are the categories currently with model structures and the right a
       the (hyper)saturated class of the horn inclusions.
 \end{proposition}
 \begin{proof}
-      Let $\mathrm{Out}_o(T)$ be the poset of outer faces $U_0$ of $T$ which are not in $\Lambda_0^{Ge}[T]$.
-      It suffices to show that for any $G$-closed convex subsets $B \subseteq B'$ of $\mathrm{Out}_o(T)$, the map
+      Let $\mathrm{Out}^{-o}(T)$ be the poset of outer faces $U_0$ of $T$ which are not in $\Lambda_0^{Ge}[T]$.
+      It suffices to show that for any $G$-closed convex subsets $B \subseteq B'$ of $\mathrm{Out}^{-o}(T)$, the map
       \begin{equation}
-            \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{R_0 \in B}\Omega[G \cdot R_0]
+            \left(\Lambda^{G e}_{o}[T]\right)_B
+            := \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B/G}\Omega[G \cdot_K U_0]
             \to
-            \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{R_0' \in B'}\Omega[G \cdot R_0']
+            \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B'/G}\Omega[G \cdot_K U_0]
+            =: (\Lambda^{G e}_o[T])_{B'}
       \end{equation}
       is inner $G$-anodyne.
-      Again, suffices to show when $B' = B \cup \set{U_0}$. Let $K = \mathrm{Stab}_G(U_0)$, and
-      without loss of generality assume $e \in U_0$.
+      Again, suffices to show when $B' = B \cup G \cdot_K \set{U_0}$, where $K = \mathrm{Stab}_G(U_0)$, and
+      without loss of generality $e \in U_0$.
       For the final reduction, Proposition \ref{CHAR_HORN_PROP} implies it suffices to show
-      $K e$ is a characteristic edge orbit for the domain relative to $\Omega[T] \leftarrow \Omega[G \cdot U_0]$.
+      $K e$ is a characteristic edge orbit for
+      $(\Lambda^{G e}_o[T])_B \subseteq \Omega[T] \leftarrow \Omega[G \cdot U_0]$.
       To that end, let $U_0 \setminus D$ be an inner face with stabilizer $\bar K$.
       
       For $B = \varnothing$, we suppose $U_0 \setminus \bar K e \in \Lambda_o^{G e}[T]$. This implies that
@@ -348,31 +339,11 @@ The following are the categories currently with model structures and the right a
       For general $B$, we know the domain contains all outer faces of $U_0$ by convexity.
       Now, let $U_0 \setminus D$ be an inner face, with stabilizer $\bar K$.
       Then $U_0 \setminus D \cup \bar K e$ is in the domain if either
-      $U_0 \setminus D \cup \bar K e$ is contained in some $\Omega[G \cdot R_0]$, or
+      $U_0 \setminus D \cup \bar K e$ is contained in some $\Omega[G \cdot_L R_0]$, or
       $U_0 \setminus D \cup \bar K e \in \Lambda_o^{Ge}[T]$.
       But then $U_0$ is contained in $R_0$ since both are outer faces, or again we apply the previous lemma.
       Both lead to contradictions, and thus the result follows.
 \end{proof}
-
-% \begin{corollary}
-%       Generalized orbital horn inclusions $\Lambda^{E}_o[T] \to \Omega[T]$ are inner $G$-anodyne,
-%       where $E$ is any $G$-closed set of inner edges of $T$.
-% \end{corollary}
-% \begin{proof}
-%       Suffices to show that $\Lambda^{E}_o[T] \to \Lambda^{E \setminus G e}_o[T]$ is inner $G$-anodyne.
-%       This follows from the observation that the diagram below is a pushout.
-%       \begin{equation}
-%             \begin{tikzcd}
-%                   \Lambda^{E \setminus G e}[T \setminus G e] \arrow[d] \arrow[r]
-%                   &
-%                   \Lambda^E_o[T] \arrow[d]
-%                   \\
-%                   \Omega[T \setminus G e] \arrow[r]
-%                   &
-%                   \Lambda^{E \setminus G e}_o[T].
-%             \end{tikzcd}
-%       \end{equation}
-% \end{proof}
 
 The reverse inclusion is only true on the level of hypersaturations.
 \begin{definition}
@@ -401,19 +372,19 @@ The reverse inclusion is only true on the level of hypersaturations.
       Thus, by induction, any such maps \eqref{CHAR_ATTACH_EQ} are in $W_o$.
       Thus, the proof of Proposition \ref{ORB_HORN_PROP} implies, in particular, that
       \begin{equation}
-            \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \mathrm{Out}^{-o}_p(T) =: A
+            \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \partial^{out}(T) =: A
       \end{equation}
-      is in $W_o$, where $\mathrm{Out}^{-o}_p(T)$ is the poset of proper outer faces of $T$ not in $\Lambda^{G e}_o[T]$.
-      It then suffices to show that, for any $H$-closed $H$-concave subposets $B \subseteq B' \subseteq \mathrm{Inn}^{G e,-o}(T)$,
+      is in $W_o$.
+      It then suffices to show that, for any $G$-convex subposets $B \subseteq B' \subseteq \mathrm{Inn}^{G e,-o}(T)$,
       \begin{equation}
             \label{ORB_HORN_ATTACH_EQ}
-            A_B := A \cup_T \mathop{\bigcup}\limits_{U_0 \in  B}\Omega[G \cdot_{K} U_0]
+            A_B := A \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}\left(\Omega[G \cdot_{K} U_0]\right)
             \to
-            A \cup_T \mathop{\bigcup}\limits_{U_0 \in B'}\Omega[G \cdot_{K} U_0] =: A_B'
+            A \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}\left(\Omega[G \cdot_{K} U_0]\right) =: A_B'
       \end{equation}
       is in $W_o$,
       where $\mathrm{Inn}^{G e,-o}(T)$ is the poset of inner faces of $T$ which contain $H e$ and are not in $\Lambda^{G e}_o[T]$.
-      Indeed, $A \cup_T \mathop{\bigcup}\limits_{\mathrm{Inn}^{G e,-o}(T)}\Omega[G \cdot_K U_0] = \Lambda^{G e}[T]$,
+      Indeed, for $B = \mathrm{Inn}^{G e,-o}(T)$, $A_B = \Lambda^{G e}[T]$,
       so the result follows from the cancelation property in the definition of hypersaturation.
 
       We may assume that $B' = B \cup (G\cdot_K \set{U_0})$, for $U_0 = T_0 \setminus D$.
@@ -438,83 +409,31 @@ The reverse inclusion is only true on the level of hypersaturations.
       Thus $K e$ is a characteristic edge orbit, and the result is proven.
 \end{proof}
 
-% \begin{example}
-%       Let $G = C_2$, and consider the tree below$T = G/G \circ e+G/2 \circ G/2$.
-% \end{example}
-% \begin{example}
-%       Let $G = C_4$, $T = G/G \circ e+G/G \circ G/2 \circ G/4$.
-% \end{example}
-
-
 
 
 We will now compare Segal core inclusions with the inner horn inclusions.
 
-\begin{lemma}
+\begin{proposition}
       \label{SC_IN_GHORN_PROP}
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
-\end{lemma}
+\end{proposition}
 \begin{proof}
-      Let $Out^n(T)$ denote the poset of outer faces $U_0$ of $T$ (factoring through $T_0$) such that
-      $|V(U_0)| = n$,
-      and for $B \subseteq Out^n(T)$ an $H$-concave subset,
-      define $S_B \subseteq \Omega[T]$ to be the subdendroidal set given by the pushout
+      Let $\mathsf{Out}^{>1}(T)$ denote the subposet $\mathsf{Out}(T) \setminus \mathscr{SC}(T)$. \todo{standardize notation}
+      It suffices to show that for all $G$-covex $B \subseteq B' \subseteq \mathsf{Out}^{>1}(T)$, the map
       \begin{equation}
-            \label{SB_DEFN_EQ}
-            \begin{tikzcd}
-                  \bigcup_{B/H} Sc[G \cdot_K U_0] \arrow[r] \arrow[d]
-                  &
-                  Sc[T] \arrow[d]
-                  \\
-                  \bigcup_{B/H} \Omega[G \cdot_K U_0] \arrow[r]
-                  &
-                  S_B \subseteq \Omega[T],
-            \end{tikzcd}
+            (Sc[T])_B :=
+            Sc[T] \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}(\Omega[G \cdot_K U_0])
+            \to
+            Sc[T] \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}(\Omega[G \cdot_K U_0])
+            =: (Sc[T])_{B'}
       \end{equation}
-      or equivalently
+      is inner $G$-anodyne. In particular, we may assume $B' = B \cup G \cdot_K U_0$.
+      Then the above map is the pushout over
       \begin{equation}
-            \Omega[T]_n
-            = \mathsf{im}\left(\mathop{\bigcup}\limits_{B}\Omega[G \cdot_K U_0]\right)
-            = \mathop{\bigcup}\limits_{B}\mathsf{im}(\Omega[G \cdot_K U_0],
+                  G\cdot_K \left(\partial^{out}\Omega[U_0] \to \Omega[U_0] \right),
       \end{equation}
-      where $K = \mathrm{Stab}(U_0)$.
-      With $B = Out^n(T)$, we denote $S_B$ by $\Omega[T]_n$.
-      As in the proof of \cite[2.4]{CM13a}, these give a filtration
-      \begin{equation}
-            Sc[T] = \Omega[T]_1 \subseteq \Omega[T]_2 \subseteq \cdots \subseteq \Omega[T]_{|V(T)|-1} = \partial^{out}\Omega[T]
-            \to \Omega[T]_{|V(T)|} = \Omega[T].
-      \end{equation}
-      We will show that $\Omega[T]_{n-1} \to \Omega[T]_n$ is inner $G$-anodyne for all $n$.
-      More specifically, we will show that $S_B \cap \Omega[T]_{n-1} \to S_B$
-      is inner $G$-anodyne, by induction on $|B|$.
-
-      If $|B| = 1$, then
-      \begin{equation}
-            \Omega[G \cdot_K U_0] \cap_T \Omega[T]_{n-1} = G \cdot_K \partial^{out}\Omega[U_0] = \partial^{out}\Omega[G \cdot_K U_0].
-      \end{equation}
-      By \cite[6.17]{Per17}, we have the generalized horn inclusions are inner $G$-anodyne, so in particular
-      the outer boundary inclusions are all inner $G$-anodyne,
-      and hence so is the right vertical map
-      \begin{equation}
-            \begin{tikzcd}
-                  \partial^{out}\Omega[G \cdot_K U_0] \arrow[r] \arrow[d]
-                  &
-                  S_B \cap \Omega[T]_{n-1} \arrow[d]
-                  \\
-                  \Omega[G \cdot_K U_0] \arrow[r]
-                  &
-                  S_B.
-            \end{tikzcd}
-      \end{equation}
-      If $|B| = j$, then let $B' = B \setminus H \cdot_K \set{U_0}$.
-      Continuing to define $\cap_T$ and $\cup_T$ in $\mathsf{dSet} \downarrow \Omega[T]$ as in Remark \ref{CAP_CUP_REM},
-      we may follow the proof of \cite[2.4]{CM13a} to conclude that
-      the map in question is inner $G$-anodyne for all $|B|$.
-      When $B$ is all of $Out^n(T)$, $S_B = \Omega[T]_n$, so we have that
-      \begin{equation}
-            S_B \cap \Omega[T]_{n-1}  = \Omega[T]_{n-1} \to S_B = \Omega[T]_n
-      \end{equation}
-      is inner $G$-anodyne, as desired.
+      which by \cite[Proposition 6.17]{Per17} is inner $G$-anodyne,
+      and thus the result follows.
 \end{proof}
 
 \begin{definition}
@@ -526,7 +445,6 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       The inner $G$-horn inclusions are contained in $W_{SC}$.
 \end{lemma}
 \begin{proof}
-      We follow the proof of \cite[2.5]{CM13a}, but again account for the equivariant peculiarities.
       It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $W_{SC}$
       for any $T\in \Omega_G$ and inner edge $e$ of $T$.
 
@@ -544,127 +462,28 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       the Segal core is an inner horn.
       Thus, we may assume that $V_H(T_0) > 2$.
 
-      Let $B \subseteq \mathsf{Out}^{max}(T)$ be an $H$-concave subseteq of maximal outer faces of $T$
-      (factoring through $T_0$)
-      such that $|B| \geq 2$, and
-      define $S_B \subseteq \Omega[T]$ as in \eqref{SB_DEFN_EQ}.
+      By Proposition \ref{GHORN_IN_SC_PROP}, we see that
+      \begin{equation}
+            \label{SC_POUT_EQ}
+            Sc[T] \to \partial^{out}\Omega[T]
+      \end{equation}
+      is cellular on maps of the form
+      $\partial^{out}[G \cdot_K U_0] \to \Omega[G \cdot_K U_0]$ for outer faces $U_0$ of $T$,
+      which are themsevles inner $G$-anodyne on inner horn inclusions in trees either
+      with strictly smaller isotropy (e.g. $K \leq H$) or
+      with a strictly smaller number of $G$-vertices.
+      Thus, by induction, \eqref{SC_POUT_EQ} is in $W_{SC}$. 
 
-      Dually, let $C \subseteq \mathsf{Inn}^{G e}(T)$ be an $H$-concave subset of inner faces containing $H e$,
-      and we define $R_C \subseteq \Omega[T]$ to be the pushout
+      Now consider
       \begin{equation}
-            \begin{tikzcd}
-                  \bigcup_{C/H} \partial^{out}\Omega[G \cdot_{K_i} U_i] \arrow[r] \arrow[d]
-                  &
-                  \partial^{out}\Omega[T] \arrow[d]
-                  \\
-                  \bigcup_{C/H} \Omega[G \cdot_{K_i} U_i] \arrow[r]
-                  &
-                  R_C
-            \end{tikzcd}
+            \label{POUT_GHORN_EQ}
+            \partial^{out}\Omega[T] \to \Lambda^{G e}[T].
       \end{equation}
-      or equivalently
-      $R_C = \mathsf{im}(\bigcup_{C/H} \Omega[G \cdot_{K_i} U_i]) \cup \partial^{out}\Omega[T]
-       = (\bigcup_{C/H} \Omega[G \cdot_{K_i} U_i]) \cup_T \partial^{out}\Omega[T]$.
-
-      The Segal core inclusion $Sc[T] \to \Omega[T]$ may be realized as the composition
-      \begin{equation}
-            Sc[T] \to S_B \to \partial^{out}\Omega[T] \to R_C \to \Lambda^{G e}[T] \to \Omega[T].
-      \end{equation}
-      We will show, in order, that each map in this factorization is in $W_{SC}$.
-
-      First, we will show $Sc[T] \to S_B$ is in $W_{SC}$, by induction on $|B/H|$. 
-      If $|B/H| = 1$, with $B = H \cdot_K \set{U_0}$ and $[H: K] \geq 2$, then we have a pushout
-      \begin{equation}
-            \begin{tikzcd}
-                  Sc[G \cdot_K U_0] \arrow[r] \arrow[d]
-                  &
-                  Sc[T] \arrow[d]
-                  \\
-                  \Omega[G \cdot_K U_0] \arrow[r]
-                  &
-                  S_B = \mathsf{im}(\Omega[G \cdot_K U_0]) \subseteq \Omega[T].
-            \end{tikzcd}
-      \end{equation}
-      The left vertical map is in $W_{SC}$ since $K < H$, and hence so is the right vertical map.
-
-      Now suppose $|B/H| = 2$, so $B = H \cdot_{K_0} \set{U_0} \cup H \cdot_{K_1} \set{U_1}$,
-      and let $K_{01} = K_0 \cap K_1 = \mathrm{Stab}(U_1 \cap U_0)$. 
-      Then
-      \begin{equation}
-            Sc[G \cdot_{K_{01}} U_1 \cap U_2] \to \Omega[G \cdot_{K_{01}} U_1 \cap U_2]
-            = \Omega[G \cdot_{K_1} U_1] \cap \Omega[G \cdot_{K_2} U_2]
-      \end{equation}
-      is in $W_{SC}$, as either $K < H$ or $|V_G(G \cdot_H(U_1 \cap U_2))| < |V_G(T)|$.
-      For the same reasons, we have that both
-      \begin{equation}
-            Sc[G \cdot_{K_i} U_i] \to \Omega[G \cdot_{K_i} U_i]
-      \end{equation}
-      are in $W_{SC}$.
-      With this setup, we may follow the proof in \cite[2.4]{CM13a}
-      (using Remark \ref{CAP_CUP_REM} and Corollary \ref{IM_COR} when necessary)
-      and conclude that the left vertical map in the pushout below is in $W_{SC}$,
-      and hence so is the right map.
-      \begin{equation}
-            \begin{tikzcd}
-                  Sc[G \cdot_{K_0} U_0] \cup Sc[G \cdot_{K_1} U_1] \arrow[d] \arrow[r]
-                  &
-                  Sc[T] \arrow[d]
-                  \\
-                  \Omega[G \cdot_{K_0} U_0] \cup \Omega[G \cdot_{K_1} U_1] \arrow[r]
-                  &
-                  S_B.
-            \end{tikzcd}
-      \end{equation}
-      The induction step also follows as in \cite{CM13a}:
-      letting $B' = B \setminus H\cdot_{K_0}U_0$, we have by induction that
-      \begin{equation}
-            Sc[G \cdot_{K_0} U_0] \to \mathop{\bigcup}\limits_{U_i \in B'/H} \Omega[G \cdot_{K_{0i}} (U_0 \cap U_i)]
-      \end{equation}
-      is in $W_{SC}$
-      (as the target is $S_{B''}$ for $B'' =  \mathsf{Out}^{max}(G \cdot_{K_0} U_0)$, and again either
-      $K_0 < H$ or $|V_H(U_0)| = |V_H(T_0) - 1|$),
-      and thus (for the same reasons as in \cite{CM13a})
-      we may conclude that the top map in the pushout below is in $W_{SC}$, implying
-      by induction that the bottom composite is as well.
-      \begin{equation}
-            \begin{tikzcd}
-                  &
-                  \bigcup_{B' / H}\Omega[G \cdot_{K_i}U_i] \arrow[d] \arrow[r]
-                  &
-                  \bigcup_{B / H}\Omega[G \cdot_{K_i}U_i] \arrow[d]
-                  \\
-                  Sc[T] \arrow[r]
-                  &
-                  S_{B'} \arrow[r]
-                  &
-                  S_B.
-            \end{tikzcd}
-      \end{equation}
-
-      Now, we will show each $\partial^{out}\Omega[T] \to R_C$ is in $W_{SC}$, by induction on $|C/H|$. 
-      If $|C/H| = 1$, then
-      $\partial^{out}\Omega[G \cdot_{K_0} \partial^{t_0}T_0] \to \Omega[G \cdot_{K_0} \partial^{t_0}T_0]$
-      is in $W_{SC}$ by induction (as again, either $K_0 < H$ or $|V_H(\partial^{t_0} T_0)| < |V_H(T_0)|$),
-      and hence so is the given inclusion by definition.
-
-      For the general case, let $C' = C \setminus H\cdot_{K_0}\set{\partial^{t_0} T_0}$,
-      and let $\partial^{t_0}C'$ denote the induced subset of $Inn^{K_0 e}[G \cdot_{K_0} \partial^{t_0} T_0]$.
-      Then we observe that $R_{C'} \cap \Omega[G \cdot_{K_0} \partial^{t_0} T_0] = R_{\partial^{t_0}C'}$,
-      and hence we have a pushout as below \todo{really?},
-      \begin{equation}
-            \begin{tikzcd}
-                  R_{\partial^{t_0} C'} \arrow[r] \arrow[d]
-                  &
-                  \Omega[G \cdot_{K_0} \partial^{t_0} T_0] \arrow[d]
-                  \\
-                  R_{C'} \arrow[r]
-                  &
-                  R_C
-            \end{tikzcd}
-      \end{equation}
-      where the top map is in $W_{SC}$ by induction (as above).
-      Thus the composite $\partial^{out}[T] \to R_C$ is in $W_{SC}$ for all $C$,
-      and so in particular $\partial^{out}[T] \to \Lambda^{G e}[T]$ is in $W_{SC}$.
+      By \cite[Proposition 6.17]{Per17},
+      this is built by pushouts over maps of the form
+      $\partial^{out}\Omega[G \cdot_K U_0] \to \Omega[G \cdot_K U_0]$ for $U_0 \in \mathsf{Inn}^{H e}[T_0]$,
+      and so again by induction on $|H| \times |V_H(T_0)|$, these maps are all in $W_{SC}$. 
+      
       Combining the above, we have that $Sc[T] \to \Lambda^{G e}[T]$ is in $W_{SC}$, and hence
       by the closure property of hypersaturations, the inner horn inclusion $\Lambda^{G e}[T] \to \Omega[T]$
       is in $W_{SC}$, as desired.
@@ -675,287 +494,6 @@ We will now compare Segal core inclusions with the inner horn inclusions.
 
 
 Combining Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} \ref{SC_IN_GHORN_PROP}, and \ref{GHORN_IN_SC_PROP}, yields Proposition \ref{HYPER PROP}.
-
-\subsubsection{Needed Lemmas/Facts}
-
-\begin{definition}
-      Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let $\hat{W}(\mathcal C)$ denote
-      the hypersaturation of $\mathcal C$. 
-\end{definition}
-The following is immediate.
-\begin{lemma}
-      If $L$ is a left adjoint, then $L(\hat{W}(\mathcal C)) \subseteq \hat{W}(L(\mathcal C))$.
-\end{lemma}
-
-\begin{definition}
-      Fix a set $X$. Then we have two natural functors out of $\mathsf{Set} \downarrow X$.
-      The \textit{forgetful} functor $\mathsf{fgt}: \mathsf{Set} \downarrow X \to \mathsf{Set}$ sends
-      an object $Y \to X$ to the set $Y$.
-      The \textit{image} functor $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
-      sends a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
-\end{definition}
-
-The following are straightforward.
-
-\begin{lemma}
-      Fix a commuting square $D$ in $\mathsf{Set} \downarrow X$. The following are equivalent.
-      \begin{enumerate}
-      \item $D$ is a pullback (respecitvely, pushout).
-      \item The image of $D$ under $\mathsf{fgt}$ is a pullback (pushout).
-      \item The image of $D$ under $\mathsf{im}$ is a pullback (pushout).
-      \end{enumerate}
-
-      More generally, let $D$ be any ``$n$-faceted diamond'' as below.
-      \begin{equation}
-            \begin{tikzcd}
-                  A \arrow[r] \arrow[dr, phantom, "\cdots"] \arrow[d]
-                  &
-                  B_1 \arrow[d]
-                  \\
-                  B_n \arrow[r]
-                  &
-                  C
-            \end{tikzcd}
-      \end{equation}
-      Then $A$ is the limit of $D$ (respectively, $C$ is a colimit of $D$)
-      iff
-      its image under $\mathsf{fgt}$ is so
-      iff
-      its image under $\mathsf{im}$ is so.
-\end{lemma}
-
-\begin{remark}
-      \label{CAP_CUP_REM}
-      In particular, this says that, for objects $Y_i \to X$,
-      \begin{equation}
-            \cap_T Y_i := \mathsf{im}(\cap Y_i) = \cap \mathsf{im}(Y_i)
-      \end{equation}
-      and
-      \begin{equation}
-            \cup_T Y_i := \mathsf{im}(\cup Y_i) = \cup \mathsf{im}(Y_i)
-      \end{equation}
-      where $\cap Y_i$ and $\cup Y_i$ are given by the generalized pullback and pushout
-      \begin{equation}
-            \cap Y_i = \lim_i(Y_i \to X), \qquad \qquad \cup Y_i = \colim_{i,j}(Y_i \cap Y_j \to Y_i).
-      \end{equation}
-\end{remark}
-
-Since (co)limits in diagram categories are computed levelwise, the following is immediate.
-\begin{corollary}
-      \label{IM_COR}
-      An $n$-faceted diamond in $\mathsf{dSet} \downarrow \Omega[T]$ is a (co)limit diagram
-      iff
-      its image under $\mathsf{fgt}$ is so
-      iff
-      its image under $\mathsf{im}$ is so.
-\end{corollary}
-
-\begin{remark}
-      This will be necessary, as we have the inconvenience that,
-      for an outer face $U_0$ of $T \simeq G \cdot_H T_0$ with isotropy $K$ strictly smaller than $H$,
-      the natural map $\Omega[G \cdot_K U_0] \to \Omega[T]$
-      will not be injective.
-      However, the above corollary says that this is a non-issue.
-\end{remark}
-
-
-
-
-
-\subsubsection{Outdated (i.e. Wrong)}
-
-While the direct dual of the above isn't true,
-the following proposition immediately implies that
-the hypersaturated class of the orbital horn inclusions contains
-the (anodyne) horn inclusions.
-
-\begin{proposition}
-      \label{GHORN_GOHORN_PROP}
-      For any $T \in \Omega_G$, the map
-      $\Lambda^{G e}_o[T] \into \Lambda^{G e}[T]$
-      is cellular on orbital horn inclusions.
-\end{proposition}
-\begin{proof}
-      Let $\mathscr{F}^{-o}(T)$ denote the poset of faces $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
-      of ``maximally-equivariant faces''; that is, those $U_0$ such that
-      \begin{enumerate}
-      \item $U_0$ contains the orbit $K_r e$, where $K_r = \mathrm{Stab}_H(r(U_0))$.
-      \item If $U_0 \into R_0$ for $R_0 \in \Lambda^{G e}[T]$, then $K \geq \mathrm{Stab}_H(R_0)$. 
-      \end{enumerate}
-      Let $O_G \wr \mathscr{F}^{-o}(T)$ denote the poset of pairs $(H/K, U_0)$ such that
-      $U_0 \in \mathscr{F}^{-o}(T)$ and
-      $K = \mathrm{Stab}_H(U_0)$, where 
-      $(H/K, U_0) \leq (H/K', U_0')$ iff there exists a map $H/K \to H/K'$ and $U_0 \leq U_0'$.
-      It suffices to show that
-      \begin{equation}
-            \Lambda^{G e}_o[T] \cup \mathop{\bigcup}\limits_{U_0 \in B} \Omega[G \cdot U_0]
-            \to
-            \Lambda_0^{G e}[T] \cup \mathop{\bigcup}\limits_{U_0' \in B'} \Omega[G \cdot U_0']
-      \end{equation}
-      is cellular on orbital horn inclusions, where
-      $B \subseteq B'$ are $G$-closed $G$-concave subposets of $O_G \wr \mathscr{F}^{-o}(T)$.
-      % $U_0 \in \Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$
-      % such that $\mathrm{Stab}_H(r(U_0)) e \subseteq U_0$. 
-      \todo[inline]{this is still not correct as stated}.
-      In fact, it suffices to consider when $B' = B \cup H \set{U_0}$, where $U_0 \subseteq T_0$.
-      Let $H$ be the stabilizer of $T_0$, $K$ the stabilizer of $U_0$, and $K_r$ the root-isotropy.
-
-      We claim that the above map is a pushout over the map
-      \begin{equation}
-            \Lambda^{G e}_o[G \cdot_K U_0] \to \Omega[G \cdot_K U_0].
-      \end{equation}
-      First, we check that the left-hand-side is in the domain.
-      Any face $R_0$ in $\Lambda^{G e}_0[G \cdot_K U_0]$ with stabilizer $\bar K$ and root-isotropy $\bar K_r$
-      factors through an equivariant face $V_0$ of $U_0$ which misses outside of $H e$.
-      Thus there exist an edge $t\in U_0$ (or an outer cluster $C \in U_0$) such that
-      $\bar K_r t \cap R_0 = \bar K_r t \cap V_0 = \varnothing$
-      (or $\bar K_r C \cap R_0 = \bar K_r C \cap V_0 = \varnothing$\footnote{
-        meaning neither the leaves of $C$
-        nor the broad relation defined by $C$ and its orbit
-        are in $R_0$ or $V_0$})
-      Thus $R_0$ factors through the orbital face $T_0 \setminus H t$ (or $T_0 \setminus H C$),
-      and so is in $\Lambda^{G e}_o[T]$.
-
-      Second, we show that $\Omega[G \cdot_K U_0] \setminus \Lambda^{G e}_o[G \cdot_K U_0]$ is not in the domain.
-      \begin{enumerate*}[label=(\itshape\roman*\upshape)]
-      \item Let $R_0$ be a face of $U_0$ with image in $\Lambda^{G e}_o[T]$.
-            Then $R_0$ factors through some $\mathrm{Stab}_H(r(R_0))$-closed face $V_0$ of $T_0$.
-            But then $V_0 \cap U_0$ is $\mathrm{Stab}_H(r(R_0)) \cap K = \mathrm{Stab}_K(r(R_0))$-closed,
-            and hence $R_0$ is in $\Lambda^{G e}_0[G \cdot_K U_0]$.
-      % \item If $R_0 = U_0 \setminus \bar e$ for $\bar e \subseteq K e$ is in $\Lambda^{G e}_o[T]$, then
-      %       $R_0$ factors through an equivariant face $V_0$ of $T_0$ which misses outside of $H e$,
-      %       but this implies that $U_0$ factors through the equivariant face $V_0 \cup H e$,
-      %       and hence $U_0$ is in the orbital horn, a contradiction.
-      \item Now let $R_0$ be a of $U_0$ with image in another face $W_0$ containing $e$ already attached. Then
-            \begin{enumerate*}
-            \item If $R_0 = U_0 \setminus \bar e$, then 
-                  $U_0$ is contained in $\Omega[G \cdot W_0]$, and so $U_0$ is the domain, a contradiction.
-            \item If $R_0$ is non-equivariant but misses only outside of $K e$, 
-            \end{enumerate*}
-            \todo[inline]{come back} 
-      \end{enumerate*}
-      Thus, the desired result holds.
-\end{proof}
-
-\begin{example}[Counter-example to the above Proposition]
-      Let $G = C_8$, and consider the tree $T$ and faces $U_0$ and $R_0$ below.
-      \begin{equation}
-            \begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize},level distance = 1.9em, auto]
-                  \tikzstyle{level 2}=[sibling distance=5em]%
-                  \tikzstyle{level 3}=[sibling distance=3em]%
-                  \tikzstyle{level 4}=[sibling distance=1em]%
-                  \node{$T$}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{node [dummy] {}
-                        child{
-                          edge from parent node {$a+G$}
-                        }
-                        edge from parent node {$b+G/4$}
-                      }
-                      edge from parent node {$e+G/2$}
-                    }
-                    edge from parent node {$c+G/G$}
-                  };
-                  \node at (2,0) {$U_0$}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{node [dummy] {}
-                        child{}
-                        child{}
-                      }
-                      child{node [dummy] {}
-                        child{}
-                        child{}
-                      }
-                    }
-                    child{node [dummy] {}
-                      child{edge from parent node [swap] {$b+2$}}
-                      child{edge from parent node {$b$}}
-                    }
-                  };
-                  \tikzstyle{level 2}=[sibling distance=8em]%
-                  \node at (8,0) {$R_0$}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{node [dummy] {}
-                        child{node {$a+7$}}
-                        child{edge from parent node {$a+3$}}
-                      }
-                      child{node [dummy] {}
-                        child{node {$a+5$}}
-                        child{edge from parent node {$a+1$}}
-                      }
-                    }
-                    child{node [dummy] {}
-                      child{edge from parent node [swap]{$a+6$}}
-                      child{node {$a+2$}}
-                      child{node {$a+4$}}
-                      child{edge from parent node {$a$}}
-                    }
-                  };
-            \end{tikzpicture}
-      \end{equation}
-      Both $U_0$ and $R_0$ are in $\mathscr{F}^{-o}(T)$, and have actions by $2G$.
-      They are also only contained in faces in $\Lambda^{G e}[T]$ which have strictly smaller isotropy,
-      meaning they need to be attached themselves, as not as part of a larger face.
-      However, both orbital horns $\Lambda^{G e}_o[G \cdot_{2G} U_0]$ and $\Lambda^{G e}_o[G \cdot_{2G} R_0]$
-      miss the face $S_0$ below, so it would be attached \textbf{twice} when trying to construct
-      $\Lambda^{G e}[T]$ from $\Lambda^{G e}_o[T]$ cellularly.
-      \begin{equation}
-            \begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize},level distance = 1.9em, auto]
-                  \tikzstyle{level 2}=[sibling distance=5em]%
-                  \node {$S_0$}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{node [dummy] {}
-                        child{}
-                        child{}
-                      }
-                      child[level distance=3em]{node {$a+5$}}
-                      child[level distance=3em]{node {$a+1$}}
-                    }
-                    child{edge from parent node {$e$}}
-                  };
-            \end{tikzpicture}
-      \end{equation}
-\end{example}
-
-
-
-
-
-% \begin{example}[A Problem with the Reverse]
-%       With $G = C_4$, consider the tree
-%       \begin{equation}
-%             \begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize},level distance = 1.9em, auto]%
-%                   \tikzstyle{level 3}=[sibling distance=5.75em]%
-%                   \tikzstyle{level 4}=[sibling distance=2em]%
-%                   \node {$T$}
-%                   child{node [dummy] {}
-%                     child{node [dummy] {}
-%                       child{node [dummy] {}
-%                         child{edge from parent node [swap] {$a+3$}}
-%                         child{edge from parent node {$a+1$}}
-%                         edge from parent node [swap] {$b+1$}
-%                       }
-%                       child{node [dummy] {}
-%                         child{edge from parent node [swap]{$a+2$}}
-%                         child{edge from parent node {$a$}}
-%                         edge from parent node {$b$}
-%                       }
-%                       edge from parent node [swap] {$e$}
-%                     }
-%                     edge from parent node [swap] {$c$}
-%                   };
-%             \end{tikzpicture}
-%       \end{equation}
-%       The map $\Lambda^{G e}[T] \to \Omega[T]$ does not appear to be in the hypersaturation of orbital horn inclusions.
-%       In particular, the map itself cannot be built out of orbital horn inclusions (too few missing dendricies),
-%       and the map $\Lambda^{G e}_o[T] \to \Lambda^{G e}[T]$
-%       does not appear to be cellular on orbital horn inclusions.
-% \end{example}
-
 
 
 
