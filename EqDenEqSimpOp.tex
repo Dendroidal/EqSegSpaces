@@ -68,7 +68,7 @@
 
 
 
-\abstract{bla bla, generalizing \cite{CM13a} and possibly \cite{CM13b}.
+\abstract{bla bla, generalizing \cite{CM13a}.
 
 Bla, also obtain an equivariant notion of Reedy category.}
 
@@ -88,11 +88,15 @@ The following are the categories currently with model structures and the right a
 	\end{tikzcd}
 \]
 
+
+
+
 \newpage
 
 
-\section{Equivariant dendroidal sets}
 
+
+\section{Equivariant dendroidal sets}
 
 
 
@@ -107,7 +111,7 @@ The following are the categories currently with model structures and the right a
 \end{definition}
 
 \begin{definition}
-      Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
+	Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
       $T_0$ denote the component of $T$ containing the image of $S_0$.
 
       We say $f$ is an \textit{(inner, resp. outer) face map} if
@@ -1283,6 +1287,19 @@ $\gamma_{\**} X \to \gamma_{\**} Y$
 of fibrant pre-operads.
 \end{remark}
 
+
+\begin{definition}
+	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space.
+	We call a point $f \in X(C_{H/H})_0$ a $H$-equivalence 
+	if the corresponding class 
+\[
+[f] \in ho(X)(C_{H/H}) = ho \left(\iota^{\**}\left(X^H\right)\right) = 
+\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)
+\]
+	is an isomorphism.
+\end{definition}
+
+
 DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
 {\color{red} whatever below}. We now introduce some auxiliary notions.
 
@@ -1321,7 +1338,7 @@ for any choice of
 $\varphi \in X(e,y_2,\cdots,y_k;x)$
 (resp. $\psi \in X(z_1,\cdots,z_l;e)$).
 
-\begin{proposition}
+\begin{proposition}\label{GENOPHO PROP}
 	The maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
 are well defined up to homotopy. Further, if 
 $\varphi,\bar{\varphi} \in X(e,y_2,\cdots,y_k;x)$ are homotopic 
@@ -1331,12 +1348,39 @@ the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
 	
 	In particular, $\varphi \circ_{Ge} \psi \in X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)$
 	is well defined up to homotopy.
+
+	Lastly, the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial in maps $f\colon X \to Y$ between dendroidal Segal spaces.
 \end{proposition}
 
 \begin{proof}
 	This is immediate once one notes that, writing $E = T-Ge$ for the ``composite $G$-corolla'', all solid maps in 
 	\eqref{HOMOTCIRC EQ} are compatible with the projections
 	to $X^{\partial \Omega[E]}$.
+	
+%For functoriality, recall that we can find a factorization 
+%$X \overset{\sim}{\rightarrowtail} Z \twoheadrightarrow Y$
+%as a trivial cofibration followed by a fibration in the category of dendroidal Segal spaces. Since the trivial cofibration then has a homotopy inverse, and one easily checks that so do the induced maps 
+ 
+For functoriality, one simply notes that either type of section as on the leftmost diagram
+\[
+\begin{tikzcd}[column sep =13]
+	X(T) \ar{r} \ar[->>]{d}{\sim} &
+	Y(T) \ar[->>]{d}{\sim}
+& &
+	Y(T) \ar[->>]{d}{\sim}
+\\
+	X(C) \underset{X(\eta)^H}{\times} X(D)
+	\ar[bend left=30,dashed]{u} \ar{r}
+&
+	Y(C) \underset{Y(\eta)^H}{\times} Y(D)
+	\ar[bend left=30,dashed]{u}
+&
+	X(C) \underset{X(\eta)^H}{\times} X(D) \ar[dashed]{ru} \ar{r}
+&
+	Y(C) \underset{Y(\eta)^H}{\times} Y(D) 
+\end{tikzcd}
+\]
+induces lifts as on the  rightmost diagram. However, a standard argument shows that all such lifts are homotopic over $X^{\partial \Omega[E]}$.
 \end{proof}
 
 	We will now show that the operations   
@@ -1481,8 +1525,9 @@ We thus conclude that the possible choices of maps
 $X^{\mathsf{Sc}[T]} \to X^{\Omega[T-Ge-Gf]}$
 given by outer paths in \eqref{FOURSQ EQ}
 are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X^{\partial \Omega[T-Ge-Gf]}$.
-\end{proof}
 
+{\color{blue} Actually, I may just be able to do without these arguments.}
+\end{proof}
 
 
 \begin{remark}
@@ -1495,11 +1540,94 @@ are homotopic. All desired forms of associativity follow from taking fibers of t
 	we omit their discussion. 
 \end{remark}
 
-	{\color{red} HERE}
+
+\begin{corollary}
+DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-3.
+\[
+\begin{tikzcd}[row sep =5]
+	X \ar{rr}{gf} \ar{rd}[swap]{f} && Z \\
+	& Y \ar{ru}[swap]{g}
+\end{tikzcd}
+\]
+\end{corollary}
+
+\begin{proof}
+The non trivial claim is that when $f$ and $gf$ are DK-equivalences then so is $g$, or more precisely, that the maps
+\[
+	Y(y_1,\cdots,y_n;y_0)
+\to
+	Z(g(y_1),\cdots, g(y_n); g(y_0))
+\]
+are weak equivalences even if the $y_i$ are not in the image of $f$.
+But this follows from the functoriality in 
+Proposition \ref{GENOPHO PROP},
+essential surjectivity 
+(note that when $y_i \in Y(\eta)^{H_i}$ one needs to use $H_i$-equivalences), 
+and the fact that by the previous corollary the maps
+$f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
+are weak equivalences whenever $f$ is a $H$-equivalence.
+\end{proof}
+
+
+We now recover the following from \cite{Rez01}
+({\color{red} add commentary})
+
+\begin{proposition}
+	Let $X \in \mathsf{ssSet}$ be a Segal space. Then:
+\begin{itemize}
+	\item[(i)] equivalences define a subset of connected components
+	$X_1^h \subset X_1$;
+	\item [(ii)] the pullbacks
+\[
+\begin{tikzcd}
+	X_n^h \ar{r} \ar{d} & X_n \ar{d}
+\\
+	X_1^h \times_{X_0} \cdots \times_{X_0} X_1^h \ar{r} &
+	X_1 \times_{X_0} \cdots \times_{X_0} X_1
+\end{tikzcd}
+\]
+define a Segal space $X^h \subset X$, consisting of a union of connected components at each level;
+	\item[(iii)] the maps
+	$X_2^h \xrightarrow{(d_2,d_1)} X_1^h \times_{X_0} X_1^h$, 
+	$X_2^h \xrightarrow{(d_0,d_1)} X_1^h \times_{X_0} X_1^h$
+	are trivial fibrations;
+	\item[(iv)] the map $X^J \to X^{\Delta^1} = X_1$ factors through a weak equivalence $X^J \to X_1^h$.
+\end{itemize}
+\end{proposition}
+
+{\color{red} HERE}
+
+\begin{proof}
+For (i), note first that given 
+	$f \colon x \to y$ in $X_{1,0}$,
+then $[f]$ has a left inverse iff one can find a lift $p$
+as on the leftmost diagram below. But for any path $H$ between $f$ and $f'$ in $X_1$
+\[
+\begin{tikzcd}[column sep =40]
+	& X_2 \ar{d}{(d_2,d_1)}
+&
+	\Delta[0] \ar{r}{p} \ar{d}[swap]{0} &
+	X_2 \ar{d}{(d_2,d_1)}
+\\
+	\Delta[0] \ar{r}[swap]{(f,s_0(x))} \ar{ru}{p} &
+	X_1 \times_{X_0} X_1
+&
+	\Delta[1] \ar{r}[swap]{(H,s_0 d_1(H))} \ar[dashed]{ru} &
+	X_1 \times_{X_0} X_1
+\end{tikzcd}
+\]
+one can form the lift in the rightmost diagram, showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
+
+{\color{red} HERE}
+
+bah, think about (ii)
+
+The only non-obvious claim in (ii) is that the $X_n^h$ respect the
+\end{proof}
 
 
 
-\cite{Rez01}
+
 
 \begin{proposition}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
@@ -1815,6 +1943,9 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 \appendix
 
 \section{Equivariant Reedy model structures}
+
+
+{\color{blue} Bla bla one of the axioms in \cite{BM11} is different from the others point of view}
 
 In \cite{BM11} Berger and Moerdijk extend the notion of Reedy category so as to allow for categories $\mathbb{R}$
  with non-trivial automorphism groups 
