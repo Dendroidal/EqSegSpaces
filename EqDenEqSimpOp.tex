@@ -70,7 +70,8 @@
 
 \abstract{bla bla, generalizing \cite{CM13a}.
 
-Bla, also obtain an equivariant notion of Reedy category.}
+In an appendix, we discuss Reedy categories in the equivariant context.}
+
 
 
 \tableofcontents
@@ -1578,14 +1579,14 @@ We now recover the following from \cite{Rez01}
 	\item[(i)] equivalences define a subset of connected components
 	$X_1^h \subset X_1$;
 	\item [(ii)] the pullbacks
-\[
+\begin{equation}\label{XHDEF EQ}
 \begin{tikzcd}
 	X_n^h \ar{r} \ar{d} & X_n \ar{d}
 \\
 	X_1^h \times_{X_0} \cdots \times_{X_0} X_1^h \ar{r} &
 	X_1 \times_{X_0} \cdots \times_{X_0} X_1
 \end{tikzcd}
-\]
+\end{equation}
 define a Segal space $X^h \subset X$, consisting of a union of connected components at each level;
 	\item[(iii)] the maps
 	$X_2^h \xrightarrow{(d_2,d_1)} X_1^h \times_{X_0} X_1^h$, 
@@ -1594,8 +1595,6 @@ define a Segal space $X^h \subset X$, consisting of a union of connected compone
 	\item[(iv)] the map $X^J \to X^{\Delta^1} = X_1$ factors through a weak equivalence $X^J \to X_1^h$.
 \end{itemize}
 \end{proposition}
-
-{\color{red} HERE}
 
 \begin{proof}
 For (i), note first that given 
@@ -1618,15 +1617,65 @@ as on the leftmost diagram below. But for any path $H$ between $f$ and $f'$ in $
 \]
 one can form the lift in the rightmost diagram, showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
 
-{\color{red} HERE}
+For (ii), the fact that $X^h_{\bullet}$ is closed under the simplicial operators follows since the composite of equivalences is an equivalence.
+In fact, this further implies that the bottom row in the pullback 
+\eqref{XHDEF EQ} could have been replaced with
+$(X^h)^{sk_1 \Delta[n]} \to	X^{sk_1 \Delta[n]}$,
+from which it follows that the squares
+\[
+\begin{tikzcd}
+	(X^h)^K \ar{r} \ar{d} & X^K \ar{d}
+\\
+	(X^h)^{sk_1 K} \ar{r} &
+	X^{sk_1 K}
+\end{tikzcd}
+\]
+are pullbacks. Since 
+$sk_1 (\partial \Delta[n]) = sk_1 \Delta[n]$
+if $n \geq 2$
+it follows that the maps
+$X^h_n \to (X^h)^{\partial \Delta[n]}, n\geq 2$
+are Kan fibrations, and since the map $X_1^h\ \to X_0 \times X_0$
+is certainly a Kan fibration, $X^h$ is indeed Reedy fibrant. 
+The Segal condition is obvious from the pullback \eqref{XHDEF EQ}.
 
-bah, think about (ii)
+For (iii), it suffices by symmetry to show the first claim.
+Moreover, one reduces to showing show that for any choice of section 
+in the following diagram the top composite is a weak equivalence.
+\[
+\begin{tikzcd}
+	X_1^h \times_{X_0} X_1^h \ar[bend left=23,dashed]{r} 
+	\ar[->>]{rd}[swap]{(id,d_0)}&
+	X_2^h \ar[->>]{r}[swap]{(d_2,d_1)} \ar[->>]{l}{(d_2,d_0)}[swap]{\sim}&
+	X_1^h \times_{X_0} X_1^h
+	\ar[->>]{dl}{(id,d_0)}
+\\
+	& X_1^h \times X_0
+\end{tikzcd}
+\]
+But this composite is a map of fibrations over
+$X_1^h \times X_0$ with the map between the fibers over 
+$(f \colon x \to y,z)$
+computing the map
+$(-) \circ f \colon X^h(y;z) \to X^h(x;z)$,
+which is a Kan equivalence since $f\in X_1^h$ is an equivalence.
+Thus the composite is an equivalence, establishing (iii).
 
-The only non-obvious claim in (ii) is that the $X_n^h$ respect the
+Lastly, for (iv) we start by noting that (iii) can be restated as saying that $X^h$ is local with respect to the outer horn inclusions
+$\Lambda^0[2] \to \Delta[2]$ and
+$\Lambda^2[2] \to \Delta[2]$, 
+and that hence by Remarks 
+\ref{ANHYPER REM} and \ref{CONTGR REM}
+the map 
+$(X^h)^J \to X^h_1$ 
+is a Kan equivalence.
+Hence, the only remaining claim is that
+$(X^h)^J = X^J$,
+which is clear.
 \end{proof}
 
 
-
+{\color{red} HERE}
 
 
 \begin{proposition}
@@ -1671,7 +1720,7 @@ The only non-obvious claim in (ii) is that the $X_n^h$ respect the
 \end{corollary}
 
 
-\begin{remark}
+\begin{remark}\label{ANHYPER REM}
 The smallest hypersaturated class containing the inner horns and the left horn inclusion
 $\Lambda^0[2] \to \Delta[2]$
 in fact contains all left horn inclusions
@@ -1703,7 +1752,7 @@ and the top and left maps are given by following pushouts
 \end{remark}
 
 
-\begin{remark}
+\begin{remark}\label{CONTGR REM}
 Write $\widetilde{[n]}$
 for the contractible groupoid on objects $\{0,1,\cdots,n\}$. Note that the $k$-simplices of $\widetilde{[n]}$
 are encoded as strings $a_0 a_1 \cdots a_k$
