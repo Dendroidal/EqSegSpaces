@@ -89,7 +89,7 @@ The following are the categories currently with model structures and the right a
 	\end{tikzcd}
 \]
 
-
+ 
 
 
 \newpage
@@ -1661,7 +1661,7 @@ $(-) \circ f \colon X^h(y;z) \to X^h(x;z)$,
 which is a Kan equivalence since $f\in X_1^h$ is an equivalence.
 Thus the composite is an equivalence, establishing (iii).
 
-Lastly, for (iv) we start by noting that (iii) can be restated as saying that $X^h$ is local with respect to the outer horn inclusions
+Lastly, for (iv) we first note that (iii) can be restated as saying that $X^h$ is local with respect to the outer horn inclusions
 $\Lambda^0[2] \to \Delta[2]$ and
 $\Lambda^2[2] \to \Delta[2]$, 
 and that hence by Remarks 
@@ -1674,14 +1674,70 @@ $(X^h)^J = X^J$,
 which is clear.
 \end{proof}
 
-
-{\color{red} HERE}
+\begin{remark}
+The inclusion $X^h \to X$ is a Reedy fibration.
+{\color{blue} justify}
+\end{remark}
 
 
 \begin{proposition}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
 	Then the map $X \to X^{J_d}$ is a $DK$-equivalence.
 \end{proposition}
+
+{\color{red} HERE}
+
+\begin{proof}
+	Note first that for any $T \in \Omega_G$ the map
+	$X^{J_d}(T) \to X^{\Omega[1]}(T)$ can be rewritten as
+	$\left(X^{\Omega[T]}\right)^{J_d} \to
+	\left(X^{\Omega[T]}\right)^{\Omega[1]} = \left(X^{\Omega[T]}\right)_1$,
+	and since $X^{\Omega[C]}$ is a (simplicial) Segal space
+	the previous result implies that this map is a weak equivalence onto a subset of components 
+	(such maps are also called homotopy monomorphisms).
+It thus follows that for any $G$-corolla
+	$C_{\amalg_i H_0/H_i}$ the horizontal maps in 
+	the rightmost square below are homotopy monomorphisms.
+\[
+\begin{tikzcd}
+	X(C) \ar{r} \ar[->>]{d} & 
+	X^{J_d}(C) \ar{r} \ar[->>]{d} & 
+	X^{\Omega[1]}(C) \ar[->>]{d}
+\\
+	\prod_{0\leq i\leq k} X(\eta)^{H_i} \ar{r}&
+	\prod_{0\leq i\leq k} X^{J_d}(\eta)^{H_i} \ar{r} &
+	\prod_{0\leq i\leq k} X^{\Omega[1]}(\eta)^{H_i}
+\end{tikzcd}	
+\]
+Since the claim that $X \to X^{J_d}$ is a $DK$-equivalence
+is the statement that the leftmost square induces weak equivalences on fibers, it thus suffices to show that so does the composite square.
+
+	
+\[	
+\begin{tikzcd}[column sep =12]
+	X^{\Omega[1] \otimes \Omega[C]} \ar[->>]{r}{\sim} \ar[->>]{d}[swap]{\sim} &
+	\bullet \ar[->>]{d}[swap]{\sim} \ar[->>]{r} &
+	X(C \star \eta) \ar[->>]{d}[swap]{\sim}
+\\
+	\bullet \ar[->>]{r}{\sim} \ar[->>]{d} & 
+	\underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
+	\times_{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}
+	\times_{X(\eta)^{H_0}} X([1])^{H_0} \ar[->>]{d}
+	\ar[->>]{r} &
+	X(C) \times_{X(\eta)^{H_0}} X([1])^{H_0} \ar[->>]{d}
+\\
+	X(\eta \star C) \ar[->>]{r}{\sim} \ar[->>]{r} &
+	\underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
+	\times_{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}
+	X(C) \ar[->>]{r}
+	&
+	X(C)
+\end{tikzcd}	
+\]
+	
+	
+	
+\end{proof}
 
 {\color{red} HERE}
 
