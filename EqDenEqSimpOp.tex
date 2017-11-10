@@ -1685,7 +1685,6 @@ The inclusion $X^h \to X$ is a Reedy fibration.
 	Then the map $X \to X^{J_d}$ is a $DK$-equivalence.
 \end{proposition}
 
-{\color{red} HERE}
 
 \begin{proof}
 	Note first that for any $T \in \Omega_G$ the map
@@ -1698,7 +1697,7 @@ The inclusion $X^h \to X$ is a Reedy fibration.
 It thus follows that for any $G$-corolla
 	$C_{\amalg_i H_0/H_i}$ the horizontal maps in 
 	the rightmost square below are homotopy monomorphisms.
-\[
+\begin{equation}\label{BIGSQ EQ}
 \begin{tikzcd}
 	X(C) \ar{r} \ar[->>]{d} & 
 	X^{J_d}(C) \ar{r} \ar[->>]{d} & 
@@ -1708,39 +1707,84 @@ It thus follows that for any $G$-corolla
 	\prod_{0\leq i\leq k} X^{J_d}(\eta)^{H_i} \ar{r} &
 	\prod_{0\leq i\leq k} X^{\Omega[1]}(\eta)^{H_i}
 \end{tikzcd}	
-\]
+\end{equation}
 Since the claim that $X \to X^{J_d}$ is a $DK$-equivalence
 is the statement that the leftmost square induces weak equivalences on fibers, it thus suffices to show that so does the composite square.
 
-	
-\[	
-\begin{tikzcd}[column sep =12]
-	X^{\Omega[1] \otimes \Omega[C]} \ar[->>]{r}{\sim} \ar[->>]{d}[swap]{\sim} &
-	\bullet \ar[->>]{d}[swap]{\sim} \ar[->>]{r} &
-	X(C \star \eta) \ar[->>]{d}[swap]{\sim}
+Now note that we can rewrite
+$X^{\Omega[1]}(C) = X^{\Omega[1] \otimes \Omega[C]}$
+and that there is a pullback diagram
+\[
+\begin{tikzcd}	
+	X^{\Omega[1] \otimes \Omega[C]} \ar[->>]{r} \ar[->>]{d}&
+	X(C \star \eta) \ar[->>]{d}
 \\
-	\bullet \ar[->>]{r}{\sim} \ar[->>]{d} & 
-	\underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
-	\times_{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}
-	\times_{X(\eta)^{H_0}} X([1])^{H_0} \ar[->>]{d}
-	\ar[->>]{r} &
-	X(C) \times_{X(\eta)^{H_0}} X([1])^{H_0} \ar[->>]{d}
-\\
-	X(\eta \star C) \ar[->>]{r}{\sim} \ar[->>]{r} &
-	\underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
-	\times_{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}
-	X(C) \ar[->>]{r}
-	&
+	X(\eta \star C) \ar[->>]{r} &
 	X(C)
-\end{tikzcd}	
+\end{tikzcd}
 \]
-	
-	
-	
+Noting that the required cube is projective fibrant, 
+% the top of this cube is the diagram above and the base
+%\[
+%\begin{tikzcd}	
+%	\underset{0 \leq i \leq n}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d}&
+%	\left(\underset{1\leq i \leq n}{\prod} X(\eta)^{H_i}\right)
+%	\times X([1])^{H_0} \ar[->>]{d}
+%\\
+%	\left(\underset{1\leq i \leq n}{\prod} X([1])^{H_i}\right)
+%	\times X(\eta)^{H_0} \ar[->>]{r} &
+%	\underset{0 \leq i \leq n}{\prod} X(\eta)^{H_i}
+%\end{tikzcd}
+%\]
+one reduces to checking that the following squares induce weak equivalences on fibers, and this claim is clear from the top right vertical trivial fibrations (which are instances of the Segal condition).
+%\[	
+%\begin{tikzcd}[column sep =12]
+%	X^{\Omega[1] \otimes \Omega[C]} \ar[->>]{r}{\sim} \ar[->>]{d}[swap]{\sim} &
+%	\bullet \ar[->>]{d}[swap]{\sim} \ar[->>]{r} &
+%	X(C \star \eta) \ar[->>]{d}[swap]{\sim}
+%\\
+%	\bullet \ar[->>]{r}{\sim} \ar[->>]{d} & 
+%	\underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
+%	\times_{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}
+%	X(C)
+%	\times_{X(\eta)^{H_0}} X([1])^{H_0} \ar[->>]{d}
+%	\ar[->>]{r} &
+%	X(C) \times_{X(\eta)^{H_0}} X([1])^{H_0} \ar[->>]{d}
+%\\
+%	X(\eta \star C) \ar[->>]{r}{\sim} \ar[->>]{r} &
+%	\underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
+%	\times_{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}
+%	X(C) \ar[->>]{r}
+%	&
+%	X(C)
+%\end{tikzcd}	
+%\]
+\[
+\begin{tikzcd}
+	X(C) \ar{r}{s_{\eta}} \ar[->>]{dd}&
+	X(C \star \eta) \ar[->>]{d}{\sim}
+&
+	X(C) \ar{r}{s_{\eta}} \ar[->>]{dd}&
+	X(C \star \eta) \ar[->>]{d}{\sim}
+\\
+	& X(C) \underset{X(\eta)^{H_0}}{\times} X([1])^{H_0} \ar[->>]{d}
+&
+	& \underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
+	\underset{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}{\times} X(C) \ar[->>]{d}
+\\
+	\underset{0\leq i \leq n}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
+	\left(\underset{1\leq i \leq n}{\prod} X(\eta)^{H_i}\right)
+	\times X([1])^{H_0}
+&
+	\underset{0\leq i \leq n}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
+	\left(\underset{1\leq i \leq n}{\prod} X([1])^{H_i}\right)
+	\times X(\eta)^{H_0}
+\end{tikzcd}
+\]
 \end{proof}
 
-{\color{red} HERE}
 
+{\color{red} HERE}
 
 \[
 	u^{\**} \colon \mathsf{dSet}_G 
