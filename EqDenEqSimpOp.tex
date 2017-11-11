@@ -1569,6 +1569,18 @@ $f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
 are weak equivalences whenever $f$ is a $H$-equivalence.
 \end{proof}
 
+\begin{corollary}\label{26COR}
+DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-6, i.e. whenever $gf$ and $hg$ are DK-equivalences then so are
+$f$, $g$, $h$, $hgf$.
+\end{corollary}
+
+\begin{proof}
+	The hypothesis implies together with the 
+	2-out-of-6 condition for the Kan model structure in 
+	$\mathsf{sSet}$
+	imply that $g$ is fully faithful for objects in the image of $f$. But this easily implies that $f$ is a DK equivalence, and thus 2-out-of-3 concludes the proof. 
+\end{proof}
+
 
 We now recover the following from \cite{Rez01}
 ({\color{red} add commentary})
@@ -1680,7 +1692,7 @@ The inclusion $X^h \to X$ is a Reedy fibration.
 \end{remark}
 
 
-\begin{proposition}
+\begin{proposition}\label{JDDK PROP}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
 	Then the map $X \to X^{J_d}$ is a $DK$-equivalence.
 \end{proposition}
@@ -1784,6 +1796,29 @@ one reduces to checking that the following squares induce weak equivalences on f
 \end{proof}
 
 
+\begin{definition}
+	Two maps $f,f'\colon A \rightrightarrows B$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
+	there is a $H$ such that
+	the two composites
+	$A \xrightarrow{H} B^J \rightrightarrows B$
+	are $f,f'$.
+	
+	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there is $g \colon Y \to X$
+	such that $gf \sim_J id$, $fg \sim_J id$.
+\end{definition}
+
+\begin{remark}
+	It follows from Proposition \ref{JDDK PROP} and 2-out-of-3 that if 
+	$f\sim_J f'$ then $f$ is a DK-equivalence iff $f'$is.
+	Thus by 2-out-of-6 all $J$-homotopy equivalences are DK-equivalences.
+\end{remark}
+
+\begin{remark}
+	Let $X$ be a Segal space. All simplicial operators
+	$X^{J_n} \to X^{J_m}$ are induced from equivalences of groupoids $\widetilde{[m]} \to \widetilde{[n]}$, and one easily checks that these operators are thus $J$-homotopy equivalences and thus also DK-equivalences.
+\end{remark}
+
+
 {\color{red} HERE}
 
 \[
@@ -1796,6 +1831,8 @@ one reduces to checking that the following squares induce weak equivalences on f
 
 {\color{red} discuss characteristic horns}
 
+
+{\color{red} bla bla dendroidal Reedy fibrant replacement enough if one knows about homotopy pullbacks}
 
 \newpage
 
