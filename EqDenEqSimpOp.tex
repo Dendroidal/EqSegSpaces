@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt,draft]{article}%
+\documentclass[a4paper,10p,draft]{article}%
 
 
 \usepackage[hidelinks]{hyperref}
@@ -98,6 +98,7 @@ The following are the categories currently with model structures and the right a
 
 \subsection{Preliminaries}
 
+
 \begin{definition}
       A map $f: S_0 \to T_0$ in $\Omega$ is called a \textit{face map} if it is injective on underlying sets.
       A face map is \textit{inner} if it is of the form $T_0 \setminus E \into T_0$, where $E$ is a subset of the set of inner edges of $T$.      
@@ -113,10 +114,26 @@ The following are the categories currently with model structures and the right a
       We say $f$ is an \textit{(inner, resp. outer) face map} if
       $f: S_0 \to T_0$ is an (inner, outer) face map on underlying trees.
 
-      Given a subseteq $E$ of inner edges, let
-      $\mathrm{Inn}^E(T)$ denote the subposet of faces such that miss all of $E$.
-      Moveover, let $\mathrm{Out}(T)$ denote the subposet of outer faces.
+      Given a subset $E$ of inner edges, let
+      $\mathscr{F}_{\mathrm{Inn}}^E(T)$ denote the subposet of faces such that miss all of $E$.
+      Moveover, let $\mathscr{F}_{\mathrm{Out}}(T)$ denote the subposet of outer faces.
 \end{definition}
+
+\begin{definition}
+      Fix a set $X$.
+      Let $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
+      denote the \textit{image} functor,
+      sending a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
+\end{definition}
+
+\begin{remark}
+      This naturally extends to any category of presheaves on sets,
+      in particular $\mathsf{dSet}$ and $\mathsf{dSet}_G$.
+      These arise naturally when considering horns and boundaries, as we will see that the natural map
+      $\Omega[G \cdot_K U_0] \to \Omega[T]$
+      for a face $U_0$ of $T$ is injective iff $U_0$ is \textit{orbital}; see Lemma \ref{ORB_INJ_LEM}.      
+\end{remark}
+
 
 \begin{definition}
       Fix $T\in \Omega_G$, and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
@@ -129,15 +146,19 @@ The following are the categories currently with model structures and the right a
       $\mathscr{F}^{G e}(T) = \mathscr{F}(T) \setminus (T_0 \setminus \bar e)_{\bar e \subseteq H e}$.}
       Define the \textit{$E$-horn} of $T$ to be the subdendroidal set
       \begin{equation}
-            \Lambda^{E}[T] := \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
+            \Lambda^{E}[T] := \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathsf{im}\left(\Omega[G \cdot_K S_0]\right)
+            = \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathop{\bigcup}\limits_{g \in G}\Omega[g S_0]
+            %= \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
       \end{equation}
       where $K = \mathrm{Stab}_H(S_0)$.
-\end{definition}
+      \todo[inline]{the colimit wasn't functorial as written: e.g. if $U_0$ is an equivariant subface of $S_0$, then $\Omega[G \cdot_K U_0]$ does not canonically map into $\Omega[G \cdot_L S_0]$. This can be fixed by making the poset larger (adding full orbits of certain subface subinclusions)}
+  \end{definition}
 
 \begin{remark}
       Equivalently, if $T \simeq G \cdot_H T_0$, then
       \begin{equation}
-            \Lambda^{E}[T] \simeq G \cdot_H \Lambda^{E \cap T_0}[T_0].
+            \Lambda^{E}[T] \simeq G \cdot_H \Lambda^{E \cap T_0}[T_0]
+            \simeq G \cdot_H \mathop{\colim}\limits_{\mathscr{F}^{E \cap T_0}(T_0}\Omega[U_0].
       \end{equation}
 \end{remark}
 
@@ -148,13 +169,15 @@ The following are the categories currently with model structures and the right a
 \end{remark}
 
 \begin{definition}
-      For $T \in \Omega_G$, let $\mathscr{SC}(T) \subseteq \mathrm{Out}(T)$ denote the poset of outer faces
+      For $T \in \Omega_G$, let $\mathscr{F}_{\mathrm{SC}}(T) \subseteq \mathrm{Out}(T)$ denote the poset of outer faces
       with precisely one (non-equviariant) vertex
       (that is, every element records precisely one generating broad relation
       $e^\uparrow \leq e$ from $T$).
       We define the \textit{Segal core} of $T$ to be the subdendroidal set
       \begin{equation}
-            Sc[T] := \mathop{\colim}\limits_{\mathscr{SC}(T)}\Omega[G \cdot_K C_0],
+            Sc[T] := \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\mathsf{im}\left(\Omega[G \cdot_K C_0]\right)
+            = \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\mathop{\bigcup}\limits_{g \in G}\Omega[g C_0],
+            % \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\Omega[G \cdot_K C_0],
       \end{equation}
       where $K = \mathrm{Stab}_H(C_0)$. 
 \end{definition}
@@ -171,58 +194,137 @@ The following are the categories currently with model structures and the right a
       $Sc[T] \simeq G \cdot_H Sc[T_0]$.
 \end{remark}
 
+
 \begin{definition}
       A face map $f: S_0 \to T$ is called \textit{orbital} if
       $f(S_0) \subseteq T$ is $K$-closed, where $K = \mathrm{Stab}_G(f(r_s))$, for $r_S$ the root of $S_0$.
+\end{definition}
 
-      Fixing a component $T_0$ of $T$,
+
+\begin{lemma}
+      \label{ORB_INJ_LEM}
+      Let $U_0$ be a face of $T$ with isotropy $K$.
+      Then $\Omega[G \cdot_K U_0]$ is a subdendroidal set of $\Omega[T]$
+      iff
+      $U_0$ is orbital.
+\end{lemma}
+\begin{proof}
+      $U_0$ is orbital iff the (non-equivariant) subdendroidal sets $\Omega[g U_0]$ of $\Omega[T]$ are either
+      disjoint or equal, and $\Omega[U_0] = \Omega[g U_0]$ iff $g \in K$.
+      If $U_0$ is not orbital, then there exist $g \in G \setminus K$ such that
+      $R_0 := U_0 \cap g U_0$ is a proper, non-empty subface of $U_0$, so $R_0 \in \Omega[U_0]$ and $\Omega[g U_0]$.
+      Thus $R_0 \in \Omega[T]$ is hit at least twice.
+\end{proof}
+
+\begin{definition}
+Fixing a component $T_0$ of $T$,
       let $\mathscr{F}_{o}(T)$ denote the poset (under inclusion) of orbital face maps whose image is
       strictly contained in $T_0$.
-      Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
-      \begin{equation}
-            \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
-      \end{equation}
-
+      % Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
+      % \begin{equation}
+      %       \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
+      % \end{equation}
       Given an inner edge $e \in T$, let
-      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \setminus (T_0\setminus H e)$
-      where $H = \mathrm{Stab}_G(T_0)$
-      (that is; those faces $S_0$ such that either $T \setminus (G.f(S_0) \cup Ge) \neq \varnothing$, or
-      outer faces removing a stump).
-      Define the \textit{$Ge$-orbital horn} to be the subdendroidal set
+      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \setminus (T_0\setminus \bar{e})_{\bar e \subseteq H e}$
+      where $H = \mathrm{Stab}_G(T_0)$,
+      % (that is; those faces $U_0$ such that either $T \setminus (G.f(U_0) \cup Ge) \neq \varnothing$, or
+      % outer faces removing a stump).
+      and define the \textit{$Ge$-orbital horn} to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}_{o}[T] := \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)}\Omega[G\cdot S_0]. 
+            \Lambda^{Ge}_{o}[T] := \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)/G}\Omega[G\cdot_K U_0]
+            =\mathop{\bigcup}\limits_{\mathscr{F}_o^{Ge}(T)/G} \mathop{\bigcup}\limits_{g \in G}\Omega[g U_0]. 
       \end{equation}
 \end{definition}
+
+
 
 \subsection{Proof of \ref{HYPER PROP}}
 
-\begin{definition}
-      Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let $\hat{W}(\mathcal C)$ denote
-      the hypersaturation of $\mathcal C$. 
-\end{definition}
-The following is immediate.
-\begin{lemma}
-      If $L$ is a left adjoint, then $L(\hat{W}(\mathcal C)) \subseteq \hat{W}(L(\mathcal C))$.
-\end{lemma}
+Recall that a class of maps is called \textit{saturated}
+if it is closed under pushouts, transfinite composition and retracts.
+Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
+\[
+A \xrightarrow{f} B \xrightarrow{g} C
+\]
+both $f$ and $gf$ are in the class, then so is $g$.
+
+\begin{notation}
+      Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let
+      $W(\mathcal C)$ and $\hat{W}(\mathcal C)$ denote
+      the saturation and hypersaturation of $\mathcal C$. 
+\end{notation}
+
 \begin{remark}
+      If $L$ is a left adjoint, then $L(\hat{W}(\mathcal C)) \subseteq \hat{W}(L(\mathcal C))$.
       In particular, this applies to the ``free $G$-object'' functor $G \cdot (-)$.
 \end{remark}
 
+The following lemma identifies some of the utility of hypersaturations.
 \begin{definition}
-      Fix a set $X$.
-      Let $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
-      denote the \textit{image} functor,
-      sending a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
+      Given a class of maps $\mathcal C$ in $\mathcal V$, let $(S)RLP(\mathcal C)$ denote the class of maps with the
+      (strict) right lifting property against $\mathcal C$.
 \end{definition}
-
-\begin{remark}
-      This naturally extends to any category of presheaves on sets,
-      in particular $\mathsf{dSet}$ and $\mathsf{dSet}_G$.
-      These arise naturally when considering horns and boundaries, as the natural map
-      $\Omega[G \cdot_K U_0] \to \Omega[T]$
-      is not injective for a face $U_0 \subseteq T_0$ of $T \simeq G \cdot_H T_0$
-      with isotropy $K$ strictly contained in $H$.
-\end{remark}
+\begin{lemma}
+      Let $\mathcal C$ be a class of maps in $\mathcal V$. Then
+      \begin{enumerate}
+      \item $RLP(\mathcal C) = RLP(W(\mathcal C))$
+      \item $SRLP(\mathcal C) = SRLP(\hat{W}(\mathcal C)$.
+      \end{enumerate}
+\end{lemma}
+\begin{proof}
+      Is a straightforward exercise to show that
+      if $X \to Y$ has the (S)RLP with respect to a map $A \to B$ (resp. maps $A_\alpha \to A_{\alpha +1}$), then
+      $X \to Y$ has the (S)RLP with respect to any pushout or retract of $A \to B$ (resp. the transfinite composite).
+      \begin{itemize}
+      \item For the pushout, the map $C \to X$ always provides one component of the new lift,
+            while $B \to D \to X$ is always a lift over $A \to B$; hence strictness implies strictness.
+      \item For the retract, again we have that $B \to D \to X$ is a lift over $A \to B$,
+            and hence strictness implies this composite is uniquely determined;
+            composing with the section map yields that $D \to X$ is then also uniquely determined.
+      \item Both the definition of the lift for the composite and its uniqueness are immediate.
+      \end{itemize}
+      Now, suppose we have a diagram as on the left
+      \begin{equation}
+            \begin{tikzcd}
+                  A \arrow[r] \arrow[d]
+                  &
+                  X \arrow[d, equal]
+                  &&
+                  A \arrow[r] \arrow[d]
+                  &
+                  B \arrow[d] \arrow[r]
+                  &
+                  X \arrow[d]
+                  \\
+                  B \arrow[r] \arrow[d]
+                  &
+                  X \arrow[d]
+                  &&
+                  B \arrow[r] \arrow[d] \arrow[urr, crossing over, near start, dashed, "\exists ! G"]
+                  &
+                  X \arrow[r] \arrow[d]
+                  &
+                  Y \arrow[d, equal]
+                  \\
+                  C \arrow[r] \arrow[uur, dashed, crossing over, near end, "\exists ! H"]
+                  &
+                  Y
+                  &&
+                  C \arrow[r] \arrow[uurr, bend right, crossing over, dashed, "H"']
+                  &
+                  Y \arrow[r, equal]
+                  &
+                  Y
+            \end{tikzcd}
+      \end{equation}
+      such that $X \to Y$ has the SRLP against $A \to B$ and $A \to C$.
+      By assumption, there exist unique lifts $H$ and $G$ as denoted by the dashed arrows.
+      It is immediate that both $B \to X$ and $B \to C \xrightarrow{H} X$ are candidates for lift $G$,
+      and hence by strictness all three are equal.
+      Thus $H$ is also a lift of the bottom-left square.
+      Since any lift of the bottom square is also a lift of the rectangle,
+      strictness for $A \to B$ implies strictness for $B \to C$.
+\end{proof}
 
 
 
@@ -256,9 +358,9 @@ The following is immediate.
       $C \subseteq C'$ $K$-closed convex subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
       $X_C \to X_{C'}$ is inner $G$-anodyne, where we define
       \begin{equation}
-            X_C := X \cup \mathsf{im} \left( G \cdot_K \mathop{\bigcup}\limits_{C/K} \Omega[U_0 \setminus E] \right),
+            X_C := X \cup \left( G \cdot_K \mathop{\bigcup}\limits_{C/K} \Omega[U_0 \setminus E] \right),
       \end{equation}
-      with $\cup$ and $\cup_{C/K}$ taking place in $\Omega[T]$ and $\Omega[U_0] \subseteq \Omega[T_0]$, resectively.
+      with the unions taking place in $\Omega[T]$.
       Indeed, once $C = \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
       \begin{equation}
             \begin{tikzcd}
@@ -308,12 +410,12 @@ The following is immediate.
 \end{proposition}
 \begin{proof}
       Let $\mathrm{Out}^{-o}(T)$ be the poset of outer faces $U_0$ of $T$ which are not in $\Lambda_0^{Ge}[T]$.
-      It suffices to show that for any $G$-closed convex subsets $B \subseteq B'$ of $\mathrm{Out}^{-o}(T)$, the map
+      It suffices to show that for any $G$-convex subsets $B \subseteq B'$ of $\mathrm{Out}^{-o}(T)$, the map
       \begin{equation}
             \left(\Lambda^{G e}_{o}[T]\right)_B
-            := \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B/G}\Omega[G \cdot_K U_0]
+            := \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
             \to
-            \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B'/G}\Omega[G \cdot_K U_0]
+            \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
             =: (\Lambda^{G e}_o[T])_{B'}
       \end{equation}
       is inner $G$-anodyne.
@@ -321,7 +423,7 @@ The following is immediate.
       without loss of generality $e \in U_0$.
       For the final reduction, Proposition \ref{CHAR_HORN_PROP} implies it suffices to show
       $K e$ is a characteristic edge orbit for
-      $(\Lambda^{G e}_o[T])_B \subseteq \Omega[T] \leftarrow \Omega[G \cdot U_0]$.
+      $(\Lambda^{G e}_o[T])_B \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$.
       To that end, let $U_0 \setminus D$ be an inner face with stabilizer $\bar K$.
       
       For $B = \varnothing$, we suppose $U_0 \setminus \bar K e \in \Lambda_o^{G e}[T]$. This implies that
@@ -347,44 +449,44 @@ The following is immediate.
 
 The reverse inclusion is only true on the level of hypersaturations.
 \begin{definition}
-      Let $W_o$ be the hypersaturation of the orbital horn inclusions.
+      Let $\hat{W}_o$ be the hypersaturation of the orbital horn inclusions.
 \end{definition}
 
 \begin{proposition}
       \label{HORN_ORB_PROP}
       For any $T \in \Omega_G$, the map
       $\Lambda^{G e}[T] \to \Omega[T]$
-      is in $W_o$.
+      is in $\hat{W}_o$.
 \end{proposition}
 \begin{proof}
-      We go by induction on $|G| \times |Inn(T)|$ \todo{replace $Inn(T)$ with $Inn_G(T)$? $E(T)$? $V(T)$? $V_G(T)$?}
-      When $G = \set{e}$, the orbital horns are actually regular inner horns, and so the result holds.
+      We go by induction on $|G| \times |\mathscr{F}_{\mathrm{Inn}}(T)|$ \todo{replace $Inn(T)$ with $Inn_G(T)$? $E(T)$? $V(T)$? $V_G(T)$?}
+      When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds.
 
       Now, the proof of Proposition \ref{CHAR_HORN_PROP} says that,
       for any face $U_0 \subseteq T_0$,
       if $K e$ is a characteristic edge orbit for $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$, then
       \begin{equation}
             \label{CHAR_ATTACH_EQ}
-            X \to X \cup_T \Omega[G \cdot_K U_0]
+            X \to X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
       \end{equation}
       is cellular on maps of the form in \eqref{CHAR_HORN_EQ}, where $D$ is a set of inner edges.
       % (containing all of $\bar K e$ if it is non-empty).
-      Thus, by induction, any such maps \eqref{CHAR_ATTACH_EQ} are in $W_o$.
+      Thus, by induction, any such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$.
       Thus, the proof of Proposition \ref{ORB_HORN_PROP} implies, in particular, that
       \begin{equation}
             \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \partial^{out}(T) =: A
       \end{equation}
-      is in $W_o$.
-      It then suffices to show that, for any $G$-convex subposets $B \subseteq B' \subseteq \mathrm{Inn}^{G e,-o}(T)$,
+      is in $\hat{W}_o$.
+      It then suffices to show that, for any $G$-convex subposets $B \subseteq B' \subseteq \mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$,
       \begin{equation}
             \label{ORB_HORN_ATTACH_EQ}
             A_B := A \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}\left(\Omega[G \cdot_{K} U_0]\right)
             \to
             A \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}\left(\Omega[G \cdot_{K} U_0]\right) =: A_B'
       \end{equation}
-      is in $W_o$,
-      where $\mathrm{Inn}^{G e,-o}(T)$ is the poset of inner faces of $T$ which contain $H e$ and are not in $\Lambda^{G e}_o[T]$.
-      Indeed, for $B = \mathrm{Inn}^{G e,-o}(T)$, $A_B = \Lambda^{G e}[T]$,
+      is in $\hat{W}_o$,
+      where $\mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$ is the poset of inner faces of $T$ which contain $H e$ and are not in $\Lambda^{G e}_o[T]$.
+      Indeed, for $B = \mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$, $A_B = \Lambda^{G e}[T]$,
       so the result follows from the cancelation property in the definition of hypersaturation.
 
       We may assume that $B' = B \cup (G\cdot_K \set{U_0})$, for $U_0 = T_0 \setminus D$.
@@ -418,14 +520,13 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
 \end{proposition}
 \begin{proof}
-      Let $\mathsf{Out}^{>1}(T)$ denote the subposet $\mathsf{Out}(T) \setminus \mathscr{SC}(T)$. \todo{standardize notation}
-      It suffices to show that for all $G$-covex $B \subseteq B' \subseteq \mathsf{Out}^{>1}(T)$, the map
+      Let $\mathsf{Out}^{>1}(T)$ denote the subposet $\mathsf{Out}(T) \setminus \mathscr{F}_{\mathrm{SC}}(T)$.
+      It suffices to show that for all $G$-convex $B \subseteq B' \subseteq \mathsf{Out}^{>1}(T)$, the map
       \begin{equation}
-            (Sc[T])_B :=
+            % (Sc[T])_B :=
             Sc[T] \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}(\Omega[G \cdot_K U_0])
             \to
             Sc[T] \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}(\Omega[G \cdot_K U_0])
-            =: (Sc[T])_{B'}
       \end{equation}
       is inner $G$-anodyne. In particular, we may assume $B' = B \cup G \cdot_K U_0$.
       Then the above map is the pushout over
@@ -435,27 +536,56 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       which by \cite[Proposition 6.17]{Per17} is inner $G$-anodyne,
       and thus the result follows.
 \end{proof}
+\begin{proposition}
+      \label{SC_IN_OHORN_PROP}
+      For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is in $W_o$. 
+\end{proposition}
+\begin{proof}
+      Define $\mathscr{F}'_{o}(T)$ denote the poset of orbital non-vertex-inclusion outer faces
+      $\mathscr{F}_{o}^{G e}(T) \setminus \mathscr{F}_{SC}(T)$.
+      It suffices to show that for all $G$-convex $B \subseteq B' \subseteq \mathscr{F}'_o(T)$, the map
+      \begin{equation}
+            Sc[T] \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
+            \to
+            \mathop{\bigcup}\limits_{B'/G}\mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
+      \end{equation}
+      is in $W_o$; in particular, we may assume $B' = B \cup G \cdot_K U_0$.
+
+      Now, since $B$ is convex, every orbital face of $U_0$ is in the domain.
+      Continuing, any face in $\Omega[G \cdot_K U_0] \cap Sc[T]$ is in $Sc[G \cdot_K U_0] \subseteq \partial^{out}_o[G \cdot_K U_0]$.
+      Moreover, any face $R_0$ in $\Omega[G \cdot_K U_0] \cap \Omega[G \cdot_L V_0]$ for $V_0$, another orbital face,
+      is a face of their intersection (where we may assume $R_0$ injects into both $U_0$ and $V_0$),
+      which is also orbital.
+      Thus, the above map is the pushout over
+      \begin{equation}
+            \partial^{out}_o[G \cdot_K U_0] \to \Omega[G \cdot_K U_0].
+      \end{equation}
+\end{proof}
+The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the following.
+\begin{corollary}
+      Segal core inclusions are inner $G$-anodyne.
+\end{corollary}
+
 
 \begin{definition}
-      Let $W_{SC} = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
+      Let $\hat{W}_{SC} = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
 \end{definition}
 
 \begin{lemma}
       \label{GHORN_IN_SC_PROP}
-      The inner $G$-horn inclusions are contained in $W_{SC}$.
+      The inner $G$-horn inclusions are contained in $\hat{W}_{SC}$.
 \end{lemma}
 \begin{proof}
-      It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $W_{SC}$
+      It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $\hat{W}_{SC}$
       for any $T\in \Omega_G$ and inner edge $e$ of $T$.
 
       Suppose we have a decomposition $T \simeq G \cdot_H T_0$, where $H = \mathrm{Stab}(T_0)$.
       We go by induction on $|H| \times |V_H(T_0)|$.
 
-      Suppose $H = e$.
-      Then, since $G \cdot SCI \subseteq SCI_G$,
+      If $H = e$, then, since $G \cdot SCI \subseteq SCI_G$,
       and by \cite[2.5]{CM13a} we know $IHI \subseteq \hat{W}(SCI)$, we conclude that
       \begin{equation}
-            G \cdot IHI \subseteq G \cdot (\hat{W}(SCI)) \subseteq \hat{W}(G \cdot SCI) \subseteq \hat{W}(SCI_G) = W_{SC}.
+            G \cdot IHI \subseteq G \cdot (\hat{W}(SCI)) \subseteq \hat{W}(G \cdot SCI) \subseteq \hat{W}(SCI_G) = \hat{W}_{SC}.
       \end{equation}
       
       If $H \neq e$, and $V_H(T_0) = 2$, then there is only one inner edge orbit, so
@@ -472,7 +602,7 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       which are themsevles inner $G$-anodyne on inner horn inclusions in trees either
       with strictly smaller isotropy (e.g. $K \leq H$) or
       with a strictly smaller number of $G$-vertices.
-      Thus, by induction, \eqref{SC_POUT_EQ} is in $W_{SC}$. 
+      Thus, by induction, \eqref{SC_POUT_EQ} is in $\hat{W}_{SC}$. 
 
       Now consider
       \begin{equation}
@@ -481,19 +611,40 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       \end{equation}
       By \cite[Proposition 6.17]{Per17},
       this is built by pushouts over maps of the form
-      $\partial^{out}\Omega[G \cdot_K U_0] \to \Omega[G \cdot_K U_0]$ for $U_0 \in \mathsf{Inn}^{H e}[T_0]$,
-      and so again by induction on $|H| \times |V_H(T_0)|$, these maps are all in $W_{SC}$. 
+      $\partial^{out}\Omega[G \cdot_K U_0] \to \Omega[G \cdot_K U_0]$ for $U_0 \in \mathscr{F}_{\mathsf{Inn}}^{H e}[T_0]$,
+      and so again by induction on $|H| \times |V_H(T_0)|$, these maps are all in $\hat{W}_{SC}$. 
       
-      Combining the above, we have that $Sc[T] \to \Lambda^{G e}[T]$ is in $W_{SC}$, and hence
+      Combining the above, we have that $Sc[T] \to \Lambda^{G e}[T]$ is in $\hat{W}_{SC}$, and hence
       by the closure property of hypersaturations, the inner horn inclusion $\Lambda^{G e}[T] \to \Omega[T]$
-      is in $W_{SC}$, as desired.
+      is in $\hat{W}_{SC}$, as desired.
 \end{proof}
 
 
 
 
 
-Combining Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} \ref{SC_IN_GHORN_PROP}, and \ref{GHORN_IN_SC_PROP}, yields Proposition \ref{HYPER PROP}.
+The following is an equivariant generalization of 
+\cite[Props. 2.4 and 2.5]{CM13a},
+summarizing the results
+(in particular, Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} \ref{SC_IN_GHORN_PROP}, \ref{SC_IN_OHORN_PROP}, and \ref{GHORN_IN_SC_PROP})
+of this subsection.
+
+\begin{proposition}\label{HYPER PROP}
+The following sets of maps generate the same hypersaturated class:
+\begin{itemize}
+\item the $G$-inner horn inclusions
+$\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
+\item the orbital $G$-inner horn inclusions
+$\Lambda^{Ge}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
+\item the $G$-segal core inclusions
+$Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
+\end{itemize}
+Moreover, one also has the following:
+\begin{itemize}
+	\item[(a)] orbital $G$-inner horn inclusions are in the saturation of $G$-inner horn inclusions;
+	\item[(b)] $G$-segal core inclusions are in the saturation of both orbital $G$-inner horn and $G$-inner horn inclusions.
+\end{itemize}
+\end{proposition}
 
 
 
@@ -513,7 +664,7 @@ Combining Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP} \ref{SC_IN_GHORN
 
 
 
-\subsection{Actual Stuff}
+\subsection{Weak Equivalences in $\mathsf{dSet}^G$}
 
 Recall that a class of maps is called \textit{saturated}
 if it is closed under pushouts, transfinite composition and retracts.
