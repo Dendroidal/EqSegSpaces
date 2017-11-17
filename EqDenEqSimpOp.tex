@@ -544,6 +544,9 @@ Fixing a component $T_0$ of $T$,
 
 \subsection{Proof of \ref{HYPER PROP}}
 
+
+{\color{red} need to think about hypersaturation for non-monomorphisms}
+
 Recall that a class of maps is called \textit{saturated}
 if it is closed under pushouts, transfinite composition and retracts.
 Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
@@ -1117,7 +1120,7 @@ $X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
 	Hom(\Omega[C],X) \ar{d}
 \\
 	G \cdot \eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
-	\prod_{0\leq i \leq k} X(\eta)^{H_i}
+	\prod_{0\leq i \leq k} X^{H_i}
 \end{tikzcd}
 \]
 Noting that there are equivalences of categories (the first of which is an isomorphism)
@@ -1706,7 +1709,7 @@ $X(x_1,\cdots,x_n ; x_0)$ via the pullback
 	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
 	X(C) \ar{d}
 \\
-	G \cdot \eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
+	\Delta[0] \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
 	\prod_{0\leq i \leq k} X(\eta)^{H_i}
 \end{tikzcd}
 \]
@@ -2298,13 +2301,68 @@ one reduces to checking that the following squares induce weak equivalences on f
 	Thus by 2-out-of-6 all $J$-homotopy equivalences are DK-equivalences.
 \end{remark}
 
-\begin{remark}
+\begin{remark}\label{ALLXJK REM}
 	Let $X$ be a Segal space. All simplicial operators
 	$X^{J_n} \to X^{J_m}$ are induced from equivalences of groupoids $\widetilde{[m]} \to \widetilde{[n]}$, and one easily checks that these operators are thus $J$-homotopy equivalences and thus also DK-equivalences.
 \end{remark}
 
 
 {\color{red} HERE}
+
+
+\begin{proposition}
+Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
+Then there is a complete dendroidal Segal space $\tilde{X}$
+and complete equivalence $X \to \tilde{X}$ such that
+\begin{itemize}
+	\item[(i)] $X \to \tilde{X}$ is a DK-equivalence;
+	\item[(ii)] $X_0(\eta) \to \tilde{X}_0(\eta)$ is an isomorphism.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+	Our argument will mostly adapt the construction of the completion functor in \cite[\S 10.4]{Rez01}.
+
+	Firstly, we let 
+$X^{J_{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
+= \mathsf{ssdSet}^G$
+be the object whose $k$-th level (in the new simplicial direction)
+is $X^{J_k}$.
+	Since $J_{\bullet}$ is a Reedy cofibrant cosimplicial object,
+	$X^{J_{\bullet}}$ is Reedy fibrant with respect to the dendroidal Space model structure on 
+	$\mathsf{sdSet}^G$.
+	In particular, it follows that
+	$X^{J_{\bullet}} \to \mathsf{csk}_{\eta} X^{J_\bullet}$
+	is a fibration in $\mathsf{ssdSet}^G$.
+
+In particular, this implies that for each vertex map
+$[0] \to [k]$ and $T \in \Omega_G$ the induced square
+\[
+\begin{tikzcd}
+	X^{J_k}(T) \ar[->>]{r} \ar[->>]{d}&
+	X(T) \ar[->>]{d}
+\\
+	\underset{e_i \in E_G(T)} {\prod} \left(X^{J_k}(\eta)\right)^{H_i} \ar[->>]{r} &
+	\underset{e_i \in E_G(T)} {\prod} \left(X(\eta)\right)^{H_i}
+\end{tikzcd}
+\]
+is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
+induces weak equivalences on fibers, and is thus a homotopy pullback square.
+
+{\color{red} HERE}
+
+\end{proof}
+
+\begin{remark}
+Consider the adjunction
+\[
+	\delta_{!}\colon \mathsf{sSet} 
+\rightleftarrows 
+	\mathsf{ssSet} \colon \delta^{\**}
+\]
+where 
+\end{remark}
+
 
 \[
 	u^{\**} \colon \mathsf{dSet}_G 
