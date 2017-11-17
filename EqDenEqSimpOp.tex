@@ -242,6 +242,305 @@ Fixing a component $T_0$ of $T$,
 \end{definition}
 
 
+\begin{example}
+      To set up an example comparing the orbital horns with regular inner horns, 
+      let $G = C_4$ be the cyclic group with four elements, and consider the tree $T \in \Omega^G \subseteq \Omega_G$ below.
+  \begin{equation}
+        \begin{tikzpicture}[grow= up, auto, level distance = 1cm, every node/.style = {font=\footnotesize}]
+              \tikzstyle{level 2}=[sibling distance=4em]
+              \tikzstyle{level 3}=[sibling distance=2em]
+              \node{$T$}
+              child{node [dummy] {}%
+                child{node [dummy] {}%
+                  child{edge from parent node [swap,near end]{$a+3$}}
+                  child{node {$b+1$}}
+                  child{edge from parent node [near end] {$a+1$}}
+                  edge from parent node [swap]{$e+1$}
+                }
+                child[sibling distance=1em]{node [dummy] {}
+                  edge from parent node [swap,very near end]{$d+1$}
+                }
+                child[sibling distance=1em]{node [dummy] {}
+                  edge from parent node [very near end]{$d$}
+                }
+                child{node [dummy] {}%
+                  child{edge from parent node [swap, near end]{$a+2$}}
+                  child{node {$b$}}
+                  child{edge from parent node [near end] {$a$}}
+                  edge from parent node {$e$}
+                }
+                edge from parent node {$r$}
+              };
+              \tikzstyle{level 3}=[sibling distance=2em]
+              \node at (7,0){$T$}
+              child{node [dummy] {}%
+                child{node [dummy] {}
+                  edge from parent node [swap]{$G/2G+d$}
+                }
+                child{node [dummy] {}%
+                  child{edge from parent node [swap]{$G/2G + b$}}
+                  child{edge from parent node {$G + a$}}
+                  edge from parent node {$G/2G+e$}
+                }
+                edge from parent node {$G/G+r$}
+              };
+        \end{tikzpicture}
+  \end{equation}
+  Consider the edge orbit $G e$.
+  The following are all proper faces of $T$ which are \textit{not} in the inner horn $\Lambda^{G e}[T]$:
+  \begin{equation}
+        \begin{tikzpicture}
+              [grow=up, level distance = .8cm, every node/.style={font=\small}]
+              \tikzstyle{level 2}=[sibling distance=1.5em]
+              \tikzstyle{level 3}=[sibling distance=1em]
+              % -------------- PROPER FACES MISSING FROM \Lambda^{G e}[T] -----------------------------
+              \node (Te) at (1,3) {}
+              child{node [dummy] {}
+                child[sibling distance=.7em]{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{edge from parent [draw = none]}
+                child[sibling distance=1em]{edge from parent [draw = none]}
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=2em,level distance = 1.6cm]{}
+                child[sibling distance=1.6em,level distance = 1.6cm]{}
+                child[sibling distance=1.5em,level distance = 1.6cm]{}
+              };
+              \node (Tge) at (4.5,3) {}
+              child{node [dummy] {}
+                child[level distance = 1.6cm]{}
+                child[sibling distance = 1.6em,level distance = 1.6cm]{}
+                child[sibling distance = 2em, level distance = 1.6cm]{}
+                child[sibling distance = 1em]{node [dummy] {}}
+                child[sibling distance = 1em]{node [dummy] {}}
+                child[sibling distance=1em]{edge from parent [draw = none]}
+                child[sibling distance=1em]{edge from parent [draw = none]}
+                child[sibling distance=.7em]{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              \draw[<->]
+              (Te)+(.5,.5) -- +(3,.5) node [midway, above] {$+1$};
+              \node (TGe) at (9,3) {}
+              child{node [dummy] {}
+                child[level distance = 1.6cm]{}
+                child[sibling distance=1.6em,level distance = 1.6cm]{}
+                child[sibling distance=2em,level distance = 1.6cm]{}
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=2em,level distance = 1.6cm]{}
+                child[sibling distance=1.6em,level distance = 1.6cm]{}
+                child[sibling distance=1.5em,level distance = 1.6cm]{}
+              };
+        \end{tikzpicture}
+  \end{equation}
+  where the tree on the right is a face of both trees in the orbit on the left.
+  Similarly, the maximal elements of $\Lambda^{G e}[T]$ are displayed in the top row below,
+  while the second row displays the maximal elements of $\Lambda^{G e}_o[T]$;
+  we observe that, in this particular case (where each orbit of vertices has at most two elements),
+  these are all maximal subfaces of elements in the top row.
+  For clarity, we have drawn using dashed lines the inner edges collapsed involving stumps.
+    \begin{equation}
+        \begin{tikzpicture}
+              [grow=up, level distance = .8cm, every node/.style={font=\small, transform shape},
+              scale=0.9
+              ]
+              \tikzstyle{level 2}=[sibling distance=1.5em]
+              \tikzstyle{level 3}=[sibling distance=1em]
+              % -------------- MAXIMAL FACES OF \Lambda^{G e}[T] --------------------------------------
+              \node (TC) {}
+              child{node [dummy] {}
+                child{}
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{node [dummy] {}}
+                child{node [dummy] {}%
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              \node (TgC) at (2,0) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{node [dummy] {}}
+                child{}
+              };
+              \draw[<->]
+              (TC)+(.5,.5) -- +(1.5,.5) node [midway, above] {$+1$};
+              \node (TCd) at (4.5,0) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{}
+                child[sibling distance=1em]{node [dummy] {}}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              \node (TgCd) at (7,0) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              \draw[<->]
+              (TCd)+(.5,.5) -- +(2,.5) node [midway, above] {$+1$};
+              \node (Td) at (9.5,0) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{node [dummy, dashed] {}
+                  edge from parent [dashed]
+                }
+                child[sibling distance=1em]{node [dummy] {}}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              \node (Tgd) at (12,0) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{node [dummy, dashed] {}
+                  edge from parent [dashed]
+                }
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              \draw[<->]
+              (Td)+(.5,.5) -- +(2,.5) node [midway, above] {$+1$};
+              % --------- Maximal Faces in $\Lambda^{G e}_o[T]$ ---------------------------------------%%%%%
+              \node (TGC) at (1, -3) {}
+              child{node [dummy] {}
+                child{}
+                child[sibling distance=1em]{node [dummy] {}}
+                child[sibling distance=1em]{node [dummy] {}}
+                child{}
+              };
+              \node (TGCd) at (5.75,-3) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{}
+                child[sibling distance=1em]{}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+              % \node (TB) at (7.5,-3) {}
+              % child{node [dummy] {}
+              %   child{}
+              %   child{}
+              %   child{}
+              %   edge from parent node [left] {$e$}
+              % };
+              % \node (TgB) at (9,-3) {}
+              % child{node [dummy] {}
+              %   child{}
+              %   child{}
+              %   child{}
+              %   edge from parent node [right] {$e+1$}
+              % };
+              % \draw[<->]
+              % (TB)+(.3,.5) -- +(1.2,.5) node [midway,above] {$+1$};
+              \node (TGd) at (10.75,-3) {}
+              child{node [dummy] {}
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+                child[sibling distance=1em]{node [dummy, dashed] {}
+                  edge from parent [dashed]
+                }
+                child[sibling distance=1em]{node [dummy, dashed] {}
+                  edge from parent [dashed]
+                }
+                child{node [dummy] {}
+                  child{}
+                  child{}
+                  child{}
+                }
+              };
+        \end{tikzpicture}
+  \end{equation}
+  However, these orbital faces are certainly \textit{not} the only subfaces of the top row above.
+  In particular, the following is a minimal face in $\Lambda^{G e}[T]$ not in the orbital horn $\Lambda^{G e}_o[T]$.
+  \begin{equation}
+        \begin{tikzpicture}
+              [grow=up, level distance=.8cm, every node/.style={font=\small}]
+              \tikzstyle{level 2}=[sibling distance=2em]
+              \tikzstyle{level 3}=[sibling distance=1em]
+              \node{}
+              child{node [dummy] {}
+                child[sibling distance=.7em]{}
+                child{edge from parent [draw = none]}
+                child{edge from parent [draw = none]}
+                child[sibling distance=1em]{}
+                child[sibling distance=1em]{node [dummy, dashed] {}
+                  edge from parent [dashed]
+                }                
+                child[sibling distance=2em,level distance = 1.6cm]{}
+                child[sibling distance=1.6em,level distance = 1.6cm]{}
+                child[sibling distance=1.5em,level distance = 1.6cm]{}
+              };
+        \end{tikzpicture}
+  \end{equation}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Proof of \ref{HYPER PROP}}
 
@@ -265,16 +564,17 @@ both $f$ and $gf$ are in the class, then so is $g$.
 \end{remark}
 
 The following lemma identifies some of the utility of hypersaturations.
-\begin{definition}
-      Given a class of maps $\mathcal C$ in $\mathcal V$, let $(S)RLP(\mathcal C)$ denote the class of maps with the
-      (strict) right lifting property against $\mathcal C$.
-\end{definition}
+\begin{notation}
+      Given a class of maps $\mathcal C$ in $\mathcal V$, let $^\boxslash\mathcal C$ (respecitvely $^{\boxslash !}\mathcal C$)
+      denote the class of maps with the
+      \textit{(strict) right lifting property} (abreviated (S)RLP) against $\mathcal C$.
+\end{notation}
 \begin{lemma}
+      \label{HYPER_LP_LEM}
       Let $\mathcal C$ be a class of maps in $\mathcal V$. Then
-      \begin{enumerate}
-      \item $RLP(\mathcal C) = RLP(W(\mathcal C))$
-      \item $SRLP(\mathcal C) = SRLP(\hat{W}(\mathcal C)$.
-      \end{enumerate}
+      ${}^\boxslash\mathcal C = {}^\boxslash W(\mathcal C)$
+      and
+      ${}^{\boxslash !}\mathcal C = {}^{\boxslash !} \hat{W}(\mathcal C)$.
 \end{lemma}
 \begin{proof}
       Is a straightforward exercise to show that
@@ -358,12 +658,13 @@ The following lemma identifies some of the utility of hypersaturations.
       then $X \to X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0] \right)$ is inner $G$-anodyne.
 \end{proposition}
 \begin{proof}
-      If $\mathsf{im}(\Omega[G \cdot_K U_0])$ is already contained in $X$, we are done.
+      If $\mathsf{im}(\Omega[G \cdot_K U_0]) = \bigcup_G \Omega[g U_0]$ is already contained in $X$, we are done.
       Assuming otherwise, it suffices to show that for all
       $C \subseteq C'$ $K$-closed convex subsets of $\mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, the map
       $X_C \to X_{C'}$ is inner $G$-anodyne, where we define
       \begin{equation}
-            X_C := X \cup \left( G \cdot_K \mathop{\bigcup}\limits_{C/K} \Omega[U_0 \setminus E] \right),
+            X_C := X \cup \mathop{\bigcup}\limits_{C/K} \mathsf{im}\left(\Omega[G \cdot_L U_0 \setminus E] \right)
+            = X \cup \left( G \cdot_K \mathop{\bigcup}\limits_{C/K} \Omega[U_0 \setminus E] \right),
       \end{equation}
       with the unions taking place in $\Omega[T]$.
       Indeed, once $C = \mathscr{F}_{\mathrm{Inn}}^{K e}(U_0) \setminus X$, we have the pushout
@@ -371,11 +672,11 @@ The following lemma identifies some of the utility of hypersaturations.
             \begin{tikzcd}
                   G \cdot_K \left( \Lambda^{K e}[U_0] \right) \arrow[d, hookrightarrow] \arrow[r]
                   &
-                  X_C \subseteq \Omega[T] \arrow[d]
+                  X_C \arrow[d]
                   \\
                   G \cdot_K \Omega[U_0] \simeq \Omega[G \cdot_K U_0] \arrow[r]
                   &
-                  X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0]\right) \subseteq \Omega[T].
+                  X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0]\right).
             \end{tikzcd}
       \end{equation}
       Moreover, it suffices to consider $C' = C \cup G\cdot_K(U_0 \setminus D)$ for a set of inner edges $D$,
@@ -652,9 +953,42 @@ Moreover, one also has the following:
 \end{proposition}
 
 
+As a corollary of the above, we can fully characterize the image of the nerve functor $N: \Op^G \to \mathsf{dSet}^G$.
 
+\begin{definition}
+      $X \in \mathsf{dSet}^G$ is called a \textit{(strict) inner $G$-Kan complex} if
+      $X$ has the strict right lifting property against inner $G$-horn inclusions
+      (that is, $(X \to \**) \in SRLP(IHI_G)$).
+      Let $\mathsf{(S)Kan}_G \subseteq \mathsf{dSet}^G$ denote the full subcategory.
+\end{definition}
 
+\begin{lemma}
+      \label{SRLP_IHI_LEM}
+      $SRLP(IHI_G) = SRLP(G\cdot IHI)$.
+      Thus $\mathsf{Kan}_G = \mathsf{Kan}^G$
+      (strict inner $G$-Kan complexes are just $G$-objects in strict inner Kan complexes)
+\end{lemma}
+\begin{proof}
+      \todo[inline]{pull from thesis}
+\end{proof}
 
+\begin{corollary}
+      Fix $X \in \mathsf{dSet}^G$. Then
+      $X$ is a strict inner $G$-Kan complex iff $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$.
+\end{corollary}
+\begin{proof}
+      $N^G(\O)(T)$ is given by maps $\mathsf{Op}^G(\Omega(T), \O)$,
+      and since $\Omega(T)$ is a free coloured operad on it's vertices, we may conclude that
+      \begin{equation}
+            N^G(\O)(T) \simeq \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O).
+      \end{equation}
+      Thus $N^G(\O)$ is in $SRLP(SCI_G)$, and hence is in $SRLP(IHI_G)$
+      by Lemma \ref{HYPER_LP_LEM} and Proposition \ref{GHORN_IN_SC_PROP}.
+
+      Conversely, by Lemma \ref{SRLP_IHI_LEM} and \cite[Theorem 6.1, Proposition 6.10]{MW07}, we have that
+      $X \simeq N_d \circ \tau_d \circ X$
+      (where we consider $X$ as a functor $G \to \mathsf{Kan}$).
+\end{proof}
 
 
 
