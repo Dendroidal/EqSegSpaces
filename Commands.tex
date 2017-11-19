@@ -18,7 +18,7 @@
 
 % ------ Margins/Rotating -----------------------------------
 
-\usepackage{geometry}
+\usepackage{geometry}%[margin=1in]
 
 % ------ New Characters --------------------------------------
 
@@ -26,8 +26,10 @@
 \usepackage{MnSymbol}
 \usepackage{stmaryrd}
 \usepackage{upgreek}
-\usepackage{mathtools}
 \usepackage{mathrsfs}
+% \usepackage[T1]{fontenc}
+% \usepackage[english]{babel}
+% \usepackage{fouriernc}
 
 
 %----- Enumerate ---------------------------------------------
@@ -36,43 +38,123 @@
 
 
 
-% ------- New Theorems/ Definition/ Names-----------------------
+%%%%%%%%%%%%%%%%%%%%%%%%% INTERNAL REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
 
-\newtheorem{theorem}[equation]{Theorem}%
-\newtheorem*{theorem*}{Theorem}%
-\newtheorem{lemma}[equation]{Lemma}%
-\newtheorem{proposition}[equation]{Proposition}%
-\newtheorem{corollary}[equation]{Corollary}%
-\newtheorem{conjecture}[equation]{Conjecture}%
-\newtheorem*{conjecture*}{Conjecture}%
-\newtheorem{claim}[equation]{Claim}%
 
-%%%%%% Fancy Numbering for Theorems
-\newtheorem{innercustomgeneric}{\customgenericname}
-\providecommand{\customgenericname}{}
-\newcommand{\newcustomtheorem}[2]{%
-  \newenvironment{#1}[1]
-  {%
-   \renewcommand\customgenericname{#2}%
-   \renewcommand\theinnercustomgeneric{##1}%
-   \innercustomgeneric
-  }
-  {\endinnercustomgeneric}
+
+\usepackage[capitalise]{cleveref}  % load after hyperref
+\newcommand{\clevertheorem}[3]{%
+  \newtheorem{#1}[theorem]{#2}
+  \crefname{#1}{#2}{#3}
 }
 
-\newcustomtheorem{customthm}{Theorem}
-\newcustomtheorem{customcor}{Corollary}
+
+
+% ------- New Theorems/ Definition/ Names-----------------------
+
+\theoremstyle{plain} % bold name, italic text
+\newtheorem{theorem}{Theorem}[section]
+\crefname{theorem}{Theorem}{Theorems}
+\newtheorem*{theorem*}{Theorem}
+\clevertheorem{proposition}{Proposition}{Propositions}
+\clevertheorem{lemma}{Lemma}{Lemmas}
+\clevertheorem{corollary}{Corollary}{Corollaries}
+\clevertheorem{conjecture}{Conjecture}{Conjectures}
+\newtheorem*{conjecture*}{Conjecture}%
+\clevertheorem{claim}{Claim}{Claims}
+% \newtheorem{theorem}[equation]{Theorem}%
+% \newtheorem*{theorem*}{Theorem}%
+% \newtheorem{lemma}[equation]{Lemma}%
+% \newtheorem{proposition}[equation]{Proposition}%
+% \newtheorem{corollary}[equation]{Corollary}%
+% \newtheorem{conjecture}[equation]{Conjecture}%
+% \newtheorem*{conjecture*}{Conjecture}%
+% \newtheorem{claim}[equation]{Claim}%
+
+%%%%%% Fancy Numbering for Theorems
+% \newtheorem{innercustomgeneric}{\customgenericname}
+% \providecommand{\customgenericname}{}
+% \newcommand{\newcustomtheorem}[2]{%
+%   \newenvironment{#1}[1]
+%   {%
+%    \renewcommand\customgenericname{#2}%
+%    \renewcommand\theinnercustomgeneric{##1}%
+%    \innercustomgeneric
+%   }
+%   {\endinnercustomgeneric}
+% }
+
+% \newcustomtheorem{customthm}{Theorem}
+% \newcustomtheorem{customcor}{Corollary}
 %%%%%%%%%%%%%
 
-\theoremstyle{definition}%
-\newtheorem{definition}[equation]{Definition}%
-\newtheorem*{definition*}{Definition}%
-\newtheorem{example}[equation]{Example}%
-\newtheorem{remark}[equation]{Remark}%
-\newtheorem{notation}[equation]{Notation}%
-\newtheorem{convention}[equation]{Convention}%
-\newtheorem{assumption}[equation]{Assumption}%
-\newtheorem{exercise}{Exercise}%
+\theoremstyle{definition} % bold name, plain text
+\clevertheorem{definition}{Definition}{Definitions}
+\newtheorem*{definition*}{Definition}
+\clevertheorem{example}{Example}{Examples}
+\clevertheorem{remark}{Remark}{Remarks}
+\clevertheorem{notation}{Notation}{Notations}
+\clevertheorem{convention}{Convention}{Conventsion}
+\clevertheorem{assumption}{Assumption}{Assumptions}
+\clevertheorem{exercise}{Exercise}{Exercises}
+% \newtheorem{definition}[equation]{Definition}%
+% \newtheorem*{definition*}{Definition}%
+% \newtheorem{example}[equation]{Example}%
+% \newtheorem{remark}[equation]{Remark}%
+% \newtheorem{notation}[equation]{Notation}%
+% \newtheorem{convention}[equation]{Convention}%
+% \newtheorem{assumption}[equation]{Assumption}%
+% \newtheorem{exercise}{Exercise}%
+
+
+\makeatletter\let\c@equation\c@theorem\makeatother %% This makes equations follow the theorem counter
+\makeatletter\let\c@figure\c@theorem\makeatother %% This makes figures follow the theorem counter
+
+\crefname{figure}{Figure}{Figures}
+
+
+
+% % -------Table of Contents FOR AMSART ------------------------------
+% \makeatletter
+% % Table of Contents
+% \setcounter{tocdepth}{3}
+
+% % Add bold to \section titles in ToC and remove . after numbers
+% \renewcommand{\tocsection}[3]{%
+%   \indentlabel{\@ifnotempty{#2}{\bfseries\ignorespaces#1 #2\quad}}\bfseries#3}
+% % Remove . after numbers in \subsection
+% \renewcommand{\tocsubsection}[3]{%
+%   \indentlabel{\@ifnotempty{#2}{\ignorespaces#1 #2\quad}}#3}
+% % \let\tocsubsubsection\tocsubsection% Update for \subsubsection
+% % ...
+
+% \newcommand\@dotsep{4.5}
+% \def\@tocline#1#2#3#4#5#6#7{\relax
+%   \ifnum #1>\c@tocdepth % then omit
+%   \else
+%   \par \addpenalty\@secpenalty\addvspace{#2}%
+%   \begingroup \hyphenpenalty\@M
+%   \@ifempty{#4}{%
+%     \@tempdima\csname r@tocindent\number#1\endcsname\relax
+%   }{%
+%     \@tempdima#4\relax
+%   }%
+%   \parindent\z@ \leftskip#3\relax \advance\leftskip\@tempdima\relax
+%   \rightskip\@pnumwidth plus1em \parfillskip-\@pnumwidth
+%   #5\leavevmode\hskip-\@tempdima{#6}\nobreak
+%   \leaders\hbox{$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+%   \nobreak
+%   \hbox to\@pnumwidth{\@tocpagenum{\ifnum#1=1\bfseries\fi#7}}\par% <-- \bfseries for \section page
+%   \nobreak
+%   \endgroup
+%   \fi}
+% \AtBeginDocument{%
+%   \expandafter\renewcommand\csname r@tocindent0\endcsname{0pt}
+% }
+% \def\l@subsection{\@tocline{2}{0pt}{2.5pc}{5pc}{}}
+% \makeatother
 
 
 
