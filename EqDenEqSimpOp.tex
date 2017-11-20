@@ -1246,7 +1246,7 @@ The following is the equivariant generalization of
 \cite[Thm. 3.11 and Remark 3.12]{CM13a}.
 
 
-\begin{theorem}
+\begin{theorem}\label{COMSQ THM}
 A map $f \colon X \to Y$ of $G$-$\infty$-operads is fully faithful iff for all $G$-corollas $C \in \Sigma_G$ the commutative squares
 of Kan complexes
 \begin{equation}\label{COMSQ EQ}
@@ -1359,19 +1359,19 @@ In either case, the generating cofibrations are then given by the maps
 \qquad n,m\geq 0.
 \] 
 Further, in the horizontal Reedy model structure the generating trivial cofibrations are the maps
-\[
+\begin{equation}\label{GTRCOHOR EQ}
 	\left( \partial \Delta[n] \to \Delta[n] \right)
 \square
 	\left( \Lambda^j[m] \to \Delta[m] \right),
 \qquad n\geq 0,m\geq j \geq 0.
-\]
+\end{equation}
 while for the vertical Reedy model structure the generating trivial cofibrations are the maps
-\[
+\begin{equation}\label{GTRCOVER EQ}
 	\left( \Lambda^i[n] \to \Delta[n] \right)
 \square
 	\left( \partial \Delta[m] \to \Delta[m] \right),
 \qquad n \geq i \geq 0,m\geq 0.
-\]
+\end{equation}
 We caution the reader about a possible hiccup with the terminology: 
 the weak equivalences for the horizontal Reedy structure are the 
 \textit{vertical equivalences},
@@ -1408,16 +1408,16 @@ $X \to \tilde{X}$, $Y \to \tilde{Y}$
 are horizontal equivalences.
 
 For (iv), note first that the diagonal functor
-$\Delta \colon \mathsf{ssSet} \to \mathsf{sSet}$
+$\delta^{\**} \colon \mathsf{ssSet} \to \mathsf{sSet}$
 is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure). But noting that all objects are cofibrant, and regarding 
 $X_{n,0}$ as a bisimplicial set that is vertically constant, the claim
 follows by noting that by (i) the map
 $X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{WEAKDIAG COR}
 	A map $f\colon X \to Y$ in $\mathsf{ssSet}$ is a joint equivalence iff it induces a Kan equivalence on diagonals
-	$\Delta(X) \to \Delta(Y)$ in $\mathsf{sSet}$.
+	$\delta^{\**}(X) \to \delta^{\**}(Y)$ in $\mathsf{sSet}$.
 \end{corollary}
 
 \begin{proof}
@@ -1429,6 +1429,97 @@ $X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	$X_{\bullet,0} \to Y_{\bullet,0}$ is a Kan equivalence, 
 	so that the result follows from Proposition \ref{SSSETJREE PROP} (iv).
 \end{proof}
+
+\begin{corollary}\label{SSETSSETADJ COR}
+	The adjunction
+\[
+	\delta_{!}\colon \mathsf{sSet} 
+		\rightleftarrows 
+	\mathsf{ssSet} \colon \delta^{\**}
+\]
+is a Quillen equivalence.
+
+Moreover if a map $f\colon X \to Y$ in $\mathsf{ssSet}$ has the right lifting property
+against both sets of maps in
+\eqref{GTRCOHOR EQ} and \eqref{GTRCOVER EQ}, then
+$\delta^{\**} (f)$ is a Kan fibration in $\mathsf{sSet}$.
+\end{corollary}
+
+Note that the ``moreover'' claim in this result is not quite formal, since the maps in \eqref{GTRCOHOR EQ},\eqref{GTRCOVER EQ} are not known to be generating trivial cofibrations for the joint model structure in $\mathsf{ssSet}$.
+
+
+\begin{proof}
+	Recall that $\delta_!$ can be characterized as the unique colimit preserving functor such that 
+	$\delta_!(\Delta[n])=\Delta[n] \times \Delta[n]$.
+
+	The claim that $\delta_!$ preserves cofibrations thus follows provided that 
+	$\delta_{!}\left( \partial \Delta[n] \to \Delta[n]\right)$
+	is a monomorphism for all $n\geq 0$.
+	This holds since:
+	\begin{inparaenum}
+		\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (indeed, faces are indexed by subsets of $\{0,1\cdots,n\}$); 
+		\item[(ii)] for any face inclusion one has 
+		$\delta_{!}\left( F \to \Delta[n]\right) = 
+		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monormorphism.
+	\end{inparaenum}
+
+The claim that $\delta_!$ preserves trivial cofibrations easily follows from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
+Namely, we will argue that the maps
+$\delta_! \left( \Lambda^i[n] \to \Delta[n]\right)$
+are built cellularly out of the maps in 
+\eqref{GTRCOHOR EQ}, \eqref{GTRCOVER EQ}.
+One has a factorization
+\[
+	\delta_! \Lambda^i[n] \to
+	\Lambda^i[n] \times \Delta[n] \to \Delta[n]^{\times 2}
+\]
+where the second map is clearly built cellularly out of maps in 
+\eqref{GTRCOVER EQ}, and we claim that 
+the first map is likewise built cellularly out of maps in \eqref{GTRCOHOR EQ}.
+Indeed, this first map be built by iteratively attaching the maps
+\[
+	\left(\Lambda^{F}[n] \to \Lambda^i[n] \right)
+		\square
+	\left(\Lambda^{i}F \to F \right)
+\]
+where $F$ ranges over the poset $\mathsf{Face}_{\supsetneq \{i\}}$
+of faces of $\Delta[n]$ strictly containing $\{i\}$ 
+(note that when $F=\Delta[n]$ then $\Lambda^F[n]=\emptyset$, so that these maps can not in general be built out of the maps in \eqref{GTRCOVER EQ}). 
+
+Lastly, the Quillen equivalence condition 
+is that for all $X \in \mathsf{sSet}$ and joint fibrant
+$Y \in \mathsf{ssSet}$ a map
+$X \to \delta^{\**} Y$ is a weak equivalence iff 
+$\delta_!X \to Y$ is. 
+But by Corollary \ref{WEAKDIAG COR}
+this reduces to showing
+that the unit maps $X \to \delta^{\**} \delta_! X$
+are weak equivalences, and this latter claim easily follows by cellular induction on $X$
+(recall that since $\mathsf{sSet}$ is left proper the pushouts attaching cells are homotopy pushouts).
+\end{proof}
+
+\begin{remark}\label{HYPERSIMPL REM}
+	Hypersaturations can be used to simplify the lifting condition required in the previous result. 
+	Indeed, note first that $X \to Y$ will have the lifting condition against the maps in \eqref{GTRCOHOR EQ} iff
+	all maps $X^L \to X^K \times_{Y^K} Y^L$
+	are Kan fibrations in $\mathsf{sSet}$ for $K\to L$ a monomorphism in $\mathsf{sSet}$.
+	But hence $X \to Y$ will also have the lifting condition
+	against the maps in \eqref{GTRCOVER EQ} provided 
+	$X^L \to X^K \times_{Y^K} Y^L$ is also a \textit{trivial} Kan fibration when $K\to L$ is an horn inclusion.
+	But one readily checks that horn inclusions can now be replaced with any set with the same hypersaturation. In particular, by Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$ induced by the vertex maps $[0] \to [n]$ are trivial Kan fibrations.
+\end{remark}
+
+
+
+\begin{remark}
+The adjunction 
+$
+	\delta^{\**}\colon \mathsf{ssSet}
+		\rightleftarrows 
+	\mathsf{sSet} \colon \delta_{\**}
+$
+is also a Quillen equivalence, but we will not need this fact.
+\end{remark}
 
 
 We now turn to our main application of Proposition \ref{COMBMODSTR PROP}, the category 
@@ -1564,7 +1655,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 \end{proof}
 
 
-\begin{theorem}
+\begin{theorem}\label{INC0AGJ THM}
 	The inclusion/$0$-th level adjunction
 	\[
 	\iota\colon 
@@ -1637,7 +1728,7 @@ $\gamma_{\**}X(T)$ is given by the pullback on the right below.
 \]
 
 
-\begin{remark}
+\begin{remark}\label{BOUNDRED REM}
 	Let $A \to B$ denote a monomorphism in $\mathsf{sdSet}^G$ of the form
 \begin{equation}\label{BOUNDRED EQ}
 	\left( \partial \Delta[n] \to \Delta [n] \right)
@@ -2403,18 +2494,16 @@ one reduces to checking that the following squares induce weak equivalences on f
 \end{remark}
 
 
-{\color{red} HERE}
-
-
-\begin{proposition}
+\begin{proposition}\label{COMPLE PROP}
 Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
 Then there is a complete dendroidal Segal space $\tilde{X}$
 and complete equivalence $X \to \tilde{X}$ such that
 \begin{itemize}
-	\item[(i)] $X \to \tilde{X}$ is a DK-equivalence;
+	\item[(i)] $X \to \tilde{X}$ is a monomorphism and a DK-equivalence;
 	\item[(ii)] $X_0(\eta) \to \tilde{X}_0(\eta)$ is an isomorphism.
 \end{itemize}
 \end{proposition}
+
 
 \begin{proof}
 	Our argument will mostly adapt the construction of the completion functor in \cite[\S 10.4]{Rez01}.
@@ -2431,8 +2520,8 @@ is $X^{J_k}$.
 	$X^{J_{\bullet}} \to \mathsf{csk}_{\eta} X^{J_\bullet}$
 	is a fibration in $\mathsf{ssdSet}^G$.
 
-In particular, this implies that for each vertex map
-$[0] \to [k]$ and $T \in \Omega_G$ the induced square
+In particular, this implies that for each $T \in \Omega_G$ and
+vertex map $[0] \to [k]$ the induced square
 \[
 \begin{tikzcd}
 	X^{J_k}(T) \ar[->>]{r} \ar[->>]{d}&
@@ -2443,21 +2532,124 @@ $[0] \to [k]$ and $T \in \Omega_G$ the induced square
 \end{tikzcd}
 \]
 is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
-induces weak equivalences on fibers, and is thus a homotopy pullback square.
+induces weak equivalences on fibers,
+so that the map from $X^{J_k}(T)$ to the pullback of the remaining diagram is a trivial Kan fibration.
+By Remark \ref{HYPERSIMPL REM} we have just shown that for each fixed $T \in \Omega_G$ the map
+\begin{equation}\label{MOREOVER EQ}
+X^{J_{\bullet}}(T) \to
+\left(\mathsf{csk}_{\eta}X^{J_{\bullet}}\right)(T)
+\end{equation}
+satisfies the ``moreover'' condition in 
+Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of this map are in fact homotopy fibers.
 
-{\color{red} HERE}
+We now write $\tilde{X}$ for any dendroidal Reedy fibrant replacement of the diagonal 
+$\delta^{\**} \left(X^{J_{\bullet}}\right)$,
+which we note can always be chosen so that
+$\delta^{\**} \left(X^{J_{\bullet}}\right) \to \tilde{X}$
+is a monomorphism and
+$\tilde{X}_0(\eta) = 
+\left(\delta^{\**} \left(X^{J_{\bullet}}\right)\right)_0(\eta)=
+X_0(\eta)$ (this follows since fibrant replacements in the Kan model structure in $\mathsf{sSet}$ can be chosen to preserve $0$-simplices, since existence of lifts against the horn inclusions
+$\Delta[0]=\Lambda^0[1]\to \Delta[1]$,
+$\Delta[0]=\Lambda^1[1]\to \Delta[1]$
+is automatic).
 
+To see that $\tilde{X}$ is a complete Segal space, note that there is a composite
+$X_0^{J_{\bullet}} \to 
+\delta^{\**}\left( X^{J_{\bullet}} \right)
+\to \tilde{X}$
+where the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
+and the second by definition of $\tilde{X}$.
+But since $X_0^{J_{\bullet}}$ is a complete Segal space, so is 
+$\tilde{X}$.
+
+For the remaining claim that the composite
+$X = X^{J_{0}} \to 
+\delta^{\**}\left( X^{J_{\bullet}} \right)
+\to \tilde{X}$
+is a DK equivalence, 
+though the first map is no longer a dendroidal Reedy equivalence, 
+it is nonetheless an equivalence
+on fibers over
+$\prod_{e_i \in E_G(T)} \left(X(\eta)\right)^{H_i}$
+for each $T\in \Omega_G$.
+And since we established above that the fibers of
+$\delta^{\**}\left( X^{J_{\bullet}} \right)(T)$
+ are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(T)$ (since Reedy replacement does not change the homotopy fibers), and thus $X \to \tilde{X}$ is indeed fully faithful.
+Essential surjectivity is trivial since the objects coincide.
+The monomorphism condition is clear.
 \end{proof}
 
-\begin{remark}
-Consider the adjunction
+
+\begin{corollary}
+	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is a DK equivalence.
+\end{corollary}
+
+
+\begin{proof}
+By the (proof of) previous result one is free to, via a zigzag, 
+replace $X$, $Y$ with 
+$X_0^{J_{\bullet}}$, $Y_0^{J_{\bullet}}$.
+But by Theorem \ref{INC0AGJ THM} this map is a joint equivalence iff
+$X_0 \to Y_0$ is an equivalence in $\mathsf{dSet}^G$, which by 
+Theorem \ref{COMSQ THM} holds iff this is a fully faithful and essentially surjective map of $G$-$\infty$-operads.
+But it is easy to check that
+$X_0 \to Y_0$ is a fully faithful and essentially surjective map of $G$-$\infty$-operads iff
+$X_0^{J_{\bullet}}\to Y_0^{J_{\bullet}}$
+is a fully faithful and essentially surjective map
+of dendroidal Segal spaces.
+\end{proof}
+
+
+\begin{corollary}
+	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
+	$\mathsf{sdSet}^G$.
+\end{corollary}
+
+
+\begin{proof}
+	We start with the ``only if'' direction.
+Recall that $\gamma^{\**} X$ is a dendroidal Segal space if it has the right lifting property against the maps of the form
+\begin{equation}\label{SOMEMAPS EQ}
+	(\Lambda^i[n] \to \Delta[n]) \square (\partial \Omega[T] \to \Omega[T])
+\qquad
+	(\partial \Delta[n] \to \Delta[n]) \square (Sc[T] \to \Omega[T]).
+\end{equation}
+With the exception of the first type of maps when $T=\eta$, in which case the lifting condition is automatic since
+$\gamma^{\**}X(\eta)$ is discrete, all other maps induce isomorphisms at the $\eta$-level, so that by \eqref{GAMMASH EQ} applying $\gamma_{!}$ to these maps yields trivial cofibrations in 
+$\mathsf{PreOp}^G$.
+Thus, if $X \in \mathsf{PreOp}^G$ is fibrant, an adjunction argument shows that $\gamma^{\**}(X)$ indeed has the lifting property against all maps \eqref{SOMEMAPS EQ}, i.e. 
+$\gamma^{\**}(X)$ is a dendroidal Segal space.
+	
+For the only if direction, form the completion 
+$\gamma^{\**}X \to \tilde{X}$
+as in Proposition \ref{COMPLE PROP}.
+The adjoint map $X \to \gamma_{\**}\tilde{X}$,
+where $\gamma_{\**}\tilde{X} \in \mathsf{PreOp}^G$
+is fibrant by Theorem \ref{ANOQUEQUIV THM},
+has the following properties:
+\begin{inparaenum}
+	\item[(i)] it is a monomorphism;
+	\item[(ii)] it is an isomorphism on the $\eta$-level;
+	\item[(iii)] it is a DK-equivalence when regarded as a map
+	in $\mathsf{sdSet}^G$
+	(since $\gamma_{\**}\gamma^{\**}\tilde{X} \to \tilde{X}$ is tautologically a DK-equivalence);
+	\item[(iv)] it is hence a trivial Reedy cofibration when regarded as a map
+	in $\mathsf{sdSet}^G$. 
+\end{inparaenum}	
+	But then the hypothesis that
+	$\gamma^{\**}X$ is a dendroidal Segal space yields a lift
 \[
-	\delta_{!}\colon \mathsf{sSet} 
-\rightleftarrows 
-	\mathsf{ssSet} \colon \delta^{\**}
+\begin{tikzcd}
+	\gamma^{\**} X \ar[equal]{r} \ar{d}&
+	\gamma^{\**} X
+\\
+	\gamma^{\**}\gamma_{\**}X \ar[dashed]{ru}
+\end{tikzcd}
 \]
-where 
-\end{remark}
+showing that $X$ is a retract of $\gamma_{\**}X$ and finishing the proof.
+\end{proof}
+
 
 
 \[
@@ -2479,21 +2671,7 @@ where
 \section{Scratchwork (to be folded into previous sections eventually)}
 
 
-\begin{lemma}
-	One can always form the completion of a dendroidal Segal space $X$ while preserving $X(\eta)_0$. 
-\end{lemma}
 
-
-
-\begin{proposition}
-	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is fully faithful and essentially surjective.
-\end{proposition}
-
-
-\begin{corollary}
-	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
-	$\mathsf{sdSet}^G$.
-\end{corollary}
 
 
 \begin{remark}\label{ANHYPER REM}
