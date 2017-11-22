@@ -940,7 +940,7 @@ summarizing the results
 (in particular, \cref{ORB_HORN_THM}, \cref{HORN_ORB_THM} \cref{SC_IN_GHORN_THM}, \cref{SC_IN_OHORN_THM}, and \cref{GHORN_IN_SC_THM})
 of this subsection.
 
-\begin{proposition}\label{HYPER PROP}
+\begin{proposition}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
@@ -2621,12 +2621,12 @@ $\mathsf{PreOp}^G$.
 Thus, if $X \in \mathsf{PreOp}^G$ is fibrant, an adjunction argument shows that $\gamma^{\**}(X)$ indeed has the lifting property against all maps \eqref{SOMEMAPS EQ}, i.e. 
 $\gamma^{\**}(X)$ is a dendroidal Segal space.
 	
-For the only if direction, form the completion 
+For the ``if'' direction, form the completion 
 $\gamma^{\**}X \to \tilde{X}$
 as in Proposition \ref{COMPLE PROP}.
-The adjoint map $X \to \gamma_{\**}\tilde{X}$,
-where $\gamma_{\**}\tilde{X} \in \mathsf{PreOp}^G$
-is fibrant by Theorem \ref{ANOQUEQUIV THM},
+Then $\gamma_{\**}\tilde{X} \in \mathsf{PreOp}^G$
+is fibrant by Theorem \ref{ANOQUEQUIV THM}
+and the adjoint map $X \to \gamma_{\**}\tilde{X}$
 has the following properties:
 \begin{inparaenum}
 	\item[(i)] it is a monomorphism;
@@ -2651,6 +2651,21 @@ showing that $X$ is a retract of $\gamma_{\**}X$ and finishing the proof.
 \end{proof}
 
 
+\begin{remark}
+	For any dendroidal Segal space 
+	$X \in \mathsf{sdSet}^G$ one hence has complete equivalences
+\[
+\gamma_{\**} X \to X \to \tilde{X}
+\] 
+where $\gamma_{\**}$ is a fibrant preoperad and $\tilde{X}$
+a complete dendroidal Segal space.
+\end{remark}
+
+
+
+
+
+
 
 \[
 	u^{\**} \colon \mathsf{dSet}_G 
@@ -2663,7 +2678,6 @@ showing that $X$ is a retract of $\gamma_{\**}X$ and finishing the proof.
 {\color{red} discuss characteristic horns}
 
 
-{\color{red} bla bla dendroidal Reedy fibrant replacement enough if one knows about homotopy pullbacks}
 
 \newpage
 
@@ -2803,7 +2817,7 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 	\cite[Def. 5.9]{Per17} follows since the $h U$, $h \in H$ have a common root. It is now clear that $HU$ inherits a $H$-action and we thus set $GU = G \cdot_H HU$.
 	Both the factorization $U \to GU \to T$ and its minimality are immediate from the description of $HU$.
 	
-	Before tackling the general case, we collect some useful observations. Firstly, the assumption that $U$ is outer implies that so are the (non-equivariant) face $HU$ and the equivariant face $GH$. Secondly, the root tuple of 
+	Before tackling the general case, we collect some key observations. Firstly, the assumption that $U$ is outer implies that so are the (non-equivariant) face $HU$ and the equivariant face $GH$. Secondly, the root tuple of 
 	$GU$ is $G\cdot_H r_U$.
 	Lastly, we need a characterization of the leaf tuple of $GU$: we call a leaf $l$ of $U$ orbital if 
 all the edges in $Hl \cap U$ are leaves of $U$, 
@@ -2938,6 +2952,196 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 \]%
 
 \end{example}
+
+\newpage
+
+\subsection{Characteristic playground}
+
+
+\begin{lemma}\label{INNINT LEM}
+	Consider a diagram of faces in $\Omega$
+\[
+\begin{tikzcd}
+	V \ar{r} \ar{d} &
+	U \ar{d}
+\\
+	\bar{V} \ar{r}&
+	\bar{U}
+\end{tikzcd}
+\]
+such that the horizontal maps are outer face maps and the left vertical map is an inner face map.
+
+Then $Inn(V) = Inn(U) \cap Inn (\bar{V})$.
+\end{lemma}
+
+\begin{proof}
+	Write $r$ and $\underline{l}=l_1\cdots l_n$
+	for the root and leaf tuple of $V$, or equivalently $\bar{V}$.
+	Since the horizontal maps are outer, an edge
+	$e \in Inn(U)$ (resp. $e \in Inn(\bar{U})$)
+	is also in $Inn(V)$ (resp. in $Inn(\bar{V})$) iff
+	$e <_d r$ and $\forall_i e \not \leq l_i$.
+	But then $Inn(V) = Inn(U) \cap Inn(V) = Inn(U) \cap Inn(\bar{V})$. 
+\end{proof}
+
+
+
+
+\begin{notation}
+	Given a non-equivariant planar face
+	$U \hookrightarrow T$
+	we write $\bar{U}$ 
+	for the smallest planar outer face containing $U$.
+\end{notation}
+
+
+\begin{definition}\label{CHAREDGE DEF}
+Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a $G$-subdendroidal set, and $U \in \mathsf{Face}(T)$.
+
+Given a set $E$ of inner edges of $U$ and a subface $V \hookrightarrow U$, denote $E_V = E \cap Inn(V)$.
+
+We say that the inner edge set $E$ is \textit{a characteristic inner edge set of $U$ with respect to $X$} if:
+\begin{itemize}
+	\item[(i)] $E$ is $G$-saturated, i.e., if $e \in E$ and $g e$ is an inner edge of $U$ for some $g\in G$, then $g e \in E$;
+	\item[(ii)] $X$ contains all outer faces $\bar{V} \hookrightarrow U$ such that $E_{\bar{V}} = \emptyset$;
+	\item[(iii)] if $V \hookrightarrow U$ is a subface such that
+	$E_V \neq \emptyset$,
+	then $V \in X$ whenever $(V-E_V) \in X$.
+\end{itemize}
+\end{definition}
+
+\begin{lemma}\label{CHAREDGE LEM}
+If $E$ is a characteristic inner edge set of $U$ with respect to the subset $X \subseteq \Omega[T]$, then the map
+\begin{equation}\label{CHARLEM EQ}
+	X \to X \cup \bigcup_{g\in G} \Omega[gU]
+\end{equation}
+is $G$-inner anodyne.
+\end{lemma}
+
+\begin{proof}Denote the isotropy of $U\in \mathsf{Face}(T)$ by $H$.
+	We write 
+	$\mathsf{Face}_{E}^{lex}(U)$
+	for the $H$-poset of (planar) faces $V \hookrightarrow U$
+	such that $E_V \neq \emptyset$ and $E_V = E_{\bar{V}}$
+	ordered as follows: 
+	$V \leq V'$ if either 
+	\begin{inparaenum}
+		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
+		$\bar{V} \neq \bar{V}'$ or
+		\item[(ii)] $\bar{V} = \bar{V}'$ and
+		$V \hookrightarrow V'$
+	\end{inparaenum}
+(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+
+For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{E}^{lex}(U)$ we write
+\[
+X_C = 
+X \cup \bigcup_{g\in G,V \in C} \Omega[gV].
+\]
+It now suffices to show that whenever
+$C \subseteq C'$
+the map 
+$X_C \to X_{C'}$ is $G$-inner anodyne
+(indeed, setting $C=\emptyset$ and $C'=\mathsf{Face}_{E}^{lex}(U)$ recovers \eqref{CHARLEM EQ}).
+
+Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$ orbit of a single $V' \hookrightarrow U$. Further, we may assume $V' \not \in X_C$ or else $X_C=X_{C'}$.
+Writing $H' \leq G$ for the isotropy of $V'$ in $\mathsf{Face}(T)$, we claim that $X_C \to X_{C'}$ is then the pushout of the map
+\[
+	G \cdot_{H'} 
+	\left( \Lambda^{E_{V'}}[V'] \to \Omega[V'] \right),
+\]
+where the inner edge set $E_{V'}$ is $H'$-equivariant due to the $G$-saturation condition in 
+Definition \ref{CHAREDGE DEF}(i).
+This will follow once we establish the following three claims:
+\begin{inparaenum}
+\item[(a)] all outer faces $W$ of $V'$ are in $X_C$;
+\item[(b)] an inner face $V' - D$ of $V$ is in $X_C$ iff 
+$D \not \subseteq E_{V'}$;
+\item[(c)] the $G$-isotropy of faces $V' - D$ for 
+$D \subseteq E_{V'}$ 
+(i.e. their isotropy in $\mathsf{Face}(T)$)
+is contained in $H'$.
+\end{inparaenum}
+
+To check (a), writing $\bar{W}$ for the corresponding outer face of $U$, one has
+	\[
+	E_W = E \cap Inn (W) = E \cap Inn(V') \cap Inn(\bar{W})
+	= E \cap Inn(\bar{V}') \cap Inn(\bar{W})
+	= E \cap Inn(\bar{W}) = E_{\bar{W}}
+	\]
+where the second step follows from Lemma \ref{INNINT LEM}
+and the third since by definition of
+$\mathsf{Face}_{E}^{lex}(U)$ it is $E_{V'} = E_{\bar{V}'}$.
+Thus either $E_W = E_{\bar{W}} = \emptyset$ so that $\bar{W}\in X$
+by (ii) in Definition \ref{CHAREDGE DEF}
+or $E_W = E_{\bar{W}} \neq \emptyset$
+so that $W \in \mathsf{Face}_E^{lex}(U)$ with $W<V'$, and thus $W\in C$. In either case one has $W \in X_C$.
+
+We now check the ``if'' direction of (b).
+If $D \not \subseteq E_{V'}$
+then $V'' = V' - (D \setminus E_{V'})$
+is in $\mathsf{Face}_{E}^{lex}(U)$
+(since $\bar{V}'' = \bar{V}'$ and $E_{V''}=E_{V'}$)
+and $V''<V'$, and thus indeed $V'' \in X_C$.
+
+For the ``only if'' direction of (b), the assumption $V' \not \in X_C$ together with (iii) in Definition \ref{CHAREDGE DEF} imply that
+$V''=V'-E_{V'}$ is not in $X$, and hence it remains to show that 
+$V''$ is not a face of any $W \in C$. Suppose otherwise.
+Then since $V'' \hookrightarrow W$ it is $ \bar{V}' = \bar{V}'' \hookrightarrow \bar{W}$
+and by convexity of $C'$ it must in fact be 
+$ \bar{V}' = \bar{W}$. But by definition of $\mathsf{Face}_{E}^{lex}(U)$ the face $W$ must contain all edges in 
+$E_W=E_{\bar{W}} = E_{\bar{V}'} = E_{V'}$,
+so that it is not only $V'' \hookrightarrow W$ but also
+$V' \hookrightarrow W$. This contradicts the assumption $V' \not \in X_C$.
+
+Lastly, we address (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
+Then $g\bar{V}'' = \bar{V}''$ or, equivalently, 
+$g\bar{V}' = \bar{V}'$.
+Further, the $G$-saturation condition in 
+Definition \ref{CHAREDGE DEF}(i)
+now guarantees $g E_{\bar{V}'} = E_{\bar{V}'}$ or, by definition of $\mathsf{Face}_E^{lex}(U)$, 
+$g E_{V'} = E_{V'}$. 
+Therefore, since $D \subseteq E_{V'}$,
+the assumption $gV'' = V''$, i.e.
+$g(V'-D) = V'-D$,
+implies 
+$g(V'-E_{V'}) = V'-E_{V'}$
+and thus also $g V' = V'$. 
+Since $H'$ was defined as the $G$-isotropy of $V'$,
+we obtain $g \in H'$, finishing the proof.
+\end{proof}
+
+
+\begin{proposition}
+Orbital horn inclusions
+\[
+	\Lambda_o^{Ge}[T] \to \Omega[T]
+\]
+are $G$-inner anodyne.
+\end{proposition}
+
+\begin{proof}
+	Writing $T = G \cdot_H T_e$, where $T_e$ is the component containing $e$,
+	we will apply Lemma \ref{CHAREDGE LEM}
+	with $U=T_e$, $E=He$, and $X=\Lambda_o^{Ge}[T]$,
+	so that we must verify the characteristic conditions in Definition \ref{CHAREDGE DEF}.
+	The saturation condition (i) is immediate.
+	
+	For (ii), the condition $E_{\bar{V}} = \emptyset$
+	says that none of the inner edges of $\bar{V}$ are in $He$,
+	and thus that $Ge$ is not an inner edge orbit of the equivariant outer face $G\bar{V}$. But then $G\bar{V}$ is an equivariant outer face other than $T$ itself,
+	and hence $X=\Lambda_o^{Ge}[T]$ contains $G\bar{V}$ and thus $\bar{V}$.
+	
+	For (iii), the condition $E_{V} \neq \emptyset$ implies that 
+	$Ge$ is an inner edge orbit of $GV$. Therefore, it is 
+	$V \in X=\Lambda_o^{Ge}[T]$
+	unless $GV=T$.
+	But in the latter case 
+	$G(V - E_V)$ is either $T-Ge$ or $T$ ($T$ is indeed possible since some of the \textit{leaves} of $V-E_V$ may be in $He$), and thus it is also 
+	$V-E_V \not \in X=\Lambda_o^{Ge}[T]$.
+\end{proof}
+
+
 
 
 
