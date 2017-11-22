@@ -942,7 +942,7 @@ summarizing the results
 (in particular, \cref{ORB_HORN_THM}, \cref{HORN_ORB_THM} \cref{SC_IN_GHORN_THM}, \cref{SC_IN_OHORN_THM}, and \cref{GHORN_IN_SC_THM})
 of this subsection.
 
-\begin{proposition}\label{HYPER PROP}
+\begin{proposition}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
@@ -1248,7 +1248,7 @@ The following is the equivariant generalization of
 \cite[Thm. 3.11 and Remark 3.12]{CM13a}.
 
 
-\begin{theorem}
+\begin{theorem}\label{COMSQ THM}
 A map $f \colon X \to Y$ of $G$-$\infty$-operads is fully faithful iff for all $G$-corollas $C \in \Sigma_G$ the commutative squares
 of Kan complexes
 \begin{equation}\label{COMSQ EQ}
@@ -1361,19 +1361,19 @@ In either case, the generating cofibrations are then given by the maps
 \qquad n,m\geq 0.
 \] 
 Further, in the horizontal Reedy model structure the generating trivial cofibrations are the maps
-\[
+\begin{equation}\label{GTRCOHOR EQ}
 	\left( \partial \Delta[n] \to \Delta[n] \right)
 \square
 	\left( \Lambda^j[m] \to \Delta[m] \right),
 \qquad n\geq 0,m\geq j \geq 0.
-\]
+\end{equation}
 while for the vertical Reedy model structure the generating trivial cofibrations are the maps
-\[
+\begin{equation}\label{GTRCOVER EQ}
 	\left( \Lambda^i[n] \to \Delta[n] \right)
 \square
 	\left( \partial \Delta[m] \to \Delta[m] \right),
 \qquad n \geq i \geq 0,m\geq 0.
-\]
+\end{equation}
 We caution the reader about a possible hiccup with the terminology: 
 the weak equivalences for the horizontal Reedy structure are the 
 \textit{vertical equivalences},
@@ -1410,16 +1410,16 @@ $X \to \tilde{X}$, $Y \to \tilde{Y}$
 are horizontal equivalences.
 
 For (iv), note first that the diagonal functor
-$\Delta \colon \mathsf{ssSet} \to \mathsf{sSet}$
+$\delta^{\**} \colon \mathsf{ssSet} \to \mathsf{sSet}$
 is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure). But noting that all objects are cofibrant, and regarding 
 $X_{n,0}$ as a bisimplicial set that is vertically constant, the claim
 follows by noting that by (i) the map
 $X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{WEAKDIAG COR}
 	A map $f\colon X \to Y$ in $\mathsf{ssSet}$ is a joint equivalence iff it induces a Kan equivalence on diagonals
-	$\Delta(X) \to \Delta(Y)$ in $\mathsf{sSet}$.
+	$\delta^{\**}(X) \to \delta^{\**}(Y)$ in $\mathsf{sSet}$.
 \end{corollary}
 
 \begin{proof}
@@ -1431,6 +1431,97 @@ $X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	$X_{\bullet,0} \to Y_{\bullet,0}$ is a Kan equivalence, 
 	so that the result follows from Proposition \ref{SSSETJREE PROP} (iv).
 \end{proof}
+
+\begin{corollary}\label{SSETSSETADJ COR}
+	The adjunction
+\[
+	\delta_{!}\colon \mathsf{sSet} 
+		\rightleftarrows 
+	\mathsf{ssSet} \colon \delta^{\**}
+\]
+is a Quillen equivalence.
+
+Moreover if a map $f\colon X \to Y$ in $\mathsf{ssSet}$ has the right lifting property
+against both sets of maps in
+\eqref{GTRCOHOR EQ} and \eqref{GTRCOVER EQ}, then
+$\delta^{\**} (f)$ is a Kan fibration in $\mathsf{sSet}$.
+\end{corollary}
+
+Note that the ``moreover'' claim in this result is not quite formal, since the maps in \eqref{GTRCOHOR EQ},\eqref{GTRCOVER EQ} are not known to be generating trivial cofibrations for the joint model structure in $\mathsf{ssSet}$.
+
+
+\begin{proof}
+	Recall that $\delta_!$ can be characterized as the unique colimit preserving functor such that 
+	$\delta_!(\Delta[n])=\Delta[n] \times \Delta[n]$.
+
+	The claim that $\delta_!$ preserves cofibrations thus follows provided that 
+	$\delta_{!}\left( \partial \Delta[n] \to \Delta[n]\right)$
+	is a monomorphism for all $n\geq 0$.
+	This holds since:
+	\begin{inparaenum}
+		\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (indeed, faces are indexed by subsets of $\{0,1\cdots,n\}$); 
+		\item[(ii)] for any face inclusion one has 
+		$\delta_{!}\left( F \to \Delta[n]\right) = 
+		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monormorphism.
+	\end{inparaenum}
+
+The claim that $\delta_!$ preserves trivial cofibrations easily follows from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
+Namely, we will argue that the maps
+$\delta_! \left( \Lambda^i[n] \to \Delta[n]\right)$
+are built cellularly out of the maps in 
+\eqref{GTRCOHOR EQ}, \eqref{GTRCOVER EQ}.
+One has a factorization
+\[
+	\delta_! \Lambda^i[n] \to
+	\Lambda^i[n] \times \Delta[n] \to \Delta[n]^{\times 2}
+\]
+where the second map is clearly built cellularly out of maps in 
+\eqref{GTRCOVER EQ}, and we claim that 
+the first map is likewise built cellularly out of maps in \eqref{GTRCOHOR EQ}.
+Indeed, this first map be built by iteratively attaching the maps
+\[
+	\left(\Lambda^{F}[n] \to \Lambda^i[n] \right)
+		\square
+	\left(\Lambda^{i}F \to F \right)
+\]
+where $F$ ranges over the poset $\mathsf{Face}_{\supsetneq \{i\}}$
+of faces of $\Delta[n]$ strictly containing $\{i\}$ 
+(note that when $F=\Delta[n]$ then $\Lambda^F[n]=\emptyset$, so that these maps can not in general be built out of the maps in \eqref{GTRCOVER EQ}). 
+
+Lastly, the Quillen equivalence condition 
+is that for all $X \in \mathsf{sSet}$ and joint fibrant
+$Y \in \mathsf{ssSet}$ a map
+$X \to \delta^{\**} Y$ is a weak equivalence iff 
+$\delta_!X \to Y$ is. 
+But by Corollary \ref{WEAKDIAG COR}
+this reduces to showing
+that the unit maps $X \to \delta^{\**} \delta_! X$
+are weak equivalences, and this latter claim easily follows by cellular induction on $X$
+(recall that since $\mathsf{sSet}$ is left proper the pushouts attaching cells are homotopy pushouts).
+\end{proof}
+
+\begin{remark}\label{HYPERSIMPL REM}
+	Hypersaturations can be used to simplify the lifting condition required in the previous result. 
+	Indeed, note first that $X \to Y$ will have the lifting condition against the maps in \eqref{GTRCOHOR EQ} iff
+	all maps $X^L \to X^K \times_{Y^K} Y^L$
+	are Kan fibrations in $\mathsf{sSet}$ for $K\to L$ a monomorphism in $\mathsf{sSet}$.
+	But hence $X \to Y$ will also have the lifting condition
+	against the maps in \eqref{GTRCOVER EQ} provided 
+	$X^L \to X^K \times_{Y^K} Y^L$ is also a \textit{trivial} Kan fibration when $K\to L$ is an horn inclusion.
+	But one readily checks that horn inclusions can now be replaced with any set with the same hypersaturation. In particular, by Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$ induced by the vertex maps $[0] \to [n]$ are trivial Kan fibrations.
+\end{remark}
+
+
+
+\begin{remark}
+The adjunction 
+$
+	\delta^{\**}\colon \mathsf{ssSet}
+		\rightleftarrows 
+	\mathsf{sSet} \colon \delta_{\**}
+$
+is also a Quillen equivalence, but we will not need this fact.
+\end{remark}
 
 
 We now turn to our main application of Proposition \ref{COMBMODSTR PROP}, the category 
@@ -1566,7 +1657,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 \end{proof}
 
 
-\begin{theorem}
+\begin{theorem}\label{INC0AGJ THM}
 	The inclusion/$0$-th level adjunction
 	\[
 	\iota\colon 
@@ -1639,7 +1730,7 @@ $\gamma_{\**}X(T)$ is given by the pullback on the right below.
 \]
 
 
-\begin{remark}
+\begin{remark}\label{BOUNDRED REM}
 	Let $A \to B$ denote a monomorphism in $\mathsf{sdSet}^G$ of the form
 \begin{equation}\label{BOUNDRED EQ}
 	\left( \partial \Delta[n] \to \Delta [n] \right)
@@ -2405,18 +2496,16 @@ one reduces to checking that the following squares induce weak equivalences on f
 \end{remark}
 
 
-{\color{red} HERE}
-
-
-\begin{proposition}
+\begin{proposition}\label{COMPLE PROP}
 Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
 Then there is a complete dendroidal Segal space $\tilde{X}$
 and complete equivalence $X \to \tilde{X}$ such that
 \begin{itemize}
-	\item[(i)] $X \to \tilde{X}$ is a DK-equivalence;
+	\item[(i)] $X \to \tilde{X}$ is a monomorphism and a DK-equivalence;
 	\item[(ii)] $X_0(\eta) \to \tilde{X}_0(\eta)$ is an isomorphism.
 \end{itemize}
 \end{proposition}
+
 
 \begin{proof}
 	Our argument will mostly adapt the construction of the completion functor in \cite[\S 10.4]{Rez01}.
@@ -2433,8 +2522,8 @@ is $X^{J_k}$.
 	$X^{J_{\bullet}} \to \mathsf{csk}_{\eta} X^{J_\bullet}$
 	is a fibration in $\mathsf{ssdSet}^G$.
 
-In particular, this implies that for each vertex map
-$[0] \to [k]$ and $T \in \Omega_G$ the induced square
+In particular, this implies that for each $T \in \Omega_G$ and
+vertex map $[0] \to [k]$ the induced square
 \[
 \begin{tikzcd}
 	X^{J_k}(T) \ar[->>]{r} \ar[->>]{d}&
@@ -2445,21 +2534,139 @@ $[0] \to [k]$ and $T \in \Omega_G$ the induced square
 \end{tikzcd}
 \]
 is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
-induces weak equivalences on fibers, and is thus a homotopy pullback square.
+induces weak equivalences on fibers,
+so that the map from $X^{J_k}(T)$ to the pullback of the remaining diagram is a trivial Kan fibration.
+By Remark \ref{HYPERSIMPL REM} we have just shown that for each fixed $T \in \Omega_G$ the map
+\begin{equation}\label{MOREOVER EQ}
+X^{J_{\bullet}}(T) \to
+\left(\mathsf{csk}_{\eta}X^{J_{\bullet}}\right)(T)
+\end{equation}
+satisfies the ``moreover'' condition in 
+Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of this map are in fact homotopy fibers.
 
-{\color{red} HERE}
+We now write $\tilde{X}$ for any dendroidal Reedy fibrant replacement of the diagonal 
+$\delta^{\**} \left(X^{J_{\bullet}}\right)$,
+which we note can always be chosen so that
+$\delta^{\**} \left(X^{J_{\bullet}}\right) \to \tilde{X}$
+is a monomorphism and
+$\tilde{X}_0(\eta) = 
+\left(\delta^{\**} \left(X^{J_{\bullet}}\right)\right)_0(\eta)=
+X_0(\eta)$ (this follows since fibrant replacements in the Kan model structure in $\mathsf{sSet}$ can be chosen to preserve $0$-simplices, since existence of lifts against the horn inclusions
+$\Delta[0]=\Lambda^0[1]\to \Delta[1]$,
+$\Delta[0]=\Lambda^1[1]\to \Delta[1]$
+is automatic).
 
+To see that $\tilde{X}$ is a complete Segal space, note that there is a composite
+$X_0^{J_{\bullet}} \to 
+\delta^{\**}\left( X^{J_{\bullet}} \right)
+\to \tilde{X}$
+where the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
+and the second by definition of $\tilde{X}$.
+But since $X_0^{J_{\bullet}}$ is a complete Segal space, so is 
+$\tilde{X}$.
+
+For the remaining claim that the composite
+$X = X^{J_{0}} \to 
+\delta^{\**}\left( X^{J_{\bullet}} \right)
+\to \tilde{X}$
+is a DK equivalence, 
+though the first map is no longer a dendroidal Reedy equivalence, 
+it is nonetheless an equivalence
+on fibers over
+$\prod_{e_i \in E_G(T)} \left(X(\eta)\right)^{H_i}$
+for each $T\in \Omega_G$.
+And since we established above that the fibers of
+$\delta^{\**}\left( X^{J_{\bullet}} \right)(T)$
+ are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(T)$ (since Reedy replacement does not change the homotopy fibers), and thus $X \to \tilde{X}$ is indeed fully faithful.
+Essential surjectivity is trivial since the objects coincide.
+The monomorphism condition is clear.
 \end{proof}
 
-\begin{remark}
-Consider the adjunction
+
+\begin{corollary}
+	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is a DK equivalence.
+\end{corollary}
+
+
+\begin{proof}
+By the (proof of) previous result one is free to, via a zigzag, 
+replace $X$, $Y$ with 
+$X_0^{J_{\bullet}}$, $Y_0^{J_{\bullet}}$.
+But by Theorem \ref{INC0AGJ THM} this map is a joint equivalence iff
+$X_0 \to Y_0$ is an equivalence in $\mathsf{dSet}^G$, which by 
+Theorem \ref{COMSQ THM} holds iff this is a fully faithful and essentially surjective map of $G$-$\infty$-operads.
+But it is easy to check that
+$X_0 \to Y_0$ is a fully faithful and essentially surjective map of $G$-$\infty$-operads iff
+$X_0^{J_{\bullet}}\to Y_0^{J_{\bullet}}$
+is a fully faithful and essentially surjective map
+of dendroidal Segal spaces.
+\end{proof}
+
+
+\begin{corollary}
+	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
+	$\mathsf{sdSet}^G$.
+\end{corollary}
+
+
+\begin{proof}
+	We start with the ``only if'' direction.
+Recall that $\gamma^{\**} X$ is a dendroidal Segal space if it has the right lifting property against the maps of the form
+\begin{equation}\label{SOMEMAPS EQ}
+	(\Lambda^i[n] \to \Delta[n]) \square (\partial \Omega[T] \to \Omega[T])
+\qquad
+	(\partial \Delta[n] \to \Delta[n]) \square (Sc[T] \to \Omega[T]).
+\end{equation}
+With the exception of the first type of maps when $T=\eta$, in which case the lifting condition is automatic since
+$\gamma^{\**}X(\eta)$ is discrete, all other maps induce isomorphisms at the $\eta$-level, so that by \eqref{GAMMASH EQ} applying $\gamma_{!}$ to these maps yields trivial cofibrations in 
+$\mathsf{PreOp}^G$.
+Thus, if $X \in \mathsf{PreOp}^G$ is fibrant, an adjunction argument shows that $\gamma^{\**}(X)$ indeed has the lifting property against all maps \eqref{SOMEMAPS EQ}, i.e. 
+$\gamma^{\**}(X)$ is a dendroidal Segal space.
+	
+For the ``if'' direction, form the completion 
+$\gamma^{\**}X \to \tilde{X}$
+as in Proposition \ref{COMPLE PROP}.
+Then $\gamma_{\**}\tilde{X} \in \mathsf{PreOp}^G$
+is fibrant by Theorem \ref{ANOQUEQUIV THM}
+and the adjoint map $X \to \gamma_{\**}\tilde{X}$
+has the following properties:
+\begin{inparaenum}
+	\item[(i)] it is a monomorphism;
+	\item[(ii)] it is an isomorphism on the $\eta$-level;
+	\item[(iii)] it is a DK-equivalence when regarded as a map
+	in $\mathsf{sdSet}^G$
+	(since $\gamma_{\**}\gamma^{\**}\tilde{X} \to \tilde{X}$ is tautologically a DK-equivalence);
+	\item[(iv)] it is hence a trivial Reedy cofibration when regarded as a map
+	in $\mathsf{sdSet}^G$. 
+\end{inparaenum}	
+	But then the hypothesis that
+	$\gamma^{\**}X$ is a dendroidal Segal space yields a lift
 \[
-	\delta_{!}\colon \mathsf{sSet} 
-\rightleftarrows 
-	\mathsf{ssSet} \colon \delta^{\**}
+\begin{tikzcd}
+	\gamma^{\**} X \ar[equal]{r} \ar{d}&
+	\gamma^{\**} X
+\\
+	\gamma^{\**}\gamma_{\**}X \ar[dashed]{ru}
+\end{tikzcd}
 \]
-where 
+showing that $X$ is a retract of $\gamma_{\**}X$ and finishing the proof.
+\end{proof}
+
+
+\begin{remark}
+	For any dendroidal Segal space 
+	$X \in \mathsf{sdSet}^G$ one hence has complete equivalences
+\[
+\gamma_{\**} X \to X \to \tilde{X}
+\] 
+where $\gamma_{\**}$ is a fibrant preoperad and $\tilde{X}$
+a complete dendroidal Segal space.
 \end{remark}
+
+
+
+
+
 
 
 \[
@@ -2473,7 +2680,6 @@ where
 {\color{red} discuss characteristic horns}
 
 
-{\color{red} bla bla dendroidal Reedy fibrant replacement enough if one knows about homotopy pullbacks}
 
 \newpage
 
@@ -2481,21 +2687,7 @@ where
 \section{Scratchwork (to be folded into previous sections eventually)}
 
 
-\begin{lemma}
-	One can always form the completion of a dendroidal Segal space $X$ while preserving $X(\eta)_0$. 
-\end{lemma}
 
-
-
-\begin{proposition}
-	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is fully faithful and essentially surjective.
-\end{proposition}
-
-
-\begin{corollary}
-	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
-	$\mathsf{sdSet}^G$.
-\end{corollary}
 
 
 \begin{remark}\label{ANHYPER REM}
@@ -2627,7 +2819,7 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 	\cite[Def. 5.9]{Per17} follows since the $h U$, $h \in H$ have a common root. It is now clear that $HU$ inherits a $H$-action and we thus set $GU = G \cdot_H HU$.
 	Both the factorization $U \to GU \to T$ and its minimality are immediate from the description of $HU$.
 	
-	Before tackling the general case, we collect some useful observations. Firstly, the assumption that $U$ is outer implies that so are the (non-equivariant) face $HU$ and the equivariant face $GH$. Secondly, the root tuple of 
+	Before tackling the general case, we collect some key observations. Firstly, the assumption that $U$ is outer implies that so are the (non-equivariant) face $HU$ and the equivariant face $GH$. Secondly, the root tuple of 
 	$GU$ is $G\cdot_H r_U$.
 	Lastly, we need a characterization of the leaf tuple of $GU$: we call a leaf $l$ of $U$ orbital if 
 all the edges in $Hl \cap U$ are leaves of $U$, 
@@ -2762,6 +2954,196 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 \]%
 
 \end{example}
+
+\newpage
+
+\subsection{Characteristic playground}
+
+
+\begin{lemma}\label{INNINT LEM}
+	Consider a diagram of faces in $\Omega$
+\[
+\begin{tikzcd}
+	V \ar{r} \ar{d} &
+	U \ar{d}
+\\
+	\bar{V} \ar{r}&
+	\bar{U}
+\end{tikzcd}
+\]
+such that the horizontal maps are outer face maps and the left vertical map is an inner face map.
+
+Then $Inn(V) = Inn(U) \cap Inn (\bar{V})$.
+\end{lemma}
+
+\begin{proof}
+	Write $r$ and $\underline{l}=l_1\cdots l_n$
+	for the root and leaf tuple of $V$, or equivalently $\bar{V}$.
+	Since the horizontal maps are outer, an edge
+	$e \in Inn(U)$ (resp. $e \in Inn(\bar{U})$)
+	is also in $Inn(V)$ (resp. in $Inn(\bar{V})$) iff
+	$e <_d r$ and $\forall_i e \not \leq l_i$.
+	But then $Inn(V) = Inn(U) \cap Inn(V) = Inn(U) \cap Inn(\bar{V})$. 
+\end{proof}
+
+
+
+
+\begin{notation}
+	Given a non-equivariant planar face
+	$U \hookrightarrow T$
+	we write $\bar{U}$ 
+	for the smallest planar outer face containing $U$.
+\end{notation}
+
+
+\begin{definition}\label{CHAREDGE DEF}
+Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a $G$-subdendroidal set, and $U \in \mathsf{Face}(T)$.
+
+Given a set $E$ of inner edges of $U$ and a subface $V \hookrightarrow U$, denote $E_V = E \cap Inn(V)$.
+
+We say that the inner edge set $E$ is \textit{a characteristic inner edge set of $U$ with respect to $X$} if:
+\begin{itemize}
+	\item[(i)] $E$ is $G$-saturated, i.e., if $e \in E$ and $g e$ is an inner edge of $U$ for some $g\in G$, then $g e \in E$;
+	\item[(ii)] $X$ contains all outer faces $\bar{V} \hookrightarrow U$ such that $E_{\bar{V}} = \emptyset$;
+	\item[(iii)] if $V \hookrightarrow U$ is a subface such that
+	$E_V \neq \emptyset$,
+	then $V \in X$ whenever $(V-E_V) \in X$.
+\end{itemize}
+\end{definition}
+
+\begin{lemma}\label{CHAREDGE LEM}
+If $E$ is a characteristic inner edge set of $U$ with respect to the subset $X \subseteq \Omega[T]$, then the map
+\begin{equation}\label{CHARLEM EQ}
+	X \to X \cup \bigcup_{g\in G} \Omega[gU]
+\end{equation}
+is $G$-inner anodyne.
+\end{lemma}
+
+\begin{proof}Denote the isotropy of $U\in \mathsf{Face}(T)$ by $H$.
+	We write 
+	$\mathsf{Face}_{E}^{lex}(U)$
+	for the $H$-poset of (planar) faces $V \hookrightarrow U$
+	such that $E_V \neq \emptyset$ and $E_V = E_{\bar{V}}$
+	ordered as follows: 
+	$V \leq V'$ if either 
+	\begin{inparaenum}
+		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
+		$\bar{V} \neq \bar{V}'$ or
+		\item[(ii)] $\bar{V} = \bar{V}'$ and
+		$V \hookrightarrow V'$
+	\end{inparaenum}
+(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+
+For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{E}^{lex}(U)$ we write
+\[
+X_C = 
+X \cup \bigcup_{g\in G,V \in C} \Omega[gV].
+\]
+It now suffices to show that whenever
+$C \subseteq C'$
+the map 
+$X_C \to X_{C'}$ is $G$-inner anodyne
+(indeed, setting $C=\emptyset$ and $C'=\mathsf{Face}_{E}^{lex}(U)$ recovers \eqref{CHARLEM EQ}).
+
+Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$ orbit of a single $V' \hookrightarrow U$. Further, we may assume $V' \not \in X_C$ or else $X_C=X_{C'}$.
+Writing $H' \leq G$ for the isotropy of $V'$ in $\mathsf{Face}(T)$, we claim that $X_C \to X_{C'}$ is then the pushout of the map
+\[
+	G \cdot_{H'} 
+	\left( \Lambda^{E_{V'}}[V'] \to \Omega[V'] \right),
+\]
+where the inner edge set $E_{V'}$ is $H'$-equivariant due to the $G$-saturation condition in 
+Definition \ref{CHAREDGE DEF}(i).
+This will follow once we establish the following three claims:
+\begin{inparaenum}
+\item[(a)] all outer faces $W$ of $V'$ are in $X_C$;
+\item[(b)] an inner face $V' - D$ of $V$ is in $X_C$ iff 
+$D \not \subseteq E_{V'}$;
+\item[(c)] the $G$-isotropy of faces $V' - D$ for 
+$D \subseteq E_{V'}$ 
+(i.e. their isotropy in $\mathsf{Face}(T)$)
+is contained in $H'$.
+\end{inparaenum}
+
+To check (a), writing $\bar{W}$ for the corresponding outer face of $U$, one has
+	\[
+	E_W = E \cap Inn (W) = E \cap Inn(V') \cap Inn(\bar{W})
+	= E \cap Inn(\bar{V}') \cap Inn(\bar{W})
+	= E \cap Inn(\bar{W}) = E_{\bar{W}}
+	\]
+where the second step follows from Lemma \ref{INNINT LEM}
+and the third since by definition of
+$\mathsf{Face}_{E}^{lex}(U)$ it is $E_{V'} = E_{\bar{V}'}$.
+Thus either $E_W = E_{\bar{W}} = \emptyset$ so that $\bar{W}\in X$
+by (ii) in Definition \ref{CHAREDGE DEF}
+or $E_W = E_{\bar{W}} \neq \emptyset$
+so that $W \in \mathsf{Face}_E^{lex}(U)$ with $W<V'$, and thus $W\in C$. In either case one has $W \in X_C$.
+
+We now check the ``if'' direction of (b).
+If $D \not \subseteq E_{V'}$
+then $V'' = V' - (D \setminus E_{V'})$
+is in $\mathsf{Face}_{E}^{lex}(U)$
+(since $\bar{V}'' = \bar{V}'$ and $E_{V''}=E_{V'}$)
+and $V''<V'$, and thus indeed $V'' \in X_C$.
+
+For the ``only if'' direction of (b), the assumption $V' \not \in X_C$ together with (iii) in Definition \ref{CHAREDGE DEF} imply that
+$V''=V'-E_{V'}$ is not in $X$, and hence it remains to show that 
+$V''$ is not a face of any $W \in C$. Suppose otherwise.
+Then since $V'' \hookrightarrow W$ it is $ \bar{V}' = \bar{V}'' \hookrightarrow \bar{W}$
+and by convexity of $C'$ it must in fact be 
+$ \bar{V}' = \bar{W}$. But by definition of $\mathsf{Face}_{E}^{lex}(U)$ the face $W$ must contain all edges in 
+$E_W=E_{\bar{W}} = E_{\bar{V}'} = E_{V'}$,
+so that it is not only $V'' \hookrightarrow W$ but also
+$V' \hookrightarrow W$. This contradicts the assumption $V' \not \in X_C$.
+
+Lastly, we address (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
+Then $g\bar{V}'' = \bar{V}''$ or, equivalently, 
+$g\bar{V}' = \bar{V}'$.
+Further, the $G$-saturation condition in 
+Definition \ref{CHAREDGE DEF}(i)
+now guarantees $g E_{\bar{V}'} = E_{\bar{V}'}$ or, by definition of $\mathsf{Face}_E^{lex}(U)$, 
+$g E_{V'} = E_{V'}$. 
+Therefore, since $D \subseteq E_{V'}$,
+the assumption $gV'' = V''$, i.e.
+$g(V'-D) = V'-D$,
+implies 
+$g(V'-E_{V'}) = V'-E_{V'}$
+and thus also $g V' = V'$. 
+Since $H'$ was defined as the $G$-isotropy of $V'$,
+we obtain $g \in H'$, finishing the proof.
+\end{proof}
+
+
+\begin{proposition}
+Orbital horn inclusions
+\[
+	\Lambda_o^{Ge}[T] \to \Omega[T]
+\]
+are $G$-inner anodyne.
+\end{proposition}
+
+\begin{proof}
+	Writing $T = G \cdot_H T_e$, where $T_e$ is the component containing $e$,
+	we will apply Lemma \ref{CHAREDGE LEM}
+	with $U=T_e$, $E=He$, and $X=\Lambda_o^{Ge}[T]$,
+	so that we must verify the characteristic conditions in Definition \ref{CHAREDGE DEF}.
+	The saturation condition (i) is immediate.
+	
+	For (ii), the condition $E_{\bar{V}} = \emptyset$
+	says that none of the inner edges of $\bar{V}$ are in $He$,
+	and thus that $Ge$ is not an inner edge orbit of the equivariant outer face $G\bar{V}$. But then $G\bar{V}$ is an equivariant outer face other than $T$ itself,
+	and hence $X=\Lambda_o^{Ge}[T]$ contains $G\bar{V}$ and thus $\bar{V}$.
+	
+	For (iii), the condition $E_{V} \neq \emptyset$ implies that 
+	$Ge$ is an inner edge orbit of $GV$. Therefore, it is 
+	$V \in X=\Lambda_o^{Ge}[T]$
+	unless $GV=T$.
+	But in the latter case 
+	$G(V - E_V)$ is either $T-Ge$ or $T$ ($T$ is indeed possible since some of the \textit{leaves} of $V-E_V$ may be in $He$), and thus it is also 
+	$V-E_V \not \in X=\Lambda_o^{Ge}[T]$.
+\end{proof}
+
+
 
 
 
