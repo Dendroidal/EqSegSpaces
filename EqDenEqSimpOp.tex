@@ -144,17 +144,19 @@ The following are the categories currently with model structures and the right a
 \begin{definition}
       Fix $T\in \Omega_G$, and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
       
-      Let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps whose image is
-      strictly containined in $T_0$.
+      Let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps.
+      % whose image is strictly containined in $T_0$.
       Given a $G$-closed subset $E$ of inner edges, let
-      $\mathscr{F}^{E}(T) = \mathscr{F}(T) \setminus (T_0 \setminus \bar E)_{\bar E \subseteq E \cap T_0}$.\footnote{
+      $\mathscr{F}^{E}(T) = \mathscr{F}(T) \setminus G \cdot_H (T_0 \setminus \bar E)_{\bar E \subseteq E \cap T_0}$.\footnote{
         In the case $E = G e$ for a single inner edge $e \in T$, we have
-      $\mathscr{F}^{G e}(T) = \mathscr{F}(T) \setminus (T_0 \setminus \bar e)_{\bar e \subseteq H e}$.}
+        $\mathscr{F}^{G e}(T) = \mathscr{F}(T) \setminus G \cdot_H (T_0 \setminus \bar e)_{\bar e \subseteq H e}$.}
       Define the \textit{$E$-horn} of $T$ to be the subdendroidal set
       \begin{equation}
-            \Lambda^{E}[T] := \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathsf{im}\left(\Omega[G \cdot_K S_0]\right)
-            = \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathop{\bigcup}\limits_{g \in G}\Omega[g S_0]
-            %= \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
+            \Lambda^{E}[T]
+            := \mathop{\colim}\limits_{\mathscr{F}^E(T)} \Omega[U_0]
+            \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathop{\bigcup}\limits_{G}\Omega[g S_0]
+            \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathsf{im}\left(\Omega[G \cdot_K S_0]\right)
+            % = \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
       \end{equation}
       where $K = \mathrm{Stab}_H(S_0)$.
       \todo[inline]{the colimit wasn't functorial as written: e.g. if $U_0$ is an equivariant subface of $S_0$, then $\Omega[G \cdot_K U_0]$ does not canonically map into $\Omega[G \cdot_L S_0]$. This can be fixed by making the poset larger (adding full orbits of certain subface subinclusions)}
