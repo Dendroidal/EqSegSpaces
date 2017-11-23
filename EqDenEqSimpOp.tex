@@ -2953,6 +2953,14 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 
 \end{example}
 
+\begin{remark}\label{GINNER REM}
+	For any inner face $V-e$ of $V$ one has 
+	that $G(V-e)$ is either $GV - Ge$ or $GV$.
+	Indeed, the latter will happen iff $V-e$ contains either an inner edge of a leaf of the form $ge$.
+\end{remark}
+
+
+
 \newpage
 
 \subsection{Characteristic playground}
@@ -2990,41 +2998,56 @@ Then $Inn(V) = Inn(U) \cap Inn (\bar{V})$.
 \begin{notation}
 	Given a non-equivariant planar face
 	$U \hookrightarrow T$
-	we write $\bar{U}$ 
-	for the smallest planar outer face containing $U$.
+	we write $\bar{U}^T$, 
+	or simply $\bar{U}$ when no confusion should arise, 
+	for the smallest planar outer face of $T$ containing $U$.
 \end{notation}
 
 
+
+
 \begin{definition}\label{CHAREDGE DEF}
-Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a $G$-subdendroidal set, and $U \in \mathsf{Face}(T)$.
+Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
 
-Given a set $E$ of inner edges of $U$ and a subface $V \hookrightarrow U$, denote $E_V = E \cap Inn(V)$.
+Given a set $\Xi$ of inner edges of $T$ and a subface $V \hookrightarrow U$, denote $\Xi_V = \Xi \cap Inn(V)$.
 
-We say that the inner edge set $E$ is \textit{a characteristic inner edge set of $U$ with respect to $X$} if:
+We say that $\Xi$ is \textit{a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}$} if:
 \begin{itemize}
-	\item[(i)] $E$ is $G$-saturated, i.e., if $e \in E$ and $g e$ is an inner edge of $U$ for some $g\in G$, then $g e \in E$;
-	\item[(ii)] $X$ contains all outer faces $\bar{V} \hookrightarrow U$ such that $E_{\bar{V}} = \emptyset$;
-	\item[(iii)] if $V \hookrightarrow U$ is a subface such that
-	$E_V \neq \emptyset$,
-	then $V \in X$ whenever $(V-E_V) \in X$.
+	\item[(Ch0)] $\Xi$, $X$ and $\{U_i\}$ are all $G$-equivariant; 
+	\item[(Ch1)] for all $i$, all outer faces $V = \bar{V}^{U_i}$
+	of $U_i$ such that $\Xi_{V} = \emptyset$
+	are contained in $X$;
+	\item[(Ch2)] for all $i$, all faces
+	$V \hookrightarrow U_i$ such that $(V-\Xi_V) \in X$
+	are contained in $X$;
+	\item[(Ch3)] there exists a well-ordering of the $G$-cosets $I/G$ such that for all $[j] \not \geq [i]$ 
+	all faces $V \hookrightarrow U_i$ such that 
+	$V \not \in X$ and $(V-\Xi_V) \hookrightarrow U_j$
+	are contained in some $U_k$ with $[k]\leq[j]$ or $[k]<[i]$.
 \end{itemize}
 \end{definition}
 
 \begin{lemma}\label{CHAREDGE LEM}
-If $E$ is a characteristic inner edge set of $U$ with respect to the subset $X \subseteq \Omega[T]$, then the map
+If $\Xi$ is a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}_{i\in I}$, then the map
 \begin{equation}\label{CHARLEM EQ}
-	X \to X \cup \bigcup_{g\in G} \Omega[gU]
+	X \to X \cup \bigcup_{i \in I} \Omega[U_i]
 \end{equation}
-is $G$-inner anodyne.
+is $G$-inner anodyne. In fact, it is built cellularly from $G$-horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
-\begin{proof}Denote the isotropy of $U\in \mathsf{Face}(T)$ by $H$.
-	We write 
-	$\mathsf{Face}_{E}^{lex}(U)$
-	for the $H$-poset of (planar) faces $V \hookrightarrow U$
-	such that $E_V \neq \emptyset$ and $E_V = E_{\bar{V}}$
-	ordered as follows: 
-	$V \leq V'$ if either 
+
+
+\begin{proof}
+We start with the case where $\{U_i\}$ consists of a single orbit,
+i.e. $\{U_i\}_{i \in I} = \{g U\}_{[g]\in G/H}$
+for some $U \in \mathsf{Face}(T)$ with isotropy $H$.
+Note that in this case the condition (Ch3) is vacuous.
+
+We write $\mathsf{Face}_{\Xi}^{lex}(U)$
+for the $H$-poset of (planar) faces $V \hookrightarrow U$
+such that $\Xi_V \neq \emptyset$ and $\Xi_V = \Xi_{\bar{V}}$
+ordered as follows: 
+$V \leq V'$ if either 
 	\begin{inparaenum}
 		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
 		$\bar{V} \neq \bar{V}'$ or
@@ -3032,8 +3055,10 @@ is $G$-inner anodyne.
 		$V \hookrightarrow V'$
 	\end{inparaenum}
 (alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
+$\bar{V}=\bar{V}^U$.
 
-For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{E}^{lex}(U)$ we write
+For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write
 \[
 X_C = 
 X \cup \bigcup_{g\in G,V \in C} \Omega[gV].
@@ -3041,105 +3066,169 @@ X \cup \bigcup_{g\in G,V \in C} \Omega[gV].
 It now suffices to show that whenever
 $C \subseteq C'$
 the map 
-$X_C \to X_{C'}$ is $G$-inner anodyne
-(indeed, setting $C=\emptyset$ and $C'=\mathsf{Face}_{E}^{lex}(U)$ recovers \eqref{CHARLEM EQ}).
+$X_C \to X_{C'}$ is built cellularly from 
+$G$-inner horn inclusions
+(indeed, setting $C=\emptyset$ and 
+$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}).
 
-Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$ orbit of a single $V' \hookrightarrow U$. Further, we may assume $V' \not \in X_C$ or else $X_C=X_{C'}$.
-Writing $H' \leq G$ for the isotropy of $V'$ in $\mathsf{Face}(T)$, we claim that $X_C \to X_{C'}$ is then the pushout of the map
+Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$-orbit of a single $V' \hookrightarrow U$. Further, we may assume $V' \not \in X_C$ or else $X_C=X_{C'}$.
+Writing $H' \leq G$ for the isotropy of $V'$ in $\mathsf{Face}(T)$ and regarding $V' \in \Omega^{H'}\subset \Omega_{H'}$, we claim that $X_C \to X_{C'}$ is then the pushout of the $G$-inner horn
 \[
 	G \cdot_{H'} 
-	\left( \Lambda^{E_{V'}}[V'] \to \Omega[V'] \right),
+	\left( \Lambda^{\Xi_{V'}}[V'] \to \Omega[V'] \right),
 \]
-where the inner edge set $E_{V'}$ is $H'$-equivariant due to the $G$-saturation condition in 
-Definition \ref{CHAREDGE DEF}(i).
-This will follow once we establish the following three claims:
+where the inner edge set $\Xi_{V'}$ is $H'$-equivariant due to the $G$-equivariance of $\Xi$ in (Ch0).
+The desired pushout will follow once we establish the following three claims:
 \begin{inparaenum}
 \item[(a)] all outer faces $W$ of $V'$ are in $X_C$;
 \item[(b)] an inner face $V' - D$ of $V$ is in $X_C$ iff 
-$D \not \subseteq E_{V'}$;
-\item[(c)] the $G$-isotropy of faces $V' - D$ for 
-$D \subseteq E_{V'}$ 
+$D \not \subseteq \Xi_{V'}$;
+\item[(c)] the $G$-isotropy of inner faces $V' - D$ with 
+$D \subseteq \Xi_{V'}$ 
 (i.e. their isotropy in $\mathsf{Face}(T)$)
 is contained in $H'$.
 \end{inparaenum}
 
 To check (a), writing $\bar{W}$ for the corresponding outer face of $U$, one has
 	\[
-	E_W = E \cap Inn (W) = E \cap Inn(V') \cap Inn(\bar{W})
-	= E \cap Inn(\bar{V}') \cap Inn(\bar{W})
-	= E \cap Inn(\bar{W}) = E_{\bar{W}}
+	\Xi_W = \Xi \cap Inn (W) 
+	= \Xi \cap Inn(V') \cap Inn(\bar{W})
+	= \Xi \cap Inn(\bar{V}') \cap Inn(\bar{W})
+	= \Xi \cap Inn(\bar{W})
+	= \Xi_{\bar{W}}
 	\]
 where the second step follows from Lemma \ref{INNINT LEM}
 and the third since by definition of
-$\mathsf{Face}_{E}^{lex}(U)$ it is $E_{V'} = E_{\bar{V}'}$.
-Thus either $E_W = E_{\bar{W}} = \emptyset$ so that $\bar{W}\in X$
-by (ii) in Definition \ref{CHAREDGE DEF}
-or $E_W = E_{\bar{W}} \neq \emptyset$
-so that $W \in \mathsf{Face}_E^{lex}(U)$ with $W<V'$, and thus $W\in C$. In either case one has $W \in X_C$.
+$\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{V'} = \Xi_{\bar{V}'}$.
+Thus either $\Xi_W = \Xi_{\bar{W}} = \emptyset$ so that $\bar{W}\in X$ by (Ch1) 
+or $\Xi_W = \Xi_{\bar{W}} \neq \emptyset$
+so that $W \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $W<V'$, and thus $W\in C$. In either case one has $W \in X_C$.
 
 We now check the ``if'' direction of (b).
-If $D \not \subseteq E_{V'}$
-then $V'' = V' - (D \setminus E_{V'})$
-is in $\mathsf{Face}_{E}^{lex}(U)$
-(since $\bar{V}'' = \bar{V}'$ and $E_{V''}=E_{V'}$)
+If $D \not \subseteq \Xi_{V'}$
+then $V'' = V' - (D \setminus \Xi_{V'})$
+is in $\mathsf{Face}_{\Xi}^{lex}(U)$
+(since $\bar{V}'' = \bar{V}'$ and $\Xi_{V''} = \Xi_{V'}$)
 and $V''<V'$, and thus indeed $V'' \in X_C$.
 
-For the ``only if'' direction of (b), the assumption $V' \not \in X_C$ together with (iii) in Definition \ref{CHAREDGE DEF} imply that
-$V''=V'-E_{V'}$ is not in $X$, and hence it remains to show that 
+For the ``only if'' direction of (b), the assumption $V' \not \in X_C$ together with (Ch2) imply that
+$V''=V'-\Xi_{V'}$ is not in $X$, and hence it remains to show that 
 $V''$ is not a face of any $W \in C$. Suppose otherwise.
 Then since $V'' \hookrightarrow W$ it is $ \bar{V}' = \bar{V}'' \hookrightarrow \bar{W}$
 and by convexity of $C'$ it must in fact be 
-$ \bar{V}' = \bar{W}$. But by definition of $\mathsf{Face}_{E}^{lex}(U)$ the face $W$ must contain all edges in 
-$E_W=E_{\bar{W}} = E_{\bar{V}'} = E_{V'}$,
-so that it is not only $V'' \hookrightarrow W$ but also
-$V' \hookrightarrow W$. This contradicts the assumption $V' \not \in X_C$.
+$ \bar{V}' = \bar{W}$. But by definition of 
+$\mathsf{Face}_{\Xi}^{lex}(U)$ the face $W$ must contain as inner edges all edges in 
+$\Xi_W=\Xi_{\bar{W}} = \Xi_{\bar{V}'} = \Xi_{V'}$,
+so that it is not only $V' - \Xi_{V'} = V'' \hookrightarrow W$ but also $V' \hookrightarrow W$.
+This contradicts the assumption $V' \not \in X_C$.
 
-Lastly, we address (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
+We now show (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
 Then $g\bar{V}'' = \bar{V}''$ or, equivalently, 
 $g\bar{V}' = \bar{V}'$.
-Further, the $G$-saturation condition in 
-Definition \ref{CHAREDGE DEF}(i)
-now guarantees $g E_{\bar{V}'} = E_{\bar{V}'}$ or, by definition of $\mathsf{Face}_E^{lex}(U)$, 
-$g E_{V'} = E_{V'}$. 
-Therefore, since $D \subseteq E_{V'}$,
+Further, the $G$-equivariance of $\Xi$ in (Ch0)
+guarantees $g \Xi_{\bar{V}'} = \Xi_{\bar{V}'}$ or, by definition of $\mathsf{Face}_{\Xi}^{lex}(U)$, 
+$g \Xi_{V'} = \Xi_{V'}$. 
+Therefore, since $D \subseteq \Xi_{V'}$,
 the assumption $gV'' = V''$, i.e.
 $g(V'-D) = V'-D$,
 implies 
-$g(V'-E_{V'}) = V'-E_{V'}$
+$g(V'-\Xi_{V'}) = V'-\Xi_{V'}$
 and thus also $g V' = V'$. 
 Since $H'$ was defined as the $G$-isotropy of $V'$,
-we obtain $g \in H'$, finishing the proof.
+we obtain $g \in H'$, finishing the proof when $\{U_i\}$ is orbital.
+
+We now turn to the case of a general $\{U_i\}_{i \in I}$.
+For the well-ordering of the cosets $I/G$ given by (Ch3)
+and each convex subset $J$ of $I/G$, set
+\[
+	X_J = 
+	X \cup \bigcup_{g\in G,[j] \in J} \Omega[g U_j].
+\]
+As before, it suffices to check that for all convex subsets
+$J \subseteq J'$
+the map $X_J \to X_{J'}$ is built cellularly from $G$-inner horns,
+and again we can assume that $J'$ is obtained from $J$ by adding a single $[j'] \in I/G$.
+By the $\{U_i\}$ orbital case, 
+it now suffices to check that
+$\Xi$ is also a characteristic inner edge set with respect to 
+$X_J$ and $\{U_{g j'}\}_{g j' \in [j']}$.
+But (Ch0) and (Ch3) for this new characteristic condition are obvious,
+the new (Ch1) condition is a particular case of the original (Ch1) condition, 
+and the new (Ch2) condition readily follows from the original (Ch2) and (Ch3) conditions.
 \end{proof}
 
 
-\begin{proposition}
-Orbital horn inclusions
-\[
-	\Lambda_o^{Ge}[T] \to \Omega[T]
-\]
+
+
+\begin{proposition} Inclusions of orbital horns
+\begin{equation}\label{ORBHORNINC EQ}
+	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{E}[T]
+\end{equation}
 are $G$-inner anodyne.
 \end{proposition}
 
+
 \begin{proof}
-	Writing $T = G \cdot_H T_e$, where $T_e$ is the component containing $e$,
-	we will apply Lemma \ref{CHAREDGE LEM}
-	with $U=T_e$, $E=He$, and $X=\Lambda_o^{Ge}[T]$,
-	so that we must verify the characteristic conditions in Definition \ref{CHAREDGE DEF}.
-	The saturation condition (i) is immediate.
-	
-	For (ii), the condition $E_{\bar{V}} = \emptyset$
-	says that none of the inner edges of $\bar{V}$ are in $He$,
-	and thus that $Ge$ is not an inner edge orbit of the equivariant outer face $G\bar{V}$. But then $G\bar{V}$ is an equivariant outer face other than $T$ itself,
-	and hence $X=\Lambda_o^{Ge}[T]$ contains $G\bar{V}$ and thus $\bar{V}$.
-	
-	For (iii), the condition $E_{V} \neq \emptyset$ implies that 
-	$Ge$ is an inner edge orbit of $GV$. Therefore, it is 
-	$V \in X=\Lambda_o^{Ge}[T]$
-	unless $GV=T$.
-	But in the latter case 
-	$G(V - E_V)$ is either $T-Ge$ or $T$ ($T$ is indeed possible since some of the \textit{leaves} of $V-E_V$ may be in $He$), and thus it is also 
-	$V-E_V \not \in X=\Lambda_o^{Ge}[T]$.
+We are free to assume that $T \in \Omega^G \hookrightarrow \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
+$E_{\**}=E \cap Inn(T_{\**})$, $F_{\**} = F \cap Inn(T_{\**})$,
+the map \eqref{ORBHORNINC EQ} is
+$G \cdot_H 
+\left( \Lambda_o^{E_{\**} \amalg F_{\**}}[T_{\**}] \to \Lambda_o^{E_{\**}}[T_{\**}]\right)$.
+
+Further, we are clearly free to assume $F \neq \emptyset$.
+There are two main cases, 
+$E=\emptyset$ and $E\neq \emptyset$.
+
+If $E=\emptyset$ then $\Lambda_o^{E}[T] = \Omega[T]$ and we apply
+Lemma \ref{CHAREDGE LEM}
+	with 
+\[
+	\Xi = F, \qquad 
+	X=\Lambda_o^{F}[T], \qquad
+	\{U_i\}=\left\{T\right\}.
+\]
+It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
+	(Ch0) and (Ch3) are clear.
+
+	For (Ch1), the condition $\Xi_{V} = \emptyset$
+	says that none of the inner edges of $V$ are in $F$,
+	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
+	and hence $X=\Lambda_o^{F}[T]$ contains $G V$ and thus also $V$.
+
+	For (Ch2), note first that $V$ will be in $X=\Lambda_o^{F}[T]$
+	unless $GV$ has the form $T - F'$ for some $G$-equivariant subset $F' \subseteq F$. But hence by Remark \ref{GINNER REM} it is
+	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$ and thus $(V-\Xi_V)$ is not in $X=\Lambda_o^{F}[T]$.
+
+	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with
+\[
+	\Xi = E, \qquad X=\Lambda_o^{E\amalg F}[T], \qquad
+	\{U_i\}=\left\{T - Gf\right\}_{Gf \subseteq F}.
+\]
+Note that the $U_i$ are precisely the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
+in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
+We must again check the characteristic conditions. (Ch0) is clear.
+
+	For (Ch1), note that for an outer face 
+	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
+	Lemma \ref{INNINT LEM} implies
+	$Inn(V) = Inn(U_i) \cap Inn(\bar{V})$
+	and hence since $\Xi_{U_i}=\Xi$ the 
+	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
+	$\Xi_{V} = \emptyset$.
+	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
+
+	The argument for (Ch2) is identical to the one in the case
+	$E=\emptyset$.
+
+	Lastly, we show (Ch3).
+	Again by	
+	Remark \ref{GINNER REM} it is
+	$G(V-\Xi_V) = GV - E'$ for $E' \subseteq E$ and 
+	thus $(V-\Xi_V) \hookrightarrow U_j$ iff
+	$V \hookrightarrow U_j$. 
+	This suffices for (Ch3) regardless of the chosen well-ordering.
 \end{proof}
+
 
 
 
