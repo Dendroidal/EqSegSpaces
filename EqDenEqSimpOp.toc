@@ -1,10 +1,11 @@
 \contentsline {section}{\numberline {1}Overview}{1}{section.1}
 \contentsline {section}{\numberline {2}Equivariant dendroidal sets}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Preliminaries}{2}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Outdated}{5}{subsubsection.2.1.1}
-\contentsline {subsection}{\numberline {2.2}Actual Stuff}{6}{subsection.2.2}
-\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{9}{section.3}
-\contentsline {section}{\numberline {4}Pre-operads}{12}{section.4}
-\contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{13}{section.5}
-\contentsline {section}{\numberline {6}Scratchwork (to be folded into previous sections eventually)}{17}{section.6}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{19}{appendix.A}
+\contentsline {subsection}{\numberline {2.2}Proof of \cref {HYPER PROP}}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Weak Equivalences in $\mathsf {dSet}^G$}{10}{subsection.2.3}
+\contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{13}{section.3}
+\contentsline {section}{\numberline {4}Pre-operads}{17}{section.4}
+\contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{19}{section.5}
+\contentsline {section}{\numberline {6}Scratchwork (to be folded into previous sections eventually)}{28}{section.6}
+\contentsline {subsection}{\numberline {6.1}Characteristic playground}{30}{subsection.6.1}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{34}{appendix.A}

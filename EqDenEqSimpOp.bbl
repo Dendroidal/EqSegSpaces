@@ -15,15 +15,10 @@ Peter Bonventre and Lu{\'i}s~Alexandre Pereira.
 \newblock Genuine equivariant operads.
 \newblock arXiv preprint: 1707.02226, 2017.
 
-\bibitem[CM13a]{CM13a}
+\bibitem[CM13]{CM13a}
 Denis-Charles Cisinski and Ieke Moerdijk.
 \newblock Dendroidal {S}egal spaces and {$\infty$}-operads.
 \newblock {\em J. Topol.}, 6(3):675--704, 2013.
-
-\bibitem[CM13b]{CM13b}
-Denis-Charles Cisinski and Ieke Moerdijk.
-\newblock Dendroidal sets and simplicial operads.
-\newblock {\em J. Topol.}, 6(3):705--756, 2013.
 
 \bibitem[HHM16]{HHM16}
 Gijs Heuts, Vladimir Hinich, and Ieke Moerdijk.
@@ -49,6 +44,11 @@ Jacob Lurie.
   Studies}.
 \newblock Princeton University Press, Princeton, NJ, 2009.
 
+\bibitem[MW09]{MW09}
+I.~Moerdijk and I.~Weiss.
+\newblock On inner {K}an complexes in the category of dendroidal sets.
+\newblock {\em Adv. Math.}, 221(2):343--389, 2009.
+
 \bibitem[Per17]{Per17}
 Lu{\'i}s~Alexandre Pereira.
 \newblock Equivariant dendroidal sets.
@@ -58,6 +58,11 @@ Lu{\'i}s~Alexandre Pereira.
 Charles Rezk.
 \newblock A model for the homotopy theory of homotopy theory.
 \newblock {\em Trans. Amer. Math. Soc.}, 353(3):973--1007, 2001.
+
+\bibitem[Rez10]{Rez10}
+Charles Rezk.
+\newblock A {C}artesian presentation of weak {$n$}-categories.
+\newblock {\em Geom. Topol.}, 14(1):521--571, 2010.
 
 \bibitem[Ste16]{Ste16}
 Marc Stephan.
