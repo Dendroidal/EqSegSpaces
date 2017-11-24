@@ -48,8 +48,8 @@
 
 
 % -------- Referenece Numbering
-\numberwithin{equation}{section}%
-\numberwithin{figure}{section} 
+% \numberwithin{equation}{section}%
+% \numberwithin{figure}{section} 
 
 
 % ------- Author Info -----------------------
@@ -106,64 +106,69 @@ The following are the categories currently with model structures and the right a
 
 
 \begin{definition}
-      A map $f: S_0 \to T_0$ in $\Omega$ is called a \textit{face map} if it is injective on underlying sets.
-      A face map is \textit{inner} if it is of the form $T_0 \setminus E \into T_0$, where $E$ is a subset of the set of inner edges of $T$.      
-      Fixing such a subset $E$, let $\mathscr{F}_{\mathrm{Inn}}^E(T_0)$ denote the poset (under inclusion) of
-      all inner face maps $S_0 \into T_0$
-      such that $E \subseteq T_0 \setminus S_0$.
-\end{definition}
-
-\begin{definition}
-	Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
-      $T_0$ denote the component of $T$ containing the image of $S_0$.
-
-      We say $f$ is an \textit{(inner, resp. outer) face map} if
-      $f: S_0 \to T_0$ is an (inner, outer) face map on underlying trees.
-
-      Given a subset $E$ of inner edges, let
-      $\mathscr{F}_{\mathrm{Inn}}^E(T)$ denote the subposet of faces such that miss all of $E$.
-      Moveover, let $\mathscr{F}_{\mathrm{Out}}(T)$ denote the subposet of outer faces.
-\end{definition}
-
-\begin{definition}
-      Fix a set $X$.
-      Let $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
-      denote the \textit{image} functor,
-      sending a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
+      A map $f: S_0 \to T_0$ in $\Omega$ is called a \textit{face map} if it is planar and injective on underlying sets;
+      $S_0$ is called a \textit{face} of $T_0$.
 \end{definition}
 
 \begin{remark}
-      This naturally extends to any category of presheaves on sets,
-      in particular $\mathsf{dSet}$ and $\mathsf{dSet}_G$.
-      These arise naturally when considering horns and boundaries, as we will see that the natural map
-      $\Omega[G \cdot_K U_0] \to \Omega[T]$
-      for a face $U_0$ of $T$ is injective iff $U_0$ is \textit{orbital}; see \cref{ORB_INJ_THM}.      
+      In particular, we may assume that for any face map  the $S_0$ is a \textit{subset} of $T_0$.
 \end{remark}
 
+\begin{definition}
+      A face map is \textit{inner} if it is of the form $T_0 \setminus E \into T_0$, where $E$ is a subset of the set of inner edges of $T$.      
+      % Fixing such a subset $E$, let $\mathscr{F}_{\mathrm{Inn}}^E(T_0)$ denote the poset (under inclusion) of
+      % all inner face maps $S_0 \into T_0$
+      % such that $E \subseteq T_0 \setminus S_0$.
+\end{definition}
 
 \begin{definition}
-      Fix $T\in \Omega_G$, and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
-      
-      Let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps.
+      Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
+      $T_0$ denote the component of $T$ containing the image of $S_0$.
+      We say $f$ is an \textit{(inner, resp. outer) face map} if
+      $f: S_0 \to T_0$ is an (inner, outer) face map on underlying trees.
+      % Given a subset $E$ of inner edges, let
+      % $\mathscr{F}_{\mathrm{Inn}}^E(T)$ denote the subposet of faces such that miss all of $E$.
+      % Moveover, let $\mathscr{F}_{\mathrm{Out}}(T)$ denote the subposet of outer faces.
+\end{definition}
+
+%%%%%% -------------------- IMAGES ---------------------------------------------------------------------
+% \begin{definition}
+%       Fix a set $X$.
+%       Let $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
+%       denote the \textit{image} functor,
+%       sending a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
+% \end{definition}
+
+% \begin{remark}
+%       This naturally extends to any category of presheaves on sets,
+%       in particular $\mathsf{dSet}$ and $\mathsf{dSet}_G$.
+%       These arise naturally when considering horns and boundaries, as we will see that the natural map
+%       $\Omega[G \cdot_K U_0] \to \Omega[T]$
+%       for a face $U_0$ of $T$ is injective iff $U_0$ is \textit{orbital}; see \cref{ORB_INJ_THM}.      
+% \end{remark}
+%%%%%% ------------------------------------------------------------------------------------------------
+
+\begin{definition}
+      Fixing $T\in \Omega_G$,
+      % , and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
+      let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps.
       % whose image is strictly containined in $T_0$.
       Given a $G$-closed subset $E$ of inner edges, let
-      $\mathscr{F}^{E}(T) = \mathscr{F}(T) \setminus G \cdot_H (T_0 \setminus \bar E)_{\bar E \subseteq E \cap T_0}$.\footnote{
-        In the case $E = G e$ for a single inner edge $e \in T$, we have
-        $\mathscr{F}^{G e}(T) = \mathscr{F}(T) \setminus G \cdot_H (T_0 \setminus \bar e)_{\bar e \subseteq H e}$.}
+      $\mathscr{F}^{E}(T)$ denote the subposet removing those faces of the form
+      $T_0 - \bar E$
+      where $T_0$ is a component of $T$ and $\bar E \subseteq E \cap T_0$.
       Define the \textit{$E$-horn} of $T$ to be the subdendroidal set
       \begin{equation}
             \Lambda^{E}[T]
             := \mathop{\colim}\limits_{\mathscr{F}^E(T)} \Omega[U_0]
-            \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathop{\bigcup}\limits_{G}\Omega[g S_0]
-            \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathsf{im}\left(\Omega[G \cdot_K S_0]\right)
+            \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathop{\bigcup}\limits_{G}\Omega[g U_0].
+            % \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathsf{im}\left(\Omega[G \cdot_K S_0]\right)
             % = \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
       \end{equation}
-      where $K = \mathrm{Stab}_H(S_0)$.
-      \todo[inline]{the colimit wasn't functorial as written: e.g. if $U_0$ is an equivariant subface of $S_0$, then $\Omega[G \cdot_K U_0]$ does not canonically map into $\Omega[G \cdot_L S_0]$. This can be fixed by making the poset larger (adding full orbits of certain subface subinclusions)}
   \end{definition}
 
 \begin{remark}
-      Equivalently, if $T \simeq G \cdot_H T_0$, then
+      Equivalently, if we have a decomposition $T \simeq G \cdot_H T_0$, then
       \begin{equation}
             \Lambda^{E}[T] \simeq G \cdot_H \Lambda^{E \cap T_0}[T_0]
             \simeq G \cdot_H \mathop{\colim}\limits_{\mathscr{F}^{E \cap T_0}(T_0)}\Omega[U_0].
@@ -178,21 +183,26 @@ The following are the categories currently with model structures and the right a
 
 \begin{definition}
       For $T \in \Omega_G$, let $\mathscr{F}_{\mathrm{SC}}(T) \subseteq \mathrm{Out}(T)$ denote the poset of outer faces
-      with precisely one (non-equviariant) vertex
-      (that is, every element records precisely one generating broad relation
-      $e^\uparrow \leq e$ from $T$).
+      with precisely one (non-equviariant) vertex;
+      that is, every element records precisely one generating broad relation
+      $e^\uparrow \leq e$ from $T$.
       We define the \textit{Segal core} of $T$ to be the subdendroidal set
       \begin{equation}
-            Sc[T] := \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\mathsf{im}\left(\Omega[G \cdot_K C_0]\right)
-            = \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\mathop{\bigcup}\limits_{g \in G}\Omega[g C_0],
+            Sc[T] :=
+            \mathop{\colim}\limits_{\mathscr{F}_{SC}(T)} \Omega[C_0]
+            % \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\mathsf{im}\left(\Omega[G \cdot_K C_0]\right)
+            = \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)/G}\mathop{\bigcup}\limits_{g \in G}\Omega[g C_0],
             % \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\Omega[G \cdot_K C_0],
       \end{equation}
       where $K = \mathrm{Stab}_H(C_0)$. 
 \end{definition}
 
 \begin{remark}
-      Explicitly, a map $Sc[T] \to X$ is given by an element in $X(G \cdot_K T_v)$ for each $v \in V(T_0)$,
-      which are compatible on overlapping edges and under the action of $H$.
+      Explicitly, a map $Sc[T] \to X$ is given by elements in
+      $X(T_v)$
+      % $X(G \cdot_K T_v)
+      for all $v \in V(T_0)$,
+      which are compatible on overlapping edges and under the action of $G$.
       Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_{G v})$ for each $G v \in V_G(T)$
       which are compatible on overlapping edges.
 \end{remark}
@@ -224,25 +234,39 @@ The following are the categories currently with model structures and the right a
       Thus $R_0 \in \Omega[T]$ is hit at least twice.
 \end{proof}
 
+\begin{remark}
+      The data of an oribtal face $U_0 \into T$ is equivalent to both
+      \begin{enumerate}
+      \item the data of a map of $G$-trees $U \to T$ which is planar and injective; and
+      \item the data of a face map $U/G \to T/G$ of the \textit{orbital representation} of $T$.
+      \end{enumerate}
+      \todo[inline]{expand/contrast/combine with later writing}
+\end{remark}
+
 \begin{definition}
 Fixing a component $T_0$ of $T$,
-      let $\mathscr{F}_{o}(T)$ denote the poset (under inclusion) of orbital face maps whose image is
-      strictly contained in $T_0$.
+      let $\mathscr{F}_{o}(T)$ denote the poset (under inclusion) of orbital face maps.
       % Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
       % \begin{equation}
       %       \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{Orb}}(T)}\Omega[G \cdot S_0].
       % \end{equation}
       Given an inner edge $e \in T$, let
-      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \setminus (T_0\setminus \bar{e})_{\bar e \subseteq H e}$
-      where $H = \mathrm{Stab}_G(T_0)$,
+      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \cap \mathscr{F}^E(T)$,
       % (that is; those faces $U_0$ such that either $T \setminus (G.f(U_0) \cup Ge) \neq \varnothing$, or
       % outer faces removing a stump).
       and define the \textit{$Ge$-orbital horn} to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}_{o}[T] := \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)/G}\Omega[G\cdot_K U_0]
-            =\mathop{\bigcup}\limits_{\mathscr{F}_o^{Ge}(T)/G} \mathop{\bigcup}\limits_{g \in G}\Omega[g U_0]. 
+            \Lambda^{Ge}_{o}[T] :=
+            \mathop{\colim}\limits_{\mathscr{F}_o{Ge}(T)}\Omega[U_0]
+            = \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)/G}\Omega[G\cdot_K U_0]
+            = \mathop{\bigcup}\limits_{\mathscr{F}_o^{Ge}(T)/G} \mathop{\bigcup}\limits_{g \in G}\Omega[g U_0]. 
       \end{equation}
 \end{definition}
+
+\begin{remark}
+      The poset $\mathscr{F}_o(T)/G$ and $\mathscr{F}_o^{G e}(T)/G$ are the poset of faces
+      of the orbital representation.      
+\end{remark}
 
 
 \begin{example}
@@ -561,7 +585,8 @@ both $f$ and $gf$ are in the class, then so is $g$.
 \begin{notation}
       Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let
       $W(\mathcal C)$ and $\hat{W}(\mathcal C)$ denote
-      the saturation and hypersaturation of $\mathcal C$. 
+      the saturation and hypersaturation of $\mathcal C$.
+      \todo[inline]{change $W$ notation}
 \end{notation}
 
 \begin{remark}
@@ -584,7 +609,7 @@ The following lemma identifies some of the utility of hypersaturations.
       $\mathcal C^{\boxslash !} = \hat{W}(\mathcal C)^{\boxslash !}$.
 \end{lemma}
 \begin{proof}
-      Is a straightforward exercise to show that
+      It is a straightforward exercise to show that
       if $X \to Y$ has the (S)RLP with respect to a map $A \to B$ (resp. maps $A_\alpha \to A_{\alpha +1}$), then
       $X \to Y$ has the (S)RLP with respect to any pushout or retract of $A \to B$ (resp. the transfinite composite).
       \begin{itemize}
@@ -595,7 +620,8 @@ The following lemma identifies some of the utility of hypersaturations.
             composing with the section map yields that $D \to X$ is then also uniquely determined.
       \item Both the definition of the lift for the composite and its uniqueness are immediate.
       \end{itemize}
-      Now, suppose we have a diagram as on the left
+      Now, suppose $X \to Y$ has the SRLP against $A \to B$ and the composite $A \to B \to C$.
+      Consider the diagrams below.
       \begin{equation}
             \begin{tikzcd}
                   A \arrow[r] \arrow[d]
@@ -629,17 +655,18 @@ The following lemma identifies some of the utility of hypersaturations.
                   Y
             \end{tikzcd}
       \end{equation}
-      such that $X \to Y$ has the SRLP against $A \to B$ and $A \to C$.
       By assumption, there exist unique lifts $H$ and $G$ as denoted by the dashed arrows.
       It is immediate that both $B \to X$ and $B \to C \xrightarrow{H} X$ are candidates for lift $G$,
       and hence by strictness all three are equal.
       Thus $H$ is also a lift of the bottom-left square.
       Since any lift of the bottom square is also a lift of the rectangle,
       strictness for $A \to B$ implies strictness for $B \to C$.
+      \todo[inline]{check what is needed for the first fact, and prove it}
 \end{proof}
 
 
-
+{\color{blue}
+  \todo[inline]{change/combine with ``CHAR PLAYGROUND SECTION''}
 \begin{definition}
       Given $T \simeq G \cdot_H T_0$,
       let $U_0 \subseteq T_0$ be a (non-equivariant) subtree, and
@@ -760,6 +787,8 @@ The following lemma identifies some of the utility of hypersaturations.
       Both lead to contradictions, and thus the result follows.
 \end{proof}
 
+}%%%%%%%%%%%-------------- COLOR BLUE ----------------------------------------------------------------
+
 The reverse inclusion is only true on the level of hypersaturations.
 \begin{definition}
       Let $\hat{W}_o$ be the hypersaturation of the orbital horn inclusions.
@@ -775,21 +804,35 @@ The reverse inclusion is only true on the level of hypersaturations.
       We go by induction on $|G| \times |\mathscr{F}_{\mathrm{Inn}}(T)|$ \todo{replace $Inn(T)$ with $Inn_G(T)$? $E(T)$? $V(T)$? $V_G(T)$?}
       When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds.
 
-      Now, the proof of \cref{CHAR_HORN_THM} says that,
-      for any face $U_0 \subseteq T_0$,
-      if $K e$ is a characteristic edge orbit for $X \subseteq \Omega[T] \leftarrow \Omega[G \cdot_K U_0]$, then
+      Now, the proof of \cref{CHAREDGE LEM} says that,
+      for any face $U_0 \into T$,
+      if $E$ is a characteristic edge set for $U_0$ with respect to $X$, then
       \begin{equation}
             \label{CHAR_ATTACH_EQ}
-            X \to X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
+            X \to X \cup \mathop{\bigcup}\limits_G \Omega[g U_0]
       \end{equation}
-      is cellular on maps of the form in \eqref{CHAR_HORN_EQ}, where $D$ is a set of inner edges.
-      % (containing all of $\bar K e$ if it is non-empty).
-      Thus, by induction, any such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$.
-      Thus, the proof of \cref{ORB_HORN_THM} implies, in particular, that
-      \begin{equation}
-            \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \partial^{out}(T) =: A
-      \end{equation}
-      is in $\hat{W}_o$.
+      is cellular on inner horn inclusions of for inner faces of $U_0$,
+      and thus such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$ by induction
+      (since either $|\mathrm{Stab}_G(U_0)| < |G|$ or $U_0$ is strictly contained in a component of $T$).
+      
+      {\color{blue}     
+        Thus, the proof of \cref{ORB_HORN_THM} implies, in particular, that
+        \begin{equation}
+              \Lambda^{G e}_o[T] \to \Lambda^{G e}_o[T] \cup \partial^{out}(T) =: A
+        \end{equation}
+        is in $\hat{W}_o$.
+      }%%% ------------ COLOR BLUE -------------------------------------------
+      
+      Furthermore, it then suffices to show that
+      $H e$ is a characteristic edge set for $T_0$ with respect to $A$,
+      where $e \in T_0$ and $T \simeq G \cdot_H T_0$ is a decomposition for $T$.
+      \begin{enumerate}
+      \item Condition (i) is immediate.
+      \item Condition (ii) follows as $\partial^{out}\Omega[T] \subseteq A$.
+      \item Condition (iii)
+            \todo[inline]{come back}
+      \end{enumerate}
+      
       It then suffices to show that, for any $G$-convex subposets $B \subseteq B' \subseteq \mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$,
       \begin{equation}
             \label{ORB_HORN_ATTACH_EQ}
@@ -841,13 +884,17 @@ We will now compare Segal core inclusions with the inner horn inclusions.
             \to
             Sc[T] \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}(\Omega[G \cdot_K U_0])
       \end{equation}
-      is inner $G$-anodyne. In particular, we may assume $B' = B \cup G \cdot_K U_0$.
+      is inner $G$-anodyne. In particular, we may assume $B' = B \cup G \cdot_K \set{U_0}$.
       Then the above map is the pushout over
       \begin{equation}
                   G\cdot_K \left(\partial^{out}\Omega[U_0] \to \Omega[U_0] \right),
       \end{equation}
-      which by \cite[Proposition 6.17]{Per17} is inner $G$-anodyne,
-      and thus the result follows.
+      which by \cref{GEN_GHORN_THM} is inner $G$-anodyne, and hence the result follows.
+\end{proof}
+\begin{proof}
+      Fix some decomposition $T \simeq G \cdot_H T_0$, and let $I_0$ denote the set of inner edges of $T_0$.
+      Then it is immediate that $I_0$ is an characteristic inner edge set for $T_0$ with respect to $Sc[T]$,
+      and the result then follows from \cref{CHAREDGE LEM}.
 \end{proof}
 \begin{proposition}
       \label{SC_IN_OHORN_THM}
@@ -3141,6 +3188,21 @@ are $G$-inner anodyne.
 	But in the latter case 
 	$G(V - E_V)$ is either $T-Ge$ or $T$ ($T$ is indeed possible since some of the \textit{leaves} of $V-E_V$ may be in $He$), and thus it is also 
 	$V-E_V \not \in X=\Lambda_o^{Ge}[T]$.
+\end{proof}
+
+
+\begin{proposition}[{c.f. \cite[Proposition 6.17]{Per17}}]
+      \label{GEN_GHORN_THM}
+      Generalized inner horn inclusions
+      \begin{equation}
+            \Lambda^A[T] \to \Omega[T]
+      \end{equation}
+are inner $G$-anodyne.
+\end{proposition}
+\begin{proof}
+      Picking a decomposition $T \simeq G \cdot_H T_0$, we apply Lemma \ref{CHAREDGE LEM} with
+      $U = T_0$, $E = A \cap T_0$, and $X = \Lambda^{A}[T]$;
+      all three verifications that $E$ is a characteristic edge set with respect to $X$ are immediate.
 \end{proof}
 
 
