@@ -3322,6 +3322,7 @@ We must again check the characteristic conditions. (Ch0) and (Ch3') are clear.
 \end{proof}
 
 
+<<<<<<< HEAD
 \begin{proposition}[{c.f. \cite[Proposition 6.17]{Per17}}]
       \label{GEN_GHORN_THM}
       Generalized inner horn inclusions
@@ -3334,16 +3335,17 @@ are inner $G$-anodyne.
       Picking a decomposition $T \simeq G \cdot_H T_0$, we apply Lemma \ref{CHAREDGE LEM} with
       $U = T_0$, $E = A \cap T_0$, and $X = \Lambda^{A}[T]$;
       all three verifications that $E$ is a characteristic edge set with respect to $X$ are immediate.
-
 \end{proof}
 
 
+=======
 \begin{proposition} Inclusions of (regular) $G$-inner horns
 \begin{equation}
 	\Lambda^{E \amalg F}[T] \to \Lambda^{E}[T]
 \end{equation}
 are $G$-inner anodyne.
 \end{proposition}
+>>>>>>> refs/remotes/origin/master
 
 \begin{proof}
 The case $E=\emptyset$ is tautological.
