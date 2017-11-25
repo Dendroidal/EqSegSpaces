@@ -2859,6 +2859,12 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 Indexing systems are precisely the Segal sieves of $\Omega_G$.
 \end{remark}
 
+\begin{remark}
+{\color{blue} bla bla} the Fdiagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
+\end{remark}
+
+
+
 
 \begin{lemma}
 	A non-equivariant face $U \hookrightarrow T$ generates an equivariant face $G\cdot U \hookrightarrow T$ iff the $G$-isotropy of $r_U$ matches the isotropy of $U$.
@@ -3035,6 +3041,11 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 
 
 
+
+
+
+
+
 \newpage
 
 \subsection{Characteristic playground}
@@ -3053,17 +3064,17 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 \]
 such that the horizontal maps are outer face maps and the left vertical map is an inner face map.
 
-Then $Inn(V) = Inn(U) \cap Inn (\bar{V})$.
+Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
 \end{lemma}
 
 \begin{proof}
 	Write $r$ and $\underline{l}=l_1\cdots l_n$
 	for the root and leaf tuple of $V$, or equivalently $\bar{V}$.
 	Since the horizontal maps are outer, an edge
-	$e \in Inn(U)$ (resp. $e \in Inn(\bar{U})$)
-	is also in $Inn(V)$ (resp. in $Inn(\bar{V})$) iff
+	$e \in E^{\mathsf{i}}(U)$ (resp. $e \in E^{\mathsf{i}}(\bar{U})$)
+	is also in $E^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
 	$e <_d r$ and $\forall_i e \not \leq l_i$.
-	But then $Inn(V) = Inn(U) \cap Inn(V) = Inn(U) \cap Inn(\bar{V})$. 
+	But then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(\bar{V})$. 
 \end{proof}
 
 
@@ -3083,7 +3094,7 @@ Then $Inn(V) = Inn(U) \cap Inn (\bar{V})$.
 \begin{definition}\label{CHAREDGE DEF}
 Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
 
-Given a set $\Xi$ of inner edges of $T$ and a subface $V \hookrightarrow U$, denote $\Xi_V = \Xi \cap Inn(V)$.
+Given a set $\Xi$ of inner edges of $T$ and a subface $V \hookrightarrow T$, denote $\Xi_V = \Xi \cap E^{\mathsf{i}}(V)$.
 
 We say that $\Xi$ is \textit{a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}$} if:
 \begin{itemize}
@@ -3165,7 +3176,7 @@ Writing $H' \leq G$ for the isotropy of $V'$ in $\mathsf{Face}(T)$ and regarding
 \]
 where the inner edge set $\Xi_{V'}$ is $H'$-equivariant due to the $G$-equivariance of $\Xi$ in (Ch0).
 The desired pushout will follow once we establish the following three claims:
-\begin{inparaenum}
+\begin{enumerate}
 \item[(a)] all outer faces $W$ of $V'$ are in $X_C$;
 \item[(b)] an inner face $V' - D$ of $V$ is in $X_C$ iff 
 $D \not \subseteq \Xi_{V'}$;
@@ -3173,14 +3184,13 @@ $D \not \subseteq \Xi_{V'}$;
 $D \subseteq \Xi_{V'}$ 
 (i.e. their isotropy in $\mathsf{Face}(T)$)
 is contained in $H'$.
-\end{inparaenum}
-
+\end{enumerate}
 To check (a), writing $\bar{W}$ for the corresponding outer face of $U$, one has
 	\[
-	\Xi_W = \Xi \cap Inn (W) 
-	= \Xi \cap Inn(V') \cap Inn(\bar{W})
-	= \Xi \cap Inn(\bar{V}') \cap Inn(\bar{W})
-	= \Xi \cap Inn(\bar{W})
+	\Xi_W = \Xi \cap E^{\mathsf{i}} (W) 
+	= \Xi \cap E^{\mathsf{i}}(V') \cap E^{\mathsf{i}}(\bar{W})
+	= \Xi \cap E^{\mathsf{i}}(\bar{V}') \cap E^{\mathsf{i}}(\bar{W})
+	= \Xi \cap E^{\mathsf{i}}(\bar{W})
 	= \Xi_{\bar{W}}
 	\]
 where the second step follows from Lemma \ref{INNINT LEM}
@@ -3247,14 +3257,78 @@ the new (Ch2) condition holds for the \textit{any possible choice} of $J$).
 \end{proof}
 
 
-{\color{red} HERE}
+\begin{remark}\label{CHAREDGE2 REM}
+The requirement $X \subseteq \Omega[T]$ in Definition \ref{CHAREDGE DEF} can be relaxed.
+Given an inclusion $X \subseteq Y$,
+set of edges $\Xi \subseteq Y(\eta)$ and 
+set of non-degenerate dendrices $\{y_i \in Y(U_i)\}$, suppose one has:
+\begin{itemize}
+	\item[(Ch0*1)] the maps $y_i \colon \Omega[U_i] \to Y$ are monomorphisms;
+	\item[(Ch0*2)] $\Xi$, $X$ and $\{y_i \in Y(U_i)\}$ are $G$-equivariant;
+	\item[(Ch0*3)] for each face $V \hookrightarrow U_i$ and $g \in G$
+	then $g y_i(V) = y_i(V)$ implies 
+	$g y_i(\bar{V}) = y_i(\bar{V})$.
+\end{itemize}
+Under (Ch0*1),
+the $\Omega[U_i]$ are identified with subcomplexes of $Y$,
+and non-degenerate dendrices $y \in y_i(\Omega[U_i])(V)$
+are identified with faces $V \hookrightarrow U_i$.
+One can then write $\Xi_V = \Xi \cap y_i(E^{\mathsf{i}}(V))$,
+which we note depends only on the dendrex $y$, 
+i.e. the composite $\Omega[V] \to \Omega[U_i] \to Y$.
+
+All three original conditions (Ch1),(Ch2),(Ch3)
+can then be reinterpreted in terms of these identifications.
+
+Note that for $Y = \Omega[T]$ the condition (Ch0*2), while similar to (Ch0), is actually slightly different, 
+since (writing $\iota_U \colon U \hookrightarrow T$ for the inclusions) $\iota_{g U_i} \in \Omega[T](g U_i)$ in (Ch0)
+is replaced with $g \iota_{U_i} \in g\Omega[T](U_i)$ in (Ch0*2),
+though this is inconsequential since
+$\Omega[gU_i] = g\Omega[U_i]$ as subcomplexes of $\Omega[T]$.
+
+The proof of Lemma \ref{CHAREDGE DEF} now carries out essentially unchanged to show that 
+\begin{equation}
+	X \to X \cup \bigcup_{i \in I} y_i\Omega[U_i]
+\end{equation}
+is $G$-inner anodyne (and again built cellularly from $G$-inner horn inclusions).
+
+Indeed, the only difference is when verifying the analogue of condition (c) in that proof,
+which now says that the $G$-isotropy of 
+$y_i(V'-D) \in y_i(\Omega[V'])$ must be contained in the isotropy of
+$y_i(V') \in y_i(\Omega[V'])$.
+One now repeats the argument in the proof except using (Ch0*3)
+to deduce that if
+$g y_i(V'-D) = y_i(V'-D)$
+then $g\Xi_{\bar{V}'} = \Xi_{\bar{V}}$.
+\end{remark}
 
 
+\begin{example}
+To see the need for condition (Ch0*3),
+let $Y =\Delta[2] \amalg_{d_1(\Delta[1])} \Delta[2]$,
+where $d_1 \colon \Delta[1] \to \Delta[2]$
+is the inner face,
+together with the obvious $\mathbb{Z}_{/2}$-action.
+Then for $X = \Lambda^1[2] \amalg_{\partial \Delta[1]} \Lambda^1[2]$ and
+$\{y_i\}$ (resp. $\Xi$) the $\mathbb{Z}_{/2}$-orbital set
+consisting of the two copies of $\Delta[2]$ (resp. two copies of 
+$1 \in \Delta[2]$), 
+conditions (Ch0*1),(Ch0*2),(Ch1),(Ch2),(Ch3) all hold while (Ch0*3) fails,
+and one easily sees that $X \to Y$ is not built cellularly from 
+$\mathbb{Z}_{/2}$-inner horns.
+\end{example}
+
+
+\begin{remark}
+	(Ch3) guarantees that, for fixed $\Xi$ and $X$ the characteristic conditions are monotone in $\{U_i\}$, in the sense that if it holds for some $\{U_i\}$ it also holds for all if its subsets.
+	
+	However, for fixed $X$ and $\{U_i\}$, the characteristic conditions are \textit{not} monotone on $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2) more restrictive.
+\end{remark}
 
 
 \begin{remark} Lemma \ref{CHAREDGE LEM} readily recovers several arguments in the literature:
 \begin{itemize}
-\item[(i)] In \cite[\S 10]{Rez01}, Rezk introduces the notion of \textit{covers}, which in our language are the subsets
+\item[(i)] In \cite[\S 10]{Rez01} (also \cite[\S 6.2]{Rez10}), Rezk introduces the notion of \textit{covers}, which in our language are the subsets
 $Sc[n] \subseteq X \subseteq \Delta[n]$
 such that if $V$ is in $X$ then so is the closure $\bar{V}^{[n]}$
 (in words, $X$ is generated by outer faces).
@@ -3268,22 +3342,47 @@ Lastly, the subcomplexes
 $\Omega[T] \cup_l \Omega[S] \subseteq \Omega[T \circ_l S]$
 in the grafting result \cite[Lemma 5.2]{MW09} (and similarly for the equivariant analogue \cite[Prop. 6.19]{Per17}) are also dendroidal covers.
 
-
-
 It follows from Lemma \ref{CHAREDGE LEM}
 that any inclusion $X \to X'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
 is $G$-inner anodyne. 
-Indeed, letting $\Xi = Inn(T)$ and $\{U_i\}$ be the set of closed faces $U = \bar{U}^T$ in $X'$, (Ch0) is obvious, (Ch1) follows since 
+Indeed, letting $\Xi = E^{\mathsf{i}}(T)$ and $\{U_i\}$ be the set of closed faces $U = \bar{U}^T$ in $X'$, (Ch0) is obvious, (Ch1) follows since 
 $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
 (Ch3') follows since the $U_i$ are closed.
 
-\item Moerdijk Weiss
-\item Pereira
+Lastly, we note that if $\Xi=E^{\mathsf{i}}(T)$,$\{U_i\}=\{T\}$
+then (Ch1) says precisely that $Sc(T) \subseteq X$.
+
+\item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge set condition as generalized in Remark \ref{CHAREDGE2 REM}, and was one of our main inspirations.
+
+Therein, they work in the case of $Y= \Omega[T] \otimes \Omega[S]$
+a tensor product of (non-equivariant) representable dendroidal sets, in which case (Ch*01) is easily verified 
+(and (Ch*02),(Ch*03) are moot).
+In our notation, they then require that
+$\Xi = \{\xi\}$ is a singleton, called the characteristic edge,
+and likewise that $\{y_i\}_{i\in I}=\{y\}$ too is a singleton (so that (Ch3) is also moot), which can be interpreted as a special type of subtree of 
+$\Omega[T] \otimes \Omega[S]$ which they call an \textit{initial segment}.
+Further, they then demand that $X$ should contain all outer faces of the subtree $y$, from which (Ch1) follows, 
+as well as the key characteristic condition 
+\cite[Lemma 9.7]{MW09}(ii),
+which coincides with (Ch2) in their specific setting.
+
+Moreover, in \cite[Lemma 7.39]{Per17} the second author introduced a \textit{characteristic edge orbit} condition that directly generalizes that in \cite{MW09}
+to the equivariant context 
+%((Ch0*2),(Ch0*3) are immediate)
+by letting $\Xi$ (resp. $\{y_i\}$) consist of a single edge orbit (resp. orbit of initial segments).
+
+However, both of the lemmas in \cite{MW09} and \cite{Per17}
+have the drawback of needing to be used iteratively
+(so that much effort therein is spent showing that this can be done) while Lemma \ref{CHAREDGE LEM} is designed so that a single use suffices for the natural applications.
+Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $X$ should contain all outer faces, essentially provide abstract conditions under which the original characteristic arguments of \cite{MW09},\cite{Per17} can be iterated.
+Further, we note that in \cite{MW09},\cite{Per17} it is essential to make a good choice for the well-ordering in (Ch3).
+
+We end by noting the importance of the $G$-equivariance of $\Xi$
+in (Ch0),(Ch0*2). In proving \cite[Prop. 7.44]{Per17} the second author chose the $\Xi$ to be sets of edges of the subtrees $y_i$, and thus not necessarily $G$-equivariant,
+leading to the need of extra ad hoc arguments in that proof when establishing the analogue of condition (c) in the proof of Lemma \ref{CHAREDGE LEM}.
 \end{itemize}
 \end{remark}
 
-
-{\color{red} HERE}
 
 
 \begin{proposition}
@@ -3298,7 +3397,7 @@ are $G$-inner anodyne.
 
 \begin{proof}
 We are free to assume that $T \in \Omega^G \hookrightarrow \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
-$E_{\**}=E \cap Inn(T_{\**})$, $F_{\**} = F \cap Inn(T_{\**})$,
+$E_{\**}=E \cap E^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap E^{\mathsf{i}}(T_{\**})$,
 the map \eqref{ORBHORNINC EQ} is
 $G \cdot_H 
 \left( \Lambda_o^{E_{\**} \amalg F_{\**}}[T_{\**}] \to \Lambda_o^{E_{\**}}[T_{\**}]\right)$.
@@ -3339,7 +3438,7 @@ We must again check the characteristic conditions. (Ch0) and (Ch3') are clear.
 	For (Ch1), note that for an outer face 
 	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
 	Lemma \ref{INNINT LEM} implies
-	$Inn(V) = Inn(U_i) \cap Inn(\bar{V})$
+	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
 	and hence since $\Xi_{U_i}=\Xi$ the 
 	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
 	$\Xi_{V} = \emptyset$.
@@ -3373,9 +3472,12 @@ are $G$-inner anodyne.
 \end{proposition}
 
 \begin{proof}
-The case $E=\emptyset$ is tautological.
-
-{\color{red} HERE}
+This is an easier analogue of the previous result, hence we merely indicate how to apply Lemma \ref{CHAREDGE LEM}.
+Again we can assume $T\in \Omega^G$ and the case $E=\emptyset$ is tautological. Otherwise, set
+\[
+	\Xi = E, \qquad X=\Lambda^{E\amalg F}[T], \qquad
+	\{U_i\}=\left\{T - f\right\}_{f \in F}.
+\]
 \end{proof}
 
 \newpage
@@ -3824,6 +3926,50 @@ Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizati
 in $\mathcal{C}^{\mathsf{Aut}(r)}$, 
 thus building both $A$ and the factorization inductively (see, e.g., the proof of \cite[Thm. 1.6]{BM11}).
 \end{proof}
+
+
+
+%\section{Even more characteristic edge arguments}
+
+
+
+%In the next result recall that 
+%$y_i \in Y(U_i)$ means $y_i \colon \Omega[U_i] \to Y$
+%and that $e\in E(V)$ means $e\colon \Omega[\eta] \to \Omega[V]$.
+
+%\begin{definition}\label{CHAREDGE2 DEF}
+%Let $X \subseteq Y$ be a subdendroidal set and $\{y_i \in Y(U_i)\}_{i \in I}$
+%a set of non-degenerate dendrices.
+
+%Given $\Xi \subseteq Y(\eta)$ and $V\in \Omega$ define
+%$\Xi_V = \bigcup_{e \in I(V)} (e^{\**})^{-1}(\Xi)$.
+
+
+%We say that $\Xi$ is \textit{a characteristic inner edge set of $Y$ with respect to $X$ and $\{y_i\}$} if:
+%\begin{itemize}
+%	\item[(Ch0*)] $\Xi$, $X$ and $\{y_i\}$ are all $G$-equivariant; 
+%	\item[(Ch1*)] for all $i$ and outer face $V = \bar{V}^{U_i}$
+%	of $U_i$ such that $\Xi_{V} = \emptyset$
+%	one has $y_i(V) \in X$;
+%	\item[(Ch2*1)] for all $i$ and face
+%	$V \hookrightarrow U_i$ such that $y_i(V-\Xi_V) \in X$
+%	one has $y_i(V) \in X$;
+%	\item[(Ch2*2)] for all $i$ and face
+%	$V \hookrightarrow U_i$ such that $y_i(V-\Xi_V) \not \in X$
+%	one has that $y_i(V) \in Y$ is non-degenerate;
+%	\item[(Ch3*)] there exists a well-ordering of the $G$-cosets $I/G$ such that for all $[j] \not \geq [i]$ 
+%	and all faces $V \hookrightarrow U_i$ such that 
+%	$y_i(V) \not \in X$ and $y_i(V-\Xi_V) \in y_j(\Omega[U_j])$
+%	then 
+%	$y_i(V) \in y_k(\Omega[U_k])$ for some $k$ such that $[k]\leq[j]$ or $[k]<[i]$.
+%\end{itemize}
+%\end{definition}
+
+%Note: even (Ch2*2) is not enough. One would need to also make sure that none of the dendrices $V,V' \hookrightarrow U$
+%such that $V - \Xi_V = V' - \Xi_{V'}$ are identified in $Y$. 
+
+%Example: take $\Delta[3]$ with the faces $d_1$ and $d_2$ glued to each other.
+
 
 
 
