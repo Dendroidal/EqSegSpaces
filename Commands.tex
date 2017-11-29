@@ -39,8 +39,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% INTERNAL REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{mathtools}
-\mathtoolsset{showonlyrefs}
 
 
 
@@ -49,6 +47,13 @@
   \newtheorem{#1}[theorem]{#2}
   \crefname{#1}{#2}{#3}
 }
+
+
+\crefname{figure}{Figure}{Figures}
+\crefname{equation}{}{}
+
+\numberwithin{equation}{section} 
+\numberwithin{figure}{section}
 
 
 
@@ -112,7 +117,10 @@
 \makeatletter\let\c@equation\c@theorem\makeatother %% This makes equations follow the theorem counter
 \makeatletter\let\c@figure\c@theorem\makeatother %% This makes figures follow the theorem counter
 
-\crefname{figure}{Figure}{Figures}
+
+%\usepackage{mathtools}
+%\mathtoolsset{showonlyrefs}
+%\usepackage{autonum}
 
 
 
