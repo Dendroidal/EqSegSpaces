@@ -1,11 +1,12 @@
 \contentsline {section}{\numberline {1}Overview}{1}{section.2}
 \contentsline {section}{\numberline {2}Equivariant dendroidal sets}{2}{section.3}
 \contentsline {subsection}{\numberline {2.1}Preliminaries}{2}{subsection.4}
-\contentsline {subsection}{\numberline {2.2}Proof of \cref {HYPER PROP}}{5}{subsection.30}
+\contentsline {subsection}{\numberline {2.2}Proof of Proposition \ref {HYPER PROP}}{5}{subsection.30}
 \contentsline {subsection}{\numberline {2.3}Weak Equivalences in $\mathsf {dSet}^G$}{13}{subsection.63}
 \contentsline {section}{\numberline {3}Equivariant simplicial dendroidal sets}{15}{section.73}
 \contentsline {section}{\numberline {4}Pre-operads}{20}{section.85}
 \contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{21}{section.91}
 \contentsline {section}{\numberline {6}Scratchwork (to be folded into previous sections eventually)}{30}{section.120}
-\contentsline {subsection}{\numberline {6.1}Characteristic playground}{32}{subsection.130}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{37}{appendix.142}
+\contentsline {subsection}{\numberline {6.1}The characteristic edge set argument}{32}{subsection.130}
+\contentsline {subsection}{\numberline {6.2}Horns}{36}{subsection.143}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{38}{appendix.147}

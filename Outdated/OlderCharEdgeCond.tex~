@@ -67,7 +67,6 @@
 
 \begin{abstract}
       bla bla, generalizing \cite{CM13a}.
-      
       In an appendix, we discuss Reedy categories in the equivariant context.
 \end{abstract}
 
@@ -99,12 +98,8 @@ The following are the categories currently with model structures and the right a
 \section{Equivariant dendroidal sets}
 
 
+
 \subsection{Preliminaries}
-
-
-
-
-
 
 
 \begin{definition}
@@ -147,9 +142,28 @@ The following are the categories currently with model structures and the right a
       % Moveover, let $\mathscr{F}_{\mathrm{Out}}(T)$ denote the subposet of outer faces.
 \end{definition}
 
+%%%%%% -------------------- IMAGES ---------------------------------------------------------------------
+% \begin{definition}
+%       Fix a set $X$.
+%       Let $\mathsf{im}: \mathsf{Set} \downarrow X \to \mathsf{Set}$
+%       denote the \textit{image} functor,
+%       sending a map $f:Y \to X$ to the subset $f(Y)$ of $X$.
+% \end{definition}
+
+% \begin{remark}
+%       This naturally extends to any category of presheaves on sets,
+%       in particular $\mathsf{dSet}$ and $\mathsf{dSet}_G$.
+%       These arise naturally when considering horns and boundaries, as we will see that the natural map
+%       $\Omega[G \cdot_K U_0] \to \Omega[T]$
+%       for a face $U_0$ of $T$ is injective iff $U_0$ is \textit{orbital}; see \cref{ORB_INJ_THM}.      
+% \end{remark}
+%%%%%% ------------------------------------------------------------------------------------------------
+
 \begin{definition}
       Fixing $T\in \Omega_G$,
+      % , and a component $T_0$ of $T$, with $H := \mathrm{Stab}_G(T_0)$.
       let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps.
+      % whose image is strictly containined in $T_0$.
       Given a $G$-closed subset $E$ of inner edges, let
       $\mathscr{F}^{E}(T)$ denote the subposet removing those faces of the form
       $T_0 - \bar E$
@@ -159,6 +173,8 @@ The following are the categories currently with model structures and the right a
             \Lambda^{E}[T]
             := \mathop{\colim}\limits_{\mathscr{F}^E(T)} \Omega[U_0]
             \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathop{\bigcup}\limits_{G}\Omega[g U_0].
+            % \simeq \mathop{\bigcup}\limits_{\mathscr{F}^E(T)/G}\mathsf{im}\left(\Omega[G \cdot_K S_0]\right)
+            % = \mathop{\colim}\limits_{\mathscr{F}^{E}(T)}\Omega[G \cdot_K S_0],
       \end{equation}
   \end{definition}
 
@@ -185,13 +201,17 @@ The following are the categories currently with model structures and the right a
       \begin{equation}
             Sc[T] :=
             \mathop{\colim}\limits_{\mathscr{F}_{SC}(T)} \Omega[C_0]
+            % \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\mathsf{im}\left(\Omega[G \cdot_K C_0]\right)
             = \mathop{\bigcup}\limits_{\mathscr{F}_{\mathrm{SC}}(T)/G}\mathop{\bigcup}\limits_{g \in G}\Omega[g C_0].
+            % \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{SC}}(T)}\Omega[G \cdot_K C_0],
       \end{equation}
+      % where $K = \mathrm{Stab}_H(C_0)$. 
 \end{definition}
 
 \begin{remark}
       Explicitly, a map $Sc[T] \to X$ is given by elements in
       $X(T_v)$
+      % $X(G \cdot_K T_v)
       for all $v \in V(T_0)$,
       which are compatible on overlapping edges and under the action of $G$.
       Equivalently, a map $Sc[T] \to X$ is given by an element in $X(T_{G v})$ for each $G v \in V_G(T)$
@@ -216,14 +236,14 @@ The following are the categories currently with model structures and the right a
 \end{remark}
 
 \begin{lemma}
-      \label{ORB_INJ_LEM}
+      \label{ORB_INJ_THM}
       Let $U_0$ be a face of $T$ with isotropy $K$.
       Then $\Omega[G \cdot_K U_0]$ is a subdendroidal set of $\Omega[T]$
       iff
       $U_0$ is orbital.
 \end{lemma}
 \begin{proof}
-      This follows immediately from Remark \ref{ORB_REM}.
+      This follows immediately from \cref{ORB_REM}.
       In particular, 
       if $U_0$ is not orbital, then there exist $g \in G \setminus K$ such that
       $R_0 := U_0 \cap g U_0$ is a proper, non-empty subface of $U_0$, so $R_0 \in \Omega[U_0]$ and $\Omega[g U_0]$.
@@ -249,6 +269,8 @@ The following are the categories currently with model structures and the right a
       
       Given an inner edge $e \in T$, let
       $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \cap \mathscr{F}^E(T)$,
+      % (that is; those faces $U_0$ such that either $T \setminus (G.f(U_0) \cup Ge) \neq \varnothing$, or
+      % outer faces removing a stump).
       and define the \textit{$Ge$-orbital horn} to be the subdendroidal set
       \begin{equation}
             \Lambda^{Ge}_{o}[T] :=
@@ -732,7 +754,7 @@ The following are the categories currently with model structures and the right a
                 child[sibling distance=1.6em,level distance = 1.6cm]{}
                 child[sibling distance=1.5em,level distance = 1.6cm]{}
               };
-              %%%%% -------------- TOP ROW -------------------------------------------------------------------
+              %%%%% -------------- TOP ROW -------------------------------------------------------------------------
               \node (03) at (6,2.6) {}
               child{node [dummy] {}
                 child{}
@@ -759,7 +781,7 @@ The following are the categories currently with model structures and the right a
                   child{}
                 }
               };
-              %%%%% ------------- BOTTOM ROW -----------------------------------------------------------------
+              %%%%% ------------- BOTTOM ROW ----------------------------------------------------------------------------
               \node (24) at (9,-2.3) {}
               child{node [dummy] {}
                 child{}
@@ -810,7 +832,7 @@ The following are the categories currently with model structures and the right a
 
 
 
-\subsection{Proof of Proposition \ref{HYPER PROP}}
+\subsection{Proof of \cref{HYPER PROP}}
 
 
 {\color{red} need to think about hypersaturation for non-monomorphisms}
@@ -844,7 +866,7 @@ The following lemma identifies some of the utility of hypersaturations.
       }.
 \end{notation}
 \begin{lemma}
-      \label{HYPER_LP_LEM}
+      \label{HYPER_LP_THM}
       Let $\mathcal C$ be a class of maps in $\mathcal V$. Then
       $\mathcal C^{\boxslash}= W(\mathcal C)^{\boxslash}$
       and
@@ -944,7 +966,7 @@ the hypersaturation itself is characterized by a lifting condition using the \te
 \end{definition}
 
 \begin{proposition}
-      \label{CHAR_HORN_PROP}
+      \label{CHAR_HORN_THM}
       Fix $T \in \Omega_G$ and 
       a face $U_0 \into T$ with stabilizer $K$.      
       If $E$ is a characteristic edge set of $U_0$ with respect to $X$, then
@@ -1007,7 +1029,7 @@ the hypersaturation itself is characterized by a lifting condition using the \te
 
 The observation below will be useful in the proofs which follow.
 \begin{lemma}
-      \label{FOF_OHORN_LEM}
+      \label{FOF_OHORN_THM}
       Fix $T \in \Omega_G$, an edge $e \in T$, and a face $U_0 \into T$ containing $e$. Then,
       for any $\bar e \subseteq G e \cap U_0$,
       $U_0 \in \Lambda^{G e}_o[T]$ iff $U_0 - \bar e \in \Lambda^{G e}_o[T]$. 
@@ -1026,7 +1048,7 @@ The observation below will be useful in the proofs which follow.
             \end{tikzcd}
       \end{equation}
       where $G U_0$ is the minimal orbital face containing $U_0$, and
-      $G (U_0 - \bar e)$ is either $G U_0$ or $G U_0 - G e$ by Remark \ref{GINNER REM}.
+      $G (U_0 - \bar e)$ is either $G U_0$ or $G U_0 - G e$ by \cref{GINNER REM}.
       Since it is immediate that for any face $V_0$ of $T$, we have
       \begin{itemize}
       \item $V_0 \in \Lambda^{G e}_o[T]$ iff $G V_0$ is, and
@@ -1039,7 +1061,7 @@ The observation below will be useful in the proofs which follow.
 \end{proof}
 
 \begin{proposition}
-      \label{ORB_HORN_PROP_B}
+      \label{ORB_HORN_THM_B}
       $\Lambda_o^{Ge}[T] \to \Omega[T]$ is inner $G$-anodyne, and hence
       the (hyper)saturated class of the orbital horn inclusions is contained in
       the (hyper)saturated class of the horn inclusions.
@@ -1058,10 +1080,10 @@ The observation below will be useful in the proofs which follow.
       is inner $G$-anodyne.
       Again, if suffices to consider when $B' - B = G \cdot_K \set{U_0}$, where $K = \mathrm{Stab}_G(U_0)$, and
       without loss of generality $e \in U_0$.
-      For the final reduction, Proposition \ref{CHAR_HORN_PROP} implies it suffices to show
+      For the final reduction, \cref{CHAR_HORN_THM} implies it suffices to show
       $E = K e$ is a characteristic edge set for
       $U_0$ with respect to $(\Lambda^{G e}_o[T])_B$.
-      The case $B = \varnothing$ follows immediately from Lemma \ref{FOF_OHORN_LEM}.    
+      The case $B = \varnothing$ follows immediately from \cref{FOF_OHORN_THM}.    
       %%%%%% -----------------------  WRONG ------------------------------------------------
       % $U_0 \setminus (D \cup \bar K e) \in \Lambda_o^{G e}[T]$. This implies that
       % \begin{equation}
@@ -1080,7 +1102,7 @@ The observation below will be useful in the proofs which follow.
       contains all outer faces of $U_0$ by convexity.
       Now, let $V_0$ be an inner face of $U_0$ containing $K e$.
       If $V_0 - K e$ is in the orbital horn,
-      we can again apply Lemma \ref{FOF_OHORN_LEM} to conclude that $V_0$ is in the orbital horn as well.
+      we can again apply \cref{FOF_OHORN_THM} to conclude that $V_0$ is in the orbital horn as well.
       If $V_0 - K e$ is in some $R_0$ already attached,
       we may conclude that $U_0$ is also contained in $R_0$ since both are outer faces, yielding a contradiction.
       Thus again we may conclude that $V_0 - K e$ is in the domain iff $V_0$ is, as desired.
@@ -1109,20 +1131,20 @@ The reverse inclusion is only true on the level of hypersaturations.
       Let $W_o$ (respectively $\hat{W}_o$) denote the (hyper)saturation of the orbital horn inclusions.
 \end{definition}
 
-\begin{proposition}
-      \label{GORB_OHORN_PROP}
+\begin{lemma}
+      \label{GORB_OHORN_THM}
       Generalized orbital horn inclusions
       \begin{equation}
             \Lambda^{E}_o[T] \to \Omega[T]
       \end{equation}
       are in $W_o$.
-\end{proposition}
+\end{lemma}
 \begin{proof}
       \todo[inline]{come back}
 \end{proof}
 
 \begin{proposition}
-      \label{HORN_ORB_PROP}
+      \label{HORN_ORB_THM}
       For any $T \in \Omega_G$, the map
       $\Lambda^{G e}[T] \to \Omega[T]$
       is in $\hat{W}_o$.
@@ -1133,8 +1155,8 @@ The reverse inclusion is only true on the level of hypersaturations.
       % \todo{replace $F_{Inn}(T)$ or $Inn(T)$ with $Inn_G(T)$? $E(T)$? $V(T)$? $V_G(T)$?}
       When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds.
 
-      Now, the proof of
-      {\color{blue} Proposition \ref{CHAR_HORN_PROP}}
+      Now, the proof of 
+      {\color{blue} \cref{CHAR_HORN_THM}}
       says that,
       for any proper face $U_0 \into T$,
       if $E$ is a characteristic edge set for $U_0$ with respect to $X$, then
@@ -1147,7 +1169,7 @@ The reverse inclusion is only true on the level of hypersaturations.
       (since if $K = H$, $U_0$ being a proper face implies it has fewer vertices).
 
       {\color{blue} % -------------------------COLOR: BLUE ---------------------------------------------------------
-        We note that the proof of Proposition \ref{ORB_HORN_PROP_B} implies the map
+        We note that the proof of \cref{ORB_HORN_THM_B} implies the map
         \begin{equation}
               \Lambda^{G e}_o[T] \to \Lambda_o^{G e}[T] \cup \partial^{out}\Omega[T] =:A
         \end{equation}
@@ -1179,7 +1201,7 @@ The reverse inclusion is only true on the level of hypersaturations.
         (Ch1) follows since $A_B$ contains all outer faces of $T$ (and hence all outer faces of $U_0$).
         For (Ch2), let $V_0$ be an inner face of $U_0$ containing $H e$, 
         and suppose $V_0 - H e$ is in $A_B$.
-        If $V_0 - H e \in \Lambda^{G e}_o[T]$, then Lemma \ref{FOF_OHORN_LEM} implies $V_0 \in \Lambda^{G e}_o[T] \subseteq A_B$.
+        If $V_0 - H e \in \Lambda^{G e}_o[T]$, then \cref{FOF_OHORN_THM} implies $V_0 \in \Lambda^{G e}_o[T] \subseteq A_B$.
         If instead $V_0 - H e$ is in some $R_0$ already attached, then,
         since we know $H e \subseteq R_0$, 
         $V_0$ also factors through $R_0$.
@@ -1191,19 +1213,19 @@ The reverse inclusion is only true on the level of hypersaturations.
       % {\color{blue} % ---------------COLOR: BLUE -------------------------------------------------
       %   $H e$ is a characteristic edge orbit for $T_0$ with respect to $A$,
       %   where $e$ is any inner edge in $T_0$ with $T \simeq G \cdot_H T_0$ a decomposition for $T$.
-      %   This follows by observing $\partial^{out}\Omega[T] \subseteq A$ and by applying Lemma \ref{FOF_OHORN_LEM}, using the fact that any inner face of $T_0$ is not contained in any outer face.
+      %   This follows by observing $\partial^{out}\Omega[T] \subseteq A$ and by applying \cref{FOF_OHORN_THM}, using the fact that any inner face of $T_0$ is not contained in any outer face.
       %   } % ---------------------------------------------------------------------------------------------
       % $\Ksi = H e$ is a characteristic edge set for $\set{U_i} = \set{T_0}$ with respect to $X = A$.
       % (Ch 0) and (Ch 3') are immediate, while (Ch 1) follows since $\partial^{out}\Omega[T] \subseteq A$.
       % Finally, since any inner face $V_0$ of $T_0$ is not contained in any outer face,
-      % (Ch 2) again follows from Lemma \ref{FOF_OHORN_LEM}.
+      % (Ch 2) again follows from \cref{FOF_OHORN_THM}.
 \end{proof}
 \begin{proof}[Proof Using More Advanced Characteristic Arguments]
       Pick any decomposition $T \simeq G \cdot_H T_0$ of $T$.
       We go by induction on $|H| \times |V_G(T)|$, ordered lexicographically. 
       When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds.
 
-      Now, the proof of Lemma \ref{CHAREDGE LEM}
+      Now, the proof of \cref{CHAREDGE LEM}
       says that,
       for any proper face $U_0 \into T$,
       if $E$ is a characteristic edge set for $U_0$ with respect to $X$, then
@@ -1215,13 +1237,12 @@ The reverse inclusion is only true on the level of hypersaturations.
       and thus such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$ by induction
       (since if $K = H$, $U_0$ being a proper face implies it has fewer vertices).
 
-      With that in mind, we apply Lemma \ref{CHAREDGE LEM} first with
+      With that in mind, we apply \cref{CHAREDGE LEM} first with
       \begin{equation}
             \Ksi = G e,
             \qquad X = \Lambda^{G e}_o[T],
             \qquad \set{U_i} = \set{\mbox{maximal faces of $\Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$}}.
       \end{equation}
-      \todo[inline]{replace $\set{U_i}$ with the whole poset of faces}
       (Ch1) is immediate.
       For (Ch2), let $V_0$ be an outer face of $U_i$ such that $V_0 \cap G e = \varnothing$.
       If $U_i$ is an outer face,
@@ -1240,7 +1261,7 @@ The reverse inclusion is only true on the level of hypersaturations.
 We will now compare Segal core inclusions with the inner horn inclusions.
 
 \begin{proposition}
-      \label{SC_IN_GHORN_PROP}
+      \label{SC_IN_GHORN_THM}
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
 \end{proposition}
 {\color{blue} % -------------------------------------------------------
@@ -1267,11 +1288,11 @@ We will now compare Segal core inclusions with the inner horn inclusions.
 \begin{proof}
       Fix some decomposition $T \simeq G \cdot_H T_0$, and let $I_0$ denote the set of inner edges of $T_0$.
       Then it is immediate that $I_0$ is an characteristic inner edge set for $T_0$ with respect to $Sc[T]$,
-      and the result then follows from Lemma \ref{CHAREDGE LEM}.
+      and the result then follows from \cref{CHAREDGE LEM}.
 \end{proof}
 
 \begin{proposition}
-      \label{SC_IN_OHORN_PROP}
+      \label{SC_IN_OHORN_THM}
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is in $W_o$. 
 \end{proposition}
 \begin{proof}
@@ -1299,10 +1320,11 @@ We will now compare Segal core inclusions with the inner horn inclusions.
       \begin{equation}
             \partial^{out}_o\Omega[G \cdot_K U_0] \to \Omega[G \cdot_K U_0],
       \end{equation}
-      and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
+      and by \cref{GORB_OHORN_THM}, the result is proven.
 \end{proof}
+\todo[inline]{Should have another proof using induction and the full strength of CHAREDGE LEM}
 
-The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the following.
+The above combined with \cref{ORB_HORN_THM} immediately implies the following.
 \begin{corollary}
       Segal core inclusions are inner $G$-anodyne.
 \end{corollary}
@@ -1312,14 +1334,14 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       Let $\hat{W}_{SC} = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
 \end{definition}
 
-\begin{proposition}
-      \label{GHORN_IN_SC_PROP}
+\begin{lemma}
+      \label{GHORN_IN_SC_THM}
       Any inner horn inclusion
       \begin{equation}
             \Lambda^{G e}[T] \to \Omega[T]
       \end{equation}
       is in $\hat{W}_{SC}.$
-\end{proposition}
+\end{lemma}
 \begin{proof}
       \todo[inline]{come back - clean up after here}
       It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $\hat{W}_{SC}$
@@ -1338,7 +1360,7 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       the Segal core is an inner horn.
       Thus, we may assume that $V_H(T_0) > 2$.
 
-      By Proposition \ref{GHORN_IN_SC_PROP}, we see that
+      By \cref{GHORN_IN_SC_THM}, we see that
       \begin{equation}
             \label{SC_POUT_EQ}
             Sc[T] \to \partial^{out}\Omega[T]
@@ -1372,7 +1394,7 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
 The following is an equivariant generalization of 
 \cite[Props. 2.4 and 2.5]{CM13a},
 summarizing the results
-(in particular, Propositions \ref{ORB_HORN_PROP}, \ref{HORN_ORB_PROP}, \ref{SC_IN_GHORN_PROP}, \ref{SC_IN_OHORN_PROP}, and \ref{GHORN_IN_SC_PROP})
+(in particular, \cref{ORB_HORN_THM}, \cref{HORN_ORB_THM} \cref{SC_IN_GHORN_THM}, \cref{SC_IN_OHORN_THM}, and \cref{GHORN_IN_SC_THM})
 of this subsection.
 
 \begin{proposition}
@@ -1467,7 +1489,7 @@ First, a lemma.
 \end{proof}
 
 \begin{proposition}
-      \label{SRLP_IHI_PROP}
+      \label{SRLP_IHI_THM}
       $(IHI_G)^{\boxslash !} = (G\cdot IHI)^{\boxslash !}$.
       Thus $\mathsf{Kan}_G = \mathsf{Kan}^G$
       % (strict inner $G$-Kan complexes are just $G$-objects in strict inner Kan complexes)
@@ -1517,9 +1539,9 @@ First, a lemma.
             N^G(\O)(T) \simeq \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O).
       \end{equation}
       Thus $N^G(\O)$ is in $(SCI_G)^{\boxslash !}$, and hence is in $(IHI_G)^{\boxslash !}$
-      by Lemma \ref{HYPER_LP_LEM} and Proposition \ref{GHORN_IN_SC_PROP}.
+      by \cref{HYPER_LP_THM,GHORN_IN_SC_THM}.
 
-      Conversely, by Proposition \ref{SRLP_IHI_PROP} and \cite[Theorem 6.1, Proposition 6.10]{MW09}, we have that
+      Conversely, by \cref{SRLP_IHI_THM} and \cite[Theorem 6.1, Proposition 6.10]{MW09}, we have that
       $X \simeq N_d \circ \tau_d \circ X$
       (where we consider $X$ as a functor $G \to \mathsf{Kan}$).
 \end{proof}
@@ -3409,60 +3431,7 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 
 \newpage
 
-\subsection{The characteristic edge set argument}
-
-
-\begin{notation}
-	Given $T \in \Omega_G$, we write $\mathsf{Face}(T)$ for the
-	$G$-poset of \textit{non-equivariant planar faces} $U \hookrightarrow T$. We note that $G$-action is given by the unique factorization of the composite
-	$U \hookrightarrow T \xrightarrow{g} T$
-	as $U \simeq gU \hookrightarrow T$ such that 
-	$gU \hookrightarrow T$ is planar.
-\begin{equation}\label{FACEGACT EQ}
-\begin{tikzcd}
-	U \ar[hookrightarrow]{r} \ar{d}[swap]{\simeq} &
-	T \ar{d}{g}
-\\
-	gU \ar[hookrightarrow]{r} & T
-\end{tikzcd}
-\end{equation}
-\end{notation}
-
-
-\begin{remark}\label{FACEGACT REM}
-	For $T \in \Omega_G$, any planar face
-	$\varphi_U \colon U \to T$
-	can also be regarded as a dendrex 
-	$\varphi_U \in \Omega[T](U)$.
-	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
-	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
-	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
-	is a $G$-graph subgroup 
-	$\Gamma \leq G \times \mathsf{Aut}(U)$
-	encoding a homomorphism
-	$\phi\colon H \to \mathsf{Aut}(U)$.
-	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
-	$\phi(U)$ is the leftmost isomorphism in
-	(\ref{FACEGACT EQ}),
-	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
-	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
-\end{remark}
-
-
-\begin{remark}\label{PLFUNCTOR REM}
-	Recalling that the (non-equivariant) subcategory of face maps is sometimes denoted $\Omega^+ \subset \Omega$,
-	we write $\Omega^+ \downarrow T$ for the category of all non-equivariant faces of $T \in \Omega_G$.
-	By pulling back the planarization of $T$ one then obtains a \textit{planarization functor}
-	\[
-		\Omega^+ \downarrow T \xrightarrow{pl} \mathsf{Face}(T)
-	\]
-which respects the $G$-actions on the two categories.
-	Note, however, that the inclusion 
-	$\mathsf{Face}(T) \subset \Omega^+ \downarrow T$ (which is a section of $pl$) does not respect the $G$-actions, as displayed in (\ref{FACEGACT EQ}).
-\end{remark}
-
-
-
+\subsection{Characteristic playground}
 
 
 \begin{lemma}\label{INNINT LEM}
@@ -3502,78 +3471,63 @@ Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
 	for the smallest planar outer face of $T$ containing $U$.
 \end{notation}
 
+
+
+
 \begin{definition}\label{CHAREDGE DEF}
 Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
 
-Given a set $\Xi^i$ of inner edges of $U_i$ and a subface $V \hookrightarrow U_i$, denote $\Xi_V^i = \Xi^i \cap E^{\mathsf{i}}(V)$.
+Given a set $\Xi$ of inner edges of $T$ and a subface $V \hookrightarrow T$, denote $\Xi_V = \Xi \cap E^{\mathsf{i}}(V)$.
 
-Suppose further that the indexing set $I$ is a 
-finite $G$-poset. For each $i \in I$ denote
-\[
-X_{<i} = X \cup \bigcup_{j \colon j<i} \Omega[U_j]
-\]
-We say that $\{\Xi^i \subseteq E^{\mathsf{i}}(U_i)\}$ 
-is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $X$} if:
+We say that $\Xi$ is \textit{a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}$} if:
 \begin{itemize}
-	\item[(Ch0)] $X$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g X = X$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
-	\item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
-		of $U_i$ such that $\Xi_{V}^i = \emptyset$
-		is contained in $X_{<i}$;
-	\item[(Ch2)] for all $i$, any face
-		$V \hookrightarrow U_i$ such that $(V-\Xi_V^i) \in X$
-		is contained in $X_{<i}$;
-	\item[(Ch3)] for all $j \not \geq i$, 
-		all faces $V \hookrightarrow U_i$ such that 
-		$(V-\Xi^i_V) \hookrightarrow U_j$
-		are contained in $X_{<i}$.
+	\item[(Ch0)] $\Xi$, $X$ and $\{U_i\}$ are all $G$-equivariant; 
+	\item[(Ch1)] for all $i$, all outer faces $V = \bar{V}^{U_i}$
+	of $U_i$ such that $\Xi_{V} = \emptyset$
+	are contained in $X$;
+	\item[(Ch2)] for all $i$, all faces
+	$V \hookrightarrow U_i$ such that $(V-\Xi_V) \in X$
+	are contained in $X$;
+	\item[(Ch3)] there exists a well-ordering of the $G$-cosets $I/G$ such that for all $[j] \not \geq [i]$ 
+	all faces $V \hookrightarrow U_i$ such that 
+	$V \not \in X$ and $(V-\Xi_V) \hookrightarrow U_j$
+	are contained in some $U_k$ with $[k]\leq[j]$ or $[k]<[i]$.
 \end{itemize}
 \end{definition}
 
-
-\begin{remark}\label{XIIII REM}
-If $g i \neq i$, then $i,g i$ are incomparable in $I$. Indeed, otherwise $i<gi<g^2i<g^3i<\cdots$ would violate antisymmetry.
-Therefore, (Ch3) applies whenever $j=gi$ for $gi\neq i$.
-
-In particular, we assume throughout that if
-$gi \neq i$ then $U_{gi} \neq U_i$,
-or else it would be $U_i \in X_{<i}$.
-\end{remark}
-
-
-{\color{red} HERE}
-
-
 \begin{remark}
-In some of the main examples ({\color{red} reference}), there exists a $G$-equivariant set 
-$\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap E^{\mathsf{i}}(U_i)$.
-
-In such cases, (Ch3) guarantees that, for fixed $\Xi^i$ and $X$ the characteristic conditions are monotone in $\{U_i\}$, in the sense that if it holds for some $\{U_i\}$ it also holds for all of its subsets.
-	
-	However, for fixed $X$ and $\{U_i\}$, the characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2) more restrictive.
+	In many natural examples, 
+	condition (Ch3) can be deduced from a much simpler condition. Namely, is suffices to check that:
+	\begin{itemize}
+		\item[(Ch3')] for all $i$, and writing $\bar{U}_i=\bar{U}_i^T$ for the outer closure in $T$, one has
+		$\Xi_{U_i}=\Xi_{\bar{U}_i}$.
+	\end{itemize}
+Indeed, if (Ch3') holds then $V\hookrightarrow U_i$
+iff $V - \Xi_V\hookrightarrow U_i$,
+hence (Ch3) holds for any well-ordering.
 \end{remark}
-
 
 \begin{lemma}\label{CHAREDGE LEM}
-If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{i\in I}$ with respect to $X$, then the map
+If $\Xi$ is a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}_{i\in I}$, then the map
 \begin{equation}\label{CHARLEM EQ}
 	X \to X \cup \bigcup_{i \in I} \Omega[U_i]
 \end{equation}
-is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+is $G$-inner anodyne. In fact, it is built cellularly from $G$-horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
 
+
 \begin{proof}
-We start with the case of $I \simeq G/H$ orbital so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
-Note that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
-We likewise abbreviate $\Xi = \Xi^{[e]}$ and
-$\Xi_V = \Xi_V^{[e]}$ for $V \hookrightarrow U$.
-Moreover, in this case one has $X_{<[g]}=X$ in (Ch1),(Ch2),(Ch3).
+We start with the case where $\{U_i\}$ consists of a single orbit,
+i.e. $\{U_i\}_{i \in I} = \{g U\}_{[g]\in G/H}$
+for some $U \in \mathsf{Face}(T)$ with isotropy $H$.
+Note that in this case the condition (Ch3) is vacuous.
 
 We write $\mathsf{Face}_{\Xi}^{lex}(U)$
-for the $H$-poset of planar faces $V \hookrightarrow U$
+for the $H$-poset of (planar) faces $V \hookrightarrow U$
 such that $\Xi_V \neq \emptyset$ and $\Xi_V = \Xi_{\bar{V}}$
 ordered as follows: 
-$V \leq V'$ if either
+$V \leq V'$ if either 
 	\begin{inparaenum}
 		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
 		$\bar{V} \neq \bar{V}'$ or
@@ -3595,113 +3549,95 @@ the map
 $X_C \to X_{C'}$ is built cellularly from 
 $G$-inner horn inclusions
 (indeed, setting $C=\emptyset$ and 
-$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}
-when $I \simeq G/H$).
+$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}).
 
-Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$-orbit of a single $W \hookrightarrow U$. Further, we may assume $W \not \in X_C$ or else $X_C=X_{C'}$.
-Letting $K \leq H$ denote the isotropy of 
-$W$ in $\mathsf{Face}_{\Xi}^{lex}(U)$ and regarding $W \in \Omega^{K}\subseteq \Omega_{K}$, we claim there is a pushout diagram
-\begin{equation}\label{FIRPUSH EQ}
-\begin{tikzcd}
-	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d} \ar{r}&
-	X_C \ar{d}
-\\
-	G \cdot_{K} \Omega[W] \ar{r}&
-	X_{C'}
-\end{tikzcd}
-\end{equation}
-where we note that inner edge set $\Xi_{W}$ is $K$-equivariant
-since $\Xi_W = \Xi \cap E^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
-The desired pushout will follow once we establish the following claims:
+Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$-orbit of a single $V' \hookrightarrow U$. Further, we may assume $V' \not \in X_C$ or else $X_C=X_{C'}$.
+Writing $H' \leq G$ for the isotropy of $V'$ in $\mathsf{Face}(T)$ and regarding $V' \in \Omega^{H'}\subset \Omega_{H'}$, we claim that $X_C \to X_{C'}$ is then the pushout of the $G$-inner horn
+\[
+	G \cdot_{H'} 
+	\left( \Lambda^{\Xi_{V'}}[V'] \to \Omega[V'] \right),
+\]
+where the inner edge set $\Xi_{V'}$ is $H'$-equivariant due to the $G$-equivariance of $\Xi$ in (Ch0).
+The desired pushout will follow once we establish the following three claims:
 \begin{enumerate}
-\item[(a)] all outer faces $V$ of $W$ are in $X_C$;
-\item[(b)] an inner face $W - D$ of $W$ is in $X_C$ iff 
-$D \not \subseteq \Xi_{W}$;
-\item[(c)] 
-the $G$-isotropy (i.e. the isotropy in $\mathsf{Face}(T)$)
-of faces 
-$W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
-%the $G$-isotropy of inner faces 
-%(i.e. their isotropy in $\mathsf{Face}(T)$)
-%is contained in $G_W$.
+\item[(a)] all outer faces $W$ of $V'$ are in $X_C$;
+\item[(b)] an inner face $V' - D$ of $V$ is in $X_C$ iff 
+$D \not \subseteq \Xi_{V'}$;
+\item[(c)] the $G$-isotropy of inner faces $V' - D$ with 
+$D \subseteq \Xi_{V'}$ 
+(i.e. their isotropy in $\mathsf{Face}(T)$)
+is contained in $H'$.
 \end{enumerate}
-
-To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
+To check (a), writing $\bar{W}$ for the corresponding outer face of $U$, one has
 	\[
-	\Xi_V = \Xi \cap E^{\mathsf{i}} (V) 
-	= \Xi \cap E^{\mathsf{i}}(W) \cap E^{\mathsf{i}}(\bar{V})
-	= \Xi \cap E^{\mathsf{i}}(\bar{W}) \cap E^{\mathsf{i}}(\bar{V})
-	= \Xi \cap E^{\mathsf{i}}(\bar{V})
-	= \Xi_{\bar{V}}
+	\Xi_W = \Xi \cap E^{\mathsf{i}} (W) 
+	= \Xi \cap E^{\mathsf{i}}(V') \cap E^{\mathsf{i}}(\bar{W})
+	= \Xi \cap E^{\mathsf{i}}(\bar{V}') \cap E^{\mathsf{i}}(\bar{W})
+	= \Xi \cap E^{\mathsf{i}}(\bar{W})
+	= \Xi_{\bar{W}}
 	\]
 where the second step follows from Lemma \ref{INNINT LEM}
-(applied to $V \hookrightarrow W \hookrightarrow U$, 
-$V \hookrightarrow \bar{V} \hookrightarrow U$)
 and the third since by definition of
-$\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{W} = \Xi_{\bar{W}}$.
-Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1) 
-or $\Xi_V = \Xi_{\bar{V}} \neq \emptyset$
-so that $V \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $V<W$, and thus $V\in C$. In either case one has $V \in X_C$.
+$\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{V'} = \Xi_{\bar{V}'}$.
+Thus either $\Xi_W = \Xi_{\bar{W}} = \emptyset$ so that $\bar{W}\in X$ by (Ch1) 
+or $\Xi_W = \Xi_{\bar{W}} \neq \emptyset$
+so that $W \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $W<V'$, and thus $W\in C$. In either case one has $W \in X_C$.
 
 We now check the ``if'' direction of (b).
-If $D \not \subseteq \Xi_{W}$
-then $W' = W - (D \setminus \Xi_{W})$
+If $D \not \subseteq \Xi_{V'}$
+then $V'' = V' - (D \setminus \Xi_{V'})$
 is in $\mathsf{Face}_{\Xi}^{lex}(U)$
-(since $\bar{W}' = \bar{W}$ and $\Xi_{W'} = \Xi_{W}$)
-and $W'<W$, and thus $W' \in X_C$.
+(since $\bar{V}'' = \bar{V}'$ and $\Xi_{V''} = \Xi_{V'}$)
+and $V''<V'$, and thus indeed $V'' \in X_C$.
 
-For the ``only if'' direction of (b), the assumption $W \not \in X_C$ together with (Ch2) imply that
-$W'=W-\Xi_{W}$ is not in $X$, and hence it remains to show that 
-$W'$ is not a face of any $gV$ with $g\in G$, $V \in C$.
-Suppose otherwise, i.e. $W' \hookrightarrow gV$.
-If it were $g \not \in H$, 
-then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we may as well set $g=e$.
-But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
+For the ``only if'' direction of (b), the assumption $V' \not \in X_C$ together with (Ch2) imply that
+$V''=V'-\Xi_{V'}$ is not in $X$, and hence it remains to show that 
+$V''$ is not a face of any $W \in C$. Suppose otherwise.
+Then since $V'' \hookrightarrow W$ it is $ \bar{V}' = \bar{V}'' \hookrightarrow \bar{W}$
 and by convexity of $C'$ it must in fact be 
-$ \bar{W} = \bar{V}$. But by definition of 
-$\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
-$\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
-so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
-This contradicts the assumption $W \not \in X_C$.
+$ \bar{V}' = \bar{W}$. But by definition of 
+$\mathsf{Face}_{\Xi}^{lex}(U)$ the face $W$ must contain as inner edges all edges in 
+$\Xi_W=\Xi_{\bar{W}} = \Xi_{\bar{V}'} = \Xi_{V'}$,
+so that it is not only $V' - \Xi_{V'} = V'' \hookrightarrow W$ but also $V' \hookrightarrow W$.
+This contradicts the assumption $V' \not \in X_C$.
 
-We now show (c).
-If $g(W-D)=W-D$ then $g(W - \Xi_W) \hookrightarrow U$
-and thus $W - \Xi_W \hookrightarrow g^{-1}U$,
-so that by (Ch3) it must be $g \in H$ or else it would be $W \in X$.
-Now suppose $h(W-D)=W-D$ with $h\in H$.
-Since $\Xi$ is $H$-equivariant (by (Ch0)) and
-$\Xi_{W-D} = \Xi_{W} \setminus D$ (due to $D \subseteq \Xi_{W}$) it follows that 
-$h(W-\Xi_W)=W-\Xi_W$,
-so that we may assume $D=\Xi_W$.
-Now note that
-$hW$, $h(W-\Xi_W)=W-\Xi_W$, $W$
-are all faces of $U$ with a common outer closure $\bar{W}$.
-Hence 
-$h\Xi_{W} = \Xi_{hW} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
-$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
-have the same outer closure and the same inner edges, and thus 
-$hW=W$, establishing (c).
+We now show (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
+Then $g\bar{V}'' = \bar{V}''$ or, equivalently, 
+$g\bar{V}' = \bar{V}'$.
+Further, the $G$-equivariance of $\Xi$ in (Ch0)
+guarantees $g \Xi_{\bar{V}'} = \Xi_{\bar{V}'}$ or, by definition of $\mathsf{Face}_{\Xi}^{lex}(U)$, 
+$g \Xi_{V'} = \Xi_{V'}$. 
+Therefore, since $D \subseteq \Xi_{V'}$,
+the assumption $gV'' = V''$, i.e.
+$g(V'-D) = V'-D$,
+implies 
+$g(V'-\Xi_{V'}) = V'-\Xi_{V'}$
+and thus also $g V' = V'$. 
+Since $H'$ was defined as the $G$-isotropy of $V'$,
+we obtain $g \in H'$, finishing the proof when $\{U_i\}$ is orbital.
 
-Lastly, we address the case of general $I$.
-For each $G$-equivariant convex subset $J$ of $I$, set
+We now turn to the case of a general $\{U_i\}_{i \in I}$.
+For the well-ordering of the cosets $I/G$ given by (Ch3)
+and each convex subset $J$ of $I/G$, set
 \[
 	X_J = 
-	X \cup \bigcup_{j \in J} \Omega[U_j].
+	X \cup \bigcup_{g\in G,[j] \in J} \Omega[g U_j].
 \]
 As before, it suffices to check that for all convex subsets
 $J \subseteq J'$
 the map $X_J \to X_{J'}$ is built cellularly from $G$-inner horns,
-and again we can assume that $J'$ is obtained from $J$ by adding a single $G$-orbit $Gj$ of $I$.
-By the $I$ orbital case, it now suffices to check that
-$\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in Gj}$ with respect to $X_J$.
-(Ch0) is then clear, and since by $G$-equivariance and convexity it is $X_{<gj} \subseteq X_J$,
-the new (Ch1),(Ch2),(Ch3)
-conditions follow from the original conditions.
+and again we can assume that $J'$ is obtained from $J$ by adding a single $[j'] \in I/G$.
+By the $\{U_i\}$ orbital case, 
+it now suffices to check that
+$\Xi$ is also a characteristic inner edge set with respect to 
+$X_J$ and $\{U_{g j'}\}_{g j' \in [j']}$.
+But (Ch0) and (Ch3) for this new characteristic condition are obvious,
+the new (Ch1) condition is a particular case of the original (Ch1) condition, 
+and the new (Ch2) condition readily follows from the original (Ch2) and (Ch3) conditions
+(in fact, one can check that the original (Ch3) condition is equivalent to
+demanding that, in the case $V\not \in X$, 
+the new (Ch2) condition holds for the \textit{any possible choice} of $J$).
 \end{proof}
-
-{\color{red} HERE}
-
-
 
 
 \begin{remark}\label{CHAREDGE2 REM}
@@ -3710,13 +3646,13 @@ Given an inclusion $X \subseteq Y$,
 set of edges $\Xi \subseteq Y(\eta)$ and 
 set of non-degenerate dendrices $\{y_i \in Y(U_i)\}$, suppose one has:
 \begin{itemize}
-	\item[(Ch0*i)] the maps $y_i \colon \Omega[U_i] \to Y$ are monomorphisms;
-	\item[(Ch0*ii)] $\Xi$, $X$ and $\{y_i \in Y(U_i)\}$ are $G$-equivariant.
-%	\item[(Ch0*3)] for each face $V \hookrightarrow U_i$ and $g \in G$
-%	then $g y_i(V) = y_i(V)$ implies 
-%	$g y_i(\bar{V}) = y_i(\bar{V})$.
+	\item[(Ch0*1)] the maps $y_i \colon \Omega[U_i] \to Y$ are monomorphisms;
+	\item[(Ch0*2)] $\Xi$, $X$ and $\{y_i \in Y(U_i)\}$ are $G$-equivariant;
+	\item[(Ch0*3)] for each face $V \hookrightarrow U_i$ and $g \in G$
+	then $g y_i(V) = y_i(V)$ implies 
+	$g y_i(\bar{V}) = y_i(\bar{V})$.
 \end{itemize}
-Under (Ch0*i),
+Under (Ch0*1),
 the $\Omega[U_i]$ are identified with subcomplexes of $Y$,
 and non-degenerate dendrices $y \in y_i(\Omega[U_i])(V)$
 are identified with faces $V \hookrightarrow U_i$.
@@ -3724,54 +3660,53 @@ One can then write $\Xi_V = \Xi \cap y_i(E^{\mathsf{i}}(V))$,
 which we note depends only on the dendrex $y$, 
 i.e. the composite $\Omega[V] \to \Omega[U_i] \to Y$.
 
-All original conditions (Ch1),(Ch2),(Ch3) can then be reinterpreted by, 
-for each $V \hookrightarrow U_i$, 
-regarding expressions such as $V \in X$, $(V-\Xi_V)\in g U_j$
-as meaning $y_i(V) \in X$, $y_i(V-\Xi_V) \in g y_j(\Omega[U_j])$.
+All three original conditions (Ch1),(Ch2),(Ch3)
+can then be reinterpreted in terms of these identifications.
 
-Note that for $Y = \Omega[T]$ the $G$-equivariance of $\{y_i\}$ in  (Ch0*2), while similar to the $G$-equivariance of $\{U_i\}$ in (Ch0), is actually slightly different, 
+Note that for $Y = \Omega[T]$ the condition (Ch0*2), while similar to (Ch0), is actually slightly different, 
 since (writing $\iota_U \colon U \hookrightarrow T$ for the inclusions) $\iota_{g U_i} \in \Omega[T](g U_i)$ in (Ch0)
-is replaced with $g \iota_{U_i} \in g\Omega[T](U_i)$ in (Ch0*2).
-However, this does not affect Lemma \ref{CHAREDGE DEF} since
+is replaced with $g \iota_{U_i} \in g\Omega[T](U_i)$ in (Ch0*2),
+though this is inconsequential since
 $\Omega[gU_i] = g\Omega[U_i]$ as subcomplexes of $\Omega[T]$.
 
-The proof of Lemma \ref{CHAREDGE DEF} now carries out largely  unchanged to show that 
+The proof of Lemma \ref{CHAREDGE DEF} now carries out essentially unchanged to show that 
 \begin{equation}
 	X \to X \cup \bigcup_{i \in I} y_i\Omega[U_i]
 \end{equation}
-is $G$-inner anodyne (again built cellularly from $G$-inner horn inclusions), hence we note only the main differences.
-When writing the analogue of (\ref{FIRPUSH EQ}), 
-$K$ must be defined by noting that, cf. Remark \ref{FACEGACT REM},
-the $G \times \mathsf{Aut}(W)$-isotropy of 
-$y(W) \in y(\Omega[U])$
-is the graph of some partial homomorphism
-$G \geq K \xrightarrow{\phi} \mathsf{Aut}(W)$.
-Hence, when stating and proving the analogue of (c) one must instead deal with
-$G \times \mathsf{Aut}(W)$ and $G \times \mathsf{Aut}(W-D)$-isotropies.
-However, as explained in Remark \ref{FACEGACT REM}, the role of the $\mathsf{Aut}(W)$ and $\mathsf{Aut}(W-D)$ coordinates is simply to implement the replanarization isomorphism in (\ref{FACEGACT EQ}). 
-Hence, since non-degenerate $y' \in y(\Omega[U])$ are identified with faces in $\Omega^+\downarrow U$, by borrowing the notation in 
-Remark \ref{PLFUNCTOR REM}, the analogue of (c) states that if
-$pl(g y (W-D)) = y(W-D)$ then $pl(g y (W)) = y(W)$ 
-(note that $y(W)=pl(y(W))$ by definition of $W$).
-But reinterpreting the argument in the proof of Lemma \ref{CHAREDGE DEF}
-shows that $pl(g^{-1} y (W)),y(W)$ are planar faces of $U$ with the same closure and the same edges, and hence indeed 
-$pl(g y (W))=y(W)$.
+is $G$-inner anodyne (and again built cellularly from $G$-inner horn inclusions).
+
+Indeed, the only difference is when verifying the analogue of condition (c) in that proof,
+which now says that the $G$-isotropy of 
+$y_i(V'-D) \in y_i(\Omega[V'])$ must be contained in the isotropy of
+$y_i(V') \in y_i(\Omega[V'])$.
+One now repeats the argument in the proof except using (Ch0*3)
+to deduce that if
+$g y_i(V'-D) = y_i(V'-D)$
+then $g\Xi_{\bar{V}'} = \Xi_{\bar{V}}$.
 \end{remark}
 
-%\begin{example}
-%To see the need for condition (Ch0*3),
-%let $Y =\Delta[2] \amalg_{d_1(\Delta[1])} \Delta[2]$,
-%where $d_1 \colon \Delta[1] \to \Delta[2]$
-%is the inner face,
-%together with the obvious $\mathbb{Z}_{/2}$-action.
-%Then for $X = \Lambda^1[2] \amalg_{\partial \Delta[1]} \Lambda^1[2]$ and
-%$\{y_i\}$ (resp. $\Xi$) the $\mathbb{Z}_{/2}$-orbital set
-%consisting of the two copies of $\Delta[2]$ (resp. two copies of 
-%$1 \in \Delta[2]$), 
-%conditions (Ch0*1),(Ch0*2),(Ch1),(Ch2),(Ch3) all hold while (Ch0*3) fails,
-%and one easily sees that $X \to Y$ is not built cellularly from 
-%$\mathbb{Z}_{/2}$-inner horns.
-%\end{example}
+
+\begin{example}
+To see the need for condition (Ch0*3),
+let $Y =\Delta[2] \amalg_{d_1(\Delta[1])} \Delta[2]$,
+where $d_1 \colon \Delta[1] \to \Delta[2]$
+is the inner face,
+together with the obvious $\mathbb{Z}_{/2}$-action.
+Then for $X = \Lambda^1[2] \amalg_{\partial \Delta[1]} \Lambda^1[2]$ and
+$\{y_i\}$ (resp. $\Xi$) the $\mathbb{Z}_{/2}$-orbital set
+consisting of the two copies of $\Delta[2]$ (resp. two copies of 
+$1 \in \Delta[2]$), 
+conditions (Ch0*1),(Ch0*2),(Ch1),(Ch2),(Ch3) all hold while (Ch0*3) fails,
+and one easily sees that $X \to Y$ is not built cellularly from 
+$\mathbb{Z}_{/2}$-inner horns.
+\end{example}
+
+
+\begin{remark}
+	(Ch3) guarantees that, for fixed $\Xi$ and $X$ the characteristic conditions are monotone in $\{U_i\}$, in the sense that if it holds for some $\{U_i\}$ it also holds for all if its subsets.
+	
+	However, for fixed $X$ and $\{U_i\}$, the characteristic conditions are \textit{not} monotone on $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2) more restrictive.
+\end{remark}
 
 
 \begin{remark} Lemma \ref{CHAREDGE LEM} readily recovers several arguments in the literature:
@@ -3797,7 +3732,7 @@ Indeed, letting $\Xi = E^{\mathsf{i}}(T)$ and $\{U_i\}$ be the set of closed fac
 $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
 (Ch3') follows since the $U_i$ are closed.
 
-Finally, we note that if $\Xi=E^{\mathsf{i}}(T)$,$\{U_i\}=\{T\}$
+Lastly, we note that if $\Xi=E^{\mathsf{i}}(T)$,$\{U_i\}=\{T\}$
 then (Ch1) says precisely that $Sc(T) \subseteq X$.
 
 \item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge set condition as generalized in Remark \ref{CHAREDGE2 REM}, and was one of our main inspirations.
@@ -3825,8 +3760,6 @@ have the drawback of needing to be used iteratively
 Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $X$ should contain all outer faces, essentially provide abstract conditions under which the original characteristic arguments of \cite{MW09},\cite{Per17} can be iterated.
 Further, we note that in \cite{MW09},\cite{Per17} it is essential to make a good choice for the well-ordering in (Ch3).
 
-{\color{blue} Maybe summarize how the proof goes.}
-
 We end by noting the importance of the $G$-equivariance of $\Xi$
 in (Ch0),(Ch0*2). In proving \cite[Prop. 7.44]{Per17} the second author chose the $\Xi$ to be sets of edges of the subtrees $y_i$, and thus not necessarily $G$-equivariant,
 leading to the need of extra ad hoc arguments in that proof when establishing the analogue of condition (c) in the proof of Lemma \ref{CHAREDGE LEM}.
@@ -3834,37 +3767,9 @@ leading to the need of extra ad hoc arguments in that proof when establishing th
 \end{remark}
 
 
-{\color{red}HERE}
 
-\begin{example}
-	As indicated above, Lemma \ref{CHAREDGE LEM} can be used to
-	reorganize and streamline the rather long proofs of \cite[Thms 7.1 and 7.2]{Per17}. We illustrate this for the hardest case, that of \cite[Thm. 7.1(i)]{Per17}, which states that if
-	$S,T \in \Omega_G$ are open (i.e. have no stumps) and
-	$G \xi$ is an inner edge orbit of $T$ the maps
-\begin{equation}\label{THM71 EQ}
-	\partial \Omega[S] \otimes \Omega[T]
-		\coprod_{\partial \Omega[S] \otimes \Lambda^{G\xi}[T]}
-	\Omega[S] \otimes \Lambda^{G\xi}[T]
-\to
-	 \Omega[S] \otimes \Omega[T]
-\end{equation}
-are $G$-inner anodyne.
-
-{\color{red}HERE}
-
-$\Xi = \{(s,g\xi) \in S\otimes T\}$.
-
-{\color{blue} Does not quite follow from this Lemma \ref{}
-e original argument, need $\Xi^{[i]}$}.
-
-\end{example}
-
-
-
-\subsection{Horns}
-
-
-\begin{proposition}\label{ORB_HORN_PROP}
+\begin{proposition}
+      \label{ORB_HORN_THM}
       Inclusions of orbital $G$-inner horns
 \begin{equation}\label{ORBHORNINC EQ}
 	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{E}[T]
@@ -3885,43 +3790,33 @@ There are two main cases,
 $E=\emptyset$ and $E\neq \emptyset$.
 
 If $E=\emptyset$ then $\Lambda_o^{E}[T] = \Omega[T]$ and we apply
-Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
+Lemma \ref{CHAREDGE LEM}
+	with 
 \[
-	\Xi^{\**} = F, \qquad 
-	U_{\**} = T,\qquad
-	X=\Lambda_o^{F}[T].
+	\Xi = F, \qquad 
+	X=\Lambda_o^{F}[T], \qquad
+	\{U_i\}=\left\{T\right\}.
 \]
 It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
 	(Ch0) and (Ch3) are clear.
-	
-	Note for $V\hookrightarrow T$ it is $V \not \in X$ iff 
-	$GV$ has the form $T-F'$ for some $G$-equivariant subset
-	$F' \subseteq F$.
 
 	For (Ch1), the condition $\Xi_{V} = \emptyset$
 	says that none of the inner edges of $V$ are in $F$,
-	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$ as inner edge orbits. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
-	and hence $X=\Lambda_o^{F}[T]$ contains $V$.
+	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
+	and hence $X=\Lambda_o^{F}[T]$ contains $G V$ and thus also $V$.
 
-	For (Ch2), note that if $V \not \in X$, i.e., 
-	$GV = T - F'$, then Remark \ref{GINNER REM} implies that
-	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$,
-	and thus also $(V-\Xi_V) \not \in X$.
-	
-	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with $I = F/G$, with an 
-	\textit{arbitrary} choice of total order, and 
-	(writing elements of $F/G$ as subsets $Gf \subseteq F$)
+	For (Ch2), note first that $V$ will be in $X=\Lambda_o^{F}[T]$
+	unless $GV$ has the form $T - F'$ for some $G$-equivariant subset $F' \subseteq F$. But hence by Remark \ref{GINNER REM} it is
+	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$ and thus $(V-\Xi_V)$ is not in $X=\Lambda_o^{F}[T]$.
+
+	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with
 \[
-	\Xi^{Gf} = E, \qquad 
-	U_{G f}= T - Gf, \qquad
-	X=\Lambda_o^{E\amalg F}[T].
+	\Xi = E, \qquad X=\Lambda_o^{E\amalg F}[T], \qquad
+	\{U_i\}=\left\{T - Gf\right\}_{Gf \subseteq F}.
 \]
-
 Note that the $U_i$ are the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
 in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
-Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since this
-depends only on $V \hookrightarrow T$ and not on $Gf$.
-We again check the characteristic conditions. (Ch0) is clear.
+We must again check the characteristic conditions. (Ch0) and (Ch3') are clear.
 
 	For (Ch1), note that for an outer face 
 	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
@@ -3929,15 +3824,10 @@ We again check the characteristic conditions. (Ch0) is clear.
 	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
 	and hence since $\Xi_{U_i}=\Xi$ the 
 	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
-	$\Xi_{\bar{V}} = \emptyset$.
+	$\Xi_{V} = \emptyset$.
 	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
 	The argument for (Ch2) is identical to the one in the case
 	$E=\emptyset$.
-	Lastly, (Ch3) follows since	if $V \not \in X$, so that
-	$GV = T - F'-E'$ and $G(V - \Xi_V) = T-F'-E''$ with
-	$F' \subseteq F$, $E' \subseteq E'' \subseteq E$,
-	then $GV \hookrightarrow T-Gf$ iff $G(V - \Xi_V) \hookrightarrow T-Gf$
-	and thus $V \hookrightarrow T-Gf$ iff $V - \Xi_V \hookrightarrow T-Gf$.
 \end{proof}
 
 \begin{proposition} Inclusions of (regular) $G$-inner horns
@@ -3948,43 +3838,15 @@ are $G$-inner anodyne.
 \end{proposition}
 
 \begin{proof}
-The case $E = \emptyset$ is now tautological,
-hence we can now assume that both $E,F \neq \emptyset$.
-
-We now apply Lemma \ref{CHAREDGE LEM} with 
-$I = \mathcal{P}_0(F)$
-the poset of non-empty subsets $\emptyset \neq F' \subseteq F$, ordered by \textit{reverse inclusion}, and
+This is an easier analogue of the previous result, hence we merely indicate how to apply Lemma \ref{CHAREDGE LEM}.
+Again we can assume $T\in \Omega^G$ and the case $E=\emptyset$ is tautological. Otherwise, set
 \[
-	\Xi^{F'} = E, \qquad
-	U_{F'} = T - F', \qquad
-	X=\Lambda^{E\amalg F}[T].
+	\Xi = E, \qquad X=\Lambda^{E\amalg F}[T], \qquad
+	\{U_i\}=\left\{T - f\right\}_{f \in F}.
 \]
-We again need to verify the characteristic conditions,
-and as in the previous result we can abbreviate
-$\Xi_V = \Xi^{F'}_V$.
-(Ch0) is clear. (Ch1) follows from an easier version of the argument in the previous proof.
-(Ch2) follows since $V \in X$ iff $V-\Xi_V \in X$.
-Similarly,
-(Ch3) follows since 
-$V \hookrightarrow T-F'$ iff $(V-\Xi_V) \hookrightarrow T-F'$
-and since if
-$V \hookrightarrow T-F',V \hookrightarrow T-F''$
-then 
-$V \hookrightarrow T-(F' \cup F'')$.
 \end{proof}
 
-{\color{red} HERE}
-
-\begin{remark}
-	By specifying to the non-equivariant case $G = \**$
-	in the case $E,F \neq \emptyset$,
-	the previous results yield two distinct proofs
-\end{remark}
-
-
-
 \newpage
-
 
 \appendix
 
