@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.11)  23 NOV 2017 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.11)  29 NOV 2017 17:03
 entering extended mode
 **./EqDenEqSimpOp.tex
 (EqDenEqSimpOp.tex
@@ -1195,29 +1195,34 @@ ABD: EveryShipout initializing macros (EqDenEqSimpOp.toc)
 
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 160.
- [2] [3]
+ine 248.
+ [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 546.
+(hyperref)                removing `\new@ifnextchar' on input line 577.
 
-[4] [5] [6] [7] [8] [9]
+[4] [5] [6]
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1105.
+LaTeX Warning: Reference `GEN_GHORN_THM' on page 1 undefined on input line 920.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 1105.
-
+[7] [8] [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1105.
+(hyperref)                removing `math shift' on input line 1184.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 1184.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1184.
 
 [10] [11]
-Overfull \hbox (71.77321pt too wide) in paragraph at lines 1267--1274
+Overfull \hbox (71.77321pt too wide) in paragraph at lines 1346--1353
 \OT1/cmr/m/n/10 fully faith-ful-ness can be rein-ter-preted as say-ing that all
  fiber maps $\OML/cmm/m/it/10 p[]\OMX/MnSymbolE/m/n/10 ˆ\OML/cmm/m/it/10 x[]; \
 U/MnSymbolC/m/n/10 \OML/cmm/m/it/10 ; x[]; x[]\OMX/MnSymbolE/m/n/10  \U/MnSym
@@ -1228,39 +1233,82 @@ bolA/m/n/10   \OML/cmm/m/it/10 q[]\OMX/MnSymbolE/m/n/10 ˆ\OML/cmm/m/it/10 f\OMX
 mm/m/it/10 x[]\OMX/MnSymbolE/m/n/10 $|
  []
 
-[12] [13] [14] [15] [16] [17]
-Overfull \hbox (7.45326pt too wide) in paragraph at lines 1771--1773
+[12] [13] [14] [15] [16]
+Overfull \hbox (7.45326pt too wide) in paragraph at lines 1850--1852
 [][]\OT1/cmr/m/it/10 Any map in $[][]$ which has the right lift-ing prop-erty a
 gainst all nor-mal monomor-|
  []
 
-[18] [19] [20] [21] [22] [23]
-Overfull \hbox (48.21465pt too wide) detected at line 2470
+[17] [18] [19] [20] [21] [22] [23]
+Overfull \hbox (48.21465pt too wide) detected at line 2549
 []|
  []
 
-[24]
-Overfull \hbox (2.92911pt too wide) in paragraph at lines 2475--2480
+
+Overfull \hbox (2.92911pt too wide) in paragraph at lines 2554--2559
 []\OT1/cmr/bx/n/10 Definition 5.21. []\OT1/cmr/m/n/10 Two maps $\OML/cmm/m/it/1
 0 f; f[]\U/MnSymbolC/m/n/10  \OML/cmm/m/it/10 A \U/MnSymbolA/m/n/10  \OML/cmm
 /m/it/10 B$ \OT1/cmr/m/n/10 be-tween den-droidal Se-gal spaces are called $\OML
 /cmm/m/it/10 J$\OT1/cmr/m/n/10 -homotopic,|
  []
 
-[25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
-(EqDenEqSimpOp.bbl) [38]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3747.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3747.
+[24] [25] [26] [27] [28]
+
+LaTeX Warning: Reference `FACEGACT EQ' on page 29 undefined on input line 3091.
+
+
+
+LaTeX Warning: Reference `FACEGACT EQ' on page 29 undefined on input line 3106.
+
+
+[29] [30] [31]
+
+LaTeX Warning: Reference `FIRPUSH EQ' on page 32 undefined on input line 3388.
+
+
+LaTeX Warning: Reference `FACEGACT REM' on page 32 undefined on input line 3389
+.
+
+
+LaTeX Warning: Reference `FACEGACT REM' on page 32 undefined on input line 3396
+.
+
+
+LaTeX Warning: Reference `FACEGACT EQ' on page 32 undefined on input line 3396.
+
+
+
+LaTeX Warning: Reference `PLFUNCTOR REM' on page 32 undefined on input line 339
+8.
+
+
+LaTeX Warning: Reference `CHAREDGE2 REM' on page 32 undefined on input line 344
+8.
+
+[32]
+
+LaTeX Warning: Reference `' on page 33 undefined on input line 3502.
+
+[33] [34] [35] [36] [37] [38] (EqDenEqSimpOp.bbl) [39]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4138.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4138.
  (EqDenEqSimpOp.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3747.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3747.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3747.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4138.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4138.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4138.
  ) 
 Here is how much of TeX's memory you used:
- 30826 strings out of 493323
- 592991 string characters out of 3139066
- 680044 words of memory out of 3000000
- 33606 multiletter control sequences out of 15000+200000
+ 30951 strings out of 493323
+ 595614 string characters out of 3139066
+ 679316 words of memory out of 3000000
+ 33716 multiletter control sequences out of 15000+200000
  36043 words of font info for 137 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,86p,3276b,1612s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1275,51 +1323,48 @@ isa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk> <C
 d\dpi600\stmary7.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\p
 ublic\mnsymbol\dpi600\MnSymbolS10.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\
 fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC9.pk> <C:\Users\luisa\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolD6.pk> <C:\Users
+ocal\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolE8.pk> <C:\Users
 \luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbol
 C8.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol
-\dpi600\MnSymbolE8.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\public\mnsymbol\dpi600\MnSymbolD8.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9
-\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolA7.pk> <C:\Users\luisa\AppData\
-Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolF10.pk> <C:\Use
-rs\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymb
-olD7.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymb
-ol\dpi600\MnSymbolD10.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\public\mnsymbol\dpi600\MnSymbolE10.pk> <C:\Users\luisa\AppData\Local\MiKTeX
-\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolA10.pk> <C:\Users\luisa\App
-Data\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC10.pk> <C
+\dpi600\MnSymbolD7.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\public\mnsymbol\dpi600\MnSymbolA7.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9
+\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolF10.pk> <C:\Users\luisa\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolE10.pk> <C:\Us
+ers\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSym
+bolD10.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsy
+mbol\dpi600\MnSymbolA10.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\l
+jfour\public\mnsymbol\dpi600\MnSymbolC10.pk> <C:\Users\luisa\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC5.pk> <C:\Users\luisa\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\MnSymbolC7.pk> <C
 :\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\mnsymbol\dpi600\M
-nSymbolC5.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\m
-nsymbol\dpi600\MnSymbolC7.pk> <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk
-\ljfour\public\mnsymbol\dpi600\MnSymbolE7.pk><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/rsfs/rsfs7.pfb>
-Output written on EqDenEqSimpOp.pdf (38 pages, 671569 bytes).
+nSymbolE7.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/symbols/msbm7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/rsfs/rsfs10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/rsfs/r
+sfs7.pfb>
+Output written on EqDenEqSimpOp.pdf (39 pages, 681428 bytes).
 PDF statistics:
- 947 PDF objects out of 1000 (max. 8388607)
- 192 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 976 PDF objects out of 1000 (max. 8388607)
+ 207 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
