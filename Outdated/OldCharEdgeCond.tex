@@ -70,7 +70,6 @@
 
 \begin{abstract}
       bla bla, generalizing \cite{CM13a}.
-      
       In an appendix, we discuss Reedy categories in the equivariant context.
 \end{abstract}
 
@@ -3146,78 +3145,81 @@ Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
 	for the smallest planar outer face of $T$ containing $U$.
 \end{notation}
 
+
+
 \begin{definition}\label{CHAREDGE DEF}
 Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
 
-Given a set $\Xi^i$ of inner edges of $U_i$ and a subface $V \hookrightarrow U_i$, denote $\Xi_V^i = \Xi^i \cap E^{\mathsf{i}}(V)$.
+Given a set $\Xi$ of inner edges of $T$ and a subface $V \hookrightarrow T$, denote $\Xi_V = \Xi \cap E^{\mathsf{i}}(V)$.
 
-Suppose further that the indexing set $I$ is a 
-finite $G$-poset. For each $i \in I$ denote
-\[
-X_{<i} = X \cup \bigcup_{j \colon j<i} \Omega[U_j]
-\]
-We say that $\{\Xi^i \subseteq E^{\mathsf{i}}(U_i)\}$ 
-is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $X$} if:
+We say that $\Xi$ is \textit{a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}$} if:
 \begin{itemize}
-	\item[(Ch0)] $X$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g X = X$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
+	\item[(Ch0)] $\Xi$, $X$ and $\{U_i\}$ are all $G$-equivariant; 
 	\item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
-		of $U_i$ such that $\Xi_{V}^i = \emptyset$
-		is contained in $X_{<i}$;
+	of $U_i$ such that $\Xi_{V} = \emptyset$
+	is contained in $X$;
 	\item[(Ch2)] for all $i$, any face
-		$V \hookrightarrow U_i$ such that $(V-\Xi_V^i) \in X$
-		is contained in $X_{<i}$;
-	\item[(Ch3)] for all $j \not \geq i$, 
+	$V \hookrightarrow U_i$ such that $(V-\Xi_V) \in X$
+	is contained in $X$;
+	\item[(Ch3)] there exists a well-ordering of the $G$-cosets $I/G$ such that:
+	\begin{itemize}
+		\item[(i)] for all $[j] \not \geq [i]$ 
 		all faces $V \hookrightarrow U_i$ such that 
-		$(V-\Xi^i_V) \hookrightarrow U_j$
-		are contained in $X_{<i}$.
+		$V \not \in X$ and $(V-\Xi_V) \hookrightarrow U_j$
+		are contained in some $U_k$ with $[k]\leq[j]$ or $[k]<[i]$;
+		\item[(ii)] for all $i \in I$, $g\in G$, any face $V \hookrightarrow U_i$ such that $V \not \in X$ and $(V - \Xi_V) \hookrightarrow g U_i$ is contained in either $g U_i$ or some $U_k$ such that $[k]<[i]$. 
+	\end{itemize}
 \end{itemize}
 \end{definition}
 
 
-\begin{remark}\label{XIIII REM}
-If $g i \neq i$, then $i,g i$ are incomparable in $I$. Indeed, otherwise $i<gi<g^2i<g^3i<\cdots$ would violate antisymmetry.
-Therefore, (Ch3) applies whenever $j=gi$ for $gi\neq i$.
-
-In particular, we assume throughout that if
-$gi \neq i$ then $U_{gi} \neq U_i$,
-or else it would be $U_i \in X_{<i}$.
+\begin{remark}
+	In many natural examples, 
+	(Ch3) can be deduced from a much simpler condition. Namely, it suffices to check that:
+	\begin{itemize}
+		\item[(Ch3')] for all $i$, and writing $\bar{U}_i=\bar{U}_i^T$ for the outer closure in $T$, one has
+		$\Xi_{U_i}=\Xi_{\bar{U}_i}$.
+	\end{itemize}
+Indeed, given (Ch3') then $V\hookrightarrow U_i$
+iff $(V - \Xi_V)\hookrightarrow U_i$,
+hence (Ch3.i),(Ch3.ii) hold for any well-ordering.
 \end{remark}
 
-
-{\color{red} HERE}
+\begin{remark}
+	(Ch3) is designed to be compatible with forgetting the $G$-action. 
+	Indeed, by combining the well-ordering of $I/G$ with arbitrary well-orderings of the individual cosets $[i]$, one obtains a well-ordering of $I$.
+	It is straightforward to check that, after forgetting the $G$-actions, (Ch3.i) for the well-ordering of $I$ follows from the $G$-equivariant (Ch3.i),(Ch3.ii).
+\end{remark}
 
 
 \begin{remark}
-In some of the main examples ({\color{red} reference}), there exists a $G$-equivariant set 
-$\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap E^{\mathsf{i}}(U_i)$.
-
-In such cases, (Ch3) guarantees that, for fixed $\Xi^i$ and $X$ the characteristic conditions are monotone in $\{U_i\}$, in the sense that if it holds for some $\{U_i\}$ it also holds for all of its subsets.
+	(Ch3) guarantees that, for fixed $\Xi$ and $X$ the characteristic conditions are monotone in $\{U_i\}$, in the sense that if it holds for some $\{U_i\}$ it also holds for all of its subsets.
 	
-	However, for fixed $X$ and $\{U_i\}$, the characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2) more restrictive.
+	However, for fixed $X$ and $\{U_i\}$, the characteristic conditions are \textit{not} monotone on $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2) more restrictive.
 \end{remark}
 
 
+
 \begin{lemma}\label{CHAREDGE LEM}
-If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{i\in I}$ with respect to $X$, then the map
+If $\Xi$ is a characteristic inner edge set of $T$ with respect to $X$ and $\{U_i\}_{i\in I}$, then the map
 \begin{equation}\label{CHARLEM EQ}
 	X \to X \cup \bigcup_{i \in I} \Omega[U_i]
 \end{equation}
-is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+is $G$-inner anodyne. In fact, it is built cellularly from $G$-horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
 
 \begin{proof}
-We start with the case of $I \simeq G/H$ orbital so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
-Note that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
-We likewise abbreviate $\Xi = \Xi^{[e]}$ and
-$\Xi_V = \Xi_V^{[e]}$ for $V \hookrightarrow U$.
-Moreover, in this case one has $X_{<[g]}=X$ in (Ch1),(Ch2),(Ch3).
+We start with the case where $\{U_i\}$ consists of a single orbit,
+i.e. $\{U_i\}_{i \in I} = \{g U\}_{[g]\in G/H}$
+for some $U \in \mathsf{Face}(T)$ with isotropy $H$.
+Note that in this case the condition (Ch3.i) is vacuous.
 
 We write $\mathsf{Face}_{\Xi}^{lex}(U)$
-for the $H$-poset of planar faces $V \hookrightarrow U$
+for the $H$-poset of (planar) faces $V \hookrightarrow U$
 such that $\Xi_V \neq \emptyset$ and $\Xi_V = \Xi_{\bar{V}}$
 ordered as follows: 
-$V \leq V'$ if either
+$V \leq V'$ if either 
 	\begin{inparaenum}
 		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
 		$\bar{V} \neq \bar{V}'$ or
@@ -3239,35 +3241,25 @@ the map
 $X_C \to X_{C'}$ is built cellularly from 
 $G$-inner horn inclusions
 (indeed, setting $C=\emptyset$ and 
-$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}
-when $I \simeq G/H$).
+$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}).
 
 Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$-orbit of a single $W \hookrightarrow U$. Further, we may assume $W \not \in X_C$ or else $X_C=X_{C'}$.
-Letting $K \leq H$ denote the isotropy of 
-$W$ in $\mathsf{Face}_{\Xi}^{lex}(U)$ and regarding $W \in \Omega^{K}\subseteq \Omega_{K}$, we claim there is a pushout diagram
+Writing $K \leq G$ for the isotropy of $W$ in $\mathsf{Face}(T)$ and regarding $W \in \Omega^{K}\subseteq \Omega_{K}$, we claim that $X_C \to X_{C'}$ is then the pushout of the $G$-inner horn
 \begin{equation}\label{FIRPUSH EQ}
-\begin{tikzcd}
-	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d} \ar{r}&
-	X_C \ar{d}
-\\
-	G \cdot_{K} \Omega[W] \ar{r}&
-	X_{C'}
-\end{tikzcd}
+	G \cdot_{K} 
+	\left( \Lambda^{\Xi_{W}}[W] \to \Omega[W] \right),
 \end{equation}
-where we note that inner edge set $\Xi_{W}$ is $K$-equivariant
-since $\Xi_W = \Xi \cap E^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
-The desired pushout will follow once we establish the following claims:
+where the inner edge set $\Xi_{W}$ is $K$-equivariant due to the $G$-equivariance of $\Xi$ in (Ch0).
+
+The desired pushout will follow once we establish the following three claims:
 \begin{enumerate}
 \item[(a)] all outer faces $V$ of $W$ are in $X_C$;
 \item[(b)] an inner face $W - D$ of $W$ is in $X_C$ iff 
 $D \not \subseteq \Xi_{W}$;
-\item[(c)] 
-the $G$-isotropy (i.e. the isotropy in $\mathsf{Face}(T)$)
-of faces 
-$W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
-%the $G$-isotropy of inner faces 
-%(i.e. their isotropy in $\mathsf{Face}(T)$)
-%is contained in $G_W$.
+\item[(c)] the $G$-isotropy of inner faces $W - D$ with 
+$D \subseteq \Xi_{W}$ 
+(i.e. their isotropy in $\mathsf{Face}(T)$)
+is contained in $K$.
 \end{enumerate}
 
 To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
@@ -3279,8 +3271,6 @@ To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
 	= \Xi_{\bar{V}}
 	\]
 where the second step follows from Lemma \ref{INNINT LEM}
-(applied to $V \hookrightarrow W \hookrightarrow U$, 
-$V \hookrightarrow \bar{V} \hookrightarrow U$)
 and the third since by definition of
 $\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{W} = \Xi_{\bar{W}}$.
 Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1) 
@@ -3296,11 +3286,8 @@ and $W'<W$, and thus $W' \in X_C$.
 
 For the ``only if'' direction of (b), the assumption $W \not \in X_C$ together with (Ch2) imply that
 $W'=W-\Xi_{W}$ is not in $X$, and hence it remains to show that 
-$W'$ is not a face of any $gV$ with $g\in G$, $V \in C$.
-Suppose otherwise, i.e. $W' \hookrightarrow gV$.
-If it were $g \not \in H$, 
-then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we may as well set $g=e$.
-But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
+$W'$ is not a face of any $V \in C$. Suppose otherwise.
+Then since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
 and by convexity of $C'$ it must in fact be 
 $ \bar{W} = \bar{V}$. But by definition of 
 $\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
@@ -3308,44 +3295,75 @@ $\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
 so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
 This contradicts the assumption $W \not \in X_C$.
 
-We now show (c).
-If $g(W-D)=W-D$ then $g(W - \Xi_W) \hookrightarrow U$
-and thus $W - \Xi_W \hookrightarrow g^{-1}U$,
-so that by (Ch3) it must be $g \in H$ or else it would be $W \in X$.
-Now suppose $h(W-D)=W-D$ with $h\in H$.
-Since $\Xi$ is $H$-equivariant (by (Ch0)) and
-$\Xi_{W-D} = \Xi_{W} \setminus D$ (due to $D \subseteq \Xi_{W}$) it follows that 
-$h(W-\Xi_W)=W-\Xi_W$,
-so that we may assume $D=\Xi_W$.
-Now note that
-$hW$, $h(W-\Xi_W)=W-\Xi_W$, $W$
-are all faces of $U$ with a common outer closure $\bar{W}$.
+We now show (c). Suppose $g(W-D)=W-D$ for some $g \in G$.
+The $G$-equivariance of $\Xi$ in (Ch0) then yields that
+$g \Xi_{W-D} = \Xi_{W-D}$, and since
+$\Xi_{W-D} = \Xi_{W} \setminus D$ 
+(due to $D \subseteq \Xi_{W}$), 
+it follows that it is also $g(W-\Xi_{W})=W-{\Xi_{W}}$.
+Abbreviate $W'=W-\Xi_{W}$.
+Since $W \hookrightarrow U$ it is also 
+$W' \hookrightarrow U$, and thus
+$gW' \hookrightarrow gU$ or, since $gW' = W'$, 
+$W' \hookrightarrow gU$.
+Thus $W$ meets the conditions in (Ch3.ii) and we obtain that
+$W \hookrightarrow gU$ or $g^{-1} W \hookrightarrow U$.
+Since $g^{-1}W' = g^{-1} W - g^{-1}\Xi_{W}$,
+all of $W$, $W'=g^{-1}W'$, $g^{-1}W$ have the same outer closure $\bar{W}$.
 Hence 
-$h\Xi_{W} = \Xi_{hW} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
-$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
-have the same outer closure and the same inner edges, and thus 
-$hW=W$, establishing (c).
+$g^{-1}\Xi_{W} = \Xi_{g^{-1}W} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
+$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $\Xi_{g^{-1}W} = \Xi_{W}$.
+But then $W,g^{-1}W$ are faces of $U$ with the same outer closure and the same edges, so that in fact
+$W=g^{-1}W$. Thus $g\in K$, as desired.
 
-Lastly, we address the case of general $I$.
-For each $G$-equivariant convex subset $J$ of $I$, set
+
+
+%We now show (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
+%Then $g\bar{V}'' = \bar{V}''$ or, equivalently, 
+%$g\bar{V}' = \bar{V}'$.
+%Further, the $G$-equivariance of $\Xi$ in (Ch0)
+%guarantees $g \Xi_{\bar{V}'} = \Xi_{\bar{V}'}$ or, by definition of $\mathsf{Face}_{\Xi}^{lex}(U)$, 
+%$g \Xi_{V'} = \Xi_{V'}$. 
+%Therefore, since $D \subseteq \Xi_{V'}$,
+%the assumption $gV'' = V''$, i.e.
+%$g(V'-D) = V'-D$,
+%implies 
+%$g(V'-\Xi_{V'}) = V'-\Xi_{V'}$
+%and thus also $g V' = V'$. 
+%Since $H'$ was defined as the $G$-isotropy of $V'$,
+%we obtain $g \in H'$, finishing the proof when $\{U_i\}$ is orbital.
+
+We now turn to the case of a general $\{U_i\}_{i \in I}$.
+For the well-ordering of the cosets $I/G$ given by (Ch3)
+and each convex subset $J$ of $I/G$, set
 \[
 	X_J = 
-	X \cup \bigcup_{j \in J} \Omega[U_j].
+	X \cup \bigcup_{g\in G,[j] \in J} \Omega[g U_j].
 \]
 As before, it suffices to check that for all convex subsets
 $J \subseteq J'$
 the map $X_J \to X_{J'}$ is built cellularly from $G$-inner horns,
-and again we can assume that $J'$ is obtained from $J$ by adding a single $G$-orbit $Gj$ of $I$.
-By the $I$ orbital case, it now suffices to check that
-$\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in Gj}$ with respect to $X_J$.
-(Ch0) is then clear, and since by $G$-equivariance and convexity it is $X_{<gj} \subseteq X_J$,
-the new (Ch1),(Ch2),(Ch3)
-conditions follow from the original conditions.
+and again we can assume that $J'$ is obtained from $J$ by adding a single $[j'] \in I/G$.
+By the $\{U_i\}$ orbital case, 
+it now suffices to check that
+$\Xi$ is also a characteristic inner edge set with respect to 
+$X_J$ and $\{U_{g j'}\}_{g j' \in [j']}$.
+But (Ch0) and (Ch3.i) for this new characteristic condition are obvious,
+the new (Ch1) condition is a particular case of the original (Ch1) condition, 
+the new (Ch2) condition readily follows from the original (Ch2) and (Ch3.i) conditions,
+and the new (Ch3.ii) condition likewise follows from the original (Ch3.ii) condition.
+%(in fact, one can check that the original (Ch3) condition is equivalent to
+%demanding that, in the case $V\not \in X$, 
+%the new (Ch2) condition holds for \textit{any possible choice} of $J$).
 \end{proof}
 
-{\color{red} HERE}
 
-
+\begin{remark}\label{CHAREDGE22 REM}
+It is clear from the final paragraph of the previous proof
+that one can replace the fixed edge set $\Xi$ with varying edge sets $\Xi^{[i]}$ for $[i]\in I/G$,
+and likewise replacing occurrences of $\Xi$ with $\Xi^{[i]}$ in 
+(Ch0),(Ch1),(Ch2),(Ch3).
+\end{remark}
 
 
 \begin{remark}\label{CHAREDGE2 REM}
@@ -3505,7 +3523,7 @@ e original argument, need $\Xi^{[i]}$}.
 
 
 
-\subsection{Horns}
+
 
 
 \begin{proposition}\label{ORB_HORN_THM}
@@ -3529,43 +3547,33 @@ There are two main cases,
 $E=\emptyset$ and $E\neq \emptyset$.
 
 If $E=\emptyset$ then $\Lambda_o^{E}[T] = \Omega[T]$ and we apply
-Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
+Lemma \ref{CHAREDGE LEM}
+	with 
 \[
-	\Xi^{\**} = F, \qquad 
-	U_{\**} = T,\qquad
-	X=\Lambda_o^{F}[T].
+	\Xi = F, \qquad 
+	X=\Lambda_o^{F}[T], \qquad
+	\{U_i\}=\left\{T\right\}.
 \]
 It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
 	(Ch0) and (Ch3) are clear.
-	
-	Note for $V\hookrightarrow T$ it is $V \not \in X$ iff 
-	$GV$ has the form $T-F'$ for some $G$-equivariant subset
-	$F' \subseteq F$.
 
 	For (Ch1), the condition $\Xi_{V} = \emptyset$
 	says that none of the inner edges of $V$ are in $F$,
-	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$ as inner edge orbits. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
-	and hence $X=\Lambda_o^{F}[T]$ contains $V$.
+	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
+	and hence $X=\Lambda_o^{F}[T]$ contains $G V$ and thus also $V$.
 
-	For (Ch2), note that if $V \not \in X$, i.e., 
-	$GV = T - F'$, then Remark \ref{GINNER REM} implies that
-	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$,
-	and thus also $(V-\Xi_V) \not \in X$.
-	
-	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with $I = F/G$, with an 
-	\textit{arbitrary} choice of total order, and 
-	(writing elements of $F/G$ as subsets $Gf \subseteq F$)
+	For (Ch2), note first that $V$ will be in $X=\Lambda_o^{F}[T]$
+	unless $GV$ has the form $T - F'$ for some $G$-equivariant subset $F' \subseteq F$. But hence by Remark \ref{GINNER REM} it is
+	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$ and thus $(V-\Xi_V)$ is not in $X=\Lambda_o^{F}[T]$.
+
+	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with
 \[
-	\Xi^{Gf} = E, \qquad 
-	U_{G f}= T - Gf, \qquad
-	X=\Lambda_o^{E\amalg F}[T].
+	\Xi = E, \qquad X=\Lambda_o^{E\amalg F}[T], \qquad
+	\{U_i\}=\left\{T - Gf\right\}_{Gf \subseteq F}.
 \]
-
 Note that the $U_i$ are the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
 in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
-Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since this
-depends only on $V \hookrightarrow T$ and not on $Gf$.
-We again check the characteristic conditions. (Ch0) is clear.
+We must again check the characteristic conditions. (Ch0) and (Ch3') are clear.
 
 	For (Ch1), note that for an outer face 
 	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
@@ -3573,16 +3581,13 @@ We again check the characteristic conditions. (Ch0) is clear.
 	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
 	and hence since $\Xi_{U_i}=\Xi$ the 
 	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
-	$\Xi_{\bar{V}} = \emptyset$.
+	$\Xi_{V} = \emptyset$.
 	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
 	The argument for (Ch2) is identical to the one in the case
 	$E=\emptyset$.
-	Lastly, (Ch3) follows since	if $V \not \in X$, so that
-	$GV = T - F'-E'$ and $G(V - \Xi_V) = T-F'-E''$ with
-	$F' \subseteq F$, $E' \subseteq E'' \subseteq E$,
-	then $GV \hookrightarrow T-Gf$ iff $G(V - \Xi_V) \hookrightarrow T-Gf$
-	and thus $V \hookrightarrow T-Gf$ iff $V - \Xi_V \hookrightarrow T-Gf$.
 \end{proof}
+
+
 
 
 \begin{proposition} Inclusions of (regular) $G$-inner horns
@@ -3593,38 +3598,561 @@ are $G$-inner anodyne.
 \end{proposition}
 
 \begin{proof}
-The case $E = \emptyset$ is now tautological,
-hence we can now assume that both $E,F \neq \emptyset$.
-
-We now apply Lemma \ref{CHAREDGE LEM} with 
-$I = \mathcal{P}_0(F)$
-the poset of non-empty subsets $\emptyset \neq F' \subseteq F$, ordered by \textit{reverse inclusion}, and
+This is an easier analogue of the previous result, hence we merely indicate how to apply Lemma \ref{CHAREDGE LEM}.
+Again we can assume $T\in \Omega^G$ and the case $E=\emptyset$ is tautological. Otherwise, set
 \[
-	\Xi^{F'} = E, \qquad
-	U_{F'} = T - F', \qquad
-	X=\Lambda^{E\amalg F}[T].
+	\Xi = E, \qquad X=\Lambda^{E\amalg F}[T], \qquad
+	\{U_i\}=\left\{T - f\right\}_{f \in F}.
 \]
-We again need to verify the characteristic conditions,
-and as in the previous result we can abbreviate
-$\Xi_V = \Xi^{F'}_V$.
-(Ch0) is clear. (Ch1) follows from an easier version of the argument in the previous proof.
-(Ch2) follows since $V \in X$ iff $V-\Xi_V \in X$.
-Similarly,
-(Ch3) follows since 
-$V \hookrightarrow T-F'$ iff $(V-\Xi_V) \hookrightarrow T-F'$
-and since if
-$V \hookrightarrow T-F',V \hookrightarrow T-F''$
-then 
-$V \hookrightarrow T-(F' \cup F'')$.
+\end{proof}
+
+\newpage
+
+\subsection{[Workshop] The characteristic edge argument}
+
+
+\begin{definition}\label{CHAREDGEPL DEF}
+Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
+
+Given a set $\Xi^i$ of inner edges of $U_i$ and a subface $V \hookrightarrow U_i$, denote $\Xi_V^i = \Xi^i \cap E^{\mathsf{i}}(V)$.
+
+Suppose further that the indexing set $I$ is a $G$-set
+and that a well-ordering of $I/G$ has been chosen.
+For each orbit $[i] \in I/G$ denote
+\[
+X_{<[i]} = X \cup \bigcup_{j \colon [j]<[i]} \Omega[U_j]
+\]
+We say that $\{\Xi^i \subseteq E^{\mathsf{i}}(U_i)\}$ 
+is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $X$} if:
+\begin{itemize}
+	\item[(Ch0)] $X$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g X = X$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
+	\item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
+		of $U_i$ such that $\Xi_{V}^i = \emptyset$
+		is contained in $X_{<[i]}$;
+	\item[(Ch2)] for all $i$, any face
+		$V \hookrightarrow U_i$ such that $(V-\Xi_V^i) \in X$
+		is contained in $X_{<[i]}$;
+	\item[(Ch3.1)] for all $[j] \not \geq [i]$, 
+		all faces $V \hookrightarrow U_i$ such that 
+		$(V-\Xi^i_V) \hookrightarrow U_j$
+		are contained in $X_{<[i]}$;
+	\item[(Ch3.2)] for all $i \in I$, $g\in G$,
+		all faces $V \hookrightarrow U_i$ such that 
+		$(V-\Xi^i_V) \hookrightarrow g U_i$
+		are contained in either $g U_i$ or $X_{<[i]}$;
+	\item[(Ch4)] for all $i \in I$, $g\in G$, all faces
+		$V \hookrightarrow U_i$ such that 
+		$gV = V$ either satisfy $g \Xi^i_V = \Xi^i_V$ or are contained in $X_{<[i]}$.
+\end{itemize}
+\end{definition}
+
+
+
+{\color{red} rework this remark}
+
+\begin{remark}\label{XIIII REM}
+	For each $V \hookrightarrow U_i$, write $G_V \leq G$ for the isotropy of $V$ in $\mathsf{Face(T)}$. We set
+\[
+	\Xi^{[i]}_V 
+	= \bigcup_{g \in G_V} \Xi^{gi}_V
+	= \bigcup_{g \in G_V} g \Xi^{i}_{V}
+\]
+where the second equality follows 
+since $\Xi^{gi}_V = g\Xi^i_{g^{-1}V} = g \Xi_V^i$
+by (Ch0) and the definition of $G_V$.
+
+By letting (Ch1),(Ch2),(Ch3.1),(Ch3.2) range over the inclusions
+$V \hookrightarrow U_{gi}$ for $g \in G_V$,
+one sees that these conditions are equivalent to their analogues with $\Xi^{i}_V$ replaced with $\Xi^{[i]}_V$ throughout.
+\end{remark}
+
+
+\begin{lemma}\label{CHAREDGEPL LEM}
+If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{i\in I}$ with respect to $X$, then the map
+\begin{equation}\label{CHARLEMPL EQ}
+	X \to X \cup \bigcup_{i \in I} \Omega[U_i]
+\end{equation}
+is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+\end{lemma}
+
+
+\begin{proof}
+We start with the case of $I \simeq G/G_U$ orbital so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
+Note that $G_U$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
+We likewise abbreviate $\Xi_V = \Xi_V^{[e]}$ for 
+$V \hookrightarrow U$.
+Moreover, in this case one has $X_{<[i]}=X$ (for $[i]\in I/G$ the single $G$-orbit)
+in (Ch1),(Ch2),(Ch3.2),(Ch4) and (Ch3.1) is vacuous.
+
+We write $\mathsf{Face}_{\Xi}^{lex}(U)$
+for the $G_U$-poset of (planar) faces $V \hookrightarrow U$
+such that $\Xi_V \neq \emptyset$ and $\Xi_V = \Xi_{\bar{V}}$
+ordered as follows: 
+$V \leq V'$ if either 
+	\begin{inparaenum}
+		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
+		$\bar{V} \neq \bar{V}'$ or
+		\item[(ii)] $\bar{V} = \bar{V}'$ and
+		$V \hookrightarrow V'$
+	\end{inparaenum}
+(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
+$\bar{V}=\bar{V}^U$.
+
+For any $G_U$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write
+\[
+X_C = 
+X \cup \bigcup_{g\in G,V \in C} \Omega[gV].
+\]
+It now suffices to show that whenever
+$C \subseteq C'$
+the map 
+$X_C \to X_{C'}$ is built cellularly from 
+$G$-inner horn inclusions
+(indeed, setting $C=\emptyset$ and 
+$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}
+when $I \simeq G/H$).
+
+
+Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $G_U$-orbit of a single $W \hookrightarrow U$. Further, we may assume $W \not \in X_C$ or else $X_C=X_{C'}$.
+Recalling that $G_W \leq G$ denotes the isotropy of $W$ in $\mathsf{Face}(T)$ and regarding $W \in \Omega^{G_W}\subseteq \Omega_{G_W}$, we claim that $X_C \to X_{C'}$ is then the pushout of the $G$-inner horn
+\begin{equation}\label{FIRPUSH EQ}
+	G \cdot_{G_W} 
+	\left( \Lambda^{\Xi_{W}}[W] \to \Omega[W] \right),
+\end{equation}
+where the inner edge set $\Xi_{W}$ is $G_W$-equivariant by (Ch4).
+
+The desired pushout will follow once we establish the following three claims:
+\begin{enumerate}
+\item[(a)] all outer faces $V$ of $W$ are in $X_C$;
+\item[(b)] an inner face $W - D$ of $W$ is in $X_C$ iff 
+$D \not \subseteq \Xi_{W}$;
+\item[(c)] for those inner faces 
+$W - D$ with $D \subseteq \Xi_{W}$ 
+it is $G_{W-D} \leq G_W$.
+%the $G$-isotropy of inner faces 
+%(i.e. their isotropy in $\mathsf{Face}(T)$)
+%is contained in $G_W$.
+\end{enumerate}
+
+To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
+	\[
+	\Xi_V = \Xi \cap E^{\mathsf{i}} (V) 
+	= \Xi \cap E^{\mathsf{i}}(W) \cap E^{\mathsf{i}}(\bar{V})
+	= \Xi \cap E^{\mathsf{i}}(\bar{W}) \cap E^{\mathsf{i}}(\bar{V})
+	= \Xi \cap E^{\mathsf{i}}(\bar{V})
+	= \Xi_{\bar{V}}
+	\]
+where the second step follows from Lemma \ref{INNINT LEM}
+and the third since by definition of
+$\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{W} = \Xi_{\bar{W}}$.
+Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1) 
+or $\Xi_V = \Xi_{\bar{V}} \neq \emptyset$
+so that $V \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $V<W$, and thus $V\in C$. In either case one has $V \in X_C$.
+
+We now check the ``if'' direction of (b).
+If $D \not \subseteq \Xi_{W}$
+then $W' = W - (D \setminus \Xi_{W})$
+is in $\mathsf{Face}_{\Xi}^{lex}(U)$
+(since $\bar{W}' = \bar{W}$ and $\Xi_{W'} = \Xi_{W}$)
+and $W'<W$, and thus $W' \in X_C$.
+
+For the ``only if'' direction of (b), the assumption $W \not \in X_C$ together with (Ch2) imply that
+$W'=W-\Xi_{W}$ is not in $X$, and hence it remains to show that 
+$W'$ is not a face of any $V \in C$. Suppose otherwise.
+Then since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
+and by convexity of $C'$ it must in fact be 
+$ \bar{W} = \bar{V}$. But by definition of 
+$\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
+$\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
+so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
+This contradicts the assumption $W \not \in X_C$.
+
+We now show (c). Suppose $g(W-D)=W-D$ for some $g \in G$.
+Since $\Xi_{W-D} = \Xi_{W} \setminus D$ 
+(due to $D \subseteq \Xi_{W}$)
+and the fact that by (Ch4) it is $g\Xi^i_{W-D}= \Xi^i_{W-D}$,
+one obtains that it is also 
+$g(W-\Xi_W)=W-\Xi_W$, and thus one reduces to showing that
+$G_{W- \Xi_W} \leq G_W$ (as a side note, (Ch4) implies the reverse inequality $G_{W- \Xi_W} \geq G_W$).
+Write
+\[\Xi^*_W = \bigcup_{g \in G_{W-\Xi_W}} g \Xi_W.\]
+$\Xi^{*}_W$ is clearly $G_{W- \Xi_W}$-equivariant,
+and we further claim that all edges of $\Xi^*_W$ are inner edges of $\bar{W}$.
+Indeed, since $\Xi^{[g]}_{g W} = g\Xi^{[e]}_W = g\Xi_W$ and
+$gW,W$ have the same root and leaves, it suffices to show
+$gW \hookrightarrow U$ or, equivalently,
+$W \hookrightarrow g^{-1}U$, and this follows from (Ch3.2) since
+$W-\Xi_W = g^{-1}(W-\Xi_W)\hookrightarrow g^{-1}U$.
+Therefore, there is an inner face $W^{\**} \hookrightarrow \bar{W}$
+such that $W^{\**} - \Xi^{\**}_W = W - \Xi_W$.
+Note that $W^{\**}$ is clearly $G_{W-\Xi_W}$-equivariant since both $W^{\**} - \Xi^{\**}_W$ and $\Xi^{\**}_W$ are.
+Now note that 
+$\Xi_{W} \leq \Xi_{W^{\**}} \leq \Xi_{\bar{W}} = \Xi_{W}$
+(where the last equality is by definition of $\mathsf{Face}_{\Xi}^{lex}(U)$) and thus $\Xi_{W^{\**}} = \Xi_{W}$,
+so that in fact $W^{\**} = W$, 
+establishing $G_{W-\Xi_W} \leq G_W$ as desired
+(and a posteriori $\Xi_W = \Xi^{\**}_W$).
+
+
+%The $G$-equivariance of $\Xi$ in (Ch0) then yields that
+%$g \Xi_{W-D} = \Xi_{W-D}$, and since
+%$\Xi_{W-D} = \Xi_{W} \setminus D$ 
+%(due to $D \subseteq \Xi_{W}$), 
+%it follows that it is also $g(W-\Xi_{W})=W-{\Xi_{W}}$.
+%Abbreviate $W'=W-\Xi_{W}$.
+%Since $W \hookrightarrow U$ it is also 
+%$W' \hookrightarrow U$, and thus
+%$gW' \hookrightarrow gU$ or, since $gW' = W'$, 
+%$W' \hookrightarrow gU$.
+%Thus $W$ meets the conditions in (Ch3.ii) and we obtain that
+%$W \hookrightarrow gU$ or $g^{-1} W \hookrightarrow U$.
+%Since $g^{-1}W' = g^{-1} W - g^{-1}\Xi_{W}$,
+%all of $W$, $W'=g^{-1}W'$, $g^{-1}W$ have the same outer closure $\bar{W}$.
+%Hence 
+%$g^{-1}\Xi_{W} = \Xi_{g^{-1}W} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
+%$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $\Xi_{g^{-1}W} = \Xi_{W}$.
+%But then $W,g^{-1}W$ are faces of $U$ with the same outer closure and the same edges, so that in fact
+%$W=g^{-1}W$. Thus $g\in K$, as desired.
+
+
+
+%We now show (c). Write $V''=V'-D$ and suppose $gV'' = V''$ for some $g \in G$.
+%Then $g\bar{V}'' = \bar{V}''$ or, equivalently, 
+%$g\bar{V}' = \bar{V}'$.
+%Further, the $G$-equivariance of $\Xi$ in (Ch0)
+%guarantees $g \Xi_{\bar{V}'} = \Xi_{\bar{V}'}$ or, by definition of $\mathsf{Face}_{\Xi}^{lex}(U)$, 
+%$g \Xi_{V'} = \Xi_{V'}$. 
+%Therefore, since $D \subseteq \Xi_{V'}$,
+%the assumption $gV'' = V''$, i.e.
+%$g(V'-D) = V'-D$,
+%implies 
+%$g(V'-\Xi_{V'}) = V'-\Xi_{V'}$
+%and thus also $g V' = V'$. 
+%Since $H'$ was defined as the $G$-isotropy of $V'$,
+%we obtain $g \in H'$, finishing the proof when $\{U_i\}$ is orbital.
+
+We now turn to the case of a general $\{U_i\}_{i \in I}$.
+For each convex subset $J$ of $I/G$, set
+\[
+	X_J = 
+	X \cup \bigcup_{g\in G,[j] \in J} \Omega[g U_j].
+\]
+As before, it suffices to check that for all convex subsets
+$J \subseteq J'$
+the map $X_J \to X_{J'}$ is built cellularly from $G$-inner horns,
+and again we can assume that $J'$ is obtained from $J$ by adding a single $[j] \in I/G$.
+By the $\{U_i\}$ orbital case, 
+it now suffices to check that
+$\{\Xi^{gj}\}_{gj \in [j]}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in [j]}$
+with respect to 
+$X_J$.
+(Ch0) is then clear, and since by convexity it it $X_{<[j]} \subseteq X_J$,
+all of the new (Ch1),(Ch2),(Ch3.1),(Ch3.2),(Ch4)
+conditions follow from the original conditions.
 \end{proof}
 
 {\color{red} HERE}
 
-\begin{remark}
-	By specifying to the non-equivariant case $G = \**$
-	in the case $E,F \neq \emptyset$,
-	the previous results yield two distinct proofs
+\begin{example} Consider the $\mathbb{Z}_{/2}$-tree below, where we write $\mathbb{Z}_{/2} = \{\pm 1\}$.
+\[%
+	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
+	\begin{scope}[level distance = 2.1em]
+	\tikzstyle{level 2}=[sibling distance=5em]%
+	\tikzstyle{level 3}=[sibling distance=2.5em]%
+		\node at (0,0) {$T$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+						child{
+						edge from parent [swap] node{$-a$}}
+					edge from parent node [near end,swap] {$-c$}}%
+					child{node [dummy] {}
+						child{
+						edge from parent node{$-b$}}
+					edge from parent node [near end]{$-d$}}%
+				edge from parent node [swap] {$-e$}}%
+				child[sibling distance=3.5em, level distance = 2.7em]{node [dummy] {}%
+					child{
+					edge from parent [swap] node{$-f$}}
+				edge from parent node [swap,near end] {$-g$}}%
+				child[sibling distance=3.5em, level distance = 2.7em]{node [dummy] {}%
+					child{
+					edge from parent node {$\phantom{-}f$}}%
+				edge from parent node [near end] {$\phantom{-}g$}}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+						child{
+						edge from parent node[swap]{$b\phantom{-}$}}
+					edge from parent node [near end,swap] {$d\phantom{-}$}}%
+					child{node [dummy] {}
+						child{
+						edge from parent node{$\phantom{-}a$}}
+					edge from parent node [near end]{$\phantom{-}c$}}%
+				edge from parent node {$\phantom{-}e$}}%
+			edge from parent node [swap] {$r$}};%
+	\end{scope}
+	\end{tikzpicture}%
+\]%
+Then for the subtree $U$ depicted below we write
+$E^{\mathsf{i}}(U) \supset \Xi^{+} = \{c,-d\}$ and
+$E^{\mathsf{i}}(-U) \supset \Xi^{-} = \{-c,d\}$.
+\[%
+	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
+	\begin{scope}[level distance = 2.1em]
+	\tikzstyle{level 2}=[sibling distance=5em]%
+	\tikzstyle{level 3}=[sibling distance=2.5em]%
+		\node at (0,0) {$U$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+						child{
+						edge from parent [swap] node{$-a$}}
+					edge from parent node [near end,swap] {$-c$}}%
+					child{node [dummy] {}
+						child{
+						edge from parent node{$-b$}}
+					edge from parent node [near end]{$-d$}}%
+				edge from parent node [swap] {$-e$}}%
+				child[sibling distance=3.5em, level distance = 2.7em]{
+				edge from parent node [swap,near end] {$-g$}}%
+				child[sibling distance=3.5em, level distance = 2.7em]{
+				edge from parent node [near end] {$\phantom{-}f$}}%
+				child{node [dummy] {}%
+					child{node [dummy] {}
+						child{
+						edge from parent node[swap]{$b\phantom{-}$}}
+					edge from parent node [near end,swap] {$d\phantom{-}$}}%
+					child{node [dummy] {}
+						child{
+						edge from parent node{$\phantom{-}a$}}
+					edge from parent node [near end]{$\phantom{-}c$}}%
+				edge from parent node {$\phantom{-}e$}}%
+			edge from parent node [swap] {$r$}};%
+	\end{scope}
+	\begin{scope}[level distance = 2.1em]
+	\tikzstyle{level 2}=[sibling distance=3em]%
+	\tikzstyle{level 3}=[sibling distance=2.5em]%
+		\node at (6,0) {$W$}%
+			child{node [dummy] {}%
+				child{node [dummy] {}
+					child{
+					edge from parent node[swap]{$b\phantom{-}$}}
+				edge from parent node [near end,swap] {$d\phantom{-}$}}%
+				child{node [dummy] {}
+					child{
+					edge from parent node{$\phantom{-}a$}}
+				edge from parent node [near end]{$\phantom{-}c$}}%
+			edge from parent node [swap] {$\phantom{-}e$}};%
+	\end{scope}
+	\end{tikzpicture}%
+\]%
+We now let $X \subseteq \Omega[T]$ be the smallest subcomplex
+that contains all outer faces of
+$\pm U$ that \textit{contain neither of} $\pm W$.
+
+We claim that $\{\Xi^{\pm}\}$ is a characteristic collection of
+$\{\pm U\}$ with respect to $X$. (Ch0) is clear, as is (Ch1). 
+Since all common faces of $U$ and $-U$ factor through with $r$ or $\pm W$, all of which are outer in both of $U$, $-U$,
+(Ch3.2) follows. Moreover, the intersection $X \cap U$ is a hence a cover of $U$ and thus (Ch2) follows as well. (Ch4) is obvious since the root $r$ is the only face with non-trivial isotropy.
+ 
+
+
+\end{example}
+
+\newpage
+
+
+\subsection{[Workshop 2] The characteristic edge argument}
+
+
+\begin{definition}\label{CHAREDGEPL DEF}
+Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
+
+Given a set $\Xi^i$ of inner edges of $U_i$ and a subface $V \hookrightarrow U_i$, denote $\Xi_V^i = \Xi^i \cap E^{\mathsf{i}}(V)$.
+
+Suppose further that the indexing set $I$ is a 
+finite $G$-poset. For each $i \in I$ denote
+\[
+X_{<i} = X \cup \bigcup_{j \colon j<i} \Omega[U_j]
+\]
+We say that $\{\Xi^i \subseteq E^{\mathsf{i}}(U_i)\}$ 
+is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $X$} if:
+\begin{itemize}
+	\item[(Ch0)] $X$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g X = X$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
+	\item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
+		of $U_i$ such that $\Xi_{V}^i = \emptyset$
+		is contained in $X_{<i}$;
+	\item[(Ch2)] for all $i$, any face
+		$V \hookrightarrow U_i$ such that $(V-\Xi_V^i) \in X$
+		is contained in $X_{<i}$;
+	\item[(Ch3)] for all $j \not \geq i$, 
+		all faces $V \hookrightarrow U_i$ such that 
+		$(V-\Xi^i_V) \hookrightarrow U_j$
+		are contained in $X_{<i}$.
+\end{itemize}
+\end{definition}
+
+
+\begin{remark}\label{XIIII REM}
+If $g i \neq i$, then $i,g i$ are incomparable in $I$. Indeed, otherwise $i<gi<g^2i<g^3i<\cdots$ would violate antisymmetry.
+Therefore, (Ch3) applies whenever $j=gi$ for $gi\neq i$.
+
+In particular, we assume throughout that if
+$gi \neq i$ then $U_{gi} \neq U_i$,
+or else it would be $U_i \in X_{<i}$.
 \end{remark}
+
+
+\begin{lemma}\label{CHAREDGEPL LEM}
+If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{i\in I}$ with respect to $X$, then the map
+\begin{equation}\label{CHARLEMPL EQ}
+	X \to X \cup \bigcup_{i \in I} \Omega[U_i]
+\end{equation}
+is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+\end{lemma}
+
+
+\begin{proof}
+We start with the case of $I \simeq G/H$ orbital so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
+Note that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
+We likewise abbreviate $\Xi = \Xi^{[e]}$ and
+$\Xi_V = \Xi_V^{[e]}$ for $V \hookrightarrow U$.
+Moreover, in this case one has $X_{<[g]}=X$ in (Ch1),(Ch2),(Ch3).
+
+We write $\mathsf{Face}_{\Xi}^{lex}(U)$
+for the $H$-poset of planar faces $V \hookrightarrow U$
+such that $\Xi_V \neq \emptyset$ and $\Xi_V = \Xi_{\bar{V}}$
+ordered as follows: 
+$V \leq V'$ if either
+	\begin{inparaenum}
+		\item[(i)] $\bar{V} \hookrightarrow \bar{V}'$ and 
+		$\bar{V} \neq \bar{V}'$ or
+		\item[(ii)] $\bar{V} = \bar{V}'$ and
+		$V \hookrightarrow V'$
+	\end{inparaenum}
+(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
+$\bar{V}=\bar{V}^U$.
+
+For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write
+\[
+X_C = 
+X \cup \bigcup_{g\in G,V \in C} \Omega[gV].
+\]
+It now suffices to show that whenever
+$C \subseteq C'$
+the map 
+$X_C \to X_{C'}$ is built cellularly from 
+$G$-inner horn inclusions
+(indeed, setting $C=\emptyset$ and 
+$C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}
+when $I \simeq G/H$).
+
+Without loss of generality we can assume that $C'$ is obtained from $C$ by adding the $H$-orbit of a single $W \hookrightarrow U$. Further, we may assume $W \not \in X_C$ or else $X_C=X_{C'}$.
+Letting $K \leq H$ denote the isotropy of 
+$W$ in $\mathsf{Face}_{\Xi}^{lex}(U)$ and regarding $W \in \Omega^{K}\subseteq \Omega_{K}$, we claim there is a pushout diagram
+\begin{equation}\label{FIRPUSH EQ}
+\begin{tikzcd}
+	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d} \ar{r}&
+	X_C \ar{d}
+\\
+	G \cdot_{K} \Omega[W] \ar{r}&
+	X_{C'}
+\end{tikzcd}
+\end{equation}
+where we note that inner edge set $\Xi_{W}$ is $K$-equivariant
+since $\Xi_W = \Xi \cap E^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
+The desired pushout will follow once we establish the following claims:
+\begin{enumerate}
+\item[(a)] all outer faces $V$ of $W$ are in $X_C$;
+\item[(b)] an inner face $W - D$ of $W$ is in $X_C$ iff 
+$D \not \subseteq \Xi_{W}$;
+\item[(c)] 
+the $G$-isotropy (i.e. the isotropy in $\mathsf{Face}(T)$)
+of faces 
+$W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
+%the $G$-isotropy of inner faces 
+%(i.e. their isotropy in $\mathsf{Face}(T)$)
+%is contained in $G_W$.
+\end{enumerate}
+
+To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
+	\[
+	\Xi_V = \Xi \cap E^{\mathsf{i}} (V) 
+	= \Xi \cap E^{\mathsf{i}}(W) \cap E^{\mathsf{i}}(\bar{V})
+	= \Xi \cap E^{\mathsf{i}}(\bar{W}) \cap E^{\mathsf{i}}(\bar{V})
+	= \Xi \cap E^{\mathsf{i}}(\bar{V})
+	= \Xi_{\bar{V}}
+	\]
+where the second step follows from Lemma \ref{INNINT LEM}
+(applied to $V \hookrightarrow W \hookrightarrow U$, 
+$V \hookrightarrow \bar{V} \hookrightarrow U$)
+and the third since by definition of
+$\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{W} = \Xi_{\bar{W}}$.
+Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1) 
+or $\Xi_V = \Xi_{\bar{V}} \neq \emptyset$
+so that $V \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $V<W$, and thus $V\in C$. In either case one has $V \in X_C$.
+
+We now check the ``if'' direction of (b).
+If $D \not \subseteq \Xi_{W}$
+then $W' = W - (D \setminus \Xi_{W})$
+is in $\mathsf{Face}_{\Xi}^{lex}(U)$
+(since $\bar{W}' = \bar{W}$ and $\Xi_{W'} = \Xi_{W}$)
+and $W'<W$, and thus $W' \in X_C$.
+
+For the ``only if'' direction of (b), the assumption $W \not \in X_C$ together with (Ch2) imply that
+$W'=W-\Xi_{W}$ is not in $X$, and hence it remains to show that 
+$W'$ is not a face of any $gV$ with $g\in G$, $V \in C$.
+Suppose otherwise, i.e. $W' \hookrightarrow gV$.
+If it were $g \not \in H$, 
+then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we may as well set $g=e$.
+But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
+and by convexity of $C'$ it must in fact be 
+$ \bar{W} = \bar{V}$. But by definition of 
+$\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
+$\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
+so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
+This contradicts the assumption $W \not \in X_C$.
+
+We now show (c).
+If $g(W-D)=W-D$ then $g(W - \Xi_W) \hookrightarrow U$
+and thus $W - \Xi_W \hookrightarrow g^{-1}U$,
+so that by (Ch3) it must be $g \in H$ or else it would be $W \in X$.
+Now suppose $h(W-D)=W-D$ with $h\in H$.
+Since $\Xi$ is $H$-equivariant (by (Ch0)) and
+$\Xi_{W-D} = \Xi_{W} \setminus D$ (due to $D \subseteq \Xi_{W}$) it follows that 
+$h(W-\Xi_W)=W-\Xi_W$,
+so that we may assume $D=\Xi_W$.
+Now note that
+$hW$, $h(W-\Xi_W)=W-\Xi_W$, $W$
+are all faces of $U$ with a common outer closure $\bar{W}$.
+Hence 
+$h\Xi_{W} = \Xi_{hW} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
+$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
+have the same outer closure and the same inner edges, and thus 
+$hW=W$, establishing (c).
+
+Lastly, we address the case of general $I$.
+For each $G$-equivariant convex subset $J$ of $I$, set
+\[
+	X_J = 
+	X \cup \bigcup_{j \in J} \Omega[U_j].
+\]
+As before, it suffices to check that for all convex subsets
+$J \subseteq J'$
+the map $X_J \to X_{J'}$ is built cellularly from $G$-inner horns,
+and again we can assume that $J'$ is obtained from $J$ by adding a single $G$-orbit $Gj$ of $I$.
+By the $I$ orbital case, it now suffices to check that
+$\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in Gj}$ with respect to $X_J$.
+(Ch0) is then clear, and since by $G$-equivariance and convexity it is $X_{<gj} \subseteq X_J$,
+the new (Ch1),(Ch2),(Ch3)
+conditions follow from the original conditions.
+\end{proof}
+
+{\color{red} HERE}
+
+
 
 
 
