@@ -98,6 +98,167 @@ The following are the categories currently with model structures and the right a
 
 
 
+\section{Preliminary section}
+
+\subsection{Preliminary definitions}
+
+
+
+\subsection{The characteristic edge argument}
+
+
+
+\subsection{Segal covers and horns}
+
+
+\begin{proposition}\label{ORB_HORN_THM}
+      Inclusions of orbital $G$-inner horns
+\begin{equation}\label{ORBHORNINC EQ}
+	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{E}[T]
+\end{equation}
+are $G$-inner anodyne.
+\end{proposition}
+
+
+\begin{proof}
+We are free to assume that $T \in \Omega^G \hookrightarrow \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
+$E_{\**}=E \cap E^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap E^{\mathsf{i}}(T_{\**})$,
+the map \eqref{ORBHORNINC EQ} is
+$G \cdot_H 
+\left( \Lambda_o^{E_{\**} \amalg F_{\**}}[T_{\**}] \to \Lambda_o^{E_{\**}}[T_{\**}]\right)$.
+
+Further, we are clearly free to assume $F \neq \emptyset$.
+There are two main cases, 
+$E=\emptyset$ and $E\neq \emptyset$.
+
+If $E=\emptyset$ then $\Lambda_o^{E}[T] = \Omega[T]$ and we apply
+Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
+\[
+	\Xi^{\**} = F, \qquad 
+	U_{\**} = T,\qquad
+	X=\Lambda_o^{F}[T].
+\]
+It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
+	(Ch0) and (Ch3) are clear.
+	
+	Note for $V\hookrightarrow T$ it is $V \not \in X$ iff 
+	$GV$ has the form $T-F'$ for some $G$-equivariant subset
+	$F' \subseteq F$.
+
+	For (Ch1), the condition $\Xi_{V} = \emptyset$
+	says that none of the inner edges of $V$ are in $F$,
+	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$ as inner edge orbits. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
+	and hence $X=\Lambda_o^{F}[T]$ contains $V$.
+
+	For (Ch2), note that if $V \not \in X$, i.e., 
+	$GV = T - F'$, then Remark \ref{GINNER REM} implies that
+	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$,
+	and thus also $(V-\Xi_V) \not \in X$.
+	
+	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with $I = F/G$, with an 
+	\textit{arbitrary} choice of total order, and 
+	(writing elements of $F/G$ as subsets $Gf \subseteq F$)
+\[
+	\Xi^{Gf} = E, \qquad 
+	U_{G f}= T - Gf, \qquad
+	X=\Lambda_o^{E\amalg F}[T].
+\]
+
+Note that the $U_i$ are the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
+in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
+Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since this
+depends only on $V \hookrightarrow T$ and not on $Gf$.
+We again check the characteristic conditions. (Ch0) is clear.
+
+	For (Ch1), note that for an outer face 
+	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
+	Lemma \ref{INNINT LEM} implies
+	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
+	and hence since $\Xi_{U_i}=\Xi$ the 
+	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
+	$\Xi_{\bar{V}} = \emptyset$.
+	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
+	The argument for (Ch2) is identical to the one in the case
+	$E=\emptyset$.
+	Lastly, (Ch3) follows since	if $V \not \in X$, so that
+	$GV = T - F'-E'$ and $G(V - \Xi_V) = T-F'-E''$ with
+	$F' \subseteq F$, $E' \subseteq E'' \subseteq E$,
+	then $GV \hookrightarrow T-Gf$ iff $G(V - \Xi_V) \hookrightarrow T-Gf$
+	and thus $V \hookrightarrow T-Gf$ iff $V - \Xi_V \hookrightarrow T-Gf$.
+\end{proof}
+
+
+\begin{proposition} Inclusions of (regular) $G$-inner horns
+\begin{equation}
+	\Lambda^{E \amalg F}[T] \to \Lambda^{E}[T]
+\end{equation}
+are $G$-inner anodyne.
+\end{proposition}
+
+\begin{proof}
+The case $E = \emptyset$ is now tautological,
+hence we can now assume that both $E,F \neq \emptyset$.
+
+We now apply Lemma \ref{CHAREDGE LEM} with 
+$I = \mathcal{P}_0(F)$
+the poset of non-empty subsets $\emptyset \neq F' \subseteq F$, ordered by \textit{reverse inclusion}, and
+\[
+	\Xi^{F'} = E, \qquad
+	U_{F'} = T - F', \qquad
+	X=\Lambda^{E\amalg F}[T].
+\]
+We again need to verify the characteristic conditions,
+and as in the previous result we can abbreviate
+$\Xi_V = \Xi^{F'}_V$.
+(Ch0) is clear. (Ch1) follows from an easier version of the argument in the previous proof.
+(Ch2) follows since $V \in X$ iff $V-\Xi_V \in X$.
+Similarly,
+(Ch3) follows since 
+$V \hookrightarrow T-F'$ iff $(V-\Xi_V) \hookrightarrow T-F'$
+and since if
+$V \hookrightarrow T-F',V \hookrightarrow T-F''$
+then 
+$V \hookrightarrow T-(F' \cup F'')$.
+\end{proof}
+
+
+\begin{remark}
+	By specifying to the non-equivariant case $G = \**$
+	in the case $E,F \neq \emptyset$,
+	the previous results yield two distinct proofs
+	that inclusions of non-equivariant horns
+	$\Lambda^{E \amalg F}[T] \to \Lambda^{E}[T]$
+	are inner anodyne,
+	with the first proof using $I=F$ (with any order) and a second using 
+	$I = \mathcal{P}_0(F)$. 
+		
+	The discrepancy is explained as follows: 
+	when $T$, $E$, $F$ are $G$-equivariant, showing that
+	$\Lambda^{E \amalg F}[T] \to \Lambda^{E}[T]$ 
+	is $G$-inner anodyne requires a control of isotropies 
+	not needed when showing that the underlying map is non-equivariant inner anodyne, and since this control is given by (Ch3), it is necessary to include in the $\{U_i\}$ the
+	``intersections'' of $T-f$ and $T-gf$ for $f\in F$. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Equivariant dendroidal sets}
 
@@ -3506,129 +3667,8 @@ e original argument, need $\Xi^{[i]}$}.
 
 
 
-\subsection{Horns}
 
 
-\begin{proposition}\label{ORB_HORN_THM}
-      Inclusions of orbital $G$-inner horns
-\begin{equation}\label{ORBHORNINC EQ}
-	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{E}[T]
-\end{equation}
-are $G$-inner anodyne.
-\end{proposition}
-
-
-\begin{proof}
-We are free to assume that $T \in \Omega^G \hookrightarrow \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
-$E_{\**}=E \cap E^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap E^{\mathsf{i}}(T_{\**})$,
-the map \eqref{ORBHORNINC EQ} is
-$G \cdot_H 
-\left( \Lambda_o^{E_{\**} \amalg F_{\**}}[T_{\**}] \to \Lambda_o^{E_{\**}}[T_{\**}]\right)$.
-
-Further, we are clearly free to assume $F \neq \emptyset$.
-There are two main cases, 
-$E=\emptyset$ and $E\neq \emptyset$.
-
-If $E=\emptyset$ then $\Lambda_o^{E}[T] = \Omega[T]$ and we apply
-Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
-\[
-	\Xi^{\**} = F, \qquad 
-	U_{\**} = T,\qquad
-	X=\Lambda_o^{F}[T].
-\]
-It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
-	(Ch0) and (Ch3) are clear.
-	
-	Note for $V\hookrightarrow T$ it is $V \not \in X$ iff 
-	$GV$ has the form $T-F'$ for some $G$-equivariant subset
-	$F' \subseteq F$.
-
-	For (Ch1), the condition $\Xi_{V} = \emptyset$
-	says that none of the inner edges of $V$ are in $F$,
-	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $F$ as inner edge orbits. Since $F\neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
-	and hence $X=\Lambda_o^{F}[T]$ contains $V$.
-
-	For (Ch2), note that if $V \not \in X$, i.e., 
-	$GV = T - F'$, then Remark \ref{GINNER REM} implies that
-	$G(V-\Xi_V) = T - F''$ for $F'\subseteq F'' \subseteq F$,
-	and thus also $(V-\Xi_V) \not \in X$.
-	
-	In the case $E \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with $I = F/G$, with an 
-	\textit{arbitrary} choice of total order, and 
-	(writing elements of $F/G$ as subsets $Gf \subseteq F$)
-\[
-	\Xi^{Gf} = E, \qquad 
-	U_{G f}= T - Gf, \qquad
-	X=\Lambda_o^{E\amalg F}[T].
-\]
-
-Note that the $U_i$ are the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
-in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
-Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since this
-depends only on $V \hookrightarrow T$ and not on $Gf$.
-We again check the characteristic conditions. (Ch0) is clear.
-
-	For (Ch1), note that for an outer face 
-	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
-	Lemma \ref{INNINT LEM} implies
-	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
-	and hence since $\Xi_{U_i}=\Xi$ the 
-	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
-	$\Xi_{\bar{V}} = \emptyset$.
-	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
-	The argument for (Ch2) is identical to the one in the case
-	$E=\emptyset$.
-	Lastly, (Ch3) follows since	if $V \not \in X$, so that
-	$GV = T - F'-E'$ and $G(V - \Xi_V) = T-F'-E''$ with
-	$F' \subseteq F$, $E' \subseteq E'' \subseteq E$,
-	then $GV \hookrightarrow T-Gf$ iff $G(V - \Xi_V) \hookrightarrow T-Gf$
-	and thus $V \hookrightarrow T-Gf$ iff $V - \Xi_V \hookrightarrow T-Gf$.
-\end{proof}
-
-<<<<<<< HEAD
-
-=======
->>>>>>> e4c6b2ced55978b4b5a3e2369313533a2f5b60c4
-\begin{proposition} Inclusions of (regular) $G$-inner horns
-\begin{equation}
-	\Lambda^{E \amalg F}[T] \to \Lambda^{E}[T]
-\end{equation}
-are $G$-inner anodyne.
-\end{proposition}
-
-\begin{proof}
-The case $E = \emptyset$ is now tautological,
-hence we can now assume that both $E,F \neq \emptyset$.
-
-We now apply Lemma \ref{CHAREDGE LEM} with 
-$I = \mathcal{P}_0(F)$
-the poset of non-empty subsets $\emptyset \neq F' \subseteq F$, ordered by \textit{reverse inclusion}, and
-\[
-	\Xi^{F'} = E, \qquad
-	U_{F'} = T - F', \qquad
-	X=\Lambda^{E\amalg F}[T].
-\]
-We again need to verify the characteristic conditions,
-and as in the previous result we can abbreviate
-$\Xi_V = \Xi^{F'}_V$.
-(Ch0) is clear. (Ch1) follows from an easier version of the argument in the previous proof.
-(Ch2) follows since $V \in X$ iff $V-\Xi_V \in X$.
-Similarly,
-(Ch3) follows since 
-$V \hookrightarrow T-F'$ iff $(V-\Xi_V) \hookrightarrow T-F'$
-and since if
-$V \hookrightarrow T-F',V \hookrightarrow T-F''$
-then 
-$V \hookrightarrow T-(F' \cup F'')$.
-\end{proof}
-
-{\color{red} HERE}
-
-\begin{remark}
-	By specifying to the non-equivariant case $G = \**$
-	in the case $E,F \neq \emptyset$,
-	the previous results yield two distinct proofs
-\end{remark}
 
 
 
