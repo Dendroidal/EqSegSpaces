@@ -553,9 +553,15 @@ so that
 $\left(\Omega[S] \otimes \Omega[T]\right)(V) = Hom(V,S \otimes T)$
 where the Hom set is taken in broad posets.
 
-\cite[Thm. 7.1(i)]{Per17} now follows from Lemma \ref{CHAREDGE LEM} by letting $I = \mathsf{Max}^{lex}(S \otimes T)$
+\cite[Thm. 7.1(i)]{Per17} can be recovered from Lemma \ref{CHAREDGE LEM} by letting $I = \mathsf{Max}^{lex}(S \otimes T)$
 be the poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
 (these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
+
+{\color{red}HERE}
+
+To illustrate this, let $G = \mathbb{Z}_{/2} = \{\pm 1\}$
+and consider the $\mathbb{Z}_{/2}$-trees
+
 
 {\color{red}HERE}
 
@@ -575,7 +581,7 @@ be the poset of maximal subtrees $U \hookrightarrow S \otimes T$
 				child{
 				edge from parent node [near end]{$\phantom{-}1$}}%
 			edge from parent node [swap] {$0$}};%
-		\node at (6,0) {$T$}%
+		\node at (4,0) {$T$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}
 					child{
@@ -915,6 +921,7 @@ COME BACK
       and outer faces as \textit{removing} some.
 \end{remark}
 
+
 \begin{definition}
       Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
       $T_0$ denote the component of $T$ containing the image of $S_0$.
@@ -993,6 +1000,12 @@ COME BACK
       disjoint or equal, with $\Omega[U_0] = \Omega[g U_0]$ iff $g \in K = \mathrm{Stab}_G(U_0)$.
 \end{remark}
 
+\begin{remark} \label{ORB_REM} 
+$U_0$ is orbital iff the (non-equivariant) subdendroidal sets $\Omega[g U_0]$ of $\Omega[T]$ are either 
+disjoint or equal, with $\Omega[U_0] = \Omega[g U_0]$ iff $g \in K = \mathrm{Stab}_G(U_0)$. 
+\end{remark} 
+
+
 \begin{lemma}
       \label{ORB_INJ_LEM}
       Let $U_0$ be a face of $T$ with isotropy $K$.
@@ -1000,6 +1013,7 @@ COME BACK
       iff
       $U_0$ is orbital.
 \end{lemma}
+
 \begin{proof}
       This follows immediately from Remark \ref{ORB_REM}.
       In particular, 
@@ -1036,10 +1050,12 @@ COME BACK
       \end{equation}
 \end{definition}
 
+
 \begin{remark}
       The poset $\mathscr{F}_o(T)/G$ and $\mathscr{F}_o^{G e}(T)/G$ can be interpreted as
       the poset of faces of the \textit{orbital} representation of the $G$-tree $T$.
 \end{remark}
+
 
 
 \begin{example}
