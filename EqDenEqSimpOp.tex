@@ -104,14 +104,104 @@ The following are the categories currently with model structures and the right a
 
 
 
+\begin{notation}
+	Given $T \in \Omega_G$, we write $\mathsf{Face}(T)$ for the
+	$G$-poset of \textit{non-equivariant planar faces} $U \hookrightarrow T$. We note that $G$-action is given by the unique factorization of the composite
+	$U \hookrightarrow T \xrightarrow{g} T$
+	as $U \simeq gU \hookrightarrow T$ such that 
+	$gU \hookrightarrow T$ is planar.
+\begin{equation}\label{FACEGACT EQ}
+\begin{tikzcd}
+	U \ar[hookrightarrow]{r} \ar{d}[swap]{\simeq} &
+	T \ar{d}{g}
+\\
+	gU \ar[hookrightarrow]{r} & T
+\end{tikzcd}
+\end{equation}
+\end{notation}
+
+
+\begin{remark}\label{FACEGACT REM}
+	For $T \in \Omega_G$, any planar face
+	$\varphi_U \colon U \to T$
+	can also be regarded as a dendrex 
+	$\varphi_U \in \Omega[T](U)$.
+	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
+	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
+	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
+	is a $G$-graph subgroup 
+	$\Gamma \leq G \times \mathsf{Aut}(U)$
+	encoding a homomorphism
+	$\phi\colon H \to \mathsf{Aut}(U)$.
+	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
+	$\phi(U)$ is the leftmost isomorphism in
+	(\ref{FACEGACT EQ}),
+	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
+	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
+\end{remark}
+
+
+\begin{remark}\label{PLFUNCTOR REM}
+	Recalling that the (non-equivariant) subcategory of face maps is sometimes denoted $\Omega^+ \subset \Omega$,
+	we write $\Omega^+ \downarrow T$ for the category of all non-equivariant faces of $T \in \Omega_G$.
+	By pulling back the planarization of $T$ one then obtains a \textit{planarization functor}
+	\[
+		\Omega^+ \downarrow T \xrightarrow{pl} \mathsf{Face}(T)
+	\]
+which respects the $G$-actions on the two categories.
+	Note, however, that the inclusion 
+	$\mathsf{Face}(T) \subset \Omega^+ \downarrow T$ (which is a section of $pl$) does not respect the $G$-actions, as displayed in (\ref{FACEGACT EQ}).
+\end{remark}
+
+
+
+
+
+\begin{lemma}\label{INNINT LEM}
+	Consider a diagram of faces in $\Omega$
+\[
+\begin{tikzcd}
+	V \ar{r} \ar{d} &
+	U \ar{d}
+\\
+	\bar{V} \ar{r}&
+	\bar{U}
+\end{tikzcd}
+\]
+such that the horizontal maps are outer face maps and the left vertical map is an inner face map.
+
+Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
+\end{lemma}
+
+\begin{proof}
+	Write $r$ and $\underline{l}=l_1\cdots l_n$
+	for the root and leaf tuple of $V$, or equivalently $\bar{V}$.
+	Since the horizontal maps are outer, an edge
+	$e \in E^{\mathsf{i}}(U)$ (resp. $e \in E^{\mathsf{i}}(\bar{U})$)
+	is also in $E^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
+	$e <_d r$ and $\forall_i e \not \leq l_i$.
+	But then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(\bar{V})$. 
+\end{proof}
+
+
+\begin{notation}
+	Given $T\in \Omega_G$ and a non-equivariant planar face
+	$U \hookrightarrow T$ we write $\bar{U}^T$, 
+	or simply $\bar{U}$ when no confusion should arise, 
+	for the smallest planar outer face of $T$ containing $U$.
+\end{notation}
+
+
+
+
 \subsection{The characteristic edge argument}
 
-
+{\color{red} Coming soon}
 
 \subsection{Segal covers and horns}
 
 
-\begin{proposition}\label{ORB_HORN_THM}
+\begin{proposition}\label{ORB_HORN_PROP}
       Inclusions of orbital $G$-inner horns
 \begin{equation}\label{ORBHORNINC EQ}
 	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{E}[T]
@@ -188,7 +278,8 @@ We again check the characteristic conditions. (Ch0) is clear.
 \end{proof}
 
 
-\begin{proposition} Inclusions of (regular) $G$-inner horns
+\begin{proposition}\label{REG_HORN_PROP}
+Inclusions of (regular) $G$-inner horns
 \begin{equation}
 	\Lambda^{E \amalg F}[T] \to \Lambda^{E}[T]
 \end{equation}
@@ -221,8 +312,7 @@ then
 $V \hookrightarrow T-(F' \cup F'')$.
 \end{proof}
 
-
-\begin{remark}
+\begin{remark}\label{TWOPROOF REM}
 	By specifying to the non-equivariant case $G = \**$
 	in the case $E,F \neq \emptyset$,
 	the previous results yield two distinct proofs
@@ -3026,7 +3116,7 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 \end{remark}
 
 \begin{remark}
-{\color{blue} bla bla} the Fdiagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
+{\color{blue} bla bla} the diagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
 \end{remark}
 
 
@@ -3216,97 +3306,6 @@ substantially more subtle, especially in the non-outer case, as illustrated by t
 
 \subsection{The characteristic edge set argument}
 
-jk
-
-\begin{notation}
-	Given $T \in \Omega_G$, we write $\mathsf{Face}(T)$ for the
-	$G$-poset of \textit{non-equivariant planar faces} $U \hookrightarrow T$. We note that $G$-action is given by the unique factorization of the composite
-	$U \hookrightarrow T \xrightarrow{g} T$
-	as $U \simeq gU \hookrightarrow T$ such that 
-	$gU \hookrightarrow T$ is planar.
-\begin{equation}\label{FACEGACT EQ}
-\begin{tikzcd}
-	U \ar[hookrightarrow]{r} \ar{d}[swap]{\simeq} &
-	T \ar{d}{g}
-\\
-	gU \ar[hookrightarrow]{r} & T
-\end{tikzcd}
-\end{equation}
-\end{notation}
-
-
-\begin{remark}\label{FACEGACT REM}
-	For $T \in \Omega_G$, any planar face
-	$\varphi_U \colon U \to T$
-	can also be regarded as a dendrex 
-	$\varphi_U \in \Omega[T](U)$.
-	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
-	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
-	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
-	is a $G$-graph subgroup 
-	$\Gamma \leq G \times \mathsf{Aut}(U)$
-	encoding a homomorphism
-	$\phi\colon H \to \mathsf{Aut}(U)$.
-	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
-	$\phi(U)$ is the leftmost isomorphism in
-	(\ref{FACEGACT EQ}),
-	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
-	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
-\end{remark}
-
-
-\begin{remark}\label{PLFUNCTOR REM}
-	Recalling that the (non-equivariant) subcategory of face maps is sometimes denoted $\Omega^+ \subset \Omega$,
-	we write $\Omega^+ \downarrow T$ for the category of all non-equivariant faces of $T \in \Omega_G$.
-	By pulling back the planarization of $T$ one then obtains a \textit{planarization functor}
-	\[
-		\Omega^+ \downarrow T \xrightarrow{pl} \mathsf{Face}(T)
-	\]
-which respects the $G$-actions on the two categories.
-	Note, however, that the inclusion 
-	$\mathsf{Face}(T) \subset \Omega^+ \downarrow T$ (which is a section of $pl$) does not respect the $G$-actions, as displayed in (\ref{FACEGACT EQ}).
-\end{remark}
-
-
-
-
-
-\begin{lemma}\label{INNINT LEM}
-	Consider a diagram of faces in $\Omega$
-\[
-\begin{tikzcd}
-	V \ar{r} \ar{d} &
-	U \ar{d}
-\\
-	\bar{V} \ar{r}&
-	\bar{U}
-\end{tikzcd}
-\]
-such that the horizontal maps are outer face maps and the left vertical map is an inner face map.
-
-Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
-\end{lemma}
-
-\begin{proof}
-	Write $r$ and $\underline{l}=l_1\cdots l_n$
-	for the root and leaf tuple of $V$, or equivalently $\bar{V}$.
-	Since the horizontal maps are outer, an edge
-	$e \in E^{\mathsf{i}}(U)$ (resp. $e \in E^{\mathsf{i}}(\bar{U})$)
-	is also in $E^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
-	$e <_d r$ and $\forall_i e \not \leq l_i$.
-	But then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(\bar{V})$. 
-\end{proof}
-
-
-
-
-\begin{notation}
-	Given a non-equivariant planar face
-	$U \hookrightarrow T$
-	we write $\bar{U}^T$, 
-	or simply $\bar{U}$ when no confusion should arise, 
-	for the smallest planar outer face of $T$ containing $U$.
-\end{notation}
 
 \begin{definition}\label{CHAREDGE DEF}
 Let $T \in \Omega_G$, $X \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
@@ -3346,16 +3345,13 @@ or else it would be $U_i \in X_{<i}$.
 \end{remark}
 
 
-{\color{red} HERE}
-
-
-\begin{remark}
-In some of the main examples ({\color{red} reference}), there exists a $G$-equivariant set 
+\begin{remark}\label{SOMEMAIN REM}
+In some of the main examples (see Propositions \ref{ORB_HORN_PROP} and \ref{REG_HORN_PROP}), there exists a $G$-equivariant set 
 $\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap E^{\mathsf{i}}(U_i)$.
 
-In such cases, (Ch3) guarantees that, for fixed $\Xi^i$ and $X$ the characteristic conditions are monotone in $\{U_i\}$, in the sense that if it holds for some $\{U_i\}$ it also holds for all of its subsets.
+%In such cases (Ch3) guarantees that, for fixed $\Xi$ and $X$, the characteristic conditions are monotone on $\{U_i\}$, in the sense that if they hold for $\{U_i\}$ they also hold for all of its subsets. NO LONGER TRUE
 	
-	However, for fixed $X$ and $\{U_i\}$, the characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2) more restrictive.
+We caution that, for fixed $X$ and $\{U_i\}$, our characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2),(Ch3) more restrictive.
 \end{remark}
 
 
@@ -3505,63 +3501,66 @@ the new (Ch1),(Ch2),(Ch3)
 conditions follow from the original conditions.
 \end{proof}
 
-{\color{red} HERE}
-
-
-
 
 \begin{remark}\label{CHAREDGE2 REM}
 The requirement $X \subseteq \Omega[T]$ in Definition \ref{CHAREDGE DEF} can be relaxed.
 Given an inclusion $X \subseteq Y$,
-set of edges $\Xi \subseteq Y(\eta)$ and 
-set of non-degenerate dendrices $\{y_i \in Y(U_i)\}$, suppose one has:
+a set of non-degenerate dendrices
+$\{y_i \in Y(U_i)\}_{i \in I}$
+and a collection of edges
+$\{\Xi^i \subset E^{\mathsf{i}}(U_i)\}_{i \in I}$, 
+suppose that $I$ is a finite $G$-poset and that:
 \begin{itemize}
-	\item[(Ch0*i)] the maps $y_i \colon \Omega[U_i] \to Y$ are monomorphisms;
-	\item[(Ch0*ii)] $\Xi$, $X$ and $\{y_i \in Y(U_i)\}$ are $G$-equivariant.
+	\item[(Ch0.1)] the maps $y_i \colon \Omega[U_i] \to Y$ are monomorphisms;
+	\item[(Ch0.2)] $X$, $\{U_i\}$ ,$\{y_i\}$ and $\{\Xi^i\}$
+	are all $G$-equivariant in the sense that:
+	\begin{inparaenum}
+	\item[(i)] $gX = X$;
+	\item[(ii)] there are associative and unital isomorphisms
+	$U_i \xrightarrow{g} U_{g_i}$;
+	\item[(iii)] the composites
+	$\Omega[U_i] \xrightarrow{y_i} Y \xrightarrow{g} Y$
+	and
+	$\Omega[U_i]  \xrightarrow{g} \Omega[U_{gi}] \xrightarrow{y_{gi}} Y$ coincide;
+	\item[(iv)] $g \Xi^i=\Xi^{gi}$.
+\end{inparaenum}
+	 
 %	\item[(Ch0*3)] for each face $V \hookrightarrow U_i$ and $g \in G$
 %	then $g y_i(V) = y_i(V)$ implies 
 %	$g y_i(\bar{V}) = y_i(\bar{V})$.
 \end{itemize}
-Under (Ch0*i),
+Under (Ch0.1),
 the $\Omega[U_i]$ are identified with subcomplexes of $Y$,
 and non-degenerate dendrices $y \in y_i(\Omega[U_i])(V)$
 are identified with faces $V \hookrightarrow U_i$.
-One can then write $\Xi_V = \Xi \cap y_i(E^{\mathsf{i}}(V))$,
-which we note depends only on the dendrex $y$, 
-i.e. the composite $\Omega[V] \to \Omega[U_i] \to Y$.
 
-All original conditions (Ch1),(Ch2),(Ch3) can then be reinterpreted by, 
+The original conditions (Ch1),(Ch2),(Ch3) can then be reinterpreted by, 
 for each $V \hookrightarrow U_i$, 
-regarding expressions such as $V \in X$, $(V-\Xi_V)\in g U_j$
-as meaning $y_i(V) \in X$, $y_i(V-\Xi_V) \in g y_j(\Omega[U_j])$.
+regarding expressions such as $V \in X$, $(V-\Xi^i_V)\in U_j$
+as $y_i(V) \in X$, $y_i(V-\Xi^i_V) \in y_j(\Omega[U_j])$.
 
-Note that for $Y = \Omega[T]$ the $G$-equivariance of $\{y_i\}$ in  (Ch0*2), while similar to the $G$-equivariance of $\{U_i\}$ in (Ch0), is actually slightly different, 
-since (writing $\iota_U \colon U \hookrightarrow T$ for the inclusions) $\iota_{g U_i} \in \Omega[T](g U_i)$ in (Ch0)
-is replaced with $g \iota_{U_i} \in g\Omega[T](U_i)$ in (Ch0*2).
-However, this does not affect Lemma \ref{CHAREDGE DEF} since
-$\Omega[gU_i] = g\Omega[U_i]$ as subcomplexes of $\Omega[T]$.
-
-The proof of Lemma \ref{CHAREDGE DEF} now carries out largely  unchanged to show that 
+The proof of Lemma \ref{CHAREDGE DEF} now carries out to show that 
 \begin{equation}
-	X \to X \cup \bigcup_{i \in I} y_i\Omega[U_i]
+	X \to X \cup \bigcup_{i \in I} y_i(\Omega[U_i])
 \end{equation}
-is $G$-inner anodyne (again built cellularly from $G$-inner horn inclusions), hence we note only the main differences.
-When writing the analogue of (\ref{FIRPUSH EQ}), 
-$K$ must be defined by noting that, cf. Remark \ref{FACEGACT REM},
-the $G \times \mathsf{Aut}(W)$-isotropy of 
-$y(W) \in y(\Omega[U])$
-is the graph of some partial homomorphism
-$G \geq K \xrightarrow{\phi} \mathsf{Aut}(W)$.
-Hence, when stating and proving the analogue of (c) one must instead deal with
-$G \times \mathsf{Aut}(W)$ and $G \times \mathsf{Aut}(W-D)$-isotropies.
-However, as explained in Remark \ref{FACEGACT REM}, the role of the $\mathsf{Aut}(W)$ and $\mathsf{Aut}(W-D)$ coordinates is simply to implement the replanarization isomorphism in (\ref{FACEGACT EQ}). 
-Hence, since non-degenerate $y' \in y(\Omega[U])$ are identified with faces in $\Omega^+\downarrow U$, by borrowing the notation in 
-Remark \ref{PLFUNCTOR REM}, the analogue of (c) states that if
-$pl(g y (W-D)) = y(W-D)$ then $pl(g y (W)) = y(W)$ 
-(note that $y(W)=pl(y(W))$ by definition of $W$).
-But reinterpreting the argument in the proof of Lemma \ref{CHAREDGE DEF}
-shows that $pl(g^{-1} y (W)),y(W)$ are planar faces of $U$ with the same closure and the same edges, and hence indeed 
-$pl(g y (W))=y(W)$.
+is $G$-inner anodyne (again built cellularly from $G$-inner horn inclusions).
+%hence we note only the main differences.
+%When writing the analogue of (\ref{FIRPUSH EQ}), 
+%$K$ must be defined by noting that, cf. Remark \ref{FACEGACT REM},
+%the $G \times \mathsf{Aut}(W)$-isotropy of 
+%$y(W) \in y(\Omega[U])$
+%is the graph of some partial homomorphism
+%$G \geq K \xrightarrow{\phi} \mathsf{Aut}(W)$.
+%Hence, when stating and proving the analogue of (c) one must instead deal with
+%$G \times \mathsf{Aut}(W)$ and $G \times \mathsf{Aut}(W-D)$-isotropies.
+%However, as explained in Remark \ref{FACEGACT REM}, the role of the $\mathsf{Aut}(W)$ and $\mathsf{Aut}(W-D)$ coordinates is simply to implement the replanarization isomorphism in (\ref{FACEGACT EQ}). 
+%Hence, since non-degenerate $y' \in y(\Omega[U])$ are identified with faces in $\Omega^+\downarrow U$, by borrowing the notation in 
+%Remark \ref{PLFUNCTOR REM}, the analogue of (c) states that if
+%$pl(g y (W-D)) = y(W-D)$ then $pl(g y (W)) = y(W)$ 
+%(note that $y(W)=pl(y(W))$ by definition of $W$).
+%But reinterpreting the argument in the proof of Lemma \ref{CHAREDGE DEF}
+%shows that $pl(g^{-1} y (W)),y(W)$ are planar faces of $U$ with the same closure and the same edges, and hence indeed 
+%$pl(g y (W))=y(W)$.
 \end{remark}
 
 %\begin{example}
@@ -3599,52 +3598,54 @@ in the grafting result \cite[Lemma 5.2]{MW09} (and similarly for the equivariant
 It follows from Lemma \ref{CHAREDGE LEM}
 that any inclusion $X \to X'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
 is $G$-inner anodyne. 
-Indeed, letting $\Xi = E^{\mathsf{i}}(T)$ and $\{U_i\}$ be the set of closed faces $U = \bar{U}^T$ in $X'$, (Ch0) is obvious, (Ch1) follows since 
+Indeed, letting $I=\mathsf{Face}_{X'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$, ordered by inclusion, 
+$\Xi = E^{\mathsf{i}}(T)$ and $U_V = V$,
+(Ch0) is obvious, (Ch1) follows since 
 $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
-(Ch3') follows since the $U_i$ are closed.
+(Ch3) follows since the $U_i$ are closed.
 
-Finally, we note that if $\Xi=E^{\mathsf{i}}(T)$,$\{U_i\}=\{T\}$
+Alternatively, one can also use $I=\mathsf{Face}_{X',o}^{out}(T)$
+for the $G$-trivial set (viewed as a \textit{discrete} poset)
+of orbital outer faces $GV \to T$ (see Remark \ref{TWOPROOF REM} for a similar example).
+
+Lastly, we note that if $\{U_i\}=\{T\}$, $\Xi=E^{\mathsf{i}}(T)$
 then (Ch1) says precisely that $Sc(T) \subseteq X$.
 
-\item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge set condition as generalized in Remark \ref{CHAREDGE2 REM}, and was one of our main inspirations.
+
+\item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge collection condition as generalized in Remark \ref{CHAREDGE2 REM}, and was one of our main inspirations.
 
 Therein, they work in the case of $Y= \Omega[T] \otimes \Omega[S]$
-a tensor product of (non-equivariant) representable dendroidal sets, in which case (Ch*01) is easily verified 
-(and (Ch*02),(Ch*03) are moot).
-In our notation, they then require that
-$\Xi = \{\xi\}$ is a singleton, called the characteristic edge,
-and likewise that $\{y_i\}_{i\in I}=\{y\}$ too is a singleton (so that (Ch3) is also moot), which can be interpreted as a special type of subtree of 
-$\Omega[T] \otimes \Omega[S]$ which they call an \textit{initial segment}.
-Further, they then demand that $X$ should contain all outer faces of the subtree $y$, from which (Ch1) follows, 
+a tensor product of (non-equivariant) representable dendroidal sets, in which case (Ch0.1) is easily verified (and (Ch0.2) is moot).
+In our notation, they then require that $I \simeq \**$ (so that (Ch3) is also moot), 
+the dendrex 
+$y_{\**} \in \left(\Omega[T] \otimes \Omega[S]\right)(U_{\**})$ encodes a special type of subtree $U_{\**}$ of $\Omega[T] \otimes \Omega[S]$, which they call an \textit{initial segment},
+and they further require that $\Xi^{\**} = \{\xi\}$ is a singleton, called the \textit{characteristic edge}.
+Moreover, they then demand that $X$ should contain all outer faces of the subtree $U_{\**}$, from which (Ch1) follows, 
 as well as the key characteristic condition 
 \cite[Lemma 9.7]{MW09}(ii),
-which coincides with (Ch2) in their specific setting.
+which coincides with (Ch2) in this specific setting.
 
-Moreover, in \cite[Lemma 7.39]{Per17} the second author introduced a \textit{characteristic edge orbit} condition that directly generalizes that in \cite{MW09}
-to the equivariant context 
-%((Ch0*2),(Ch0*3) are immediate)
-by letting $\Xi$ (resp. $\{y_i\}$) consist of a single edge orbit (resp. orbit of initial segments).
+Similarly, in \cite[Lemma 7.39]{Per17} the second author introduced a \textit{characteristic edge orbit} condition that generalizes that in \cite{MW09} to the equivariant context 
+by letting $I \simeq G/H$
+and the $\Xi^{[g]}=\Xi \cap E^{\mathsf{i}}(U_{[g]})$ be determined by a $G$-edge orbit $\Xi \simeq Gf$ (cf. Remark \ref{SOMEMAIN REM}).
 
 However, both of the lemmas in \cite{MW09} and \cite{Per17}
 have the drawback of needing to be used iteratively
 (so that much effort therein is spent showing that this can be done) while Lemma \ref{CHAREDGE LEM} is designed so that a single use suffices for the natural applications.
-Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $X$ should contain all outer faces, essentially provide abstract conditions under which the original characteristic arguments of \cite{MW09},\cite{Per17} can be iterated.
-Further, we note that in \cite{MW09},\cite{Per17} it is essential to make a good choice for the well-ordering in (Ch3).
-
-{\color{blue} Maybe summarize how the proof goes.}
-
-We end by noting the importance of the $G$-equivariance of $\Xi$
-in (Ch0),(Ch0*2). In proving \cite[Prop. 7.44]{Per17} the second author chose the $\Xi$ to be sets of edges of the subtrees $y_i$, and thus not necessarily $G$-equivariant,
-leading to the need of extra ad hoc arguments in that proof when establishing the analogue of condition (c) in the proof of Lemma \ref{CHAREDGE LEM}.
+Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $X$ should contain all outer faces, essentially provide abstract conditions under which the original characteristic edge arguments of \cite{MW09},\cite{Per17} can be iterated.
+%Further, we note that in \cite{MW09},\cite{Per17} it is essential to make a good choice for the well-ordering in (Ch3).
+%
+%We end by noting the importance of the $G$-equivariance of $\Xi$
+%in (Ch0),(Ch0*2). In proving \cite[Prop. 7.44]{Per17} the second author chose the $\Xi$ to be sets of edges of the subtrees $y_i$, and thus not necessarily $G$-equivariant,
+%leading to the need of extra ad hoc arguments in that proof when establishing the analogue of condition (c) in the proof of Lemma \ref{CHAREDGE LEM}.
 \end{itemize}
 \end{remark}
-
 
 {\color{red}HERE}
 
 \begin{example}
 	As indicated above, Lemma \ref{CHAREDGE LEM} can be used to
-	reorganize and streamline the rather long proofs of \cite[Thms 7.1 and 7.2]{Per17}. We illustrate this for the hardest case, that of \cite[Thm. 7.1(i)]{Per17}, which states that if
+	reorganize and streamline the rather long proofs of \cite[Thms 7.1 and 7.2]{Per17}. We illustrate this in the hardest case, that of \cite[Thm. 7.1(i)]{Per17}, which states that if
 	$S,T \in \Omega_G$ are open (i.e. have no stumps) and
 	$G \xi$ is an inner edge orbit of $T$ the maps
 \begin{equation}\label{THM71 EQ}
@@ -3656,12 +3657,29 @@ leading to the need of extra ad hoc arguments in that proof when establishing th
 \end{equation}
 are $G$-inner anodyne.
 
+As detailed in \cite[\S 5.1]{Per17},
+and originally due to Weiss in \cite{Wei12},
+there is an algebraically flavoured model for $\Omega$
+as certain types of \textit{broad posets}.
+Given $S,T \in \Omega_G$, it is then possible \cite[\S 7.1]{Per17} to define a $G$-equivariant broad poset $S \otimes T$
+so that 
+$\left(\Omega[S] \otimes \Omega[T]\right)(V) = Hom(V,S \otimes T)$
+where the Hom set is taken in broad posets.
+
+\cite[Thm. 7.1(i)]{Per17} now follows from Lemma \ref{CHAREDGE LEM} by letting $I = \mathsf{Max}^{lex}(S \otimes T)$
+be the poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
+(these are called \textit{percolation schemes} in \cite[\S 9]{MW09}) ordered lexicographically \cite[Def. 7.29]{Per17}.
+
 {\color{red}HERE}
 
 $\Xi = \{(s,g\xi) \in S\otimes T\}$.
 
 {\color{blue} Does not quite follow from this Lemma \ref{}
 e original argument, need $\Xi^{[i]}$}.
+
+
+
+(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
 
 \end{example}
 
