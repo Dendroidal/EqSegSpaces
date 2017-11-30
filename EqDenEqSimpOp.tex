@@ -47,7 +47,7 @@
 \usepackage[obeyDraft]{todonotes}
 
 
-% -------- Referenece Numbering
+% -------- Reference Numbering
 % \numberwithin{equation}{section}%
 % \numberwithin{figure}{section} 
 
@@ -599,7 +599,6 @@ in Figure \ref{FIGURE}
 
 
 
-
 {\color{red}HERE}
 
 
@@ -612,10 +611,10 @@ in Figure \ref{FIGURE}
 \begin{figure}[ht]
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
-	\begin{scope}[level distance = 2.1em]
+	\begin{scope}[level distance = 1.9em]
 	\tikzstyle{level 2}=[sibling distance=8em]%
 	\tikzstyle{level 3}=[sibling distance=2.5em]%
-	\tikzstyle{level 4}=[sibling distance=2.5em]%
+	\tikzstyle{level 4}=[sibling distance=2em]%
 		\node at (0,-0.5) {$\Xi^1=\{\xi_1,-\xi_1,\xi_{-1},-\xi_{-1}\}$};%
 		\node at (0,0) {$U_1$}%
 			child{node [dummy,fill=black] {}%
@@ -664,8 +663,8 @@ in Figure \ref{FIGURE}
 					edge from parent node [near end]{$\phantom{-}\xi_1$}}%
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
-		\node at (-3.5,7.5) {$\Xi^3=\{\xi_0,-\xi_1,-\xi_{-1}\}$};%
-		\node at (-3.5,8) {$U_3$}%
+		\node at (-4.75,6.5) {$\Xi^3=\{\xi_0,-\xi_1,-\xi_{-1}\}$};%
+		\node at (-4.75,7) {$U_3$}%
 			child{node [dummy] {}%
 				child{node [dummy,fill=black] {}%
 					child{node [dummy] {}
@@ -686,8 +685,8 @@ in Figure \ref{FIGURE}
 					edge from parent node {$a_0$}}%
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
-		\node at (3.5,7.5) {$-\Xi^3=\{\xi_1,\xi_{-1},-\xi_0\}$};%
-		\node at (3.5,8) {$-U_3$}%
+		\node at (4.75,6.5) {$-\Xi^3=\{\xi_1,\xi_{-1},-\xi_0\}$};%
+		\node at (4.75,7) {$-U_3$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy,fill=black] {}
@@ -708,8 +707,8 @@ in Figure \ref{FIGURE}
 					edge from parent node [near end]{$\phantom{-}\xi_1$}}%
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
-		\node at (0,11.5) {$\Xi^4=\{\xi_0,-\xi_0\}$};%
-		\node at (0,12) {$U_4$}%
+		\node at (0,8.5) {$\Xi^4=\{\xi_0,-\xi_0\}$};%
+		\node at (0,9) {$U_4$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy,fill=black] {}
@@ -731,7 +730,7 @@ in Figure \ref{FIGURE}
 	\end{scope}
 	\end{tikzpicture}%
 \]%
-\caption{The poset $\mathsf{Max}^{lex}(S \otimes T)$ and characteristic edges $\Xi^i$}
+\caption{The $\mathbb{Z}_{/2}$-poset $\mathsf{Max}^{lex}(S \otimes T)$ and characteristic edges $\Xi^i$}
 \label{FIGURE}
 \end{figure}
 
