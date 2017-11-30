@@ -39,80 +39,90 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% INTERNAL REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{mathtools}
-\mathtoolsset{showonlyrefs}
 
-
-
-\usepackage[capitalise]{cleveref}  % load after hyperref
-\newcommand{\clevertheorem}[3]{%
-  \newtheorem{#1}[theorem]{#2}
-  \crefname{#1}{#2}{#3}
-}
-
-
+\numberwithin{equation}{section} 
+\numberwithin{figure}{section}
 
 % ------- New Theorems/ Definition/ Names-----------------------
 
-\theoremstyle{plain} % bold name, italic text
-\newtheorem{theorem}{Theorem}[section]
-\crefname{theorem}{Theorem}{Theorems}
-\newtheorem*{theorem*}{Theorem}
-\clevertheorem{proposition}{Proposition}{Propositions}
-\clevertheorem{lemma}{Lemma}{Lemmas}
-\clevertheorem{corollary}{Corollary}{Corollaries}
-\clevertheorem{conjecture}{Conjecture}{Conjectures}
+\newtheorem{theorem}[equation]{Theorem}%
+\newtheorem*{theorem*}{Theorem}%
+\newtheorem{lemma}[equation]{Lemma}%
+\newtheorem{proposition}[equation]{Proposition}%
+\newtheorem{corollary}[equation]{Corollary}%
+\newtheorem{conjecture}[equation]{Conjecture}%
 \newtheorem*{conjecture*}{Conjecture}%
-\clevertheorem{claim}{Claim}{Claims}
-% \newtheorem{theorem}[equation]{Theorem}%
-% \newtheorem*{theorem*}{Theorem}%
-% \newtheorem{lemma}[equation]{Lemma}%
-% \newtheorem{proposition}[equation]{Proposition}%
-% \newtheorem{corollary}[equation]{Corollary}%
-% \newtheorem{conjecture}[equation]{Conjecture}%
-% \newtheorem*{conjecture*}{Conjecture}%
-% \newtheorem{claim}[equation]{Claim}%
+\newtheorem{claim}[equation]{Claim}%
 
 %%%%%% Fancy Numbering for Theorems
-% \newtheorem{innercustomgeneric}{\customgenericname}
-% \providecommand{\customgenericname}{}
-% \newcommand{\newcustomtheorem}[2]{%
-%   \newenvironment{#1}[1]
-%   {%
-%    \renewcommand\customgenericname{#2}%
-%    \renewcommand\theinnercustomgeneric{##1}%
-%    \innercustomgeneric
-%   }
-%   {\endinnercustomgeneric}
-% }
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
+}
 
-% \newcustomtheorem{customthm}{Theorem}
-% \newcustomtheorem{customcor}{Corollary}
+\newcustomtheorem{customthm}{Theorem}
+\newcustomtheorem{customcor}{Corollary}
 %%%%%%%%%%%%%
 
-\theoremstyle{definition} % bold name, plain text
-\clevertheorem{definition}{Definition}{Definitions}
-\newtheorem*{definition*}{Definition}
-\clevertheorem{example}{Example}{Examples}
-\clevertheorem{remark}{Remark}{Remarks}
-\clevertheorem{notation}{Notation}{Notations}
-\clevertheorem{convention}{Convention}{Conventsion}
-\clevertheorem{assumption}{Assumption}{Assumptions}
-\clevertheorem{exercise}{Exercise}{Exercises}
-% \newtheorem{definition}[equation]{Definition}%
-% \newtheorem*{definition*}{Definition}%
-% \newtheorem{example}[equation]{Example}%
-% \newtheorem{remark}[equation]{Remark}%
-% \newtheorem{notation}[equation]{Notation}%
-% \newtheorem{convention}[equation]{Convention}%
-% \newtheorem{assumption}[equation]{Assumption}%
-% \newtheorem{exercise}{Exercise}%
+\newtheorem{definition}[equation]{Definition}%
+\newtheorem*{definition*}{Definition}%
+\newtheorem{example}[equation]{Example}%
+\newtheorem{remark}[equation]{Remark}%
+\newtheorem{notation}[equation]{Notation}%
+\newtheorem{convention}[equation]{Convention}%
+\newtheorem{assumption}[equation]{Assumption}%
+\newtheorem{exercise}{Exercise}%
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}% Only number equations which are referenced with eqref
+%\usepackage{autonum}
 
 
-\makeatletter\let\c@equation\c@theorem\makeatother %% This makes equations follow the theorem counter
-\makeatletter\let\c@figure\c@theorem\makeatother %% This makes figures follow the theorem counter
 
-\crefname{figure}{Figure}{Figures}
+
+
+
+% ---------- CLEVEREF STUFF ------------------------------------------------------------
+% \usepackage[capitalise]{cleveref}  % load after hyperref
+% \newcommand{\clevertheorem}[3]{%
+%   \newtheorem{#1}[theorem]{#2}
+%   \crefname{#1}{#2}{#3}
+% }
+
+% \crefname{figure}{Figure}{Figures}
+% \crefname{equation}{}{}
+
+% \theoremstyle{plain} % bold name, italic text
+% \newtheorem{theorem}{Theorem}[section]
+% \crefname{theorem}{Theorem}{Theorems}
+% \newtheorem*{theorem*}{Theorem}
+% \clevertheorem{proposition}{Proposition}{Propositions}
+% \clevertheorem{lemma}{Lemma}{Lemmas}
+% \clevertheorem{corollary}{Corollary}{Corollaries}
+% \clevertheorem{conjecture}{Conjecture}{Conjectures}
+% \newtheorem*{conjecture*}{Conjecture}%
+% \clevertheorem{claim}{Claim}{Claims}
+
+% \theoremstyle{definition} % bold name, plain text
+% \clevertheorem{definition}{Definition}{Definitions}
+% \newtheorem*{definition*}{Definition}
+% \clevertheorem{example}{Example}{Examples}
+% \clevertheorem{remark}{Remark}{Remarks}
+% \clevertheorem{notation}{Notation}{Notations}
+% \clevertheorem{convention}{Convention}{Conventsion}
+% \clevertheorem{assumption}{Assumption}{Assumptions}
+% \clevertheorem{exercise}{Exercise}{Exercises}
+
+% \makeatletter\let\c@equation\c@theorem\makeatother %% This makes equations follow the theorem counter
+% \makeatletter\let\c@figure\c@theorem\makeatother %% This makes figures follow the theorem counter
+
 
 
 
