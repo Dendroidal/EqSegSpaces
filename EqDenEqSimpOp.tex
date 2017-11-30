@@ -47,7 +47,7 @@
 \usepackage[obeyDraft]{todonotes}
 
 
-% -------- Referenece Numbering
+% -------- Reference Numbering
 % \numberwithin{equation}{section}%
 % \numberwithin{figure}{section} 
 
@@ -552,23 +552,19 @@ Given $S,T \in \Omega_G$, it is then possible \cite[\S 7.1]{Per17} to define a $
 so that 
 $\left(\Omega[S] \otimes \Omega[T]\right)(V) = Hom(V,S \otimes T)$
 where the Hom set is taken in broad posets.
+Intuitively $S \otimes T$ is an object with edge set $E(S) \times E(T)$
+and where each edge $(s,t) \in S \otimes T$
+may, depending on whether $s \in S$, $t \in T$ are leaves or not,
+admit two \textit{distinct} vertices: a $S$-vertex 
+$(s,t)^{\uparrow S} = s^{\uparrow} \times t$
+and a $T$-vertex
+$(s,t)^{\uparrow T} = s \times t^{\uparrow}$.
 
 \cite[Thm. 7.1(i)]{Per17} can be recovered from Lemma \ref{CHAREDGE LEM} by letting $I = \mathsf{Max}^{lex}(S \otimes T)$
 be the poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
 (these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
-
-{\color{red}HERE}
-
-To illustrate this, let $G = \mathbb{Z}_{/2} = \{\pm 1\}$
+To illustrate this, let $\mathbb{Z}_{/2} = \{\pm 1\}$
 and consider the $\mathbb{Z}_{/2}$-trees
-
-
-{\color{red}HERE}
-
-
-(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
-
-
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
 	\begin{scope}[level distance = 2.1em]
@@ -595,13 +591,30 @@ and consider the $\mathbb{Z}_{/2}$-trees
 	\end{scope}
 	\end{tikzpicture}%
 \]%
+We depict the $\mathbb{Z}_{/2}$-poset 
+$\mathsf{Max}^{lex}(S \otimes T)$
+in Figure \ref{FIGURE}
 
+{\color{red}HERE}
+
+
+
+{\color{red}HERE}
+
+
+(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
+
+
+
+
+
+\begin{figure}[ht]
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
-	\begin{scope}[level distance = 2.1em]
+	\begin{scope}[level distance = 1.9em]
 	\tikzstyle{level 2}=[sibling distance=8em]%
 	\tikzstyle{level 3}=[sibling distance=2.5em]%
-	\tikzstyle{level 4}=[sibling distance=2.5em]%
+	\tikzstyle{level 4}=[sibling distance=2em]%
 		\node at (0,-0.5) {$\Xi^1=\{\xi_1,-\xi_1,\xi_{-1},-\xi_{-1}\}$};%
 		\node at (0,0) {$U_1$}%
 			child{node [dummy,fill=black] {}%
@@ -650,8 +663,8 @@ and consider the $\mathbb{Z}_{/2}$-trees
 					edge from parent node [near end]{$\phantom{-}\xi_1$}}%
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
-		\node at (-3.5,7.5) {$\Xi^3=\{\xi_0,-\xi_1,-\xi_{-1}\}$};%
-		\node at (-3.5,8) {$U_3$}%
+		\node at (-4.75,6.5) {$\Xi^3=\{\xi_0,-\xi_1,-\xi_{-1}\}$};%
+		\node at (-4.75,7) {$U_3$}%
 			child{node [dummy] {}%
 				child{node [dummy,fill=black] {}%
 					child{node [dummy] {}
@@ -672,8 +685,8 @@ and consider the $\mathbb{Z}_{/2}$-trees
 					edge from parent node {$a_0$}}%
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
-		\node at (3.5,7.5) {$-\Xi^3=\{\xi_1,\xi_{-1},-\xi_0\}$};%
-		\node at (3.5,8) {$-U_3$}%
+		\node at (4.75,6.5) {$-\Xi^3=\{\xi_1,\xi_{-1},-\xi_0\}$};%
+		\node at (4.75,7) {$-U_3$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy,fill=black] {}
@@ -694,8 +707,8 @@ and consider the $\mathbb{Z}_{/2}$-trees
 					edge from parent node [near end]{$\phantom{-}\xi_1$}}%
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
-		\node at (0,11.5) {$\Xi^4=\{\xi_0,-\xi_0\}$};%
-		\node at (0,12) {$U_4$}%
+		\node at (0,8.5) {$\Xi^4=\{\xi_0,-\xi_0\}$};%
+		\node at (0,9) {$U_4$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy,fill=black] {}
@@ -717,6 +730,10 @@ and consider the $\mathbb{Z}_{/2}$-trees
 	\end{scope}
 	\end{tikzpicture}%
 \]%
+\caption{The $\mathbb{Z}_{/2}$-poset $\mathsf{Max}^{lex}(S \otimes T)$ and characteristic edges $\Xi^i$}
+\label{FIGURE}
+\end{figure}
+
 
 
 \end{example}
