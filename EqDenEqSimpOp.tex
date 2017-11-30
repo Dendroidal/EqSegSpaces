@@ -552,23 +552,19 @@ Given $S,T \in \Omega_G$, it is then possible \cite[\S 7.1]{Per17} to define a $
 so that 
 $\left(\Omega[S] \otimes \Omega[T]\right)(V) = Hom(V,S \otimes T)$
 where the Hom set is taken in broad posets.
+Intuitively $S \otimes T$ is an object with edge set $E(S) \times E(T)$
+and where each edge $(s,t) \in S \otimes T$
+may, depending on whether $s \in S$, $t \in T$ are leaves or not,
+admit two \textit{distinct} vertices: a $S$-vertex 
+$(s,t)^{\uparrow S} = s^{\uparrow} \times t$
+and a $T$-vertex
+$(s,t)^{\uparrow T} = s \times t^{\uparrow}$.
 
 \cite[Thm. 7.1(i)]{Per17} can be recovered from Lemma \ref{CHAREDGE LEM} by letting $I = \mathsf{Max}^{lex}(S \otimes T)$
 be the poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
 (these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
-
-{\color{red}HERE}
-
-To illustrate this, let $G = \mathbb{Z}_{/2} = \{\pm 1\}$
+To illustrate this, let $\mathbb{Z}_{/2} = \{\pm 1\}$
 and consider the $\mathbb{Z}_{/2}$-trees
-
-
-{\color{red}HERE}
-
-
-(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
-
-
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
 	\begin{scope}[level distance = 2.1em]
@@ -595,7 +591,25 @@ and consider the $\mathbb{Z}_{/2}$-trees
 	\end{scope}
 	\end{tikzpicture}%
 \]%
+We depict the $\mathbb{Z}_{/2}$-poset 
+$\mathsf{Max}^{lex}(S \otimes T)$
+in Figure \ref{FIGURE}
 
+{\color{red}HERE}
+
+
+
+
+{\color{red}HERE}
+
+
+(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
+
+
+
+
+
+\begin{figure}[ht]
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
 	\begin{scope}[level distance = 2.1em]
@@ -717,6 +731,10 @@ and consider the $\mathbb{Z}_{/2}$-trees
 	\end{scope}
 	\end{tikzpicture}%
 \]%
+\caption{The poset $\mathsf{Max}^{lex}(S \otimes T)$ and characteristic edges $\Xi^i$}
+\label{FIGURE}
+\end{figure}
+
 
 
 \end{example}
