@@ -2117,7 +2117,7 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       the Segal core is an inner horn.
       Thus, we may assume that $V_H(T_0) > 2$.
 
-      By \cref{GHORN_IN_SC_THM}, we see that
+      By Proposition \ref{GHORN_IN_SC_PROP}\todo[inline]{fix this reference}, we see that
       \begin{equation}
             \label{SC_POUT_EQ}
             Sc[T] \to \partial^{out}\Omega[T]
@@ -2246,7 +2246,7 @@ First, a lemma.
 \end{proof}
 
 \begin{proposition}
-      \label{SRLP_IHI_THM}
+      \label{SRLP_IHI_PROP}
       $(IHI_G)^{\boxslash !} = (G\cdot IHI)^{\boxslash !}$.
       Thus $\mathsf{Kan}_G = \mathsf{Kan}^G$
       % (strict inner $G$-Kan complexes are just $G$-objects in strict inner Kan complexes)
@@ -2296,9 +2296,9 @@ First, a lemma.
             N^G(\O)(T) \simeq \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O).
       \end{equation}
       Thus $N^G(\O)$ is in $(SCI_G)^{\boxslash !}$, and hence is in $(IHI_G)^{\boxslash !}$
-      by \cref{HYPER_LP_THM,GHORN_IN_SC_THM}.
+      by Lemma \ref{HYPER_LP_LEM} and Proposition \ref{GHORN_IN_SC_PROP}\todo{check this ref}.
 
-      Conversely, by \cref{SRLP_IHI_THM} and \cite[Theorem 6.1, Proposition 6.10]{MW09}, we have that
+      Conversely, by Proposition \ref{SRLP_IHI_PROP} and \cite[Theorem 6.1, Proposition 6.10]{MW09}, we have that
       $X \simeq N_d \circ \tau_d \circ X$
       (where we consider $X$ as a functor $G \to \mathsf{Kan}$).
 \end{proof}
