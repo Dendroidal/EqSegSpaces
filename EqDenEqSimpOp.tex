@@ -500,7 +500,7 @@ Lastly, we note that if $\{U_i\}=\{T\}$, $\Xi=E^{\mathsf{i}}(T)$
 then (Ch1) says precisely that $Sc(T) \subseteq X$.
 
 
-\item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge collection condition as generalized in Remark \ref{CHAREDGE2 REM}, and was one of our main inspirations.
+\item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge collection condition as generalized in Remark \ref{CHAREDGE2 REM}, and which served as one of our main inspirations.
 
 Therein, they work in the case of $Y= \Omega[T] \otimes \Omega[S]$
 a tensor product of (non-equivariant) representable dendroidal sets, in which case (Ch0.1) is easily verified (and (Ch0.2) is moot).
@@ -556,14 +556,14 @@ Intuitively $S \otimes T$ is an object with edge set $E(S) \times E(T)$
 and where each edge $(s,t) \in S \otimes T$
 may, depending on whether $s \in S$, $t \in T$ are leaves or not,
 admit two \textit{distinct} vertices: a $S$-vertex 
-$(s,t)^{\uparrow S} = s^{\uparrow} \times t$
+$(s,t)^{\uparrow S} = s^{\uparrow} \times t \leq (s,t)$
 and a $T$-vertex
-$(s,t)^{\uparrow T} = s \times t^{\uparrow}$.
+$(s,t)^{\uparrow T} = s \times t^{\uparrow} \leq (s,t)$.
 
-\cite[Thm. 7.1(i)]{Per17} can be recovered from Lemma \ref{CHAREDGE LEM} by letting $I = \mathsf{Max}^{lex}(S \otimes T)$
-be the poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
+To recover \cite[Thm. 7.1(i)]{Per17} from Lemma \ref{CHAREDGE LEM}, we first let $I = \mathsf{Max}^{lex}(S \otimes T)$
+be the $G$-poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
 (these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
-To illustrate this, let $\mathbb{Z}_{/2} = \{\pm 1\}$
+As an example, let $\mathbb{Z}_{/2} = \{\pm 1\}$
 and consider the $\mathbb{Z}_{/2}$-trees
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
@@ -593,21 +593,77 @@ and consider the $\mathbb{Z}_{/2}$-trees
 \]%
 We depict the $\mathbb{Z}_{/2}$-poset 
 $\mathsf{Max}^{lex}(S \otimes T)$
-in Figure \ref{FIGURE}
-
-{\color{red}HERE}
-
-
-
-{\color{red}HERE}
-
-
-(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
-
-
-
-
-
+in Figure \ref{FIGURE} (note that $(s,t)$ is abbreviated as $t_s$).
+In words, the maximal subtrees are built by starting with the
+``double root'' $r_0$ and iteratively choosing between the available $S$ and $T$ vertices (along all upward paths) until the 
+``double leaves'' are reached.
+The generating relations $U \leq U'$ in 
+$\mathsf{Max}^{lex}(S \otimes T)$
+occur whenever $U$ contains an outer face $V$ shaped as on the left below and, by ``replacing'' $V$ with $V'$ as on the right, one obtains $U'$.
+\[
+	\begin{tikzpicture}[auto,grow=up, level distance = 2em,
+	every node/.style={font=\scriptsize},
+	dummy/.style = {circle,draw,inner sep=0pt,
+	minimum size=1.75mm}]
+	\begin{scope}
+	\tikzstyle{level 2}=[sibling distance=10em]%
+	\tikzstyle{level 3}=[sibling distance=2.5em]%
+		\node at (0,0) {$V$}
+			child{node [dummy,fill=black] {}
+				child{node [dummy] {}
+					child{
+					edge from parent node [swap,near end] {$c_2$}}
+					child[level distance = 2.3em]{
+					edge from parent node [swap, near end] {$b_2$}}
+					child{
+					edge from parent node [near end] {$a_2$}}
+				edge from parent node [swap] {$e_2$}}
+				child{node [dummy] {}
+					child{
+					edge from parent node [swap,near end] {$c_1$}}
+					child[level distance = 2.3em]{
+					edge from parent node [swap, near end] {$b_1$}}
+					child{
+					edge from parent node [near end] {$a_1$}}				
+				edge from parent node {$e_1$}}
+			edge from parent node [swap] {$e_3$}};
+	\end{scope}
+	\begin{scope}
+	\tikzstyle{level 2}=[sibling distance=5em]%
+	\tikzstyle{level 3}=[sibling distance=2em]%
+		\node at (8,0) {$V'$}
+			child{node [dummy] {}
+				child{node [dummy,fill=black] {}
+					child{
+					edge from parent node [swap,very near end] {$c_2$}}
+					child{
+					edge from parent node [very near end] {$c_1$}}
+				edge from parent node [swap] {$c_3$}}
+				child[level distance = 2.3em]{node [dummy,fill=black] {}
+					child{
+					edge from parent node [swap,very near end] {$b_2$}}
+					child{
+					edge from parent node [very near end] {$b_1$}}
+				edge from parent node [swap] {$b_3$}}
+				child{node [dummy,fill=black] {}
+					child{
+					edge from parent node [very near end,swap] {$a_2$}}
+					child{
+					edge from parent node [very near end] {$a_1$}}				
+				edge from parent node {$a_3$}}
+			edge from parent node [swap] {$e_3$}};
+		\node at (4,1) [font=\large] {$\leq$};
+	\end{scope}
+	\end{tikzpicture}
+\]
+The claim that $\leq$ is indeed a partial order 
+(at least if one of $S,T$ is open) is 
+\cite[Prop. 7.31]{Per17}.
+As an aside, we note that   
+$V,V'$ above have a common inner face
+$V-\{e_1,e_2\} = V'-\{a_3,b_3,c_3\}$,
+which encodes an (universal!) example of a 
+Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 \begin{figure}[ht]
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
@@ -733,6 +789,37 @@ in Figure \ref{FIGURE}
 \caption{The $\mathbb{Z}_{/2}$-poset $\mathsf{Max}^{lex}(S \otimes T)$ and characteristic edges $\Xi^i$}
 \label{FIGURE}
 \end{figure}
+
+Returning to the task of proving that \eqref{THM71 EQ} is $G$-inner anodyne, we define $\Xi^U$, 
+for each maximal subtree $U \hookrightarrow S \otimes T$,
+to be the set of inner edges of $U$ of the form
+$(g \xi)_s$ \textit{such that}
+the vertex $(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ in $U$
+is a $T$-vertex (see Figure \ref{FIGURE}).
+We now verify (Ch1),(Ch2),(Ch3).
+
+For (Ch1), note first that there is an equivariant grafting decomposition
+$T = T_{\not < G\xi} \amalg_{G \xi} T^{\leq G\xi}$, 
+where $T_{\not < G\xi}$ contains the edges $t \in T$ such that
+$\forall_{g \in G} t \not < g\xi$ (pictorially, this is an equivariant lower outer face of $T$) 
+while $T^{\leq G\xi}$
+contains the edges $t \in T$ such that
+$\exists_{g \in G} t \leq g\xi$ (an upper outer face of $T$).
+But one now readily checks that if
+$V \hookrightarrow U$ is an \textit{outer} face such that
+$\Xi^U_V = \emptyset$, 
+then all edges of $V$ are in either
+$S \otimes T_{\not < G\xi}$ or $S \otimes T^{\leq G\xi}$,
+so that by \cite[Lemma 7.19]{Per17} it is either
+$V \hookrightarrow S \otimes T_{\not < G\xi}$ or 
+$V \hookrightarrow S \otimes T^{\leq G\xi}$, and thus $V \in X$.
+
+{\color{red}HERE}
+
+(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
+
+
+
 
 
 
@@ -885,16 +972,6 @@ $V \hookrightarrow T-(F' \cup F'')$.
 
 
 
-
-
-
-
-
-
-
-
-
-COME BACK
 
 
 \section{Equivariant dendroidal sets}
@@ -4375,13 +4452,13 @@ $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$ a Reedy-admissible collection of families
 Then there is a \textbf{$\{\mathcal{F}_r\}$-Reedy model structure} on
 $\mathcal{C}^{\mathbb{R}}$ such that a map $A \to B$ is
 \begin{itemize}
-  \item a (trivial) cofibration if $A_r \underset{L_r A}{\coprod}L_r B \to B_r$ is a (trivial) $\mathcal{F}_r$-cofibration in $\mathcal{C}^{\mathsf{Aut}(r)}$, $\forall r \in \mathbb{R}$;
+  \item a (trivial) cofibration if $A_r \underset{L_r A}{\amalg}L_r B \to B_r$ is a (trivial) $\mathcal{F}_r$-cofibration in $\mathcal{C}^{\mathsf{Aut}(r)}$, $\forall r \in \mathbb{R}$;
 	\item a weak equivalence if $A_r \to B_r$ is a $\mathcal{F}_r$-weak equivalence in $\mathcal{C}^{\mathsf{Aut}(r)}$, $\forall r \in \mathbb{R}$;
 	\item a (trivial) fibration if $A_r \to B_r \underset{M_r B}{\times }M_r A $ is a (trivial) $\mathcal{F}_r$-fibration in $\mathcal{C}^{\mathsf{Aut}(r)}$, $\forall r \in \mathbb{R}$.
 \end{itemize}
 \end{theorem}
 
-The proof of this result is given at the end of the section after establishing some routine generalizations of the key lemmas in \cite{BM11}
+The proof of this result is given at the end of the appendix after establishing some routine generalizations of the key lemmas in \cite{BM11}
 (indeed, the true novelty in this appendix is the Reedy-admissibility condition in part (iv) of Definition \ref{GENRED DEF}).
 
 We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}
