@@ -871,13 +871,11 @@ $V \hookrightarrow T-(F' \cup F'')$.
 
 
 
-COME BACK
+\newpage
 
+\section{Other Stuff}
 
-\section{Equivariant dendroidal sets}
-
-
-\subsection{Preliminaries}
+\subsection{Preliminaries - to be combined with other Pre}
 
 
 
@@ -1586,7 +1584,7 @@ COME BACK
 
 
 
-
+\newpage
 
 \subsection{Proof of Proposition \ref{HYPER PROP}}
 
@@ -1699,91 +1697,54 @@ the hypersaturation itself is characterized by a lifting condition using the \te
 \end{lemma}
 
 
-{\color{blue}
-  \todo[inline]{Fixed. Combine with ``CHAR PLAYGROUND SECTION''}
-\begin{definition}
-      Given $T \simeq G \cdot_H T_0$,
-      let $U_0 \subseteq T_0$ be a (non-equivariant) subtree
-      with $K = \mathrm{Stab}_H(U_0)$,
-      and suppose we have another subdendroidal set $X \subseteq \Omega[T]$.
-      Fixing a $K$-set $E \subset U_0$ of inner edges
-      %Fix an inner edge $e \in U_0$.
-      We say that $E$ is a \textit{characteristic edge set} of
-      $U_0$ with respect to $X$
-      if
-      \begin{description}
-      \item[Ch 1] $X$ contains all proper outer faces of $U_0$; and
-      \item[Ch 2] for any inner face $V_0 \into U_0$ containing $E$ as inner edges,
-            $V_0 \in X$
-            if and only if
-            $V_0 - E \in X$.
-            % where $\bar K = \mathrm{Stab}_{K}(R_0)$.
-      \end{description}
-\end{definition}
+% -------------------- HYPER PROP ----------------------------------------
+In this subsection, we will prove the following equivariant generalization of \cite[Props. 2.4 and 2.5]{CM13a}.
 
 \begin{proposition}
-      \label{CHAR_HORN_PROP}
-      Fix $T \in \Omega_G$ and 
-      a face $U_0 \into T$ with stabilizer $K$.      
-      If $E$ is a characteristic edge set of $U_0$ with respect to $X$, then
-      % $X \to X \cup \mathsf{im}\left(\Omega[G \cdot_K U_0] \right)$
-      $X \to \X \cup \mathop{\bigcup}\limits_{G}\Omega[g U_0]$
-      is inner $G$-anodyne.
+The following sets of maps generate the same hypersaturated class:
+\begin{itemize}
+\item the $G$-inner horn inclusions
+$\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
+\item the orbital $G$-inner horn inclusions
+$\Lambda^{Ge}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
+\item the $G$-segal core inclusions
+$Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
+\end{itemize}
+Moreover, one also has the following:
+\begin{itemize}
+	\item[(a)] orbital $G$-inner horn inclusions are in the saturation of $G$-inner horn inclusions;
+	\item[(b)] $G$-segal core inclusions are in the saturation of both orbital $G$-inner horn and $G$-inner horn inclusions.
+\end{itemize}
 \end{proposition}
-\begin{proof}
-      If
-      % $\mathsf{im}(\Omega[G \cdot_K U_0])$
-      $\bigcup_G \Omega[g U_0]$ is already contained in $X$, we are done.
-      Assuming otherwise, it suffices to show that for all
-      $C \subseteq C'$ $K$-closed convex subsets of $\mathscr{F}_{\mathrm{Inn}}^{E}(U_0) \setminus X$, the map
-      \begin{equation}
-            \label{CHAR_HORN_EQ}
-            X_C \to X_{C'}
-      \end{equation}
-      is inner $G$-anodyne,
-      where
-      \begin{equation}
-            X_C
-            := X \cup \mathop{\bigcup}\limits_{C}\Omega[V_0],
-      \end{equation}
-      % \begin{equation}
-      %       X_C
-      %       := X \cup \mathop{\bigcup}\limits_{C}\Omega[U_0],
-      %       %       := X \cup \mathop{\bigcup}\limits_{C/K} \mathsf{im}\left(\Omega[G \cdot_L U_0 \setminus E] \right)
-      %       %       = X \cup \left( G \cdot_K \mathop{\bigcup}\limits_{C/K} \Omega[U_0 \setminus E] \right),
-      % \end{equation}
-      with the unions taking place in $\Omega[T]$
-      and $\mathscr{F}_{\mathrm{Inn}}^{E}(U_0)$ the poset of inner faces $V_0$ of $U_0$
-      with $E \subseteq V_0$ as inner edges.
-      Moreover, it suffices to consider when $C' - C = G\cdot_K \set{V_0}$;
-      let $\bar K = \mathrm{Stab}_H(D)$.
 
-      We claim that, in this case, \eqref{CHAR_HORN_EQ} is given by a pushout over
-      the generalized inner $G$-horn inclusion
-      \begin{equation}
-            G \cdot_{\bar K} \left( \Lambda^{E}[V_0] \to \Omega[V_0] \right),
-      \end{equation}
-      which by \cite[Proposition 6.17]{Per17} is inner $G$-anodyne
-      (as $E$ is also $\bar K$-set of edges of $V_0$).
-      % \todo[inline]{don't need to worry about the maps of the pushout being injective!}
-      
-      Any outer face of $V_0$ factors through an outer face of $U_0$, and hence is in $X$.
-      Further, any inner face of $V_0$ containing all of $E$
-      is in $X_C$ by concavity.
-      Thus $\Lambda^{E}[V_0]$ is in $X_C$.
 
-      Moreover, fixing $\bar E \subseteq E$, %$\bar e \subseteq K e$,
-      if $V_0 - \bar E$ factors through some face $R_0$ already attached,
-      then, since $E \subset R_0$, $V_0$ also factors through $R_0$ and hence is in $X_C$, a contradiction.
-      On the other hand,
-      if $V_0 - \bar E$ is in $X$,
-      then so is $V_0 - E$, and hence
-      so is $V_0$ (by definition of characteristic edge orbit), also a contradiction.
+\begin{remark}
+	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
+	one recovers the well known claim that 
+	the hypersaturation of the simplicial inner horns
+	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
+	coincides with the hypersaturation of the simplicial Segal core inclusions
+	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
+\end{remark}
 
-      Thus we have our desired pushout, and the result follows.
-\end{proof}
+
+\begin{remark}\label{HYPERSATKAN REM}
+	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
+	Namely, we claim that the hypersaturation of all simplicial horns 
+	$\{\Lambda^i[n] \to \Delta[n] \colon 0 \leq i \leq n\}$
+	coincides with the hypersaturation of all vertex inclusion maps
+	$\{\Delta[0] \to \Delta[n]\}$.
+	Indeed, call the latter hypersaturation $S$. 
+	An easy argument shows that the Segal core inclusions 
+	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
+	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
+\end{remark}
+
+% ---------------------------------------------------------------------------------------------------
+
 
 The observation below will be useful in the proofs which follow.
+\todo[inline]{is this still needed? Combine with description of $G U$.}
 \begin{lemma}
       \label{FOF_OHORN_LEM}
       Fix $T \in \Omega_G$, an edge $e \in T$, and a face $U_0 \into T$ containing $e$. Then,
@@ -1816,237 +1777,122 @@ The observation below will be useful in the proofs which follow.
       $V_0$ is as well.
 \end{proof}
 
+We break up the proof of Proposition \ref{HYPER PROP} into its constituent pieces.
+
 \begin{proposition}
-      \label{ORB_HORN_PROP_B}
-      $\Lambda_o^{Ge}[T] \to \Omega[T]$ is inner $G$-anodyne, and hence
-      the (hyper)saturated class of the orbital horn inclusions is contained in
-      the (hyper)saturated class of the horn inclusions.
+      Proposition \ref{ORB_HORN_PROP}.
 \end{proposition}
-\begin{proof}
-      Let $\mathrm{Out}^{-o}(T)$ be the poset of outer faces $U_0$ of $T$ which are not in $\Lambda_0^{Ge}[T]$.
-      It suffices to show that for any $G$-convex subsets $B \subseteq B'$ of $\mathrm{Out}^{-o}(T)$, the map
-      \begin{equation}
-            \label{ORB_HORN_EQ}
-            \left(\Lambda^{G e}_{o}[T]\right)_B
-            := \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B}\Omega[U_0]
-            \to
-            \Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B'}\Omega[U_0]
-            %\Lambda_o^{Ge}[T] \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}\left(\Omega[G \cdot_K U_0]\right)
-      \end{equation}
-      is inner $G$-anodyne.
-      Again, if suffices to consider when $B' - B = G \cdot_K \set{U_0}$, where $K = \mathrm{Stab}_G(U_0)$, and
-      without loss of generality $e \in U_0$.
-      For the final reduction, Proposition \ref{CHAR_HORN_PROP} implies it suffices to show
-      $E = K e$ is a characteristic edge set for
-      $U_0$ with respect to $(\Lambda^{G e}_o[T])_B$.
-      The case $B = \varnothing$ follows immediately from Lemma \ref{FOF_OHORN_LEM}.    
-      %%%%%% -----------------------  WRONG ------------------------------------------------
-      % $U_0 \setminus (D \cup \bar K e) \in \Lambda_o^{G e}[T]$. This implies that
-      % \begin{equation}
-      %       K_r := \mathrm{Stab}_H(r_U) \leq \mathrm{Stab}_H(U_0 \setminus (D \cup \bar K e)) \leq \mathrm{Stab}_H(U_0) \leq Kr,
-      % \end{equation}
-      % so the outer face $U_0$ is $K_r$-closed and not in $\Lambda_0^{Ge}[T]$, and hence we conclude that $U_0$ must be $T_0$.
-      % However, if $\Lambda^{Ge}_0[T] \neq \Lambda^{Ge}[T]$, $T_0$ is not a minimal outer face not in $\Lambda_0^{Ge}[T]$.
-      % Thus, in these cases, $K e$ is a characteristic edge orbit vacuously.
-      % If in fact $\Lambda_o^{Ge}[T] = \Lambda^{Ge}[T]$, then $T \simeq G \cdot T_0$, so $H = \bar K = K_r = \set{e}$.
-      % Now, since $U_0 \setminus D \cup e \in \Lambda_0^{Ge}[T]$,
-      % $D \setminus e \neq \varnothing$, so
-      % $U_0 \setminus D \in \Lambda_0^{Ge}[T]$.
-      %%%%% --------------------------------------------------------------------------------
-      
-      For general $B$, we know the domain $\Lambda^{G e}_o[T])_B$ of \eqref{ORB_HORN_EQ}
-      contains all outer faces of $U_0$ by convexity.
-      Now, let $V_0$ be an inner face of $U_0$ containing $K e$.
-      If $V_0 - K e$ is in the orbital horn,
-      we can again apply Lemma \ref{FOF_OHORN_LEM} to conclude that $V_0$ is in the orbital horn as well.
-      If $V_0 - K e$ is in some $R_0$ already attached,
-      we may conclude that $U_0$ is also contained in $R_0$ since both are outer faces, yielding a contradiction.
-      Thus again we may conclude that $V_0 - K e$ is in the domain iff $V_0$ is, as desired.
-      %%%%% -----------------------  WRONG ------------------------------------------------
-      % For general $B$, we know the domain contains all outer faces of $U_0$ by convexity.
-      % Now, let $V_0 := U_0 \setminus D$ be an inner face, with stabilizer $\bar K$.
-      % Then $U_0 \setminus D \cup \bar K e$ is in the domain if either
-      % $U_0 \setminus D \cup \bar K e$ is contained in some $\Omega[G \cdot_L R_0]$, or
-      % $U_0 \setminus D \cup \bar K e \in \Lambda_o^{Ge}[T]$.
-      % But then $U_0$ is contained in $R_0$ since both are outer faces, or again we apply the previous lemma.
-      % Both lead to contradictions, and thus the result follows.
-      %%%%% --------------------------------------------------------------------------------
-\end{proof}
-
-\begin{remark}
-      We could have instead chosen $E = G e \cap U_0$ instead of $K e$ in the above proof.
-\end{remark}
-
- }%%%%%%%%%%%-------------- COLOR BLUE --------------------------------------------------------------------
-
-
-
 
 The reverse inclusion is only true on the level of hypersaturations.
+
 \begin{definition}
       Let $W_o$ (respectively $\hat{W}_o$) denote the (hyper)saturation of the orbital horn inclusions.
 \end{definition}
 
 \begin{proposition}
-      \label{GORB_OHORN_PROP}
-      Generalized orbital horn inclusions
-      \begin{equation}
-            \Lambda^{E}_o[T] \to \Omega[T]
-      \end{equation}
-      are in $W_o$.
-\end{proposition}
-\begin{proof}
-      \todo[inline]{come back}
-\end{proof}
-
-\begin{proposition}
       \label{HORN_ORB_PROP}
-      For any $T \in \Omega_G$, the map
-      $\Lambda^{G e}[T] \to \Omega[T]$
+      For any $T \in \Omega_G$ and $G$-set of inner edges $E$,
+      the generalized inner horn inclusion
+      $\Lambda^{E}[T] \to \Omega[T]$
       is in $\hat{W}_o$.
 \end{proposition}
 \begin{proof}
-      Pick any decomposition $T \simeq G \cdot_H T_0$ of $T$.
-      We go by induction on $|H| \times |V_G(T)|$, ordered lexicographically.
-      % \todo{replace $F_{Inn}(T)$ or $Inn(T)$ with $Inn_G(T)$? $E(T)$? $V(T)$? $V_G(T)$?}
-      When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds.
+      We go by induction on $|H| \times |V_G(T)|$, ordered lexicographically,
+      where $T \simeq G \cdot_H T_*$ is any decomposition
+      (as $|H|$ is independent of choice of $T_*$).
+      \todo[inline]{Can this be replaced with an ``We may assume $T \in \Omega^G \subseteq \Omega_G$'' argument?}
+      
+      When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds by \cite[Proposition 6.17]{Per17}.
 
-      Now, the proof of
-      {\color{blue} Proposition \ref{CHAR_HORN_PROP}}
-      says that,
-      for any proper face $U_0 \into T$,
-      if $E$ is a characteristic edge set for $U_0$ with respect to $X$, then
+      Now, the proof of Lemma \ref{CHAREDGE LEM} says that
+      if $\set{\Ksi^i}_{i \in I}$ is a characteristic edge collection of $\set{U_i}_{i \in I}$ with respect to $X$,
+      the map
       \begin{equation}
             \label{CHAR_ATTACH_EQ}
-            X \to X \cup \mathop{\bigcup}\limits_G \Omega[g U_0]
+            X \to X \cup \mathop{\bigcup}\limits_{i \in I} \Omega[U_i]
       \end{equation}
-      is cellular on inner horn inclusions of inner faces of $G \cdot_K U_0$ (with $K$ the stabilizer of $U_0$),
-      and thus such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$ by induction
-      (since if $K = H$, $U_0$ being a proper face implies it has fewer vertices).
+      is cellular on inner horn inclusions of inner faces of the $U_i$,
+      and thus such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$ by induction.
 
-      {\color{blue} % -------------------------COLOR: BLUE ---------------------------------------------------------
-        We note that the proof of Proposition \ref{ORB_HORN_PROP_B} implies the map
-        \begin{equation}
-              \Lambda^{G e}_o[T] \to \Lambda_o^{G e}[T] \cup \partial^{out}\Omega[T] =:A
-        \end{equation}
-        is in $\hat{W}_o$.  
-        In a similar vein,
-        it then suffices to show that, for any $G$-convex subposets
-        $B \subseteq B' \subseteq \mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$,
-        \begin{equation}
-              \label{ORB_HORN_ATTACH_EQ}
-              A_B
-              % := A \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}\left(\Omega[G \cdot_{K} U_0]\right)
-              := A \cup \mathop{\bigcup}\limits_{B}\Omega[U_0]
-              \to
-              A \cup \mathop{\bigcup}\limits_{B'}\Omega[U_0]
-              % A \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}\left(\Omega[G \cdot_{K} U_0]\right)
-        \end{equation}
-        is in $\hat{W}_o$,
-        where $\mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$ is
-        the $G$-poset of inner faces of $T$ whose intersection with $G e$ is maximal
-        (i.e. contain some conjugate of $H e$)
-        and are not in $\Lambda^{G e}_o[T]$.
-        Indeed, when $B = \mathscr{F}_{\mathrm{Inn}}^{G e,-o}(T)$, $A_B = \Lambda^{G e}[T]$,
-        so the result follows from the cancelation property in the definition of hypersaturation.
-        
-        We may assume that $B' - B =  G\cdot_K \set{U_0}$ for an inner face $U_0 \into T_0$
-        containing $H e$.
-        We will show that the $K$-set $E = H e$ is a characteristic edge orbit for
-        $U_0$ with respect to $A_B$.
-        (Ch1) follows since $A_B$ contains all outer faces of $T$ (and hence all outer faces of $U_0$).
-        For (Ch2), let $V_0$ be an inner face of $U_0$ containing $H e$, 
-        and suppose $V_0 - H e$ is in $A_B$.
-        If $V_0 - H e \in \Lambda^{G e}_o[T]$, then Lemma \ref{FOF_OHORN_LEM} implies $V_0 \in \Lambda^{G e}_o[T] \subseteq A_B$.
-        If instead $V_0 - H e$ is in some $R_0$ already attached, then,
-        since we know $H e \subseteq R_0$, 
-        $V_0$ also factors through $R_0$.
-
-        Thus $H e$ is a characteristic edge orbit, and the result is proven.
-      } % END COLOR: BLUE --------------------------------------------------------------------------------
-      % 
-      %%%%%%% ------------- ARGUMENT FOR SOME OTHER PROOF? ------------------------------------------------------------
-      % {\color{blue} % ---------------COLOR: BLUE -------------------------------------------------
-      %   $H e$ is a characteristic edge orbit for $T_0$ with respect to $A$,
-      %   where $e$ is any inner edge in $T_0$ with $T \simeq G \cdot_H T_0$ a decomposition for $T$.
-      %   This follows by observing $\partial^{out}\Omega[T] \subseteq A$ and by applying Lemma \ref{FOF_OHORN_LEM}, using the fact that any inner face of $T_0$ is not contained in any outer face.
-      %   } % ---------------------------------------------------------------------------------------------
-      % $\Ksi = H e$ is a characteristic edge set for $\set{U_i} = \set{T_0}$ with respect to $X = A$.
-      % (Ch 0) and (Ch 3') are immediate, while (Ch 1) follows since $\partial^{out}\Omega[T] \subseteq A$.
-      % Finally, since any inner face $V_0$ of $T_0$ is not contained in any outer face,
-      % (Ch 2) again follows from Lemma \ref{FOF_OHORN_LEM}.
-\end{proof}
-\begin{proof}[Proof Using More Advanced Characteristic Arguments]
-      Pick any decomposition $T \simeq G \cdot_H T_0$ of $T$.
-      We go by induction on $|H| \times |V_G(T)|$, ordered lexicographically. 
-      When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds.
-
-      Now, the proof of Lemma \ref{CHAREDGE LEM}
-      says that,
-      for any proper face $U_0 \into T$,
-      if $E$ is a characteristic edge set for $U_0$ with respect to $X$, then
+      With that in mind, we apply Lemma \ref{CHAREDGE LEM} with
+      both $I$ and ${U_i}$ the poset $(\Lambda^{E}[T] \setminus \Lambda^{E}_o[T]) \cap \mathsf{Face}^{lex}_{E}(T)$, and
       \begin{equation}
-            \label{CHAR_ATTACH_EQ}
-            X \to X \cup \mathop{\bigcup}\limits_G \Omega[g U_0]
+            \qquad X = \Lambda^{E}_o[T],
+            \qquad \set{\Ksi^i} = \set{U_i \cap E}.
       \end{equation}
-      is cellular on inner horn inclusions of inner faces of $G \cdot_K U_0$ (with $K$ the stabilizer of $U_0$),
-      and thus such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$ by induction
-      (since if $K = H$, $U_0$ being a proper face implies it has fewer vertices).
-
-      With that in mind, we apply Lemma \ref{CHAREDGE LEM} first with
-      \begin{equation}
-            \Ksi = G e,
-            \qquad X = \Lambda^{G e}_o[T],
-            \qquad \set{U_i} = \set{\mbox{maximal faces of $\Lambda^{G e}[T] \setminus \Lambda^{G e}_o[T]$}}.
-      \end{equation}
-      \todo[inline]{replace $\set{U_i}$ with the whole poset of faces}
-      (Ch1) is immediate.
-      For (Ch2), let $V_0$ be an outer face of $U_i$ such that $V_0 \cap G e = \varnothing$.
+      In particular, $U_i \cap E$ is maximal for faces of $T$.
+      % Note that for any $U_i$, we have $\Ksi^i$ is an $H$-set such that $G \cdot_H \Ksi^i = \Ksi$,
+      % where we have a decomposition $T \simeq G \cdot_H T_*$ and $U_i \subseteq T_*$.
+      (Ch0) is immediate,
+      while (Ch2) follows from Lemma \ref{FOF_OHORN_LEM}.
+      For (Ch1),      
+      let $V$ be an outer face of some $U_i$, such that $\Ksi^i_V = V \cap E = \varnothing$.
       If $U_i$ is an outer face,
-      $V_0$ has a minimal orbital outer face $G V_0$ also intersecting $G e$ trivially,
-      and hence $G V_0$, and thus $V_0$, are in the orbital horn.
-      If $U_i$ is an inner face, it is of the form $T_0 - f$ for $f \notin G e$.
-      If $f \not \geq_d r(V_0)$, then $G V_0$ is an orbital outer face, and the above applies.
-      Otherwise, $G V_0$ is either an orbital outer face or $G R_0 - G f$ for an orbital outer face $G R_0$.
-      In either case, $G V_0$, and hence $V_0$, are in the orbital horn.
-      For (Ch3'), $H e$ is contained in any maximal inner face $U_i$, and hence
-      $G e \cap U_i = H e = G e \cap \bar U_i$.
+      $V_0$ has a minimal orbital outer face $G V_0$ also intersecting $E$ trivially,
+      and hence both $G V_0$ and $V_0$ are in $\Lambda^E_o[T] = X \subseteq X_{< i}$.
+      If $U_i$ is an inner face, 
+      Lemma \ref{INNINT LEM} implies that $E^i(V) = E^i(U_i) \cap E^i(\bar V)$, and hence,
+      since $U_i \cap E$ is maximal and by hypothesis $V \cap E = \varnothing$,
+      we must have $\bar V \cap E = \varnothing$.
+      Thus again we may conclude $V \in X$.
+      For (Ch3),
+      we first note that if $(V - \Ksi^i_V) \into U_j$, then so must $V \into U_j$
+      since, by maximality, $\Ksi^i_V \subseteq U_j$.
+      Thus for any $V \into U_i$ with $(V - \Ksi^i_V) \into U_j$,
+      $V \into (U_i \cap U_j)$,
+      and since $\Ksi^i = \Ksi^j$, we have
+      $U_i \cap U_j = U_k$ with $k < i,j$.
+      Hence $V \in X_{< i}$.
+      
+      Thus $\Lambda^{G e}_o[T] \to \Lambda^{G e}[T]$ is in $\hat{W}_o$, and hence,
+      by the cancelation property of hypersaturations,
+      so is $\Lambda^{G e}[T] \to \Omega[T]$.
       \todo[inline]{deal with trivial cases: $|V_G| = 1$, etc}
 \end{proof}
 
+COME BACK
 
-We will now compare Segal core inclusions with the inner horn inclusions.
+We move now to comparing Segal core inclusions with the inner horn inclusions.
 
 \begin{proposition}
       \label{SC_IN_GHORN_PROP}
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
 \end{proposition}
-{\color{blue} % -------------------------------------------------------
-\begin{proof}
-      Let $\mathsf{Out}^{>1}(T)$ denote the sub-$G$-poset $\mathsf{Out}(T) \setminus \mathscr{F}_{\mathrm{SC}}(T)$.
-      It suffices to show that for all $G$-convex $B \subseteq B' \subseteq \mathsf{Out}^{>1}(T)$, the map
-      \begin{equation}
-            \label{SC_GHORN_EQ}
-            % (Sc[T])_B :=
-            % Sc[T] \cup \mathop{\bigcup}\limits_{B/G}\mathsf{im}(\Omega[G \cdot_K U_0])
-            Sc[T] \cup \mathop{\bigcup}\limits_{B}\Omega[U_0]
-            \to
-            Sc[T] \cup \mathop{\bigcup}\limits_{B'}\Omega[U_0]
-            % Sc[T] \cup \mathop{\bigcup}\limits_{B'/G}\mathsf{im}(\Omega[G \cdot_K U_0])
-      \end{equation}
-      is inner $G$-anodyne. In particular, we may assume $B' = B \cup G \cdot_K \set{U_0}$.
-      Then \eqref{SC_GHORN_EQ} is the pushout over
-      \begin{equation}
-                  G\cdot_K \left(\partial^{out}\Omega[U_0] \to \Omega[U_0] \right),
-      \end{equation}
-      which again by \cite[Proposition 6.17]{Per17} is inner $G$-anodyne, and hence the result follows.
-\end{proof}
-} % ----------------------------------------------------------------------------
 \begin{proof}
       Fix some decomposition $T \simeq G \cdot_H T_0$, and let $I_0$ denote the set of inner edges of $T_0$.
       Then it is immediate that $I_0$ is an characteristic inner edge set for $T_0$ with respect to $Sc[T]$,
       and the result then follows from Lemma \ref{CHAREDGE LEM}.
 \end{proof}
+
+\begin{proposition}
+      \label{GORB_OHORN_PROP}
+      For any $T \in \Omega_G$ and $G$-sets of edges $E$ and $F$,
+      the maps
+      \begin{equation}
+            \Lambda^{E \amalg F}_o[T] \to \Lambda^{E}[T]
+      \end{equation}
+      are in $W_o$.
+\end{proposition}
+\begin{proof}
+      It suffices to show that,
+      for any edge orbit $G e \subseteq E$,
+      the map $\Lambda^{E - G e}_o[T] \to \Lambda^{E}_o[T]$ is in $W_o$.
+      But the following commuting square is a pushout,
+      \begin{equation}
+            \begin{tikzcd}
+                  \Lambda^{E - G e}_o[T - Ge] \arrow[r] \arrow[d]
+                  &
+                  \Lambda^{E}_o[T] \arrow[d]
+                  \\
+                  \Omega[T - G e] \arrow[r]
+                  &
+                  \Lambda^{E - G e}_o[T]
+            \end{tikzcd}
+      \end{equation}
+      and thus the result follows by induction on $|T/G| \times |E/G|$ ordered lexicographically.
+\end{proof}
+
+\todo[inline]{come back - clean up after here}
 
 \begin{proposition}
       \label{SC_IN_OHORN_PROP}
@@ -2089,8 +1935,6 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
 \begin{definition}
       Let $\hat{W}_{SC} = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
 \end{definition}
-
-\todo[inline]{come back - clean up after here}
 
 \begin{proposition}
       \label{GHORN_IN_SC_PROP}
@@ -2149,7 +1993,7 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
 
 
 The following is an equivariant generalization of 
-\cite[Props. 2.4 and 2.5]{CM13a},
+
 summarizing the results
 % (in particular, \cref{ORB_HORN_THM}, \cref{HORN_ORB_THM} \cref{SC_IN_GHORN_THM}, \cref{SC_IN_OHORN_THM}, and \cref{GHORN_IN_SC_THM})
 of this subsection.
