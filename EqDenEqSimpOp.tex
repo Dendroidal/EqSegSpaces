@@ -560,7 +560,7 @@ $(s,t)^{\uparrow S} = s^{\uparrow} \times t \leq (s,t)$
 and a $T$-vertex
 $(s,t)^{\uparrow T} = s \times t^{\uparrow} \leq (s,t)$.
 
-To recover \cite[Thm. 7.1(i)]{Per17} from Lemma \ref{CHAREDGE LEM}, we first let $I = \mathsf{Max}^{lex}(S \otimes T)$
+To recover \cite[Thm. 7.1(i)]{Per17} from Lemma \ref{CHAREDGE LEM}, we first let $I = \mathsf{Max}(S \otimes T)$
 be the $G$-poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
 (these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
 As an example, let $\mathbb{Z}_{/2} = \{\pm 1\}$
@@ -592,13 +592,13 @@ and consider the $\mathbb{Z}_{/2}$-trees
 	\end{tikzpicture}%
 \]%
 We depict the $\mathbb{Z}_{/2}$-poset 
-$\mathsf{Max}^{lex}(S \otimes T)$
+$\mathsf{Max}(S \otimes T)$
 in Figure \ref{FIGURE} (note that $(s,t)$ is abbreviated as $t_s$).
 In words, the maximal subtrees are built by starting with the
 ``double root'' $r_0$ and iteratively choosing between the available $S$ and $T$ vertices (along all upward paths) until the 
 ``double leaves'' are reached.
 The generating relations $U \leq U'$ in 
-$\mathsf{Max}^{lex}(S \otimes T)$
+$\mathsf{Max}(S \otimes T)$
 occur whenever $U$ contains an outer face $V$ shaped as on the left below and, by ``replacing'' $V$ with $V'$ as on the right, one obtains $U'$.
 \begin{equation}\label{GENLEXREL EQ}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2em,
@@ -786,7 +786,7 @@ Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 	\end{scope}
 	\end{tikzpicture}%
 \]%
-\caption{The $\mathbb{Z}_{/2}$-poset $\mathsf{Max}^{lex}(S \otimes T)$ and characteristic edges $\Xi^i$}
+\caption{The $\mathbb{Z}_{/2}$-poset $\mathsf{Max}(S \otimes T)$ and characteristic edges $\Xi^i$}
 \label{FIGURE}
 \end{figure}
 
@@ -797,6 +797,13 @@ $(g \xi)_s$ \textit{such that}
 the vertex $(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ in $U$
 is a $T$-vertex (see Figure \ref{FIGURE}).
 We now verify (Ch1),(Ch2),(Ch3).
+We recall that, since $S,T$ are assumed open,
+\cite[Lemma 7.19]{Per17} guarantees that,
+for faces
+$S' \hookrightarrow S$, $T' \hookrightarrow T$,
+a factorization
+$V \hookrightarrow S' \otimes T' \hookrightarrow S \otimes T$
+exists iff the edges of $V$ are in $E(S') \times E(T')$.
 
 For (Ch1), note first that there is an equivariant grafting decomposition
 $T = T_{\not < G\xi} \amalg_{G \xi} T^{\leq G\xi}$, 
@@ -807,10 +814,7 @@ contains the edges $t \in T$ such that
 $\exists_{g \in G} t \leq g\xi$ (an upper equivariant outer face of $T$).
 But one now readily checks that if
 $V \hookrightarrow U$ is an \textit{outer} face such that
-$\Xi^U_V = \emptyset$, 
-then all edges of $V$ are in either
-$S \otimes T_{\not < G\xi}$ or $S \otimes T^{\leq G\xi}$,
-so that by \cite[Lemma 7.19]{Per17} it is either
+$\Xi^U_V = \emptyset$, then either 
 $V \hookrightarrow S \otimes T_{\not < G\xi}$ or 
 $V \hookrightarrow S \otimes T^{\leq G\xi}$, and thus $V \in X$.
 
@@ -823,22 +827,64 @@ such that $(V - \Xi^{U_i}_V) \hookrightarrow U_k$
 (indeed, \cite[Lemma 7.37]{Per17} makes the slightly stronger claim that such a relation can be performed on the outer closure $\bar{V}^{U_i}$). But then, as one sees from \eqref{GENLEXREL EQ},
 all edges $e \in U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
 
-{\color{red}HERE}
 
-Lastly, for (Ch2), suppose $V \hookrightarrow U_i$ and 
-$(V - \Xi^{U_i}) \in X$.
-
-
-bla bla lemma says factors iff it factors on edges, 
-
-bla bla dismiss case $S \otimes \Lambda$ first.
-
-
+Lastly, for (Ch2), suppose $V \hookrightarrow U$ and 
+$(V - \Xi^{U}_V) \in X$.
+If it were 
+$(V-\Xi^{U}_V) \hookrightarrow S \otimes \Lambda^{G \xi}[T]$, then it would also be 
+$V \hookrightarrow S \otimes \Lambda^{G \xi}[T]$
+since all edges of $\Xi^{U}_V$ have 
+$T$-coordinate in $G\xi$.
+Now consider the more interesting case
+$(V - \Xi^{U}_V) \hookrightarrow S' \otimes T$
+for some face $S' \hookrightarrow S$.
+Then it will also be 
+$V \hookrightarrow S' \otimes T$
+unless there is at least one edge
+$(g \xi)_s \in \Xi^{U}_V$ such that $s \not \in S'$.
+But then since the outer closure $\bar{V}^U$ can have no leaf with $S$-coordinate $s$ (this would contradict $s \not \in S'$),
+there exists some minimal outer face $U_{(g\xi)_s}^{<s}$ of $U$ with root $(g\xi_s)$ and such that its leaves have $S$-coordinate $<_d s$.
+By minimality, one has that $U_{(g\xi)_s}^{<s} \hookrightarrow \bar{V}^U$ and that all inner edges of $U_{(g\xi)_s}^{<s}$ have
+$S$-coordinate $s$.
+Further, note that $U_{(g\xi)_s}^{<s}$
+has at least one inner edge
+(since by definition of $\Xi^U$ the vertex 
+$(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ is a $T$-vertex)
+and that $V$ contains none of those inner edges (or else it would be $s \in S'$).
+Thus by applying \cite[Lemma 7.34]{Per17}
+to $U_{(g\xi)_s}^{<s}$ one obtains a maximal subtree $U' < U$
+containing all edges of $U$ that are not inner edges of $U_{(g\xi)_s}^{<s}$.
+But then $V \hookrightarrow U'$ and (Ch2) follows.
 \end{example}
 
+ 
+\begin{remark}
+We briefly outline how to modify the previous example to prove 
+\cite[Thm 7.1(ii)]{Per17}, in which case some notable subtleties arise.
+The result again states that \eqref{THM71 EQ} is $G$-inner anodyne, but now with one of $S,T$ allowed to have stumps while the other is required to be linear.
 
+One again sets $I=\mathsf{Max}(S\otimes T)$, where maximal trees are defined just as before, but some care is now needed.
+To see why, note that if the black nodes $\bullet$ in \eqref{GENLEXREL EQ} are replaced with stumps then $V'$
+is actually a subtree of $V$.
 
+When $S$ has stumps and $T$ is linear this causes no issues and the proof above holds
+(though we note that it can now be 
+$\Xi^U=\emptyset$, in which case the argument for (Ch1) shows $U\in X$).
 
+However, when $S$ is linear and $T$ has stumps the proof above breaks down (more precisely, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
+$\mathsf{Max}(S\otimes T)$
+and to modify the $\Xi^U$ to be those edges $(g \xi)_s$ such that
+$(g _xi)_s \in t_s^{\uparrow T}$ for some $t_s$
+(pictorially, this says simply that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then follow.
+For (Ch2), it is only the argument for the interesting case of
+$V- \Xi_V^U \hookrightarrow S' \otimes T$ with $s \not \in S'$
+that changes. Namely, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists maximal $U' > U$ such that $V \hookrightarrow U'$,
+and (Ch2) holds.
+
+Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per17} when $S$ is linear.
+\end{remark}
+
+{\color{red} HERE}
 
 
 
