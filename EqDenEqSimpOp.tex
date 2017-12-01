@@ -1114,11 +1114,6 @@ $V \hookrightarrow T-(F' \cup F'')$.
       disjoint or equal, with $\Omega[U_0] = \Omega[g U_0]$ iff $g \in K = \mathrm{Stab}_G(U_0)$.
 \end{remark}
 
-\begin{remark} \label{ORB_REM} 
-$U_0$ is orbital iff the (non-equivariant) subdendroidal sets $\Omega[g U_0]$ of $\Omega[T]$ are either 
-disjoint or equal, with $\Omega[U_0] = \Omega[g U_0]$ iff $g \in K = \mathrm{Stab}_G(U_0)$. 
-\end{remark} 
-
 
 \begin{lemma}
       \label{ORB_INJ_LEM}
@@ -1876,7 +1871,7 @@ Moreover, one also has the following:
 
 
 The observation below will be useful in the proofs which follow.
-\todo[inline]{is this still needed? Combine with description of $G U$.}
+\todo[inline]{Combine with description of $G U$.}
 \begin{lemma}
       \label{FOF_OHORN_LEM}
       Fix $T \in \Omega_G$, an edge $e \in T$, and a face $U_0 \into T$ containing $e$. Then,
@@ -1947,39 +1942,48 @@ The reverse inclusion is only true on the level of hypersaturations.
       and thus such maps \eqref{CHAR_ATTACH_EQ} are in $\hat{W}_o$ by induction.
 
       With that in mind, we apply Lemma \ref{CHAREDGE LEM} with
-      both $I$ and ${U_i}$ the poset $(\Lambda^{E}[T] \setminus \Lambda^{E}_o[T]) \cap \mathsf{Face}^{lex}_{E}(T)$, and
+      both $I$ and ${U_i}$ the
+      subposet of       
+      \begin{equation}
+            (\Lambda^{E}[T] \setminus \Lambda^{E}_o[T]) \cap \mathsf{Face}^{lex}_{E}(T)
+      \end{equation}
+      such that $E_i := U_i \cap E$ is maximal,
+      with
       \begin{equation}
             \qquad X = \Lambda^{E}_o[T],
-            \qquad \set{\Ksi^i} = \set{U_i \cap E}.
+            \qquad \set{\Ksi^i} = \set{E^i(U_i) \cap E}.
       \end{equation}
-      In particular, $U_i \cap E$ is maximal for faces of $T$.
+      % In particular, $U_i \cap E$ is maximal for faces of $T$.
       % Note that for any $U_i$, we have $\Ksi^i$ is an $H$-set such that $G \cdot_H \Ksi^i = \Ksi$,
       % where we have a decomposition $T \simeq G \cdot_H T_*$ and $U_i \subseteq T_*$.
       (Ch0) is immediate,
       while (Ch2) follows from Lemma \ref{FOF_OHORN_LEM}.
+      
       For (Ch1),      
-      let $V$ be an outer face of some $U_i$, such that $\Ksi^i_V = V \cap E = \varnothing$.
-      If $U_i$ is an outer face,
-      $V_0$ has a minimal orbital outer face $G V_0$ also intersecting $E$ trivially,
-      and hence both $G V_0$ and $V_0$ are in $\Lambda^E_o[T] = X \subseteq X_{< i}$.
-      If $U_i$ is an inner face, 
-      Lemma \ref{INNINT LEM} implies that $E^i(V) = E^i(U_i) \cap E^i(\bar V)$, and hence,
-      since $U_i \cap E$ is maximal and by hypothesis $V \cap E = \varnothing$,
-      we must have $\bar V \cap E = \varnothing$.
-      Thus again we may conclude $V \in X$.
+      let $V$ be an outer face of some $U_i$, such that $\Ksi^i_V = E^i(V) \cap E = \varnothing$.      
+      If $U_i$ factors through an outer face of $T$,
+      then $V$ has a minimal orbital outer face $G V$ also with $\Ksi^i_{G V} = \varnothing$, %intersecting $E$ trivially,
+      and hence both $G V$ and $V$ are in $\Lambda^E_o[T] = X \subseteq X_{< i}$.
+      If $U_i$ is an inner face,
+      then $\bar U_i = T_*$ and hence $E^i(U_i) \cap E \neq \varnothing$ \todo{also holds by maximality}. 
+      Moreover, Lemma \ref{INNINT LEM} implies that $E^i(V) = E^i(U_i) \cap E^i(\bar V)$, and 
+      since by hypothesis $E^i(V) \cap E = \varnothing$,
+      we must have $E^i(\bar V) \cap E = \varnothing$.
+      Thus we have $G \bar V$ is an orbital outer face not equal to $T$,
+      so again we may conclude that $V \in X$.
+      
       For (Ch3),
       we first note that if $(V - \Ksi^i_V) \into U_j$, then so must $V \into U_j$
       since, by maximality, $\Ksi^i_V \subseteq U_j$.
       Thus for any $V \into U_i$ with $(V - \Ksi^i_V) \into U_j$,
       $V \into (U_i \cap U_j)$,
-      and since $\Ksi^i = \Ksi^j$, we have
+      and since $\Ksi^i = \Ksi^j$ and $E_i = E_j$, we have
       $U_i \cap U_j = U_k$ with $k < i,j$.
       Hence $V \in X_{< i}$.
       
       Thus $\Lambda^{G e}_o[T] \to \Lambda^{G e}[T]$ is in $\hat{W}_o$, and hence,
       by the cancelation property of hypersaturations,
       so is $\Lambda^{G e}[T] \to \Omega[T]$.
-      \todo[inline]{deal with trivial cases: $|V_G| = 1$, etc}
 \end{proof}
 
 COME BACK
@@ -1994,6 +1998,7 @@ We move now to comparing Segal core inclusions with the inner horn inclusions.
       Fix some decomposition $T \simeq G \cdot_H T_0$, and let $I_0$ denote the set of inner edges of $T_0$.
       Then it is immediate that $I_0$ is an characteristic inner edge set for $T_0$ with respect to $Sc[T]$,
       and the result then follows from Lemma \ref{CHAREDGE LEM}.
+      \todo[inline]{also see Remark 2.12 (i)}
 \end{proof}
 
 \begin{proposition}
@@ -2023,8 +2028,6 @@ We move now to comparing Segal core inclusions with the inner horn inclusions.
       \end{equation}
       and thus the result follows by induction on $|T/G| \times |E/G|$ ordered lexicographically.
 \end{proof}
-
-\todo[inline]{come back - clean up after here}
 
 \begin{proposition}
       \label{SC_IN_OHORN_PROP}
@@ -2082,7 +2085,8 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
 
       Suppose we have a decomposition $T \simeq G \cdot_H T_0$, where $H = \mathrm{Stab}(T_0)$.
       We go by induction on $|H| \times |V_H(T_0)|$.
-
+      \todo[inline]{replace with $T \in \Omega^G \subset \Omega_G$ argument}
+      
       If $H = e$, then, since $G \cdot SCI \subseteq SCI_G$,
       and by \cite[2.5]{CM13a} we know $IHI \subseteq \hat{W}(SCI)$, we conclude that
       \begin{equation}
@@ -2093,31 +2097,25 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       the Segal core is an inner horn.
       Thus, we may assume that $V_H(T_0) > 2$.
 
-      By Proposition \ref{GHORN_IN_SC_PROP}\todo[inline]{fix this reference}, we see that
-      \begin{equation}
-            \label{SC_POUT_EQ}
-            Sc[T] \to \partial^{out}\Omega[T]
-      \end{equation}
-      is cellular on maps of the form
-      $\partial^{out}[G \cdot_K U_0] \to \Omega[G \cdot_K U_0]$ for outer faces $U_0$ of $T$,
-      which are themsevles inner $G$-anodyne on inner horn inclusions in trees either
-      with strictly smaller isotropy (e.g. $K \leq H$) or
-      with a strictly smaller number of $G$-vertices.
-      Thus, by induction, \eqref{SC_POUT_EQ} is in $\hat{W}_{SC}$. 
-
-      Now consider
-      \begin{equation}
-            \label{POUT_GHORN_EQ}
-            \partial^{out}\Omega[T] \to \Lambda^{G e}[T].
-      \end{equation}
-      By \cite[Proposition 6.17]{Per17},
-      this is built by pushouts over maps of the form
-      $\partial^{out}\Omega[G \cdot_K U_0] \to \Omega[G \cdot_K U_0]$ for $U_0 \in \mathscr{F}_{\mathsf{Inn}}^{H e}[T_0]$,
-      and so again by induction on $|H| \times |V_H(T_0)|$, these maps are all in $\hat{W}_{SC}$. 
+      We first apply Lemma \ref{CHAREDGE LEM} with
+      $I = \set{U_i} = \mathsf{Out}^{>1}_p(T)$ of proper outer faces of $T$ not in $Sc[T]$,
+      $X = Sc[T]$,
+      and
+      $\Ksi = T$. 
+      (Ch0) is immediate.
+      (Ch1) follows since $\Ksi_V = \varnothing$ iff $V \in Sc[T]$, while
+      (Ch2) follows since $(V - \Ksi_V) \in Sc[T]$ iff $Ksi_V = \varnothing$.
+      Finally, (Ch3) follows since if $V - D \into U_j$ with $U_j$ an outer face of $T$,
+      then $V$ itself must be a face of $U_j$, and hence
+      $V \into U_i \cap U_j$ where this intersection is either in $X$ or is less than $U_i$.
+      Thus, following the logic in the proof of Proposition \ref{ORB_HORN_PROP}, we have that
+      $Sc[T] \to \partial^{out}\Omega[T]$
+      is in $\hat{W}_o$ by induction.
       
-      Combining the above, we have that $Sc[T] \to \Lambda^{G e}[T]$ is in $\hat{W}_{SC}$, and hence
-      by the closure property of hypersaturations, the inner horn inclusion $\Lambda^{G e}[T] \to \Omega[T]$
-      is in $\hat{W}_{SC}$, as desired.
+      Now, we note by induction and Proposition \ref{REG_HORN_PROP} that
+      $\partial^{out}\Omega[T] \to \Lambda^E[T]$
+      is also in $\hat{W}_o$,
+      and hence the result follows by the cancellation closure property of hypersaturations.
 \end{proof}
 
 
@@ -2147,6 +2145,11 @@ Moreover, one also has the following:
 \end{itemize}
 \end{proposition}
 
+
+
+\newpage
+
+\todo[inline]{come back - clean up after here}
 
 As a corollary of the above, we can fully characterize the image of the nerve functor $N: \Op^G \to \mathsf{dSet}^G$.
 
