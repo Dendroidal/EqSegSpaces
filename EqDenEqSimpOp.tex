@@ -600,7 +600,7 @@ In words, the maximal subtrees are built by starting with the
 The generating relations $U \leq U'$ in 
 $\mathsf{Max}^{lex}(S \otimes T)$
 occur whenever $U$ contains an outer face $V$ shaped as on the left below and, by ``replacing'' $V$ with $V'$ as on the right, one obtains $U'$.
-\[
+\begin{equation}\label{GENLEXREL EQ}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2em,
 	every node/.style={font=\scriptsize},
 	dummy/.style = {circle,draw,inner sep=0pt,
@@ -655,7 +655,7 @@ occur whenever $U$ contains an outer face $V$ shaped as on the left below and, b
 		\node at (4,1) [font=\large] {$\leq$};
 	\end{scope}
 	\end{tikzpicture}
-\]
+\end{equation}
 The claim that $\leq$ is indeed a partial order 
 (at least if one of $S,T$ is open) is 
 \cite[Prop. 7.31]{Per17}.
@@ -801,10 +801,10 @@ We now verify (Ch1),(Ch2),(Ch3).
 For (Ch1), note first that there is an equivariant grafting decomposition
 $T = T_{\not < G\xi} \amalg_{G \xi} T^{\leq G\xi}$, 
 where $T_{\not < G\xi}$ contains the edges $t \in T$ such that
-$\forall_{g \in G} t \not < g\xi$ (pictorially, this is an equivariant lower outer face of $T$) 
+$\forall_{g \in G} t \not < g\xi$ (pictorially, this is a lower equivariant outer face of $T$) 
 while $T^{\leq G\xi}$
 contains the edges $t \in T$ such that
-$\exists_{g \in G} t \leq g\xi$ (an upper outer face of $T$).
+$\exists_{g \in G} t \leq g\xi$ (an upper equivariant outer face of $T$).
 But one now readily checks that if
 $V \hookrightarrow U$ is an \textit{outer} face such that
 $\Xi^U_V = \emptyset$, 
@@ -814,13 +814,24 @@ so that by \cite[Lemma 7.19]{Per17} it is either
 $V \hookrightarrow S \otimes T_{\not < G\xi}$ or 
 $V \hookrightarrow S \otimes T^{\leq G\xi}$, and thus $V \in X$.
 
+For (Ch3), suppose $U_j \not \geq U_i$, 
+$V \hookrightarrow U_i$ and
+$(V - \Xi^{U_i}_V) \hookrightarrow U_j$.
+Then it follows from \cite[Lemma 7.37]{Per17}
+that there exists a generating relation $U_k < U_i$
+such that $(V - \Xi^{U_i}_V) \hookrightarrow U_k$
+(indeed, \cite[Lemma 7.37]{Per17} makes the slightly stronger claim that such a relation can be performed on the outer closure $\bar{V}^{U_i}$). But then, as one sees from \eqref{GENLEXREL EQ},
+all edges $e \in U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
+
 {\color{red}HERE}
 
-(Ch3) is almost literally the content of \cite[Lemma 3.37]{Per17}.
+Lastly, for (Ch2), suppose $V \hookrightarrow U_i$ and 
+$(V - \Xi^{U_i}) \in X$.
 
 
+bla bla lemma says factors iff it factors on edges, 
 
-
+bla bla dismiss case $S \otimes \Lambda$ first.
 
 
 \end{example}
