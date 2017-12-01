@@ -2,13 +2,14 @@
 \contentsline {section}{\numberline {2}Preliminary section}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Preliminary definitions}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}The characteristic edge argument}{2}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Segal covers, horns and orbital horns}{7}{subsection.2.3}
-\contentsline {section}{\numberline {3}Other Stuff}{9}{section.3}
-\contentsline {subsection}{\numberline {3.1}Preliminaries - to be combined with other Pre}{9}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Proof of Proposition \ref {HYPER PROP}}{13}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Weak Equivalences in $\mathsf {dSet}^G$}{19}{subsection.3.3}
-\contentsline {section}{\numberline {4}Equivariant simplicial dendroidal sets}{22}{section.4}
-\contentsline {section}{\numberline {5}Pre-operads}{26}{section.5}
-\contentsline {section}{\numberline {6}Equivariant dendroidal Segal spaces}{28}{section.6}
-\contentsline {section}{\numberline {7}Scratchwork (to be folded into previous sections eventually)}{36}{section.7}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{38}{appendix.A}
+\contentsline {subsection}{\numberline {2.3}Segal covers and horns}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}Equivariant dendroidal sets}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Preliminaries}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Proof of \cref {HYPER PROP}}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Weak Equivalences in $\mathsf {dSet}^G$}{12}{subsection.3.3}
+\contentsline {section}{\numberline {4}Equivariant simplicial dendroidal sets}{15}{section.4}
+\contentsline {section}{\numberline {5}Pre-operads}{19}{section.5}
+\contentsline {section}{\numberline {6}Equivariant dendroidal Segal spaces}{21}{section.6}
+\contentsline {section}{\numberline {7}Scratchwork (to be folded into previous sections eventually)}{29}{section.7}
+\contentsline {subsection}{\numberline {7.1}The characteristic edge set argument}{31}{subsection.7.1}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{35}{appendix.A}
