@@ -59,7 +59,7 @@
 % ------- Author Info -----------------------
 
 \author{Peter Bonventre, Lu\'is A. Pereira}%
-\title{Equivariant dendroidal sets and simplicial operads}%
+\title{Equivariant dendroidal Segal spaces and $G$-$\infty$-operads}%
 \date{\today}
 
 
@@ -98,8 +98,18 @@ The following are the categories currently with model structures and the right a
  
 
 
-\newpage
+\section{Introduction}
 
+This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
+\textit{equivariant operads with norm maps}.
+Briefly, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
+(and which has no analogue in the theory of equivariant categories).
+The need to understand norm maps, as well as their usefulness,
+was made clear by Hill, Hopkins and Ravenel in their solution of the Kervaire invariant one problem \cite{HHR16}.
+
+
+
+{\color{red} HERE}
 
 
 \section{Preliminary section}
@@ -225,7 +235,6 @@ Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
             $(V-\Xi^i_V) \hookrightarrow U_j$
             are contained in $X_{<i}$.
       \end{itemize}
-      \todo[inline]{these are all \textit{proper} faces, yes?}
 \end{definition}
 
 
@@ -258,7 +267,7 @@ is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lam
 \end{lemma}
 
 \begin{proof}
-We start with the case of $I \simeq G/H$ orbital {\color{blue} and discrete} so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
+We start with the case of $I \simeq G/H$ orbital so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
 Note that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
 We likewise abbreviate $\Xi = \Xi^{[e]}$ and
 $\Xi_V = \Xi_V^{[e]}$ for $V \hookrightarrow U$.
@@ -275,10 +284,9 @@ $V \leq V'$ if either
 		\item[(ii)] $\bar{V} = \bar{V}'$ and
 		$V \hookrightarrow V'$
 	\end{inparaenum}
-(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$,
-where here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
+(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
 $\bar{V}=\bar{V}^U$.
-{\color{blue} In particular, we note that $V \into V'$ still implies $V < V'$.}
 
 For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write
 \[
@@ -310,7 +318,7 @@ where we note that inner edge set $\Xi_{W}$ is $K$-equivariant
 since $\Xi_W = \Xi \cap E^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
 The desired pushout will follow once we establish the following claims:
 \begin{enumerate}
-\item[(a)] all outer faces $V$ of $W$ are in $X_C$;
+\item[(a)] all proper outer faces $V$ of $W$ are in $X_C$;
 \item[(b)] an inner face $W - D$ of $W$ is in $X_C$ iff 
 $D \not \subseteq \Xi_{W}$;
 \item[(c)] 
@@ -335,7 +343,7 @@ where the second step follows from Lemma \ref{INNINT LEM}
 $V \hookrightarrow \bar{V} \hookrightarrow U$)
 and the third since by definition of
 $\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{W} = \Xi_{\bar{W}}$.
-Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1) ,
+Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1),
 or $\Xi_V = \Xi_{\bar{V}} \neq \emptyset$
 so that $V \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $V<W$, and thus $V\in C$. In either case one has $V \in X_C$.
 
@@ -346,54 +354,57 @@ is in $\mathsf{Face}_{\Xi}^{lex}(U)$
 (since $\bar{W}' = \bar{W}$ and $\Xi_{W'} = \Xi_{W}$)
 and $W'<W$, and thus $W' \in X_C$.
 
-For the ``only if'' direction of (b), the assumption $W \not \in X_C$ together with (Ch2) imply that
-$W'=W-\Xi_{W}$ is not in $X$, and hence it remains to show that 
+For the ``only if'' direction of (b), 
+note first that it suffices to consider $D = \Xi_W$.
+The assumption $W \not \in X_C$ together with (Ch2) imply that
+$W'=W-\Xi_{W}$ is not in $X$, and thus it remains to show that 
 $W'$ is not a face of any $gV$ with $g\in G$, $V \in C$.
 Suppose otherwise, i.e. $W' \hookrightarrow gV$.
 If it were $g \not \in H$, 
-then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we may as well set $g=e$.
-But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
-and by convexity of $C'$ it must in fact be 
+then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we can set $g=e$.
+But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$, so that by convexity of $C'$ it must be 
 $ \bar{W} = \bar{V}$. But by definition of 
 $\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
 $\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
-so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
-This contradicts the assumption $W \not \in X_C$.
-\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
-{\color{blue}
-  For the ``only if'' direction of (b), let $W' = W - \Ksi_W$.
-  (Ch2) and the fact that $W \notin X_C$ together imply that $W' \notin X$,
-  and hence it remains to show that $W'$ is not a face of any $g V$ for $g \in G$, $V \in C$.
-  Suppose otherwise; say $W' \into g V$.
-  If $g \notin H$, then we would have $W' \into g V \into g U \neq U$,
-  and (Ch3) would imply $W \in X$.
-  Thus we need only consider $g \in H$, and since $C$ is $H$-equivariant, we may assume $g = e$.
-  But now since $W' \into V$, we have $\bar W = \bar W ' \into \bar V$.
-  We claim this implies $W < V$, contradicting $W \notin X_C$.
-  Indeed, either $\bar W \into \bar V$ with $\bar W \neq \bar V$, or,
-  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Ksi}(U)$ implies that $V$ must contain all of
-  $\Ksi_V = \Ksi_{\bar V} = \Ksi_{\bar W} = \Ksi_{W}$ as inner edges,
-  and thus not only $W - \Ksi_W = W' \into V$, but also $W \into V$.
-}
+so that not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
+But hence $W \leq V$ and convexity of $C$ implies 
+$W \in C$, a contradiction. 
+
+%\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
+%{\color{blue}
+%  For the ``only if'' direction of (b), let $W' = W - \Ksi_W$.
+%  (Ch2) and the fact that $W \notin X_C$ together imply that $W' \notin X$,
+%  and hence it remains to show that $W'$ is not a face of any $g V$ for $g \in G$, $V \in C$.
+%  Suppose otherwise; say $W' \into g V$.
+%  If $g \notin H$, then we would have $W' \into g V \into g U \neq U$,
+%  and (Ch3) would imply $W \in X$.
+%  Thus we need only consider $g \in H$, and since $C$ is $H$-equivariant, we may assume $g = e$.
+%  But now since $W' \into V$, we have $\bar W = \bar W ' \into \bar V$.
+%  We claim this implies $W < V$, contradicting $W \notin X_C$.
+%  Indeed, either $\bar W \into \bar V$ with $\bar W \neq \bar V$, or,
+%  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Ksi}(U)$ implies that $V$ must contain all of
+%  $\Ksi_V = \Ksi_{\bar V} = \Ksi_{\bar W} = \Ksi_{W}$ as inner edges,
+%  and thus not only $W - \Ksi_W = W' \into V$, but also $W \into V$.
+%}
 
 We now show (c).
-If $g(W-D)=W-D$ for some $D$ then $g(W - \Xi_W) \hookrightarrow U$,
+If $g(W-D)=W-D$ then $g(W - \Xi_W) \hookrightarrow U$,
 and thus $W - \Xi_W \hookrightarrow g^{-1}U$,
 so that by (Ch3) it must be $g \in H$ or else it would be $W \in X$.
 Now suppose $h(W-D)=W-D$ with $h\in H$.
 Since $\Xi$ is $H$-equivariant (by (Ch0)) and
 $\Xi_{W-D} = \Xi_{W} \setminus D$ (due to $D \subseteq \Xi_{W}$) it follows that 
-$h(W-\Xi_W)=W-\Xi_W$\todo{here},
+$h(W-\Xi_W)=W-\Xi_W$,
 so that we may assume $D=\Xi_W$.
 Now note that
-$hW$, $h(W-\Xi_W)=W-\Xi_W$, and $W$
-are all faces of $U$ with a common outer closure $\bar{W}$\todo{here}.
-Thus
+$hW$, $h(W-\Xi_W)=W-\Xi_W$, $W$
+are all faces of $U$ with a common outer closure $\bar{W}$.
+Hence
 $h\Xi_{W} = \Xi_{hW} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
-$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and hence by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
+$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
 have the same outer closure and the same inner edges, and thus 
 $hW=W$, establishing (c).
-\todo[inline]{the two *here* above have a line of proof which is straightfoward set manipulation, but not shown}
+
 
 Lastly, we address the case of general $I$.
 For each $G$-equivariant convex subset $J$ of $I$, set
@@ -516,8 +527,8 @@ $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
 (Ch3) follows since the $U_i$ are closed.
 
 Alternatively, one can also use $I=\mathsf{Face}_{X',o}^{out}(T)$
-for the $G$-trivial set (viewed as a \textit{discrete} poset)
-of orbital outer faces $GV \to T$ (see Remark \ref{TWOPROOF REM} for a similar example).
+for the $G$-trivial set of orbital outer faces $GV \to T$,
+together with an \textit{arbitrary} total order (see Remark \ref{TWOPROOF REM} for a similar example).
 
 Lastly, we note that if $\{U_i\}=\{T\}$, $\Xi=E^{\mathsf{i}}(T)$
 then (Ch1) says precisely that $Sc(T) \subseteq X$.\todo{context for this sentence?}
@@ -897,20 +908,16 @@ $\Xi^U=\emptyset$, in which case the argument for (Ch1) shows $U\in X$).
 
 However, when $S$ is linear and $T$ has stumps the proof above breaks down (more precisely, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
 $\mathsf{Max}(S\otimes T)$
-and to modify the $\Xi^U$ to be those edges $(g \xi)_s$ such that
+and to modify the $\Xi^U$ to be those inner edges $(g \xi)_s$ such that
 $(g _xi)_s \in t_s^{\uparrow T}$ for some $t_s$
-(pictorially, this says simply that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then follow.
-For (Ch2), it is only the argument for the interesting case of
-$V- \Xi_V^U \hookrightarrow S' \otimes T$ with $s \not \in S'$
-that changes. Namely, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists maximal $U' > U$ such that $V \hookrightarrow U'$,
-and (Ch2) holds.
+(pictorially, this says that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then hold.
+For (Ch2), only the argument for the interesting case of
+$V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
+changes. In this case, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
+and (Ch2) follows.
 
 Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per17} when $S$ is linear.
 \end{remark}
-
-{\color{red} HERE}
-
-
 
 
 
@@ -2763,7 +2770,7 @@ is a weak equivalence since $F$ is fully faithful
 \end{proof}
 
 
-\section{Equivariant simplicial dendroidal sets}
+\section{Equivariant dendroidal spaces}
 
 The results in \cite[\S 4]{CM13a}
 concerning the simplicial Reedy model structure all generalized mutatis mutandis.
@@ -4333,7 +4340,7 @@ When $T$ is open then $GU$ is necessarily a full equivariant face, i.e. broad re
 and this fact can be leveraged to obtain a simpler proof.
 
 However, the presence of stumps can make the situation 
-substantially more subtle, especially in the non-outer case, as illustrated by the following example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
+substantially more subtle, especially in the non outer case, as illustrated by the following example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
 	\begin{scope}[level distance = 1.9em]
