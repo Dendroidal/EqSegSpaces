@@ -55,7 +55,7 @@
 % ------- Author Info -----------------------
 
 \author{Peter Bonventre, Lu\'is A. Pereira}%
-\title{Equivariant dendroidal sets and simplicial operads}%
+\title{Equivariant dendroidal Segal spaces and $G$-$\infty$-operads}%
 \date{\today}
 
 
@@ -94,8 +94,14 @@ The following are the categories currently with model structures and the right a
  
 
 
-\newpage
+\section{Introduction}
 
+This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
+\textit{equivariant operads with norm maps}.
+
+
+
+{\color{red} HERE}
 
 
 \section{Preliminary section}
@@ -873,13 +879,13 @@ $\Xi^U=\emptyset$, in which case the argument for (Ch1) shows $U\in X$).
 
 However, when $S$ is linear and $T$ has stumps the proof above breaks down (more precisely, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
 $\mathsf{Max}(S\otimes T)$
-and to modify the $\Xi^U$ to be those edges $(g \xi)_s$ such that
+and to modify the $\Xi^U$ to be those inner edges $(g \xi)_s$ such that
 $(g _xi)_s \in t_s^{\uparrow T}$ for some $t_s$
-(pictorially, this says simply that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then follow.
-For (Ch2), it is only the argument for the interesting case of
-$V- \Xi_V^U \hookrightarrow S' \otimes T$ with $s \not \in S'$
-that changes. Namely, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists maximal $U' > U$ such that $V \hookrightarrow U'$,
-and (Ch2) holds.
+(pictorially, this says that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then hold.
+For (Ch2), only the argument for the interesting case of
+$V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
+changes. In this case, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
+and (Ch2) follows.
 
 Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per17} when $S$ is linear.
 \end{remark}
