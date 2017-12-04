@@ -227,7 +227,6 @@ Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
             $(V-\Xi^i_V) \hookrightarrow U_j$
             are contained in $X_{<i}$.
       \end{itemize}
-      \todo[inline]{these are all \textit{proper} faces, yes?}
 \end{definition}
 
 
@@ -260,7 +259,7 @@ is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lam
 \end{lemma}
 
 \begin{proof}
-We start with the case of $I \simeq G/H$ orbital {\color{blue} and discrete} so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
+We start with the case of $I \simeq G/H$ orbital so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
 Note that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
 We likewise abbreviate $\Xi = \Xi^{[e]}$ and
 $\Xi_V = \Xi_V^{[e]}$ for $V \hookrightarrow U$.
@@ -277,10 +276,9 @@ $V \leq V'$ if either
 		\item[(ii)] $\bar{V} = \bar{V}'$ and
 		$V \hookrightarrow V'$
 	\end{inparaenum}
-(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$,
-where here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
+(alternatively, this is the lexicographic order of pairs $(\bar{V},V))$.
+We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
 $\bar{V}=\bar{V}^U$.
-{\color{blue} In particular, we note that $V \into V'$ still implies $V < V'$.}
 
 For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write
 \[
@@ -337,7 +335,7 @@ where the second step follows from Lemma \ref{INNINT LEM}
 $V \hookrightarrow \bar{V} \hookrightarrow U$)
 and the third since by definition of
 $\mathsf{Face}_{\Xi}^{lex}(U)$ it is $\Xi_{W} = \Xi_{\bar{W}}$.
-Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1) ,
+Thus either $\Xi_V= \Xi_{\bar{V}} = \emptyset$ so that $\bar{V}\in X$ by (Ch1),
 or $\Xi_V = \Xi_{\bar{V}} \neq \emptyset$
 so that $V \in \mathsf{Face}_{\Xi}^{lex}(U)$ with $V<W$, and thus $V\in C$. In either case one has $V \in X_C$.
 
@@ -361,41 +359,41 @@ $\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edge
 $\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
 so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
 This contradicts the assumption $W \not \in X_C$.
-\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
-{\color{blue}
-  For the ``only if'' direction of (b), let $W' = W - \Ksi_W$.
-  (Ch2) and the fact that $W \notin X_C$ together imply that $W' \notin X$,
-  and hence it remains to show that $W'$ is not a face of any $g V$ for $g \in G$, $V \in C$.
-  Suppose otherwise; say $W' \into g V$.
-  If $g \notin H$, then we would have $W' \into g V \into g U \neq U$,
-  and (Ch3) would imply $W \in X$.
-  Thus we need only consider $g \in H$, and since $C$ is $H$-equivariant, we may assume $g = e$.
-  But now since $W' \into V$, we have $\bar W = \bar W ' \into \bar V$.
-  We claim this implies $W < V$, contradicting $W \notin X_C$.
-  Indeed, either $\bar W \into \bar V$ with $\bar W \neq \bar V$, or,
-  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Ksi}(U)$ implies that $V$ must contain all of
-  $\Ksi_V = \Ksi_{\bar V} = \Ksi_{\bar W} = \Ksi_{W}$ as inner edges,
-  and thus not only $W - \Ksi_W = W' \into V$, but also $W \into V$.
-}
+%\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
+%{\color{blue}
+%  For the ``only if'' direction of (b), let $W' = W - \Ksi_W$.
+%  (Ch2) and the fact that $W \notin X_C$ together imply that $W' \notin X$,
+%  and hence it remains to show that $W'$ is not a face of any $g V$ for $g \in G$, $V \in C$.
+%  Suppose otherwise; say $W' \into g V$.
+%  If $g \notin H$, then we would have $W' \into g V \into g U \neq U$,
+%  and (Ch3) would imply $W \in X$.
+%  Thus we need only consider $g \in H$, and since $C$ is $H$-equivariant, we may assume $g = e$.
+%  But now since $W' \into V$, we have $\bar W = \bar W ' \into \bar V$.
+%  We claim this implies $W < V$, contradicting $W \notin X_C$.
+%  Indeed, either $\bar W \into \bar V$ with $\bar W \neq \bar V$, or,
+%  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Ksi}(U)$ implies that $V$ must contain all of
+%  $\Ksi_V = \Ksi_{\bar V} = \Ksi_{\bar W} = \Ksi_{W}$ as inner edges,
+%  and thus not only $W - \Ksi_W = W' \into V$, but also $W \into V$.
+%}
 
 We now show (c).
-If $g(W-D)=W-D$ for some $D$ then $g(W - \Xi_W) \hookrightarrow U$,
+If $g(W-D)=W-D$ then $g(W - \Xi_W) \hookrightarrow U$,
 and thus $W - \Xi_W \hookrightarrow g^{-1}U$,
 so that by (Ch3) it must be $g \in H$ or else it would be $W \in X$.
 Now suppose $h(W-D)=W-D$ with $h\in H$.
 Since $\Xi$ is $H$-equivariant (by (Ch0)) and
 $\Xi_{W-D} = \Xi_{W} \setminus D$ (due to $D \subseteq \Xi_{W}$) it follows that 
-$h(W-\Xi_W)=W-\Xi_W$\todo{here},
+$h(W-\Xi_W)=W-\Xi_W$,
 so that we may assume $D=\Xi_W$.
 Now note that
-$hW$, $h(W-\Xi_W)=W-\Xi_W$, and $W$
-are all faces of $U$ with a common outer closure $\bar{W}$\todo{here}.
-Thus
+$hW$, $h(W-\Xi_W)=W-\Xi_W$, $W$
+are all faces of $U$ with a common outer closure $\bar{W}$.
+Hence
 $h\Xi_{W} = \Xi_{hW} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step follows since
-$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and hence by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
+$W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
 have the same outer closure and the same inner edges, and thus 
 $hW=W$, establishing (c).
-\todo[inline]{the two *here* above have a line of proof which is straightfoward set manipulation, but not shown}
+
 
 Lastly, we address the case of general $I$.
 For each $G$-equivariant convex subset $J$ of $I$, set
