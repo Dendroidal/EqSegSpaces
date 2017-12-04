@@ -98,6 +98,10 @@ The following are the categories currently with model structures and the right a
 
 This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
 \textit{equivariant operads with norm maps}.
+Briefly, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
+(and which has no analogue in the theory of equivariant categories).
+The need to understand norm maps, as well as their usefulness,
+was made clear by Hill, Hopkins and Ravenel in their solution of the Kervaire invariant one problem \cite{HHR16}.
 
 
 
@@ -310,7 +314,7 @@ where we note that inner edge set $\Xi_{W}$ is $K$-equivariant
 since $\Xi_W = \Xi \cap E^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
 The desired pushout will follow once we establish the following claims:
 \begin{enumerate}
-\item[(a)] all outer faces $V$ of $W$ are in $X_C$;
+\item[(a)] all proper outer faces $V$ of $W$ are in $X_C$;
 \item[(b)] an inner face $W - D$ of $W$ is in $X_C$ iff 
 $D \not \subseteq \Xi_{W}$;
 \item[(c)] 
@@ -346,19 +350,22 @@ is in $\mathsf{Face}_{\Xi}^{lex}(U)$
 (since $\bar{W}' = \bar{W}$ and $\Xi_{W'} = \Xi_{W}$)
 and $W'<W$, and thus $W' \in X_C$.
 
-For the ``only if'' direction of (b), the assumption $W \not \in X_C$ together with (Ch2) imply that
-$W'=W-\Xi_{W}$ is not in $X$, and hence it remains to show that 
+For the ``only if'' direction of (b), 
+note first that it suffices to consider $D = \Xi_W$.
+The assumption $W \not \in X_C$ together with (Ch2) imply that
+$W'=W-\Xi_{W}$ is not in $X$, and thus it remains to show that 
 $W'$ is not a face of any $gV$ with $g\in G$, $V \in C$.
 Suppose otherwise, i.e. $W' \hookrightarrow gV$.
 If it were $g \not \in H$, 
-then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we may as well set $g=e$.
-But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$
-and by convexity of $C'$ it must in fact be 
+then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in X$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we can set $g=e$.
+But now since $W' \hookrightarrow V$ it is $ \bar{W} = \bar{W}' \hookrightarrow \bar{V}$, so that by convexity of $C'$ it must be 
 $ \bar{W} = \bar{V}$. But by definition of 
 $\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
 $\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
-so that it is not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
-This contradicts the assumption $W \not \in X_C$.
+so that not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$.
+But hence $W \leq V$ and convexity of $C$ implies 
+$W \in C$, a contradiction. 
+
 %\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
 %{\color{blue}
 %  For the ``only if'' direction of (b), let $W' = W - \Ksi_W$.
@@ -516,8 +523,8 @@ $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
 (Ch3) follows since the $U_i$ are closed.
 
 Alternatively, one can also use $I=\mathsf{Face}_{X',o}^{out}(T)$
-for the $G$-trivial set (viewed as a \textit{discrete} poset)
-of orbital outer faces $GV \to T$ (see Remark \ref{TWOPROOF REM} for a similar example).
+for the $G$-trivial set of orbital outer faces $GV \to T$,
+together with an \textit{arbitrary} total order (see Remark \ref{TWOPROOF REM} for a similar example).
 
 Lastly, we note that if $\{U_i\}=\{T\}$, $\Xi=E^{\mathsf{i}}(T)$
 then (Ch1) says precisely that $Sc(T) \subseteq X$.
