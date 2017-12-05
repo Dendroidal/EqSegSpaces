@@ -1267,7 +1267,7 @@ $V \hookrightarrow T-(F' \cup F'')$.
       A face $S_0 \into T_0$ is called
       \begin{itemize}
       \item \textit{proper} if $S_0 \neq T_0$.
-      \item \textit{inner} if it is of the form $T_0 \setminus E \into T_0$, where $E$ is a subset of the set of inner edges of $T$.
+      \item \textit{inner} if it is of the form $T_0 - E \into T_0$, where $E$ is a subset of the set of inner edges $E^i(T)$ of $T$.
       \item \textit{outer} if it is a composite of
             \textit{leaf vertex outer faces} $T_{\not< e}\into T$,
             \textit{stump outer faces} $T_{\not< e}\into T$,
@@ -1280,10 +1280,13 @@ $V \hookrightarrow T-(F' \cup F'')$.
 \end{definition}
 
 \begin{remark}
-      We may think of inner faces as \textit{composing} some generating broad relations,
-      and outer faces as \textit{removing} some.
+      In terms of the underlying broad posets,
+      the generating relations for an inner face (respectively, outer face) of $T$ are given by
+      \textit{compositions} (respectively, a \textit{subset})
+      of the generating relations for $T$,
 \end{remark}
 
+We now recall the generalizations of these definitions to the category $\Omega_G$ of $G$-trees.
 
 \begin{definition}
       Given $S_0 \in \Omega$, $T \in \Omega_G$, and a map of forests $f: S_0 \to T$, let
@@ -1297,7 +1300,7 @@ $V \hookrightarrow T-(F' \cup F'')$.
 
 \begin{definition}
       Fixing $T\in \Omega_G$,
-      let $\mathscr{F}(T)$ denote the poset (under inclusion) of face maps.
+      let $\mathscr{F}(T)$ denote the $G$-poset (under inclusion) of face maps.
       Given a $G$-closed subset $E$ of inner edges, let
       $\mathscr{F}^{E}(T)$ denote the subposet removing those faces of the form
       $T_0 - \bar E$
@@ -1381,43 +1384,49 @@ $V \hookrightarrow T-(F' \cup F'')$.
 \end{proof}
 
 \begin{remark}
-      The data of an oribtal face $U_0 \into T$ is equivalent to both
+      \label{ORB_FACE_REM}
+      The data of an orbital face $U_0 \into T$ is equivalent to both
       \begin{enumerate}
-      \item the data of a map of $G$-trees $U \to T$ which is planar and injective; and
+      \item the data of a map of $G$-trees $U \to T$ which is planar and injective
+            (that is, an \textit{eqivariant face}); and
       \item the data of a face map $U/G \to T/G$ of the \textit{orbital representation} of $T$.
       \end{enumerate}
-      \todo[inline]{expand/contrast/combine with later writing}
+      \todo[inline]{expand/contrast/combine with later writing/make this precise}
 \end{remark}
 
 \begin{definition}
-      Fixing a component $T_0$ of $T$,
-      let $\mathscr{F}_{o}(T)$ denote the poset (under inclusion) of orbital face maps.
-      Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
-      \begin{equation}
-            \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{O}}(T)}\Omega[G \cdot S_0].
-      \end{equation}
+      Let $\mathscr{F}_{o}(T)$ denote the $G$-poset (under inclusion) of orbital face maps.
+      % Define the \textit{orbital boundary} of $T$ to be the subdendroidal set
+      % \begin{equation}
+      %       \partial_{o}\Omega[T] := \mathop{\colim}\limits_{\mathscr{F}_{\mathrm{O}}(T)}\Omega[G \cdot S_0].
+      % \end{equation}
       
-      Given an inner edge $e \in T$, let
-      $\mathscr{F}_{o}^{Ge}(T) := \mathscr{F}_{o}(T) \cap \mathscr{F}^E(T)$,
+      Given a $G$-set $E$ of inner edges, let
+      $\mathscr{F}_{o}^{E}(T) := \mathscr{F}_{o}(T) \cap \mathscr{F}^E(T)$,
       and define the \textit{$Ge$-orbital horn} to be the subdendroidal set
       \begin{equation}
-            \Lambda^{Ge}_{o}[T] :=
-            \mathop{\colim}\limits_{\mathscr{F}_o{Ge}(T)}\Omega[U_0]
-            = \mathop{\colim}\limits_{\mathscr{F}_{o}^{Ge}(T)/G}\Omega[G\cdot_K U_0]
-            = \mathop{\bigcup}\limits_{\mathscr{F}_o^{Ge}(T)/G} \mathop{\bigcup}\limits_{g \in G}\Omega[g U_0]. 
+            \Lambda^{E}_{o}[T] :=
+            \mathop{\colim}\limits_{\mathscr{F}_o{E}(T)}\Omega[U_0]
+            = \mathop{\colim}\limits_{\mathscr{F}_{o}^{E}(T)/G}\Omega[G\cdot_K U_0]
+            = \mathop{\bigcup}\limits_{\mathscr{F}_o^{E}(T)/G} \mathop{\bigcup}\limits_{g \in G}\Omega[g U_0], 
       \end{equation}
+      where $K = \mathsf{Stab}_G(U_0)$.
+
+      If $E = E^i(T)$, we denote $\Lambda^{E}_o[T]$ by $\partial^{out}_o[T]$,
+      referred to as the \textit{orbital outer boundary}.      
 \end{definition}
 
 
 \begin{remark}
-      The poset $\mathscr{F}_o(T)/G$ and $\mathscr{F}_o^{G e}(T)/G$ can be interpreted as
-      the poset of faces of the \textit{orbital} representation of the $G$-tree $T$.
+      Following Remark \ref{ORB_FACE_REM}, we note that
+      the poset $\mathscr{F}_o(T)/G$ is isomorphic to
+      the poset of faces of the (non-equivariant) tree corresponding to the
+      \textit{orbital representation} of the $G$-tree $T$,
+      and similarly for $\mathscr{F}^E_o(T)/G$.
 \end{remark}
 
-
-
 \begin{example}
-      let $G = C_2$ be the cyclic group with two elements,
+      Let $G = C_2$ be the cyclic group with two elements,
       and consider the tree $T \in \Omega^G \subset \Omega_G$ below.
       \begin{equation}
             \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
@@ -1451,15 +1460,18 @@ $V \hookrightarrow T-(F' \cup F'')$.
                   };
             \end{tikzpicture}
       \end{equation}
+      We compare the two horns discussed above by considering the subposet of $\mathsf{Face}(T)$
+      displayed below in Figure \ref{HORN_EX_FIG}.
       The horn $\Lambda^{G e}[T]$ is only missing the faces $T$ and $T-r$,
-      and has maximal faces given by the top row below;
-      the orbital horn $\Lambda^{G e}_o[T]$ has maximal faces $\partial^r$, $\partial^{G a}$, and $\partial^{G b}$,
-      boxed below.
-      We have also included some of the subfaces of $\partial^{a}$;
+      with maximal faces in $\Lambda^{G e}[T]$ given by the five faces in the top row;
+      the maximal faces of the orbital horn $\Lambda^{G e}_o[T]$
+      are those in the first two rows which are boxed.
+      We have also included some of the subfaces of $S = \partial^{a}T$;
       those included in the orbital horn are (dashed) boxed.
-      Note that $\partial^a$ and it's maxmimal subfaces outside the orbital horn
-      themselves have faces both inside and outside the orbital horn.
+      In particular, we note that $S$ and all of its maximal subfaces
+      each have at least one face contained in the orbital horn.
       \begin{figure}[ht]
+            \label{HORN_EX_FIG}
             \begin{equation}
                   \begin{tikzpicture}[grow= up, level distance = 1.7em, every node/.style = {font=\footnotesize}]
                         \tikzstyle{level 2}=[sibling distance=4em]
@@ -1644,7 +1656,7 @@ $V \hookrightarrow T-(F' \cup F'')$.
                         (Pa)++(.1,-.3) -- (4.3,-1);
                         \draw[->]
                         (Pa)++(.2,-.2) -- (5.7,-.7);
-                        % ---------- faces of Pab and Pae
+                        % ---------- faces of Pab and Pae and Par and PGa
                         \draw[->]
                         (Pabb)++(-.3,-.2) -- ++(-.5,-.5);
                         \draw[->]
@@ -1655,6 +1667,8 @@ $V \hookrightarrow T-(F' \cup F'')$.
                         (Pae)++(-.6,-.1) -- ++(-.5,-.4);
                         \draw[->]
                         (PGa)++(0,-.3) -- ++(0,-.5);
+                        \draw[->]
+                        (Par)++(0,-.3) -- ++(0,-.55);
                   \end{tikzpicture}
             \end{equation}
       \end{figure}
@@ -2178,9 +2192,10 @@ $V \hookrightarrow T-(F' \cup F'')$.
 Recall that a class of maps is called \textit{saturated}
 if it is closed under pushouts, transfinite composition and retracts.
 Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
-\[
-A \xrightarrow{f} B \xrightarrow{g} C
-\]
+\begin{equation}
+      \label{CANCEL_EQ}
+      A \xrightarrow{f} B \xrightarrow{g} C
+\end{equation}
 both $f$ and $gf$ are in the class, then so is $g$.
 
 \begin{notation}
@@ -2214,18 +2229,42 @@ The following lemma identifies some of the utility of hypersaturations.
       It is a straightforward exercise to show that
       if $X \to Y$ has the (S)RLP with respect to a map $A \to B$ (resp. maps $A_\alpha \to A_{\alpha +1}$), then
       $X \to Y$ has the (S)RLP with respect to any pushout or retract of $A \to B$ (resp. the transfinite composite).
-      \begin{itemize}
-      \item For the pushout, the map $C \to X$ always provides one component of the new lift,
-            while $B \to D \to X$ is always a lift over $A \to B$; hence strictness implies strictness.
-      \item For the retract, again we have that $B \to D \to X$ is a lift over $A \to B$,
-            and hence strictness implies this composite is uniquely determined;
-            composing with the section map yields that $D \to X$ is then also uniquely determined.
-      \item Both the definition of the lift for the composite and its uniqueness are immediate.
-      \end{itemize}
-      Now, suppose $X \to Y$ has the SRLP against $A \to B$ and the composite $A \to B \to C$.
-      Consider the diagrams below.
+
+      Indeed, for any pushout (respectively (dashed) retract)
       \begin{equation}
+            \label{LIFTING_EQ}
             \begin{tikzcd}
+                  C \arrow[r, dashed] \arrow[d,dashed]
+                  &
+                  A \arrow[r] \arrow[d]
+                  &
+                  C \arrow[r] \arrow[d]
+                  &
+                  X \arrow[d]
+                  \\
+                  D \arrow[r, dashed]
+                  &
+                  B \arrow[r]
+                  &
+                  D \arrow[r]
+                  &
+                  Y
+            \end{tikzcd}
+      \end{equation}
+      the lift $B \to X$ and the given map $C \to X$ define a compatible map from the pushout to $X$
+      (resp. the composite $D \to B \to X$ is a lift);
+      moreover, for any lift $D \to X$, the composite $B \to D \to X$ is a lift over $A \to B$,
+      and hence strictness implies strictness by the universal property of the pushout
+      (resp. by composing with the section map $D \to B$).
+
+      For transfinite composites,
+      both the definition of the lift for the composite and its uniqueness are immediate.
+
+      Now, suppose $X \to Y$ has the SRLP against $A \to B$ and the composite $A \to B \to C$,
+      and suppose we are given the commuting square in the bottom of the leftmost diagram below.
+      Then, the following two diagrams commute.
+      \begin{equation}
+            \begin{tikzcd}                  
                   A \arrow[r] \arrow[d]
                   &
                   X \arrow[d, equal]
@@ -2257,7 +2296,7 @@ The following lemma identifies some of the utility of hypersaturations.
                   Y
             \end{tikzcd}
       \end{equation}
-      By assumption, there exist unique lifts $H$ and $G$ as denoted by the dashed arrows.
+      Further, by assumption, there exist unique lifts $H$ and $G$ as denoted by the dashed arrows.
       It is immediate that both $B \to X$ and $B \to C \xrightarrow{H} X$ are candidates for lift $G$,
       and hence by strictness all three are equal.
       Thus $H$ is also a lift of the bottom-left square.
@@ -2271,7 +2310,7 @@ In the vast majority of cases of interest
 the hypersaturation itself is characterized by a lifting condition using the \textit{small object argument}.
 
 \begin{lemma}[{\cite[{Corollary 2.1.15}]{Hov99}}]
-      If $\mathcal C$ is a set of maps in $\mathcal V$ such that
+      Suppose $\mathcal C$ is a set of maps in $\mathcal V$ such that
       the domains of maps in $\mathcal C$ are \textit{small} relative to
       the closure of $\mathcal C$ under pushouts and transfinite compositions.
       Then
@@ -2285,20 +2324,24 @@ the hypersaturation itself is characterized by a lifting condition using the \te
 In this subsection, we will prove the following equivariant generalization of \cite[Props. 2.4 and 2.5]{CM13a}.
 
 \begin{proposition}
-The following sets of maps generate the same hypersaturated class:
-\begin{itemize}
-\item the $G$-inner horn inclusions
-$\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
-\item the orbital $G$-inner horn inclusions
-$\Lambda^{Ge}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit; 
-\item the $G$-segal core inclusions
-$Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
-\end{itemize}
-Moreover, one also has the following:
-\begin{itemize}
-	\item[(a)] orbital $G$-inner horn inclusions are in the saturation of $G$-inner horn inclusions;
-	\item[(b)] $G$-segal core inclusions are in the saturation of both orbital $G$-inner horn and $G$-inner horn inclusions.
-\end{itemize}
+      The following sets of maps generate the same hypersaturated class:
+      \begin{enumerate}
+      \item[(i.1)] the $G$-inner horn inclusions
+            $\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit;
+      \item[(i.2)] the generalized $G$-inner horn inclusions
+            $\Lambda^{E} [T] \to \Omega[T]$ for $T \in \Omega_G$ and $E \subseteq E^i(T)$ a $G$-set;
+      \item[(ii.1)] the orbital $G$-inner horn inclusions
+            $\Lambda^{Ge}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $Ge$ an inner edge orbit;
+      \item[(ii.2)] the generalized orbital $G$-inner horn inclusions
+            $\Lambda^{E}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and $E \subseteq E^i(T)$ a $G$-set;
+      \item[(iii)] the $G$-segal core inclusions
+            $Sc [T] \to \Omega[T]$ for $T \in \Omega_G$.
+      \end{enumerate}
+      Moreover, one also has the following:
+      \begin{itemize}
+      \item[(a)] orbital $G$-inner horn inclusions are in the saturation of $G$-inner horn inclusions;
+      \item[(b)] $G$-segal core inclusions are in the saturation of both orbital $G$-inner horn and $G$-inner horn inclusions.
+      \end{itemize}
 \end{proposition}
 
 
@@ -2326,39 +2369,52 @@ Moreover, one also has the following:
 
 % ---------------------------------------------------------------------------------------------------
 
+\begin{proof}[Proof of Proposition \ref{HYPER PROP}]
+      The equality of (i.1) and (i.2) is given by \cite[Proposition 6.17]{Per17}.
+      
+      The equality of (ii.1) and (ii.2) is given by Proposition \ref{GORB_OHORN_PROP}.
+
+      The equality of (i) and (ii), and (a), is given by Propositions \ref{ORB_HORN_PROP} and \ref{HORN_ORB_PROP}.
+
+      The equality of (i) and (iii) is given by Propositions \ref{SC_IN_GHORN_PROP}
+      (or \ref{SC_IN_OHORN_PROP}, which also yields (b)) and \ref{GHORN_IN_SC_PROP}.
+\end{proof}
+
+We will now prove the above cited results.
 
 The observation below will be useful in the proofs which follow.
 \todo[inline]{Combine with description of $G U$.}
 \begin{lemma}
       \label{FOF_OHORN_LEM}
-      Fix $T \in \Omega_G$, an edge $e \in T$, and a face $U_0 \into T$ containing $e$. Then,
-      for any $\bar e \subseteq G e \cap U_0$,
-      $U_0 \in \Lambda^{G e}_o[T]$ iff $U_0 - \bar e \in \Lambda^{G e}_o[T]$. 
+      Fix $T \in \Omega_G$, a $G$-set $E \subseteq E^i(T)$, and a face $U \into T$.
+      Then, for any $\bar E \subseteq E \cap U$,
+      $U \in \Lambda^{E}_o[T]$ iff $U - \bar E \in \Lambda^{E}_o[T]$. 
 \end{lemma}
 \begin{proof}
       We have a commuting diagram
       \begin{equation}
             \begin{tikzcd}
-                  U_0 - \bar e \arrow[r] \arrow[d]
+                  U - \bar E \arrow[r] \arrow[d]
                   &
-                  G (U_0 - \bar e) \arrow[d]
+                  G (U - \bar E) \arrow[d]
                   \\
-                  U_0\arrow[r]
+                  U\arrow[r]
                   &
-                  G U_0
+                  G U
             \end{tikzcd}
       \end{equation}
-      where $G U_0$ is the minimal orbital face containing $U_0$, and
-      $G (U_0 - \bar e)$ is either $G U_0$ or $G U_0 - G e$ by Remark \ref{GINNER REM}.
-      Since it is immediate that for any face $V_0$ of $T$, we have
+      where $G V$ is the minimal orbital face containing $V$.
+      By Remark \ref{GINNER REM}, $G(U - \bar E)$ is of the form $GU - E'$
+      for some sub $G$-set $E' \subseteq E$.
+      It is immediate that for any face $V$ of $T$ we have
       \begin{itemize}
-      \item $V_0 \in \Lambda^{G e}_o[T]$ iff $G V_0$ is, and
-      \item $G V_0 \in \Lambda^{G e}_o[T]$ iff $G V_0 - G e$ is,
+      \item $V \in \Lambda^{E}_o[T]$ iff $G V$ is, and
+      \item $G V \in \Lambda^{E}_o[T]$ iff $G V - E'$ is,
       \end{itemize}
       we may conclude that
-      $V_0 - \bar e$ is in the orbital horn $\Lambda^{G e}_o[T]$
+      $U - \bar E$ is in the orbital horn $\Lambda^{E}_o[T]$
       iff
-      $V_0$ is as well.
+      $U$ is as well.
 \end{proof}
 
 We break up the proof of Proposition \ref{HYPER PROP} into its constituent pieces.
@@ -2402,9 +2458,16 @@ The reverse inclusion is only true on the level of hypersaturations.
       both $I$ and ${U_i}$ the
       subposet of       
       \begin{equation}
-            (\Lambda^{E}[T] \setminus \Lambda^{E}_o[T]) \cap \mathsf{Face}^{lex}_{E}(T)
+            \Lambda^{E}[T] \setminus \Lambda^{E}_o[T]
       \end{equation}
-      such that $E_i := U_i \cap E$ is maximal,
+      such that
+      \begin{enumerate*}[label=(\roman*\upshape)]
+      \item $U_i \cap E \neq \varnothing$,
+      \item $U_i \cap E = \bar{U_i} \cap E$,\footnote{
+              This does not quite say that $U_i \in \mathsf{Face}^{lex}_{E}(T)$, as
+              we are allowing $U_i$ to intersect $E$ on external edges as well.} and
+      \item $U_i \cap E$ is maximal,
+      \end{enumerate*}
       with
       \begin{equation}
             \qquad X = \Lambda^{E}_o[T],
@@ -2439,7 +2502,7 @@ The reverse inclusion is only true on the level of hypersaturations.
       Hence $V \in X_{< i}$.
       
       Thus $\Lambda^{G e}_o[T] \to \Lambda^{G e}[T]$ is in $\hat{W}_o$, and hence,
-      by the cancelation property of hypersaturations,
+      by the cancelation closure property \eqref{CANCEL_EQ} of hypersaturations,
       so is $\Lambda^{G e}[T] \to \Omega[T]$.
 \end{proof}
 
@@ -2450,9 +2513,8 @@ We move now to comparing Segal core inclusions with the inner horn inclusions.
       For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is inner $G$-anodyne.
 \end{proposition}
 \begin{proof}
-      Fix some decomposition $T \simeq G \cdot_H T_0$, and let $I_0$ denote the set of inner edges of $T_0$.
-      Then it is immediate that $I_0$ is an characteristic inner edge set for $T_0$ with respect to $Sc[T]$,
-      and the result then follows from Lemma \ref{CHAREDGE LEM}.
+      It is immediate that we may apply Lemma \ref{CHAREDGE LEM}
+      with $X = Sc[T]$, $I = \set{\**}$, $\set{U_i} = {T}$, and $\Ksi = E^i(T)$.
       \todo[inline]{also see Remark 2.12 (i)}
 \end{proof}
 
@@ -2461,7 +2523,7 @@ We move now to comparing Segal core inclusions with the inner horn inclusions.
       For any $T \in \Omega_G$ and $G$-sets of edges $E$ and $F$,
       the maps
       \begin{equation}
-            \Lambda^{E \amalg F}_o[T] \to \Lambda^{E}[T]
+            \Lambda^{E \amalg F}_o[T] \to \Lambda^{E}_o[T]
       \end{equation}
       are in $W_o$.
 \end{proposition}
@@ -2493,25 +2555,25 @@ We move now to comparing Segal core inclusions with the inner horn inclusions.
       $\mathscr{F}_{o}^{G e}(T) \setminus \mathscr{F}_{SC}(T)$.
       It suffices to show that for all $G$-convex $B \subseteq B' \subseteq \mathscr{F}'_o(T)$, the map
       \begin{equation}
-            Sc[T] \cup \mathop{\bigcup}\limits_{B/G}\Omega[G \cdot_K U_0]
+            Sc[T] \cup \mathop{\bigcup}\limits_{B/G}\Omega[G \cdot_K U]
             % Sc[T] \cup \mathop{\bigcup}\limits_{B}\Omega[U_0]
             \to
             % Sc[T] \cup \mathop{\bigcup}\limits_{B'}\Omega[U_0]
-            Sc[T] \cup \mathop{\bigcup}\limits_{B'/G}\Omega[G \cdot_K U_0]
+            Sc[T] \cup \mathop{\bigcup}\limits_{B'/G}\Omega[G \cdot_K U]
       \end{equation}
-      is in $W_o$; in particular, we may assume $B' - B = G \cdot_K \set{U_0}$ where $\mathrm{Stab}_G(U_0) = K$.
+      is in $W_o$; in particular, we may assume $B' - B = G \cdot_K \set{U}$ where $\mathrm{Stab}_G(U) = K$.
 
-      Now, since $B$ is convex, every proper orbital outer face of $U_0$ is in the domain.
-      Moreover, for any face $V_0 \in \Omega[G \cdot_K U_0]$,
-      $V_0 \in Sc[T]$ implies
-      $V_0 \in Sc[G \cdot_K U_0] \subseteq \partial^{out}_o\Omega[G \cdot_K U_0]$,
+      Now, since $B$ is convex, every proper orbital outer face of $U$ is in the domain.
+      Moreover, for any face $V \in \Omega[G \cdot_K U]$,
+      $V \in Sc[T]$ implies
+      $V \in Sc[G \cdot_K U] \subseteq \partial^{out}_o\Omega[G \cdot_K U]$,
       while on the other hand,
-      if $V_0 \in \Omega[G \cdot_L R_0]$ for some orbital face $R_0$ already attached,
-      then in fact $V_0$ is a face of some intersection $U_0 \cap g R_0$,
+      if $V \in \Omega[G \cdot_L R]$ for some orbital face $R$ already attached,
+      then in fact $V$ is a face of some intersection $U \cap g R$,
       which is also orbital.
       Thus, the above map is the pushout over
       \begin{equation}
-            \partial^{out}_o\Omega[G \cdot_K U_0] \to \Omega[G \cdot_K U_0],
+            \partial^{out}_o\Omega[G \cdot_K U] \to \Omega[G \cdot_K U],
       \end{equation}
       and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
 \end{proof}
@@ -2522,9 +2584,15 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
 \end{corollary}
 
 
-\begin{definition}
-      Let $\hat{W}_{SC} = \hat{W}(SCI_G)$ denote the hypersaturation of the Segal core inclusions.
-\end{definition}
+\begin{notation}
+      Let $\Omega_{SCI}$ and $\Omega^{SCI}_G$ denote the classes of maps in $\Omega$ and $\Omega_G$
+      of Segal core inclusions,
+      and let $\hat{W}_{SC} = \hat{W}(\Omega^{SCI}_G)$ denote the hypersaturation of the Segal core inclusions.
+
+      We have a natural map $G \cdot (-): \Omega_{SCI} \to \Omega^{SCI}_G$.
+
+      Similarly, let $\Omega_{IHI}$ denote the class of inner horn inclusions in $\Omega$.      
+\end{notation}
 
 \begin{proposition}
       \label{GHORN_IN_SC_PROP}
@@ -2535,22 +2603,21 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       is in $\hat{W}_{SC}.$
 \end{proposition}
 \begin{proof}
-      It suffices to show that $\Lambda^{G e}[T] \to \Omega[T]$ is in $\hat{W}_{SC}$
-      for any $T\in \Omega_G$ and inner edge $e$ of $T$.
-
-      Suppose we have a decomposition $T \simeq G \cdot_H T_0$, where $H = \mathrm{Stab}(T_0)$.
-      We go by induction on $|H| \times |V_H(T_0)|$.
-      \todo[inline]{replace with $T \in \Omega^G \subset \Omega_G$ argument}
+      We go by induction on $|H| \times \V_G(T)|$ ordered lexicographically,
+      where $T \simeq G \cdot_H T_*$ is any decomposition.
       
-      If $H = e$, then, since $G \cdot SCI \subseteq SCI_G$,
-      and by \cite[2.5]{CM13a} we know $IHI \subseteq \hat{W}(SCI)$, we conclude that
+      If $H = e$, then, since $G \cdot \Omega^{SCI} \subset \Omega_{G,SCI}$,
+      and by \cite[2.5]{CM13a} we know $\Omega_{IHI} \subset \hat{W}(\Omega_{SCI})$, we conclude that
       \begin{equation}
-            G \cdot IHI \subseteq G \cdot (\hat{W}(SCI)) \subseteq \hat{W}(G \cdot SCI) \subseteq \hat{W}(SCI_G) = \hat{W}_{SC}.
+            G \cdot \Omega_{IHI}
+            \subset G \cdot (\hat{W}(\Omega_{SCI}))
+            \subset \hat{W}(G \cdot \Omega_{SCI})
+            \subset \hat{W}(\Omega_{G, SCI}) = \hat{W}_{SC}.
       \end{equation}
       
-      If $H \neq e$, and $V_H(T_0) = 2$, then there is only one inner edge orbit, so
+      If $H \neq e$, and $V_G(T) = 2$, then there is only one inner edge orbit, so
       the Segal core is an inner horn.
-      Thus, we may assume that $V_H(T_0) > 2$.
+      Thus, we may assume that $V_G(T) > 2$.
 
       We first apply Lemma \ref{CHAREDGE LEM} with
       $I = \set{U_i} = \mathsf{Out}^{>1}_p(T)$ of proper outer faces of $T$ not in $Sc[T]$,
@@ -2559,18 +2626,18 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       $\Xi = T$. 
       (Ch0) is immediate.
       (Ch1) follows since $\Xi_V = \varnothing$ iff $V \in Sc[T]$, while
-      (Ch2) follows since $(V - \Xi_V) \in Sc[T]$ iff $Ksi_V = \varnothing$.
-      Finally, (Ch3) follows since if $V - D \into U_j$ with $U_j$ an outer face of $T$,
-      then $V$ itself must be a face of $U_j$, and hence
-      $V \into U_i \cap U_j$ where this intersection is either in $X$ or is less than $U_i$.
-      Thus, following the logic in the proof of Proposition \ref{ORB_HORN_PROP}, we have that
+      (Ch2) follows since $(V - \Xi_V) \in Sc[T]$ iff $\Ksi_V = \varnothing$.
+      For (Ch3), if $(V - D) \into U_j$ with $U_j$ an outer face of $T$,
+      then $V$ itself must be a face of $U_j$.
+      Hence $V \into (U_i \cap U_j)$, where this intersection is either in $X$ or is less than $U_i$,
+      and thus, following the logic in the proof of Proposition \ref{ORB_HORN_PROP}, we have that
       $Sc[T] \to \partial^{out}\Omega[T]$
       is in $\hat{W}_o$ by induction.
       
       Now, we note by induction and Proposition \ref{REG_HORN_PROP} that
       $\partial^{out}\Omega[T] \to \Lambda^E[T]$
       is also in $\hat{W}_o$,
-      and hence the result follows by the cancellation closure property of hypersaturations.
+      and hence the result follows by the cancellation closure property \eqref{CANCEL_EQ} of hypersaturations.
 \end{proof}
 
 
@@ -2579,134 +2646,145 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
 
 
 \newpage
-
-\todo[inline]{come back - clean up after here}
-
-As a corollary of the above, we can fully characterize the image of the nerve functor $N: \Op^G \to \mathsf{dSet}^G$.
+As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor $N: \Op^G \to \mathsf{dSet}^G$.
 
 \begin{definition}
       $X \in \mathsf{dSet}^G$ is called a \textit{(strict) inner $G$-Kan complex} if
-      $X$ has the strict right lifting property against inner $G$-horn inclusions
-      (that is, $(X \to \**) \in (IHI_G)^{\boxslash (!)}$).
-      Let $\mathsf{(S)Kan}_G \subseteq \mathsf{dSet}^G$ denote the full subcategory.
-
-      Similarly, let $\mathsf{(S)Kan}$ denote the category of
-      (strict) inner Kan complexes in $\mathsf{dSet}$
-      (that is, $(X \to \**) \in (IHI)^{\boxslash (!)}$).
-      We will denote their image under $\iota_!$ by $(S)Kan^G = G \cdot (S)Kan$.
-      \todo[inline]{make sure we say $(\iota_!)\Lambda^E[T_0] = \Lambda^{G E}[G \cdot T_0]$ somewhere}
+      $X$ has the strict right lifting property against inner $G$-horn inclusions.
+      Let $\mathsf{SKan}_G \subseteq \mathsf{Kan}_G \subseteq \mathsf{dSet}^G$
+      denote the respective full subcategories.
 \end{definition}
 
 \begin{remark}
-      If $IHI$ denotes the set of inner horn inclusions in $\mathsf{dSet}$,
-      with image $\iota_! IHI = G \cdot IHI$ in $\mathsf{dSet}^G$,
-      then it is immediate that $(G \cdot IHI)^{\boxslash} = Kan^G$ and $(G \cdot IHI)^{\boxslash !} = SKan^G$.
+      \label{SKAN_REM}
+Recall that we have an adjunction
+\begin{equation}
+      \begin{tikzcd}[column sep =5em]
+            \mathsf{dSet}^G \ar{r}[swap]{\iota^{\**}} 
+            &
+            \mathsf{dSet}
+            \ar[bend right]{l}[swap,midway]{\iota_{!}}
+            \ar[bend left]{l}{\iota_{\**}}
+      \end{tikzcd}
+\end{equation}
+Denoting the image of $\mathsf{SKan}$ and $\mathsf{Kan}$ under $\iota_!$ by $\mathsf{SKan}^G$ and $\mathsf{Kan}^G$,
+it is immediate that
+$(G \cdot \Omega_{IHI})^{\boxslash} = \mathsf{Kan}^G$ and
+$(G \cdot \Omega_{IHI})^{\boxslash !} = \mathsf{SKan}^G$.
 \end{remark}
 
-We will in fact show that $(G \cdot IHI)^{\boxslash !} = (IHI_G)^{\boxslash !}$.
-First, a lemma.
+% We will in fact show that $(G \cdot IHI)^{\boxslash !} = (IHI_G)^{\boxslash !}$.
+% First, a lemma.
 
-\begin{lemma}
-      Let $GIHI$ denote the class of generalized inner horn inclusions $\Lambda^E[T_0] \to \Omega[T]$. 
-      If $X \in (G\ cdot IHI)^{\boxslash !}$, then
-      $X \in (G \cdot GIHI)^{\boxslash !}$. 
-\end{lemma}
-\begin{proof}
-      We go by induction on $|V(T_0)| \times |E|$, where the base case is immediate.
-      Now, given $e\in E$, the square below is a pushout.
-      \begin{equation}
-            \begin{tikzcd}
-                  \iota_!\Lambda^{E\setminus e}[T_0/e] \arrow[rr] \arrow[d]
-                  &&
-                  \iota_!\Lambda^E[T_0] \arrow[r, "f"]
-                  &
-                  X
-                  \\
-                  \iota_!\Omega[T_0/e] \arrow[rr] \arrow[urrr, dotted, near start, "\exists! F"]
-                  &&
-                  \iota_!\Lambda^{E\setminus e}[T_0] \arrow[ur, dotted, "\exists! F'"'] \arrow[u, leftarrow, crossing over]
-            \end{tikzcd}
-      \end{equation}
-      Moreover, by induction, any map $f$ induces a unique lift $F$.
-      The universal property of the pushout then implies that we have a unique lift $F'$.
+% \begin{lemma}
+%       Let $GIHI$ denote the class of generalized inner horn inclusions $\Lambda^E[T_0] \to \Omega[T]$. 
+%       If $X \in (G\ cdot IHI)^{\boxslash !}$, then
+%       $X \in (G \cdot GIHI)^{\boxslash !}$. 
+% \end{lemma}
+% \begin{proof}
+%       We go by induction on $|V(T_0)| \times |E|$, where the base case is immediate.
+%       Now, given $e\in E$, the square below is a pushout.
+%       \begin{equation}
+%             \begin{tikzcd}
+%                   \iota_!\Lambda^{E\setminus e}[T_0/e] \arrow[rr] \arrow[d]
+%                   &&
+%                   \iota_!\Lambda^E[T_0] \arrow[r, "f"]
+%                   &
+%                   X
+%                   \\
+%                   \iota_!\Omega[T_0/e] \arrow[rr] \arrow[urrr, dotted, near start, "\exists! F"]
+%                   &&
+%                   \iota_!\Lambda^{E\setminus e}[T_0] \arrow[ur, dotted, "\exists! F'"'] \arrow[u, leftarrow, crossing over]
+%             \end{tikzcd}
+%       \end{equation}
+%       Moreover, by induction, any map $f$ induces a unique lift $F$.
+%       The universal property of the pushout then implies that we have a unique lift $F'$.
 
-      Now, we have the following diagram
-      \begin{equation}
-            \begin{tikzcd}
-                  \iota_!\Lambda^{E}[T_0] \arrow[rr, "f"] \arrow[d, "i"']
-                  &&
-                  X \arrow[d, equal]
-                  \\
-                  |[alias = U]| (i_G)_!\Lambda^{E \setminus e}[T_0] \arrow[d, "j"'] \arrow[rr, dotted, near end, "\exists! F'"]
-                  &&
-                  |[alias=V]| X
-                  \\
-                  \iota_!\Omega[T_0]
-                  \arrow[uurr, dotted, near end, crossing over, "\exists \psi"] \arrow[urr, dotted, "\exists! \phi"']
-                  % \arrow[dotted, from=U, to=V, crossing over, "\exists! g"] \\
-            \end{tikzcd}
-      \end{equation}
-      where the dotted arrows are lifts:
-      $F'$ is the unique lift of $f$ against $i$,
-      $\phi$ is the unique lift of $F'$ against $j$, and
-      $\psi$ is some lift of $f$ over $ji$.
-      This implies that $\psi j$ is a lift of $f$ over $i$, so by uniquenss $\psi j = F'$, but then
-      $\psi$ is a lift of $F'$ over $j$, and hence $\psi = \phi$,
-      Thus the lift of $f$ over $j i$ is uniquely determined.
-\end{proof}
+%       Now, we have the following diagram
+%       \begin{equation}
+%             \begin{tikzcd}
+%                   \iota_!\Lambda^{E}[T_0] \arrow[rr, "f"] \arrow[d, "i"']
+%                   &&
+%                   X \arrow[d, equal]
+%                   \\
+%                   |[alias = U]| (i_G)_!\Lambda^{E \setminus e}[T_0] \arrow[d, "j"'] \arrow[rr, dotted, near end, "\exists! F'"]
+%                   &&
+%                   |[alias=V]| X
+%                   \\
+%                   \iota_!\Omega[T_0]
+%                   \arrow[uurr, dotted, near end, crossing over, "\exists \psi"] \arrow[urr, dotted, "\exists! \phi"']
+%                   % \arrow[dotted, from=U, to=V, crossing over, "\exists! g"] \\
+%             \end{tikzcd}
+%       \end{equation}
+%       where the dotted arrows are lifts:
+%       $F'$ is the unique lift of $f$ against $i$,
+%       $\phi$ is the unique lift of $F'$ against $j$, and
+%       $\psi$ is some lift of $f$ over $ji$.
+%       This implies that $\psi j$ is a lift of $f$ over $i$, so by uniquenss $\psi j = F'$, but then
+%       $\psi$ is a lift of $F'$ over $j$, and hence $\psi = \phi$,
+%       Thus the lift of $f$ over $j i$ is uniquely determined.
+% \end{proof}
 
 \begin{proposition}
       \label{SRLP_IHI_PROP}
-      $(IHI_G)^{\boxslash !} = (G\cdot IHI)^{\boxslash !}$.
-      Thus $\mathsf{Kan}_G = \mathsf{Kan}^G$
-      % (strict inner $G$-Kan complexes are just $G$-objects in strict inner Kan complexes)
+      $(\Omega_{G, IHI})^{\boxslash !} = (G \cdot \Omega_{IHI})^{\boxslash !}$;
+      or equivalently, $\mathsf{Kan}_G = \mathsf{Kan}^G$.
 \end{proposition}
 \begin{proof}
-      Any inner $G$-horn inclusion $i: \Lambda^{G e}[T] \to \Omega[T]$ has a decomposition description as
+      We recall that any $G$-tree $T \in \Omega_G$ has a decomposition
+      $T \simeq (G \cdot T_*)/N$ where $T_*$ is a component of $T$ and
+      $N$ is a graph subgroup of $G \times \mathrm{Aut}(T_*)$.
+      Similarly, any inner $G$-horn inclusion $\Lambda^{G e}[T] \to \Omega[T]$ is isomorphic to a map of the form
       \begin{equation}
-            j/N: (\iota_! \Lambda^{H e}[T_0])/N \to (\iota_! \Omega[T_0])/N,
+            (\iota_!j)/N: \iota_! \left(
+                  \Lambda^{H e}[T_*] \to \Omega[T_*]
+            \right)/N,
       \end{equation}
-      where $e \in T_0$, $T \simeq G \cdot_H T_0 \simeq (G \cdot T_0)/N$, $N$ a graph subgroup of $G \times \mathsf{Aut}(T_0)$,
-      and $j \in GIHI$.
+      where $e \in T_*$, $H = \mathrm{Stab}_G(T_*)$, and
+      $j$ is a generalized inner horn inclusion in $\Omega$. 
       Now, for any span
-      $\Omega[T] \xleftarrow{j/N} \Lambda^{G e}[T] \xrightarrow{f}$,
-      consider the following diagram, where $n \in N$, and the dashed arrows are lifts.
+      $\Omega[T] \xleftarrow{\iota_! j/N} \Lambda^{G e}[T] \xrightarrow{f} X$,
+      consider the following diagram, where $n \in N$.
       \begin{equation}
             \begin{tikzcd}
-                  \iota_!\Lambda^{H e}[T_0] \arrow[dd, "j"'] \arrow[rr] \arrow[dr, "n"]
+                  \iota_!\Lambda^{H e}[T_*] \arrow[dd, "\iota_! j"'] \arrow[rr] \arrow[dr, "n"]
                   &&
-                  \iota\Lambda^{H.e}[T_0]/N \simeq \Lambda^{G e}[T] \arrow[dd, "j/N = i"] \arrow[r, "f"]
+                  \iota\Lambda^{H.e}[T_*]/N \simeq \Lambda^{G e}[T] \arrow[dd, near end, "\iota_!j/N"] \arrow[r, "f"]
                   &
                   X
                   \\
                   &
-                  \iota_!\Lambda^{H.e}[T_0] \arrow[dd] \arrow[ur, twoheadrightarrow]
+                  \iota_!\Lambda^{H.e}[T_*] \arrow[dd] \arrow[ur, twoheadrightarrow]
                   \\
-                  \iota_!\Omega[T_0] \arrow[rr, crossing over]
+                  \iota_!\Omega[T_*] \arrow[rr, crossing over]
                   \arrow[uurrr, crossing over, bend right=10, very near start, dotted, "\exists! \phi"] \arrow[dr, "n"]
                   &&
-                  \iota_!\Omega[T_0]/N \simeq \Omega[T]
+                  \iota_!\Omega[T_*]/N \simeq \Omega[T]
                   \\
                   &
-                  \iota_!\Omega[T_0] \arrow[ur, twoheadrightarrow] \arrow[uuurr, dotted, out=0, in=-90, "\exists! \phi"']
+                  \iota_!\Omega[T_*] \arrow[ur, twoheadrightarrow] \arrow[uuurr, dotted, out=0, in=-90, "\exists! \phi"']
             \end{tikzcd}
       \end{equation}
-      Uniqueness implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence factors through $\Omega[T]$,
+      Since $X \in \mathsf{SKan}^G$, and the hypersaturations (in $\Omega)$ of
+      the inner horn inclusions and the generalized inner horn inclusions coincide
+      by \cite[Lemma 5.1]{MW09} (or Proposition \ref{HYPER PROP}),
+      we have unique lifts $\phi$ as written above by Lemma \ref{HYPER_LP_LEM} and Remark \ref{SKAN_REM}.
+      Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence factors through $\Omega[T]$,
       finishing the proof.
 \end{proof}
 
 \begin{corollary}
       Fix $X \in \mathsf{dSet}^G$. Then
-      $X$ is a strict inner $G$-Kan complex iff $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$.
+      $X \in \mathsf{SKan}_G$ iff $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$.
 \end{corollary}
 \begin{proof}
       $N^G(\O)(T)$ is given by maps $\mathsf{Op}^G(\Omega(T), \O)$,
       and since $\Omega(T)$ is a free coloured operad on it's vertices, we may conclude that
       \begin{equation}
-            N^G(\O)(T) \simeq \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O).
+            N^G(\O)(T) = \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O).
       \end{equation}
-      Thus $N^G(\O)$ is in $(SCI_G)^{\boxslash !}$, and hence is in $(IHI_G)^{\boxslash !}$
-      by Lemma \ref{HYPER_LP_LEM} and Proposition \ref{GHORN_IN_SC_PROP}\todo{check this ref}.
+      Thus $N^G(\O)$ is in $(\Omega_{G, SCI})^{\boxslash !}$, and hence is in $(\Omega_{G,IHI})^{\boxslash !}$
+      by Lemma \ref{HYPER_LP_LEM} and Proposition \ref{SC_IN_GHORN_PROP}.
 
       Conversely, by Proposition \ref{SRLP_IHI_PROP} and \cite[Theorem 6.1, Proposition 6.10]{MW09}, we have that
       $X \simeq N_d \circ \tau_d \circ X$
