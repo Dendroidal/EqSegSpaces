@@ -102,15 +102,77 @@ The following are the categories currently with model structures and the right a
 
 This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
 \textit{equivariant operads with norm maps}.
-Briefly, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
+Informally, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
 (and which has no analogue in the theory of equivariant categories).
 The need to understand norm maps, as well as their usefulness,
 was made clear by Hill, Hopkins and Ravenel in their solution of the Kervaire invariant one problem \cite{HHR16}.
 
+The starting point of this project was the discovery by the authors,
+for each finite group $G$,
+of a category $\Omega_G$ of $G$-trees whose objects diagrammatically encode compositions of norms maps 
+and whose arrows encode the necessary compatibilities between such compositions.
+Our categories $\Omega_G$ are a somewhat non-obvious equivariant generalization of the dendroidal category $\Omega$
+of Cisinski-Moerdijk-Weiss, 
+and indeed all the key combinatorial concepts in their work,
+such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,6]{Per17}.
+As such, it is natural to ask whether the Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} can also be generalized to the equivariant context. 
 
+We recall that the main result of their program is the existence of a Quillen equivalence
+\[
+	W_{!} \colon \mathsf{dSet} 
+		\rightleftarrows
+	\mathsf{sOp}  \colon N_{hc} 
+\]
+where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
+is the category of presheaves over $\Omega$, 
+called \textit{dendroidal sets},
+and 
+$\mathsf{sOp}$ is the category of simplicial colored operads.
+Their program was carried out in three main steps:
+\begin{inparaenum}
+	\item[(i)] \cite{CM11} established the existence of the model structure on $\mathsf{dSet}$
+	(with some of the key combinatorial analysis based on Moerdijk and Weiss' work in \cite{MW09});
+	\item[(ii)] \cite{CM13a} established auxiliary model structures on the categories $\mathsf{sdSet}$ and $\mathsf{PreOp}$
+	of dendroidal spaces and pre-operads, and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
+	\item[(iii)] and lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result.
+\end{inparaenum}
+
+From the perspective of the Cisinski-Moerdijk program, 
+\cite{Per17} is then the equivariant analogue of the first step \cite{CM11} (as well as \cite{MW09}), 
+while the present paper provides the equivariant analogue of the
+second step \cite{CM13b}.
+More explicitly, in \cite{Per17}, and inspired by the category $\Omega_G$ of $G$-trees,
+the second author equipped the category
+$\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
+are ``equivariant operads with norms up to homotopy'',
+called $G$-$\infty$-operads.
+In the present paper, our main results are then the existence of suitable model structures on the categories 
+$\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
+of $G$-dendroidal spaces and $G$-pre-operads,
+as well as the existence of Quillen equivalences
+between all three of 
+$\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
+
+It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads into dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal.}.
+Indeed, in \cite{BP17}, the second piece of our project,
+the authors introduced the notion of 
+\textit{genuine equivariant operads},
+which are new algebraic objects motivated by the combinatorics of norm maps as encoded by the category $\Omega_G$ of $G$-trees.
+And while a priori the work in \cite{BP17} is largely perpendicular to the Cisinski-Moerdijk program
+(the main result \cite[Thm. III]{BP17} is what one might call the 
+``operadic Elmendorf-Piacenza theorem'', which is an equivariant phenomenon),
+many of the new technical hurdles in this paper versus \cite{CM13a} can be traced back to the fact that
+at many points in the discussion we are secretly dealing with colored genuine equivariant operads, 
+which are the colored generalization of the structures discussed in \cite{BP17},
+and the formal definition of which we prefer to postpone to a follow-up paper.
+
+\vskip 10pt
+
+The organization of the paper is as follows.
+
+{\color{blue} Fill this}
 
 {\color{red} HERE}
-
 
 \section{Preliminary section}
 
