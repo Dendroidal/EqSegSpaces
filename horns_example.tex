@@ -1,4 +1,4 @@
-\documentclass[a4paper,10p,draft]{article}%
+\documentclass[a4paper,10pt,draft]{article}%
 
 
 \usepackage[hidelinks]{hyperref}
@@ -16,7 +16,7 @@
 \usepackage{mathtools}  
 \mathtoolsset{showonlyrefs}  
 
-
+\usepackage{fullpage}
 
 
 %-------- TIKZ -----------------------------------------
@@ -71,6 +71,198 @@
 \abstract{bla bla, generalizing.
 
 In an appendix, we discuss Reedy categories in the equivariant context.}
+
+
+
+
+     \begin{equation}
+            \begin{tikzpicture}[grow= up, level distance = 1.7em, every node/.style = {font=\footnotesize}]
+                  \tikzstyle{level 2}=[sibling distance=4em]
+                  \tikzstyle{level 3}=[sibling distance=4em]
+                  \node (Paa) {}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{
+                        edge from parent node [right] {$-b$}
+                      }
+                      child{node [dummy] {}
+                        child{edge from parent node [left] {$a$}}
+                        edge from parent node [left] {$b$}
+                      }
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  \node (Pa) at (3,0) {$\partial^{a} T$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{node [dummy] {}
+                        child{edge from parent node [right] {$-a$}}
+                        edge from parent node [right] {$-b$}
+                      }
+                      child{
+                        edge from parent node [left] {$b$}
+                      }
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  \node (Pr) at (7,0){$\partial^r$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{edge from parent node [right] {$-a$}}
+                      edge from parent node [right] {$-b$}
+                    }
+                    child{node [dummy] {}
+                      child{edge from parent node [left] {$a$}}
+                      edge from parent node [left] {$b$}
+                    }
+                    edge from parent node [right] {$e$}
+                  };
+                  \draw
+                  (Pr)++(-1.2,-.2) rectangle ++(2.4,2.1);
+                  \node (Tb) at (9.7,0){}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{edge from parent node [right] {$-a$}}
+                      child{node [dummy] {}
+                        child{edge from parent node [left] {$a$}}
+                        edge from parent node [left] {$b$}
+                      }
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  \node (Tbb) at (11.7,0) {}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{node [dummy] {}
+                        child{edge from parent node [right] {$-a$}}
+                        edge from parent node [right] {$-b$}
+                      }
+                      child{
+                        edge from parent node [left] {$a$}
+                      }
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  %%%%%%% --------- NEXT ROW -----------------------------
+                  \node (PGa) at (0,-2.6) {$\partial^{G a}$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{
+                        edge from parent node [right] {$-b$}
+                      }
+                      child{
+                        edge from parent node [left] {$b$}
+                      }
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  \draw
+                  (PGa)++(-1,-.2) rectangle ++(2,2);
+                  %
+                  \node (TGb) at (10.7,-2.6) {$T - G b$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{
+                        edge from parent node [right] {$-a$}
+                      }
+                      child{
+                        edge from parent node [left] {$a$}
+                      }
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  \draw
+                  (TGb)++(-1,-.2) rectangle ++(2, 2);
+                  % -------- other orbital face of \partial{a}
+                  \node (Par) at (7,-2.6) {$\partial^{a,r}$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{edge from parent node [right] {$-a$}}
+                      edge from parent node [right] {$-b$}
+                    }
+                    child{edge from parent node [left] {$b$}}
+                    edge from parent node [right] {$e$}
+                  };
+                  \draw[dashed]
+                  (Par)++(-.9,-.2) rectangle ++(2.15,2);
+                  % ---------- other faces of \partial{a}
+                  \node (Pae) at (2.3, -3) {$\partial^{a}-e$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{edge from parent node [right] {$-a$}}
+                      edge from parent node [right] {$-b$}
+                    }
+                    child{edge from parent node [left] {$b$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  \node (Pabb) at (4.7,-3) {$\partial^{a}-\set{-b}$}
+                  child{node [dummy] {}
+                    child{node [dummy] {}
+                      child{edge from parent node [right] {$-a$}}
+                      child{edge from parent node [left] {$b$}}
+                      edge from parent node [right] {$e$}
+                    }
+                    edge from parent node [right] {$r$}
+                  };
+                  %%%% -------------------- next row --------------------
+                  \node at (3.5, -5) {}
+                  child{node [dummy] {}
+                    child{edge from parent node [right] {$-a$}}
+                    child{edge from parent node [left] {$b$}}
+                    edge from parent node [right] {$r$}
+                  };
+                  \node (Parb) at (7,-5) {}
+                  child{node [dummy] {}
+                    child{edge from parent node [right] {$-a$}}
+                    child{edge from parent node [left] {$b$}}
+                    edge from parent node [right] {$e$}
+                  };
+                  \draw
+                  (Parb)++(-.9,-.1) rectangle ++(2,1.5);
+                  %%%% -------------------- edges ----------
+                  % ---------- conjugates ----------
+                  \draw[<->]
+                  (Pa)++(-.5,.5) -- (.5,.5) node [midway,above] {$+1$};
+                  \draw[<->]
+                  (Tbb)++(-.5,.5) -- ++(-1,0) node [midway,above] {$+1$};
+                  % faces
+                  \draw[->]
+                  (Paa)++(0,-.2) -- ++(0,-.4);
+                  \draw[->]
+                  (Pr)++(0,-.25) -- ++(0,-.4);
+                  \draw[->]
+                  (Tb)++(0,-.2) -- ++(.5,-.4);
+                  \draw[->]
+                  (Tbb)++(0,-.2) -- ++(-.5,-.4);
+                  % ---------- faces of Pa
+                  \draw[->]
+                  (Pa)++(-.2,-.2) -- (1.1,-.7);
+                  \draw[->]
+                  (Pa)++(-.1,-.3) -- (2.6,-1);
+                  \draw[->]
+                  (Pa)++(.1,-.3) -- (4.3,-1);
+                  \draw[->]
+                  (Pa)++(.2,-.2) -- (5.7,-.7);
+                  % ---------- faces of Pab
+                  \draw[->]
+                  (Pabb)++(-.3,-.2) -- ++(-.5,-.5);
+                  \draw[->]
+                  (Pabb)++(.7,-.1) -- ++(.5,-.4);
+                  \draw[->]
+                  (Pae)++(.3,-.2) -- ++(.5,-.5);
+            \end{tikzpicture}
+      \end{equation}
+      
+\end{document}
+
+
 
 \begin{example}
       To set up an example comparing the orbital horns with regular inner horns, 

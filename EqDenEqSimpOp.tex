@@ -5,6 +5,10 @@
 \hypersetup{
   % colorlinks,
   final,
+  pdftitle={Equivariant Dendroidal Segal Spaces},
+  pdfauthor={Bonventre, P. and Pereira, L. A.},
+  % pdfsubject={Your subject here},
+  % pdfkeywords={keyword1, keyword2},
   linktoc=page
 }
 \usepackage{bookmark}
@@ -198,7 +202,7 @@ The organization of the paper is as follows.
 	$\varphi_U \colon U \to T$
 	can also be regarded as a dendrex 
 	$\varphi_U \in \Omega[T](U)$.
-	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
+	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the isotropy of $\varphi_U$.
 	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
 	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
 	is a $G$-graph subgroup 
@@ -206,7 +210,7 @@ The organization of the paper is as follows.
 	encoding a homomorphism
 	$\phi\colon H \to \mathsf{Aut}(U)$.
 	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
-	$\phi(U)$ is the leftmost isomorphism in
+	$\phi(h)$ is the leftmost isomorphism in
 	(\ref{FACEGACT EQ}),
 	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
 	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
@@ -578,7 +582,7 @@ in the grafting result \cite[Lemma 5.2]{MW09} (and similarly for the equivariant
 It follows from Lemma \ref{CHAREDGE LEM}
 that any inclusion $X \to X'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
 is $G$-inner anodyne. 
-Indeed, letting $I=\mathsf{Face}_{X'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$, ordered by inclusion, 
+Indeed, letting $I=\mathsf{Face}_{X'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$, ordered by inclusion \todo{where is $X'$ in the definition?}, 
 $\Xi = E^{\mathsf{i}}(T)$ and $U_V = V$,
 (Ch0) is obvious, (Ch1) follows since 
 $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
@@ -589,7 +593,7 @@ for the $G$-trivial set of orbital outer faces $GV \to T$,
 together with an \textit{arbitrary} total order (see Remark \ref{TWOPROOF REM} for a similar example).
 
 Lastly, we note that if $\{U_i\}=\{T\}$, $\Xi=E^{\mathsf{i}}(T)$
-then (Ch1) says precisely that $Sc(T) \subseteq X$.
+then (Ch1) says precisely that $Sc(T) \subseteq X$.\todo{context for this sentence?}
 
 
 \item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge collection condition as generalized in Remark \ref{CHAREDGE2 REM}, and which served as one of our main inspirations.
@@ -888,6 +892,7 @@ to be the set of inner edges of $U$ of the form
 $(g \xi)_s$ \textit{such that}
 the vertex $(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ in $U$
 is a $T$-vertex (see Figure \ref{FIGURE}).
+\todo[inline]{should $\Ksi^1$ include $r_1$ and $r_{-1}$?}
 We now verify (Ch1),(Ch2),(Ch3).
 We recall that, since $S,T$ are assumed open,
 \cite[Lemma 7.19]{Per17} guarantees that,
@@ -1037,8 +1042,9 @@ It remains to check the characteristic conditions in Definition \ref{CHAREDGE DE
 
 Note that the $U_i$ are the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
 in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
-Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since this
-depends only on $V \hookrightarrow T$ and not on $Gf$.
+Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since
+$\Ksi$ is independent of $G f$.
+% this depends only on $V \hookrightarrow T$ and not on $Gf$.
 We again check the characteristic conditions. (Ch0) is clear.
 
 	For (Ch1), note that for an outer face 
@@ -1074,6 +1080,7 @@ hence we can now assume that both $E,F \neq \emptyset$.
 We now apply Lemma \ref{CHAREDGE LEM} with 
 $I = \mathcal{P}_0(F)$
 the poset of non-empty subsets $\emptyset \neq F' \subseteq F$, ordered by \textit{reverse inclusion}, and
+\todo[inline]{or just $\set{U_{F'}}$ ordered as in $\mathsf{Face}(T)$}
 \[
 	\Xi^{F'} = E, \qquad
 	U_{F'} = T - F', \qquad
@@ -1302,18 +1309,18 @@ $V \hookrightarrow T-(F' \cup F'')$.
 
 
 \begin{example}
-      let $G = C_2$ be the cyclic group with four elements,
+      let $G = C_2$ be the cyclic group with two elements,
       and consider the tree $T \in \Omega^G \subset \Omega_G$ below.
       \begin{equation}
-            \begin{tikzpicture}[grow= up, level distance = 2em, every node/.style = {font=\footnotesize}]
-                  \tikzstyle{level 2}=[sibling distance=3em]
-                  \tikzstyle{level 3}=[sibling distance=2em]
+            \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
+                  \tikzstyle{level 2}=[sibling distance=4em]
+                  \tikzstyle{level 3}=[sibling distance=4em]
                   \node{$T$}
                   child{node [dummy] {}
                     child{node [dummy] {}
                       child{node [dummy] {}
-                        child{edge from parent node [right] {$a+1$}}
-                        edge from parent node [right] {$b+1$}
+                        child{edge from parent node [right] {$-a$}}
+                        edge from parent node [right] {$-b$}
                       }
                       child{node [dummy] {}
                         child{edge from parent node [left] {$a$}}
@@ -1336,503 +1343,711 @@ $V \hookrightarrow T-(F' \cup F'')$.
                   };
             \end{tikzpicture}
       \end{equation}
-      The horn $\Lambda^{G e}[T]$ is just missing two faces: $T$ and $T-r$.
-      However, the orbital horn is missing fourteen beyond these:
-      \begin{equation}
-            \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
-                  \tikzstyle{level 2}=[sibling distance=4em]
-                  \tikzstyle{level 3}=[sibling distance=4em]
-                  \node{}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{
-                        edge from parent node [right] {$b+1$}
-                      }
-                      child{node [dummy] {}
-                        child{edge from parent node [left] {$a$}}
-                        edge from parent node [left] {$b$}
-                      }
-                      edge from parent node [right] {$e$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  \node at (3,0) {}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{node [dummy] {}
-                        child{edge from parent node [right] {$a+1$}}
-                        edge from parent node [right] {$b+1$}
-                      }
-                      child{
-                        edge from parent node [left] {$b$}
-                      }
-                      edge from parent node [right] {$e$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  \node at (6,0){}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{edge from parent node [right] {$a+1$}}
-                      child{node [dummy] {}
-                        child{edge from parent node [left] {$a$}}
-                        edge from parent node [left] {$b$}
-                      }
-                      edge from parent node [right] {$e$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  \node at (9,0) {}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{node [dummy] {}
-                        child{edge from parent node [right] {$a+1$}}
-                        edge from parent node [right] {$b+1$}
-                      }
-                      child{
-                        edge from parent node [left] {$b$}
-                      }
-                      edge from parent node [right] {$e$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  %%%%%%% --------- NEXT ROW -----------------------------
-                  \tikzstyle{level 2}=[sibling distance=2em]
-                  \tikzstyle{level 3}=[sibling distance=2em]
-                  % -------------- SUBFACES OF E-INNER FACE --------------
-                  \node at (0,-2) {}
-                  child{node [dummy] {}
-                    child{
-                      edge from parent node [right] {$b+1$}
-                    }
-                    child{node [dummy] {}
-                      child{edge from parent node [left] {$a$}}
-                      edge from parent node [left] {$b$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  \node at (2,-2) {}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{edge from parent node [right] {$a+1$}}
-                      edge from parent node [right] {$b+1$}
-                    }
-                    child{
-                      edge from parent node [left] {$b$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  \node at (4,-2){}
-                  child{node [dummy] {}
-                    child{edge from parent node [right] {$a+1$}}
-                    child{node [dummy] {}
-                      child{edge from parent node [left] {$a$}}
-                      edge from parent node [left] {$b$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-                  \node at (6,-2) {}
-                  child{node [dummy] {}
-                    child{node [dummy] {}
-                      child{edge from parent node [right] {$a+1$}}
-                      edge from parent node [right] {$b+1$}
-                    }
-                    child{
-                      edge from parent node [left] {$b$}
-                    }
-                    edge from parent node [right] {$r$}
-                  };
-            \end{tikzpicture}
-      \end{equation}
-      \todo[inline]{finish. make this make sense.}
+      The horn $\Lambda^{G e}[T]$ is only missing the faces $T$ and $T-r$,
+      and has maximal faces given by the top row below;
+      the orbital horn $\Lambda^{G e}_o[T]$ has maximal faces $\partial^r$, $\partial^{G a}$, and $\partial^{G b}$,
+      boxed below.
+      We have also included some of the subfaces of $\partial^{a}$;
+      those included in the orbital horn are (dashed) boxed.
+      Note that $\partial^a$ and it's maxmimal subfaces outside the orbital horn
+      themselves have faces both inside and outside the orbital horn.
+      \begin{figure}[ht]
+            \begin{equation}
+                  \begin{tikzpicture}[grow= up, level distance = 1.7em, every node/.style = {font=\footnotesize}]
+                        \tikzstyle{level 2}=[sibling distance=4em]
+                        \tikzstyle{level 3}=[sibling distance=4em]
+                        \node (Paa) {}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{
+                              edge from parent node [right] {$-b$}
+                            }
+                            child{node [dummy] {}
+                              child{edge from parent node [left] {$a$}}
+                              edge from parent node [left] {$b$}
+                            }
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        \node (Pa) at (3,0) {$\partial^{a} T$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{node [dummy] {}
+                              child{edge from parent node [right] {$-a$}}
+                              edge from parent node [right] {$-b$}
+                            }
+                            child{
+                              edge from parent node [left] {$b$}
+                            }
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        \node (Pr) at (7,0){$\partial^r$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{edge from parent node [right] {$-a$}}
+                            edge from parent node [right] {$-b$}
+                          }
+                          child{node [dummy] {}
+                            child{edge from parent node [left] {$a$}}
+                            edge from parent node [left] {$b$}
+                          }
+                          edge from parent node [right] {$e$}
+                        };
+                        \draw
+                        (Pr)++(-1.2,-.2) rectangle ++(2.4,2.1);
+                        \node (Tb) at (9.7,0){}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{edge from parent node [right] {$-a$}}
+                            child{node [dummy] {}
+                              child{edge from parent node [left] {$a$}}
+                              edge from parent node [left] {$b$}
+                            }
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        \node (Tbb) at (11.7,0) {}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{node [dummy] {}
+                              child{edge from parent node [right] {$-a$}}
+                              edge from parent node [right] {$-b$}
+                            }
+                            child{
+                              edge from parent node [left] {$a$}
+                            }
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        %%%%%%% --------- NEXT ROW -----------------------------
+                        \node (PGa) at (0,-2.6) {$\partial^{G a}$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{
+                              edge from parent node [right] {$-b$}
+                            }
+                            child{
+                              edge from parent node [left] {$b$}
+                            }
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        \draw
+                        (PGa)++(-1,-.2) rectangle ++(2,2.1);
+                        % 
+                        \node (TGb) at (10.7,-2.6) {$T - G b$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{
+                              edge from parent node [right] {$-a$}
+                            }
+                            child{
+                              edge from parent node [left] {$a$}
+                            }
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        \draw
+                        (TGb)++(-1,-.2) rectangle ++(2, 2.1);
+                        % -------- other orbital face of \partial{a}
+                        \node (Par) at (7,-2.6) {$\partial^{a,r}$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{edge from parent node [right] {$-a$}}
+                            edge from parent node [right] {$-b$}
+                          }
+                          child{edge from parent node [left] {$b$}}
+                          edge from parent node [right] {$e$}
+                        };
+                        \draw[dashed]
+                        (Par)++(-.9,-.2) rectangle ++(2.15,2.1);
+                        % ---------- other faces of \partial{a}
+                        \node (Pae) at (2.3, -3) {$\partial^{a}-e$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{edge from parent node [right] {$-a$}}
+                            edge from parent node [right] {$-b$}
+                          }
+                          child{edge from parent node [left] {$b$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        \node (Pabb) at (4.7,-3) {$\partial^{a}-\set{-b}$}
+                        child{node [dummy] {}
+                          child{node [dummy] {}
+                            child{edge from parent node [right] {$-a$}}
+                            child{edge from parent node [left] {$b$}}
+                            edge from parent node [right] {$e$}
+                          }
+                          edge from parent node [right] {$r$}
+                        };
+                        %%%% -------------------- next row --------------------
+                        \node at (3.5, -5) {}
+                        child{node [dummy] {}
+                          child{edge from parent node [right] {$-a$}}
+                          child{edge from parent node [left] {$b$}}
+                          edge from parent node [right] {$r$}
+                        };
+                        \node (Parb) at (7,-5) {}
+                        child{node [dummy] {}
+                          child{edge from parent node [right] {$-a$}}
+                          child{edge from parent node [left] {$b$}}
+                          edge from parent node [right] {$e$}
+                        };
+                        \draw[dashed]
+                        (Parb)++(-.9,-.1) rectangle ++(1.9,1.5);
+                        % 
+                        \node (PGae) at (0,-5) {}
+                        child{node [dummy] {}
+                          child{edge from parent node [right] {$-b$}}
+                          child{edge from parent node [left] {$b$}}
+                          edge from parent node [right] {$r$}
+                        };
+                        \draw[dashed]
+                        (PGae)++(-.9,-.1) rectangle ++(1.9,1.5);
+                        %%%% -------------------- edges ----------
+                        % ---------- conjugates ----------
+                        \draw[<->]
+                        (Pa)++(-.5,.5) -- (.5,.5) node [midway,above] {$+1$};
+                        \draw[<->]
+                        (Tbb)++(-.5,.5) -- ++(-1,0) node [midway,above] {$+1$};
+                        % faces
+                        \draw[->]
+                        (Paa)++(0,-.2) -- ++(0,-.4);
+                        \draw[->]
+                        (Pr)++(0,-.25) -- ++(0,-.4);
+                        \draw[->]
+                        (Tb)++(0,-.2) -- ++(.5,-.4);
+                        \draw[->]
+                        (Tbb)++(0,-.2) -- ++(-.5,-.4);
+                        % ---------- faces of Pa
+                        \draw[->]
+                        (Pa)++(-.2,-.2) -- (1.1,-.7);
+                        \draw[->]
+                        (Pa)++(-.1,-.3) -- (2.6,-1);
+                        \draw[->]
+                        (Pa)++(.1,-.3) -- (4.3,-1);
+                        \draw[->]
+                        (Pa)++(.2,-.2) -- (5.7,-.7);
+                        % ---------- faces of Pab and Pae
+                        \draw[->]
+                        (Pabb)++(-.3,-.2) -- ++(-.5,-.5);
+                        \draw[->]
+                        (Pabb)++(.7,-.1) -- ++(.5,-.4);
+                        \draw[->]
+                        (Pae)++(.3,-.2) -- ++(.5,-.5);
+                        \draw[->]
+                        (Pae)++(-.6,-.1) -- ++(-.5,-.4);
+                        \draw[->]
+                        (PGa)++(0,-.3) -- ++(0,-.5);
+                  \end{tikzpicture}
+            \end{equation}
+      \end{figure}
+      % \begin{equation}
+      %       \begin{tikzpicture}[grow= up, level distance = 1.7em, every node/.style = {font=\footnotesize}]
+      %             \tikzstyle{level 2}=[sibling distance=4em]
+      %             \tikzstyle{level 3}=[sibling distance=4em]
+      %             \node{}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{
+      %                   edge from parent node [right] {$-b$}
+      %                 }
+      %                 child{node [dummy] {}
+      %                   child{edge from parent node [left] {$a$}}
+      %                   edge from parent node [left] {$b$}
+      %                 }
+      %                 edge from parent node [right] {$e$}
+      %               }
+      %               edge from parent node [right] {$r$}
+      %             };
+      %             \node at (3,0) {}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{node [dummy] {}
+      %                   child{edge from parent node [right] {$-a$}}
+      %                   edge from parent node [right] {$-b$}
+      %                 }
+      %                 child{
+      %                   edge from parent node [left] {$b$}
+      %                 }
+      %                 edge from parent node [right] {$e$}
+      %               }
+      %               edge from parent node [right] {$r$}
+      %             };
+      %             \node at (6,0){$\partial^r$}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{edge from parent node [right] {$-a$}}
+      %                 edge from parent node [right] {$-b$}
+      %               }
+      %               child{node [dummy] {}
+      %                 child{edge from parent node [left] {$a$}}
+      %                 edge from parent node [left] {$b$}
+      %               }
+      %               edge from parent node [right] {$e$}
+      %             };
+      %             \draw
+      %             (4.5,-.3) rectangle ++(2.7,2.3);
+      %             \node at (9,0){}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{edge from parent node [right] {$-a$}}
+      %                 child{node [dummy] {}
+      %                   child{edge from parent node [left] {$a$}}
+      %                   edge from parent node [left] {$b$}
+      %                 }
+      %                 edge from parent node [right] {$e$}
+      %               }
+      %               edge from parent node [right] {$r$}
+      %             };
+      %             \node at (12,0) {}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{node [dummy] {}
+      %                   child{edge from parent node [right] {$-a$}}
+      %                   edge from parent node [right] {$-b$}
+      %                 }
+      %                 child{
+      %                   edge from parent node [left] {$b$}
+      %                 }
+      %                 edge from parent node [right] {$e$}
+      %               }
+      %               edge from parent node [right] {$r$}
+      %             };
+      %             %%%%%%% --------- NEXT ROW -----------------------------
+      %             \node at (0,-2) {$\partial^{G a}$}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{
+      %                   edge from parent node [right] {$-b$}
+      %                 }
+      %                 child{
+      %                   edge from parent node [left] {$b$}
+      %                 }
+      %                 edge from parent node [right] {$e$}
+      %               }
+      %               edge from parent node [right] {$r$}
+      %             };
+      %             \node at (12,-2) {$T - G b$}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{
+      %                   edge from parent node [right] {$-a$}
+      %                 }
+      %                 child{
+      %                   edge from parent node [left] {$a$}
+      %                 }
+      %                 edge from parent node [right] {$e$}
+      %               }
+      %               edge from parent node [right] {$r$}
+      %             };
+      %             \node at (6,-2) {$\partial^{a,r}$}
+      %             child{node [dummy] {}
+      %               child{node [dummy] {}
+      %                 child{edge from parent node [right] {$-a$}}
+      %                 edge from parent node [right] {$-b$}
+      %               }
+      %               child{edge from parent node [left] {$b$}}
+      %               edge from parent node [right] {$e$}
+      %             };
+      %       \end{tikzpicture}
+      % \end{equation}
 \end{example}
 
-\begin{example}
-      To set up an example comparing the orbital horns with regular inner horns, 
-      let $G = C_4$ be the cyclic group with four elements, and consider the tree $T \in \Omega^G \subseteq \Omega_G$ below.
-  \begin{equation}
-        \begin{tikzpicture}[grow= up, auto, level distance = 1cm, every node/.style = {font=\footnotesize}]
-              \tikzstyle{level 2}=[sibling distance=4em]
-              \tikzstyle{level 3}=[sibling distance=2em]
-              \node{$T$}
-              child{node [dummy] {}%
-                child{node [dummy] {}%
-                  child{edge from parent node [swap,near end]{$a+3$}}
-                  child{node {$b+1$}}
-                  child{edge from parent node [near end] {$a+1$}}
-                  edge from parent node [swap]{$e+1$}
-                }
-                child[sibling distance=1em]{node [dummy] {}
-                  edge from parent node [swap,very near end]{$d+1$}
-                }
-                child[sibling distance=1em]{node [dummy] {}
-                  edge from parent node [very near end]{$d$}
-                }
-                child{node [dummy] {}%
-                  child{edge from parent node [swap, near end]{$a+2$}}
-                  child{node {$b$}}
-                  child{edge from parent node [near end] {$a$}}
-                  edge from parent node {$e$}
-                }
-                edge from parent node {$r$}
-              };
-              \tikzstyle{level 3}=[sibling distance=2em]
-              \node at (7,0){$T$}
-              child{node [dummy] {}%
-                child{node [dummy] {}
-                  edge from parent node [swap]{$G/2G+d$}
-                }
-                child{node [dummy] {}%
-                  child{edge from parent node [swap]{$G/2G + b$}}
-                  child{edge from parent node {$G + a$}}
-                  edge from parent node {$G/2G+e$}
-                }
-                edge from parent node {$G/G+r$}
-              };
-        \end{tikzpicture}
-  \end{equation}
-  Consider the edge orbit $G e$.
-  The following are all proper faces of $T$ which are \textit{not} in the inner horn $\Lambda^{G e}[T]$:
-  \begin{equation}
-        \begin{tikzpicture}
-              [grow=up, level distance = .8cm, every node/.style={font=\small}]
-              \tikzstyle{level 2}=[sibling distance=1.5em]
-              \tikzstyle{level 3}=[sibling distance=1em]
-              % -------------- PROPER FACES MISSING FROM \Lambda^{G e}[T] -----------------------------
-              \node (Te) at (1,3) {}
-              child{node [dummy] {}
-                child[sibling distance=.7em]{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{edge from parent [draw = none]}
-                child[sibling distance=1em]{edge from parent [draw = none]}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=2em,level distance = 1.6cm]{}
-                child[sibling distance=1.6em,level distance = 1.6cm]{}
-                child[sibling distance=1.5em,level distance = 1.6cm]{}
-              };
-              \node (Tge) at (4.5,3) {}
-              child{node [dummy] {}
-                child[level distance = 1.6cm]{}
-                child[sibling distance = 1.6em,level distance = 1.6cm]{}
-                child[sibling distance = 2em, level distance = 1.6cm]{}
-                child[sibling distance = 1em]{node [dummy] {}}
-                child[sibling distance = 1em]{node [dummy] {}}
-                child[sibling distance=1em]{edge from parent [draw = none]}
-                child[sibling distance=1em]{edge from parent [draw = none]}
-                child[sibling distance=.7em]{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \draw[<->]
-              (Te)+(.5,.5) -- +(3,.5) node [midway, above] {$+1$};
-              \node (TGe) at (9,3) {}
-              child{node [dummy] {}
-                child[level distance = 1.6cm]{}
-                child[sibling distance=1.6em,level distance = 1.6cm]{}
-                child[sibling distance=2em,level distance = 1.6cm]{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=2em,level distance = 1.6cm]{}
-                child[sibling distance=1.6em,level distance = 1.6cm]{}
-                child[sibling distance=1.5em,level distance = 1.6cm]{}
-              };
-        \end{tikzpicture}
-  \end{equation}
-  where the tree on the right is a face of both trees in the orbit on the left.
-  Similarly, the maximal elements of $\Lambda^{G e}[T]$ are displayed in the top row below,
-  while the second row displays the maximal elements of $\Lambda^{G e}_o[T]$;
-  we observe that, in this particular case (where each orbit of vertices has at most two elements),
-  these are all maximal subfaces of elements in the top row.
-  For clarity, we have drawn using dashed lines the inner edges collapsed involving stumps.
-    \begin{equation}
-        \begin{tikzpicture}
-              [grow=up, level distance = 2em, every node/.style={font=\small, transform shape},
-              scale=0.9
-              ]
-              \tikzstyle{level 2}=[sibling distance=1.5em]
-              \tikzstyle{level 3}=[sibling distance=1em]
-              % -------------- MAXIMAL FACES OF \Lambda^{G e}[T] --------------------------------------
-              \node (TC) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{node [dummy] {}%
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (TgC) at (2,0) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{}
-              };
-              \draw[<->]
-              (TC)+(.5,.5) -- +(1.5,.5) node [midway, above] {$+1$};
-              \node (TCd) at (4.5,0) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (TgCd) at (7,0) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \draw[<->]
-              (TCd)+(.5,.5) -- +(2,.5) node [midway, above] {$+1$};
-              \node (Td) at (9.5,0) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]
-                }
-                child[sibling distance=1em]{node [dummy] {}}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (Tgd) at (12,0) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]
-                }
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \draw[<->]
-              (Td)+(.5,.5) -- +(2,.5) node [midway, above] {$+1$};
-              % --------- Maximal Faces in $\Lambda^{G e}_o[T]$ ---------------------------------------%%%%%
-              \node (TGC) at (1, -2.3) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{}
-              };
-              \node (TGCd) at (5.75,-2.3) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              % \node (TB) at (7.5,-2.3) {}
-              % child{node [dummy] {}
-              %   child{}
-              %   child{}
-              %   child{}
-              %   edge from parent node [left] {$e$}
-              % };
-              % \node (TgB) at (9,-2.3) {}
-              % child{node [dummy] {}
-              %   child{}
-              %   child{}
-              %   child{}
-              %   edge from parent node [right] {$e+1$}
-              % };
-              % \draw[<->]
-              % (TB)+(.3,.5) -- +(1.2,.5) node [midway,above] {$+1$};
-              \node (TGd) at (10.75,-2.3) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]
-                }
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]
-                }
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-        \end{tikzpicture}
-  \end{equation}
-  However, these orbital faces are certainly \textit{not} the only subfaces of the top row above.
-  Consider the middle row below, consisting of a maximal chain of faces in $\Lambda^{G e}[T]$.
-  While none of these are in $\Lambda^{G e}_o[T]$,
-  the faces in the top and bottom rows are.
-  \todo[inline]{clean this up}
-  \begin{equation}
-        \begin{tikzpicture}
-              [grow=up, level distance=2em, every node/.style={font=\small, transform shape},
-              scale=0.9
-              ]
-              \tikzstyle{level 2}=[sibling distance=1.5em]
-              \tikzstyle{level 3}=[sibling distance=1em]
-              \node (11) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{node [dummy] {}%
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (12) at (3,0) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{node [dummy] {}%
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (13) at (6,0) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]}
-                child{node [dummy] {}%
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (14) at (9,0) {}
-              child{node [dummy] {}
-                child[sibling distance=.7em]{}
-                child{edge from parent [draw = none]}
-                child{edge from parent [draw = none]}
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]
-                }                
-                child[sibling distance=2em,level distance = 1.6cm]{}
-                child[sibling distance=1.6em,level distance = 1.6cm]{}
-                child[sibling distance=1.5em,level distance = 1.6cm]{}
-              };
-              %%%%% -------------- TOP ROW -------------------------------------------------------------------
-              \node (03) at (6,2.6) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{}
-                child{node [dummy] {}%
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              \node (02) at (3,2.6) {}
-              child{node [dummy] {}
-                child{node [dummy] {}
-                  child{}
-                  child{}
-                  child{}
-                }
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{}
-                child{node [dummy] {}%
-                  child{}
-                  child{}
-                  child{}
-                }
-              };
-              %%%%% ------------- BOTTOM ROW -----------------------------------------------------------------
-              \node (24) at (9,-2.3) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{node [dummy, dashed] {}
-                  edge from parent [dashed]}
-                child{}
-              };
-              \node (23) at (6,-2.3) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{}
-              };
-              \node (22) at (3,-2.3) {}
-              child{node [dummy] {}
-                child{}
-                child[sibling distance=1em]{node [dummy] {}}
-                child[sibling distance=1em]{node [dummy] {}}
-                child{}
-              };
-              \draw[->]
-              ([shift={(-.2,0)}] 14.west) edge ([shift={(.2,0)}] 13.east)
-              (13.west) edge (12.east)
-              (12.west) edge (11.east)
-              (03.west) edge (12.east)
-              (03.west) edge (02.east)
-              (24.west) edge (23.east)
-              (24.west) edge (13.east)
-              (23.west) edge (22.east)
-              (23.west) edge (12.east)
-              (22.west) edge (11.east);
-        \end{tikzpicture}
-  \end{equation}
-\end{example}
+% \begin{example}
+%       To set up an example comparing the orbital horns with regular inner horns, 
+%       let $G = C_4$ be the cyclic group with four elements, and consider the tree $T \in \Omega^G \subseteq \Omega_G$ below.
+%   \begin{equation}
+%         \begin{tikzpicture}[grow= up, auto, level distance = 1cm, every node/.style = {font=\footnotesize}]
+%               \tikzstyle{level 2}=[sibling distance=4em]
+%               \tikzstyle{level 3}=[sibling distance=2em]
+%               \node{$T$}
+%               child{node [dummy] {}%
+%                 child{node [dummy] {}%
+%                   child{edge from parent node [swap,near end]{$a+3$}}
+%                   child{node {$b+1$}}
+%                   child{edge from parent node [near end] {$a+1$}}
+%                   edge from parent node [swap]{$e+1$}
+%                 }
+%                 child[sibling distance=1em]{node [dummy] {}
+%                   edge from parent node [swap,very near end]{$d+1$}
+%                 }
+%                 child[sibling distance=1em]{node [dummy] {}
+%                   edge from parent node [very near end]{$d$}
+%                 }
+%                 child{node [dummy] {}%
+%                   child{edge from parent node [swap, near end]{$a+2$}}
+%                   child{node {$b$}}
+%                   child{edge from parent node [near end] {$a$}}
+%                   edge from parent node {$e$}
+%                 }
+%                 edge from parent node {$r$}
+%               };
+%               \tikzstyle{level 3}=[sibling distance=2em]
+%               \node at (7,0){$T$}
+%               child{node [dummy] {}%
+%                 child{node [dummy] {}
+%                   edge from parent node [swap]{$G/2G+d$}
+%                 }
+%                 child{node [dummy] {}%
+%                   child{edge from parent node [swap]{$G/2G + b$}}
+%                   child{edge from parent node {$G + a$}}
+%                   edge from parent node {$G/2G+e$}
+%                 }
+%                 edge from parent node {$G/G+r$}
+%               };
+%         \end{tikzpicture}
+%   \end{equation}
+%   Consider the edge orbit $G e$.
+%   The following are all proper faces of $T$ which are \textit{not} in the inner horn $\Lambda^{G e}[T]$:
+%   \begin{equation}
+%         \begin{tikzpicture}
+%               [grow=up, level distance = .8cm, every node/.style={font=\small}]
+%               \tikzstyle{level 2}=[sibling distance=1.5em]
+%               \tikzstyle{level 3}=[sibling distance=1em]
+%               % -------------- PROPER FACES MISSING FROM \Lambda^{G e}[T] -----------------------------
+%               \node (Te) at (1,3) {}
+%               child{node [dummy] {}
+%                 child[sibling distance=.7em]{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{edge from parent [draw = none]}
+%                 child[sibling distance=1em]{edge from parent [draw = none]}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=2em,level distance = 1.6cm]{}
+%                 child[sibling distance=1.6em,level distance = 1.6cm]{}
+%                 child[sibling distance=1.5em,level distance = 1.6cm]{}
+%               };
+%               \node (Tge) at (4.5,3) {}
+%               child{node [dummy] {}
+%                 child[level distance = 1.6cm]{}
+%                 child[sibling distance = 1.6em,level distance = 1.6cm]{}
+%                 child[sibling distance = 2em, level distance = 1.6cm]{}
+%                 child[sibling distance = 1em]{node [dummy] {}}
+%                 child[sibling distance = 1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{edge from parent [draw = none]}
+%                 child[sibling distance=1em]{edge from parent [draw = none]}
+%                 child[sibling distance=.7em]{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \draw[<->]
+%               (Te)+(.5,.5) -- +(3,.5) node [midway, above] {$+1$};
+%               \node (TGe) at (9,3) {}
+%               child{node [dummy] {}
+%                 child[level distance = 1.6cm]{}
+%                 child[sibling distance=1.6em,level distance = 1.6cm]{}
+%                 child[sibling distance=2em,level distance = 1.6cm]{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=2em,level distance = 1.6cm]{}
+%                 child[sibling distance=1.6em,level distance = 1.6cm]{}
+%                 child[sibling distance=1.5em,level distance = 1.6cm]{}
+%               };
+%         \end{tikzpicture}
+%   \end{equation}
+%   where the tree on the right is a face of both trees in the orbit on the left.
+%   Similarly, the maximal elements of $\Lambda^{G e}[T]$ are displayed in the top row below,
+%   while the second row displays the maximal elements of $\Lambda^{G e}_o[T]$;
+%   we observe that, in this particular case (where each orbit of vertices has at most two elements),
+%   these are all maximal subfaces of elements in the top row.
+%   For clarity, we have drawn using dashed lines the inner edges collapsed involving stumps.
+%     \begin{equation}
+%         \begin{tikzpicture}
+%               [grow=up, level distance = 2em, every node/.style={font=\small, transform shape},
+%               scale=0.9
+%               ]
+%               \tikzstyle{level 2}=[sibling distance=1.5em]
+%               \tikzstyle{level 3}=[sibling distance=1em]
+%               % -------------- MAXIMAL FACES OF \Lambda^{G e}[T] --------------------------------------
+%               \node (TC) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{node [dummy] {}%
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (TgC) at (2,0) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{}
+%               };
+%               \draw[<->]
+%               (TC)+(.5,.5) -- +(1.5,.5) node [midway, above] {$+1$};
+%               \node (TCd) at (4.5,0) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (TgCd) at (7,0) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \draw[<->]
+%               (TCd)+(.5,.5) -- +(2,.5) node [midway, above] {$+1$};
+%               \node (Td) at (9.5,0) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]
+%                 }
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (Tgd) at (12,0) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]
+%                 }
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \draw[<->]
+%               (Td)+(.5,.5) -- +(2,.5) node [midway, above] {$+1$};
+%               % --------- Maximal Faces in $\Lambda^{G e}_o[T]$ ---------------------------------------%%%%%
+%               \node (TGC) at (1, -2.3) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{}
+%               };
+%               \node (TGCd) at (5.75,-2.3) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               % \node (TB) at (7.5,-2.3) {}
+%               % child{node [dummy] {}
+%               %   child{}
+%               %   child{}
+%               %   child{}
+%               %   edge from parent node [left] {$e$}
+%               % };
+%               % \node (TgB) at (9,-2.3) {}
+%               % child{node [dummy] {}
+%               %   child{}
+%               %   child{}
+%               %   child{}
+%               %   edge from parent node [right] {$e+1$}
+%               % };
+%               % \draw[<->]
+%               % (TB)+(.3,.5) -- +(1.2,.5) node [midway,above] {$+1$};
+%               \node (TGd) at (10.75,-2.3) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]
+%                 }
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]
+%                 }
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%         \end{tikzpicture}
+%   \end{equation}
+%   However, these orbital faces are certainly \textit{not} the only subfaces of the top row above.
+%   Consider the middle row below, consisting of a maximal chain of faces in $\Lambda^{G e}[T]$.
+%   While none of these are in $\Lambda^{G e}_o[T]$,
+%   the faces in the top and bottom rows are.
+%   \todo[inline]{clean this up}
+%   \begin{equation}
+%         \begin{tikzpicture}
+%               [grow=up, level distance=2em, every node/.style={font=\small, transform shape},
+%               scale=0.9
+%               ]
+%               \tikzstyle{level 2}=[sibling distance=1.5em]
+%               \tikzstyle{level 3}=[sibling distance=1em]
+%               \node (11) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{node [dummy] {}%
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (12) at (3,0) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{node [dummy] {}%
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (13) at (6,0) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]}
+%                 child{node [dummy] {}%
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (14) at (9,0) {}
+%               child{node [dummy] {}
+%                 child[sibling distance=.7em]{}
+%                 child{edge from parent [draw = none]}
+%                 child{edge from parent [draw = none]}
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]
+%                 }                
+%                 child[sibling distance=2em,level distance = 1.6cm]{}
+%                 child[sibling distance=1.6em,level distance = 1.6cm]{}
+%                 child[sibling distance=1.5em,level distance = 1.6cm]{}
+%               };
+%               %%%%% -------------- TOP ROW -------------------------------------------------------------------
+%               \node (03) at (6,2.6) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{}
+%                 child{node [dummy] {}%
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               \node (02) at (3,2.6) {}
+%               child{node [dummy] {}
+%                 child{node [dummy] {}
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{}
+%                 child{node [dummy] {}%
+%                   child{}
+%                   child{}
+%                   child{}
+%                 }
+%               };
+%               %%%%% ------------- BOTTOM ROW -----------------------------------------------------------------
+%               \node (24) at (9,-2.3) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{node [dummy, dashed] {}
+%                   edge from parent [dashed]}
+%                 child{}
+%               };
+%               \node (23) at (6,-2.3) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{}
+%               };
+%               \node (22) at (3,-2.3) {}
+%               child{node [dummy] {}
+%                 child{}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child[sibling distance=1em]{node [dummy] {}}
+%                 child{}
+%               };
+%               \draw[->]
+%               ([shift={(-.2,0)}] 14.west) edge ([shift={(.2,0)}] 13.east)
+%               (13.west) edge (12.east)
+%               (12.west) edge (11.east)
+%               (03.west) edge (12.east)
+%               (03.west) edge (02.east)
+%               (24.west) edge (23.east)
+%               (24.west) edge (13.east)
+%               (23.west) edge (22.east)
+%               (23.west) edge (12.east)
+%               (22.west) edge (11.east);
+%         \end{tikzpicture}
+%   \end{equation}
+% \end{example}
 
 
 
