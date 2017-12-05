@@ -15,16 +15,31 @@ Peter Bonventre and Lu{\'i}s~Alexandre Pereira.
 \newblock Genuine equivariant operads.
 \newblock arXiv preprint: 1707.02226, 2017.
 
-\bibitem[CM13]{CM13a}
+\bibitem[CM11]{CM11}
+Denis-Charles Cisinski and Ieke Moerdijk.
+\newblock Dendroidal sets as models for homotopy operads.
+\newblock {\em J. Topol.}, 4(2):257--299, 2011.
+
+\bibitem[CM13a]{CM13a}
 Denis-Charles Cisinski and Ieke Moerdijk.
 \newblock Dendroidal {S}egal spaces and {$\infty$}-operads.
 \newblock {\em J. Topol.}, 6(3):675--704, 2013.
+
+\bibitem[CM13b]{CM13b}
+Denis-Charles Cisinski and Ieke Moerdijk.
+\newblock Dendroidal sets and simplicial operads.
+\newblock {\em J. Topol.}, 6(3):705--756, 2013.
 
 \bibitem[HHM16]{HHM16}
 Gijs Heuts, Vladimir Hinich, and Ieke Moerdijk.
 \newblock On the equivalence between {L}urie's model and the dendroidal model
   for infinity-operads.
 \newblock {\em Adv. Math.}, 302:869--1043, 2016.
+
+\bibitem[HHR16]{HHR16}
+M.~A. Hill, M.~J. Hopkins, and D.~C. Ravenel.
+\newblock On the non-existence of elements of {K}ervaire invariant one.
+\newblock {\em Annals of Mathematics}, 184:1--262, 2016.
 
 \bibitem[Hir03]{Hir03}
 Philip~S. Hirschhorn.
@@ -43,6 +58,11 @@ Jacob Lurie.
 \newblock {\em Higher topos theory}, volume 170 of {\em Annals of Mathematics
   Studies}.
 \newblock Princeton University Press, Princeton, NJ, 2009.
+
+\bibitem[MW07]{MW07}
+I.~Moerdijk and I.~Weiss.
+\newblock Dendroidal sets.
+\newblock {\em Algebr. Geom. Topol.}, 7:1441--1470, 2007.
 
 \bibitem[MW09]{MW09}
 I.~Moerdijk and I.~Weiss.

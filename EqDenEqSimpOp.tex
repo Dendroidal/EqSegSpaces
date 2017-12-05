@@ -83,18 +83,17 @@
 \tableofcontents
 
 
-\section{Overview}
-
-The following are the categories currently with model structures and the right adjoints of already established Quillen equivalences.
-\[
-	\begin{tikzcd}
-		\mathsf{PreOp}^G
-\\
-		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} \ar{u}{\gamma_{\**}} &
-		\mathsf{dSet}^G
-	\end{tikzcd}
-\]
-
+%\section{Overview}
+%
+%The following are the categories currently with model structures and the right adjoints of already established Quillen equivalences.
+%\[
+%	\begin{tikzcd}
+%		\mathsf{PreOp}^G
+%\\
+%		\mathsf{sdSet}^G \ar{r}[swap]{(-)_0} \ar{u}{\gamma_{\**}} &
+%		\mathsf{dSet}^G
+%	\end{tikzcd}
+%\]
  
 
 
@@ -102,15 +101,77 @@ The following are the categories currently with model structures and the right a
 
 This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
 \textit{equivariant operads with norm maps}.
-Briefly, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
+Informally, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
 (and which has no analogue in the theory of equivariant categories).
 The need to understand norm maps, as well as their usefulness,
 was made clear by Hill, Hopkins and Ravenel in their solution of the Kervaire invariant one problem \cite{HHR16}.
 
+The starting point of this project was the discovery by the authors,
+for each finite group $G$,
+of a category $\Omega_G$ of $G$-trees whose objects diagrammatically encode compositions of norms maps 
+and whose arrows encode the necessary compatibilities between such compositions.
+Our categories $\Omega_G$ are a somewhat non-obvious equivariant generalization of the dendroidal category $\Omega$
+of Cisinski-Moerdijk-Weiss, 
+and indeed all the key combinatorial concepts in their work,
+such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,6]{Per17}.
+As such, it is natural to ask whether the Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} can also be generalized to the equivariant context. 
 
+We recall that the main result of their program is the existence of a Quillen equivalence
+\[
+	W_{!} \colon \mathsf{dSet} 
+		\rightleftarrows
+	\mathsf{sOp}  \colon N_{hc} 
+\]
+where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
+is the category of presheaves over $\Omega$, 
+called \textit{dendroidal sets},
+and 
+$\mathsf{sOp}$ is the category of simplicial colored operads.
+Their program was carried out in three main steps:
+\begin{inparaenum}
+	\item[(i)] \cite{CM11} established the existence of the model structure on $\mathsf{dSet}$
+	(with some of the key combinatorial analysis based on Moerdijk and Weiss' work in \cite{MW09});
+	\item[(ii)] \cite{CM13a} established auxiliary model structures on the categories $\mathsf{sdSet}$ and $\mathsf{PreOp}$
+	of dendroidal spaces and pre-operads, and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
+	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result.
+\end{inparaenum}
+
+From the perspective of the Cisinski-Moerdijk program, 
+\cite{Per17} is then the equivariant analogue of the first step \cite{CM11} (as well as \cite{MW09}), 
+while the present paper provides the equivariant analogue of the
+second step \cite{CM13b}.
+More explicitly, in \cite{Per17}, and inspired by the category $\Omega_G$ of $G$-trees,
+the second author equipped the category
+$\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
+are ``equivariant operads with norm maps up to homotopy'',
+called $G$-$\infty$-operads.
+In the present paper, our main results are then the existence of suitable model structures on the categories 
+$\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
+of $G$-dendroidal spaces and $G$-pre-operads,
+as well as the existence of Quillen equivalences
+between all three of 
+$\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
+
+It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads into dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal.}.
+Indeed, in \cite{BP17}, the second piece of our project,
+the authors introduced the notion of 
+\textit{genuine equivariant operads},
+which are new algebraic objects motivated by the combinatorics of norm maps as encoded by the category $\Omega_G$ of $G$-trees.
+And while a priori the work in \cite{BP17} is largely perpendicular to the Cisinski-Moerdijk program
+(the main result \cite[Thm. III]{BP17} is what one might call the 
+``operadic Elmendorf-Piacenza theorem'', which is an equivariant phenomenon),
+many of the new technical hurdles in this paper versus \cite{CM13a} can be traced back to the fact that
+at many points in the discussion we are secretly dealing with colored genuine equivariant operads, 
+which are the colored generalization of the structures discussed in \cite{BP17},
+and the formal definition of which we prefer to postpone to a follow-up paper.
+
+\vskip 10pt
+
+The organization of the paper is as follows.
+
+{\color{blue} Fill this}
 
 {\color{red} HERE}
-
 
 \section{Preliminary section}
 
@@ -140,7 +201,7 @@ was made clear by Hill, Hopkins and Ravenel in their solution of the Kervaire in
 	$\varphi_U \colon U \to T$
 	can also be regarded as a dendrex 
 	$\varphi_U \in \Omega[T](U)$.
-	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the isotropy of $\varphi_U$.
+	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
 	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
 	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
 	is a $G$-graph subgroup 
@@ -372,7 +433,7 @@ $W \in C$, a contradiction.
 
 %\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
 %{\color{blue}
-%  For the ``only if'' direction of (b), let $W' = W - \Ksi_W$.
+%  For the ``only if'' direction of (b), let $W' = W - \Xi_W$.
 %  (Ch2) and the fact that $W \notin X_C$ together imply that $W' \notin X$,
 %  and hence it remains to show that $W'$ is not a face of any $g V$ for $g \in G$, $V \in C$.
 %  Suppose otherwise; say $W' \into g V$.
@@ -382,9 +443,9 @@ $W \in C$, a contradiction.
 %  But now since $W' \into V$, we have $\bar W = \bar W ' \into \bar V$.
 %  We claim this implies $W < V$, contradicting $W \notin X_C$.
 %  Indeed, either $\bar W \into \bar V$ with $\bar W \neq \bar V$, or,
-%  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Ksi}(U)$ implies that $V$ must contain all of
-%  $\Ksi_V = \Ksi_{\bar V} = \Ksi_{\bar W} = \Ksi_{W}$ as inner edges,
-%  and thus not only $W - \Ksi_W = W' \into V$, but also $W \into V$.
+%  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Xi}(U)$ implies that $V$ must contain all of
+%  $\Xi_V = \Xi_{\bar V} = \Xi_{\bar W} = \Xi_{W}$ as inner edges,
+%  and thus not only $W - \Xi_W = W' \into V$, but also $W \into V$.
 %}
 
 We now show (c).
@@ -517,12 +578,12 @@ Lastly, the subcomplexes
 $\Omega[T] \cup_l \Omega[S] \subseteq \Omega[T \circ_l S]$
 in the grafting result \cite[Lemma 5.2]{MW09} (and similarly for the equivariant analogue \cite[Prop. 6.19]{Per17}) are also dendroidal covers.
 
-It follows from Lemma \ref{CHAREDGE LEM}
+Lemma \ref{CHAREDGE LEM} implies
 that any inclusion $X \to X'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
 is $G$-inner anodyne. 
-Indeed, letting $I=\mathsf{Face}_{X'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$, ordered by inclusion \todo{where is $X'$ in the definition?}, 
-$\Xi = E^{\mathsf{i}}(T)$ and $U_V = V$,
-(Ch0) is obvious, (Ch1) follows since 
+Indeed, let $I=\mathsf{Face}_{X'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$ contained in $X'$, ordered by inclusion, 
+$\Xi = E^{\mathsf{i}}(T)$ and $U_V = V$.
+(Ch0) is clear, (Ch1) follows since 
 $Sc(T) \subseteq X$, (Ch2) follows since $X$ is a cover and
 (Ch3) follows since the $U_i$ are closed.
 
@@ -830,7 +891,6 @@ to be the set of inner edges of $U$ of the form
 $(g \xi)_s$ \textit{such that}
 the vertex $(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ in $U$
 is a $T$-vertex (see Figure \ref{FIGURE}).
-\todo[inline]{should $\Ksi^1$ include $r_1$ and $r_{-1}$?}
 We now verify (Ch1),(Ch2),(Ch3).
 We recall that, since $S,T$ are assumed open,
 \cite[Lemma 7.19]{Per17} guarantees that,
@@ -981,7 +1041,7 @@ It remains to check the characteristic conditions in Definition \ref{CHAREDGE DE
 Note that the $U_i$ are the orbital inner faces $T - Gf$ for $Gf \subseteq F$, and thus the map
 in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
 Note that we are free to abbreviate $\Xi_V = \Xi^{Gf}_V$, since
-$\Ksi$ is independent of $G f$.
+$\Xi$ is independent of $G f$.
 % this depends only on $V \hookrightarrow T$ and not on $Gf$.
 We again check the characteristic conditions. (Ch0) is clear.
 
@@ -1018,7 +1078,6 @@ hence we can now assume that both $E,F \neq \emptyset$.
 We now apply Lemma \ref{CHAREDGE LEM} with 
 $I = \mathcal{P}_0(F)$
 the poset of non-empty subsets $\emptyset \neq F' \subseteq F$, ordered by \textit{reverse inclusion}, and
-\todo[inline]{or just $\set{U_{F'}}$ ordered as in $\mathsf{Face}(T)$}
 \[
 	\Xi^{F'} = E, \qquad
 	U_{F'} = T - F', \qquad
@@ -2219,7 +2278,7 @@ The reverse inclusion is only true on the level of hypersaturations.
       When $G = \set{e}$, the orbital horns are regular inner horns, and so the result holds by \cite[Proposition 6.17]{Per17}.
 
       Now, the proof of Lemma \ref{CHAREDGE LEM} says that
-      if $\set{\Ksi^i}_{i \in I}$ is a characteristic edge collection of $\set{U_i}_{i \in I}$ with respect to $X$,
+      if $\set{\Xi^i}_{i \in I}$ is a characteristic edge collection of $\set{U_i}_{i \in I}$ with respect to $X$,
       the map
       \begin{equation}
             \label{CHAR_ATTACH_EQ}
@@ -2238,18 +2297,18 @@ The reverse inclusion is only true on the level of hypersaturations.
       with
       \begin{equation}
             \qquad X = \Lambda^{E}_o[T],
-            \qquad \set{\Ksi^i} = \set{E^i(U_i) \cap E}.
+            \qquad \set{\Xi^i} = \set{E^i(U_i) \cap E}.
       \end{equation}
       % In particular, $U_i \cap E$ is maximal for faces of $T$.
-      % Note that for any $U_i$, we have $\Ksi^i$ is an $H$-set such that $G \cdot_H \Ksi^i = \Ksi$,
+      % Note that for any $U_i$, we have $\Xi^i$ is an $H$-set such that $G \cdot_H \Xi^i = \Xi$,
       % where we have a decomposition $T \simeq G \cdot_H T_*$ and $U_i \subseteq T_*$.
       (Ch0) is immediate,
       while (Ch2) follows from Lemma \ref{FOF_OHORN_LEM}.
       
       For (Ch1),      
-      let $V$ be an outer face of some $U_i$, such that $\Ksi^i_V = E^i(V) \cap E = \varnothing$.      
+      let $V$ be an outer face of some $U_i$, such that $\Xi^i_V = E^i(V) \cap E = \varnothing$.      
       If $U_i$ factors through an outer face of $T$,
-      then $V$ has a minimal orbital outer face $G V$ also with $\Ksi^i_{G V} = \varnothing$, %intersecting $E$ trivially,
+      then $V$ has a minimal orbital outer face $G V$ also with $\Xi^i_{G V} = \varnothing$, %intersecting $E$ trivially,
       and hence both $G V$ and $V$ are in $\Lambda^E_o[T] = X \subseteq X_{< i}$.
       If $U_i$ is an inner face,
       then $\bar U_i = T_*$ and hence $E^i(U_i) \cap E \neq \varnothing$ \todo{also holds by maximality}. 
@@ -2260,11 +2319,11 @@ The reverse inclusion is only true on the level of hypersaturations.
       so again we may conclude that $V \in X$.
       
       For (Ch3),
-      we first note that if $(V - \Ksi^i_V) \into U_j$, then so must $V \into U_j$
-      since, by maximality, $\Ksi^i_V \subseteq U_j$.
-      Thus for any $V \into U_i$ with $(V - \Ksi^i_V) \into U_j$,
+      we first note that if $(V - \Xi^i_V) \into U_j$, then so must $V \into U_j$
+      since, by maximality, $\Xi^i_V \subseteq U_j$.
+      Thus for any $V \into U_i$ with $(V - \Xi^i_V) \into U_j$,
       $V \into (U_i \cap U_j)$,
-      and since $\Ksi^i = \Ksi^j$ and $E_i = E_j$, we have
+      and since $\Xi^i = \Xi^j$ and $E_i = E_j$, we have
       $U_i \cap U_j = U_k$ with $k < i,j$.
       Hence $V \in X_{< i}$.
       
@@ -2386,10 +2445,10 @@ The above combined with Proposition \ref{ORB_HORN_PROP} immediately implies the 
       $I = \set{U_i} = \mathsf{Out}^{>1}_p(T)$ of proper outer faces of $T$ not in $Sc[T]$,
       $X = Sc[T]$,
       and
-      $\Ksi = T$. 
+      $\Xi = T$. 
       (Ch0) is immediate.
-      (Ch1) follows since $\Ksi_V = \varnothing$ iff $V \in Sc[T]$, while
-      (Ch2) follows since $(V - \Ksi_V) \in Sc[T]$ iff $Ksi_V = \varnothing$.
+      (Ch1) follows since $\Xi_V = \varnothing$ iff $V \in Sc[T]$, while
+      (Ch2) follows since $(V - \Xi_V) \in Sc[T]$ iff $Ksi_V = \varnothing$.
       Finally, (Ch3) follows since if $V - D \into U_j$ with $U_j$ an outer face of $T$,
       then $V$ itself must be a face of $U_j$, and hence
       $V \into U_i \cap U_j$ where this intersection is either in $X$ or is less than $U_i$.
