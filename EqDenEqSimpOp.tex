@@ -175,6 +175,8 @@ The organization of the paper is as follows.
 
 \section{Preliminaries}
 
+\subsection{The category of trees $\Omega$}
+
 We start by recalling the key features of the category $\Omega$ of trees that will be used throughout.
 Our official model for $\Omega$ will Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17},
 hence we first recall some key notation and terminology.
@@ -268,7 +270,7 @@ $\varphi(\underline{l}_S) = \underline{l}_T$
 (where $r_{(-)}$ denotes the root edge and $\underline{l}_{(-)}$ the leaf tuple)
 and called an \textit{outer face map} if it does not factor through any non-identity inner face maps.
 The following result is \cite[Cor. 3.32]{Per17}.
-\begin{proposition}
+\begin{proposition}\label{UNIQUEFACT PROP}
 	A map $\varphi \colon S \to T$ in $\Omega$ has a factorization, unique up to unique isomorphisms,
 \[
 	S \xrightarrow{\varphi^{-}}
@@ -279,11 +281,105 @@ The following result is \cite[Cor. 3.32]{Per17}.
 as a degeneracy followed by an inner face map followed by an outer face map.
 \end{proposition}
 
+We now recall a more explicit characterization (and notation) for planar inner/outer faces
+(planar degeneracies are characterized in terms of edge multiplicities, see \cite[Prop. 3.47(ii)]{BP17}).
+For any subset $D \subseteq E(T)$, there is a planar inner face
+$T-D$ which removes the inner edges in $E$ but keeps all broad relations involving edges not in $D$
+(this is the hardest class of maps to visualize pictorially, as the vertices adjacent to each $d \in D$ are combined via broad transitivity/composition).
+For each broad relation
+$t_1 \cdots t_k = \underline{t} \leq t$ in $T$,
+there is a planar outer face
+$T_{\underline{t} \leq t}$
+such that
+$r_{T_{\underline{t} \leq t}} = t$ and
+$\underline{l}_{T_{\underline{t} \leq t}} = \underline{t}$
+(in fact, by Proposition \ref{UNIQUEFACT PROP} this is the maximal such face).
+
+
+\subsection{Equivariant trees and equivariant dendroidal sets}
+
+We next recall the category $\Omega_G$ of $G$-trees first defined in \cite[\S 5.3]{Per17}. We start with an explicit example of a $G$-tree (for more examples, see \cite[\S 4.3]{Per17}).
+Letting $G = \{ \pm 1, \pm i, \pm j, \pm k\}$ denote the group of quaternionic units 
+and $G \geq H \geq K \geq L$ denote the subgroups %
+$H = \langle j \rangle$, %
+$K = \langle -1 \rangle$, %
+$L = \{1\}$,
+there is a $G$-tree $T$ with 
+\textit{expanded representation}
+given by the two trees on the left below and
+\textit{orbital representation}
+given by the (single) tree on the right.
+\begin{equation}\label{D6SMALLER EQ}
+	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
+	every node/.style={font=\scriptsize,inner sep = 2pt}]%
+		\tikzstyle{level 2}=[sibling distance=7em]%
+		\tikzstyle{level 3}=[sibling distance=2.25em]%
+			\node at (4.75,0){}%	
+				child{node [dummy] {}%
+					child{node [dummy] {}%
+						child{node {}%
+						edge from parent node [swap,very near end] {$-k a$}}%
+						child[level distance = 2.4em]{node {}%
+						edge from parent node [swap,near end] {$k b$}}%
+						child{node {}%
+						edge from parent node [very near end] {$k a$}}%
+					edge from parent node [swap] {$k c$}}%
+					child{node [dummy] {}%
+						child{node {}%
+						edge from parent node [swap,very near end] {$-i a$}}%
+						child[level distance = 2.4em]{node {}%
+						edge from parent node [swap,near end] {$i b$}}%
+						child{node {}%
+						edge from parent node [very near end] {$i a$}}%
+					edge from parent node  {$i c$}}%
+				edge from parent node [swap] {$i d$}};%
+			\node at (0,0){}%	
+				child{node [dummy] {}%
+					child{node [dummy] {}%
+						child{node {}%
+						edge from parent node [swap,very near end] {$-j a$}}%
+						child[level distance = 2.4em]{node {}%
+						edge from parent node [swap,near end] {$j b$}}%
+						child{node {}%
+						edge from parent node [very near end] {$j a$}}%
+					edge from parent node [swap] {$j c$}}%
+					child{node [dummy] {}%
+						child{node {}%
+						edge from parent node [swap,very near end] {$-a\phantom{j}$}}%
+						child[level distance = 2.4em]{node {}%
+						edge from parent node [swap,near end] {$b\phantom{j}$}}%
+						child{node {}%
+						edge from parent node [very near end] {$\phantom{-j}a$}}%
+					edge from parent node  {$\phantom{j}c$}}%
+				edge from parent node [swap] {$d$}};%
+		\begin{scope}[every node/.style={font=\footnotesize}]%
+			\node at (9.35,0){}%
+				child{node [dummy] {}%
+					child{node [dummy] {}%
+						child{node {}%
+						edge from parent node [swap,very near end] {$(G/K) \cdot b$}}%
+						child{node {}%
+						edge from parent node [very near end] {$(G/L) \cdot a$}}%
+					edge from parent node [right] {$(G/K) \cdot c$}}%
+				edge from parent node [right] {$(G/H) \cdot d$}};%
+		\end{scope}%
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (4.85,0) -- (-0.1,0) node[midway,inner sep=4pt]{$T$}; %
+		\node at (9.35,-0.15) {$T$};
+	\end{tikzpicture}%
+\end{equation}%
+Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
+$a,b,c,d$ have stabilizers $L,K,K,H$.
+
 {\color{red} HERE}
 
-All these maps have more explicit characterizations
 
 
+
+
+
+
+
+{\color{red} HERE}
 
 
 \begin{notation}
@@ -536,7 +632,7 @@ then it must be $W \leq V$ in $\mathsf{Face}_{\Xi}^{lex}(U)$,
 since by convexity of $C$ this would contradict $W \not \in C$.
 Since $W' \hookrightarrow V$ implies 
 $\bar{W} = \bar{W}' \hookrightarrow \bar{V}$,
-the condition $W \leq V$ is automatic from the definition of $\leq$ unless $ \bar{W} = \bar{V}$.
+the condition $W \leq V$ is automatic from the definition of $\leq$ unless $\bar{W} = \bar{V}$.
 In this latter case, by definition of 
 $\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edges in 
 $\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
