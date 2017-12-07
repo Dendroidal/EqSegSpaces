@@ -299,6 +299,14 @@ $s \leq_d t$ and $\forall_{i} s \not < t_i$ while the vertices are the $s^{\upar
 $s \leq_d t$ and $\forall_{i} s \not \leq t_i$ 
 (pictorially, $T_{\underline{t} \leq t}$ removes the parts of $T$ not above $t$ and above some $t_i$).
 
+
+\begin{remark}\label{INNFULL REM}
+	Inner faces $T-D \hookrightarrow T$ are always full, i.e. $T-D$ contains all broad relations of $T$ whose edges are in $T-D$.
+	By contrast, whenever $T$ has stumps some of its outer faces $T_{\underline{t} \leq t}$ are not full,
+	the main example being the maximal outer faces
+	``removing stumps'' \cite[Not. 5.41]{Per17}.
+\end{remark}
+
 We now collect a couple of useful lemmas concerning faces.
 
 \begin{lemma}\label{INNINT LEM}
@@ -344,6 +352,10 @@ Moreover, these are the smallest (resp. largest) outer faces
 containing (contained in) all $U_i$.
 \end{lemma}
 
+\begin{remark}
+	One can check that it actually suffices to assume the $U_i$ have a common edge.
+\end{remark}
+
 \begin{proof}
 	\eqref{CUPCAP EQ} determines pre-broad posets 
 	(cf. \cite[Rem. 5.2]{Per17}) $U^{\cup}$ and $U^{\cap}$,
@@ -352,8 +364,6 @@ containing (contained in) all $U_i$.
 	Antisymmetry and simplicity are inherited from $T$, the nodal axiom is obvious from \eqref{CUPCAP EQ}, and the root axiom follows since the $U_i$ have a common root (in $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
 	$s \leq_d s' \leq_d t$).
 \end{proof}
-
-
 
 
 
@@ -443,26 +453,35 @@ We note that any $G$-tree $T$ can then be written as
 $G \cdot_H T_{\**}$, where $T_{\**}$ is some fixed tree component, $H\leq G$ is the subgroup sending that component to itself,
 and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where we caution that $\Omega^G \subsetneq \Omega_G$).
 
-{\color{red} HERE}
+We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
 
 Before discussing face maps in the equivariant context, it is worth commenting on the complementary roles of the expanded and orbital representations.
 On the one hand, the broad posets associated to $G$-trees are diagrammatically represented by the expanded representation, so that the arrows of $\Omega_{G}$ are best understood from that perspective.
-But on the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
-are given by the orbital representations of the 
-$G$-trees $T \in \Omega_G$ (see \cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
+On the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
+are given by the orbital representations of  
+$G$-trees (see \cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
+As a result, different aspects of our discussion will be guided by different representations, and this will require us to discuss the different notions of face/boundary/horn suggested by the two representations.
+We start by recalling the notion of face discussed in \cite{Per17}, which is motivated by the expanded representation.
 
 
-
-
-
-
-
-{\color{red} HERE}
+\begin{definition}
+	Let $T \in \Omega_G$ be a $G$-tree with non-equivariant tree components 
+	$T_1, T_2,\cdots,T_k$.
+	
+	A \textit{face} of $T$ 
+	is an underlying face map
+	$U \hookrightarrow T_i$ in $\Omega$ for some $1 \leq i \leq k$.
+	Further, we abbreviate faces of $T$ as
+	$U \hookrightarrow T$,
+	and call them \textit{planar/outer} faces
+	whenever so is the map $U \hookrightarrow T_i$.
+\end{definition}
 
 
 \begin{notation}
 	Given $T \in \Omega_G$, we write $\mathsf{Face}(T)$ for the
-	$G$-poset of \textit{non-equivariant planar faces} $U \hookrightarrow T$. We note that $G$-action is given by the unique factorization of the composite
+	$G$-poset of \textit{planar faces} $U \hookrightarrow T$.
+	We note that the $G$-action is given by the unique factorization of the composite
 	$U \hookrightarrow T \xrightarrow{g} T$
 	as $U \simeq gU \hookrightarrow T$ such that 
 	$gU \hookrightarrow T$ is planar.
@@ -477,29 +496,18 @@ $G$-trees $T \in \Omega_G$ (see \cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
 \end{notation}
 
 
-\begin{remark}\label{FACEGACT REM}
-	For $T \in \Omega_G$, any planar face
-	$\varphi_U \colon U \to T$
-	can also be regarded as a dendrex 
-	$\varphi_U \in \Omega[T](U)$.
-	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
-	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
-	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
-	is a $G$-graph subgroup 
-	$\Gamma \leq G \times \mathsf{Aut}(U)$
-	encoding a homomorphism
-	$\phi\colon H \to \mathsf{Aut}(U)$.
-	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
-	$\phi(h)$ is the leftmost isomorphism in
-	(\ref{FACEGACT EQ}),
-	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
-	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
-\end{remark}
+\begin{notation}
+	Given $T\in \Omega_G$ and a planar face
+	$U \hookrightarrow T$ we write $\bar{U}^T$, 
+	or just $\bar{U}$ when no confusion should arise, 
+	for the \textit{outer closure of $U$}, i.e. the smallest planar outer face of $T$ containing $U$.
+\end{notation}
 
 
 \begin{remark}\label{PLFUNCTOR REM}
-	Recalling that the (non-equivariant) subcategory of face maps is sometimes denoted $\Omega^+ \subset \Omega$,
-	we write $\Omega^+ \downarrow T$ for the category of all non-equivariant faces of $T \in \Omega_G$.
+	Recalling that notation $\Omega^+ \subset \Omega$
+	(non-equivariant) subcategory of face maps,
+	we write $\Omega^+ \downarrow T$ for the category of all faces of $T \in \Omega_G$.
 	By pulling back the planarization of $T$ one then obtains a \textit{planarization functor}
 	\[
 		\Omega^+ \downarrow T \xrightarrow{pl} \mathsf{Face}(T)
@@ -509,99 +517,198 @@ which respects the $G$-actions on the two categories.
 	$\mathsf{Face}(T) \subset \Omega^+ \downarrow T$ (which is a section of $pl$) does not respect the $G$-actions, as displayed in (\ref{FACEGACT EQ}).
 \end{remark}
 
+We now introduce the notion of face suggested by the orbital representation.
+
+\begin{definition}
+	Let $T \in \Omega_G$.
+	An \textit{orbital face} of $T$ is a map 
+	$S \hookrightarrow T$ in $\Omega_G$ which is injective on edges. Further, an orbital face is called
+	\textit{planar/inner/outer} if any (and thus all)
+	of its component maps is.
+\end{definition}
 
 
-{\color{red} HERE}
+\begin{example} The following are two planar orbital faces of the $G$-tree $T$ in \eqref{TWOREP EQ},
+with $R \hookrightarrow T$ an orbital outer face and 
+$S \hookrightarrow T$ an orbital inner face.
+\begin{equation}
+	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
+	every node/.style={font=\scriptsize,inner sep = 2pt}]%
+		\begin{scope}
+		\tikzstyle{level 2}=[sibling distance=2.25em]%
+			\node at (0,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-a\phantom{j}$}}%
+					child[level distance = 2.4em]{node {}%
+					edge from parent node [swap,near end] {$b\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{-j}a$}}%
+				edge from parent node [swap] {$\phantom{j}c$}};%
+			\node at (7em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-j a$}}%
+					child[level distance = 2.4em]{node {}%
+					edge from parent node [swap,near end] {$j b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$j a$}}%
+				edge from parent node [swap] {$j c$}};%
+			\node at (14em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-i a$}}%
+					child[level distance = 2.4em]{node {}%
+					edge from parent node [swap,near end] {$i b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$i a$}}%
+				edge from parent node [swap] {$i c$}};%
+			\node at (21em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-k a$}}%
+					child[level distance = 2.4em]{node {}%
+					edge from parent node [swap,near end] {$k b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$k a$}}%
+				edge from parent node [swap] {$k c$}};%
+		\end{scope}
+		\begin{scope}[every node/.style={font=\footnotesize}]%
+		\tikzstyle{level 2}=[sibling distance=2.25em]
+			\node at (32em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$(G/K) \cdot b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$(G/L) \cdot a$}}%
+				edge from parent node [right] {$(G/K) \cdot c$}};%
+		\end{scope}%
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (21.5em,0) -- (-0.5em,0) node[midway,inner sep=4pt,font=\normalsize]{$R$}; %
+		\node at (32em,-0.15) [font=\normalsize] {$R$};
+%------- Second line ------
+	\begin{scope}[yshift = -8em]
+		\begin{scope}
+		\tikzstyle{level 2}=[sibling distance=3em]%
+			\node at (3.5em,0){}%
+				child{node [dummy] {}%
+					child[sibling distance=2.5em,level distance=2.2em]{node {}%
+					edge from parent node [swap, near end] {$-ja\phantom{j}$}}%
+					child[sibling distance=2.5em,level distance=3.2em]{node {}%
+					edge from parent node [very near end,swap] {$j b\phantom{j}$}}%
+					child[sibling distance=2em,level distance=3.8em]{node {}%
+					edge from parent node [swap,very near end] {$j a$}}%
+					child[sibling distance=2em,level distance=3.8em]{node {}%
+					edge from parent node [very near end] {$\phantom{j}-a$}}%
+					child[sibling distance=2.5em,level distance=3.2em]{node {}%
+					edge from parent node [very near end] {$\phantom{j}b$}}%
+					child[sibling distance=2.5em,level distance=2.2em]{node {}%
+					edge from parent node [near end] {$\phantom{-j}a$}}%
+				edge from parent node [swap] {$\phantom{j}d$}};%
+			\node at (17.5em,0){}%
+				child{node [dummy] {}%
+					child[sibling distance=2.5em,level distance=2.2em]{node {}%
+					edge from parent node [swap, near end] {$-ka\phantom{j}$}}%
+					child[sibling distance=2.5em,level distance=3.2em]{node {}%
+					edge from parent node [very near end,swap] {$k b\phantom{j}$}}%
+					child[sibling distance=2em,level distance=3.8em]{node {}%
+					edge from parent node [swap,very near end] {$k a$}}%
+					child[sibling distance=2em,level distance=3.8em]{node {}%
+					edge from parent node [very near end] {$\phantom{j}-ia$}}%
+					child[sibling distance=2.5em,level distance=3.2em]{node {}%
+					edge from parent node [very near end] {$\phantom{j}i b$}}%
+					child[sibling distance=2.5em,level distance=2.2em]{node {}%
+					edge from parent node [near end] {$\phantom{-j}i a$}}%
+				edge from parent node [swap] {$\phantom{j}i d$}};%	
+		\end{scope}
+		\begin{scope}[every node/.style={font=\footnotesize}]%
+		\tikzstyle{level 2}=[sibling distance=2.25em]%
+			\node at (32em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$(G/K) \cdot b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$(G/L) \cdot a$}}%
+				edge from parent node [right] {$(G/H) \cdot d$}};%
+		\end{scope}%
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (18em,0) -- (3em,0) node[midway,inner sep=4pt,font=\normalsize]{$S$}; %
+		\node at (32em,-0.15) [font=\normalsize] {$S$};
+	\end{scope}
+	\end{tikzpicture}%
+\end{equation}%
+These examples illustrate our motivation for the term 
+``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
+\end{example}
 
+
+\begin{notation}
+	In the remainder of the paper we will sometimes need to consider (non-equivariant) and orbital faces simultaneously.
+	As such, we reserve the letters $U,V,W$ for trees in $\Omega$
+	and the letters $R,S,T$ for $G$-trees in $\Omega_G$.
+\end{notation}
+
+
+\begin{remark}\label{INNOUTORB REM}
+	It follows from Proposition \ref{UNIQUEFACT PROP} that any orbital face $S \hookrightarrow T$ has a factorization
+	$S \hookrightarrow R \hookrightarrow T$, unique up to isomorphism, as an orbital inner face followed by an orbital outer face.	
+\end{remark}
 
 
 \begin{proposition}
-	Any non-equivariant face $U \hookrightarrow T$ has a minimal factorization
+	Let $T \in \Omega_G$.
+	Any (non-equivariant) planar face $U \hookrightarrow T$ has a minimal factorization
 	$U \hookrightarrow GU \hookrightarrow T$
-	through an equivariant face $GU$.
+	through a planar orbital face $GU$.
 \end{proposition}
 
 \begin{proof}
-	Our first task is that of building $GU$. The edges of $GU$ will be given by combining 
-	the $G$-orbits of the edges in $U$, but describing the broad relations requires some caution.
+Assume first that $U=\bar{U}^T$ is outer and write $H\leq G$ for
+the isotropy of its root $r_U$.
+By Lemma \ref{CUPCAP LEM} there exists a smallest outer face 
+containing all $\{h U \hookrightarrow T\}_{h \in H}$,
+which we denote by $HU$.
+Moreover, $HU$ inherits the $H$-action from $T$ 
+(by either its construction or its characterization).
+Moreover, the natural map
+$G \cdot_H HU \to T$
+is then injective on edges
+(for a map of forests $F \to F'$
+the images of the tree components of $F$ are pairwise $\leq_d$-incomparable iff so are the images of the roots)
+and we thus let $GU$ be $G \cdot_H HU$
+with the planar structure induced from $T$.
+Both the factorization $U \to GU \to T$ and its minimality are immediate from the description of $HU$.
 
-	We first assume that $U$ is an outer face and write	$H \leq G$ for the isotropy of the root $r_U$ in $T$.
-	We form a (non-equivariant) subtree $HU$ of $T$ with edges (resp. generating broad relations) those edges
-	$h u$ (resp. relations $h u^{\uparrow} \leq hu$) in some $hU$ for $h \in H$.
-	Indeed, while a priori $HU$ is merely a pre-broad poset of $T$, the antisymmetry and simplicity axioms in \cite[Defs. 5.1 and 5.3]{Per17} are inherited from $T$, and the nodal axiom in
-	\cite[Def. 5.9]{Per17} follows since the $h U$, $h \in H$ have a common root. It is now clear that $HU$ inherits a $H$-action and we thus set $GU = G \cdot_H HU$.
-	Both the factorization $U \to GU \to T$ and its minimality are immediate from the description of $HU$.
-	
-	Before tackling the general case, we collect some key observations. Firstly, the assumption that $U$ is outer implies that so are the (non-equivariant) face $HU$ and the equivariant face $GH$. Secondly, the root tuple of 
+	Before tackling the general case, we collect some key observations.
+	Firstly, if $U$ is outer then so is the (non-equivariant) face $HU$ and the orbital face $GU$.
+	Secondly, the root tuple of 
 	$GU$ is $G\cdot_H r_U$.
-	Lastly, we need a characterization of the leaf tuple of $GU$: we call a leaf $l$ of $U$ orbital if 
-all the edges in $Hl \cap U$ are leaves of $U$, 
-	and claim that the leaves of $GU$ are the tuple $\underline{l}$ formed by the $G$-orbits of the orbital leaves of $U$. Indeed, a leaf $l\in U$ will be a leaf of $HU$ iff whenever $l \in hU$ for some $h\in H$ then $l$ is a leaf of $hU$ iff
-	whenever $h^{-1} l \in U$ for some $h\in H$ then $h^{-1}l$ is a leaf of $U$.
+	Lastly, we need to characterize the leaf tuple of $GU$. We call a leaf $l$ of $U$ \textit{orbital} if 
+all the edges in $Hl \cap E(U)$ are leaves of $U$, 
+	and claim that the leaves of $GU$ are the tuple $\underline{l}$ formed by the $G$-orbits of the orbital leaves of $U$. 
+	Indeed, a leaf $l$ of $U$ is also a leaf of $HU$ iff 
+	$\forall_{h \in H}$ ($l \in E(hU)$ implies that $l$ is a leaf of $hU$) iff
+	$\forall_{h \in H}$ ($h^{-1} l \in E(U)$ implies that $l$ is a leaf of $U$).
 	
-	In the general case, write $U \to V \to T$ for the factorization
-	\cite[Prop. 3.31]{BP17} as a inner face followed by an outer face. 
-	We now define $GU$ to be the equivariant inner face of $GV$ that removes all edge orbits that are not represented in $U$
-	(that all such edge orbits are inner follows from the description of the roots and leaves of $GV$ in the previous paragraph).
-	It is now clear that $U \to GV \to T$ is the minimal factorization with $GV$ an \textit{outer} equivariant face,
-	so that the desired factorization $U \to GU \to T$
-	follows since inner faces are full while minimality follows
-	from the equivariant analogue of the inner face followed by outer face factorization.
-%
-%	We first assume that $U$ is an outer face and write	$H \leq G$ for the isotropy of the root $r_U$ in $T$.
-%	We say that a leaf $l$ of $U$ is orbital if 
-%all the edges in $Hl \cap U$ are leaves of $U$, 
-%and we write $\underline{l}$ for the tuple formed by the $H$-orbits of the orbital leaves of $U$.
-%Note that edges in $\underline{l}$ are $<_d$-incomparable: 
-%indeed, whenever it is $l <_d hl' <_d r_V$ with $l,l'$ leaves of $U$
-%and $h\in H$ then Remark \ref{OUTINP REM} yields $hl' \in U$, so that $l'$ can not be an orbital leaf.	
-%	
-%Given $e \in U$, we next write $\underline{l}_e \subseteq \underline{l}$ for the subtuple of those $l$ such that $l \leq_d e$.
-%We now make the following key claim:
-%for any broad relation $\underline{e} \leq e$ in one of the conjugate trees $hU$ (for $h\in H$) it is 
-%$\underline{l}_e \leq \underline{e}$ in $T$.
-%The argument is by $\leq_d$ induction on $e$. The base case is that of $e \in \underline{l}$, which holds since $\leq$-incomparability of the edges of $\underline{l}$ then implies
-%$\underline{l}_e = e$.
-%	Otherwise, there exists some $h \in H$ such that the relation
-%	$h e^{\uparrow} \leq he$ is in $hU$ (recall that we are assuming $U$ is outer)
-%	and by decomposing the broad relation $h \underline{e} \leq (h e)^{\uparrow}$
-%	the induction hypothesis yields
-%	$\underline{l}_{h e} \leq h \underline{e}$ and thus also
-%	$\underline{l}_e = h^{-1} \underline{l}_{h e} \leq \underline{e}$, as desired.
-%	
-%	The key claim now yields that $\underline{l} \leq r_U$ and,
-%	noting that the relation $\underline{l} \leq r_U$ is $H$-equivariant so that the outer subtree $T_{\underline{l} \leq r_U}$
-%	inherits a $H$-action, we define $GU = G \cdot_H T_{\underline{l} \leq r_U}$. 
-%	The desired factorization $U \to GU \to T$ is also immediate from the key claim, which further implies that all edges $gu$ and generating relations $gu^{\uparrow}\leq gu$ of the $gU$ are edges and generating relations of $GU$.
-%	To check minimality of $GU$, consider any string
-%	$u_k <_d u_{k-1} <_d \cdots <_d u_0 = r_U$ in $GU$ where the $\leq_g$ relations are induced by generating $\leq$ relations of $U$. We claim by induction on $k$ that the $u_i$ and generating relations are in some conjugate $g U$. The base case $k=0$ is obvious. Otherwise, by the induction hypothesis it is
-%	$u_{k-1} \in gH$ for some $g$, and since it must be  
-%	$u_{k-1} \not \in \underline{l}$ (or else $u_k$ it could not be $u_k \in GU$), the relation $g'u_{k-1}^{\uparrow} \leq g' u_{k-1}$ must be in $g'gU$ for some $g' \in G$, and thus minimality of $GU$ follows. 
-%	
-%	Write $U \to V \to T$ for the factorization
-%	\cite[Prop. 3.31]{BP17} as a tall map followed by an outer face
-%	as well as $H \leq G$ for the isotropy of the root $r_U=r_V$ in $T$. 
-%	We say that a leaf $l$ of $U$ (or, equivalently, of $V$) is orbital if 
-%all the edges in $Hl \cap V$ are leaves of $V$.
-%
-%We now write $\underline{l}$ for the tuple formed by the $H$-orbits of the orbital leaves of $U$.
-%Note that edges in $\underline{l}$ are $<_d$-incomparable: 
-%indeed, whenever it is $l <_d hl' <_d r_V$ with $l,l'$ leaves of $V$
-%and $h\in H$ then Remark \ref{OUTINP REM} yields $hl' \in V$, so that $l'$ can not be an orbital leaf.
+	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 
+	It is now clear that $U \to G\bar{U} \to T$ is the minimal factorization with $G\bar{U}$ an \textit{outer} orbital face,
+	and thus the factorization
+	$U \to GU \to T$ exists and is minimal
+	since inner faces are full (Remark \ref{INNFULL REM})
+	together with the inner-outer factorization of
+	orbital faces (Remark \ref{INNOUTORB REM}).
 \end{proof}
 
-\begin{example}
-When $T$ is open then $GU$ is necessarily a full equivariant face, i.e. broad relations coincide with those in $T$, 
-and this fact can be leveraged to obtain a simpler proof.
 
-However, the presence of stumps can make the situation 
-substantially more subtle, especially in the non outer case, as illustrated by the following example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
+\begin{example}
+Much of the complexity in the previous proof is needed to handle  the scenario of non outer faces $U \hookrightarrow T$
+of $G$-trees $T$ which have stumps,
+which is easily the subtlest case, as illustrated by the following
+example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
 	\begin{scope}[level distance = 1.9em]
 	\tikzstyle{level 2}=[sibling distance=2em]%
 	\tikzstyle{level 3}=[sibling distance=0.75em]%
-		\node at (0,0) {$U$}%
+		\node at (0,0) [font=\normalsize]{$U$}%
 			child{node [dummy] {}%
 				child{
 				edge from parent node [swap, near end] {$d$}}%
@@ -612,40 +719,40 @@ substantially more subtle, especially in the non outer case, as illustrated by t
 	\begin{scope}[level distance = 2.1em]
 	\tikzstyle{level 2}=[sibling distance=2.85em]%
 	\tikzstyle{level 3}=[sibling distance=0.75em]%
-		\node at (2,0) {$GU$}%
+		\node at (2.25,0) [font=\normalsize]{$GU$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 				edge from parent node [swap] {$-c$}}%
 				child[level distance = 2.4em]{
-				edge from parent node [swap] {$d$}}%
+				edge from parent node [near end,swap] {$d$}}%
 				child{node [dummy] {}%
 				edge from parent node {$\phantom{-}c$}}%
 			edge from parent node [swap] {$r$}};%
-		\node at (4.5,0) {$V$}%
+		\node at (5.5,0) [font=\normalsize]{$\bar{U}$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy] {}
 					edge from parent node [swap] {$-a$}}%
 				edge from parent node [swap] {$-c$}}%
 				child[level distance = 2.4em]{
-				edge from parent node [swap] {$d$}}%
+				edge from parent node [near end,swap] {$d$}}%
 				child{
 				edge from parent node {$\phantom{-}c$}}%
 			edge from parent node [swap] {$r$}};%
-		\node at (7.5,0) {$GV$}%
+		\node at (8.5,0) [font=\normalsize]{$G\bar{U}$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy] {}
 					edge from parent node [swap] {$-a$}}%
 				edge from parent node [swap] {$-c$}}%
 				child[level distance = 2.4em]{
-				edge from parent node [swap] {$d$}}%
+				edge from parent node [near end,swap] {$d$}}%
 				child{node [dummy] {}%
 					child{node [dummy] {}
 					edge from parent node {$\phantom{-}a$}}%
 				edge from parent node {$\phantom{-}c$}}%
 			edge from parent node [swap] {$r$}};%
-		\node at (10.5,0) {$T$}%
+		\node at (12.25,0) [font=\normalsize]{$T$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy] {}
@@ -656,7 +763,7 @@ substantially more subtle, especially in the non outer case, as illustrated by t
 					edge from parent node [near end,swap]{$-b$}}%
 					child{
 					edge from parent node [near end]{$\phantom{-}b$}}%
-				edge from parent node [swap] {$d$}}%
+				edge from parent node [near end,swap] {$d$}}%
 				child{node [dummy] {}%
 					child{node [dummy] {}
 					edge from parent node {$\phantom{-}a$}}%
@@ -679,19 +786,34 @@ substantially more subtle, especially in the non outer case, as illustrated by t
 
 
 
+{\color{red} HERE}
+
+
+
+
+\begin{remark}\label{FACEGACT REM}
+	For $T \in \Omega_G$, any planar face
+	$\varphi_U \colon U \to T$
+	can also be regarded as a dendrex 
+	$\varphi_U \in \Omega[T](U)$.
+	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
+	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
+	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
+	is a $G$-graph subgroup 
+	$\Gamma \leq G \times \mathsf{Aut}(U)$
+	encoding a homomorphism
+	$\phi\colon H \to \mathsf{Aut}(U)$.
+	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
+	$\phi(h)$ is the leftmost isomorphism in
+	\eqref{FACEGACT EQ},
+	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
+	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
+\end{remark}
 
 
 
 
 
-
-
-\begin{notation}
-	Given $T\in \Omega_G$ and a non-equivariant planar face
-	$U \hookrightarrow T$ we write $\bar{U}^T$, 
-	or simply $\bar{U}$ when no confusion should arise, 
-	for the smallest planar outer face of $T$ containing $U$.
-\end{notation}
 
 
 \section{Segal cores, horns and orbital horns}
