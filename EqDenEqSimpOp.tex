@@ -171,7 +171,6 @@ The organization of the paper is as follows.
 
 {\color{blue} Fill this}
 
-{\color{red} HERE}
 
 \section{Preliminaries}
 
@@ -367,7 +366,7 @@ containing (contained in) all $U_i$.
 
 
 
-\subsection{Equivariant trees and equivariant dendroidal sets}
+\subsection{The category of $G$-trees $\Omega_G$}
 
 We next recall the category $\Omega_G$ of $G$-trees first defined in \cite[\S 5.3]{Per17}. We start with an explicit and representative example of a $G$-tree (for more examples, see \cite[\S 4.3]{Per17}).
 Letting $G = \{ \pm 1, \pm i, \pm j, \pm k\}$ denote the group of quaternionic units 
@@ -640,8 +639,8 @@ These examples illustrate our motivation for the term
 \end{example}
 
 
-\begin{notation}
-	In the remainder of the paper we will sometimes need to consider (non-equivariant) and orbital faces simultaneously.
+\begin{notation}\label{TREEDIFNOT NOT}
+	In the remainder of the paper we sometimes need to consider (non-equivariant) and orbital faces simultaneously.
 	As such, we reserve the letters $U,V,W$ for trees in $\Omega$
 	and the letters $R,S,T$ for $G$-trees in $\Omega_G$.
 \end{notation}
@@ -783,32 +782,103 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 
 
 
+\subsection{Equivariant dendroidal sets}
 
 
+Recall \cite[\S 5.4]{Per17} that the category of 
+\textit{$G$-equivariant dendroidal sets}
+is the presheaf category 
+$\mathsf{dSet}^G = \mathsf{Set}^{\Omega^{op} \times G}$.
+Given $T \in \Omega_G$ with non-equivariant tree components $T_1,\cdots,T_k$,
+we extend the usual notation for representable functors 
+to obtain $\Omega[T] \in \mathsf{dSet}^G$ via
+\[
+	\Omega[T] = \Omega[T_1] \amalg \cdots \amalg \Omega[T_k]
+\]
+regarded as a $G$-object in $\mathsf{dSet}$.
+One further defines \textit{boundaries} (in the union formula, 
+the injection $\Omega[U] \to \Omega[T]$ is regarded as 
+an inclusion; the equivalence between the colimit and union formulas follows from Proposition \ref{UNIQUEFACT PROP})
+\[
+	\partial \Omega[T] = 
+	\mathop{\colim}_{U \in \mathsf{Face}(T),U \neq T_i}
+	\Omega[U] =
+	\bigcup_{U \in \mathsf{Face}(T),U \neq T_i}
+	\Omega[U]
+\]
+and, for $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges 
+(we abbreviate $E_i = E \cap E^{\mathsf{i}}(T_i)$), \textit{$G$-inner horns}
+\[
+	\Lambda^{E}[T] = 
+	\mathop{\colim}_{U \in 
+	\mathsf{Face}(T),
+	(T_i - E_i) \not \hookrightarrow U}
+	\Omega[U] =
+	\bigcup_{U \in 
+	\mathsf{Face}(T),
+	(T_i - E_i) \not \hookrightarrow U}
+	\Omega[U]
+\]
+which, informally, are the subcomplexes of $\Omega[T]$ that remove the inner faces $T_i-D$ for $D \subseteq E_i$.
+
+Note that if $T \simeq G \cdot_H T_{\**}$ for some $T_{\**} \in \Omega^H$ then 
+\[
+	\Omega[T] \simeq G \cdot_H \Omega[T_{\**}], \qquad
+	\partial \Omega[T] \simeq G \cdot_H \partial \Omega[T_{\**}], \qquad
+	\Lambda^{E}[T] \simeq G \cdot_H \Lambda^{E_{\**}}[T_{\**}].
+\]
+As a cautionary note, we point out that though representable functors $\Omega[T]$ are defined for $T \in \Omega_G$,
+evaluations $X(U)$ of $X \in \mathsf{dSet}^G$
+are defined only for $U \in \Omega$ (cf. Notation \ref{TREEDIFNOT NOT}).
+
+\begin{remark}\label{FACEGACT REM}
+	For $T \in \Omega_G$, a planar face $\varphi_U \colon U \to T$
+	can also be regarded as a dendrex $\varphi_U \in \Omega[T](U)$.
+	However, the $G$-isotropy $H$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
+	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
+	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
+	is a subgroup 
+	$\Gamma \leq G \times \mathsf{Aut}(U)$
+	which is the graph of a homomorphism
+	$\phi\colon H \to \mathsf{Aut}(U)$.
+	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
+	$\phi(h)$ is the left isomorphism in \eqref{FACEGACT EQ},
+	so that $U\in \Omega$ is equipped with a canonical $H$-action.
+	We abuse notation by writing 
+	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
+\end{remark}
+
+Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
+
+The saturation of the boundary inclusions 
+$\partial \Omega[T] \to \Omega[T]$
+is the class of \textit{$G$-normal monormorphisms},
+i.e. those monomorphisms $X \to Y$ in $\mathsf{dSet}^G$ such that
+$Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$. 
+Moreover, since this condition is actually independent of the $G$-action, we will usually call these simply \textit{normal monomorphisms}.
+
+The saturation of the $G$-inner horn inclusions 
+$\Lambda^E[T] \to \Omega[T]$
+is called the class of \textit{$G$-inner anodyne maps}, 
+while those $X \in \mathsf{dSet}^G$
+with the right lifting property against all $G$-inner horn inclusions are called \textit{$G$-$\infty$-operads}.
+
+We can now recall \cite[Thm 2.1]{Per17}, which was the main result therein.
+
+\begin{theorem}
+	There is a model structure on $\mathsf{dSet^G}$
+	such that the cofibrations are the normal monomorphisms and the fibrant objects are the $G$-$\infty$-operads.
+\end{theorem}
 
 {\color{red} HERE}
 
+\begin{remark}
+Our definition of $G$-$\infty$-operads is a priori distinct from the original definition \cite[Def. 6.12]{Per17} which used only 
+\textit{generating $G$-inner horns}.
 
-
-
-\begin{remark}\label{FACEGACT REM}
-	For $T \in \Omega_G$, any planar face
-	$\varphi_U \colon U \to T$
-	can also be regarded as a dendrex 
-	$\varphi_U \in \Omega[T](U)$.
-	However, the $G$-isotropy $H\leq G$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
-	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
-	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
-	is a $G$-graph subgroup 
-	$\Gamma \leq G \times \mathsf{Aut}(U)$
-	encoding a homomorphism
-	$\phi\colon H \to \mathsf{Aut}(U)$.
-	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
-	$\phi(h)$ is the leftmost isomorphism in
-	\eqref{FACEGACT EQ},
-	and it hence follows that $U\in \Omega$ is equipped with a canonical $H$-action, and we will abuse notation slightly by writing 
-	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
 \end{remark}
+
+
 
 
 
