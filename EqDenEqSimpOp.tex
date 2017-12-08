@@ -3216,7 +3216,7 @@ are weak equivalences in $\mathsf{sSet}$;
 \]
 	for some $G$-corolla $C \in \Sigma_G$.
 
-More explicitly, a $G$-profile consists of:
+More explicitly, a $G$-profile is given by the data of: % consists of:
 \begin{itemize}
 	\item subgroups $H_i \leq G$, $0\leq i \leq k$ such that
 	$H_0 \geq H_i$ for $1 \leq i \leq k$;
@@ -3247,6 +3247,7 @@ Noting that there are equivalences of categories (the first of which is an isomo
  one sees that 
 $X(x_1,\cdots,x_k;x_0)$ 
 can indeed be regarded as a simplicial set (in fact, this is a Kan complex).
+\todo[inline]{come back: fill out this step}
 \end{definition}
 
 
@@ -3304,13 +3305,13 @@ For the second half, note first that the bottom map in
 Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in \eqref{COMSQ EQ}
 are weak equivalences, so that the square is a pull back square, and thus $f$ is fully faithful. 
 That $f$ is essentially surjective follows from the identity
-$k \left(G/H \cdot \eta, X \right) = k(\iota^{\**}(Z^H))$, so that 
+$k \left(G/H \cdot \eta, Z \right) = k(\iota^{\**}(Z^H))$, so that 
 $\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$ is essentially surjective at the level of maximal groupoids, and this suffices for essential surjectivity.
 
-Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ}, Proposition \ref{TFAE PROP} now implies that one needs only check that the maps of Kan complexes
+Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ} is a homotopy pullback, Proposition \ref{TFAE PROP} now implies that one needs only check that the maps of Kan complexes
 \begin{equation}\label{KANMAP EQ}
-	k \left(G/H \cdot \eta, X \right) \to 
-	k \left(G/H \cdot \eta, Y \right)
+      k \left(\Omega[G/H \cdot \eta], X \right) \to 
+	k \left(\Omega[G/H \cdot \eta], Y \right)
 \qquad \text{or} \qquad
 	k\left(\iota^{\**}\left(X^H\right)\right) \to 
 	k\left(\iota^{\**}\left(Y^H\right)\right)
@@ -3325,7 +3326,7 @@ are weak equivalences. As before, essential surjectivity is equivalent to the fa
 	Y(f(x);f(x))
 \end{tikzcd}
 \end{equation}
-is a weak equivalence. Noting that the bottom map in 
+is a weak equivalence. We note that the bottom map in 
 \eqref{OMEGASQ EQ}
 is a weak equivalence since $F$ is fully faithful
  and that the vertical maps are the inclusion of the connected components corresponding to automorphisms of $x$ in 
@@ -3350,7 +3351,7 @@ concerning the simplicial Reedy model structure all generalized mutatis mutandis
 	
 	Then there is a smallest common left Bousfield localization 
 	$(C,W,F)$ and for any $(C,W,F)$-local 
-	$c,d$ objects one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
+	objects $c,d$ one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
 	
 	Moreover, an object $X$ is local in the common left Bousfield localization iff it is simultaneously fibrant in both of the two initial model structures.
 \end{proposition}
@@ -3378,8 +3379,9 @@ In either case, the generating cofibrations are then given by the maps
 	\left( \partial \Delta[n] \to \Delta[n] \right)
 \square
 	\left( \partial \Delta[m] \to \Delta[m] \right),
-\qquad n,m\geq 0.
-\] 
+        \qquad n,m\geq 0.
+\]
+
 Further, in the horizontal Reedy model structure the generating trivial cofibrations are the maps
 \begin{equation}\label{GTRCOHOR EQ}
 	\left( \partial \Delta[n] \to \Delta[n] \right)
@@ -3401,6 +3403,12 @@ i.e. maps inducing Kan equivalences of simplicial sets
 $X_{n,\bullet} \to Y_{n,\bullet}$
 for each $n \geq 0$, and dually for the vertical Reedy structure.
 
+\begin{remark}
+      Here, and after in similar applications,
+      we use $\square$ to denote the pushout-product under the ``external product'' $\mathsf{sSet} \times \mathsf{sSet} \xrightarrow{\times} \mathsf{ssSet}$;
+      equivalently, we can first consider each map to be discrete in the other direction, and then take the normal box product in $\mathsf{ssSet}$. 
+\end{remark}
+
 In the next result we refer to the localized model structure given by Proposition \ref{COMBMODSTR PROP} as the 
 \textit{joint Reedy model structure}.
 
@@ -3410,7 +3418,7 @@ In the next result we refer to the localized model structure given by Propositio
 	\item[(i)] for each fixed $m$ all vertex maps $X_{\bullet,m} \to X_{\bullet,0}$ are trivial Kan fibrations;
 	\item[(ii)] any vertical Reedy fibrant replacement $\tilde{X}$ of $X$ is in fact fibrant in the joint Reedy model structure;
 	\item[(iii)] a map $X \to Y$ is a horizontal weak equivalence iff it is a joint weak equivalence;
-	\item[(iv)] the canonical map $X_{n,0} \to X_{n,n}$ is a Kan equivalence.
+	\item[(iv)] the canonical map $X_{\bullet,0} \to \delta^*(X)$ is a Kan equivalence. % $X_{n,0} \to X_{n,n}$
 \end{itemize}
 \end{proposition}
 
@@ -3431,10 +3439,10 @@ are horizontal equivalences.
 
 For (iv), note first that the diagonal functor
 $\delta^{\**} \colon \mathsf{ssSet} \to \mathsf{sSet}$
-is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure). But noting that all objects are cofibrant, and regarding 
-$X_{n,0}$ as a bisimplicial set that is vertically constant, the claim
+is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure). But noting that all objects are cofibrant, and regarding % $X_{n,0}$
+$X_{\bullet,0}$ as a bisimplicial set that is vertically constant, the claim
 follows by noting that by (i) the map
-$X_{n_0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
+$X_{\bullet, 0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 \end{proof}
 
 \begin{corollary}\label{WEAKDIAG COR}
@@ -3503,7 +3511,7 @@ Indeed, this first map be built by iteratively attaching the maps
 	\left(\Lambda^{F}[n] \to \Lambda^i[n] \right)
 		\square
 	\left(\Lambda^{i}F \to F \right)
-\]
+  \]
 where $F$ ranges over the poset $\mathsf{Face}_{\supsetneq \{i\}}$
 of faces of $\Delta[n]$ strictly containing $\{i\}$ 
 (note that when $F=\Delta[n]$ then $\Lambda^F[n]=\emptyset$, so that these maps can not in general be built out of the maps in \eqref{GTRCOVER EQ}). 
