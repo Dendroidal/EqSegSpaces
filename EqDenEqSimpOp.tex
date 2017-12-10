@@ -1853,9 +1853,9 @@ a class of normal monomorphisms of $\mathsf{dSet}^G$
 pushouts, transfinite composition, retracts,
 as well as the following additional cancellation property: 
 if $f,g$ are normal monomorphisms
-\[
+\begin{equation}\label{CANCEL_EQ}
 A \xrightarrow{f} B \xrightarrow{g} C
-\]
+\end{equation}
 such that both $f$ and $gf$ are in the class, then so is $g$.
 
 The following is an equivariant generalization of 
@@ -1914,7 +1914,7 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 
 \begin{remark}\label{SLICE REM}
 	Setting $G=e$ and slicing over the stick tree $\eta$, the previous result
-	one recovers the well known claim that 
+	recovers the well known claim that 
 	the hypersaturation of the simplicial inner horns
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
@@ -1943,7 +1943,80 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 are in $S$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
 \end{remark}
 
-	{\color{red} HERE}
+Given a class $\mathcal{C}$ of normal monomorphisms in $\mathsf{dSet}^G$, let $\mathcal{C}^{\boxslash !}$
+denote the class of maps satisfying the 
+\textit{strict right lifting property} (i.e the usual lifts exist and are \textit{unique})
+against all maps in $\mathcal{C}$.
+
+\begin{proposition}\label{HYPER_LP_PROP}
+	If two classes $\mathcal{C},\mathcal{D}$
+	of normal monomorphisms of $\mathsf{dSet}^G$
+	have the same hypersaturation then
+	$\mathcal{C}^{\boxslash !} = \mathcal{D}^{\boxslash !}$.
+\end{proposition}
+
+\begin{proof}
+It suffices to check that the hypersaturation closure conditions are compatible with strict right lifting properties.
+The claims concerning pushouts, transfinite compositions and retracts follow by the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
+
+%For any pushout (respectively (dashed) retract)
+%\begin{equation}
+%	\begin{tikzcd}
+%		C \arrow[r, dashed] \arrow[d,dashed] &
+%		A \arrow[r] \arrow[d] &
+%		C \arrow[r] \arrow[d] &
+%		X \arrow[d]
+%	\\
+%		D \arrow[r, dashed] &
+%		B \arrow[r]	&
+%		D \arrow[r]	&
+%		Y
+%	\end{tikzcd}
+%\end{equation}
+%the lift $B \to X$ and the given map $C \to X$ define a compatible map from the pushout to $X$
+%(resp. the composite $D \to B \to X$ is a lift);
+%moreover, for any lift $D \to X$, the composite $B \to D \to X$ is a lift over $A \to B$,
+%and hence strictness implies strictness by the universal property of the pushout
+%(resp. by composing with the section map $D \to B$).
+
+%For transfinite composites,
+%both the definition of the lift for the composite and its uniqueness are immediate.
+
+We thus address only the cancellation property, which is the most interesting case. Suppose then that $r$ has the strict right lifting property against normal monomorphisms $f$ and $gf$, and consider a lifting problem as on the left below.
+\begin{equation}
+\begin{tikzcd}[column sep = 8em]
+	B \ar{r}{p} \ar{dd}[swap]{g}& 
+	X \ar{dd}{r}
+&
+	A \ar{r} \ar{d}[swap]{f} &
+	X \ar{d}{r}
+\\
+&&
+	|[alias=B]|
+	B \ar{d}[swap]{g}
+	\ar{ru}{p} &
+	|[alias=Y]|
+	Y \ar[equal]{d}
+\\
+	C \ar{r}[swap]{q} \ar[dashed]{ruu} & Y
+&
+	C \ar{r}[swap]{q}
+	\ar[dashed]{ruu}[swap, near start]{\exists! H}&
+	Y
+\arrow[from=B, to=Y,crossing over]
+\end{tikzcd}
+\end{equation}
+By assumption, one can find a unique lift $H$ for the outer square on the right.
+We claim that $H$ is also the unique lift for the left square.
+Noting that
+$pf = Hgf$
+and 
+$rp = qg =  r H g$
+it follows that both $p$ and $rH$ are lifts for the top square in the right diagram, so that by the uniqueness assumption it is
+$p = rH$. This shows that $H$ is indeed a lift for the left square.
+Uniqueness follows since any lift of the left square induces a lift of the outer right square.
+\end{proof}
+
 
 
 
@@ -2884,26 +2957,14 @@ We now recall the generalizations of these definitions to the category $\Omega_G
 
 
 
-
-
-
-
-
 \newpage
+
+
+
 
 \subsection{Proof of Proposition \ref{HYPER PROP}}
 
 
-{\color{red} need to think about hypersaturation for non-monomorphisms}
-
-Recall that a class of maps is called \textit{saturated}
-if it is closed under pushouts, transfinite composition and retracts.
-Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
-\begin{equation}
-      \label{CANCEL_EQ}
-      A \xrightarrow{f} B \xrightarrow{g} C
-\end{equation}
-both $f$ and $gf$ are in the class, then so is $g$.
 
 \begin{notation}
       Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let
@@ -2925,6 +2986,7 @@ The following lemma identifies some of the utility of hypersaturations.
         In many sources (e.g. \cite{Hov99}), $\mathcal C^\boxslash$ is denoted $\mathcal C - \mbox{inj}$.
       }.
 \end{notation}
+
 \begin{lemma}
       \label{HYPER_LP_LEM}
       Let $\mathcal C$ be a class of maps in $\mathcal V$. Then
@@ -3052,27 +3114,7 @@ In this subsection, we will prove the following equivariant generalization of \c
 \end{proposition}
 
 
-\begin{remark}
-	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
-	one recovers the well known claim that 
-	the hypersaturation of the simplicial inner horns
-	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
-	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
-\end{remark}
 
-
-\begin{remark}\label{HYPERSATKAN REM}
-	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
-	Namely, we claim that the hypersaturation of all simplicial horns 
-	$\{\Lambda^i[n] \to \Delta[n] \colon 0 \leq i \leq n\}$
-	coincides with the hypersaturation of all vertex inclusion maps
-	$\{\Delta[0] \to \Delta[n]\}$.
-	Indeed, call the latter hypersaturation $S$. 
-	An easy argument shows that the Segal core inclusions 
-	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
-	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
-\end{remark}
 
 % ---------------------------------------------------------------------------------------------------
 
@@ -3126,9 +3168,6 @@ The observation below will be useful in the proofs which follow.
 
 We break up the proof of Proposition \ref{HYPER PROP} into its constituent pieces.
 
-\begin{proposition}
-      Proposition \ref{ORB_HORN_PROP}.
-\end{proposition}
 
 The reverse inclusion is only true on the level of hypersaturations.
 
@@ -3505,13 +3544,7 @@ $(G \cdot \Omega_{IHI})^{\boxslash !} = \mathsf{SKan}^G$.
 
 
 
-
-
-
-
-
-
-\subsection{Weak Equivalences in $\mathsf{dSet}^G$}
+\section{Equivalences of $G$-$\infty$-operads}
 
 
 \begin{notation}
@@ -5033,26 +5066,16 @@ a complete dendroidal Segal space.
 
 
 
+\newpage
 
+
+\section{Scratchwork (to be folded into previous sections eventually)}
 
 \[
 	u^{\**} \colon \mathsf{dSet}_G 
 \rightleftarrows 
 	\mathsf{dSet}^G \colon u_{\**}
 \]
-
-
-
-{\color{red} discuss characteristic horns}
-
-
-
-\newpage
-
-
-\section{Scratchwork (to be folded into previous sections eventually)}
-
-
 
 
 
@@ -5156,21 +5179,6 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 \begin{remark}
 {\color{blue} bla bla} the diagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
 \end{remark}
-
-
-
-
-\begin{lemma}
-	A non-equivariant face $U \hookrightarrow T$ generates an equivariant face $G\cdot U \hookrightarrow T$ iff the $G$-isotropy of $r_U$ matches the isotropy of $U$.
-\end{lemma}
-
-
-
-%\begin{remark}\label{OUTINP REM}
-%	Let $U \hookrightarrow T$ be an outer face.
-%	Then for any string of descendancy relations
-%	$e <_d e' <_d r$ such that $e,r\in U$ it is also $e' \in U$.
-%\end{remark}
 
 
 
