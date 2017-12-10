@@ -829,7 +829,8 @@ an inclusion; the equivalence between the colimit and union formulas follows fro
 	\bigcup_{U \in \mathsf{Face}(T),U \neq T_i}
 	\Omega[U]
 \]
-and, for $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges 
+and, for $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$ a
+non-empty $G$-equivariant set of inner edges 
 (we abbreviate $E_i = E \cap E^{\mathsf{i}}(T_i)$), \textit{$G$-inner horns}
 \[
 	\Lambda^{E}[T] = 
@@ -1689,9 +1690,12 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 
 \begin{proposition}\label{ORB_HORN_PROP}
-	Inclusions of orbital $G$-inner horns
+	For $G$-equivariant 
+	$\emptyset \neq F \subseteq E \subseteq E^{\mathsf{i}}(T)$
+	the inclusions
 \begin{equation}\label{ORBHORNINC EQ}
-	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{F}[T]
+	\Lambda_o^{E}[T] \to \Omega[T],\qquad
+	\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]
 \end{equation}
 	are $G$-inner anodyne.
 \end{proposition}
@@ -1700,15 +1704,14 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 \begin{proof}
 We are free to assume that $T \in \Omega^G \subseteq \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
 $E_{\**}=E \cap E^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap E^{\mathsf{i}}(T_{\**})$,
-the map \eqref{ORBHORNINC EQ} is
+the maps in \eqref{ORBHORNINC EQ} are
 $G \cdot_H 
-\left( \Lambda_o^{E_{\**} \amalg F_{\**}}[T_{\**}] \to \Lambda_o^{F_{\**}}[T_{\**}]\right)$.
+\left( \Lambda_o^{E_{\**}}[T_{\**}] \to \Omega[T_{\**}]\right)$
+and
+$G \cdot_H 
+\left( \Lambda_o^{E_{\**}}[T_{\**}] \to \Lambda_o^{F_{\**}}[T_{\**}]\right)$.
 
-Further, we are clearly free to assume $E \neq \emptyset$.
-There are two main cases, 
-$F = \emptyset$ and $F \neq \emptyset$.
-
-If $F=\emptyset$ then $\Lambda_o^{F}[T] = \Omega[T]$ and we apply
+In the $\Lambda_o^{E}[T] \to \Omega[T]$ case we apply
 Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
 \[
 	\Xi^{\**} = E, \qquad 
@@ -1718,71 +1721,72 @@ Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
 It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
 	(Ch0) and (Ch3) are clear.
 
-	Note that for $V\hookrightarrow T$ it is $V \not \in X$ iff 
-	$GV = T-E'$ for some $G$-equivariant subset
-	$E' \subseteq E$.
+Note that for $V\hookrightarrow T$ it is $V \not \in X$ iff 
+$GV = T-E'$ for some $G$-equivariant subset
+$E' \subseteq E$.
 
-	For (Ch1), the condition $\Xi_{V} = \emptyset$
-	says that none of the inner edges of $V$ are in $E$,
-	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $E$ as inner edge orbits. Since $E \neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
-	and hence $X=\Lambda_o^{E}[T]$ contains $V$.
+For (Ch1), the condition $\Xi_{V} = \emptyset$
+says that none of the inner edges of $V$ are in $E$,
+and thus that the equivariant outer face $G V$ contains none of the edge orbits in $E$ as inner edge orbits. Since $E \neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
+and hence $X=\Lambda_o^{E}[T]$ contains $V$.
 
-	For (Ch2), note that if $V \not \in X$, i.e., 
-	$GV = T - E'$, then Remark \ref{GINNER REM} implies that
-	$G(V-\Xi_V) = T - E''$ for $E'\subseteq E'' \subseteq E$,
-	and thus also $(V-\Xi_V) \not \in X$.
+For (Ch2), note that if $V \not \in X$, i.e., 
+$GV = T - E'$, then Remark \ref{GINNER REM} implies that
+$G(V-\Xi_V) = T - E''$ for $E'\subseteq E'' \subseteq E$,
+and thus also $(V-\Xi_V) \not \in X$.
 
-	In the case $F \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with $I = E/G$, with an 
-	\textit{arbitrary} choice of total order, and 
-	(writing elements of $E/G$ as orbits $Ge \subseteq E$)
+
+In the $\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]$ case 
+we instead apply Lemma \ref{CHAREDGE LEM} with $I = (E \setminus F)/G$, with an 
+\textit{arbitrary} choice of total order, and 
+(writing elements of $(E \setminus F)/G$ as orbits $Ge \subseteq E \setminus F$)
 \[
 	\Xi^{Ge} = F, \qquad 
 	U_{G e}= T - Ge, \qquad
-	X=\Lambda_o^{E\amalg F}[T].
+	X=\Lambda_o^{E}[T].
 \]
-Note that the $U_{Ge}$ are the orbital inner faces $T - Ge$ for $Ge \subseteq E$, and thus the map
-in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
+Note that the $U_{Ge}$ are the orbital inner faces $T - Ge$ for $Ge \subseteq E \setminus F$, and thus the map
+in Lemma \ref{CHAREDGE LEM} is indeed $\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]$.
 Further, we are free to abbreviate $\Xi = \Xi^{Ge}$ and $\Xi_V = \Xi^{Ge}_V$, since
 $\Xi^{Ge}$ is independent of $G e$.
 We again check the characteristic conditions. (Ch0) is clear.
 
-	For (Ch1), note that for an outer face 
-	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
-	Lemma \ref{INNINT LEM} implies
-	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
-	and hence since $\Xi_{U_i} = F = \Xi$ the 
-	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
-	$\Xi_{\bar{V}} = \emptyset$.
-	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
-	The argument for (Ch2) is identical to the one in the case
-	$F=\emptyset$.
-	Lastly, (Ch3) follows since	if $V \not \in X$, so that
-	$GV = T - E'-F'$ and $G(V - \Xi_V) = T-E'-F''$ with
-	$E' \subseteq E$, $F' \subseteq F'' \subseteq F$,
-	then $GV \hookrightarrow T-Ge$ iff $G(V - \Xi_V) \hookrightarrow T-Ge$
-	and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
+For (Ch1), note that for an outer face 
+$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
+Lemma \ref{INNINT LEM} implies
+$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
+and hence since $\Xi_{U_i} = F = \Xi$ the 
+hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
+$\Xi_{\bar{V}} = \emptyset$.
+Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E}[T]$.
+The argument for (Ch2) is identical to the one in the
+$\Lambda_o^{E}[T] \to \Omega[T]$ case.
+Lastly, (Ch3) follows since	if $V \not \in X$, so that
+$GV = T - E'$ and $G(V - \Xi_V) = T-E'-F'$ with
+$E' \subseteq E$, $F' \subseteq F$,
+then $GV \hookrightarrow T-Ge$ iff $G(V - \Xi_V) \hookrightarrow T-Ge$
+and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
 \end{proof}
 
 
 \begin{proposition}\label{REG_HORN_PROP}
-Inclusions of $G$-inner horns
+For $G$-equivariant 
+$\emptyset \neq F \subseteq E \subseteq E^{\mathsf{i}}(T)$
+the inclusions
 \begin{equation}
-	\Lambda^{E \amalg F}[T] \to \Lambda^{F}[T]
+	\Lambda^{E}[T] \to \Lambda^{F}[T]
 \end{equation}
 are $G$-inner anodyne.
 \end{proposition}
 
 \begin{proof}
-The case $F = \emptyset$ is now tautological,
-hence we can now assume that both $E,F \neq \emptyset$.
-
 We now apply Lemma \ref{CHAREDGE LEM} with 
-$I = \mathcal{P}_0(E)$
-the poset of non-empty subsets $\emptyset \neq E' \subseteq E$, ordered by \textit{reverse inclusion}, and
+$I = \mathcal{P}_0(E\setminus F)$
+the poset of non-empty subsets $\emptyset \neq E' \subseteq (E \setminus F)$, ordered by \textit{reverse inclusion}, and
 \[
 	\Xi^{E'} = F, \qquad
 	U_{E'} = T - E', \qquad
-	X=\Lambda^{E \amalg F}[T].
+	X=\Lambda^{E}[T].
 \]
 We again need to verify the characteristic conditions,
 and as in the previous result we abbreviate
@@ -1801,20 +1805,19 @@ $V \hookrightarrow T-(E' \cup E'')$.
 
 \begin{remark}\label{TWOPROOF REM}
 	By specifying to the non-equivariant case $G = \**$
-	when $E,F \neq \emptyset$,
 	the previous results yield two distinct proofs
 	that inclusions of non-equivariant horns
-	$\Lambda^{E \amalg F}[T] \to \Lambda^{F}[T]$
+	$\Lambda^{E}[T] \to \Lambda^{F}[T]$
 	are inner anodyne,
-	with the first proof using $I = E$ (with any order) and a second using 
-	$I = \mathcal{P}_0(E)$. 
+	with the first proof using $I = E \setminus F$ (with any total order) and the second using 
+	$I = \mathcal{P}_0(E \setminus F)$. 
 
 	The discrepancy is explained as follows: 
 	when $T$, $E$, $F$ are $G$-equivariant, showing that
-	$\Lambda^{E \amalg F}[T] \to \Lambda^{F}[T]$ 
+	$\Lambda^{E}[T] \to \Lambda^{F}[T]$ 
 	is $G$-inner anodyne requires a control of isotropies 
 	not needed when showing that the underlying map is non-equivariant inner anodyne, and since this control is given by (Ch3), it is necessary to include in the $\{U_i\}$ the
-	``intersections'' of $T-e$ and $T-ge$ for $e \in E$. 
+	``intersections'' of $T-e$ and $T-ge$ for $e \in E \setminus F$. 
 \end{remark}
 
 
@@ -1863,22 +1866,24 @@ The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
 $\Lambda^{E} [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-equivariant $E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-equivariant $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
 \item the orbital $G$-inner horn inclusions
 $\Lambda^{E}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-equivariant $E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-equivariant $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
 \item the $G$-Segal core inclusions
 $Sc[T] \to \Omega[T]$ for $T \in \Omega_G$.
 \end{itemize}
 \end{proposition}
 
-In the following proof we call the hypersaturation
-of the orbital horn (resp. Segal core) inclusions the orbital (resp. Segal) hypersaturation.
+In the following proof we refer to the hypersaturation
+of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) hypersaturation.
+
 
 \begin{proof}
 	The fact that $G$-inner horn inclusions generate the orbital and Segal hypersaturations has been established in Proposition \ref{ORB_HORN_PROP} and Remark \ref{RECOVER REM}(i).
 	
-	To see that the $G$-inner horn inclusions are in the orbital hypersaturation, we again argue by induction on $|T_{\**}|$. Recalling that in the proof of the $F = \emptyset$ case of Proposition \ref{ORB_HORN_PROP}
+	To see that the $G$-inner horn inclusions are in the orbital hypersaturation, we again argue by induction on $|T_{\**}|$, with the base cases those where $\Lambda^{E} [T]=\Lambda^{E}_o [T]$.
+	Recalling that in the proof of Proposition \ref{ORB_HORN_PROP}
 	one sets
 	$I=\**$, $U_{\**} = T$ and $\Xi^{\**} = E$,
 	Remark \ref{FACCES REM} implies that in the factorization
@@ -1906,31 +1911,39 @@ of the orbital horn (resp. Segal core) inclusions the orbital (resp. Segal) hype
 	$\Lambda^{E}[T] \to \Omega[T]$, finishing the proof.
 \end{proof}
 
-	{\color{red} HERE}
 
-\begin{remark}
-	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
+\begin{remark}\label{SLICE REM}
+	Setting $G=e$ and slicing over the stick tree $\eta$, the previous result
 	one recovers the well known claim that 
 	the hypersaturation of the simplicial inner horns
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
+	$\{Sc[n] \to \Delta[n]\colon n \geq 0\}$.
 \end{remark}
 
 
 \begin{remark}\label{HYPERSATKAN REM}
-	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
+	We will make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
 	Namely, we claim that the hypersaturation of all simplicial horns 
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0 \leq i \leq n\}$
 	coincides with the hypersaturation of all vertex inclusion maps
 	$\{\Delta[0] \to \Delta[n]\}$.
-	Indeed, call the latter hypersaturation $S$. 
-	An easy argument shows that the Segal core inclusions 
-	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
-	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
+	Call the latter hypersaturation $S$. 
+	One easily checks that the maps $\{0\} \to Sc[T]$ are in $S$, so that by cancellation so are the Segal core inclusions 
+	$\{Sc[n] \to \Delta[n]\}$ and hence by Remark \ref{SLICE REM} so are all inner horn inclusions. 
+	Moreover, for left horns $\Lambda^0[n]$
+	the maps $\{0\} \to \Lambda^0[n]$ are built cellularly
+	from left horn inclusions
+	$\Lambda^0[k] \to \Delta[k]$ with $k<n$
+	(in join notation (see {\color{blue} fill}),
+	$\{0\} \to \Lambda^0[n]$ is 
+	$\Delta[0] \star (\emptyset \to \partial \Delta[n-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[n-1]$).
+	But hence by induction and the cancellation property all left horn inclusions 
+	$\Lambda^0[n] \to \Delta[n]$
+are in $S$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
 \end{remark}
 
-
+	{\color{red} HERE}
 
 
 
