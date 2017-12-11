@@ -1935,7 +1935,7 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	the maps $\{0\} \to \Lambda^0[n]$ are built cellularly
 	from left horn inclusions
 	$\Lambda^0[k] \to \Delta[k]$ with $k<n$
-	(in join notation (see {\color{blue} fill}),
+	(in join notation (see \cite[\S 1.2.8]{Lur09} or \cite[\S 7.4]{Per17}),
 	$\{0\} \to \Lambda^0[n]$ is 
 	$\Delta[0] \star (\emptyset \to \partial \Delta[n-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[n-1]$).
 	But hence by induction and the cancellation property all left horn inclusions 
@@ -4118,7 +4118,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 	(i) follows since $X$ then has the right lifting property with respect to all maps 
 	$(\Delta[0] \to \Delta[m]) \square (\partial \Omega[T] \to \Omega[T])$. (ii) follows from (i) and the characterization in  Corollary \ref{JOINTFIBCHAR COR} (ii). (iii) follows from (ii) since the simplicial fibrant replacement maps 
 	$X \to \tilde{X}$ are dendroidal equivalences.
-        (iv) follows immediately from (i).
+	(iv) follows from (i).
 \end{proof}
 
 
@@ -4155,10 +4155,11 @@ A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
 	Moreover, note that it follows from 
 	\cite[Cor. 8.21]{Per17}
 	that $u_{\**}(X^{J_d(m)}) = X^{(J_d(m))} \to X^{(\Delta_m)}$
-	is a trivial fibration in $\mathsf{sdSet_G}$, 
+	is a trivial fibration in $\mathsf{sdSet}_G$, 
 	so that $X^{J_d(m)}(T) \sim k(\Omega[T],X)$.
 \end{remark}
-\todo[inline]{define trivial fibrations in $\mathsf{sdSet}_G$.}
+
+
 
 \section{Pre-operads}
 
@@ -4325,8 +4326,7 @@ This is the model structure of equivariant dendroidal Segal spaces, that we disc
 	By Proposition \ref{HYPER PROP} this model structure can equivalently be obtained by localizing with respect to the $G$-inner horn inclusions $\Lambda^{Ge}[T] \to \Omega[T]$.
 \end{remark}
 
-\begin{notation}
-      \label{FIB_PREOP_NOT}
+\begin{notation}\label{FIB_PREOP_NOT}
 We will refer to the fibrant objects in 
 $\mathsf{sdSet}^G_S$
 as \textit{equivariant dendroidal Segal spaces}, 
@@ -4357,36 +4357,13 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant. Indeed, the equality $Sc[T](\et
 \]
 \end{remark}
 
-{\color{blue} The following connects the various model structures on $\mathsf{sdSet}^G$.
-  \begin{definition}
-        The \textit{equivariant complete Segal space model structure} on the category $\mathsf{sdSet}^G$
-        is the left Bousfield localization of the equivarinat Segal space model structure
-        with respect to the projections
-        \begin{equation}
-              \Omega[T] \otimes (\set{i} \to J_d), \qquad T \in \Omega_G.
-        \end{equation}
-  \end{definition}
 
-  \begin{proposition}
-        The joint Reedy model structure and the complete Segal space model structure are equal.
-  \end{proposition}
-  \begin{proof}
-        As these two model structures have the same class of cofibrations,
-        it suffices to show they have the same fibrant objects,
-        which follows by Corollary \ref{JOINTFIBCHAR COR}(iii).
-  \end{proof}
-
-  In what follows, we will use ``complete Segal space'' and ``joint fibrant'' interchangably.
-}
-
-The following is a variation on Definition \ref{MAPSPACE DEF}
+The following is a variation on Definition \ref{MAPSPACE DEF}.
 
 \begin{definition}\label{MAPSPACESEG DEF}
 Given a dendroidal Segal space $X \in \mathsf{sdSet}^G_S$
 and a $C$-profile $(x_1,\cdots,x_n ; x_0)$
-on $X$ (defined exactly as in Definition \ref{PROF DEF}\footnote{
-  Recall that $\mathsf{sdSet}^G(\partial\Omega[C], X) = \mathsf{dSet}(\partial\Omega[C], X_0) = \mathsf{dSet}(\partial\Omega[C], X^{\Delta[0]} = \mathsf{sSet}(\Delta[0], X^{\partial\Omega[C]})$.
-  })
+on $X$ (defined exactly as in Definition \ref{PROF DEF})
 we define the space of maps 
 $X(x_1,\cdots,x_n ; x_0)$ via the pullback
 \[
@@ -4398,18 +4375,17 @@ $X(x_1,\cdots,x_n ; x_0)$ via the pullback
 	\prod_{0\leq i \leq k} X(\eta)^{H_i}
 \end{tikzcd}
 \]
-\todo[inline]{this time, the bottom right might work, but I don't know why $X^{\partial\Omega[C]}$ wouldn't be better}
 \end{definition}
 
 \begin{definition}
 	Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	The \textit{homotopy genuine operad} 
-	$ho(X)\in \mathsf{dSet_G}$ is defined %
-        to be the image of $X$ under the composite
-        \begin{equation}
-              \mathsf{sdSet}^G \xrightarrow{\gamma_{\**}} \mathsf{PreOp} \into \mathsf{sdSet}^G = (\mathsf{dSet}^G)^{\Delta^{op}} \xrightarrow{u_*} = (\mathsf{dSet}_G)^{\Delta^{op}} \xrightarrow{\pi_0} \mathsf{dSet}_G,
-        \end{equation}
-        or more compactly by
+	$ho(X)\in \mathsf{dSet}_G$ is defined %
+%        to be the image of $X$ under the composite
+%        \begin{equation}
+%              \mathsf{sdSet}^G \xrightarrow{\gamma_{\**}} \mathsf{PreOp} \into \mathsf{sdSet}^G = (\mathsf{dSet}^G)^{\Delta^{op}} \xrightarrow{u_*} = (\mathsf{dSet}_G)^{\Delta^{op}} \xrightarrow{\pi_0} \mathsf{dSet}_G,
+%        \end{equation}
+by
 	\[
 	ho(X) = \pi_0 \left( u_{\**} \left( \gamma_{\**}X \right) \right).
 	\]
@@ -4440,13 +4416,9 @@ The claim that this holds without completeness is harder, with the rest of the s
 	$\Delta \times \mathsf{O}_G \to 
 	\Omega \times \mathsf{O}_G \to
 	\Omega_G$,
-	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories\todo{simplicial sets? we haven't shown they have composition yet} formed by the homotopy categories
+	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories formed by the homotopy categories
 	$ho \left(\iota^{\**}\left(X^H\right)\right) = 
 	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)$.
-        \todo[inline]{is $ho$ of a bisimplicial set well-defined? is this $ho$ of the diagonal?}
-        \todo[inline]{the RHS is only a simplicial set.}
-        Indeed, we have that each $X^H$ is a dendroidal Segal space if $X$ is
-        (as $(X^H)^{\Omega[T_*]} \to (X^H)^{Sc[T_*]}$ has the right lifting property against all monomorphisms in $\mathsf{sSet}$ iff $X^{\Omega[G \cdot_H T_*]} \to X^{Sc[G \cdot_H T_*]}$ does).
 \end{remark}
 
 \begin{definition}
@@ -4629,8 +4601,8 @@ Since all these compatibilities can be simultaneously encoded in terms of such t
 
 In the next result, note that a $G$-tree $T$ with three $G$-nodes contains precisely two inner edge orbits $Ge$ and $Gf$. We will write $T[Ge]$ (resp. $T[Gf]$) for the unique orbital outer face of $T$ with $Ge$ (resp. $Gf$) has its single inner edge orbit. 
 
-\begin{proposition}
-	The operations   
+\begin{proposition}\label{ASSOC PROP}
+	The operations
 	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
 	satisfy all associativity conditions with respect to 
 	$3$-nodal $G$-trees.
@@ -4747,7 +4719,7 @@ But this follows from the functoriality in
 Proposition \ref{GENOPHO PROP},
 essential surjectivity 
 (note that when $y_i \in Y(\eta)^{H_i}$ one needs to use $H_i$-equivalences), 
-and the fact that by the previous corollary \todo[inline]{there is no previous corollary} the maps
+and the fact that by Proposition \ref{ASSOC PROP} the maps
 $f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
 are weak equivalences whenever $f$ is a $H$-equivalence.
 \end{proof}
