@@ -944,7 +944,7 @@ where we note that the equivalence between the colimit and union formulas now fo
 
 
 
-\section{Segal cores, horns and orbital horns}
+\section{Equivariant inner anodyne maps}
 
 Much as in \cite[\S 2]{CM13a}, 
 it is essential for us to show that the inclusions $Sc[T] \to \Omega[T]$, $T\in \Omega_G$ are $G$-inner anodyne.
@@ -3543,35 +3543,67 @@ $(G \cdot \Omega_{IHI})^{\boxslash !} = \mathsf{SKan}^G$.
 
 
 
-\section{Complete equivariant dendroidal Segal spaces}
+\section{Quillen equivalences}
+
+Our main goal in this section is to prove Theorems \ref{INC0AGJ THM} and \ref{ANOQUEQUIV THM},
+which jointly establish the Quillen equivalence of three model categories:
+the category of equivariant dendroidal sets $\mathsf{dSet}^G$
+with the ``$G$-$\infty$-operad'' model structure of \cite[Thm 2.1]{Per17};
+the category of equivariant dendroidal spaces
+$\mathsf{sdSet}^G$ with the
+``complete equivariant dendroidal Segal space'' model structure in \S \ref{CEDSS SEC} and;
+the category of equivariant preoperads $\mathsf{PreOp}^G$
+with the ``equivariant Segal operad'' model structure in \S \ref{PREOP SEC}.
+
+Our perspective will be that these Quillen equivalences are best understood in light of the equivariant analogue of \cite[Thm. 6.6]{CM13a},
+which says that the complete dendroidal space model structure
+on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
+As such, we will find it helpful to first focus on the abstract properties of such ``joint left Bousfield localizations''.
+
+
+%Our goal in this section is to simultaneously generalize
+%to the equivariant context
+%the notions of locally constant simplicial dendroidal set
+%\cite[\S 4]{CM13a}
+%and of 
+%complete dendroidal Segal space
+%\cite[\S 6]{CM13a}. In loc. cit. these two notions
+%are related by \cite[Thm. 6.6]{CM13a},
+%which says that the complete dendroidal space model structure
+%on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
+%Our perspective in this paper is that many parts of the overall story are made clearer by focusing on this observation,
+%and as such both this section and \S \ref{PREOP SEC}
+
+
+
+\subsection{Joint left Bousfield localizations}\label{JOINBOUS SEC}
+
+Throughout we assume familiarity with the theory of left Bousfield localizations as in \cite{Hir03}.
+
+\begin{proposition}\label{COMBMODSTR PROP}
+	Suppose that the category $\mathcal{C}$
+	admits two model structures $(C,W_1,F_1)$ and $(C,W_2,F_2)$
+	with a common class of cofibrations $C$,
+	and assume further that both model structures are cofibrantly generated and admit left Bousfield localizations with respect to any set of maps.
+	
+	Then $(C,W_1,F_1)$, $(C,W_2,F_2)$ have a smallest joint left Bousfield localization 
+	$(C,W,F)$ and for any $(C,W,F)$-fibrant 
+	objects $c,d \in \mathcal{C}$ one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
+	
+	Moreover, an object $c \in \mathcal{C}$ is $(C,W,F)$-fibrant iff it is simultaneously 
+	$(C,W_1,F_1)$-fibrant and $(C,W_2,F_2)$-fibrant.
+\end{proposition}
 
 {\color{red} HERE}
 
-
-\subsection{Joint left Bousfield localizations}
-
-The results in \cite[\S 4]{CM13a}
-concerning the simplicial Reedy model structure all generalize mutatis mutandis.
-
-\begin{proposition}\label{COMBMODSTR PROP}
-	Suppose $\mathcal{C}$
-	admits two model structures $(C,W_1,F_1)$ and $(C,W_2,F_2)$
-	with the same class of cofibrations, and assume further that both model structures are cofibrantly generated and admit left Bousfield localizations with respect to any set of maps.
-	
-	Then there is a smallest common left Bousfield localization 
-	$(C,W,F)$ and for any $(C,W,F)$-local 
-	objects $c,d$ one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
-	
-	Moreover, an object $X$ is local in the common left Bousfield localization iff it is simultaneously fibrant in both of the two initial model structures.
-\end{proposition}
-
 \begin{proof}
-	The model structure $(C,W,F)$ can be obtained by either localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
-	The claim concerning local $c,d$ follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
+	The joint model structure $(C,W,F)$ can be obtained by either localizing left Bousfield localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
+	
+	The claim concerning joint fibrant $c,d$ follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
 the local equivalences between local objects match the
 initial weak equivalences.
 
-That local objects are fibrant in both model structures follows since $C \cap W$ contains both $C \cap W_1$ and $C\cap W_2$ (in fact, this shows that local fibrations are fibrations in both model structures). The converse claim follows from the observation that fibrant objects in any model structure are local with respect to the weak equivalences in that same model structure.
+That local objects are fibrant in both model structures follows since $C \cap W$ contains both $C \cap W_1$ and $C \cap W_2$ (in fact, this shows that local fibrations are fibrations in both model structures). The converse claim follows from the observation that fibrant objects in any model structure are local with respect to the weak equivalences in that same model structure.
 \end{proof}
 
 The prototypical example of Proposition \ref{COMBMODSTR PROP}
@@ -3764,6 +3796,7 @@ is also a Quillen equivalence, but we will not need this fact.
 
 
 \subsection{Complete equivariant dendroidal Segal spaces}
+\label{CEDSS SEC}
 
 {\color{purple}
 We extend Notations \ref{HOM_NOTATIONS} to the bisimplicial and simplicial-dendroidal world.
@@ -3888,9 +3921,9 @@ $X^L \to X^K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$
 (see also the beginning of \cite[\S 8.1]{Per17})
 it suffices to verify that the maps $X^L \to X^K$ have the right lifting property against the maps
 \[
-	\Lambda^{G e} \Omega[T] \to \Omega[T],
+	\Lambda^{G e} [T] \to \Omega[T],
 	\quad
-	T \in \Omega_G, e \in Inn(T)
+	T \in \Omega_G, e \in E^{\mathsf{i}}(T)
 \qquad
 \text{and}
 \qquad
@@ -3962,7 +3995,7 @@ A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
 
 
 
-\section{Pre-operads}
+\subsection{Equivariant pre-operads}\label{PREOP SEC}
 
 Recall that the category $\mathsf{PreOp}$
 of \textit{pre-operads} is the full subcategory
