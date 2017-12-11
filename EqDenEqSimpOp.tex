@@ -3541,241 +3541,17 @@ $(G \cdot \Omega_{IHI})^{\boxslash !} = \mathsf{SKan}^G$.
 
 \newpage
 
-\section{Equivalences of $G$-$\infty$-operads}
+
+
+\section{Complete equivariant dendroidal Segal spaces}
 
 {\color{red} HERE}
 
-\begin{notation}
-Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
-$H_0 \geq H_i$, $1 \leq i \leq k$ we write
-$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
-$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
-\[
-\begin{tikzpicture}
-[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
-	\node at (0,0) {}
-		child{node [dummy] {}
-			child{
-			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
-			child{
-			edge from parent node [near end] {$G/H_1$}
-node [name=Kone,swap] {}}
-		edge from parent node [swap] {$G/H_0$}
-		};
-		\draw [dotted,thick] (Kone) -- (Kn) ;
-\end{tikzpicture}
-\]
-\end{notation}
 
-We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
-\begin{notation}
-      \label{HOM_NOTATIONS}
-      Fix $A,B,C \in \mathsf{dSet}^G$, $X \in \mathsf{dSet}^G$ a $G$-$\infty$-operad, $K \in \mathsf{sSet}$.
-      \begin{itemize}
-      \item The \textit{internal hom} $\Hom(A,B) \in \mathsf{dSet}^G$ is defined by
-            \begin{equation}
-                  \Hom(A,B)(T) = \mathsf{dSet}^G(A \otimes \Omega[T], B),
-            \end{equation}
-            and come equipped with canonical isomorphisms
-            \begin{equation}
-                  \mathsf{dSet}^G(A \otimes C, B)= \mathsf{dSet}^G(C, \Hom(A,B).
-            \end{equation}
-      \item The \textit{simplicial mapping space} $B^A \in \mathsf{sSet}$ is given by $i^*\Hom(A,B)$,
-            and comes with induced isomorphisms
-            \begin{equation}
-                  \mathsf{sSet}(K, B^A) = \mathsf{dSet}^G(A, \Hom(i_! K, B)).
-            \end{equation}
-      \item Let $k(A,X) \in \mathsf{sSet}$ denote $k(X^A)$, where $k(-)$ is the maximal sub Kan complex.
-            \todo[inline]{reference $X^A$ being Kan}
-      \item Let $X^{(K)} \in \mathsf{dSet}_G$ be defined to have $T$-dendrices given by
-            \begin{equation}
-                  X^{(K)}(T) := k(i^{\**}\Hom(i_! K \otimes \Omega[T], X),
-            \end{equation}
-            and we have canonical isomorphisms
-            \begin{equation}
-                  \mathsf{dSet}_G(u_* A, X^{(K)}) = \mathsf{sSet}(K, k(A,X)).
-            \end{equation}
-      \end{itemize}
-\end{notation}
-
-
-
-
-The following is the equivariant generalization of 
-\cite[Thm. 3.5]{CM13a}.
-
-\begin{proposition}\label{TFAE PROP}
-Let $X \to Y$ be a map between $G$-$\infty$-operads. The following are equivalent:
-\begin{enumerate}
-	\item[(a)] for all $G$-corollas $C \in \Sigma_G$ and $H \leq G$ the maps
-\[k(\Omega[C],X) \to k(\Omega[C],Y), \qquad
-k(\Omega[G/H \cdot \eta],X) \to k(\Omega[G/H \cdot \eta],Y)
-\]
-are Kan equivalences in $\mathsf{sSet}$;
-	\item[(b)] for all $G$-trees $T \in \Omega_G$ the maps 
-	$k(\Omega[T],X) \to k(\Omega[T],Y)$
-are Kan equivalences in $\mathsf{sSet}$;
-	\item[(c)] for all normal $A \in \mathsf{dSet}^G$, the maps
-	$k(A,X) \to k(A,Y)$
-are Kan equivalences in $\mathsf{sSet}$;
-	\item[(d)] $f \colon X \to Y$ is a weak equivalence in 
-	$\mathsf{dSet}^G$.
-\end{enumerate}
-\end{proposition}
-
-
-\begin{definition}\label{PROF DEF}
-	Let $X$ be a $G$-$\infty$-operad.
-	A \textit{$G$-profile} on $X$ is a map
-\[
-	\partial \Omega[C] \to X
-\]
-	for some $G$-corolla $C \in \Sigma_G$.
-More explicitly, a $G$-profile is described by the following data:
-\begin{itemize}
-	\item subgroups $H_i \leq G$, $0\leq i \leq k$ such that
-	$H_0 \geq H_i$ for $1 \leq i \leq k$;
-	\item objects $x_i \in X(\eta)^{H_i}$ for $0 \leq i \leq k$.
-\end{itemize}
-To simplify notation, we prefer to denote a $G$-profile as 
-$(x_1,\cdots,x_k;x_0)$, and refer to it as a 
-\textit{$C$-profile}.
-\end{definition}
-
-{\color{red} HERE}%
-
-\begin{definition}\label{MAPSPACE DEF}
-Given a $G$-$\infty$-operad and a $C$-profile 
-$(x_1,\cdots,x_k;x_0)$ we define the space of maps
-$X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
-\[
-\begin{tikzcd}
-	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
-	Hom^G(\Omega[C],X) \ar{d}
-\\
-	\eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
-	\prod_{0\leq i \leq k} X^{H_i}
-\end{tikzcd}
-\]
-
- one sees that 
-$X(x_1,\cdots,x_k;x_0)$ 
-can indeed be regarded as a simplicial set (in fact, this is a Kan complex).
-\end{definition}
-
-
-\begin{definition}
-Let $f \colon X \to Y$ be a map of $G$-$\infty$-operads.
-
-The map $f$ is called \textit{fully faithful} if, for each $C$-profile $(x_1,\cdots, x_k ; x_0)$ one has that
-\[
-X(x_1,\cdots,x_k;x_0) \to Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
-\]
-is a Kan equivalence in $\mathsf{sSet}$.
-
-The map $f$ is called \textit{essentially surjective} if for each subgroup $H \leq G$ the map of categories
-$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
-are essentially surjective.
-\end{definition}
-
-The following is the equivariant generalization of 
-\cite[Thm. 3.11 and Remark 3.12]{CM13a}.
-
-
-\begin{theorem}\label{COMSQ THM}
-A map $f \colon X \to Y$ of $G$-$\infty$-operads is fully faithful iff for all $G$-corollas $C \in \Sigma_G$ the commutative squares
-of Kan complexes
-\begin{equation}\label{COMSQ EQ}
-\begin{tikzcd}
-	k(\Omega[C],X) \ar{r} \ar{d}[swap]{p}&
-	k(\Omega[C],Y) \ar{d}{q}
-\\
-	k(\partial \Omega[C],X) \ar{r}[swap]{f_{\**}} &
-	k(\partial \Omega[C],Y)
-\end{tikzcd}
-\end{equation}
-are homotopy pullback squares.
-
-Hence, $f$ is a weak equivalence in $\mathsf{dSet}^G$ iff $f$ is both fully faithful and essentially surjective. 
-\end{theorem}
-
-\begin{proof}
-Noting that the $0$-simplices of $k(\partial \Omega[C],X)$
-are precisely the $C$-profiles $(x_1,\cdots,x_k,x_0)$,
-fully faithfulness can be reinterpreted as saying that all fiber maps
-$p^{-1}(x_1,\cdots,x_k,x_0) \to 
-q^{-1}(f(x_1),\cdots,f(x_k),f(x_0))$
-are weak equivalences. But since $p,q$ are Kan fibrations, this is equivalent to the condition that \eqref{COMSQ EQ}
-is a homotopy pullback (see \cite[Lemma 3.9]{CM13a}), and the first half follows.
-
-For the second half, note first that the bottom map in 
-\eqref{COMSQ EQ} can be rewritten as
-\[
-	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, X \right) \to 
-	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, Y \right).
-\]
-
-Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in \eqref{COMSQ EQ}
-are weak equivalences, so that the square is a pull back square, and thus $f$ is fully faithful. 
-That $f$ is essentially surjective follows from the identity
-$k \left(\Omega[G/H \cdot \eta], Z \right) = k(\iota^{\**}(Z^H))$, so that 
-$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$ is essentially surjective at the level of maximal groupoids, and this suffices for essential surjectivity.
-
-Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ} is a homotopy pullback, Proposition \ref{TFAE PROP} implies that one needs only check that the maps of Kan complexes
-\begin{equation}\label{KANMAP EQ}
-      k \left(\Omega[G/H \cdot \eta], X \right) \to 
-	k \left(\Omega[G/H \cdot \eta], Y \right)
-\qquad \text{or} \qquad
-	k\left(\iota^{\**}\left(X^H\right)\right) \to 
-	k\left(\iota^{\**}\left(Y^H\right)\right)
-\end{equation}
-are weak equivalences. As before, essential surjectivity is equivalent to the fact that the maps \eqref{KANMAP EQ} induce surjections on connected components. Hence, it now suffices to show that for each $0$-simplex $x \in X^H$ the top map of loop spaces in 
-\begin{equation}\label{OMEGASQ EQ}
-\begin{tikzcd}
-	\Omega(k(\iota^{\**}X^H),x) \ar{r} \ar{d} &
-	\Omega(k(\iota^{\**}Y^H),f(x)) \ar{d}
-\\
-	X(x;x) \ar{r} &
-	Y(f(x);f(x))
-\end{tikzcd}
-\end{equation}
-is a weak equivalence.
-Note that the bottom map in 
-\eqref{OMEGASQ EQ}
-is a weak equivalence since $F$ is fully faithful
-and that the vertical maps are the inclusion of the connected components corresponding to automorphisms of $x$ in 
-$\tau(\iota^{\**} X^H)$.
-It thus suffices to check that the top map in
-\eqref{OMEGASQ EQ} is an isomorphism on $\pi_0$,
-and this follows since the map of categories
-$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
-is fully faithful. 
-\end{proof}
-
-
-\section{Equivariant dendroidal spaces}
-
-We extend Notations \ref{HOM_NOTATIONS} to the bisimplicial and simplicial-dendroidal world.
-\begin{notation}
-      Here, we will abuse notation, and let
-      $\mathsf{dSet}$ denote either of $\mathsf{sSet}$ or $\mathsf{dSet}$;
-      in particular, it will denote the horizontal component of the bi-graded objects.
-      % Similarly, let $\pi_s$ and $\pi_d$ denote the obvious projections.
-      Moreover, let $\hat\times$ denote the \textit{external product}.
-      % Finally, let $y(-)$ denote the natural Yoneda embeddings.
-      
-      Now fix $A \in \mathsf{dSet}^G$,      
-      $K \in \mathsf{sSet}$, and
-      $Y \in \mathsf{sdSet}^G$. We define
-      \begin{itemize}
-      \item $Y^K \in \mathsf{dSet}$ by $Y^K(T) = \mathsf{sSet}(\Omega[T] \hat\times K, Y)$.
-      \item $Y^{A} \in \mathsf{sSet}$ by $Y^A(n) = \mathsf{dSet}(A \hat\times \Delta[n],Y)$.
-      \item $Y^{(A)} \in \mathsf{sdSet}_G$ by $Y^{(A)}(T) = k(i^{\**}\Hom(\Omega[T] \otimes Y,X) \in \mathsf{sSet}$.
-      \end{itemize}
-\end{notation}
+\subsection{Joint left Bousfield localizations}
 
 The results in \cite[\S 4]{CM13a}
-concerning the simplicial Reedy model structure all generalized mutatis mutandis.
+concerning the simplicial Reedy model structure all generalize mutatis mutandis.
 
 \begin{proposition}\label{COMBMODSTR PROP}
 	Suppose $\mathcal{C}$
@@ -3985,6 +3761,31 @@ $
 $
 is also a Quillen equivalence, but we will not need this fact.
 \end{remark}
+
+
+\subsection{Complete equivariant dendroidal Segal spaces}
+
+{\color{purple}
+We extend Notations \ref{HOM_NOTATIONS} to the bisimplicial and simplicial-dendroidal world.
+\begin{notation}
+      Here, we will abuse notation, and let
+      $\mathsf{dSet}$ denote either of $\mathsf{sSet}$ or $\mathsf{dSet}$;
+      in particular, it will denote the horizontal component of the bi-graded objects.
+      % Similarly, let $\pi_s$ and $\pi_d$ denote the obvious projections.
+      Moreover, let $\hat\times$ denote the \textit{external product}.
+      % Finally, let $y(-)$ denote the natural Yoneda embeddings.
+      
+      Now fix $A \in \mathsf{dSet}^G$,      
+      $K \in \mathsf{sSet}$, and
+      $Y \in \mathsf{sdSet}^G$. We define
+      \begin{itemize}
+      \item $Y^K \in \mathsf{dSet}$ by $Y^K(T) = \mathsf{sSet}(\Omega[T] \hat\times K, Y)$.
+      \item $Y^{A} \in \mathsf{sSet}$ by $Y^A(n) = \mathsf{dSet}(A \hat\times \Delta[n],Y)$.
+      \item $Y^{(A)} \in \mathsf{sdSet}_G$ by $Y^{(A)}(T) = k(i^{\**}\Hom(\Omega[T] \otimes Y,X) \in \mathsf{sSet}$.
+      \end{itemize}
+\end{notation}
+}
+
 
 
 We now turn to our main application of Proposition \ref{COMBMODSTR PROP}, the category 
@@ -4307,6 +4108,228 @@ We will find it useful to also have a characterization of the
 fibrant objects in $\mathsf{PreOp}^G$.
 In doing so, it becomes useful to consider a fourth model structure on the category $\mathsf{sdSet}^G$ whose fibrant objects ``interpolate'' between the fibrant objects in the two model structures in Theorem \ref{ANOQUEQUIV THM}.
 This is the model structure of equivariant dendroidal Segal spaces, that we discuss in the next section.
+
+
+
+\section{Equivalences of $G$-$\infty$-operads}
+
+
+\begin{notation}
+Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
+$H_0 \geq H_i$, $1 \leq i \leq k$ we write
+$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
+$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
+\[
+\begin{tikzpicture}
+[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
+	\node at (0,0) {}
+		child{node [dummy] {}
+			child{
+			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+			child{
+			edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+		edge from parent node [swap] {$G/H_0$}
+		};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+\end{tikzpicture}
+\]
+\end{notation}
+
+We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
+\begin{notation}
+      \label{HOM_NOTATIONS}
+      Fix $A,B,C \in \mathsf{dSet}^G$, $X \in \mathsf{dSet}^G$ a $G$-$\infty$-operad, $K \in \mathsf{sSet}$.
+      \begin{itemize}
+      \item The \textit{internal hom} $\Hom(A,B) \in \mathsf{dSet}^G$ is defined by
+            \begin{equation}
+                  \Hom(A,B)(T) = \mathsf{dSet}^G(A \otimes \Omega[T], B),
+            \end{equation}
+            and come equipped with canonical isomorphisms
+            \begin{equation}
+                  \mathsf{dSet}^G(A \otimes C, B)= \mathsf{dSet}^G(C, \Hom(A,B).
+            \end{equation}
+      \item The \textit{simplicial mapping space} $B^A \in \mathsf{sSet}$ is given by $i^*\Hom(A,B)$,
+            and comes with induced isomorphisms
+            \begin{equation}
+                  \mathsf{sSet}(K, B^A) = \mathsf{dSet}^G(A, \Hom(i_! K, B)).
+            \end{equation}
+      \item Let $k(A,X) \in \mathsf{sSet}$ denote $k(X^A)$, where $k(-)$ is the maximal sub Kan complex.
+            \todo[inline]{reference $X^A$ being Kan}
+      \item Let $X^{(K)} \in \mathsf{dSet}_G$ be defined to have $T$-dendrices given by
+            \begin{equation}
+                  X^{(K)}(T) := k(i^{\**}\Hom(i_! K \otimes \Omega[T], X),
+            \end{equation}
+            and we have canonical isomorphisms
+            \begin{equation}
+                  \mathsf{dSet}_G(u_* A, X^{(K)}) = \mathsf{sSet}(K, k(A,X)).
+            \end{equation}
+      \end{itemize}
+\end{notation}
+
+
+
+
+The following is the equivariant generalization of 
+\cite[Thm. 3.5]{CM13a}.
+
+\begin{proposition}\label{TFAE PROP}
+Let $X \to Y$ be a map between $G$-$\infty$-operads. The following are equivalent:
+\begin{enumerate}
+	\item[(a)] for all $G$-corollas $C \in \Sigma_G$ and $H \leq G$ the maps
+\[k(\Omega[C],X) \to k(\Omega[C],Y), \qquad
+k(\Omega[G/H \cdot \eta],X) \to k(\Omega[G/H \cdot \eta],Y)
+\]
+are Kan equivalences in $\mathsf{sSet}$;
+	\item[(b)] for all $G$-trees $T \in \Omega_G$ the maps 
+	$k(\Omega[T],X) \to k(\Omega[T],Y)$
+are Kan equivalences in $\mathsf{sSet}$;
+	\item[(c)] for all normal $A \in \mathsf{dSet}^G$, the maps
+	$k(A,X) \to k(A,Y)$
+are Kan equivalences in $\mathsf{sSet}$;
+	\item[(d)] $f \colon X \to Y$ is a weak equivalence in 
+	$\mathsf{dSet}^G$.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{definition}\label{PROF DEF}
+	Let $X$ be a $G$-$\infty$-operad.
+	A \textit{$G$-profile} on $X$ is a map
+\[
+	\partial \Omega[C] \to X
+\]
+	for some $G$-corolla $C \in \Sigma_G$.
+More explicitly, a $G$-profile is described by the following data:
+\begin{itemize}
+	\item subgroups $H_i \leq G$, $0\leq i \leq k$ such that
+	$H_0 \geq H_i$ for $1 \leq i \leq k$;
+	\item objects $x_i \in X(\eta)^{H_i}$ for $0 \leq i \leq k$.
+\end{itemize}
+To simplify notation, we prefer to denote a $G$-profile as 
+$(x_1,\cdots,x_k;x_0)$, and refer to it as a 
+\textit{$C$-profile}.
+\end{definition}
+
+{\color{red} HERE}%
+
+
+
+
+\begin{definition}\label{MAPSPACE DEF}
+Given a $G$-$\infty$-operad and a $C$-profile 
+$(x_1,\cdots,x_k;x_0)$ we define the space of maps
+$X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
+\[
+\begin{tikzcd}
+	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
+	Hom^G(\Omega[C],X) \ar{d}
+\\
+	\eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
+	\prod_{0\leq i \leq k} X^{H_i}
+\end{tikzcd}
+\]
+
+ one sees that 
+$X(x_1,\cdots,x_k;x_0)$ 
+can indeed be regarded as a simplicial set (in fact, this is a Kan complex).
+\end{definition}
+
+
+\begin{definition}
+Let $f \colon X \to Y$ be a map of $G$-$\infty$-operads.
+
+The map $f$ is called \textit{fully faithful} if, for each $C$-profile $(x_1,\cdots, x_k ; x_0)$ one has that
+\[
+X(x_1,\cdots,x_k;x_0) \to Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
+\]
+is a Kan equivalence in $\mathsf{sSet}$.
+
+The map $f$ is called \textit{essentially surjective} if for each subgroup $H \leq G$ the map of categories
+$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
+are essentially surjective.
+\end{definition}
+
+The following is the equivariant generalization of 
+\cite[Thm. 3.11 and Remark 3.12]{CM13a}.
+
+
+
+\begin{theorem}\label{COMSQ THM}
+A map $f \colon X \to Y$ of $G$-$\infty$-operads is fully faithful iff for all $G$-corollas $C \in \Sigma_G$ the commutative squares
+of Kan complexes
+\begin{equation}\label{COMSQ EQ}
+\begin{tikzcd}
+	k(\Omega[C],X) \ar{r} \ar{d}[swap]{p}&
+	k(\Omega[C],Y) \ar{d}{q}
+\\
+	k(\partial \Omega[C],X) \ar{r}[swap]{f_{\**}} &
+	k(\partial \Omega[C],Y)
+\end{tikzcd}
+\end{equation}
+are homotopy pullback squares.
+
+Hence, $f$ is a weak equivalence in $\mathsf{dSet}^G$ iff $f$ is both fully faithful and essentially surjective. 
+\end{theorem}
+
+\begin{proof}
+Noting that the $0$-simplices of $k(\partial \Omega[C],X)$
+are precisely the $C$-profiles $(x_1,\cdots,x_k,x_0)$,
+fully faithfulness can be reinterpreted as saying that all fiber maps
+$p^{-1}(x_1,\cdots,x_k,x_0) \to 
+q^{-1}(f(x_1),\cdots,f(x_k),f(x_0))$
+are weak equivalences. But since $p,q$ are Kan fibrations, this is equivalent to the condition that \eqref{COMSQ EQ}
+is a homotopy pullback (see \cite[Lemma 3.9]{CM13a}), and the first half follows.
+
+For the second half, note first that the bottom map in 
+\eqref{COMSQ EQ} can be rewritten as
+\[
+	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, X \right) \to 
+	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, Y \right).
+\]
+
+Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in \eqref{COMSQ EQ}
+are weak equivalences, so that the square is a pull back square, and thus $f$ is fully faithful. 
+That $f$ is essentially surjective follows from the identity
+$k \left(\Omega[G/H \cdot \eta], Z \right) = k(\iota^{\**}(Z^H))$, so that 
+$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$ is essentially surjective at the level of maximal groupoids, and this suffices for essential surjectivity.
+
+Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ} is a homotopy pullback, Proposition \ref{TFAE PROP} implies that one needs only check that the maps of Kan complexes
+\begin{equation}\label{KANMAP EQ}
+      k \left(\Omega[G/H \cdot \eta], X \right) \to 
+	k \left(\Omega[G/H \cdot \eta], Y \right)
+\qquad \text{or} \qquad
+	k\left(\iota^{\**}\left(X^H\right)\right) \to 
+	k\left(\iota^{\**}\left(Y^H\right)\right)
+\end{equation}
+are weak equivalences. As before, essential surjectivity is equivalent to the fact that the maps \eqref{KANMAP EQ} induce surjections on connected components. Hence, it now suffices to show that for each $0$-simplex $x \in X^H$ the top map of loop spaces in 
+\begin{equation}\label{OMEGASQ EQ}
+\begin{tikzcd}
+	\Omega(k(\iota^{\**}X^H),x) \ar{r} \ar{d} &
+	\Omega(k(\iota^{\**}Y^H),f(x)) \ar{d}
+\\
+	X(x;x) \ar{r} &
+	Y(f(x);f(x))
+\end{tikzcd}
+\end{equation}
+is a weak equivalence.
+Note that the bottom map in 
+\eqref{OMEGASQ EQ}
+is a weak equivalence since $F$ is fully faithful
+and that the vertical maps are the inclusion of the connected components corresponding to automorphisms of $x$ in 
+$\tau(\iota^{\**} X^H)$.
+It thus suffices to check that the top map in
+\eqref{OMEGASQ EQ} is an isomorphism on $\pi_0$,
+and this follows since the map of categories
+$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
+is fully faithful. 
+\end{proof}
+
+
+
+
+
+
 
 
 
