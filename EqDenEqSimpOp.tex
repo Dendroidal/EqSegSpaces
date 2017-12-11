@@ -829,7 +829,8 @@ an inclusion; the equivalence between the colimit and union formulas follows fro
 	\bigcup_{U \in \mathsf{Face}(T),U \neq T_i}
 	\Omega[U]
 \]
-and, for $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges 
+and, for $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$ a
+non-empty $G$-subset of inner edges 
 (we abbreviate $E_i = E \cap E^{\mathsf{i}}(T_i)$), \textit{$G$-inner horns}
 \[
 	\Lambda^{E}[T] = 
@@ -1689,9 +1690,12 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 
 \begin{proposition}\label{ORB_HORN_PROP}
-	Inclusions of orbital $G$-inner horns
+	For $G$-subsets  
+	$\emptyset \neq F \subseteq E \subseteq E^{\mathsf{i}}(T)$
+	the inclusions
 \begin{equation}\label{ORBHORNINC EQ}
-	\Lambda_o^{E \amalg F}[T] \to \Lambda_o^{F}[T]
+	\Lambda_o^{E}[T] \to \Omega[T],\qquad
+	\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]
 \end{equation}
 	are $G$-inner anodyne.
 \end{proposition}
@@ -1700,15 +1704,14 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 \begin{proof}
 We are free to assume that $T \in \Omega^G \subseteq \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
 $E_{\**}=E \cap E^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap E^{\mathsf{i}}(T_{\**})$,
-the map \eqref{ORBHORNINC EQ} is
+the maps in \eqref{ORBHORNINC EQ} are
 $G \cdot_H 
-\left( \Lambda_o^{E_{\**} \amalg F_{\**}}[T_{\**}] \to \Lambda_o^{F_{\**}}[T_{\**}]\right)$.
+\left( \Lambda_o^{E_{\**}}[T_{\**}] \to \Omega[T_{\**}]\right)$
+and
+$G \cdot_H 
+\left( \Lambda_o^{E_{\**}}[T_{\**}] \to \Lambda_o^{F_{\**}}[T_{\**}]\right)$.
 
-Further, we are clearly free to assume $E \neq \emptyset$.
-There are two main cases, 
-$F = \emptyset$ and $F \neq \emptyset$.
-
-If $F=\emptyset$ then $\Lambda_o^{F}[T] = \Omega[T]$ and we apply
+In the $\Lambda_o^{E}[T] \to \Omega[T]$ case we apply
 Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
 \[
 	\Xi^{\**} = E, \qquad 
@@ -1718,71 +1721,72 @@ Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
 It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
 	(Ch0) and (Ch3) are clear.
 
-	Note that for $V\hookrightarrow T$ it is $V \not \in X$ iff 
-	$GV = T-E'$ for some $G$-equivariant subset
-	$E' \subseteq E$.
+Note that for $V\hookrightarrow T$ it is $V \not \in X$ iff 
+$GV = T-E'$ for some $G$-subset
+$E' \subseteq E$.
 
-	For (Ch1), the condition $\Xi_{V} = \emptyset$
-	says that none of the inner edges of $V$ are in $E$,
-	and thus that the equivariant outer face $G V$ contains none of the edge orbits in $E$ as inner edge orbits. Since $E \neq \emptyset$, the equivariant outer face $GV$ is not $T$ itself, 
-	and hence $X=\Lambda_o^{E}[T]$ contains $V$.
+For (Ch1), the condition $\Xi_{V} = \emptyset$
+says that none of the inner edges of $V$ are in $E$,
+and thus that the orbital outer face $G V$ contains none of the edge orbits in $E$ as inner edge orbits. Since $E \neq \emptyset$, the orbital outer face $GV$ is not $T$ itself, 
+and hence $X=\Lambda_o^{E}[T]$ contains $V$.
 
-	For (Ch2), note that if $V \not \in X$, i.e., 
-	$GV = T - E'$, then Remark \ref{GINNER REM} implies that
-	$G(V-\Xi_V) = T - E''$ for $E'\subseteq E'' \subseteq E$,
-	and thus also $(V-\Xi_V) \not \in X$.
+For (Ch2), note that if $V \not \in X$, i.e., 
+$GV = T - E'$, then Remark \ref{GINNER REM} implies that
+$G(V-\Xi_V) = T - E''$ for $E'\subseteq E'' \subseteq E$,
+and thus also $(V-\Xi_V) \not \in X$.
 
-	In the case $F \neq \emptyset$ we instead apply Lemma \ref{CHAREDGE LEM} with $I = E/G$, with an 
-	\textit{arbitrary} choice of total order, and 
-	(writing elements of $E/G$ as orbits $Ge \subseteq E$)
+
+In the $\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]$ case 
+we instead apply Lemma \ref{CHAREDGE LEM} with $I = (E \setminus F)/G$, with an 
+\textit{arbitrary} choice of total order, and 
+(writing elements of $(E \setminus F)/G$ as orbits $Ge \subseteq E \setminus F$)
 \[
 	\Xi^{Ge} = F, \qquad 
 	U_{G e}= T - Ge, \qquad
-	X=\Lambda_o^{E\amalg F}[T].
+	X=\Lambda_o^{E}[T].
 \]
-Note that the $U_{Ge}$ are the orbital inner faces $T - Ge$ for $Ge \subseteq E$, and thus the map
-in Lemma \ref{CHAREDGE LEM} is indeed \eqref{ORBHORNINC EQ}.
+Note that the $U_{Ge}$ are the orbital inner faces $T - Ge$ for $Ge \subseteq E \setminus F$, and thus the map
+in Lemma \ref{CHAREDGE LEM} is indeed $\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]$.
 Further, we are free to abbreviate $\Xi = \Xi^{Ge}$ and $\Xi_V = \Xi^{Ge}_V$, since
 $\Xi^{Ge}$ is independent of $G e$.
 We again check the characteristic conditions. (Ch0) is clear.
 
-	For (Ch1), note that for an outer face 
-	$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
-	Lemma \ref{INNINT LEM} implies
-	$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
-	and hence since $\Xi_{U_i} = F = \Xi$ the 
-	hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
-	$\Xi_{\bar{V}} = \emptyset$.
-	Hence just as before $G\bar{V}$ is an equivariant outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E\amalg F}[T]$.
-	The argument for (Ch2) is identical to the one in the case
-	$F=\emptyset$.
-	Lastly, (Ch3) follows since	if $V \not \in X$, so that
-	$GV = T - E'-F'$ and $G(V - \Xi_V) = T-E'-F''$ with
-	$E' \subseteq E$, $F' \subseteq F'' \subseteq F$,
-	then $GV \hookrightarrow T-Ge$ iff $G(V - \Xi_V) \hookrightarrow T-Ge$
-	and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
+For (Ch1), note that for an outer face 
+$V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
+Lemma \ref{INNINT LEM} implies
+$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
+and hence since $\Xi_{U_i} = F = \Xi$ the 
+hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
+$\Xi_{\bar{V}} = \emptyset$.
+Hence just as before $G\bar{V}$ is an orbital outer face other than $T$, hence $V$ is in $X=\Lambda_o^{E}[T]$.
+The argument for (Ch2) is identical to the one in the
+$\Lambda_o^{E}[T] \to \Omega[T]$ case.
+Lastly, (Ch3) follows since	if $V \not \in X$, so that
+$GV = T - E'$ and $G(V - \Xi_V) = T-E'-F'$ with
+$E' \subseteq E$, $F' \subseteq F$,
+then $GV \hookrightarrow T-Ge$ iff $G(V - \Xi_V) \hookrightarrow T-Ge$
+and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
 \end{proof}
 
 
 \begin{proposition}\label{REG_HORN_PROP}
-Inclusions of $G$-inner horns
+For $G$-equivariant 
+$\emptyset \neq F \subseteq E \subseteq E^{\mathsf{i}}(T)$
+the inclusions
 \begin{equation}
-	\Lambda^{E \amalg F}[T] \to \Lambda^{F}[T]
+	\Lambda^{E}[T] \to \Lambda^{F}[T]
 \end{equation}
 are $G$-inner anodyne.
 \end{proposition}
 
 \begin{proof}
-The case $F = \emptyset$ is now tautological,
-hence we can now assume that both $E,F \neq \emptyset$.
-
 We now apply Lemma \ref{CHAREDGE LEM} with 
-$I = \mathcal{P}_0(E)$
-the poset of non-empty subsets $\emptyset \neq E' \subseteq E$, ordered by \textit{reverse inclusion}, and
+$I = \mathcal{P}_0(E\setminus F)$
+the poset of non-empty subsets $\emptyset \neq E' \subseteq (E \setminus F)$, ordered by \textit{reverse inclusion}, and
 \[
 	\Xi^{E'} = F, \qquad
 	U_{E'} = T - E', \qquad
-	X=\Lambda^{E \amalg F}[T].
+	X=\Lambda^{E}[T].
 \]
 We again need to verify the characteristic conditions,
 and as in the previous result we abbreviate
@@ -1801,20 +1805,19 @@ $V \hookrightarrow T-(E' \cup E'')$.
 
 \begin{remark}\label{TWOPROOF REM}
 	By specifying to the non-equivariant case $G = \**$
-	when $E,F \neq \emptyset$,
 	the previous results yield two distinct proofs
 	that inclusions of non-equivariant horns
-	$\Lambda^{E \amalg F}[T] \to \Lambda^{F}[T]$
+	$\Lambda^{E}[T] \to \Lambda^{F}[T]$
 	are inner anodyne,
-	with the first proof using $I = E$ (with any order) and a second using 
-	$I = \mathcal{P}_0(E)$. 
+	with the first proof using $I = E \setminus F$ (with any total order) and the second using 
+	$I = \mathcal{P}_0(E \setminus F)$. 
 
 	The discrepancy is explained as follows: 
 	when $T$, $E$, $F$ are $G$-equivariant, showing that
-	$\Lambda^{E \amalg F}[T] \to \Lambda^{F}[T]$ 
+	$\Lambda^{E}[T] \to \Lambda^{F}[T]$ 
 	is $G$-inner anodyne requires a control of isotropies 
 	not needed when showing that the underlying map is non-equivariant inner anodyne, and since this control is given by (Ch3), it is necessary to include in the $\{U_i\}$ the
-	``intersections'' of $T-e$ and $T-ge$ for $e \in E$. 
+	``intersections'' of $T-e$ and $T-ge$ for $e \in E \setminus F$. 
 \end{remark}
 
 
@@ -1850,9 +1853,9 @@ a class of normal monomorphisms of $\mathsf{dSet}^G$
 pushouts, transfinite composition, retracts,
 as well as the following additional cancellation property: 
 if $f,g$ are normal monomorphisms
-\[
+\begin{equation}\label{CANCEL_EQ}
 A \xrightarrow{f} B \xrightarrow{g} C
-\]
+\end{equation}
 such that both $f$ and $gf$ are in the class, then so is $g$.
 
 The following is an equivariant generalization of 
@@ -1863,22 +1866,24 @@ The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
 $\Lambda^{E} [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-equivariant $E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-equivariant $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
 \item the orbital $G$-inner horn inclusions
 $\Lambda^{E}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-equivariant $E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-equivariant $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
 \item the $G$-Segal core inclusions
 $Sc[T] \to \Omega[T]$ for $T \in \Omega_G$.
 \end{itemize}
 \end{proposition}
 
-In the following proof we call the hypersaturation
-of the orbital horn (resp. Segal core) inclusions the orbital (resp. Segal) hypersaturation.
+In the following proof we refer to the hypersaturation
+of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) hypersaturation.
+
 
 \begin{proof}
 	The fact that $G$-inner horn inclusions generate the orbital and Segal hypersaturations has been established in Proposition \ref{ORB_HORN_PROP} and Remark \ref{RECOVER REM}(i).
 	
-	To see that the $G$-inner horn inclusions are in the orbital hypersaturation, we again argue by induction on $|T_{\**}|$. Recalling that in the proof of the $F = \emptyset$ case of Proposition \ref{ORB_HORN_PROP}
+	To see that the $G$-inner horn inclusions are in the orbital hypersaturation, we again argue by induction on $|T_{\**}|$, with the base cases those where $\Lambda^{E} [T]=\Lambda^{E}_o [T]$.
+	Recalling that in the proof of Proposition \ref{ORB_HORN_PROP}
 	one sets
 	$I=\**$, $U_{\**} = T$ and $\Xi^{\**} = E$,
 	Remark \ref{FACCES REM} implies that in the factorization
@@ -1906,30 +1911,111 @@ of the orbital horn (resp. Segal core) inclusions the orbital (resp. Segal) hype
 	$\Lambda^{E}[T] \to \Omega[T]$, finishing the proof.
 \end{proof}
 
-	{\color{red} HERE}
 
-\begin{remark}
-	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
-	one recovers the well known claim that 
+\begin{remark}\label{SLICE REM}
+	Setting $G=e$ and slicing over the stick tree $\eta$, the previous result
+	recovers the well known claim that 
 	the hypersaturation of the simplicial inner horns
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
+	$\{Sc[n] \to \Delta[n]\colon n \geq 0\}$.
 \end{remark}
 
 
 \begin{remark}\label{HYPERSATKAN REM}
-	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
+	We will make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
 	Namely, we claim that the hypersaturation of all simplicial horns 
 	$\{\Lambda^i[n] \to \Delta[n] \colon 0 \leq i \leq n\}$
 	coincides with the hypersaturation of all vertex inclusion maps
 	$\{\Delta[0] \to \Delta[n]\}$.
-	Indeed, call the latter hypersaturation $S$. 
-	An easy argument shows that the Segal core inclusions 
-	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
-	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
+	Call the latter hypersaturation $S$. 
+	One easily checks that the maps $\{0\} \to Sc[T]$ are in $S$, so that by cancellation so are the Segal core inclusions 
+	$\{Sc[n] \to \Delta[n]\}$ and hence by Remark \ref{SLICE REM} so are all inner horn inclusions. 
+	Moreover, for left horns $\Lambda^0[n]$
+	the maps $\{0\} \to \Lambda^0[n]$ are built cellularly
+	from left horn inclusions
+	$\Lambda^0[k] \to \Delta[k]$ with $k<n$
+	(in join notation (see {\color{blue} fill}),
+	$\{0\} \to \Lambda^0[n]$ is 
+	$\Delta[0] \star (\emptyset \to \partial \Delta[n-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[n-1]$).
+	But hence by induction and the cancellation property all left horn inclusions 
+	$\Lambda^0[n] \to \Delta[n]$
+are in $S$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
 \end{remark}
 
+Given a class $\mathcal{C}$ of normal monomorphisms in $\mathsf{dSet}^G$, let $\mathcal{C}^{\boxslash !}$
+denote the class of maps satisfying the 
+\textit{strict right lifting property} (i.e the usual lifts exist and are \textit{unique})
+against all maps in $\mathcal{C}$.
+
+\begin{proposition}\label{HYPER_LP_PROP}
+	If two classes $\mathcal{C},\mathcal{D}$
+	of normal monomorphisms of $\mathsf{dSet}^G$
+	have the same hypersaturation then
+	$\mathcal{C}^{\boxslash !} = \mathcal{D}^{\boxslash !}$.
+\end{proposition}
+
+\begin{proof}
+It suffices to check that the hypersaturation closure conditions are compatible with strict right lifting properties.
+The claims concerning pushouts, transfinite compositions and retracts follow by the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
+
+%For any pushout (respectively (dashed) retract)
+%\begin{equation}
+%	\begin{tikzcd}
+%		C \arrow[r, dashed] \arrow[d,dashed] &
+%		A \arrow[r] \arrow[d] &
+%		C \arrow[r] \arrow[d] &
+%		X \arrow[d]
+%	\\
+%		D \arrow[r, dashed] &
+%		B \arrow[r]	&
+%		D \arrow[r]	&
+%		Y
+%	\end{tikzcd}
+%\end{equation}
+%the lift $B \to X$ and the given map $C \to X$ define a compatible map from the pushout to $X$
+%(resp. the composite $D \to B \to X$ is a lift);
+%moreover, for any lift $D \to X$, the composite $B \to D \to X$ is a lift over $A \to B$,
+%and hence strictness implies strictness by the universal property of the pushout
+%(resp. by composing with the section map $D \to B$).
+
+%For transfinite composites,
+%both the definition of the lift for the composite and its uniqueness are immediate.
+
+We thus address only the cancellation property, which is the most interesting case. Suppose then that $r$ has the strict right lifting property against normal monomorphisms $f$ and $gf$, and consider a lifting problem as on the left below.
+\begin{equation}
+\begin{tikzcd}[column sep = 8em]
+	B \ar{r}{p} \ar{dd}[swap]{g}& 
+	X \ar{dd}{r}
+&
+	A \ar{r} \ar{d}[swap]{f} &
+	X \ar{d}{r}
+\\
+&&
+	|[alias=B]|
+	B \ar{d}[swap]{g}
+	\ar{ru}{p} &
+	|[alias=Y]|
+	Y \ar[equal]{d}
+\\
+	C \ar{r}[swap]{q} \ar[dashed]{ruu} & Y
+&
+	C \ar{r}[swap]{q}
+	\ar[dashed]{ruu}[swap, near start]{\exists! H}&
+	Y
+\arrow[from=B, to=Y,crossing over]
+\end{tikzcd}
+\end{equation}
+By assumption, one can find a unique lift $H$ for the outer square on the right.
+We claim that $H$ is also the unique lift for the left square.
+Noting that
+$pf = Hgf$
+and 
+$rp = qg =  r H g$
+it follows that both $p$ and $Hg$ are lifts for the top square in the right diagram, so that by the uniqueness assumption it is
+$p = Hg$. This shows that $H$ is indeed a lift for the left square.
+Uniqueness follows since any lift of the left square induces a lift of the outer right square.
+\end{proof}
 
 
 
@@ -2871,26 +2957,14 @@ We now recall the generalizations of these definitions to the category $\Omega_G
 
 
 
-
-
-
-
-
 \newpage
+
+
+
 
 \subsection{Proof of Proposition \ref{HYPER PROP}}
 
 
-{\color{red} need to think about hypersaturation for non-monomorphisms}
-
-Recall that a class of maps is called \textit{saturated}
-if it is closed under pushouts, transfinite composition and retracts.
-Moreover, following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we will call a class of maps of $\mathsf{dSet}^G$ \textit{hypersaturated} if it is further closed under the following cancellation property: if in
-\begin{equation}
-      \label{CANCEL_EQ}
-      A \xrightarrow{f} B \xrightarrow{g} C
-\end{equation}
-both $f$ and $gf$ are in the class, then so is $g$.
 
 \begin{notation}
       Given a class of morphisms $\mathcal{C}$ in $\mathcal V$, let
@@ -2912,6 +2986,7 @@ The following lemma identifies some of the utility of hypersaturations.
         In many sources (e.g. \cite{Hov99}), $\mathcal C^\boxslash$ is denoted $\mathcal C - \mbox{inj}$.
       }.
 \end{notation}
+
 \begin{lemma}
       \label{HYPER_LP_LEM}
       Let $\mathcal C$ be a class of maps in $\mathcal V$. Then
@@ -3039,27 +3114,7 @@ In this subsection, we will prove the following equivariant generalization of \c
 \end{proposition}
 
 
-\begin{remark}
-	Setting $G=e$ and slicing over the stick tree $\eta$ in the previous result
-	one recovers the well known claim that 
-	the hypersaturation of the simplicial inner horns
-	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
-	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\colon n \geq 2\}$.
-\end{remark}
 
-
-\begin{remark}\label{HYPERSATKAN REM}
-	We will also make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
-	Namely, we claim that the hypersaturation of all simplicial horns 
-	$\{\Lambda^i[n] \to \Delta[n] \colon 0 \leq i \leq n\}$
-	coincides with the hypersaturation of all vertex inclusion maps
-	$\{\Delta[0] \to \Delta[n]\}$.
-	Indeed, call the latter hypersaturation $S$. 
-	An easy argument shows that the Segal core inclusions 
-	$\{Sc[n] \to \Delta[n]\}$ are in $S$ and thus so are all inner horn inclusions. On the other hand, the skeletal filtration of the left horns $\Lambda^0[n]$ is built exclusively out of left horn inclusions, and thus since $\Delta[0]=\Lambda^0[1] \to \Delta[1]$ is in $S$ so are all left horn inclusions 
-	$\Lambda^0[n] \to \Delta[n]$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
-\end{remark}
 
 % ---------------------------------------------------------------------------------------------------
 
@@ -3113,9 +3168,6 @@ The observation below will be useful in the proofs which follow.
 
 We break up the proof of Proposition \ref{HYPER PROP} into its constituent pieces.
 
-\begin{proposition}
-      Proposition \ref{ORB_HORN_PROP}.
-\end{proposition}
 
 The reverse inclusion is only true on the level of hypersaturations.
 
@@ -3487,25 +3539,32 @@ $(G \cdot \Omega_{IHI})^{\boxslash !} = \mathsf{SKan}^G$.
 
 
 
+\newpage
 
+\section{Equivalences of $G$-$\infty$-operads}
 
-
-
-
-
-
-
-
-
-
-\subsection{Weak Equivalences in $\mathsf{dSet}^G$}
-
+{\color{red} HERE}
 
 \begin{notation}
 Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
 $H_0 \geq H_i$, $1 \leq i \leq k$ we write
 $C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
 $H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
+\[
+\begin{tikzpicture}
+[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
+	\node at (0,0) {}
+		child{node [dummy] {}
+			child{
+			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+			child{
+			edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+		edge from parent node [swap] {$G/H_0$}
+		};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+\end{tikzpicture}
+\]
 \end{notation}
 
 We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
@@ -3540,23 +3599,25 @@ We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
 \end{notation}
 
 
+
+
 The following is the equivariant generalization of 
 \cite[Thm. 3.5]{CM13a}.
 
 \begin{proposition}\label{TFAE PROP}
 Let $X \to Y$ be a map between $G$-$\infty$-operads. The following are equivalent:
 \begin{enumerate}
-	\item[(a)] for all $G$-corollas $C_A$ and $H\leq G$ the maps
-\[k(\Omega[C_A],X) \to k(\Omega[C_A],Y), \qquad
+	\item[(a)] for all $G$-corollas $C \in \Sigma_G$ and $H \leq G$ the maps
+\[k(\Omega[C],X) \to k(\Omega[C],Y), \qquad
 k(\Omega[G/H \cdot \eta],X) \to k(\Omega[G/H \cdot \eta],Y)
 \]
-are weak equivalences in $\mathsf{sSet}$;
-	\item[(b)] for all $G$-trees $T$ the maps 
-	\[k(\Omega[T],X) \to k(\Omega[T],Y) \]
-are weak equivalences in $\mathsf{sSet}$;
-	\item[(c)] for all normal $G$-dendroidal sets $A$, the maps
-	\[k(A,X) \to k(A,Y) \]
-are weak equivalences in $\mathsf{sSet}$;
+are Kan equivalences in $\mathsf{sSet}$;
+	\item[(b)] for all $G$-trees $T \in \Omega_G$ the maps 
+	$k(\Omega[T],X) \to k(\Omega[T],Y)$
+are Kan equivalences in $\mathsf{sSet}$;
+	\item[(c)] for all normal $A \in \mathsf{dSet}^G$, the maps
+	$k(A,X) \to k(A,Y)$
+are Kan equivalences in $\mathsf{sSet}$;
 	\item[(d)] $f \colon X \to Y$ is a weak equivalence in 
 	$\mathsf{dSet}^G$.
 \end{enumerate}
@@ -3576,11 +3637,12 @@ More explicitly, a $G$-profile is described by the following data:
 	$H_0 \geq H_i$ for $1 \leq i \leq k$;
 	\item objects $x_i \in X(\eta)^{H_i}$ for $0 \leq i \leq k$.
 \end{itemize}
-To simplify notation, we will prefer to denote a $G$-profile as 
+To simplify notation, we prefer to denote a $G$-profile as 
 $(x_1,\cdots,x_k;x_0)$, and refer to it as a 
 \textit{$C$-profile}.
 \end{definition}
 
+{\color{red} HERE}%
 
 \begin{definition}\label{MAPSPACE DEF}
 Given a $G$-$\infty$-operad and a $C$-profile 
@@ -3589,15 +3651,13 @@ $X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
 \[
 \begin{tikzcd}
 	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
-	Hom(\Omega[C],X) \ar{d}
+	Hom^G(\Omega[C],X) \ar{d}
 \\
-	G \cdot \eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
+	\eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
 	\prod_{0\leq i \leq k} X^{H_i}
 \end{tikzcd}
 \]
-Noting that there are equivalences of categories (the first of which is an isomorphism)
-\[(\mathsf{dSet}_G) / G\cdot \eta \simeq 
-\mathsf{sSet}^{B_G} \simeq \mathsf{sSet},\]
+
  one sees that 
 $X(x_1,\cdots,x_k;x_0)$ 
 can indeed be regarded as a simplicial set (in fact, this is a Kan complex).
@@ -3611,7 +3671,7 @@ The map $f$ is called \textit{fully faithful} if, for each $C$-profile $(x_1,\cd
 \[
 X(x_1,\cdots,x_k;x_0) \to Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
 \]
-is weak equivalence in $\mathsf{sSet}$.
+is a Kan equivalence in $\mathsf{sSet}$.
 
 The map $f$ is called \textit{essentially surjective} if for each subgroup $H \leq G$ the map of categories
 $\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
@@ -5114,26 +5174,16 @@ a complete dendroidal Segal space.
 
 
 
+\newpage
 
+
+\section{Scratchwork (to be folded into previous sections eventually)}
 
 \[
 	u^{\**} \colon \mathsf{dSet}_G 
 \rightleftarrows 
 	\mathsf{dSet}^G \colon u_{\**}
 \]
-
-
-
-{\color{red} discuss characteristic horns}
-
-
-
-\newpage
-
-
-\section{Scratchwork (to be folded into previous sections eventually)}
-
-
 
 
 
@@ -5237,21 +5287,6 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 \begin{remark}
 {\color{blue} bla bla} the diagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
 \end{remark}
-
-
-
-
-\begin{lemma}
-	A non-equivariant face $U \hookrightarrow T$ generates an equivariant face $G\cdot U \hookrightarrow T$ iff the $G$-isotropy of $r_U$ matches the isotropy of $U$.
-\end{lemma}
-
-
-
-%\begin{remark}\label{OUTINP REM}
-%	Let $U \hookrightarrow T$ be an outer face.
-%	Then for any string of descendancy relations
-%	$e <_d e' <_d r$ such that $e,r\in U$ it is also $e' \in U$.
-%\end{remark}
 
 
 
