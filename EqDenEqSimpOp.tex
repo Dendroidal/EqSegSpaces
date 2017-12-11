@@ -3508,6 +3508,37 @@ $C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the
 $H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
 \end{notation}
 
+We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
+\begin{notation}
+      \label{HOM_NOTATIONS}
+      Fix $A,B,C \in \mathsf{dSet}^G$, $X \in \mathsf{dSet}^G$ a $G$-$\infty$-operad, $K \in \mathsf{sSet}$.
+      \begin{itemize}
+      \item The \textit{internal hom} $\Hom(A,B) \in \mathsf{dSet}^G$ is defined by
+            \begin{equation}
+                  \Hom(A,B)(T) = \mathsf{dSet}^G(A \otimes \Omega[T], B),
+            \end{equation}
+            and come equipped with canonical isomorphisms
+            \begin{equation}
+                  \mathsf{dSet}^G(A \otimes C, B)= \mathsf{dSet}^G(C, \Hom(A,B).
+            \end{equation}
+      \item The \textit{simplicial mapping space} $B^A \in \mathsf{sSet}$ is given by $i^*\Hom(A,B)$,
+            and comes with induced isomorphisms
+            \begin{equation}
+                  \mathsf{sSet}(K, B^A) = \mathsf{dSet}^G(A, \Hom(i_! K, B)).
+            \end{equation}
+      \item Let $k(A,X) \in \mathsf{sSet}$ denote $k(X^A)$, where $k(-)$ is the maximal sub Kan complex.
+            \todo[inline]{reference $X^A$ being Kan}
+      \item Let $X^{(K)} \in \mathsf{dSet}_G$ be defined to have $T$-dendrices given by
+            \begin{equation}
+                  X^{(K)}(T) := k(i^{\**}\Hom(i_! K \otimes \Omega[T], X),
+            \end{equation}
+            and we have canonical isomorphisms
+            \begin{equation}
+                  \mathsf{dSet}_G(u_* A, X^{(K)}) = \mathsf{sSet}(K, k(A,X)).
+            \end{equation}
+      \end{itemize}
+\end{notation}
+
 
 The following is the equivariant generalization of 
 \cite[Thm. 3.5]{CM13a}.
@@ -3663,6 +3694,25 @@ is fully faithful.
 
 
 \section{Equivariant dendroidal spaces}
+
+We extend Notations \ref{HOM_NOTATIONS} to the bisimplicial and simplicial-dendroidal world.
+\begin{notation}
+      Here, we will abuse notation, and let
+      $\mathsf{dSet}$ denote either of $\mathsf{sSet}$ or $\mathsf{dSet}$;
+      in particular, it will denote the horizontal component of the bi-graded objects.
+      % Similarly, let $\pi_s$ and $\pi_d$ denote the obvious projections.
+      Moreover, let $\hat\times$ denote the \textit{external product}.
+      % Finally, let $y(-)$ denote the natural Yoneda embeddings.
+      
+      Now fix $A \in \mathsf{dSet}^G$,      
+      $K \in \mathsf{sSet}$, and
+      $Y \in \mathsf{sdSet}^G$. We define
+      \begin{itemize}
+      \item $Y^K \in \mathsf{dSet}$ by $Y^K(T) = \mathsf{sSet}(\Omega[T] \hat\times K, Y)$.
+      \item $Y^{A} \in \mathsf{sSet}$ by $Y^A(n) = \mathsf{dSet}(A \hat\times \Delta[n],Y)$.
+      \item $Y^{(A)} \in \mathsf{sdSet}_G$ by $Y^{(A)}(T) = k(i^{\**}\Hom(\Omega[T] \otimes Y,X) \in \mathsf{sSet}$.
+      \end{itemize}
+\end{notation}
 
 The results in \cite[\S 4]{CM13a}
 concerning the simplicial Reedy model structure all generalized mutatis mutandis.
@@ -3999,7 +4049,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 	\item[(i)] for each fixed $m$ all vertex maps $X_{\bullet,m} \to X_{\bullet,0}$ are trivial fibrations in $\mathsf{dSet}^G$;
 	\item[(ii)] any simplicial Reedy fibrant replacement $\tilde{X}$ of $X$ is in fact fibrant in the joint Reedy model structure;
 	\item[(iii)] a map $X \to Y$ is a dendroidal weak equivalence iff it is a joint weak equivalence;
-	\item[(iv)] regarding $X_0$ as a simplicially constant object in $\mathsf{sdSet}^G$, the map $X_0 \to X$ is a dendroidal equivalence, and thus a joint equivalence. (iv) follows from (i).
+	\item[(iv)] regarding $X_0$ as a simplicially constant object in $\mathsf{sdSet}^G$, the map $X_0 \to X$ is a dendroidal equivalence, and thus a joint equivalence. 
 \end{itemize}
 \end{corollary}
 
@@ -4008,6 +4058,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 	(i) follows since $X$ then has the right lifting property with respect to all maps 
 	$(\Delta[0] \to \Delta[m]) \square (\partial \Omega[T] \to \Omega[T])$. (ii) follows from (i) and the characterization in  Corollary \ref{JOINTFIBCHAR COR} (ii). (iii) follows from (ii) since the simplicial fibrant replacement maps 
 	$X \to \tilde{X}$ are dendroidal equivalences.
+        (iv) follows immediately from (i).
 \end{proof}
 
 
@@ -4047,6 +4098,7 @@ A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
 	is a trivial fibration in $\mathsf{sdSet_G}$, 
 	so that $X^{J_d(m)}(T) \sim k(\Omega[T],X)$.
 \end{remark}
+\todo[inline]{define trivial fibrations in $\mathsf{sdSet}_G$.}
 
 \section{Pre-operads}
 
@@ -4214,6 +4266,7 @@ This is the model structure of equivariant dendroidal Segal spaces, that we disc
 \end{remark}
 
 \begin{notation}
+      \label{FIB_PREOP_NOT}
 We will refer to the fibrant objects in 
 $\mathsf{sdSet}^G_S$
 as \textit{equivariant dendroidal Segal spaces}, 
@@ -4221,6 +4274,14 @@ or just \textit{dendroidal Segal spaces}.
 Further, a pre-operad $X \in \mathsf{PreOp}^G$ is called \textit{fibrant}
 if $\gamma^{\**}X$ is a dendroidal Segal space.
 \end{notation}
+
+{\color{blue} The goal of this section is to prove Corollary \ref{FIB_PREOP_COR},
+  which says that the a priori two different notion for fibrant pre-operads
+  (one defined above, the other via the model structure)
+  are in fact the same.
+
+  For the remainder of this section, we will use \textit{fibrant} as in Notation \ref{FIB_PREOP_NOT}.
+}
 
 \begin{remark}
 If $X \in \mathsf{sdSet}^G$ is a dendroidal Segal space, then
@@ -4236,14 +4297,36 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant. Indeed, the equality $Sc[T](\et
 \]
 \end{remark}
 
+{\color{blue} The following connects the various model structures on $\mathsf{sdSet}^G$.
+  \begin{definition}
+        The \textit{equivariant complete Segal space model structure} on the category $\mathsf{sdSet}^G$
+        is the left Bousfield localization of the equivarinat Segal space model structure
+        with respect to the projections
+        \begin{equation}
+              \Omega[T] \otimes (\set{i} \to J_d), \qquad T \in \Omega_G.
+        \end{equation}
+  \end{definition}
 
+  \begin{proposition}
+        The joint Reedy model structure and the complete Segal space model structure are equal.
+  \end{proposition}
+  \begin{proof}
+        As these two model structures have the same class of cofibrations,
+        it suffices to show they have the same fibrant objects,
+        which follows by Corollary \ref{JOINTFIBCHAR COR}(iii).
+  \end{proof}
+
+  In what follows, we will use ``complete Segal space'' and ``joint fibrant'' interchangably.
+}
 
 The following is a variation on Definition \ref{MAPSPACE DEF}
 
 \begin{definition}\label{MAPSPACESEG DEF}
 Given a dendroidal Segal space $X \in \mathsf{sdSet}^G_S$
 and a $C$-profile $(x_1,\cdots,x_n ; x_0)$
-on $X$ (defined exactly as in Definition \ref{PROF DEF})
+on $X$ (defined exactly as in Definition \ref{PROF DEF}\footnote{
+  Recall that $\mathsf{sdSet}^G(\partial\Omega[C], X) = \mathsf{dSet}(\partial\Omega[C], X_0) = \mathsf{dSet}(\partial\Omega[C], X^{\Delta[0]} = \mathsf{sSet}(\Delta[0], X^{\partial\Omega[C]})$.
+  })
 we define the space of maps 
 $X(x_1,\cdots,x_n ; x_0)$ via the pullback
 \[
@@ -4255,19 +4338,25 @@ $X(x_1,\cdots,x_n ; x_0)$ via the pullback
 	\prod_{0\leq i \leq k} X(\eta)^{H_i}
 \end{tikzcd}
 \]
+\todo[inline]{this time, the bottom right might work, but I don't know why $X^{\partial\Omega[C]}$ wouldn't be better}
 \end{definition}
 
 \begin{definition}
 	Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	The \textit{homotopy genuine operad} 
-	$ho(X)\in \mathsf{dSet_G}$ is defined by
+	$ho(X)\in \mathsf{dSet_G}$ is defined %
+        to be the image of $X$ under the composite
+        \begin{equation}
+              \mathsf{sdSet}^G \xrightarrow{\gamma_{\**}} \mathsf{PreOp} \into \mathsf{sdSet}^G = (\mathsf{dSet}^G)^{\Delta^{op}} \xrightarrow{u_*} = (\mathsf{dSet}_G)^{\Delta^{op}} \xrightarrow{\pi_0} \mathsf{dSet}_G,
+        \end{equation}
+        or more compactly by
 	\[
 	ho(X) = \pi_0 \left( u_{\**} \left( \gamma_{\**}X \right) \right).
 	\]
 \end{definition}
 
 \begin{remark}
-	It is immediate that 
+	It is immediate that
 	$X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$, so that both of the previous definitions depend only on 
 	the fibrant pre-operad $\gamma_{\**}X$.
 \end{remark}
@@ -4291,9 +4380,13 @@ The claim that this holds without completeness is harder, with the rest of the s
 	$\Delta \times \mathsf{O}_G \to 
 	\Omega \times \mathsf{O}_G \to
 	\Omega_G$,
-	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories formed by the homotopy categories
+	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories\todo{simplicial sets? we haven't shown they have composition yet} formed by the homotopy categories
 	$ho \left(\iota^{\**}\left(X^H\right)\right) = 
 	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)$.
+        \todo[inline]{is $ho$ of a bisimplicial set well-defined? is this $ho$ of the diagonal?}
+        \todo[inline]{the RHS is only a simplicial set.}
+        Indeed, we have that each $X^H$ is a dendroidal Segal space if $X$ is
+        (as $(X^H)^{\Omega[T_*]} \to (X^H)^{Sc[T_*]}$ has the right lifting property against all monomorphisms in $\mathsf{sSet}$ iff $X^{\Omega[G \cdot_H T_*]} \to X^{Sc[G \cdot_H T_*]}$ does).
 \end{remark}
 
 \begin{definition}
@@ -4594,7 +4687,7 @@ But this follows from the functoriality in
 Proposition \ref{GENOPHO PROP},
 essential surjectivity 
 (note that when $y_i \in Y(\eta)^{H_i}$ one needs to use $H_i$-equivalences), 
-and the fact that by the previous corollary the maps
+and the fact that by the previous corollary \todo[inline]{there is no previous corollary} the maps
 $f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
 are weak equivalences whenever $f$ is a $H$-equivalence.
 \end{proof}
@@ -4957,6 +5050,7 @@ of dendroidal Segal spaces.
 
 
 \begin{corollary}
+      \label{FIB_PREOP_COR}
 	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
 	$\mathsf{sdSet}^G$.
 \end{corollary}
