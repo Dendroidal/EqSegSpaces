@@ -1,4 +1,6 @@
-\documentclass[a4paper,10pt,draft]{article}%
+\documentclass[a4paper,10pt
+,draft
+]{article}%
 
 
 \usepackage[hidelinks]{hyperref}
@@ -3587,24 +3589,32 @@ Throughout we assume familiarity with the theory of left Bousfield localizations
 	and assume further that both model structures are cofibrantly generated and admit left Bousfield localizations with respect to any set of maps.
 	
 	Then $(C,W_1,F_1)$, $(C,W_2,F_2)$ have a smallest joint left Bousfield localization 
-	$(C,W,F)$ and for any $(C,W,F)$-fibrant 
-	objects $c,d \in \mathcal{C}$ one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
-	
-	Moreover, an object $c \in \mathcal{C}$ is $(C,W,F)$-fibrant iff it is simultaneously 
-	$(C,W_1,F_1)$-fibrant and $(C,W_2,F_2)$-fibrant.
+	$(C,W,F)$ and:
+\begin{itemize}
+	\item[(i)] $c \in \mathcal{C}$ is $(C,W,F)$-fibrant iff it is simultaneously 
+	$(C,W_1,F_1)$-fibrant and $(C,W_2,F_2)$-fibrant;
+	\item[(ii)] for $(C,W,F)$-fibrant  
+	$c,d \in \mathcal{C}$ one has that $c\to d$ is in $W$ iff it is in $W_1$ iff it is in $W_2$.
+\end{itemize}
 \end{proposition}
 
-{\color{red} HERE}
 
 \begin{proof}
-	The joint model structure $(C,W,F)$ can be obtained by either localizing left Bousfield localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
+	The joint model structure $(C,W,F)$ can be obtained by either left Bousfield localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
 	
-	The claim concerning joint fibrant $c,d$ follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
+	(ii) follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
 the local equivalences between local objects match the
 initial weak equivalences.
 
-That local objects are fibrant in both model structures follows since $C \cap W$ contains both $C \cap W_1$ and $C \cap W_2$ (in fact, this shows that local fibrations are fibrations in both model structures). The converse claim follows from the observation that fibrant objects in any model structure are local with respect to the weak equivalences in that same model structure.
+For (i), the claim that joint fibrant objects are fibrant in both of the original model structures follows since $C \cap W$ contains both $C \cap W_1$ and $C \cap W_2$ (in fact, this shows that $F \subseteq F_1 \cap F_2$).
+The converse claim follows from the observation that fibrant objects in any model structure are already local with respect to the weak equivalences in that same model structure.
 \end{proof}
+
+{\color{red} HERE}
+
+$X(n)_m$
+
+$X_n(m)$
 
 The prototypical example of Proposition \ref{COMBMODSTR PROP}
 is given by the category $\mathsf{ssSet}$ of bisimplicial sets together with the two possible Reedy structures (over the Kan model structure on $\mathsf{sSet}$).
@@ -3995,7 +4005,7 @@ A \xrightarrow{\sim} \widetilde{\iota(A)}_0 \to X_0
 
 
 
-\subsection{Equivariant pre-operads}\label{PREOP SEC}
+\subsection{Equivariant Segal operads}\label{PREOP SEC}
 
 Recall that the category $\mathsf{PreOp}$
 of \textit{pre-operads} is the full subcategory
@@ -4144,7 +4154,9 @@ This is the model structure of equivariant dendroidal Segal spaces, that we disc
 
 
 
-\section{Equivalences of $G$-$\infty$-operads}
+\section{Dwyer Kan equivalences}
+
+\subsection{Equivalences of $G$-$\infty$-operads}
 
 
 \begin{notation}
@@ -4362,11 +4374,7 @@ is fully faithful.
 
 
 
-
-
-
-
-\section{Equivariant dendroidal Segal spaces}
+\subsection{Equivariant dendroidal Segal spaces}
 
 
 \begin{definition}
@@ -5204,6 +5212,13 @@ a complete dendroidal Segal space.
 
 \newpage
 
+
+\section{Indexing system analogue results}
+
+
+{\color{blue} FILL}
+
+\newpage
 
 \section{Scratchwork (to be folded into previous sections eventually)}
 
