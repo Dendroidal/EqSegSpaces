@@ -3610,21 +3610,16 @@ For (i), the claim that joint fibrant objects are fibrant in both of the origina
 The converse claim follows from the observation that fibrant objects in any model structure are already local with respect to the weak equivalences in that same model structure.
 \end{proof}
 
-{\color{red} HERE}
-
-$X(n)_m$
-
-$X_n(m)$
 
 The prototypical example of Proposition \ref{COMBMODSTR PROP}
 is given by the category $\mathsf{ssSet}$ of bisimplicial sets together with the two possible Reedy structures (over the Kan model structure on $\mathsf{sSet}$).
-
 Explicitly, writing the levels of 
-$X \in \mathsf{ssSet}$ as $X_{n,m}$
+$X \in \mathsf{ssSet}$ as $X_n(m)$
 one can either form a Reedy model structure with respect to the 
-\textit{horizontal index $n$}
+\textit{horizontal index $m$}
 or with respect to the 
-\textit{vertical index $m$}.
+\textit{vertical index $n$}.
+
 In either case, the generating cofibrations are then given by the maps
 \[
 	\left( \partial \Delta[n] \to \Delta[n] \right)
@@ -3634,24 +3629,32 @@ In either case, the generating cofibrations are then given by the maps
 \]
 Further, in the horizontal Reedy model structure the generating trivial cofibrations are the maps
 \begin{equation}\label{GTRCOHOR EQ}
-	\left( \partial \Delta[n] \to \Delta[n] \right)
-\square
-	\left( \Lambda^j[m] \to \Delta[m] \right),
-\qquad n\geq 0,m\geq j \geq 0.
-\end{equation}
-while for the vertical Reedy model structure the generating trivial cofibrations are the maps
-\begin{equation}\label{GTRCOVER EQ}
 	\left( \Lambda^i[n] \to \Delta[n] \right)
 \square
 	\left( \partial \Delta[m] \to \Delta[m] \right),
 \qquad n \geq i \geq 0,m\geq 0.
 \end{equation}
+while for the vertical Reedy model structure the generating trivial cofibrations are the maps
+\begin{equation}\label{GTRCOVER EQ}
+	\left( \partial \Delta[n] \to \Delta[n] \right)
+\square
+	\left( \Lambda^j[m] \to \Delta[m] \right),
+\qquad n\geq 0,m\geq j \geq 0.
+\end{equation}
+
 We caution the reader about a possible hiccup with the terminology: 
 the weak equivalences for the horizontal Reedy structure are the 
 \textit{vertical equivalences},
 i.e. maps inducing Kan equivalences of simplicial sets
-$X_{n,\bullet} \to Y_{n,\bullet}$
-for each $n \geq 0$, and dually for the vertical Reedy structure.
+$X_{\bullet}(m) \to Y_{\bullet}(m)$
+for each $m \geq 0$, and dually for the vertical Reedy structure.
+
+\begin{notation}
+	Given a fixed $X \in \mathsf{ssSet}$ we will also write
+	$X_{(-)} \colon \mathsf{sSet}^{op} \to \mathsf{sSet}$
+	for the unique limit preserving functor such that
+	$X_{\Delta[n]} = X_n$.
+\end{notation}
 
 %\begin{remark}
 %      Here, and after in similar applications,
@@ -3662,41 +3665,58 @@ for each $n \geq 0$, and dually for the vertical Reedy structure.
 %      In particular, the pushout-product in \eqref{GTRCOVER EQ} may be considered as the usual box product in $\mathsf{ssSet}$\footnote{Equivalently, this operation is given by the pushout-product under the ``external product'' $\mathsf{sSet} \times \mathsf{sSet} \xrightarrow{\times} \mathsf{ssSet}$.}
 %\end{remark}
 
+
 In the next result we refer to the localized model structure given by Proposition \ref{COMBMODSTR PROP} as the 
-\textit{joint Reedy model structure}.
+\textit{joint Reedy model structure} and
+we write $\delta^{\**} \colon \mathsf{ssSet} \to \mathsf{sSet}$
+for the diagonal functor.
 
 \begin{proposition}\label{SSSETJREE PROP}
 	Suppose that $X, Y \in \mathsf{ssSet}$ are horizontal Reedy fibrant. Then:
 \begin{itemize}
-	\item[(i)] for each fixed $m$ all vertex maps $X_{\bullet,m} \to X_{\bullet,0}$ are trivial Kan fibrations;
-	\item[(ii)] any vertical Reedy fibrant replacement $\tilde{X}$ of $X$ is in fact fibrant in the joint Reedy model structure;
+	\item[(i)] for each fixed $n$ all vertex maps $X_{n} \to X_{0}$ are trivial Kan fibrations in $\mathsf{sSet}$;
+	\item[(ii)] any vertical Reedy fibrant replacement $\tilde{X}$ of $X$ is fibrant in the joint Reedy model structure;
 	\item[(iii)] a map $X \to Y$ is a horizontal weak equivalence iff it is a joint weak equivalence;
-	\item[(iv)] the canonical map $X_{\bullet,0} \to \delta^{\**}(X)$ is a Kan equivalence. % $X_{n,0} \to X_{n,n}$
+	\item[(iv)] the canonical map $X_{0} \to \delta^{\**}(X)$
+	(with levels $X_0(n) \to X_n(n)$ induced by degeneracies) is a Kan equivalence in $\mathsf{sSet}$. 
 \end{itemize}
 \end{proposition}
 
+
 \begin{proof}
 (i) follows since the trivial cofibrations for the horizontal Reedy structure include all the maps of the form
-$(\partial \Delta[n] \to \Delta[n]) \square (\Delta[0] \to \Delta[m])$.
+$(\Delta[0] \to \Delta[n]) \square (\partial \Delta[m] \to \Delta[m])$.
 
-(ii) follows since by (i) $\tilde{X}$ is then local
-(with the vertical Reedy model structure as the initial model structure)
-with respect to all maps of the form
-$\Delta[0] \times (\Delta[0] \to \Delta[m])$,
-and thus by Remark \ref{HYPERSATKAN REM}
-it is fibrant in the joint Reedy model structure ({\color{blue} add a remark about this}).
+For (ii), the fact that $\tilde{X}$ is vertical fibrant
+implies that for any monomorphism $K \to L$ in $\mathsf{sSet}$
+the induced map $\tilde{X}_L \to \tilde{X}_K$ with $K$ is a Kan fibration. Therefore, (i) implies that all vertex maps
+$\tilde{X}_{n} \to \tilde{X}_{0}$
+are trivial Kan fibrations, so that by
+Remark \ref{HYPERSATKAN REM} one has that 
+$\tilde{X}_L \to \tilde{X}_K$ is a trivial Kan fibration whenever
+$K \to L$ is anodyne.
+Therefore, $\tilde{X}$ is horizontal fibrant, as desired.
+
+%(ii) follows since by (i) $\tilde{X}$ is then local
+%(with the vertical Reedy model structure as the initial model structure)
+%with respect to all maps of the form
+%$(\Delta[0] \to \Delta[n]) \times \Delta[0]$,
+%and thus by Remark \ref{HYPERSATKAN REM}
+%it is fibrant in the joint Reedy model structure ({\color{blue} add a remark about this}).
 
 (iii) follows from (ii) since the localizing maps 
 $X \to \tilde{X}$, $Y \to \tilde{Y}$
 are horizontal equivalences.
 
-For (iv), note first that the diagonal functor
+For (iv), note first that 
 $\delta^{\**} \colon \mathsf{ssSet} \to \mathsf{sSet}$
-is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure). But noting that all objects are cofibrant, and regarding % $X_{n,0}$
-$X_{\bullet,0}$ as a bisimplicial set that is vertically constant, the claim
-follows by noting that by (i) the map
-$X_{\bullet, 0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
+is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure).
+But noting that all objects are cofibrant, and regarding 
+$X_{0}$ as a bisimplicial set that is vertically constant, 
+the claim follows by noting that by (i) the map
+$X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 \end{proof}
+
 
 \begin{corollary}\label{WEAKDIAG COR}
 	A map $f\colon X \to Y$ in $\mathsf{ssSet}$ is a joint equivalence iff it induces a Kan equivalence on diagonals
@@ -3707,11 +3727,13 @@ $X_{\bullet, 0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	Since horizontal Reedy fibrant replacement maps
 	$X \to \tilde{X}$ are diagonal equivalences, 
 	one reduces to the case of $X,Y$ horizontal Reedy fibrant.
-	
+
 	But Proposition \ref{SSSETJREE PROP} (i) and (iii) then combine to say that $X \to Y$ is a joint equivalence iff
-	$X_{\bullet,0} \to Y_{\bullet,0}$ is a Kan equivalence, 
+	$X_{0} \to Y_{0}$ is a Kan equivalence, 
 	so that the result follows from Proposition \ref{SSSETJREE PROP} (iv).
 \end{proof}
+
+
 
 \begin{corollary}\label{SSETSSETADJ COR}
 	The adjunction
@@ -3721,7 +3743,6 @@ $X_{\bullet, 0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	\mathsf{ssSet} \colon \delta^{\**}
 \]
 is a Quillen equivalence.
-
 Moreover if a map $f\colon X \to Y$ in $\mathsf{ssSet}$ has the right lifting property
 against both sets of maps in
 \eqref{GTRCOHOR EQ} and \eqref{GTRCOVER EQ}, then
@@ -3732,19 +3753,20 @@ Note that the ``moreover'' claim in this result is not quite formal, since the m
 
 
 \begin{proof}
-	Recall that $\delta_!$ can be characterized as the unique colimit preserving functor such that 
+	Recall that $\delta_!$ is the unique colimit preserving functor such that 
 	$\delta_!(\Delta[n])=\Delta[n] \times \Delta[n]$.
 
-	The claim that $\delta_!$ preserves cofibrations thus follows provided that 
+	To see that $\delta_!$ preserves cofibrations 
+	it is enough to show that 
 	$\delta_{!}\left( \partial \Delta[n] \to \Delta[n]\right)$
 	is a monomorphism for all $n\geq 0$.
 	This holds since:
-	\begin{inparaenum}
-		\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (indeed, faces are indexed by subsets of $\{0,1\cdots,n\}$); 
-		\item[(ii)] for any face inclusion one has 
+\begin{inparaenum}
+	\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (indeed, faces are indexed by subsets of $\{0,1,\cdots,n\}$); 
+	\item[(ii)] for any face inclusion one has 
 		$\delta_{!}\left( F \to \Delta[n]\right) = 
 		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monormorphism.
-	\end{inparaenum}
+\end{inparaenum}
 
 The claim that $\delta_!$ preserves trivial cofibrations easily follows from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
 Namely, we will argue that the maps
@@ -3756,9 +3778,9 @@ One has a factorization
 	\delta_! \Lambda^i[n] \to
 	\Lambda^i[n] \times \Delta[n] \to \Delta[n]^{\times 2}
 \]
-where the second map is clearly built cellularly out of maps in 
-\eqref{GTRCOVER EQ}, and we claim that 
-the first map is likewise built cellularly out of maps in \eqref{GTRCOHOR EQ}.
+where the second map is clearly built cellularly out of the maps in 
+\eqref{GTRCOHOR EQ}, and we claim that 
+the first map is likewise built cellularly out of the maps in \eqref{GTRCOVER EQ}.
 Indeed, this first map be built by iteratively attaching the maps
 \[
 	\left(\Lambda^{F}[n] \to \Lambda^i[n] \right)
@@ -3767,7 +3789,7 @@ Indeed, this first map be built by iteratively attaching the maps
 \]
 where $F$ ranges over the poset $\mathsf{Face}_{\supsetneq \{i\}}$
 of faces of $\Delta[n]$ strictly containing $\{i\}$ 
-(note that when $F=\Delta[n]$ then $\Lambda^F[n]=\emptyset$, so that these maps can not in general be built out of the maps in \eqref{GTRCOVER EQ}). 
+(note that for $F=\Delta[n]$ it is $\Lambda^F[n]=\emptyset$, so that these maps are not in general built out of the maps in \eqref{GTRCOHOR EQ}). 
 
 Lastly, the Quillen equivalence condition 
 is that for all $X \in \mathsf{sSet}$ and joint fibrant
@@ -3777,21 +3799,22 @@ $\delta_!X \to Y$ is.
 But by Corollary \ref{WEAKDIAG COR}
 this reduces to showing
 that the unit maps $X \to \delta^{\**} \delta_! X$
-are weak equivalences, and this latter claim easily follows by cellular induction on $X$
-(recall that since $\mathsf{sSet}$ is left proper the pushouts attaching cells are homotopy pushouts).
+are weak equivalences. This latter claim follows by cellular induction on $X$, since those pushouts attaching cells are homotopy pushouts (due to $\mathsf{sSet}$ being left proper).
 \end{proof}
 
-\begin{remark}\label{HYPERSIMPL REM}
-	Hypersaturations can be used to simplify the lifting condition required in the previous result. 
-	Indeed, note first that $X \to Y$ will have the lifting condition against the maps in \eqref{GTRCOHOR EQ} iff
-	all maps $X^L \to X^K \times_{Y^K} Y^L$
-	are Kan fibrations in $\mathsf{sSet}$ for $K\to L$ a monomorphism in $\mathsf{sSet}$.
-	But hence $X \to Y$ will also have the lifting condition
-	against the maps in \eqref{GTRCOVER EQ} provided 
-	$X^L \to X^K \times_{Y^K} Y^L$ is also a \textit{trivial} Kan fibration when $K\to L$ is an horn inclusion.
-	But one readily checks that horn inclusions can now be replaced with any set with the same hypersaturation. In particular, by Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$ induced by the vertex maps $[0] \to [n]$ are trivial Kan fibrations.
-\end{remark}
 
+\begin{remark}\label{HYPERSIMPL REM}
+	Just as in the proof of Proposition \ref{SSSETJREE PROP}, one can use hypersaturations to simplify the lifiting condition
+	in the previous result. 
+	Namely,	$X \to Y$ is a vertical fibration (i.e. it has the lifting property against \eqref{GTRCOVER EQ})
+	iff, for each monomorphism $K \to L$ in $\mathsf{sSet}$,
+	$X_L \to X_K \times_{Y_K} Y_L$
+	is a Kan fibration.
+	The lifting property against \eqref{GTRCOVER EQ}
+	is then the condition that 
+	$X_L \to X_K \times_{Y_K} Y_L$ is a trivial Kan fibration
+	when $K \to L$ is a horn inclusion. But then a straightforward hypersaturation argument together with Remark \ref{HYPERSATKAN REM} show that it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$, induced by the vertex maps $[0] \to [n]$, are trivial Kan fibrations.
+\end{remark}
 
 
 \begin{remark}
@@ -3801,12 +3824,14 @@ $
 		\rightleftarrows 
 	\mathsf{sSet} \colon \delta_{\**}
 $
-is also a Quillen equivalence, but we will not need this fact.
+can also be shown to be a Quillen equivalence.
 \end{remark}
 
 
 \subsection{Complete equivariant dendroidal Segal spaces}
 \label{CEDSS SEC}
+
+{\color{red} HERE}
 
 {\color{purple}
 We extend Notations \ref{HOM_NOTATIONS} to the bisimplicial and simplicial-dendroidal world.
@@ -3844,13 +3869,13 @@ that we will refer to as the \textit{simplicial Reedy model structure}.
 On the other hand, in the context of Definition \ref{GENRED DEF},
 $\Omega^{op} \times G$ is a generalized Reedy category such that the families $\{\mathcal{F}_{U}^{\Gamma}\}_{U \in \Omega}$
 of $G$-graph subgroups are Reedy-admissible 
-(see Example \ref{GGRAPHREEDY EX}), 
-and hence using the underlying 
+(see Example \ref{GGRAPHREEDY EX})
+and hence, using the underlying 
 Kan model structure on $\mathsf{sSet}$, 
 Theorem \ref{REEDYADM THM} yields
 a model structure on $\mathsf{sdSet}^G$
 that we will refer to as the \textit{equivariant dendroidal Reedy model structure}, 
-or simply as \textit{dendroidal Reedy model structure} for the sake of brevity.
+or simply as the \textit{dendroidal Reedy model structure} for the sake of brevity.
 
 \begin{proposition}
 	Both the simplicial and dendroidal Reedy model structures on 
@@ -4812,10 +4837,10 @@ We now recover the following from \cite{Rez01}
 	\item [(ii)] the pullbacks
 \begin{equation}\label{XHDEF EQ}
 \begin{tikzcd}
-	X_n^h \ar{r} \ar{d} & X_n \ar{d}
+	X^h(n) \ar{r} \ar{d} & X(n) \ar{d}
 \\
-	X_1^h \times_{X_0} \cdots \times_{X_0} X_1^h \ar{r} &
-	X_1 \times_{X_0} \cdots \times_{X_0} X_1
+	X^h(1) \times_{X(0)} \cdots \times_{X(0)} X^h(1) \ar{r} &
+	X(1) \times_{X(0)} \cdots \times_{X(0)} X(1)
 \end{tikzcd}
 \end{equation}
 define a Segal space $X^h \subset X$, consisting of a union of connected components at each level;
@@ -4826,6 +4851,7 @@ define a Segal space $X^h \subset X$, consisting of a union of connected compone
 	\item[(iv)] the map $X^J \to X^{\Delta^1} = X_1$ factors through a weak equivalence $X^J \to X_1^h$.
 \end{itemize}
 \end{proposition}
+
 
 \begin{proof}
 For (i), note first that given 
