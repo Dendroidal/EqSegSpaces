@@ -147,8 +147,9 @@ More explicitly, in \cite{Per17}, and inspired by the category $\Omega_G$ of $G$
 the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
 are ``equivariant operads with norm maps up to homotopy'',
-called $G$-$\infty$-operads,
-and that $N_{hc}(\O)$ for any suitably fibrant $G$-operad $\O$ has this structure.
+called $G$-$\infty$-operads.
+%,
+%and that $N_{hc}(\O)$ for any suitably fibrant $G$-operad $%\O$ has this structure.
 In the present paper, our main results are then the existence of suitable model structures on the categories 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 of $G$-dendroidal spaces and $G$-pre-operads,
@@ -156,7 +157,7 @@ as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
 
-It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads into dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
+It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
 the authors introduced the notion of 
 \textit{genuine equivariant operads},
@@ -181,7 +182,8 @@ The organization of the paper is as follows.
 \subsection{The category of trees $\Omega$}
 
 We start by recalling the key features of the category $\Omega$ of trees that will be used throughout.
-Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17} and \cite{Wei12},
+Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17},
+% and \cite{Wei12},
 hence we first recall some key notation and terminology.
 Given a tree diagram $T$ such as
 \begin{equation}\label{FIRSTTREE EQ}
@@ -267,14 +269,12 @@ We now recall the key classes of maps of $\Omega$.
 A map $\varphi \colon S \to T$ which is injective on edges is called a \textit{face map}
 while a map that is surjective on edges and preserves leaves is called a \textit{degeneracy map}
 (the extra requirement ensures that leaves of $S$ do not become stumps of $T$).
-Moreover, a face map is further called
-a \textit{proper face map} if $\phi$ is not bijective,
-an \textit{inner face map}
+Moreover, a face map is further called an \textit{inner face map}
 if $\varphi(r_S) = r_T$ and 
 $\varphi(\underline{l}_S) = \underline{l}_T$ 
 (where $r_{(-)}$ denotes the root edge and $\underline{l}_{(-)}$ the leaf tuple)
-and an \textit{outer face map} if it does not factor through any non-identity inner face maps.
-The following result is \cite[Cor. 3.32]{Per17}.
+and called an \textit{outer face map} if it does not factor through any non-identity inner face maps.
+The following result is \cite[Cor. 3.32]{BP17}.
 \begin{proposition}\label{UNIQUEFACT PROP}
 	A map $\varphi \colon S \to T$ in $\Omega$ has a factorization, unique up to unique isomorphisms,
 \[
@@ -486,7 +486,7 @@ We start by recalling the notion of face discussed in \cite{Per17}, which is mot
 	$U \hookrightarrow T_i$ in $\Omega$ for some $1 \leq i \leq k$.
 	Further, we abbreviate faces of $T$ as
 	$U \hookrightarrow T$,
-	and call them \textit{planar/proper/outer} faces
+	and call them \textit{planar/outer} faces
 	whenever so is the map $U \hookrightarrow T_i$.
 \end{definition}
 
@@ -792,12 +792,20 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 
 \end{example}
 
+\begin{remark}
+	It is clear from the proof of 
+	Proposition \ref{MINGFACT PROP}
+	that, if $U \in \mathsf{Face}(T)$ has isotropy $H$,
+	the induced map 
+	$G \cdot_H U \to T$ is a monomorphism iff
+	$H$ is also the isotropy of the root $r_U$.
+\end{remark}
+
 \begin{remark}\label{GINNER REM}
 	For any inner face $V-e$ of $V$ one has 
 	that $G(V-e)$ is either $GV - Ge$ or $GV$.
 	Indeed, the latter will happen iff $V-e$ contains either an inner edge of a leaf of the form $ge$.
 \end{remark}
-
 
 \begin{remark}
 	Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ does not act on $\mathsf{Face}_o(T)$)
@@ -810,12 +818,6 @@ whose left adjoint is the induced functor
 $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 \end{remark}
 
-\begin{remark}
-      For every component $S_i$ of an orbital face $S \into T$,
-      the isotropy of $S_i$ equals to isotropy of the root $r(S_i)$.
-      Moreover, for any (non-equivariant) face $U$ with this property, we have
-      $HU = U$ and $GU = G \cdot_H U$.
-\end{remark}
 
 
 \subsection{Equivariant dendroidal sets}
@@ -873,8 +875,7 @@ Lastly, letting $\mathsf{Face}_{sc}(T)$ denote those outer faces of $T$ with no 
 \]
 
 Note that if $T \simeq G \cdot_H T_{\**}$ for some $T_{\**} \in \Omega^H$ then 
-\begin{equation}
-      \label{T_DECOMP_EQ}
+\begin{equation}\label{T_DECOMP_EQ}
 	\Omega[T] \simeq G \cdot_H \Omega[T_{\**}], 
 \quad
 	\partial \Omega[T] \simeq G \cdot_H \partial \Omega[T_{\**}], \quad
@@ -903,10 +904,7 @@ are defined only for $U \in \Omega$ (cf. Notation \ref{TREEDIFNOT NOT}).
 	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
 \end{remark}
 
-\begin{definition}
-      \label{SAT_DEF}
-      Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
-\end{definition}
+Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
 
 The saturation of the boundary inclusions 
 $\partial \Omega[T] \to \Omega[T]$
@@ -960,10 +958,8 @@ Given $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we d
 where we note that the equivalence between the colimit and union formulas now follows from Proposition \ref{MINGFACT PROP}.
 
 
-
-
 \begin{example}
-      Let $G = C_2$ be the cyclic group with two elements,
+	Let $G = \mathbb{X}_{/2} = \{\pm 1\}$,
       and consider the tree $T \in \Omega^G \subset \Omega_G$ below.
       \begin{equation}
             \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
@@ -1322,17 +1318,17 @@ where we note that the equivalence between the colimit and union formulas now fo
 \end{example}
 \todo[inline]{come make: add space, make lines more natural}
 
-Lastly, we recall that there is another presheaf category important in the discussion of equivariant trees,
+Lastly, we recall that there is another important presheaf category in the discussion of equivariant trees,
 namely the category of \textit{genuine $G$-equivariant dendroidal sets} $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$.
-The inclusion $\Omega \times G \into \Omega_G$ sending a tree $T$ to the $G$-free $G$-tree $G \cdot T$
+The inclusion $\Omega \times G^{op} \into \Omega_G$ sending a tree $T$ to the $G$-free $G$-tree $G \cdot T$
 induces a pair of natural adjunctions as below.
 \begin{equation}
       \begin{tikzcd}[column sep =5em]
-            \mathsf{dSet}_G \ar{r}[swap]{u^{\**}} 
+            \mathsf{dSet}_G \ar{r}[swap]{\upsilon^{\**}} 
             &
             \mathsf{dSet}^G
-            \ar[bend right]{l}[swap,midway]{u_{!}}
-            \ar[bend left]{l}{u_{\**}}
+            \ar[bend right]{l}[swap,midway]{\upsilon_{!}}
+            \ar[bend left]{l}{\upsilon_{\**}}
       \end{tikzcd}
 \end{equation}
 
@@ -2098,7 +2094,7 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 
 \subsection{Segal cores, horns and orbital horns}\label{HYPERSAT SEC}
-We will now prove that various maps in question are in fact $G$-inner anodyne.
+
 
 \begin{proposition}\label{ORB_HORN_PROP}
 	For $G$-subsets  
@@ -2416,9 +2412,6 @@ We have some similar results about the saturation of the orbital horn inclusions
       and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
 \end{proof}
 
-\begin{remark}
-      The above plus Proposition \ref{ORB_HORN_PROP} also implies that Segal core inclusions are $G$-inner anodyne.
-\end{remark}
 
 
 We now indicate some of the applications of (hyper)saturations.
@@ -2437,7 +2430,7 @@ against all maps in $\mathcal{C}$.
 
 \begin{proof}
 It suffices to check that the hypersaturation closure conditions are compatible with strict right lifting properties.
-The claims concerning pushouts, transfinite compositions and retracts follow by the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
+The claims concerning pushouts, transfinite compositions and retracts follow from the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
 
 %For any pushout (respectively (dashed) retract)
 %\begin{equation}
@@ -3545,7 +3538,7 @@ i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. De
 and write $T= C \amalg_{G e} D$ for the grafted $G$-tree. 
 For any dendroidal Segal space $X$ one then has
 $X(Sc[T]) \simeq X(\Omega[C]) \times_{X(\eta)^H} X(\Omega[D])$
-and one can hence form the section in the middle row below
+and one can hence choose a section in the middle row below
 \begin{equation}\label{HOMOTCIRC EQ}
 \begin{tikzcd}
 	\{\varphi\} \times X(z_1,\cdots,z_l;e)
@@ -3586,7 +3579,7 @@ the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
 	In particular, $\varphi \circ_{Ge} \psi \in X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)$
 	is well defined up to homotopy.
 
-	Lastly, the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial in maps $f\colon X \to Y$ between dendroidal Segal spaces.
+	Lastly, the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
 \end{proposition}
 
 \begin{proof}
