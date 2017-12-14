@@ -4294,27 +4294,25 @@ In doing so, it becomes useful to consider a fourth model structure on the categ
 This is the model structure of equivariant dendroidal Segal spaces, that we discuss in the next section.
 
 
-\section{Equivariant dendroidal Segal spaces and DK-equivalences}
-
-{\color{red} HERE}
+\section{Equivariant dendroidal Segal spaces}
 
 
 
-\subsection{Equivariant dendroidal Segal spaces}
+\subsection{The homotopy genuine operad and Dwyer Kan equivalences}
 
 
 \begin{definition}
 	The \textit{equivariant Segal space model structure} on the category $\mathsf{sdSet}^G$, which we denote 
 	$\mathsf{sdSet}^G_S$, 
-	is the left Bousfield localization of the dendroidal Reedy model structure with respect to the equivariant Segal core inclusions
+	is the left Bousfield localization of the dendroidal Reedy model structure with respect to the equivariant Segal core inclusions (regarded as simplicially constant)
 \[
 	Sc[T] \to \Omega[T], \qquad T \in \Omega_G.
 \]
 \end{definition}
 
-\begin{remark}
-	By Proposition \ref{HYPER PROP} this model structure can equivalently be obtained by localizing with respect to the $G$-inner horn inclusions $\Lambda^{Ge}[T] \to \Omega[T]$.
-\end{remark}
+%\begin{remark}
+%	By Proposition \ref{HYPER PROP} this model structure can equivalently be obtained by localizing with respect to the $G$-inner horn inclusions $\Lambda^{Ge}[T] \to \Omega[T]$.
+%\end{remark}
 
 \begin{notation}\label{FIB_PREOP_NOT}
 We will refer to the fibrant objects in 
@@ -4326,44 +4324,87 @@ if $\gamma^{\**}X$ is a dendroidal Segal space.
 \end{notation}
 
 
-
-\begin{remark}
+\begin{proposition}
 If $X \in \mathsf{sdSet}^G$ is a dendroidal Segal space, then
-$\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant. 
-Indeed, Proposition \ref{CSKETA PROP} ensures that 
-$\gamma_{\**}X$ is dendroidal fibrant while the Segal condition follows since the equality $Sc[T](\eta)=\Omega[T](\eta)$ implies that the square below is a pullback square.
+$\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
+\end{proposition}
+
+\begin{proof}
+	By Proposition \ref{CSKETALT PROP}(i) $\gamma_{\**}X$ is dendroidal fibrant. And, since 
+	$Sc[T](\eta)=\Omega[T](\eta)$,
+	Proposition \ref{CSKETALT PROP}(iii) shows that 
+	$(\gamma_{\**}X)(\Omega[T]) \to 
+	(\gamma_{\**}X)(Sc[T])$
+	is indeed a trivial Kan fibration.
+\end{proof}
+
+
+\begin{notation}
+Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
+$H_0 \geq H_i$, $1 \leq i \leq k$ we write
+$C_{\amalg_i H_0/H_i}$ for the $G$-corolla (well defined up to isomorphism)
+whose orbital representation is
 \[
-\begin{tikzcd}
-	(\gamma_{\**}X)(\Omega[T]) \ar{r} \ar{d} & X(\Omega[T]) \ar{d}
-\\
-	\left(\gamma_{\**}X\right)(Sc[T]) \ar{r} &
-	X(Sc[T])
-	\arrow[lu, phantom, "\lrcorner", very near start]
-\end{tikzcd}
+\begin{tikzpicture}
+[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
+	\node at (0,0) {}
+		child{node [dummy] {}
+			child{
+			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+			child{
+			edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+		edge from parent node [swap] {$G/H_0$}
+		};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+\end{tikzpicture}
 \]
-\end{remark}
+Writing $C_n$ for the non-equivariant corolla with $n$ leaves, we note that
+$C_{\amalg_i H_0/H_i} \simeq 
+G \cdot_{H_0} C_{\Sigma_i |H_0/H_i|}$,
+where $C_{\Sigma_i |H_0/H_i|}$ regarded as a (non-equivariant) corolla together with the obvious $H_0$-action.
+\end{notation}
 
 
-The following is a variation on Definition \ref{MAPSPACE DEF}.
+\begin{definition}\label{PROF DEF}
+	Let $X$ be a $G$-$\infty$-operad.
+	A \textit{$G$-profile} on $X$ is a map
+\[
+	\partial \Omega[C] \to X
+\]
+	for some $G$-corolla $C \in \Sigma_G$.
+More explicitly, a $G$-profile is described by the following data:
+\begin{itemize}
+	\item subgroups $H_i \leq G$, $0\leq i \leq k$ such that
+	$H_0 \geq H_i$ for $1 \leq i \leq k$;
+	\item objects $x_i \in X(\eta)^{H_i}$ for $0 \leq i \leq k$.
+\end{itemize}
+To simplify notation, we denote a $G$-profile as 
+$(x_1,\cdots,x_k;x_0)$, and refer to it as a 
+\textit{$C$-profile} on $X$.
+\end{definition}
+
 
 \begin{definition}\label{MAPSPACESEG DEF}
 Given a dendroidal Segal space $X \in \mathsf{sdSet}^G_S$
 and a $C$-profile $(x_1,\cdots,x_n ; x_0)$
-on $X$ (defined exactly as in Definition \ref{PROF DEF})
+on $X$ 
+%(defined exactly as in Definition \ref{PROF DEF})
 we define the space of maps 
-$X(x_1,\cdots,x_n ; x_0)$ via the pullback
+$X(x_1,\cdots,x_n ; x_0)$ via the pullback square
 \[
-\begin{tikzcd}
+\begin{tikzcd}[column sep=4em]
 	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
 	X(\Omega[C]) \ar{d}
 \\
 	\Delta[0] \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
 	\prod_{0\leq i \leq k} X(\eta)^{H_i}
+	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
 \]
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{HMTPYGEN DEF}
 	Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	The \textit{homotopy genuine operad} 
 	$ho(X)\in \mathsf{dSet}_G$ is defined %
@@ -4377,24 +4418,6 @@ by
 	\]
 \end{definition}
 
-\begin{remark}
-	It is immediate that
-	$X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$, so that both of the previous definitions depend only on 
-	the fibrant pre-operad $\gamma_{\**}X$.
-\end{remark}
-
-\begin{remark}
-It is important not to confuse Definitions \ref{MAPSPACE DEF} 
-and \ref{MAPSPACESEG DEF}. Indeed, when $X$ is a dendroidal Segal, its $0$-th level $X_0$ is a $G$-$\infty$-operad, and one can thus form two ``spaces of maps'' 
-$X_0(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACE DEF})
-and
-$X(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACESEG DEF}).
-The constructions leading to these spaces are quite different. When $X$ is complete Segal, 
-the fact that these two spaces are homotopic follows 
-from Remark \ref{CONCRECOM REM}, since $X$ must then be both dendroidally and simplicially equivalent to $X_0^{J_d(m)}$. 
-The claim that this holds without completeness is harder, with the rest of the section devoted to establishing this.
-\end{remark}
-
 
 \begin{remark}
 	Writing $\iota$ for the inclusion $\Delta \to \Omega$
@@ -4404,13 +4427,13 @@ The claim that this holds without completeness is harder, with the rest of the s
 	\Omega_G$,
 	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories formed by the homotopy categories
 	$ho \left(\iota^{\**}\left(X^H\right)\right) = 
-	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)$.
+	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)$ for $H \leq G$.
 \end{remark}
 
-\begin{definition}
+\begin{definition}\label{DKEQUIV DEF}
 	A map $f \colon X \to Y$ of equivariant dendroidal Segal spaces is called 
 \begin{itemize}
-	\item \textit{fully faithful} is for all $C\in \Sigma_G$ and $C$-profile $(x_1,\cdots,x_n;x_0)$ on $X$ the map
+	\item \textit{fully faithful} if for all $C\in \Sigma_G$ and $C$-profile $(x_1,\cdots,x_n;x_0)$ on $X$ the map
 \[
 	X(x_1,\cdots,x_k;x_0) \to
 	Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
@@ -4419,7 +4442,7 @@ is a Kan equivalence in $\mathsf{sSet}$;
 	\item \textit{essentially surjective} if
 	the map $\iota_G^{\**}ho(X) \to \iota_G^{\**}ho(Y)$
 	is essentially surjective on all category levels of the $G$-coefficient system;
-	\item a \textit{DK-equivalence}\footnote{Here DK stands for Dwyer and Kan.} if it is both fully faithful and essentially surjective.
+	\item a \textit{DK-equivalence} if it is both fully faithful and essentially surjective.
 \end{itemize}
 \end{definition}
 
@@ -4429,10 +4452,11 @@ $\gamma_{\**} X \to \gamma_{\**} Y$
 of fibrant pre-operads.
 \end{remark}
 
-
-\begin{definition}
+\begin{definition}\label{HEQUIV DEF}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space.
-	We call a point $f \in X(\Omega[C_{H/H}])_0$ a $H$-equivalence 
+	For $H \leq G$, we call 
+	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
+	\textit{$H$-equivalence} 
 	if the corresponding class 
 \[
 	[f] \in ho(X)(C_{H/H}) =
@@ -4442,7 +4466,13 @@ of fibrant pre-operads.
 	is an isomorphism.
 \end{definition}
 
+\begin{remark}
+	It is immediate that
+	$X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$, so that Definitions \ref{MAPSPACESEG DEF}, \ref{HMTPYGEN DEF}, \ref{DKEQUIV DEF} and  \ref{HEQUIV DEF}
+	depend only on the fibrant pre-operads $\gamma_{\**}X, \gamma_{\**}Y$.
+\end{remark}
 
+{\color{red} HERE}
 
 DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
 {\color{red} whatever below}. We now introduce some auxiliary notions.
@@ -4838,6 +4868,8 @@ The inclusion $X^h \to X$ is a Reedy fibration.
 {\color{blue} justify}
 \end{remark}
 
+\subsection{Completion and fibrant Segal operads}
+
 
 \begin{proposition}\label{JDDK PROP}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
@@ -5143,27 +5175,7 @@ a complete dendroidal Segal space.
 \subsection{Equivalences of $G$-$\infty$-operads}
 
 
-\begin{notation}
-Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
-$H_0 \geq H_i$, $1 \leq i \leq k$ we write
-$C_{\amalg_i H_0/H_i}$ for the $G$-corolla encoding the 
-$H_0$-set $H_0/H_1 \amalg \cdots \amalg H_0/H_k$.
-\[
-\begin{tikzpicture}
-[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
-	\node at (0,0) {}
-		child{node [dummy] {}
-			child{
-			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
-			child{
-			edge from parent node [near end] {$G/H_1$}
-node [name=Kone,swap] {}}
-		edge from parent node [swap] {$G/H_0$}
-		};
-		\draw [dotted,thick] (Kone) -- (Kn) ;
-\end{tikzpicture}
-\]
-\end{notation}
+
 
 We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
 \begin{notation}
@@ -5222,23 +5234,6 @@ are Kan equivalences in $\mathsf{sSet}$;
 \end{proposition}
 
 
-\begin{definition}\label{PROF DEF}
-	Let $X$ be a $G$-$\infty$-operad.
-	A \textit{$G$-profile} on $X$ is a map
-\[
-	\partial \Omega[C] \to X
-\]
-	for some $G$-corolla $C \in \Sigma_G$.
-More explicitly, a $G$-profile is described by the following data:
-\begin{itemize}
-	\item subgroups $H_i \leq G$, $0\leq i \leq k$ such that
-	$H_0 \geq H_i$ for $1 \leq i \leq k$;
-	\item objects $x_i \in X(\eta)^{H_i}$ for $0 \leq i \leq k$.
-\end{itemize}
-To simplify notation, we prefer to denote a $G$-profile as 
-$(x_1,\cdots,x_k;x_0)$, and refer to it as a 
-\textit{$C$-profile}.
-\end{definition}
 
 {\color{red} HERE}%
 
@@ -5355,6 +5350,19 @@ is fully faithful.
 
 
 
+The following is a variation on Definition \ref{MAPSPACE DEF}.
+
+\begin{remark}
+It is important not to confuse Definitions \ref{MAPSPACE DEF} 
+and \ref{MAPSPACESEG DEF}. Indeed, when $X$ is a dendroidal Segal, its $0$-th level $X_0$ is a $G$-$\infty$-operad, and one can thus form two ``spaces of maps'' 
+$X_0(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACE DEF})
+and
+$X(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACESEG DEF}).
+The constructions leading to these spaces are quite different. When $X$ is complete Segal, 
+the fact that these two spaces are homotopic follows 
+from Remark \ref{CONCRECOM REM}, since $X$ must then be both dendroidally and simplicially equivalent to $X_0^{J_d(m)}$. 
+The claim that this holds without completeness is harder, with the rest of the section devoted to establishing this.
+\end{remark}
 
 
 
