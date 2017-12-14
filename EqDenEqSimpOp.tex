@@ -2501,15 +2501,12 @@ Uniqueness follows since any lift of the left square induces a lift of the outer
       We note that if $\mathcal{C}$ is a class of normal monomorphsism which are also weak equivalences, then
       the saturation and the hypersaturation of $\mathcal{C}$ are equal.
       Thus, if $\mathcal{D}$ is another such class such that the hypersaturations of $\mathcal{C}$ and $\mathcal{D}$ are equal,
-      then $\mathcal{C}^{\boxslash} = \mathcal{D}^{\boxslash}$. 
+      the proof above shows that $\mathcal{C}^{\boxslash} = \mathcal{D}^{\boxslash}$. 
 \end{remark}
 
-
-\todo[inline]{COME BACK. Need to rework this}
-
-As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor $N: \Op^G \to \mathsf{dSet}^G$.
-
-We first recall the adjunction below.
+As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor
+$N^G: \Op^G \to \mathsf{dSet}^G$.
+Recalling the adjuction below,
 \begin{equation}
       \begin{tikzcd}[column sep =5em]
             \mathsf{dSet}^G \ar{r}[swap]{\iota^{\**}} 
@@ -2519,11 +2516,12 @@ We first recall the adjunction below.
             \ar[bend left]{l}{\iota_{\**}}
       \end{tikzcd}
 \end{equation}
-We note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/N$, where $T_{\**}$ is a comnponent of $T$ and
+we note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/N$, where $T_{\**}$ is a component of $T$ and
 $N$ the graph subgroup of $G \times \mathrm{Aut}(T_{\**})$ encoding the given action.
 Similarly, as with \eqref{T_DECOMP_EQ}, we have that any $G$-inner horn inclusion
 $\Lambda^{E}[T] \to \Omega[T]$ can be written
 \begin{equation}
+      \label{HORN_DECOMP_EQ}
       (\iota_!j)/N: \iota_! \left(
             \Lambda^{E_*}[T_*] \to \Omega[T_*]
       \right)/N,
@@ -2531,33 +2529,28 @@ $\Lambda^{E}[T] \to \Omega[T]$ can be written
 where $E_* = E \cap T_*$, $H = \mathrm{Stab}_G(T_*)$, and
 $j$ is a generalized inner horn inclusion in $\Omega$. 
 
+Let $\dSet_h \subset \dSet$ and $\dSet^{G,h} \subset \dSet^G$
+denote the wide subcategories spanned by $(G)$-inner horn inclusions,
+so $\dSet_h^{\boxslash}$ and $(\dSet^{G,h})^\boxslash$ are the categories of $(G)$-$\infty$-operads.
+
 \begin{proposition}
       \label{SRLP_IHI_PROP}
-      Let $X \in \mathsf{dSet}^G$.
+      $(\iota_!\dSet_h)^{\boxslash !} = (\dSet^{G,h})^{\boxslash !}$;
+      that is, for all $X \in \mathsf{dSet}^G$,
       $X$ has the strict right lifting property against all $G$-inner horn inclusions
       iff
       it has the strict right lifting property against those $G$-inner horn inclusions where $T = G \cdot T_*$. 
 \end{proposition}
 \begin{proof}
-      We recall that any $G$-tree $T \in \Omega_G$ has a decomposition
-      $T \simeq (G \cdot T_*)/N$ where $T_*$ is a component of $T$ and
-      $N$ is a graph subgroup of $G \times \mathrm{Aut}(T_*)$.
-      Similarly, any inner $G$-horn inclusion $\Lambda^{G e}[T] \to \Omega[T]$ is isomorphic to a map of the form
-      \begin{equation}
-            (\iota_!j)/N: \iota_! \left(
-                  \Lambda^{H e}[T_*] \to \Omega[T_*]
-            \right)/N,
-      \end{equation}
-      where $e \in T_*$, $H = \mathrm{Stab}_G(T_*)$, and
-      $j$ is a generalized inner horn inclusion in $\Omega$. 
-      Now, for any span
+      Fix $T \simeq (G \cdot T_{\**})/N \in \Omega_G$.
+      For any span
       $\Omega[T] \xleftarrow{\iota_! j/N} \Lambda^{G e}[T] \xrightarrow{f} X$,
       consider the following diagram, where $n \in N$.
       \begin{equation}
             \begin{tikzcd}
                   \iota_!\Lambda^{H e}[T_*] \arrow[dd, "\iota_! j"'] \arrow[rr] \arrow[dr, "n"]
                   &&
-                  \iota\Lambda^{H.e}[T_*]/N \simeq \Lambda^{G e}[T] \arrow[dd, near end, "\iota_!j/N"] \arrow[r, "f"]
+                  \iota_!\Lambda^{H.e}[T_*]/N \simeq \Lambda^{G e}[T] \arrow[dd, near end, "\iota_!j/N"] \arrow[r, "f"]
                   &
                   X
                   \\
@@ -2573,30 +2566,41 @@ $j$ is a generalized inner horn inclusion in $\Omega$.
                   \iota_!\Omega[T_*] \arrow[ur, twoheadrightarrow] \arrow[uuurr, dotted, out=0, in=-90, "\exists! \phi"']
             \end{tikzcd}
       \end{equation}
-      Since $X \in \mathsf{SKan}^G$, and the hypersaturations (in $\Omega)$ of
+      Since the hypersaturations (in $\Omega)$ of
       the inner horn inclusions and the generalized inner horn inclusions coincide
       by \cite[Lemma 5.1]{MW09} (or Proposition \ref{HYPER PROP}),
-      we have unique lifts $\phi$ as written above by Lemma \ref{HYPER_LP_PROP} and Remark \ref{SKAN_REM}.
-      Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence factors through $\Omega[T]$,
+      we have unique lifts $\phi$ as drawn by Lemma \ref{HYPER_LP_PROP} and Remark \ref{HORN_DECOMP_EQ}.
+      Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence $\phi$ factors through $\Omega[T]$,
       finishing the proof.
 \end{proof}
 
 \begin{corollary}
       Fix $X \in \mathsf{dSet}^G$. Then
-      $X \in \mathsf{SKan}_G$ iff $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$.
+      $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$
+      iff
+      $X \in (\mathsf{dSet}^{G,h})^{\boxslash !}$.
 \end{corollary}
 \begin{proof}
-      $N^G(\O)(T)$ is given by maps $\mathsf{Op}^G(\Omega(T), \O)$,
-      and since $\Omega(T)$ is a free coloured operad on it's vertices, we may conclude that
+      Since $\Omega(T)$ is the free coloured operad on it's vertices, we have that
       \begin{equation}
-            N^G(\O)(T) = \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O).
+            \mathsf{dSet}^G(\Omega[T], N^G(\O)) = \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O)
       \end{equation}
-      Thus $N^G(\O)$ is in $(\Omega_{G, SCI})^{\boxslash !}$, and hence is in $(\Omega_{G,IHI})^{\boxslash !}$
+      for any $T \in \Omega_G$.
+      Thus $N^G(\O)$ is in $(\mathsf{dSet}^{G,h})^{\boxslash !}$
+      % $(\Omega_{G, SCI})^{\boxslash !}$, and hence is in $(\Omega_{G,IHI})^{\boxslash !}$
       by Propositions \ref{HYPER PROP} and \ref{HYPER_LP_PROP}.
 
-      Conversely, by Proposition \ref{SRLP_IHI_PROP} and \cite[Theorem 6.1, Proposition 6.10]{MW09}, we have that
+      Conversely,
+      we note that $\iota_!\dSet_h$ is precisely the set of $G$-inner horn inclusions where $T = G \cdot T_{\**}$,
+      and thus by Proposition \ref{SRLP_IHI_PROP}
+      we have that
+      \begin{equation}
+            (\mathsf{dSet}^{G,h})^{\boxslash !} = (\iota_!\dSet_h)^{\boxslash !} = \iota_!(\dSet_h^{\boxslash !}),
+      \end{equation}
+      so in particular $X$ is a $G$-object in $\dSet_h^{\boxslash !}$.
+      Thus, \cite[Theorem 6.1, Proposition 6.10]{MW09} implies that
       $X \simeq N_d \circ \tau_d \circ X$
-      (where we consider $X$ as a functor $G \to \mathsf{Kan}$).
+      (where we consider $X$ as a functor $G \to (\mathsf{dSet}_h)^{\boxslash}$).
 \end{proof}
 
 
