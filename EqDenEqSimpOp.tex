@@ -875,8 +875,7 @@ Lastly, letting $\mathsf{Face}_{sc}(T)$ denote those outer faces of $T$ with no 
 \]
 
 Note that if $T \simeq G \cdot_H T_{\**}$ for some $T_{\**} \in \Omega^H$ then 
-\begin{equation}
-      \label{T_DECOMP_EQ}
+\begin{equation}\label{T_DECOMP_EQ}
 	\Omega[T] \simeq G \cdot_H \Omega[T_{\**}], 
 \quad
 	\partial \Omega[T] \simeq G \cdot_H \partial \Omega[T_{\**}], \quad
@@ -905,10 +904,7 @@ are defined only for $U \in \Omega$ (cf. Notation \ref{TREEDIFNOT NOT}).
 	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
 \end{remark}
 
-\begin{definition}
-      \label{SAT_DEF}
-      Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
-\end{definition}
+Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
 
 The saturation of the boundary inclusions 
 $\partial \Omega[T] \to \Omega[T]$
@@ -962,10 +958,8 @@ Given $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we d
 where we note that the equivalence between the colimit and union formulas now follows from Proposition \ref{MINGFACT PROP}.
 
 
-
-
 \begin{example}
-      Let $G = C_2$ be the cyclic group with two elements,
+	Let $G = \mathbb{X}_{/2} = \{\pm 1\}$,
       and consider the tree $T \in \Omega^G \subset \Omega_G$ below.
       \begin{equation}
             \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
@@ -1324,17 +1318,17 @@ where we note that the equivalence between the colimit and union formulas now fo
 \end{example}
 \todo[inline]{come make: add space, make lines more natural}
 
-Lastly, we recall that there is another presheaf category important in the discussion of equivariant trees,
+Lastly, we recall that there is another important presheaf category in the discussion of equivariant trees,
 namely the category of \textit{genuine $G$-equivariant dendroidal sets} $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$.
-The inclusion $\Omega \times G \into \Omega_G$ sending a tree $T$ to the $G$-free $G$-tree $G \cdot T$
+The inclusion $\Omega \times G^{op} \into \Omega_G$ sending a tree $T$ to the $G$-free $G$-tree $G \cdot T$
 induces a pair of natural adjunctions as below.
 \begin{equation}
       \begin{tikzcd}[column sep =5em]
-            \mathsf{dSet}_G \ar{r}[swap]{u^{\**}} 
+            \mathsf{dSet}_G \ar{r}[swap]{\upsilon^{\**}} 
             &
             \mathsf{dSet}^G
-            \ar[bend right]{l}[swap,midway]{u_{!}}
-            \ar[bend left]{l}{u_{\**}}
+            \ar[bend right]{l}[swap,midway]{\upsilon_{!}}
+            \ar[bend left]{l}{\upsilon_{\**}}
       \end{tikzcd}
 \end{equation}
 
@@ -2100,7 +2094,7 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 
 \subsection{Segal cores, horns and orbital horns}\label{HYPERSAT SEC}
-We will now prove that various maps in question are in fact $G$-inner anodyne.
+
 
 \begin{proposition}\label{ORB_HORN_PROP}
 	For $G$-subsets  
@@ -2418,9 +2412,6 @@ We have some similar results about the saturation of the orbital horn inclusions
       and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
 \end{proof}
 
-\begin{remark}
-      The above plus Proposition \ref{ORB_HORN_PROP} also implies that Segal core inclusions are $G$-inner anodyne.
-\end{remark}
 
 
 We now indicate some of the applications of (hyper)saturations.
@@ -2439,7 +2430,7 @@ against all maps in $\mathcal{C}$.
 
 \begin{proof}
 It suffices to check that the hypersaturation closure conditions are compatible with strict right lifting properties.
-The claims concerning pushouts, transfinite compositions and retracts follow by the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
+The claims concerning pushouts, transfinite compositions and retracts follow from the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
 
 %For any pushout (respectively (dashed) retract)
 %\begin{equation}
