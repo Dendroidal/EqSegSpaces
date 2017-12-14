@@ -157,7 +157,7 @@ as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
 
-It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads into dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
+It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
 the authors introduced the notion of 
 \textit{genuine equivariant operads},
@@ -182,7 +182,8 @@ The organization of the paper is as follows.
 \subsection{The category of trees $\Omega$}
 
 We start by recalling the key features of the category $\Omega$ of trees that will be used throughout.
-Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17} and \cite{Wei12},
+Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17},
+% and \cite{Wei12},
 hence we first recall some key notation and terminology.
 Given a tree diagram $T$ such as
 \begin{equation}\label{FIRSTTREE EQ}
@@ -268,14 +269,12 @@ We now recall the key classes of maps of $\Omega$.
 A map $\varphi \colon S \to T$ which is injective on edges is called a \textit{face map}
 while a map that is surjective on edges and preserves leaves is called a \textit{degeneracy map}
 (the extra requirement ensures that leaves of $S$ do not become stumps of $T$).
-Moreover, a face map is further called
-a \textit{proper face map} if $\phi$ is not bijective,
-an \textit{inner face map}
+Moreover, a face map is further called an \textit{inner face map}
 if $\varphi(r_S) = r_T$ and 
 $\varphi(\underline{l}_S) = \underline{l}_T$ 
 (where $r_{(-)}$ denotes the root edge and $\underline{l}_{(-)}$ the leaf tuple)
-and an \textit{outer face map} if it does not factor through any non-identity inner face maps.
-The following result is \cite[Cor. 3.32]{Per17}.
+and called an \textit{outer face map} if it does not factor through any non-identity inner face maps.
+The following result is \cite[Cor. 3.32]{BP17}.
 \begin{proposition}\label{UNIQUEFACT PROP}
 	A map $\varphi \colon S \to T$ in $\Omega$ has a factorization, unique up to unique isomorphisms,
 \[
@@ -487,7 +486,7 @@ We start by recalling the notion of face discussed in \cite{Per17}, which is mot
 	$U \hookrightarrow T_i$ in $\Omega$ for some $1 \leq i \leq k$.
 	Further, we abbreviate faces of $T$ as
 	$U \hookrightarrow T$,
-	and call them \textit{planar/proper/outer} faces
+	and call them \textit{planar/outer} faces
 	whenever so is the map $U \hookrightarrow T_i$.
 \end{definition}
 
@@ -793,12 +792,20 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 
 \end{example}
 
+\begin{remark}
+	It is clear from the proof of 
+	Proposition \ref{MINGFACT PROP}
+	that, if $U \in \mathsf{Face}(T)$ has isotropy $H$,
+	the induced map 
+	$G \cdot_H U \to T$ is a monomorphism iff
+	$H$ is also the isotropy of the root $r_U$.
+\end{remark}
+
 \begin{remark}\label{GINNER REM}
 	For any inner face $V-e$ of $V$ one has 
 	that $G(V-e)$ is either $GV - Ge$ or $GV$.
 	Indeed, the latter will happen iff $V-e$ contains either an inner edge of a leaf of the form $ge$.
 \end{remark}
-
 
 \begin{remark}
 	Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ does not act on $\mathsf{Face}_o(T)$)
@@ -811,12 +818,6 @@ whose left adjoint is the induced functor
 $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 \end{remark}
 
-\begin{remark}
-      For every component $S_i$ of an orbital face $S \into T$,
-      the isotropy of $S_i$ equals to isotropy of the root $r(S_i)$.
-      Moreover, for any (non-equivariant) face $U$ with this property, we have
-      $HU = U$ and $GU = G \cdot_H U$.
-\end{remark}
 
 
 \subsection{Equivariant dendroidal sets}
