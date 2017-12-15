@@ -2310,10 +2310,10 @@ The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
 $\Lambda^{E} [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-equivariant $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-subset $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
 \item the orbital $G$-inner horn inclusions
 $\Lambda^{E}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-equivariant $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-subset $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
 \item the $G$-Segal core inclusions
 $Sc[T] \to \Omega[T]$ for $T \in \Omega_G$.
 \end{itemize}
@@ -3430,9 +3430,9 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 	By Proposition \ref{CSKETALT PROP}(i) $\gamma_{\**}X$ is dendroidal fibrant. And, since 
 	$Sc[T](\eta)=\Omega[T](\eta)$,
 	Proposition \ref{CSKETALT PROP}(iii) shows that 
-	$(\gamma_{\**}X)(\Omega[T]) \to 
-	(\gamma_{\**}X)(Sc[T])$
-	is indeed a trivial Kan fibration.
+	$(\gamma^{\**}\gamma_{\**}X)(\Omega[T]) \to 
+	(\gamma^{\**} \gamma_{\**}X)(Sc[T])$
+	is fact a trivial Kan fibration.
 \end{proof}
 
 
@@ -3488,7 +3488,7 @@ and a $C$-profile $(x_1,\cdots,x_n ; x_0)$
 on $X$ 
 %(defined exactly as in Definition \ref{PROF DEF})
 we define the space of maps 
-$X(x_1,\cdots,x_n ; x_0)$ via the pullback square
+$X(x_1,\cdots,x_n ; x_0) \in \mathsf{sSet}$ via the pullback square
 \[
 \begin{tikzcd}[column sep=4em]
 	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
@@ -3543,38 +3543,35 @@ is a Kan equivalence in $\mathsf{sSet}$;
 \end{itemize}
 \end{definition}
 
+
 \begin{remark}
-This definition depends only on the map
-$\gamma_{\**} X \to \gamma_{\**} Y$
-of fibrant pre-operads.
+Definitions \ref{MAPSPACESEG DEF}, \ref{HMTPYGEN DEF} and \ref{DKEQUIV DEF} depend only on the 
+fibrant pre-operads $\gamma_{\**}X,\gamma_{\**}Y$,
+since $X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$.
+In fact, for each $G$-corolla $C$
+one has a decomposition
+\[
+	ho(X)(C)=
+%	\coprod_{\partial \Omega[C] \xrightarrow{(x_1,\cdots,x_k;x_0)} X}
+	\coprod_{\text{$C$-profiles }(x_1,\cdots,x_k;x_0)}
+	\pi_0 \left( X(x_1,\cdots,x_k;x_0) \right)
+\]
+so that, given $\varphi \in X_0(x_1,\cdots,x_k;x_0)$
+we will write $[\varphi] \in ho(X)(C)$
+for the corresponding class.
 \end{remark}
 
-\begin{notation}
-	Given a $C$-profile $(x_1,\cdots,x_k;x_0)$ and
-	$\varphi \in X(x_1,\cdots,x_k;x_0)$
-	we write 
-\[[\varphi] \in ho(X)(C) =
-	\pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right)(C) \right)=
-	\pi_0 X\left(\Omega[C]\right)
-\]
-for the corresponding class.
-\end{notation}
 
 \begin{definition}\label{HEQUIV DEF}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	For $H \leq G$, we call 
 	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
 	\textit{$H$-equivalence} 
-	if $[f]$ is an isomorphism in
+	if $[f]$ is an isomorphism in the category
 	$ho\left(\iota^{\**}(X^H)\right)$.
 \end{definition}
 
-\begin{remark}
-	It is immediate that
-	$X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$, so that Definitions \ref{MAPSPACESEG DEF}, \ref{HMTPYGEN DEF}, \ref{DKEQUIV DEF} and  \ref{HEQUIV DEF}
-	depend only on the fibrant pre-operads $\gamma_{\**}X, \gamma_{\**}Y$.
-\end{remark}
-
+{\color{blue} add context}
 
 Suppose $C,D \in \Sigma_G$ are $G$-corollas that can be grafted,
 i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
@@ -3582,7 +3579,6 @@ and write $T= C \amalg_{G e} D$ for the grafted $G$-tree.
 For any dendroidal Segal space $X$ one then has
 $X(Sc[T]) \simeq X(\Omega[C]) \times_{X(\eta)^H} X(\Omega[D])$
 and one can hence choose a section in the middle row below
-(necessarily a map over $X\left(\partial \Omega[T-Ge]\right)$)
 \begin{equation}\label{HOMOTCIRC EQ}
 \begin{tikzcd}
 	\{\varphi\} \times X(z_1,\cdots,z_l;e)
@@ -3608,40 +3604,56 @@ and one can hence choose a section in the middle row below
 \end{equation}
 thus defining maps 
 $\varphi \circ_{Ge} (-)$ (resp. $(-)\circ_{Ge} \psi$)
-for any choice of $0$-simplex
-$\varphi \in X(e,y_2,\cdots,y_k;x)$
-(resp. $\psi \in X(z_1,\cdots,z_l;e)$).
+for any choice of 
+$\varphi \in X_0(e,y_2,\cdots,y_k;x)$
+(resp. $\psi \in X_0(z_1,\cdots,z_l;e)$).
+
+
+\begin{remark}\label{HOMOLIFTS REM}
+In what follows, we will repeatedly use the observation that, for $X\to Y$ a trivial Kan fibration, any two lifts  of the form below are homotopic.
+\[
+\begin{tikzcd}[row sep =1.5em]
+&
+	X \ar[->>]{d}{\sim}
+\\
+	A \ar[dashed]{ru} \ar{r}
+&
+	Y 
+\end{tikzcd}
+\]
+\end{remark}
 
 
 \begin{proposition}\label{GENOPHO PROP}
-	The maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
-are well defined up to homotopy. 
-	Further, if $[\varphi]=[\bar{\varphi}]$ then 
-the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
-	are homotopic, and likewise for $[\psi] = [\bar{\psi}]$.
-	In particular, $[\varphi \circ_{Ge} \psi]$
-	depends only on $[\varphi]$, $[\psi]$.
-
-	Lastly, the homotopy classes of the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
+\begin{itemize}
+	\item[(i)] the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
+are well defined up to homotopy;
+	\item[(ii)] if $[\varphi]=[\bar{\varphi}]$ then 
+the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$ are homotopic, and likewise for $[\psi] = [\bar{\psi}]$;
+	\item[(iii)] $[\varphi \circ_{Ge} \psi]$
+	depends only on $[\varphi]$, $[\psi]$;
+	\item[(iv)] the homotopy classes of the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are natural with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
+\end{itemize}
 \end{proposition}
 
-{\color{red} HERE}
-
 \begin{proof}
-	This is immediate once one notes that, writing $E = T-Ge$ for the ``composite $G$-corolla'', all solid maps in 
-	\eqref{HOMOTCIRC EQ} are compatible with the projections
-	to $X(\partial \Omega[E])$.
-	
+	Noting that all middle row sections in \eqref{HOMOTCIRC EQ} (and homotopies between them)
+	are necessarily compatible with the projections to 
+$X(\partial \Omega[T-Ge])$, 
+	(i) follows from Remark \ref{HOMOLIFTS REM}.
+	The middle row in \eqref{HOMOTCIRC EQ}
+	gives the necessary homotopies for (ii). 
+	(iii) is immediate from (ii).
 %For functoriality, recall that we can find a factorization 
 %$X \overset{\sim}{\rightarrowtail} Z \twoheadrightarrow Y$
 %as a trivial cofibration followed by a fibration in the category of dendroidal Segal spaces. Since the trivial cofibration then has a homotopy inverse, and one easily checks that so do the induced maps 
- 
-For functoriality, one simply notes that either type of section as on the leftmost diagram
+Lastly, (iv) follows from Remark \ref{HOMOLIFTS REM}
+applied to the two
+$X(\Omega[C]) \underset{X(\eta)^H}{\times} X(\Omega[D])
+\to Y(\Omega[T])$ paths in
 \[
 \begin{tikzcd}[column sep =13]
 	X(\Omega[T]) \ar{r} \ar[->>]{d}{\sim} &
-	Y(\Omega[T]) \ar[->>]{d}{\sim}
-& &
 	Y(\Omega[T]) \ar[->>]{d}{\sim}
 \\
 	X(\Omega[C]) \underset{X(\eta)^H}{\times} X(\Omega[D])
@@ -3649,14 +3661,11 @@ For functoriality, one simply notes that either type of section as on the leftmo
 &
 	Y(\Omega[C]) \underset{Y(\eta)^H}{\times} Y(\Omega[D])
 	\ar[bend left=30,dashed]{u}
-&
-	X(\Omega[C]) \underset{X(\eta)^H}{\times} X(\Omega[D]) \ar[dashed]{ru} \ar{r}
-&
-	Y(\Omega[C]) \underset{Y(\eta)^H}{\times} Y(\Omega[D]) 
 \end{tikzcd}
 \]
-induces lifts as on the  rightmost diagram. However, a standard argument shows that all such lifts are homotopic over $X(\partial \Omega[E])$.
 \end{proof}
+
+{\color{red} HERE}
 
 	We will now show that the operations   
 	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
@@ -3678,24 +3687,6 @@ but in the operadic case there are instead five cases, corresponding to the diff
 $G$-trees with exactly three $G$-nodes, whose \textit{orbital} representation falls into one of the two cases illustrated below.
 \[%
 	\begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize}]%
-	\begin{scope}[level distance = 1.9em]
-	\tikzstyle{level 2}=[sibling distance=3em]%
-	\tikzstyle{level 3}=[sibling distance=1.25em]%
-		\node at (5.5,0) {}%
-			child{node [dummy] {}%
-				child{node {}}%
-				child{node [dummy] {}%
-					child{}%
-					child{}%
-					child{}%
-				}%
-				child{node {}}%
-				child{node [dummy] {}%
-					child{}%
-					child{}%
-				}%
-			};%
-	\end{scope}
 	\begin{scope}[level distance = 1.425em]
 	\tikzstyle{level 2}=[sibling distance=4em]%
 	\tikzstyle{level 3}=[sibling distance=1.5em]%
@@ -3714,11 +3705,29 @@ $G$-trees with exactly three $G$-nodes, whose \textit{orbital} representation fa
 				child{node {}}%
 			};%
 	\end{scope}
+	\begin{scope}[level distance = 1.9em]
+	\tikzstyle{level 2}=[sibling distance=3em]%
+	\tikzstyle{level 3}=[sibling distance=1.25em]%
+		\node at (5.5,0) {}%
+			child{node [dummy] {}%
+				child{node {}}%
+				child{node [dummy] {}%
+					child{}%
+					child{}%
+					child{}%
+				}%
+				child{node {}}%
+				child{node [dummy] {}%
+					child{}%
+					child{}%
+				}%
+			};%
+	\end{scope}
 	\end{tikzpicture}%
 \]%
 Since all these compatibilities can be simultaneously encoded in terms of such trees, we will simply refer to all types of compatibility as ``associativity''.
 
-In the next result, note that a $G$-tree $T$ with three $G$-nodes contains precisely two inner edge orbits $Ge$ and $Gf$. We will write $T[Ge]$ (resp. $T[Gf]$) for the unique orbital outer face of $T$ with $Ge$ (resp. $Gf$) has its single inner edge orbit. 
+In the next result, note that a $G$-tree $T$ with three $G$-vertices contains precisely two inner edge orbits $Ge$ and $Gf$. We will write $T[Ge]$ (resp. $T[Gf]$) for the unique orbital outer face of $T$ with $Ge$ (resp. $Gf$) has its single inner edge orbit. 
 
 \begin{proposition}\label{ASSOC PROP}
 	The operations
@@ -3811,8 +3820,7 @@ are homotopic. All desired forms of associativity follow from taking fibers of t
 	operations, 
 	in the equivariant case there are further 
 	``compatibilities with pullback of $G$-trees'', which are closely related to the genuine equivariant operads introduced in \cite{BP17}. 
-	However, describing these extra compatibilities would require using $G$-trees with more than $3$ $G$-nodes, and since such compatibilites are not needed for our current goals, 
-	we omit their discussion. 
+	However, describing these extra compatibilities would require using $G$-trees with more than three $G$-nodes, and since such compatibilites are not needed for our present goals, we omit their discussion. 
 \end{remark}
 
 
