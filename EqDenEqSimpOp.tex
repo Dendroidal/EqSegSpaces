@@ -148,10 +148,11 @@ the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
 are ``equivariant operads with norm maps up to homotopy'',
 called $G$-$\infty$-operads.
-It was further shown that $N_{hc}(\O)$ is such an object
-% has this property
-for any suitably fibrant $G$-operad $\O \in \mathsf{sOp}^G$
-(as opposed to the purely formal conclusion being an ``$\infty$-operad with $G$-action'').
+Further, it was shown therein that whenever a $G$-operad
+$\O \in \mathsf{sOp}^G$ is
+suitably fibrant the homotopy coherent nerve
+$N_{hc}(\O)$ is such a 
+$G$-$\infty$-operad (rather than just an ``$\infty$-operad with $G$-action'').
 In the present paper, our main results are then the existence of suitable model structures on the categories 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 of $G$-dendroidal spaces and $G$-pre-operads,
@@ -456,14 +457,13 @@ given by the (single) tree on the right.
 Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
 $a,b,c,d$ have stabilizers $L,K,K,H$.
 
-{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
+%{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
 Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is given as follows.
 Given a non-equivariant forest diagram $F$ 
 (i.e. a finite collection of tree diagrams side by side),
-there is % we have %one can obtain
-an associated broad poset just as before, and thus a category $\Phi$ of forests.
+there is
+an associated broad poset just as before, and thus one obtains a category $\Phi$ of forests.
 Letting $\Phi^G$ denote $G$-objects on $\Phi$, referred to as $G$-forests,
-% Letting $\Phi^G$, the category of $G$-forests, denote $G$-objects on $\Phi$,
 the category
 $\Omega_G \subset \Phi^G$
 of $G$-trees
@@ -476,8 +476,7 @@ and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where w
 We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
 
 Before discussing face maps in the equivariant context, it is worth commenting on the complementary roles of the expanded and orbital representations.
-On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation\footnote{
-  The orbital representation for $T$ is the diagram for the \textit{quotient} broad poset $T/G$.},
+On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation,
 so that the arrows of $\Omega_{G}$ are best understood from that perspective.
 On the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
 are given by the orbital representations of  
@@ -657,22 +656,14 @@ $S \hookrightarrow T$ an orbital inner face.
 	\end{scope}
 	\end{tikzpicture}%
 \end{equation}%
+These examples illustrate our motivation for the term 
+``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
 
 Adapting the notation for (non-equivariant) inner faces, we write
 $S = T-Gc = T-\{c,jc,ic,kc\}$ and analogously throughout the paper.
 We will need no analogous notation for orbital outer faces.
 \end{example}
 
-\begin{remark}
-      \label{ORB_FACE_REM}
-      These examples illustrate our motivation for the term 
-      ``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
-      In fact, we have an isomorphism of posets
-      \begin{equation}
-            \mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
-      \end{equation}
-      where $T/G$ is the quotient broad poset with associated tree diagram given by the orbital representation.
-\end{remark}
 
 \begin{notation}\label{TREEDIFNOT NOT}
 	In the remainder of the paper we sometimes need to consider (non-equivariant) and orbital faces simultaneously.
@@ -837,6 +828,16 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 
 
 
+\begin{remark}\label{ORB_FACE_REM}
+	In fact, we have an isomorphism of posets
+	\begin{equation}
+	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
+	\end{equation}
+where $T/G$ is the underlying tree in the orbital representation ({\color{blue} this needs to be expanded on}).
+\end{remark}
+
+
+
 \subsection{Equivariant dendroidal sets}
 
 
@@ -982,7 +983,7 @@ where we note that the equivalence between the colimit and union formulas now fo
             \sets{\bigcup_i\Omega[S_i] \subseteq \Omega[T]}{i \in \NN,\ S_i \in \mathsf{Face}_o(T)} \simeq
             \sets{\bigcup_i\Omega[U_i] \subseteq \Omega[T/G]}{i \in \NN,\ S_i/G \in \mathsf{Face}(T/G)}.
       \end{equation}
-      In particular, $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$.
+      In particular, $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$. ({\color{blue} this needs work})
 \end{remark}
 
 \begin{example}
@@ -2289,7 +2290,7 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 \end{proof}
 
 
-Following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we say
+Following the discussion preceding \cite[Prop. 3.6.8]{HHM16},
 a class of normal monomorphisms of $\mathsf{dSet}^G$
 (or, more generally, a subclass of the cofibrations in a model category) is called
 \textit{hypersaturated} if it is closed under
@@ -2343,7 +2344,7 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	one obtains by induction on $|T_{\**}|$ that
 	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to \Omega[T]$
 	is in the Segal hypersaturation. 
-	But now letting $E \subseteq E^{\mathsf{i}}(T)$ be any $G$-equivariant subset and considering the factorization
+	But now letting $E \subseteq E^{\mathsf{i}}(T)$ be any $G$-subset and considering the factorization
 	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to 
 	\Lambda^{E}[T] \to
 	\Omega[T]$ the induction hypothesis applies to the cells of
@@ -3389,6 +3390,10 @@ This is the model structure of equivariant dendroidal Segal spaces, that we disc
 \section{Equivariant dendroidal Segal spaces}
 
 
+{\color{blue} Rewrite this}
+
+DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
+{\color{red} whatever below}. 
 
 \subsection{The homotopy genuine operad and Dwyer Kan equivalences}
 
@@ -3544,18 +3549,24 @@ $\gamma_{\**} X \to \gamma_{\**} Y$
 of fibrant pre-operads.
 \end{remark}
 
+\begin{notation}
+	Given a $C$-profile $(x_1,\cdots,x_k;x_0)$ and
+	$\varphi \in X(x_1,\cdots,x_k;x_0)$
+	we write 
+\[[\varphi] \in ho(X)(C) =
+	\pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right)(C) \right)=
+	\pi_0 X\left(\Omega[C]\right)
+\]
+for the corresponding class.
+\end{notation}
+
 \begin{definition}\label{HEQUIV DEF}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	For $H \leq G$, we call 
 	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
 	\textit{$H$-equivalence} 
-	if the corresponding class 
-\[
-	[f] \in ho(X)(C_{H/H}) =
-	ho \left(\iota^{\**}\left(X^H\right)\right)(1) = 
-	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)(1)
-\]
-	is an isomorphism.
+	if $[f]$ is an isomorphism in
+	$ho\left(\iota^{\**}(X^H)\right)$.
 \end{definition}
 
 \begin{remark}
@@ -3564,10 +3575,6 @@ of fibrant pre-operads.
 	depend only on the fibrant pre-operads $\gamma_{\**}X, \gamma_{\**}Y$.
 \end{remark}
 
-{\color{red} HERE}
-
-DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
-{\color{red} whatever below}. We now introduce some auxiliary notions.
 
 Suppose $C,D \in \Sigma_G$ are $G$-corollas that can be grafted,
 i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
@@ -3575,6 +3582,7 @@ and write $T= C \amalg_{G e} D$ for the grafted $G$-tree.
 For any dendroidal Segal space $X$ one then has
 $X(Sc[T]) \simeq X(\Omega[C]) \times_{X(\eta)^H} X(\Omega[D])$
 and one can hence choose a section in the middle row below
+(necessarily a map over $X\left(\partial \Omega[T-Ge]\right)$)
 \begin{equation}\label{HOMOTCIRC EQ}
 \begin{tikzcd}
 	\{\varphi\} \times X(z_1,\cdots,z_l;e)
@@ -3600,23 +3608,24 @@ and one can hence choose a section in the middle row below
 \end{equation}
 thus defining maps 
 $\varphi \circ_{Ge} (-)$ (resp. $(-)\circ_{Ge} \psi$)
-for any choice of
+for any choice of $0$-simplex
 $\varphi \in X(e,y_2,\cdots,y_k;x)$
 (resp. $\psi \in X(z_1,\cdots,z_l;e)$).
 
+
 \begin{proposition}\label{GENOPHO PROP}
 	The maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
-are well defined up to homotopy. Further, if 
-$\varphi,\bar{\varphi} \in X(e,y_2,\cdots,y_k;x)$ are homotopic 
-(i.e. in the same connected component), then 
+are well defined up to homotopy. 
+	Further, if $[\varphi]=[\bar{\varphi}]$ then 
 the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
-	are homotopic, and likewise for $\psi$.
-	
-	In particular, $\varphi \circ_{Ge} \psi \in X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)$
-	is well defined up to homotopy.
+	are homotopic, and likewise for $[\psi] = [\bar{\psi}]$.
+	In particular, $[\varphi \circ_{Ge} \psi]$
+	depends only on $[\varphi]$, $[\psi]$.
 
-	Lastly, the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
+	Lastly, the homotopy classes of the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
 \end{proposition}
+
+{\color{red} HERE}
 
 \begin{proof}
 	This is immediate once one notes that, writing $E = T-Ge$ for the ``composite $G$-corolla'', all solid maps in 
