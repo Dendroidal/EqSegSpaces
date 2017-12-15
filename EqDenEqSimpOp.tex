@@ -2254,7 +2254,6 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 
 
 Following the discussion preceding \cite[Prop. 3.6.8]{HHM16},
-and expanding on Definition \ref{SAT_DEF}, we say
 a class of normal monomorphisms of $\mathsf{dSet}^G$
 (or, more generally, a subclass of the cofibrations in a model category) is called
 \textit{hypersaturated} if it is closed under
@@ -2308,7 +2307,7 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	one obtains by induction on $|T_{\**}|$ that
 	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to \Omega[T]$
 	is in the Segal hypersaturation. 
-	But now letting $E \subseteq E^{\mathsf{i}}(T)$ be any $G$-equivariant subset and considering the factorization
+	But now letting $E \subseteq E^{\mathsf{i}}(T)$ be any $G$-subset and considering the factorization
 	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to 
 	\Lambda^{E}[T] \to
 	\Omega[T]$ the induction hypothesis applies to the cells of
@@ -3353,6 +3352,10 @@ This is the model structure of equivariant dendroidal Segal spaces, that we disc
 \section{Equivariant dendroidal Segal spaces}
 
 
+{\color{blue} Rewrite this}
+
+DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
+{\color{red} whatever below}. 
 
 \subsection{The homotopy genuine operad and Dwyer Kan equivalences}
 
@@ -3508,18 +3511,24 @@ $\gamma_{\**} X \to \gamma_{\**} Y$
 of fibrant pre-operads.
 \end{remark}
 
+\begin{notation}
+	Given a $C$-profile $(x_1,\cdots,x_k;x_0)$ and
+	$\varphi \in X(x_1,\cdots,x_k;x_0)$
+	we write 
+\[[\varphi] \in ho(X)(C) =
+	\pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right)(C) \right)=
+	\pi_0 X\left(\Omega[C]\right)
+\]
+for the corresponding class.
+\end{notation}
+
 \begin{definition}\label{HEQUIV DEF}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	For $H \leq G$, we call 
 	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
 	\textit{$H$-equivalence} 
-	if the corresponding class 
-\[
-	[f] \in ho(X)(C_{H/H}) =
-	ho \left(\iota^{\**}\left(X^H\right)\right)(1) = 
-	\pi_0 \left(\iota^{\**} \gamma_{\**}X^H\right)(1)
-\]
-	is an isomorphism.
+	if $[f]$ is an isomorphism in
+	$ho\left(\iota^{\**}(X^H)\right)$.
 \end{definition}
 
 \begin{remark}
@@ -3528,10 +3537,6 @@ of fibrant pre-operads.
 	depend only on the fibrant pre-operads $\gamma_{\**}X, \gamma_{\**}Y$.
 \end{remark}
 
-{\color{red} HERE}
-
-DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
-{\color{red} whatever below}. We now introduce some auxiliary notions.
 
 Suppose $C,D \in \Sigma_G$ are $G$-corollas that can be grafted,
 i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
@@ -3539,6 +3544,7 @@ and write $T= C \amalg_{G e} D$ for the grafted $G$-tree.
 For any dendroidal Segal space $X$ one then has
 $X(Sc[T]) \simeq X(\Omega[C]) \times_{X(\eta)^H} X(\Omega[D])$
 and one can hence choose a section in the middle row below
+(necessarily a map over $X\left(\partial \Omega[T-Ge]\right)$)
 \begin{equation}\label{HOMOTCIRC EQ}
 \begin{tikzcd}
 	\{\varphi\} \times X(z_1,\cdots,z_l;e)
@@ -3564,23 +3570,24 @@ and one can hence choose a section in the middle row below
 \end{equation}
 thus defining maps 
 $\varphi \circ_{Ge} (-)$ (resp. $(-)\circ_{Ge} \psi$)
-for any choice of
+for any choice of $0$-simplex
 $\varphi \in X(e,y_2,\cdots,y_k;x)$
 (resp. $\psi \in X(z_1,\cdots,z_l;e)$).
 
+
 \begin{proposition}\label{GENOPHO PROP}
 	The maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
-are well defined up to homotopy. Further, if 
-$\varphi,\bar{\varphi} \in X(e,y_2,\cdots,y_k;x)$ are homotopic 
-(i.e. in the same connected component), then 
+are well defined up to homotopy. 
+	Further, if $[\varphi]=[\bar{\varphi}]$ then 
 the maps $\varphi \circ_{Ge} (-)$, $\bar{\varphi} \circ_{Ge} (-)$
-	are homotopic, and likewise for $\psi$.
-	
-	In particular, $\varphi \circ_{Ge} \psi \in X(z_1,\cdots,z_l,y_2,\cdots,y_k;x)$
-	is well defined up to homotopy.
+	are homotopic, and likewise for $[\psi] = [\bar{\psi}]$.
+	In particular, $[\varphi \circ_{Ge} \psi]$
+	depends only on $[\varphi]$, $[\psi]$.
 
-	Lastly, the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
+	Lastly, the homotopy classes of the maps $\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$ are functorial with respect to maps $f\colon X \to Y$ between dendroidal Segal spaces.
 \end{proposition}
+
+{\color{red} HERE}
 
 \begin{proof}
 	This is immediate once one notes that, writing $E = T-Ge$ for the ``composite $G$-corolla'', all solid maps in 
