@@ -148,8 +148,10 @@ the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
 are ``equivariant operads with norm maps up to homotopy'',
 called $G$-$\infty$-operads.
-%,
-%and that $N_{hc}(\O)$ for any suitably fibrant $G$-operad $%\O$ has this structure.
+It was further shown that $N_{hc}(\O)$ is such an object
+% has this property
+for any suitably fibrant $G$-operad $\O \in \mathsf{sOp}^G$
+(as opposed to the purely formal conclusion being an ``$\infty$-operad with $G$-action'').
 In the present paper, our main results are then the existence of suitable model structures on the categories 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 of $G$-dendroidal spaces and $G$-pre-operads,
@@ -454,14 +456,19 @@ given by the (single) tree on the right.
 Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
 $a,b,c,d$ have stabilizers $L,K,K,H$.
 
-The formal definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is as follows.
-Firstly, given a non-equivariant forest diagram $F$ 
+{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
+Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is given as follows.
+Given a non-equivariant forest diagram $F$ 
 (i.e. a finite collection of tree diagrams side by side),
-one can obtain an associated broad poset just as before, and thus a category $\Phi$ of forests. Letting $\Phi^G$, the category of $G$-forests, denote $G$-objects on $\Phi$,
+there is % we have %one can obtain
+an associated broad poset just as before, and thus a category $\Phi$ of forests.
+Letting $\Phi^G$ denote $G$-objects on $\Phi$, referred to as $G$-forests,
+% Letting $\Phi^G$, the category of $G$-forests, denote $G$-objects on $\Phi$,
 the category
 $\Omega_G \subset \Phi^G$
 of $G$-trees
-is the full subcategory of those $G$-forests such that the $G$-action is transitive on tree components.
+is defined to be the full subcategory of those $G$-forests such that the $G$-action is transitive on tree components.
+
 We note that any $G$-tree $T$ can then be written as
 $G \cdot_H T_{\**}$, where $T_{\**}$ is some fixed tree component, $H\leq G$ is the subgroup sending that component to itself,
 and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where we caution that $\Omega^G \subsetneq \Omega_G$).
@@ -469,7 +476,9 @@ and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where w
 We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
 
 Before discussing face maps in the equivariant context, it is worth commenting on the complementary roles of the expanded and orbital representations.
-On the one hand, the broad posets associated to $G$-trees are diagrammatically represented by the expanded representation, so that the arrows of $\Omega_{G}$ are best understood from that perspective.
+On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation\footnote{
+  The orbital representation for $T$ is the diagram for the \textit{quotient} broad poset $T/G$.},
+so that the arrows of $\Omega_{G}$ are best understood from that perspective.
 On the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
 are given by the orbital representations of  
 $G$-trees (see \cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
@@ -648,14 +657,22 @@ $S \hookrightarrow T$ an orbital inner face.
 	\end{scope}
 	\end{tikzpicture}%
 \end{equation}%
-These examples illustrate our motivation for the term 
-``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
 
 Adapting the notation for (non-equivariant) inner faces, we write
 $S = T-Gc = T-\{c,jc,ic,kc\}$ and analogously throughout the paper.
 We will need no analogous notation for orbital outer faces.
 \end{example}
 
+\begin{remark}
+      \label{ORB_FACE_REM}
+      These examples illustrate our motivation for the term 
+      ``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
+      In fact, we have an isomorphism of posets
+      \begin{equation}
+            \mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
+      \end{equation}
+      where $T/G$ is the quotient broad poset with associated tree diagram given by the orbital representation.
+\end{remark}
 
 \begin{notation}\label{TREEDIFNOT NOT}
 	In the remainder of the paper we sometimes need to consider (non-equivariant) and orbital faces simultaneously.
@@ -957,9 +974,19 @@ Given $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we d
 \]
 where we note that the equivalence between the colimit and union formulas now follows from Proposition \ref{MINGFACT PROP}.
 
+\begin{remark}
+      \label{ORB_HORN_REM}
+      Furthering the observation from Remark \ref{ORB_FACE_REM} that $\mathsf{Face}_o(T) \simeq \mathsf{Face}(T/G)$,
+      we record that this isomorphism induces an isomorphism of posets of subcomplexes
+      \begin{equation}
+            \sets{\bigcup_i\Omega[S_i] \subseteq \Omega[T]}{i \in \NN,\ S_i \in \mathsf{Face}_o(T)} \simeq
+            \sets{\bigcup_i\Omega[U_i] \subseteq \Omega[T/G]}{i \in \NN,\ S_i/G \in \mathsf{Face}(T/G)}.
+      \end{equation}
+      In particular, $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$.
+\end{remark}
 
 \begin{example}
-	Let $G = \mathbb{X}_{/2} = \{\pm 1\}$,
+	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
       and consider the tree $T \in \Omega^G \subset \Omega_G$ below.
       \begin{equation}
             \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
@@ -1002,166 +1029,175 @@ where we note that the equivalence between the colimit and union formulas now fo
       We have also included some of the subfaces of $S = \partial^{a}T$;
       those included in the orbital horn are (dashed) boxed.
       In particular, we note that $S$ and all of its maximal subfaces
-      each have at least one face contained in the orbital horn.
+      each have at least one face contained in the orbital horn. COME BACK
       \begin{figure}[ht]
             \label{HORN_EX_FIG}
             \begin{equation}
-                  \begin{tikzpicture}[grow= up, level distance = 1.7em, every node/.style = {font=\footnotesize}]
+                  \newlength{\mywidth}
+                  \setlength{\mywidth}{1.9em}%1.7
+                  \newlength{\rowtwo}
+                  \setlength{\rowtwo}{-2.6\mywidth}
+                  \begin{tikzpicture}[grow= up, level distance = \mywidth, auto,
+                        y=2\mywidth,
+                        % dummy/.style    = {circle,draw,inner sep=0pt,minimum size=2mm}%
+                        every node/.style = {font=\small, transform shape}
+                        ,scale=.9
+                        ]
                         \tikzstyle{level 2}=[sibling distance=4em]
                         \tikzstyle{level 3}=[sibling distance=4em]
                         \node (Paa) {}
                         child{node [dummy] {}
                           child{node [dummy] {}
                             child{
-                              edge from parent node [right] {$-b$}
+                              edge from parent node [swap] {$-b$}
                             }
                             child{node [dummy] {}
-                              child{edge from parent node [left] {$a$}}
-                              edge from parent node [left] {$b$}
+                              child{edge from parent node [] {$a$}}
+                              edge from parent node [] {$b$}
                             }
-                            edge from parent node [right] {$e$}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
-                        \node (Pa) at (3,0) {$\partial^{a} T$}
+                        \node (Pa) at (3.5,0) {$\partial^{a} T$}
                         child{node [dummy] {}
                           child{node [dummy] {}
                             child{node [dummy] {}
-                              child{edge from parent node [right] {$-a$}}
-                              edge from parent node [right] {$-b$}
+                              child{edge from parent node [swap] {$-a$}}
+                              edge from parent node [swap] {$-b$}
                             }
                             child{
-                              edge from parent node [left] {$b$}
+                              edge from parent node [] {$b$}
                             }
-                            edge from parent node [right] {$e$}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         \node (Pr) at (7,0){$\partial^r$}
                         child{node [dummy] {}
                           child{node [dummy] {}
-                            child{edge from parent node [right] {$-a$}}
-                            edge from parent node [right] {$-b$}
+                            child{edge from parent node [swap] {$-a$}}
+                            edge from parent node [swap] {$-b$}
                           }
                           child{node [dummy] {}
-                            child{edge from parent node [left] {$a$}}
-                            edge from parent node [left] {$b$}
+                            child{edge from parent node [] {$a$}}
+                            edge from parent node [] {$b$}
                           }
-                          edge from parent node [right] {$e$}
+                          edge from parent node [swap] {$e$}
                         };
                         \draw
-                        (Pr)++(-1.2,-.2) rectangle ++(2.4,2.1);
+                        (Pr)++(-1.25,-.2) rectangle ++(2.55,2);
                         \node (Tb) at (9.7,0){}
                         child{node [dummy] {}
                           child{node [dummy] {}
-                            child{edge from parent node [right] {$-a$}}
+                            child{edge from parent node [swap] {$-a$}}
                             child{node [dummy] {}
-                              child{edge from parent node [left] {$a$}}
-                              edge from parent node [left] {$b$}
+                              child{edge from parent node [] {$a$}}
+                              edge from parent node [] {$b$}
                             }
-                            edge from parent node [right] {$e$}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         \node (Tbb) at (11.7,0) {}
                         child{node [dummy] {}
                           child{node [dummy] {}
                             child{node [dummy] {}
-                              child{edge from parent node [right] {$-a$}}
-                              edge from parent node [right] {$-b$}
+                              child{edge from parent node [swap] {$-a$}}
+                              edge from parent node [swap] {$-b$}
                             }
                             child{
-                              edge from parent node [left] {$a$}
+                              edge from parent node [] {$a$}
                             }
-                            edge from parent node [right] {$e$}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         %%%%%%% --------- NEXT ROW -----------------------------
-                        \node (PGa) at (0,-2.6) {$\partial^{G a}$}
+                        \node (PGa) at (0,-3.0) {$\partial^{G a}$} 
                         child{node [dummy] {}
                           child{node [dummy] {}
                             child{
-                              edge from parent node [right] {$-b$}
+                              edge from parent node [swap] {$-b$}
                             }
                             child{
-                              edge from parent node [left] {$b$}
+                              edge from parent node [] {$b$}
                             }
-                            edge from parent node [right] {$e$}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         \draw
-                        (PGa)++(-1,-.2) rectangle ++(2,2.1);
+                        (PGa)++(-1,-.2) rectangle ++(2,1.9);
                         % 
-                        \node (TGb) at (10.7,-2.6) {$T - G b$}
+                        \node (TGb) at (10.7,-3.0) {$T - G b$}
                         child{node [dummy] {}
                           child{node [dummy] {}
                             child{
-                              edge from parent node [right] {$-a$}
+                              edge from parent node [swap] {$-a$}
                             }
                             child{
-                              edge from parent node [left] {$a$}
+                              edge from parent node [] {$a$}
                             }
-                            edge from parent node [right] {$e$}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         \draw
-                        (TGb)++(-1,-.2) rectangle ++(2, 2.1);
+                        (TGb)++(-1,-.2) rectangle ++(2,1.9);
                         % -------- other orbital face of \partial{a}
-                        \node (Par) at (7,-2.6) {$\partial^{a,r}$}
+                        \node (Par) at (7,-3.0) {$\partial^{a,r}$}
                         child{node [dummy] {}
                           child{node [dummy] {}
-                            child{edge from parent node [right] {$-a$}}
-                            edge from parent node [right] {$-b$}
+                            child{edge from parent node [swap] {$-a$}}
+                            edge from parent node [swap] {$-b$}
                           }
-                          child{edge from parent node [left] {$b$}}
-                          edge from parent node [right] {$e$}
+                          child{edge from parent node [] {$b$}}
+                          edge from parent node [swap] {$e$}
                         };
                         \draw[dashed]
-                        (Par)++(-.9,-.2) rectangle ++(2.15,2.1);
+                        (Par)++(-1,-.2) rectangle ++(2.25,1.9);
                         % ---------- other faces of \partial{a}
                         \node (Pae) at (2.3, -3) {$\partial^{a}-e$}
                         child{node [dummy] {}
                           child{node [dummy] {}
-                            child{edge from parent node [right] {$-a$}}
-                            edge from parent node [right] {$-b$}
+                            child{edge from parent node [swap] {$-a$}}
+                            edge from parent node [swap] {$-b$}
                           }
-                          child{edge from parent node [left] {$b$}
+                          child{edge from parent node [] {$b$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         \node (Pabb) at (4.7,-3) {$\partial^{a}-\set{-b}$}
                         child{node [dummy] {}
                           child{node [dummy] {}
-                            child{edge from parent node [right] {$-a$}}
-                            child{edge from parent node [left] {$b$}}
-                            edge from parent node [right] {$e$}
+                            child{edge from parent node [swap] {$-a$}}
+                            child{edge from parent node [] {$b$}}
+                            edge from parent node [swap] {$e$}
                           }
-                          edge from parent node [right] {$r$}
+                          edge from parent node [swap] {$r$}
                         };
                         %%%% -------------------- next row --------------------
-                        \node at (3.5, -5) {}
+                        \node at (3.5, -5.5) {}
                         child{node [dummy] {}
-                          child{edge from parent node [right] {$-a$}}
-                          child{edge from parent node [left] {$b$}}
-                          edge from parent node [right] {$r$}
+                          child{edge from parent node [swap] {$-a$}}
+                          child{edge from parent node [] {$b$}}
+                          edge from parent node [swap] {$r$}
                         };
-                        \node (Parb) at (7,-5) {}
+                        \node (Parb) at (7,-5.5) {}
                         child{node [dummy] {}
-                          child{edge from parent node [right] {$-a$}}
-                          child{edge from parent node [left] {$b$}}
-                          edge from parent node [right] {$e$}
+                          child{edge from parent node [swap] {$-a$}}
+                          child{edge from parent node [] {$b$}}
+                          edge from parent node [swap] {$e$}
                         };
                         \draw[dashed]
                         (Parb)++(-.9,-.1) rectangle ++(1.9,1.5);
                         % 
-                        \node (PGae) at (0,-5) {}
+                        \node (PGae) at (0,-5.5) {}
                         child{node [dummy] {}
-                          child{edge from parent node [right] {$-b$}}
-                          child{edge from parent node [left] {$b$}}
-                          edge from parent node [right] {$r$}
+                          child{edge from parent node [swap] {$-b$}}
+                          child{edge from parent node [] {$b$}}
+                          edge from parent node [swap] {$r$}
                         };
                         \draw[dashed]
                         (PGae)++(-.9,-.1) rectangle ++(1.9,1.5);
@@ -1332,20 +1368,20 @@ induces a pair of natural adjunctions as below.
       \end{tikzcd}
 \end{equation}
 
+\todo[inline]{come make: make lines more natural and even}
 \begin{remark}
-      We observe that, given $T \in \Omega_G$, there are two possible definitions for the notation $\Omega[T] \in \mathsf{dSet}_G$,
-      namely the image of $T$ under the Yoneda embedding, and the image of $\Omega[T] \in \mathsf{dSet}^G$ under $u_{\**}$ .
-      In fact, these operations agree.
-      \begin{equation}
-            \begin{tikzcd}
-                  \Omega_G \arrow[dr, "Y"] \arrow[d, "{\Omega[-]}"']
-                  \\
-                  \mathsf{dSet}^G \arrow[r, "u_{\**}"]
-                  &
-                  \mathsf{dSet}_G
-            \end{tikzcd}
-      \end{equation}
-
+      Given $T \in \Omega_G$, the two ``Yoneda'' objects in $\mathsf{dSet}_G$ agree, as
+      \mbox{$\Omega_G[T] = \upsilon_{\**}\Omega[T]$}.
+      This furthermore implies that $\Omega[T] = \upsilon^{\**} \Omega_G[T]$. 
+      % \begin{equation}
+      %       \begin{tikzcd}
+      %             \Omega_G \arrow[dr, "\Omega_G[-]"] \arrow[d, "{\Omega[-]}"']
+      %             \\
+      %             \mathsf{dSet}^G \arrow[r, "u_{\**}"]
+      %             &
+      %             \mathsf{dSet}_G
+      %       \end{tikzcd}
+      % \end{equation}
 \end{remark}
 
 
@@ -2253,8 +2289,7 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 \end{proof}
 
 
-Following the discussion preceding \cite[Prop. 3.6.8]{HHM16},
-and expanding on Definition \ref{SAT_DEF}, we say
+Following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we say
 a class of normal monomorphisms of $\mathsf{dSet}^G$
 (or, more generally, a subclass of the cofibrations in a model category) is called
 \textit{hypersaturated} if it is closed under
@@ -2351,39 +2386,43 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 are in $S$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
 \end{remark}
 
-We have some similar results about the saturation of the orbital horn inclusions.
+Focusing now on the saturated classes of morphisms generated by the \textit{orbital} horn inclusions,
+the following two propositions follow from the discussion in Remark \ref{ORB_HORN_REM} and their non-equivariant analogues \cite[Lemma 5.1]{MW09} and \cite[Prop. 2.4]{CM13a}.
 
 \begin{proposition}
       \label{GORB_OHORN_PROP}
       For any $T \in \Omega_G$ and $G$-equivariant $\varnothing \neq F \subseteq E \subseteq E^{\mathrm{i}}(T)$,
       the inclusions
       \begin{equation}
-            \Lambda^{E \amalg F}_o[T] \to \Lambda^{E}_o[T]
+            \Lambda^{E}_o[T] \to \Lambda^{F}_o[T]
       \end{equation}
-      can be built cellularly out of generating orbital horn inclusions.
+      are built cellularly from generating orbital horn inclusions.
 \end{proposition}
-\begin{proof}
-      This follows identically to the non-equivariant result \cite[Lemma 5.1]{MW09},
-      as for any edge orbit $G e \subseteq E$,
-      the following diagram is a pushout,
-      \begin{equation}
-            \begin{tikzcd}
-                  \Lambda^{E - G e}_o[T - Ge] \arrow[r] \arrow[d]
-                  &
-                  \Lambda^{E}_o[T] \arrow[d]
-                  \\
-                  \Omega[T - G e] \arrow[r]
-                  &
-                  \Lambda^{E - G e}_o[T]
-            \end{tikzcd}
-      \end{equation}
-      and thus the result follows by induction on $|T/G| \times |E/G|$ ordered lexicographically.
-\end{proof}
+% \begin{proof}
+%       This follows identically to the non-equivariant result \cite[Lemma 5.1]{MW09},
+%       as for any edge orbit $G e \subseteq E$,
+%       the following diagram is a pushout,
+%       \begin{equation}
+%             \begin{tikzcd}
+%                   \Lambda^{E - G e}_o[T - Ge] \arrow[r] \arrow[d]
+%                   &
+%                   \Lambda^{E}_o[T] \arrow[d]
+%                   \\
+%                   \Omega[T - G e] \arrow[r]
+%                   &
+%                   \Lambda^{E - G e}_o[T]
+%             \end{tikzcd}
+%       \end{equation}
+%       and thus the result follows by induction on $|T/G| \times |E/G|$ ordered lexicographically.
+% \end{proof}
 
 \begin{proposition}
       \label{SC_IN_OHORN_PROP}
-      For all $T \in \Omega_G$, $Sc[T] \to \Omega[T]$ is build cellularly out of orbital horn inclusions.
+      Segal core inclusions $Sc[T] \to \Omega[T]$ are built cellularly out of orbital horn inclusions.
 \end{proposition}
+We include a short direct proof of this result (which similarly proves \cite[Prop. 2.4]{CM13a}).
+% as it has the advantage of being significantly shorter,
+% and is based on techniques similar to those used in this paper (cf. the setup for the proof of Prop. \ref{CHAREDGE LEM}).
 \begin{proof}
       It suffices to show that for all convex $B \subseteq B' \subseteq \mathsf{Face}_o(T)$, the map
       \begin{equation}
@@ -2393,13 +2432,13 @@ We have some similar results about the saturation of the orbital horn inclusions
             % Sc[T] \cup \mathop{\bigcup}\limits_{B'}\Omega[U_0]
             Sc[T] \cup \mathop{\bigcup}\limits_{B'}\Omega[S]
       \end{equation}
-      is built cellularly out of orbital horn inclusions.
+      is built cellularly from orbital horn inclusions.
       In particular, we may assume $B' - B = \set{S}$.
 
       Now, since $B$ is convex, every proper orbital outer face of $S$ is in the domain.
       Moreover, for any face $V \in S$,
       $V \in Sc[T]$ implies
-      $V \in Sc[S] \subseteq \partial^{out}_o\Omega[G \cdot_K U]$,
+      $V \in Sc[S] \subseteq \Lambda^{E^{\mathrm{i}}(T)}_o\Omega[S]$,
       while on the other hand,
       if $V \in R$ for some orbital face $R$ already attached,
       then in fact $V$ is a face of the intersection
@@ -2407,14 +2446,14 @@ We have some similar results about the saturation of the orbital horn inclusions
       which is also orbital.
       Thus, the above map is the pushout over
       \begin{equation}
-            \partial^{out}_o\Omega[S] \to \Omega[S],
+            \Lambda^{E^{\mathrm i}(T)}_o\Omega[S] \to \Omega[S],
       \end{equation}
       and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
 \end{proof}
 
 
 
-We now indicate some of the applications of (hyper)saturations.
+% We now indicate some of the applications of (hyper)saturations.
 
 Given a class $\mathcal{C}$ of normal monomorphisms in $\mathsf{dSet}^G$, let $\mathcal{C}^{\boxslash !}$
 denote the classes of maps satisfying the 
@@ -2489,13 +2528,6 @@ it follows that both $p$ and $Hg$ are lifts for the top square in the right diag
 $p = Hg$. This shows that $H$ is indeed a lift for the left square.
 Uniqueness follows since any lift of the left square induces a lift of the outer right square.
 \end{proof}
-
-\begin{remark}
-      We note that if $\mathcal{C}$ is a class of normal monomorphsism which are also weak equivalences, then
-      the saturation and the hypersaturation of $\mathcal{C}$ are equal.
-      Thus, if $\mathcal{D}$ is another such class such that the hypersaturations of $\mathcal{C}$ and $\mathcal{D}$ are equal,
-      the proof above shows that $\mathcal{C}^{\boxslash} = \mathcal{D}^{\boxslash}$. 
-\end{remark}
 
 As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor
 $N^G: \Op^G \to \mathsf{dSet}^G$.
