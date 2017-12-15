@@ -160,7 +160,7 @@ as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
 
-It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets, the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
+It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
 the authors introduced the notion of 
 \textit{genuine equivariant operads},
@@ -3665,11 +3665,10 @@ $X(\Omega[C]) \underset{X(\eta)^H}{\times} X(\Omega[D])
 \]
 \end{proof}
 
-{\color{red} HERE}
 
-	We will now show that the operations   
-	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
-	satisfy the obvious compatibilities one expects, but we will find it convenient to first package these compatibilities into a common format. In the categorical case (corresponding to linear trees), there are three types of compatibilities, corresponding to homotopies
+We will now show that the operations   
+$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
+satisfy the obvious compatibilities one expects, but we will find it convenient to first package these compatibilities into a common format. In the categorical case (corresponding to linear trees), there are three types of ``associativity'' compatibilities, corresponding to homotopies
 \[
 	\varphi \circ \left( \psi \circ (-) \right)
 		\sim
@@ -3684,57 +3683,126 @@ $X(\Omega[C]) \underset{X(\eta)^H}{\times} X(\Omega[D])
 	(-) \circ (\varphi \circ \psi) 
 \]	
 but in the operadic case there are instead five cases, corresponding to the different possible roles of the nodes in 
-$G$-trees with exactly three $G$-nodes, whose \textit{orbital} representation falls into one of the two cases illustrated below.
+$G$-trees $T$ with exactly three $G$-vertices, whose \textit{orbital} representation falls into one of the two cases illustrated below.
 \[%
-	\begin{tikzpicture}[grow=up, every node/.style = {font=\footnotesize}]%
-	\begin{scope}[level distance = 1.425em]
+	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\scriptsize,inner sep=1pt},
+	dummy/.style = {circle,draw,inner sep=0pt,minimum size=1.75mm}]%
+	\begin{scope}[level distance = 1.6em]
 	\tikzstyle{level 2}=[sibling distance=4em]%
-	\tikzstyle{level 3}=[sibling distance=1.5em]%
+	\tikzstyle{level 3}=[sibling distance=2em]%
 	\tikzstyle{level 4}=[sibling distance=1em]%
-		\node at (0,0) {}%
+		\node at (0,0) [font=\normalsize]{$T$}%
 			child{node [dummy] {}%
-				child{node {}}%
-				child{node [dummy] {}%
-					child{}%
-					child{node [dummy] {}
-						child
-						child}%
-					child{}%
-					child{}%
-				}%
-				child{node {}}%
+				child[level distance = 1.5em]{node {}}%
+				child[level distance = 2.2em]{node [dummy] {}%
+					child[level distance = 1.3em]{}%
+					child[level distance = 2.2em,sibling distance=1.4em]{node [dummy] {}
+						child[level distance = 1.6em]
+						child[level distance = 1.6em]
+					edge from parent node [swap,very near end] {$Gf$}}%
+					child[level distance = 2.2em,sibling distance=1.4em]{}%
+					child[level distance = 1.3em]{}%
+				edge from parent node [swap]{$Ge$}}%
+				child[level distance = 1.5em]{node {}}%
 			};%
 	\end{scope}
-	\begin{scope}[level distance = 1.9em]
-	\tikzstyle{level 2}=[sibling distance=3em]%
+	\begin{scope}[level distance = 1.7em]
+	\tikzstyle{level 2}=[sibling distance=2.75em]%
 	\tikzstyle{level 3}=[sibling distance=1.25em]%
-		\node at (5.5,0) {}%
+		\node at (8,0) [font=\normalsize] {$T$}%
 			child{node [dummy] {}%
-				child{node {}}%
-				child{node [dummy] {}%
-					child{}%
-					child{}%
-					child{}%
+				child[level distance = 1.2em]{node {}}%
+				child[sibling distance=2em,level distance = 2.2em]{node [dummy] {}%
+					child[level distance = 1.6em]{}%
+					child[level distance = 1.8em]{}%
+					child[level distance = 1.6em]{}%
+				edge from parent node [swap,near end] {$Gf$}}%
+				child[sibling distance=2em,level distance = 2.2em]{}%
+				child[level distance = 1.2em]{node [dummy] {}%
+					child[level distance = 1.6em]{}%
+					child[level distance = 1.6em]{}%
+				edge from parent node {$Ge$}}%
+			};%
+	\end{scope}
+	\end{tikzpicture}%
+\]%
+Since all these compatibilities can be simultaneously encoded in terms of such trees, we will simply refer to all types of compatibility simply as \textit{associativity}.
+As noted pictorially above, such a $G$-tree $T$
+has exactly two inner edge orbits $Ge$ and $Gf$.
+In the next result, we write $T[Ge]$ (resp. $T[Gf]$) for the orbital outer face of $T$ with $Ge$ (resp. $Gf$) as its single inner edge orbit. 
+\[%
+	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\scriptsize,inner sep=1pt},
+	dummy/.style = {circle,draw,inner sep=0pt,minimum size=1.75mm}]%
+	\begin{scope}[level distance = 1.6em]
+	\tikzstyle{level 2}=[sibling distance=4em]%
+	\tikzstyle{level 3}=[sibling distance=2em]%
+	\tikzstyle{level 4}=[sibling distance=1em]%
+		\node at (-1.675,0) [font=\normalsize]{$T[Ge]$}%
+			child{node [dummy] {}%
+				child[level distance = 1.5em]{node {}}%
+				child[level distance = 2.2em]{node [dummy] {}%
+					child[level distance = 1.3em]{}%
+					child[level distance = 2.2em,sibling distance=1.4em]{
+					}%
+					child[level distance = 2.2em,sibling distance=1.4em]{}%
+					child[level distance = 1.3em]{}%
+				edge from parent node [swap]{$Ge$}}%
+				child[level distance = 1.5em]{node {}}%
+			};%
+	\end{scope}
+	\begin{scope}[level distance = 1.6em]
+	\tikzstyle{level 2}=[sibling distance=2em]%
+	\tikzstyle{level 3}=[sibling distance=1em]%
+		\node at (1.675,0) [font=\normalsize]{$T[Gf]$}%
+			child[level distance = 2.2em]{node [dummy] {}%
+				child[level distance = 1.3em]{}%
+				child[level distance = 2.2em,sibling distance=1.4em]{node [dummy] {}
+					child[level distance = 1.6em]
+					child[level distance = 1.6em]
+				edge from parent node [swap,very near end] {$Gf$}}%
+				child[level distance = 2.2em,sibling distance=1.4em]{}%
+				child[level distance = 1.3em]{}%
+			};%
+	\end{scope}
+	\begin{scope}[level distance = 1.7em]
+	\tikzstyle{level 2}=[sibling distance=2.75em]%
+	\tikzstyle{level 3}=[sibling distance=1.25em]%
+		\node at (6.375,0) [font=\normalsize] {$T[Ge]$}%
+			child{node [dummy] {}%
+				child[level distance = 1.2em]{node {}}%
+				child[sibling distance=2em,level distance = 2.2em]{
 				}%
-				child{node {}}%
-				child{node [dummy] {}%
-					child{}%
-					child{}%
+				child[sibling distance=2em,level distance = 2.2em]{}%
+				child[level distance = 1.2em]{node [dummy] {}%
+					child[level distance = 1.6em]{}%
+					child[level distance = 1.6em]{}%
+				edge from parent node {$Ge$}}%
+			};%
+		\node at (9.675,0) [font=\normalsize] {$T[Gf]$}%
+			child{node [dummy] {}%
+				child[level distance = 1.2em]{node {}}%
+				child[sibling distance=2em,level distance = 2.2em]{node [dummy] {}%
+					child[level distance = 1.6em]{}%
+					child[level distance = 1.8em]{}%
+					child[level distance = 1.6em]{}%
+				edge from parent node [swap,near end] {$Gf$}}%
+				child[sibling distance=2em,level distance = 2.2em]{node {}}%
+				child[level distance = 1.2em]{
 				}%
 			};%
 	\end{scope}
 	\end{tikzpicture}%
 \]%
-Since all these compatibilities can be simultaneously encoded in terms of such trees, we will simply refer to all types of compatibility as ``associativity''.
 
-In the next result, note that a $G$-tree $T$ with three $G$-vertices contains precisely two inner edge orbits $Ge$ and $Gf$. We will write $T[Ge]$ (resp. $T[Gf]$) for the unique orbital outer face of $T$ with $Ge$ (resp. $Gf$) has its single inner edge orbit. 
 
 \begin{proposition}\label{ASSOC PROP}
 	The operations
 	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
 	satisfy all associativity conditions with respect to 
-	$3$-nodal $G$-trees.
+	$G$-trees with three $G$-vertices.
 \end{proposition}
+
+{\color{red} HERE}
 
 \begin{proof}
 	For any $3$-nodal $G$-tree $T$ with inner edge orbits $Ge$, $Gf$, consider the following diagram, 
@@ -3762,40 +3830,40 @@ In the next result, note that a $G$-tree $T$ with three $G$-vertices contains pr
 	X(\Omega[T-Ge-Gf])
 \end{tikzcd}
 \end{equation}
-Noting that the following three diagrams,
-where $\Lambda_o^{Ge,Gf}[T]$ is a generalized orbital $G$-horn
-and $\Lambda_{o,c}^{Ge}[T]$, $\Lambda_{o,c}^{Gf}[T]$
-are characteristic orbital $G$-horns (cf. {\color{red} ref}), are pullbacks
-\[
-\begin{tikzcd}[column sep =12]
-	X(\mathsf{Sc}[T]) 
-	\arrow[rd, phantom, "\ulcorner", near start]& 
-	X(\mathsf{Sc}_{T[Ge]}[T])
-	\ar[->>]{l}{\sim}
-&
-	X(\mathsf{Sc}_{T[Ge]}[T])
-	\ar[->>]{r} &
-	X(\mathsf{Sc}[T-Ge])
-	\arrow[ld, phantom, "\urcorner", near start]
-&
-	X(\mathsf{Sc}_{T[Gf]}[T])  \ar[->>]{d}
-	& 
-	X(\Lambda_{o,c}^{Ge}[T]) \ar[->>]{l}{\sim}  \ar[->>]{d}
-\\
-	X(\mathsf{Sc}_{T[Gf]}[T]) \ar[->>]{u}[swap]{\sim} &
-	X(\Lambda_o^{Ge,Gf}[T]) \ar[->>]{u}[swap]{\sim}
-	\ar[->>]{l}{\sim}
-&
-	X(\Lambda_{o,c}^{Gf}[T]) \ar[->>]{u}[swap]{\sim}
-	\ar[->>]{r} &
-	X(\Omega[T-Ge]) \ar[->>]{u}[swap]{\sim}
-&
-	X(\mathsf{Sc}[T-Gf]) 
-	\arrow[ur, phantom, "\llcorner", near start]
-	&
-	X(\Omega[T-Gf]) \ar[->>]{l}{\sim}&
-\end{tikzcd}
-\]
+%Noting that the following three diagrams,
+%where $\Lambda_o^{Ge,Gf}[T]$ is a generalized orbital $G$-horn
+%and $\Lambda_{o,c}^{Ge}[T]$, $\Lambda_{o,c}^{Gf}[T]$
+%are characteristic orbital $G$-horns (cf. {\color{red} ref}), are pullbacks
+%\[
+%\begin{tikzcd}[column sep =12]
+%	X(\mathsf{Sc}[T]) 
+%	\arrow[rd, phantom, "\ulcorner", near start]& 
+%	X(\mathsf{Sc}_{T[Ge]}[T])
+%	\ar[->>]{l}{\sim}
+%&
+%	X(\mathsf{Sc}_{T[Ge]}[T])
+%	\ar[->>]{r} &
+%	X(\mathsf{Sc}[T-Ge])
+%	\arrow[ld, phantom, "\urcorner", near start]
+%&
+%	X(\mathsf{Sc}_{T[Gf]}[T])  \ar[->>]{d}
+%	& 
+%	X(\Lambda_{o,c}^{Ge}[T]) \ar[->>]{l}{\sim}  \ar[->>]{d}
+%\\
+%	X(\mathsf{Sc}_{T[Gf]}[T]) \ar[->>]{u}[swap]{\sim} &
+%	X(\Lambda_o^{Ge,Gf}[T]) \ar[->>]{u}[swap]{\sim}
+%	\ar[->>]{l}{\sim}
+%&
+%	X(\Lambda_{o,c}^{Gf}[T]) \ar[->>]{u}[swap]{\sim}
+%	\ar[->>]{r} &
+%	X(\Omega[T-Ge]) \ar[->>]{u}[swap]{\sim}
+%&
+%	X(\mathsf{Sc}[T-Gf]) 
+%	\arrow[ur, phantom, "\llcorner", near start]
+%	&
+%	X(\Omega[T-Gf]) \ar[->>]{l}{\sim}&
+%\end{tikzcd}
+%\]
 one sees that:
 \begin{inparaenum}
 	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
