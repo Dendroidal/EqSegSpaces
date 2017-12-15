@@ -148,10 +148,11 @@ the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
 are ``equivariant operads with norm maps up to homotopy'',
 called $G$-$\infty$-operads.
-It was further shown that $N_{hc}(\O)$ is such an object
-% has this property
-for any suitably fibrant $G$-operad $\O \in \mathsf{sOp}^G$
-(as opposed to the purely formal conclusion being an ``$\infty$-operad with $G$-action'').
+Further, it was shown therein that whenever a $G$-operad
+$\O \in \mathsf{sOp}^G$ is
+suitably fibrant the homotopy coherent nerve
+$N_{hc}(\O)$ is such a 
+$G$-$\infty$-operad (rather than just an ``$\infty$-operad with $G$-action'').
 In the present paper, our main results are then the existence of suitable model structures on the categories 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 of $G$-dendroidal spaces and $G$-pre-operads,
@@ -456,14 +457,13 @@ given by the (single) tree on the right.
 Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
 $a,b,c,d$ have stabilizers $L,K,K,H$.
 
-{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
+%{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
 Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is given as follows.
 Given a non-equivariant forest diagram $F$ 
 (i.e. a finite collection of tree diagrams side by side),
-there is % we have %one can obtain
-an associated broad poset just as before, and thus a category $\Phi$ of forests.
+there is
+an associated broad poset just as before, and thus one obtains a category $\Phi$ of forests.
 Letting $\Phi^G$ denote $G$-objects on $\Phi$, referred to as $G$-forests,
-% Letting $\Phi^G$, the category of $G$-forests, denote $G$-objects on $\Phi$,
 the category
 $\Omega_G \subset \Phi^G$
 of $G$-trees
@@ -476,8 +476,7 @@ and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where w
 We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
 
 Before discussing face maps in the equivariant context, it is worth commenting on the complementary roles of the expanded and orbital representations.
-On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation\footnote{
-  The orbital representation for $T$ is the diagram for the \textit{quotient} broad poset $T/G$.},
+On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation,
 so that the arrows of $\Omega_{G}$ are best understood from that perspective.
 On the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
 are given by the orbital representations of  
@@ -657,22 +656,14 @@ $S \hookrightarrow T$ an orbital inner face.
 	\end{scope}
 	\end{tikzpicture}%
 \end{equation}%
+These examples illustrate our motivation for the term 
+``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
 
 Adapting the notation for (non-equivariant) inner faces, we write
 $S = T-Gc = T-\{c,jc,ic,kc\}$ and analogously throughout the paper.
 We will need no analogous notation for orbital outer faces.
 \end{example}
 
-\begin{remark}
-      \label{ORB_FACE_REM}
-      These examples illustrate our motivation for the term 
-      ``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
-      In fact, we have an isomorphism of posets
-      \begin{equation}
-            \mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
-      \end{equation}
-      where $T/G$ is the quotient broad poset with associated tree diagram given by the orbital representation.
-\end{remark}
 
 \begin{notation}\label{TREEDIFNOT NOT}
 	In the remainder of the paper we sometimes need to consider (non-equivariant) and orbital faces simultaneously.
@@ -837,6 +828,16 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 
 
 
+\begin{remark}\label{ORB_FACE_REM}
+	In fact, we have an isomorphism of posets
+	\begin{equation}
+	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
+	\end{equation}
+where $T/G$ is the underlying tree in the orbital representation ({\color{blue} this needs to be expanded on}).
+\end{remark}
+
+
+
 \subsection{Equivariant dendroidal sets}
 
 
@@ -982,7 +983,7 @@ where we note that the equivalence between the colimit and union formulas now fo
             \sets{\bigcup_i\Omega[S_i] \subseteq \Omega[T]}{i \in \NN,\ S_i \in \mathsf{Face}_o(T)} \simeq
             \sets{\bigcup_i\Omega[U_i] \subseteq \Omega[T/G]}{i \in \NN,\ S_i/G \in \mathsf{Face}(T/G)}.
       \end{equation}
-      In particular, $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$.
+      In particular, $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$. ({\color{blue} this needs work})
 \end{remark}
 
 \begin{example}
@@ -2289,11 +2290,7 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 \end{proof}
 
 
-<<<<<<< HEAD
 Following the discussion preceding \cite[Prop. 3.6.8]{HHM16},
-=======
-Following the discussion preceding \cite[Prop. 3.6.8]{HHM16}, we say
->>>>>>> master
 a class of normal monomorphisms of $\mathsf{dSet}^G$
 (or, more generally, a subclass of the cofibrations in a model category) is called
 \textit{hypersaturated} if it is closed under
