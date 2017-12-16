@@ -3961,12 +3961,12 @@ are weak equivalences when $f$ is a $H$-equivalence,
 this last claim follows from essential surjectivity.
 \end{proof}
 
-{\color{red} HERE}
 
-We now recover the following from \cite{Rez01}
-({\color{red} add commentary})
+The following roughly summarizes (and slightly refines)
+\cite[Lemma 5.8, Theorem 6.2, Prop. 11.1, Lemma 11.10]{Rez01} in our setup.
 
-\begin{proposition}
+
+\begin{proposition}\label{SESP PROP}
 	Let $X \in \mathsf{ssSet}$ be a Segal space. Then:
 \begin{itemize}
 	\item[(i)] equivalences of $X$ define a subset of connected components
@@ -3997,7 +3997,7 @@ define a Segal space $X^h \subset X$, consisting of a union of connected compone
 For (i), given 
 $f \colon x \to y$ in $X_0(1)$
 then $[f]$ has a left inverse iff there exists $p$
-as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)$ these is a lift in the right diagram
+as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)$ there is a lift in the right diagram
 \[
 \begin{tikzcd}[column sep =40]
 	& X(2) \ar[->>]{d}{(d_2,d_1)}
@@ -4085,7 +4085,9 @@ $X^h(J) = X(J)$, which is clear.
 The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 \end{remark}
 
-\subsection{Completion and fibrant Segal operads}
+\subsection{Rezk completion and fibrant Segal operads}
+
+{\color{blue} fill context}
 
 
 \begin{proposition}\label{JDDK PROP}
@@ -4098,14 +4100,17 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 	Note first that for any $T \in \Omega_G$ the map
 	$X^{J}(T) \to X^{\Omega[1]}(T)$ can be rewritten as
 	$\left(X^{\Omega[T]}\right)(J) \to
-	\left(X^{\Omega[T]}\right)(\Omega[1]) =
-	\left(X^{\Omega[T]}\right)(1)$,
-	and since $X^{\Omega[T]}$ is a (simplicial) Segal space
-	the previous result implies that this map is a weak equivalence onto a subset of components 
-	(such maps are also called homotopy monomorphisms).
-It thus follows that for any $G$-corolla
+	\left(X^{\Omega[T]}\right)(\Omega[1])
+%	= \left(\iota^{\**}\left(X^{\Omega[T]}\right)\right)(1)
+	$,
+	and since $\iota^{\**}\left( X^{\Omega[T]} \right)$
+	is a (simplicial) Segal space
+	Proposition \label{SESP PROP}(iv) says that this map is 
+	a weak equivalence onto a subset of components,
+	i.e. a \textit{homotopy monomorphism}.
+	Hence, for any $G$-corolla
 	$C=C_{\amalg_i H_0/H_i}$ the horizontal maps in 
-	the rightmost square below are homotopy monomorphisms.
+	the right square below are homotopy monomorphisms.
 \begin{equation}\label{BIGSQ EQ}
 \begin{tikzcd}
 	X(C) \ar{r} \ar[->>]{d} & 
@@ -4113,41 +4118,91 @@ It thus follows that for any $G$-corolla
 	X^{\Omega[1]}(C) \ar[->>]{d}
 \\
 	\prod_{0\leq i\leq k} X(\eta)^{H_i} \ar{r}&
-	\prod_{0\leq i\leq k} X^{J}(\eta)^{H_i} \ar{r} &
-	\prod_{0\leq i\leq k} X^{\Omega[1]}(\eta)^{H_i}
+	\prod_{0\leq i\leq k} \left(X^{J}(\eta)\right)^{H_i} \ar{r} &
+	\prod_{0\leq i\leq k} \left(X^{\Omega[1]}(\eta)\right)^{H_i}
 \end{tikzcd}	
 \end{equation}
-Since the claim that $X \to X^{J}$ is a DK-equivalence
-is the statement that the leftmost square induces weak equivalences on fibers, it suffices to show that so does the composite square.
 
+Since fully faithfulness of $X \to X^{J}$
+is the statement that the leftmost square in \eqref{BIGSQ EQ} induces weak equivalences on fibers, it suffices to show that so does the composite square.
 
-Now note that we can rewrite
-$X^{\Omega[1]}(C) = X\left(\Omega[1] \otimes \Omega[C]\right)$
-and that there is a pullback diagram
-\[
-\begin{tikzcd}	
+Now note that
+$X^{\Omega[1]}(C) = X\left(\Omega[1] \otimes \Omega[C]\right)$ and that there is a pullback diagram as on the left below. Moreover, both squares below are pullback squares which are injective fibrant squares
+and the natural map of squares between them is an injective fibration of squares (alternatively, the fibrancy claims state that the resulting cube is an injective fibrant cube).
+\begin{equation}\label{OTBIGSQ EQ}
+\begin{tikzcd}[column sep=14]	
 	X\left(\Omega[1] \otimes \Omega[C]\right)
 	\ar[->>]{r} \ar[->>]{d}&
 	X(\Omega[C \star \eta]) \ar[->>]{d}
+&
+	\underset{i}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d} &
+	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
+	\times X([1])^{H_0} \ar[->>]{d}
 \\
 	X(\Omega[\eta \star C]) \ar[->>]{r} &
 	X(\Omega[C])
+&
+	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
+	\times X(\eta)^{H_0} \ar[->>]{r} &
+	\underset{i}{\prod} X(\eta)^{H_i}
+\end{tikzcd}
+\end{equation}
+Since the top left corner of the map of squares 
+\eqref{OTBIGSQ EQ} is the right vertical map in \eqref{BIGSQ EQ},
+and noting that fibers (in the category of square diagrams)
+of a fibration between pullback squares are a fibrant pullback square,
+the desire claim that the total diagram in \eqref{BIGSQ EQ}
+induces equivalences on fibers will follow provided that the same holds for the following squares.
+\[
+\begin{tikzcd}[column sep=17]
+	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
+	X(\Omega[C \star \eta]) \ar[->>]{d}{\sim}
+&
+	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
+	X(\Omega[\eta \star C]) \ar[->>]{d}{\sim}
+\\
+	& X(\Omega[C]) \underset{X(\eta)^{H_0}}{\times} X([1])^{H_0} \ar[->>]{d}
+&
+	& \underset{i \neq 0}{\prod} X([1])^{H_i} 
+	\underset{\underset{i \neq 0}{\prod} X(\eta)^{H_i}}{\times} X(\Omega[C]) \ar[->>]{d}
+\\
+	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
+	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
+	\times X([1])^{H_0}
+&
+	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
+	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
+	\times X(\eta)^{H_0}
 \end{tikzcd}
 \]
-Noting that the required cube is projective fibrant, 
-% the top of this cube is the diagram above and the base
-%\[
-%\begin{tikzcd}	
-%	\underset{0 \leq i \leq n}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d}&
-%	\left(\underset{1\leq i \leq n}{\prod} X(\eta)^{H_i}\right)
-%	\times X([1])^{H_0} \ar[->>]{d}
-%\\
-%	\left(\underset{1\leq i \leq n}{\prod} X([1])^{H_i}\right)
-%	\times X(\eta)^{H_0} \ar[->>]{r} &
-%	\underset{0 \leq i \leq n}{\prod} X(\eta)^{H_i}
-%\end{tikzcd}
-%\]
-one reduces to checking that the following squares induce weak equivalences on fibers, and this claim is clear from the top right vertical trivial fibrations (which are instances of the Segal condition).
+But this is clear from the fact that the top right vertical
+maps in these diagrams are trivial Kan fibrations
+thanks to the Segal condition.
+
+Lastly, to check essential surjectivity, 
+since $G$ acts trivially on $J$ one has
+$\left(\iota_G^{\**}\left( X^J \right)\right)(G/H)=
+\left(\iota_G^{\**}\left( X \right)(G/H)\right)^J$
+so that we reduce to the case of $X$ a (simplicial) Segal space.
+Noting that $J$ is a contractible Kan complex,
+one has a map 
+$H \colon J \times J \to \{0\} \times J$
+such that 
+$H|_{\{0\}\times J} = id_{\{0\} \times J}$
+and
+$H|_{\{1\}\times J} = (0,0)$.
+But noting that 
+$X(J \times J) \to X(\{0\} \times J)$
+can be written as 
+$X^J(0) \to X^J(J)$, the composite below
+shows that any object in $\left(X^J\right)_0$ is indeed equivalent to a 
+degenerate object, which is thus in the image of $X\to X^J$.
+\[
+	X^J(0) \xrightarrow{X(H)} 
+	X^{J}(J) \to
+	X^J(1) \rightrightarrows X^J(0)
+\]
+%
 %\[	
 %\begin{tikzcd}[column sep =12]
 %	X^{\Omega[1] \otimes \Omega[C]} \ar[->>]{r}{\sim} \ar[->>]{d}[swap]{\sim} &
@@ -4170,30 +4225,9 @@ one reduces to checking that the following squares induce weak equivalences on f
 %	X(C)
 %\end{tikzcd}	
 %\]
-\[
-\begin{tikzcd}
-	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
-	X(\Omega[C \star \eta]) \ar[->>]{d}{\sim}
-&
-	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
-	X(\Omega[C \star \eta]) \ar[->>]{d}{\sim}
-\\
-	& X(\Omega[C]) \underset{X(\eta)^{H_0}}{\times} X([1])^{H_0} \ar[->>]{d}
-&
-	& \underset{1 \leq i \leq n}{\prod} X([1])^{H_i} 
-	\underset{\underset{1 \leq i \leq n}{\prod} X(\eta)^{H_i}}{\times} X(\Omega[C]) \ar[->>]{d}
-\\
-	\underset{0\leq i \leq n}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
-	\left(\underset{1\leq i \leq n}{\prod} X(\eta)^{H_i}\right)
-	\times X([1])^{H_0}
-&
-	\underset{0\leq i \leq n}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
-	\left(\underset{1\leq i \leq n}{\prod} X([1])^{H_i}\right)
-	\times X(\eta)^{H_0}
-\end{tikzcd}
-\]
 \end{proof}
 
+{\color{red} HERE}
 
 \begin{definition}
 	Two maps $f,f'\colon A \rightrightarrows B$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
@@ -4665,28 +4699,6 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{remark}
 
 
-\[
-\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
-	W_1 \times_{W_0} W_1 \times_{W_0} W_1 
-	\ar[bend left=17,dashed]{r}
-	\ar[bend right=30,dashed]{d}&
-	W_1 \times_{W_0} W_2 \ar[->>]{l}{\sim} \ar[->>]{r} 
-	\ar[bend right=30,dashed]{d}&
-	W_1 \times_{W_0} W_1
-	\ar[bend right=30,dashed]{d}
-\\
-	W_2 \times_{W_0} W_1 \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
-	\ar[bend left=17,dashed]{r}& 
-	W_3 \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
-	\ar[->>]{d}&
-	W_2 \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
-\\
-	W_1 \times_{W_0} W_1 
-	\ar[bend left=17,dashed]{r}&
-	W_2 \ar[->>]{r} \ar[->>]{l}{\sim}&
-	W_1
-\end{tikzcd}
-\]
 
 \begin{remark}
 	Note that $\mathsf{Sc}_{T[Ge]}$, $\mathsf{Sc}_{T[Gf]}$
