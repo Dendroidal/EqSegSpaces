@@ -3800,36 +3800,62 @@ In the next result, we write $T[Ge]$ (resp. $T[Gf]$) for the orbital outer face 
 	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
 	satisfy all associativity conditions with respect to 
 	$G$-trees with three $G$-vertices.
+	Further, if $C=C_{H/H}$ and $\varphi = s(e)$ is the degeneracy on $e$, then $\varphi \circ_{Ge} (-)$ is homotopic to the identity, and similarly for 
+	$D=C_{H/H}$ and $\varphi = s(e)$.
 \end{proposition}
 
-{\color{red} HERE}
 
 \begin{proof}
-	For any $3$-nodal $G$-tree $T$ with inner edge orbits $Ge$, $Gf$, consider the following diagram, 
-	where all solid maps are fibrations, and the maps labelled $\sim$ are trivial fibrations.
+We abbreviate
+$Sc_{T[Ge]}[T] =
+Sc[T] \amalg_{Sc[T[Ge]]} \Omega[T[Ge]] =
+Sc[T] \amalg_{\Lambda^{Ge}_o[T[Ge]]} \Omega[T[Ge]]$,
+which can be regarded as the union
+$Sc[T] \cup \Omega[T[Ge]]$
+of subcomplexes of $\Omega[T]$.
+We now consider the following diagram, 
+where all solid maps are Kan fibrations, 
+and the maps labelled $\sim$ are trivial Kan fibrations
+($Sc_{T[Ge]}[T]$ is a cover in the sense of Remark \ref{RECOVER REM}(i),
+hence both maps $Sc[T] \to Sc_{T[Ge]}[T] \to \Omega[T]$ are $G$-inner anodyne), so that one can choose the indicated sections.
 \begin{equation}\label{FOURSQ EQ}
-\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
-	X(\mathsf{Sc}[T]) 
+\begin{tikzcd}[column sep = 2.5em,row sep = 2.5em]
+	X(Sc[T]) 
 	\ar[bend left=17,dashed]{r}
 	\ar[bend right=30,dashed]{d}&
-	X(\mathsf{Sc}_{T[Ge]}[T])
+	X(Sc_{T[Ge]}[T])
 	 \ar[->>]{l}{\sim} \ar[->>]{r} 
 	\ar[bend right=30,dashed]{d}&
-	X(\mathsf{Sc}[T-Ge])
+	X(Sc[T-Ge])
 	\ar[bend right=30,dashed]{d}
 \\
-	X(\mathsf{Sc}_{T[Gf]}[T]) \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+	X(Sc_{T[Gf]}[T]) \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
 	\ar[bend left=17,dashed]{r}& 
 	X(\Omega[T]) \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
 	\ar[->>]{d}&
 	X(\Omega[T-Ge]) \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
 \\
-	X(\mathsf{Sc}[T-Gf]) 
+	X(Sc[T-Gf]) 
 	\ar[bend left=17,dashed]{r}&
 	X(\Omega[T-Gf]) \ar[->>]{r} \ar[->>]{l}{\sim}&
 	X(\Omega[T-Ge-Gf])
 \end{tikzcd}
 \end{equation}
+But since the desired associativity conditions amount to the claim that the top right and left bottom composites 
+$X(Sc[T]) \to X(\Omega[T-Ge-Gf])$
+are homotopic, the associativity result follows from Remark \ref{HOMOLIFTS REM}.
+For the ``further'' claim, note that by Remark \ref{HOMOLIFTS REM} one is free to modify \eqref{HOMOTCIRC EQ} so as to use any lift of the form below.
+But then since the $G$-tree $T$ is degenerate on the $G$-corolla $D$, such a lift is given by the degeneracy operator and the result follows.
+\[
+\begin{tikzcd}[row sep =1.5em]
+&
+	X(\Omega[T]) \ar[->>]{d}{\sim}
+\\
+	\{s(e)\} \times X(z_1,\cdots,z_l;e) \ar[dashed]{ru} \ar{r}
+&
+	X(Sc[T])
+\end{tikzcd}
+\]
 %Noting that the following three diagrams,
 %where $\Lambda_o^{Ge,Gf}[T]$ is a generalized orbital $G$-horn
 %and $\Lambda_{o,c}^{Ge}[T]$, $\Lambda_{o,c}^{Gf}[T]$
@@ -3864,33 +3890,32 @@ In the next result, we write $T[Ge]$ (resp. $T[Gf]$) for the orbital outer face 
 %	X(\Omega[T-Gf]) \ar[->>]{l}{\sim}&
 %\end{tikzcd}
 %\]
-one sees that:
-\begin{inparaenum}
-	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
-$X(Sc[T]) \to X(\Omega[T])$ coincide;
-	\item[(ii)] 
-	sections in the top right and bottom left squares of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
-$X(Sc[T-Ge]) \to X(\Omega[T])$ and $X(Sc[T-Gf]) \to X(\Omega[T])$ coincide.
-\end{inparaenum}
-Note that we do not claim (or need) that (i) and (ii) hold simultaneously.
-We thus conclude that the possible choices of maps 
-$X(\mathsf{Sc}[T]) \to X(\Omega[T-Ge-Gf])$
-given by outer paths in \eqref{FOURSQ EQ}
-are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X(\partial \Omega[T-Ge-Gf])$.
-
-{\color{blue} Actually, I may just be able to do without these arguments.}
+%one sees that:
+%\begin{inparaenum}
+%	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+%$X(Sc[T]) \to X(\Omega[T])$ coincide;
+%	\item[(ii)] 
+%	sections in the top right and bottom left squares of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+%$X(Sc[T-Ge]) \to X(\Omega[T])$ and $X(Sc[T-Gf]) \to X(\Omega[T])$ coincide.
+%\end{inparaenum}
+%Note that we do not claim (or need) that (i) and (ii) hold simultaneously.
+%We thus conclude that the possible choices of maps 
+%$X(\mathsf{Sc}[T]) \to X(\Omega[T-Ge-Gf])$
+%given by outer paths in \eqref{FOURSQ EQ}
+%are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X(\partial \Omega[T-Ge-Gf])$.
 \end{proof}
 
 
 \begin{remark}
-	While in the non-equivariant case the associativity conditions in the previous result capture all the key compatibilities of the
+	In the non-equivariant case the associativity and unit conditions in the previous result capture all the key compatibilities of the
 	$\varphi \circ_{e} (-)$, $(-)\circ_{e} \psi$
-	operations, 
-	in the equivariant case there are further 
+	operations.
+	However, in the equivariant case there are further 
 	``compatibilities with pullback of $G$-trees'', which are closely related to the genuine equivariant operads introduced in \cite{BP17}. 
-	However, describing these extra compatibilities would require using $G$-trees with more than three $G$-nodes, and since such compatibilites are not needed for our present goals, we omit their discussion. 
+	Nonetheless, describing these extra compatibilities would require using $G$-trees with more than three $G$-vertices, and since such compatibilites are not needed for our present goals, we omit their discussion. 
 \end{remark}
 
+{\color{red} HERE}
 
 \begin{corollary}
 DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-3.
