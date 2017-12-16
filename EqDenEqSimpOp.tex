@@ -3800,36 +3800,62 @@ In the next result, we write $T[Ge]$ (resp. $T[Gf]$) for the orbital outer face 
 	$\varphi \circ_{Ge} (-)$, $(-)\circ_{Ge} \psi$
 	satisfy all associativity conditions with respect to 
 	$G$-trees with three $G$-vertices.
+	Further, if $C=C_{H/H}$ and $\varphi = s(e)$ is the degeneracy on $e$, then $\varphi \circ_{Ge} (-)$ is homotopic to the identity, and similarly for 
+	$D=C_{H/H}$ and $\varphi = s(e)$.
 \end{proposition}
 
-{\color{red} HERE}
 
 \begin{proof}
-	For any $3$-nodal $G$-tree $T$ with inner edge orbits $Ge$, $Gf$, consider the following diagram, 
-	where all solid maps are fibrations, and the maps labelled $\sim$ are trivial fibrations.
+We abbreviate
+$Sc_{T[Ge]}[T] =
+Sc[T] \amalg_{Sc[T[Ge]]} \Omega[T[Ge]] =
+Sc[T] \amalg_{\Lambda^{Ge}_o[T[Ge]]} \Omega[T[Ge]]$,
+which can be regarded as the union
+$Sc[T] \cup \Omega[T[Ge]]$
+of subcomplexes of $\Omega[T]$.
+We now consider the following diagram, 
+where all solid maps are Kan fibrations, 
+and the maps labelled $\sim$ are trivial Kan fibrations
+($Sc_{T[Ge]}[T]$ is a cover in the sense of Remark \ref{RECOVER REM}(i),
+hence both maps $Sc[T] \to Sc_{T[Ge]}[T] \to \Omega[T]$ are $G$-inner anodyne), so that one can choose the indicated sections.
 \begin{equation}\label{FOURSQ EQ}
-\begin{tikzcd}[column sep =3.5em,row sep =3.5em]
-	X(\mathsf{Sc}[T]) 
+\begin{tikzcd}[column sep = 2.5em,row sep = 2.5em]
+	X(Sc[T]) 
 	\ar[bend left=17,dashed]{r}
 	\ar[bend right=30,dashed]{d}&
-	X(\mathsf{Sc}_{T[Ge]}[T])
+	X(Sc_{T[Ge]}[T])
 	 \ar[->>]{l}{\sim} \ar[->>]{r} 
 	\ar[bend right=30,dashed]{d}&
-	X(\mathsf{Sc}[T-Ge])
+	X(Sc[T-Ge])
 	\ar[bend right=30,dashed]{d}
 \\
-	X(\mathsf{Sc}_{T[Gf]}[T]) \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
+	X(Sc_{T[Gf]}[T]) \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
 	\ar[bend left=17,dashed]{r}& 
 	X(\Omega[T]) \ar[->>]{l}{\sim} \ar[->>]{u}[swap]{\sim} \ar[->>]{r} 
 	\ar[->>]{d}&
 	X(\Omega[T-Ge]) \ar[->>]{u}[swap]{\sim} \ar[->>]{d}
 \\
-	X(\mathsf{Sc}[T-Gf]) 
+	X(Sc[T-Gf]) 
 	\ar[bend left=17,dashed]{r}&
 	X(\Omega[T-Gf]) \ar[->>]{r} \ar[->>]{l}{\sim}&
 	X(\Omega[T-Ge-Gf])
 \end{tikzcd}
 \end{equation}
+But since the desired associativity conditions amount to the claim that the top right and left bottom composites 
+$X(Sc[T]) \to X(\Omega[T-Ge-Gf])$
+are homotopic, the associativity result follows from Remark \ref{HOMOLIFTS REM}.
+For the ``further'' claim, note that by Remark \ref{HOMOLIFTS REM} one is free to modify \eqref{HOMOTCIRC EQ} so as to use any lift of the form below.
+But then since the $G$-tree $T$ is degenerate on the $G$-corolla $D$, such a lift is given by the degeneracy operator and the result follows.
+\[
+\begin{tikzcd}[row sep =1.5em]
+&
+	X(\Omega[T]) \ar[->>]{d}{\sim}
+\\
+	\{s(e)\} \times X(z_1,\cdots,z_l;e) \ar[dashed]{ru} \ar{r}
+&
+	X(Sc[T])
+\end{tikzcd}
+\]
 %Noting that the following three diagrams,
 %where $\Lambda_o^{Ge,Gf}[T]$ is a generalized orbital $G$-horn
 %and $\Lambda_{o,c}^{Ge}[T]$, $\Lambda_{o,c}^{Gf}[T]$
@@ -3864,73 +3890,78 @@ In the next result, we write $T[Ge]$ (resp. $T[Gf]$) for the orbital outer face 
 %	X(\Omega[T-Gf]) \ar[->>]{l}{\sim}&
 %\end{tikzcd}
 %\]
-one sees that:
-\begin{inparaenum}
-	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
-$X(Sc[T]) \to X(\Omega[T])$ coincide;
-	\item[(ii)] 
-	sections in the top right and bottom left squares of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
-$X(Sc[T-Ge]) \to X(\Omega[T])$ and $X(Sc[T-Gf]) \to X(\Omega[T])$ coincide.
-\end{inparaenum}
-Note that we do not claim (or need) that (i) and (ii) hold simultaneously.
-We thus conclude that the possible choices of maps 
-$X(\mathsf{Sc}[T]) \to X(\Omega[T-Ge-Gf])$
-given by outer paths in \eqref{FOURSQ EQ}
-are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X(\partial \Omega[T-Ge-Gf])$.
-
-{\color{blue} Actually, I may just be able to do without these arguments.}
+%one sees that:
+%\begin{inparaenum}
+%	\item[(i)] sections in the top left square of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+%$X(Sc[T]) \to X(\Omega[T])$ coincide;
+%	\item[(ii)] 
+%	sections in the top right and bottom left squares of \eqref{FOURSQ EQ} can be chosen to be compatible in the sense that the two composites
+%$X(Sc[T-Ge]) \to X(\Omega[T])$ and $X(Sc[T-Gf]) \to X(\Omega[T])$ coincide.
+%\end{inparaenum}
+%Note that we do not claim (or need) that (i) and (ii) hold simultaneously.
+%We thus conclude that the possible choices of maps 
+%$X(\mathsf{Sc}[T]) \to X(\Omega[T-Ge-Gf])$
+%given by outer paths in \eqref{FOURSQ EQ}
+%are homotopic. All desired forms of associativity follow from taking fibers of these maps over the objects $X(\partial \Omega[T-Ge-Gf])$.
 \end{proof}
 
 
 \begin{remark}
-	While in the non-equivariant case the associativity conditions in the previous result capture all the key compatibilities of the
+	In the non-equivariant case the associativity and unit conditions in the previous result capture all the key compatibilities of the
 	$\varphi \circ_{e} (-)$, $(-)\circ_{e} \psi$
-	operations, 
-	in the equivariant case there are further 
+	operations.
+	However, in the equivariant case there are further 
 	``compatibilities with pullback of $G$-trees'', which are closely related to the genuine equivariant operads introduced in \cite{BP17}. 
-	However, describing these extra compatibilities would require using $G$-trees with more than three $G$-nodes, and since such compatibilites are not needed for our present goals, we omit their discussion. 
+	Nonetheless, describing these extra compatibilities would require using $G$-trees with more than three $G$-vertices, and since such compatibilites are not needed for our present goals, we omit their discussion. 
 \end{remark}
 
 
-\begin{corollary}
-DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-3.
-\[
-\begin{tikzcd}[row sep =5]
-	X \ar{rr}{gf} \ar{rd}[swap]{f} && Z \\
-	& Y \ar{ru}[swap]{g}
-\end{tikzcd}
-\]
-\end{corollary}
+%\begin{corollary}
+%DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-3.
+%\[
+%\begin{tikzcd}[row sep =5]
+%	X \ar{rr}{gf} \ar{rd}[swap]{f} && Z \\
+%	& Y \ar{ru}[swap]{g}
+%\end{tikzcd}
+%\]
+%\end{corollary}
 
-\begin{proof}
-The non trivial claim is that when $f$ and $gf$ are DK-equivalences then so is $g$, or more precisely, that the maps
-\[
-	Y(y_1,\cdots,y_n;y_0)
-\to
-	Z(g(y_1),\cdots, g(y_n); g(y_0))
-\]
-are weak equivalences even if the $y_i$ are not in the image of $f$.
-But this follows from the functoriality in 
-Proposition \ref{GENOPHO PROP},
-essential surjectivity 
-(note that when $y_i \in Y(\eta)^{H_i}$ one needs to use $H_i$-equivalences), 
-and the fact that by Proposition \ref{ASSOC PROP} the maps
-$f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
-are weak equivalences whenever $f$ is a $H$-equivalence.
-\end{proof}
+%\begin{proof}
+%The non trivial claim is that when $f$ and $gf$ are DK-equivalences then so is $g$, or more precisely, that the maps
+%\[
+%	Y(y_1,\cdots,y_n;y_0)
+%\to
+%	Z(g(y_1),\cdots, g(y_n); g(y_0))
+%\]
+%are weak equivalences even if the $y_i$ are not in the image of $f$.
+%But this follows from the functoriality in 
+%Proposition \ref{GENOPHO PROP},
+%essential surjectivity 
+%(note that when $y_i \in Y(\eta)^{H_i}$ one needs to use $H_i$-equivalences), 
+%and the fact that by Proposition \ref{ASSOC PROP} the maps
+%$f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
+%are weak equivalences whenever $f$ is a $H$-equivalence.
+%\end{proof}
 
 \begin{corollary}\label{26COR}
-DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-6, i.e. whenever $gf$ and $hg$ are DK-equivalences then so are
+DK-equivalences between dendroidal Segal spaces satisfy 2-out-of-6, i.e. when in
+$X \xrightarrow{f} 
+Y \xrightarrow{g}
+Z \xrightarrow{h} W$ the maps
+$gf$ and $hg$ are DK-equivalences then so are
 $f$, $g$, $h$, $hgf$.
 \end{corollary}
 
 \begin{proof}
-	The hypothesis together with the 
-	2-out-of-6 condition for the Kan model structure in 
-	$\mathsf{sSet}$
-	imply that $g$ is fully faithful for objects in the image of $f$. But this easily implies that $f$ is a DK-equivalence, and thus 2-out-of-3 concludes the proof. 
+Applying the 2-out-of-6 properties in $\mathsf{sSet}$ and $\mathsf{Cat}$ to mapping spaces and homotopy categories $\iota_G^{\**}ho$,
+the only non obvious conditions are the fully faithfulness of $g,h$ for $C$-profiles not in the image of $f$. 
+But since by Proposition \ref{ASSOC PROP} the maps
+$f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
+are weak equivalences when $f$ is a $H$-equivalence,
+this last claim follows from essential surjectivity.
 \end{proof}
 
+{\color{red} HERE}
 
 We now recover the following from \cite{Rez01}
 ({\color{red} add commentary})
@@ -3938,21 +3969,24 @@ We now recover the following from \cite{Rez01}
 \begin{proposition}
 	Let $X \in \mathsf{ssSet}$ be a Segal space. Then:
 \begin{itemize}
-	\item[(i)] equivalences define a subset of connected components
+	\item[(i)] equivalences of $X$ define a subset of connected components
 	$X^h(1) \subset X(1)$;
 	\item [(ii)] the pullbacks
 \begin{equation}\label{XHDEF EQ}
-\begin{tikzcd}
+\begin{tikzcd}[row sep=1.5em]
 	X^h(n) \ar{r} \ar{d} & X(n) \ar{d}
 \\
 	X^h(1) \times_{X(0)} \cdots \times_{X(0)} X^h(1) \ar{r} &
 	X(1) \times_{X(0)} \cdots \times_{X(0)} X(1)
+	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
 \end{equation}
 define a Segal space $X^h \subset X$, consisting of a union of connected components at each level;
 	\item[(iii)] the maps
-	$X^h(2) \xrightarrow{(d_2,d_1)} X^h(1) \times_{X(0)} X^h(1)$, 
-	$X^h(2) \xrightarrow{(d_0,d_1)} X^h(1) \times_{X(0)} X^h(1)$
+	$X^h(2) \xrightarrow{(d_2,d_1)}
+	X^h(\Lambda^0[2])$, 
+	$X^h(2) \xrightarrow{(d_0,d_1)} 
+	X^h(\Lambda^2[2])$
 	are trivial fibrations;
 	\item[(iv)] the map $X(J) \to X({\Delta[1]}) = X(1)$ factors through a weak equivalence $X(J) \to X^h(1)$.
 \end{itemize}
@@ -3960,16 +3994,16 @@ define a Segal space $X^h \subset X$, consisting of a union of connected compone
 
 
 \begin{proof}
-For (i), note first that given 
-	$f \colon x \to y$ in $X_0(1)$,
-then $[f]$ has a left inverse iff one can find a lift $p$
-as on the leftmost diagram below. But for any path $H$ between $f$ and $f'$ in $X_1$
+For (i), given 
+$f \colon x \to y$ in $X_0(1)$
+then $[f]$ has a left inverse iff there exists $p$
+as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)$ these is a lift in the right diagram
 \[
 \begin{tikzcd}[column sep =40]
-	& X(2) \ar{d}{(d_2,d_1)}
+	& X(2) \ar[->>]{d}{(d_2,d_1)}
 &
 	\Delta[0] \ar{r}{p} \ar{d}[swap]{0} &
-	X(2) \ar{d}{(d_2,d_1)}
+	X(2) \ar[->>]{d}{(d_2,d_1)}
 \\
 	\Delta[0] \ar{r}[swap]{(f,s_0(x))} \ar{ru}{p} &
 	X(1) \times_{X(0)} X(1)
@@ -3978,24 +4012,31 @@ as on the leftmost diagram below. But for any path $H$ between $f$ and $f'$ in $
 	X(1) \times_{X(0)} X(1)
 \end{tikzcd}
 \]
-one can form the lift in the rightmost diagram, showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
+showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
 
-For (ii), the fact that $X^h(\bullet)$ is closed under the simplicial operators follows since the composite of equivalences is an equivalence.
-In fact, this further implies that the bottom row in the pullback 
-\eqref{XHDEF EQ} could have been replaced with
-$X^h({\mathsf{sk}_1 \Delta[n]}) \to	
-X({\mathsf{sk}_1 \Delta[n]})$,
-from which it follows that the squares
+For (ii), that $X^h$ is closed under the simplicial operators follows equivalences are closed under composition.
+Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted
+as on the left below,
+cellular induction induces the right pullbacks for all 
+$K\in \mathsf{sSet}$.
 \[
-\begin{tikzcd}
-	X^h(K) \ar{r} \ar{d} & X(K) \ar{d}
+\begin{tikzcd}[row sep=1.5em]
+	X^h(\Delta[n]) \ar{r} \ar{d} &
+	X(\Delta[n]) \ar{d}
+&&
+	X^h(K) \ar{r} \ar{d} &
+	X(K) \ar{d}
 \\
+	X^h(\mathsf{sk}_1 \Delta[n]) \ar{r} &
+	X(\mathsf{sk}_1 \Delta[n])
+	\arrow[lu, phantom, "\lrcorner", very near start]
+&&
 	X^h(\mathsf{sk}_1 K) \ar{r} &
 	X(\mathsf{sk}_1 K)
 	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
 \]
-are pullbacks. Since 
+Since 
 $\mathsf{sk}_1 (\partial \Delta[n]) = 
 \mathsf{sk}_1 \Delta[n]$
 if $n \geq 2$
@@ -4005,12 +4046,12 @@ are Kan fibrations, and since the map $X^h(1)\ \to X(0) \times X(0)$
 is certainly a Kan fibration, $X^h$ is indeed Reedy fibrant. 
 The Segal condition is obvious from the pullback \eqref{XHDEF EQ}.
 
-For (iii), it suffices by symmetry to show the first claim.
-Moreover, one reduces to showing show that for any choice of section 
-in the following diagram the top composite is a weak equivalence.
+For (iii), it suffices by symmetry to establish the first claim.
+It is then enough to show that for any choice of section 
+in the following diagram the top composite is a Kan equivalence.
 \[
-\begin{tikzcd}
-	X^h(1) \times_{X_0} X^h(1) \ar[bend left=23,dashed]{r} 
+\begin{tikzcd}[column sep = 60]
+	X^h(1) \times_{X_0} X^h(1) \ar[bend left=17,dashed]{r} 
 	\ar[->>]{rd}[swap]{(id,d_0)}&
 	X^h(2) \ar[->>]{r}[swap]{(d_2,d_1)} \ar[->>]{l}{(d_2,d_0)}[swap]{\sim}&
 	X^h(1) \times_{X_0} X^h(1)
@@ -4025,24 +4066,23 @@ $(f \colon x \to y,z)$
 computing the map
 $(-) \circ f \colon X^h(y;z) \to X^h(x;z)$,
 which is a Kan equivalence since $f \in X^h(1)$ is an equivalence.
-Thus the composite is an equivalence, establishing (iii).
+Thus the composite is a Kan equivalence, establishing (iii).
 
 
-Lastly, for (iv) we first note that (iii) can be restated as saying that $X^h$ is local with respect to the outer horn inclusions
+Lastly, for (iv) note that (iii) says that $X^h$ is local with respect to the outer horn inclusions
 $\Lambda^0[2] \to \Delta[2]$ and
 $\Lambda^2[2] \to \Delta[2]$, 
-and that hence by Remarks 
+and hence by Remarks 
 \ref{ANHYPER REM} and \ref{CONTGR REM}
 the map 
 $X^h(J) \to X^h(1)$ 
 is a Kan equivalence.
-Hence, the only remaining claim is that
+The only remaining claim is that
 $X^h(J) = X(J)$, which is clear.
 \end{proof}
 
 \begin{remark}
-The inclusion $X^h \to X$ is a Reedy fibration.
-{\color{blue} justify}
+The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 \end{remark}
 
 \subsection{Completion and fibrant Segal operads}
