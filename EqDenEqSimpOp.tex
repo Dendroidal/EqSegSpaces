@@ -3544,7 +3544,7 @@ is a Kan equivalence in $\mathsf{sSet}$;
 \end{definition}
 
 
-\begin{remark}
+\begin{remark}\label{ONLYPREOP REM}
 Definitions \ref{MAPSPACESEG DEF}, \ref{HMTPYGEN DEF} and \ref{DKEQUIV DEF} depend only on the 
 fibrant pre-operads $\gamma_{\**}X,\gamma_{\**}Y$,
 since $X(x_1,\cdots,x_k;x_0) = \gamma_{\**}X(x_1,\cdots,x_k;x_0)$.
@@ -3559,6 +3559,13 @@ one has a decomposition
 so that, given $\varphi \in X_0(x_1,\cdots,x_k;x_0)$
 we will write $[\varphi] \in ho(X)(C)$
 for the corresponding class.
+\end{remark}
+
+\begin{remark}
+	One can extend the previous definitions to $G$-$\infty$-operads $X,Y \in \mathsf{dSet}^G$
+	by applying them to the dendroidal Segal spaces
+	$X^{J^{\bullet}},Y^{J^{\bullet}} \in \mathsf{sdSet}^G$
+	(cf. Remark \ref{CONCRECOM REM}). 
 \end{remark}
 
 
@@ -4105,7 +4112,7 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 	$,
 	and since $\iota^{\**}\left( X^{\Omega[T]} \right)$
 	is a (simplicial) Segal space
-	Proposition \label{SESP PROP}(iv) says that this map is 
+	Proposition \ref{SESP PROP}(iv) says that this map is 
 	a weak equivalence onto a subset of components,
 	i.e. a \textit{homotopy monomorphism}.
 	Hence, for any $G$-corolla
@@ -4227,7 +4234,6 @@ degenerate object, which is thus in the image of $X\to X^J$.
 %\]
 \end{proof}
 
-{\color{red} HERE}
 
 \begin{definition}
 	Two maps $f,f'\colon A \rightrightarrows B$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
@@ -4236,20 +4242,20 @@ degenerate object, which is thus in the image of $X\to X^J$.
 	$A \xrightarrow{H} B^J \rightrightarrows B$
 	are $f,f'$.
 	
-	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there is $g \colon Y \to X$
+	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there exists $g \colon Y \to X$
 	such that $gf \sim_J id_X$, $fg \sim_J id_Y$.
 \end{definition}
 
 \begin{remark}
-	It follows from Proposition \ref{JDDK PROP} and 2-out-of-3 that if 
-	$f\sim_J f'$ then $f$ is a DK-equivalence iff $f'$is.
-	Thus by 2-out-of-6 all $J$-homotopy equivalences are DK-equivalences.
+	For $f\sim_J f'$, Proposition \ref{JDDK PROP} and 2-out-of-3 applied to $A \xrightarrow{H} B^J \rightrightarrows B$ imply that $f$ is a DK-equivalence iff $f'$ is.
+	Thus by 2-out-of-6 $J$-homotopy equivalences are DK-equivalences.
 \end{remark}
 
 
 \begin{remark}\label{ALLXJK REM}
-	Let $X$ be a Segal space. All simplicial operators
-	$X^{J^n} \to X^{J^m}$ are induced by equivalences of groupoids $\widetilde{[m]} \to \widetilde{[n]}$, and one easily checks that these operators are thus $J$-homotopy equivalences and thus also DK-equivalences.
+	Let $X$ be a dendroidal Segal space. All simplicial operators
+	$X^{J^m} \to X^{J^{m'}}$ are induced by equivalences of groupoids $\widetilde{[m']} \to \widetilde{[m]}$,
+	and are thus $J$-homotopy equivalences and thus also DK-equivalences.
 \end{remark}
 
 
@@ -4265,22 +4271,33 @@ and complete equivalence $X \to \tilde{X}$ such that
 
 
 \begin{proof}
-	Our argument will mostly adapt the construction of the completion functor in \cite[\S 10.4]{Rez01}.
+Our proof mostly adapts the construction of the completion functor in \cite[\S 10.4]{Rez01}.
 
-	Firstly, we let 
+Firstly, we let 
 $X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
 = \mathsf{ssdSet}^G$
-be the object whose $m$-th level (in the new simplicial direction)
+be the object whose $m$-th level
 is $X^{J^m}$.
-	Since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object,
-	$X^{J^{\bullet}}$ is Reedy fibrant with respect to the dendroidal space model structure on 
-	$\mathsf{sdSet}^G$.
-	In particular, it follows that
-	$X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
-	is a fibration in $\mathsf{ssdSet}^G$.
 
-In particular, this implies that for each $T \in \Omega_G$ and
-vertex map $[0] \to [m]$ the induced square
+We will regard the new simplicial direction in $\mathsf{ssdSet}^G=(\mathsf{sdSet}^G)^{\Delta^{op}}$ as horizontal and the old one as vertical, and abbreviate the Reedy model structure on $(\mathsf{sdSet}^G)^{\Delta^{op}}$
+with respect to the dendroidal Reedy model structure on 
+$\mathsf{sdSet}^G$
+as the \textit{horizontal Reedy model structure} on 
+$\mathsf{ssdSet}^G$.
+
+Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object, it follows that 
+$X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
+$X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
+is a horizontal fibration in $(\mathsf{sdSet}^G)^{\Delta^{op}}$ as well.
+As such, for $T \in \Omega_G$
+the evaluations 
+\begin{equation}\label{MOREOVER EQ}
+X^{J^{\bullet}}(\Omega[T]) \to
+\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])
+\end{equation}
+are horizontal Reedy fibrations in $\mathsf{ssSet}$
+in the sense of in \S \ref{JOINBOUS SEC}.
+In particular, for each vertex map $[0] \to [m]$ the induced square
 \[
 \begin{tikzcd}
 	X^{J^m}(\Omega[T]) \ar[->>]{r} \ar[->>]{d}&
@@ -4292,17 +4309,17 @@ vertex map $[0] \to [m]$ the induced square
 \]
 is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
 induces weak equivalences on fibers,
-so that the map from $X^{J^m}(T)$ to the pullback of the remaining diagram is a trivial Kan fibration.
-By Remark \ref{HYPERSIMPL REM} we have just shown that for each fixed $T \in \Omega_G$ the map
-\begin{equation}\label{MOREOVER EQ}
-X^{J^{\bullet}}(T) \to
-\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(T)
-\end{equation}
-satisfies the ``moreover'' condition in 
-Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of this map are in fact homotopy fibers.
+so that the map from $X^{J^m}(\Omega[T])$ to the pullback of the remaining diagram is a trivial Kan fibration.
 
-We now write $\tilde{X}$ for any dendroidal Reedy fibrant replacement of the diagonal 
-$\delta^{\**} \left(X^{J^{\bullet}}\right)$,
+By (the dual of) Remark \ref{HYPERSIMPL REM} we have just shown that \eqref{MOREOVER EQ}
+satisfies the ``moreover'' condition in 
+Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of
+$\delta^{\**}\left(X^{J^{\bullet}}(\Omega[T])\right) \to
+\delta^{\**}\left(\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])\right)$
+are in fact homotopy fibers.
+
+We now write $\tilde{X}$ for a dendroidal Reedy fibrant replacement of the diagonal 
+$\delta^{\**} \left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$,
 which we note can always be chosen so that
 $\delta^{\**} \left(X^{J^{\bullet}}\right) \to \tilde{X}$
 is a monomorphism and
@@ -4313,25 +4330,25 @@ $\Delta[0]=\Lambda^0[1]\to \Delta[1]$,
 $\Delta[0]=\Lambda^1[1]\to \Delta[1]$
 is automatic).
 
-To see that $\tilde{X}$ is a complete Segal space, note that there is a composite
-$X_0^{J^{\bullet}} \to 
+To see that $\tilde{X}$ is a complete Segal space, note that in the composite
+$X_0^{J^{\bullet}} \to
 \delta^{\**}\left( X^{J^{\bullet}} \right)
 \to \tilde{X}$
-where the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
-and the second by definition of $\tilde{X}$.
-But since $X_0^{J^{\bullet}}$ is a complete Segal space, so is $\tilde{X}$.
+the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv) and the second by definition of $\tilde{X}$.
+But since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
 
 For the remaining claim that the composite
 $X = X^{J^{0}} \to 
 \delta^{\**}\left( X^{J_{\bullet}} \right)
 \to \tilde{X}$
 is a DK equivalence, 
-though the first map is no longer a dendroidal Reedy equivalence, 
+note that though
+the first map is no longer a dendroidal Reedy equivalence, 
 it is nonetheless an equivalence
 on fibers over
 $\prod_{e_i \in E_G(T)} \left(X(\eta)\right)^{H_i}$
 for each $T\in \Omega_G$.
-And since we established above that the fibers of
+And since we have shown that the fibers of
 $\delta^{\**}\left( X^{J^{\bullet}} \right)(T)$
  are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(T)$ (since Reedy replacement does not change the homotopy fibers), and thus $X \to \tilde{X}$ is indeed fully faithful.
 Essential surjectivity is trivial since the objects coincide.
@@ -4340,23 +4357,65 @@ The monomorphism condition is clear.
 
 
 \begin{corollary}
-	A map of $X \to Y$ of dendroidal Segal spaces is a joint equivalence iff it is a DK-equivalence.
+	A map of $X \to Y$ of dendroidal Segal spaces is a complete equivalence iff it is a DK-equivalence.
 \end{corollary}
 
-{\color{purple} HERE}
 
 \begin{proof}
-By the (proof of) previous result one is free to, via a zigzag, 
-replace $X$, $Y$ with 
-$X_0^{J^{\bullet}}$, $Y_0^{J^{\bullet}}$.
-But by Theorem \ref{INC0AGJ THM} this map is a joint equivalence iff
-$X_0 \to Y_0$ is an equivalence in $\mathsf{dSet}^G$, which by 
-Theorem \ref{COMSQ THM} holds iff this is a fully faithful and essentially surjective map of $G$-$\infty$-operads.
-But it is easy to check that
-$X_0 \to Y_0$ is a fully faithful and essentially surjective map of $G$-$\infty$-operads iff
-$X_0^{J^{\bullet}}\to Y_0^{J^{\bullet}}$
-is a fully faithful and essentially surjective map
-of dendroidal Segal spaces.
+By the previous result one is free to assume that $X,Y$ are complete, so that by Proposition \ref{COMBMODSTR PROP}(ii)
+complete equivalences coincide with simplicial equivalences.
+
+Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(\eta)^H \to Y(\eta)^H$
+is a Kan equivalence in $\mathsf{sSet}$. 
+Indeed, the completion condition states that
+$X(\eta)^H = X(G \cdot \Omega[\eta])^H
+\xrightarrow{\sim} X(G\cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram are equivalent to the homotopy fibers of the right diagram,
+i.e. to the loop spaces 
+$\Omega\left(X(\eta)^H,x\right)$.
+\begin{equation}\label{WHATEV EQ}
+\begin{tikzcd}[column sep =40]
+	& X(G\cdot J)^H \ar[->>]{d}
+&
+	& X(\eta)^H \ar{d}
+\\
+	\Delta[0] \ar{r}{(x,x)} &
+	X(\eta)^H \times X(\eta)^H
+&
+	\Delta[0] \ar{r}{(x,x)} &
+	X(\eta)^H \times X(\eta)^H
+\end{tikzcd}
+\end{equation}
+Therefore, since $X(G\cdot J)^H \to X(G\cdot \Omega[1])^H = X(C_{H/H})$ is a homotopy monomorphism,
+fully faithfulness implies that 
+$X(\eta)^H \to Y(\eta)^H$
+induces isomorphisms on homotopy groups.
+Injectivity on components is similar 
+($x,x'$ are in the same component iff the $(x,x')$ fiber in \eqref{WHATEV EQ} is non-empty) while essential surjectivity implies surjectivity on components,
+and thus $X(\eta)^H \to Y(\eta)^H$ is indeed a Kan equivalence.
+
+We now show that $X(\Omega[T]) \to Y(\Omega[T])$
+is a Kan equivalence for all $T \in \Omega_G$.
+Consider the diagram
+\begin{equation}\label{DKCOM EQ}
+\begin{tikzcd}[row sep=17]
+	X(\Omega[T]) \ar{r} \ar[->>]{d}[swap]{\sim}&
+	Y(\Omega[T]) \ar[->>]{d}{\sim}
+\\
+	X(Sc[T]) \ar{r} \ar[->>]{d}&
+	Y(Sc[T]) \ar[->>]{d}
+\\
+	\underset{e_i \in E_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
+	\underset{e_i \in E_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+\end{tikzcd}
+\end{equation}
+where the maps marked $\sim$ are trivial fibrations by the Segal condition.
+Since the bottom horizontal map is already known to be a Kan equivalence, it suffices to note that by fully faithfulness
+the middle horizontal map induces Kan equivalences on fibers, and is thus a Kan equivalence itself.
+This finishes the proof that DK-equivalences
+$f \colon X \to Y$ are also simplicial equivalences.
+
+Assuming now that $f\colon X \to Y$ is a simplicial equivalence, fully faithfulness follows from \eqref{DKCOM EQ} by considering maps of fibers and essential surjectivity follows since the maps
+$X(\eta)^H \to Y(\eta)^H$ are surjetive on components.
 \end{proof}
 
 
@@ -4375,26 +4434,27 @@ Recall that $\gamma^{\**} X$ is a dendroidal Segal space if it has the right lif
 \qquad
 	(\partial \Delta[n] \to \Delta[n]) \square (Sc[T] \to \Omega[T]).
 \end{equation}
-With the exception of the first type of maps when $T=\eta$, in which case the lifting condition is automatic since
-$\gamma^{\**}X(\eta)$ is discrete, all other maps induce isomorphisms at the $\eta$-level, so that by \eqref{GAMMASH EQ} applying $\gamma_{!}$ to these maps yields trivial cofibrations in 
+With the exception of the first type of maps when $T = G\cdot_H \eta$, in which case the lifting condition is automatic since
+$\gamma^{\**}X(\eta)$ is discrete, all other maps induce isomorphisms at the $\eta$-level, so that by 
+Remark \ref{GAMMASH REM} applying $\gamma_{!}$ to these maps yields trivial cofibrations in 
 $\mathsf{PreOp}^G$.
-Thus, if $X \in \mathsf{PreOp}^G$ is fibrant, an adjunction argument shows that $\gamma^{\**}(X)$ indeed has the lifting property against all maps \eqref{SOMEMAPS EQ}, i.e. 
+Thus, if $X \in \mathsf{PreOp}^G$ is fibrant, an adjunction argument shows that $\gamma^{\**}(X)$ indeed has the lifting property against all maps \eqref{SOMEMAPS EQ}, i.e. that
 $\gamma^{\**}(X)$ is a dendroidal Segal space.
-	
-For the ``if'' direction, form the completion 
+
+For the ``if'' direction, we form the completion 
 $\gamma^{\**}X \to \tilde{X}$
-as in Proposition \ref{COMPLE PROP}.
+described in Proposition \ref{COMPLE PROP}.
 Then $\gamma_{\**}\tilde{X} \in \mathsf{PreOp}^G$
 is fibrant by Theorem \ref{ANOQUEQUIV THM}
 and the adjoint map $X \to \gamma_{\**}\tilde{X}$
 has the following properties:
 \begin{inparaenum}
 	\item[(i)] it is a monomorphism;
-	\item[(ii)] it is an isomorphism on the $\eta$-level;
+	\item[(ii)] it is an isomorphism at the $\eta$-level;
 	\item[(iii)] it is a DK-equivalence when regarded as a map
 	in $\mathsf{sdSet}^G$
-	(since $\gamma_{\**}\gamma^{\**}\tilde{X} \to \tilde{X}$ is tautologically a DK-equivalence);
-	\item[(iv)] it is hence a trivial Reedy cofibration when regarded as a map
+	(since by Remark \ref{ONLYPREOP REM} $\gamma^{\**}\gamma_{\**}\tilde{X} \to \tilde{X}$ is tautologically a DK-equivalence);
+	\item[(iv)] it is hence a trivial dendroidal Reedy cofibration when regarded as a map
 	in $\mathsf{sdSet}^G$. 
 \end{inparaenum}	
 	But then the hypothesis that
@@ -4404,10 +4464,10 @@ has the following properties:
 	\gamma^{\**} X \ar[equal]{r} \ar{d}&
 	\gamma^{\**} X
 \\
-	\gamma^{\**}\gamma_{\**}X \ar[dashed]{ru}
+	\gamma^{\**}\gamma_{\**}\tilde{X} \ar[dashed]{ru}
 \end{tikzcd}
 \]
-showing that $X$ is a retract of $\gamma_{\**}X$ and finishing the proof.
+showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof.
 \end{proof}
 
 
@@ -4417,203 +4477,156 @@ showing that $X$ is a retract of $\gamma_{\**}X$ and finishing the proof.
 \[
 \gamma_{\**} X \to X \to \tilde{X}
 \] 
-where $\gamma_{\**}$ is a fibrant preoperad and $\tilde{X}$
+where $\gamma_{\**}X$ is a fibrant preoperad and $\tilde{X}$
 a complete dendroidal Segal space.
 \end{remark}
 
 
+%The following is the equivariant generalization of 
+%\cite[Thm. 3.5]{CM13a}.
 
-\subsection{Equivalences of $G$-$\infty$-operads}
-
-
-
-
-We remind ourselves of the following notation (cf. \cite[\S8]{Per17}).
-\begin{notation}
-      \label{HOM_NOTATIONS}
-      Fix $A,B,C \in \mathsf{dSet}^G$, $X \in \mathsf{dSet}^G$ a $G$-$\infty$-operad, $K \in \mathsf{sSet}$.
-      \begin{itemize}
-      \item The \textit{internal hom} $\Hom(A,B) \in \mathsf{dSet}^G$ is defined by
-            \begin{equation}
-                  \Hom(A,B)(T) = \mathsf{dSet}^G(A \otimes \Omega[T], B),
-            \end{equation}
-            and come equipped with canonical isomorphisms
-            \begin{equation}
-                  \mathsf{dSet}^G(A \otimes C, B)= \mathsf{dSet}^G(C, \Hom(A,B).
-            \end{equation}
-      \item The \textit{simplicial mapping space} $B^A \in \mathsf{sSet}$ is given by $i^*\Hom(A,B)$,
-            and comes with induced isomorphisms
-            \begin{equation}
-                  \mathsf{sSet}(K, B^A) = \mathsf{dSet}^G(A, \Hom(i_! K, B)).
-            \end{equation}
-      \item Let $k(A,X) \in \mathsf{sSet}$ denote $k(X^A)$, where $k(-)$ is the maximal sub Kan complex.
-            \todo[inline]{reference $X^A$ being Kan}
-      \item Let $X^{(K)} \in \mathsf{dSet}_G$ be defined to have $T$-dendrices given by
-            \begin{equation}
-                  X^{(K)}(T) := k(i^{\**}\Hom(i_! K \otimes \Omega[T], X),
-            \end{equation}
-            and we have canonical isomorphisms
-            \begin{equation}
-                  \mathsf{dSet}_G(u_* A, X^{(K)}) = \mathsf{sSet}(K, k(A,X)).
-            \end{equation}
-      \end{itemize}
-\end{notation}
+%\begin{proposition}\label{TFAE PROP}
+%Let $X \to Y$ be a map between $G$-$\infty$-operads. The following are equivalent:
+%\begin{enumerate}
+%	\item[(a)] for all $G$-corollas $C \in \Sigma_G$ and $H \leq G$ the maps
+%\[k(\Omega[C],X) \to k(\Omega[C],Y), \qquad
+%k(\Omega[G/H \cdot \eta],X) \to k(\Omega[G/H \cdot \eta],Y)
+%\]
+%are Kan equivalences in $\mathsf{sSet}$;
+%	\item[(b)] for all $G$-trees $T \in \Omega_G$ the maps 
+%	$k(\Omega[T],X) \to k(\Omega[T],Y)$
+%are Kan equivalences in $\mathsf{sSet}$;
+%	\item[(c)] for all normal $A \in \mathsf{dSet}^G$, the maps
+%	$k(A,X) \to k(A,Y)$
+%are Kan equivalences in $\mathsf{sSet}$;
+%	\item[(d)] $f \colon X \to Y$ is a weak equivalence in 
+%	$\mathsf{dSet}^G$.
+%\end{enumerate}
+%\end{proposition}
 
 
+%\begin{definition}\label{MAPSPACE DEF}
+%Given a $G$-$\infty$-operad and a $C$-profile 
+%$(x_1,\cdots,x_k;x_0)$ we define the space of maps
+%$X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
+%\[
+%\begin{tikzcd}
+%	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
+%	Hom^G(\Omega[C],X) \ar{d}
+%\\
+%	\eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
+%	\prod_{0\leq i \leq k} X^{H_i}
+%\end{tikzcd}
+%\]
+%
+% one sees that 
+%$X(x_1,\cdots,x_k;x_0)$ 
+%can indeed be regarded as a simplicial set (in fact, this is a Kan complex).
+%\end{definition}
 
 
-The following is the equivariant generalization of 
-\cite[Thm. 3.5]{CM13a}.
+%\begin{definition}
+%Let $f \colon X \to Y$ be a map of $G$-$\infty$-operads.
+%
+%The map $f$ is called \textit{fully faithful} if, for each $C$-profile $(x_1,\cdots, x_k ; x_0)$ one has that
+%\[
+%X(x_1,\cdots,x_k;x_0) \to Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
+%\]
+%is a Kan equivalence in $\mathsf{sSet}$.
+%
+%The map $f$ is called \textit{essentially surjective} if for each subgroup $H \leq G$ the map of categories
+%$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
+%is essentially surjective.
+%\end{definition}
 
-\begin{proposition}\label{TFAE PROP}
-Let $X \to Y$ be a map between $G$-$\infty$-operads. The following are equivalent:
-\begin{enumerate}
-	\item[(a)] for all $G$-corollas $C \in \Sigma_G$ and $H \leq G$ the maps
-\[k(\Omega[C],X) \to k(\Omega[C],Y), \qquad
-k(\Omega[G/H \cdot \eta],X) \to k(\Omega[G/H \cdot \eta],Y)
-\]
-are Kan equivalences in $\mathsf{sSet}$;
-	\item[(b)] for all $G$-trees $T \in \Omega_G$ the maps 
-	$k(\Omega[T],X) \to k(\Omega[T],Y)$
-are Kan equivalences in $\mathsf{sSet}$;
-	\item[(c)] for all normal $A \in \mathsf{dSet}^G$, the maps
-	$k(A,X) \to k(A,Y)$
-are Kan equivalences in $\mathsf{sSet}$;
-	\item[(d)] $f \colon X \to Y$ is a weak equivalence in 
-	$\mathsf{dSet}^G$.
-\end{enumerate}
-\end{proposition}
+%The following is the equivariant generalization of 
+%\cite[Thm. 3.11 and Remark 3.12]{CM13a}.
 
 
+%\begin{theorem}\label{COMSQ THM}
+%A map $f \colon X \to Y$ of $G$-$\infty$-operads is fully faithful iff for all $G$-corollas $C \in \Sigma_G$ the commutative squares
+%of Kan complexes
+%\begin{equation}\label{COMSQ EQ}
+%\begin{tikzcd}
+%	k(\Omega[C],X) \ar{r} \ar{d}[swap]{p}&
+%	k(\Omega[C],Y) \ar{d}{q}
+%\\
+%	k(\partial \Omega[C],X) \ar{r}[swap]{f_{\**}} &
+%	k(\partial \Omega[C],Y)
+%\end{tikzcd}
+%\end{equation}
+%are homotopy pullback squares.
+%
+%Hence, $f$ is a weak equivalence in $\mathsf{dSet}^G$ iff $f$ is both fully faithful and essentially surjective. 
+%\end{theorem}
 
-{\color{red} HERE}%
-
-
-
-
-\begin{definition}\label{MAPSPACE DEF}
-Given a $G$-$\infty$-operad and a $C$-profile 
-$(x_1,\cdots,x_k;x_0)$ we define the space of maps
-$X(x_1,\cdots,x_k;x_0)$ to be given by the pullback
-\[
-\begin{tikzcd}
-	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
-	Hom^G(\Omega[C],X) \ar{d}
-\\
-	\eta \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
-	\prod_{0\leq i \leq k} X^{H_i}
-\end{tikzcd}
-\]
-
- one sees that 
-$X(x_1,\cdots,x_k;x_0)$ 
-can indeed be regarded as a simplicial set (in fact, this is a Kan complex).
-\end{definition}
-
-
-\begin{definition}
-Let $f \colon X \to Y$ be a map of $G$-$\infty$-operads.
-
-The map $f$ is called \textit{fully faithful} if, for each $C$-profile $(x_1,\cdots, x_k ; x_0)$ one has that
-\[
-X(x_1,\cdots,x_k;x_0) \to Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
-\]
-is a Kan equivalence in $\mathsf{sSet}$.
-
-The map $f$ is called \textit{essentially surjective} if for each subgroup $H \leq G$ the map of categories
-$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
-is essentially surjective.
-\end{definition}
-
-The following is the equivariant generalization of 
-\cite[Thm. 3.11 and Remark 3.12]{CM13a}.
-
-
-\begin{theorem}\label{COMSQ THM}
-A map $f \colon X \to Y$ of $G$-$\infty$-operads is fully faithful iff for all $G$-corollas $C \in \Sigma_G$ the commutative squares
-of Kan complexes
-\begin{equation}\label{COMSQ EQ}
-\begin{tikzcd}
-	k(\Omega[C],X) \ar{r} \ar{d}[swap]{p}&
-	k(\Omega[C],Y) \ar{d}{q}
-\\
-	k(\partial \Omega[C],X) \ar{r}[swap]{f_{\**}} &
-	k(\partial \Omega[C],Y)
-\end{tikzcd}
-\end{equation}
-are homotopy pullback squares.
-
-Hence, $f$ is a weak equivalence in $\mathsf{dSet}^G$ iff $f$ is both fully faithful and essentially surjective. 
-\end{theorem}
-
-\begin{proof}
-Noting that the $0$-simplices of $k(\partial \Omega[C],X)$
-are precisely the $C$-profiles $(x_1,\cdots,x_k,x_0)$,
-fully faithfulness can be reinterpreted as saying that all fiber maps
-$p^{-1}(x_1,\cdots,x_k,x_0) \to 
-q^{-1}(f(x_1),\cdots,f(x_k),f(x_0))$
-are weak equivalences. But since $p,q$ are Kan fibrations, this is equivalent to the condition that \eqref{COMSQ EQ}
-is a homotopy pullback (see \cite[Lemma 3.9]{CM13a}), and the first half follows.
-
-For the second half, note first that the bottom map in 
-\eqref{COMSQ EQ} can be rewritten as
-\[
-	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, X \right) \to 
-	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, Y \right).
-\]
-
-Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in \eqref{COMSQ EQ}
-are weak equivalences, so that the square is a pull back square, and thus $f$ is fully faithful. 
-That $f$ is essentially surjective follows from the identity
-$k \left(\Omega[G/H \cdot \eta], Z \right) = k(\iota^{\**}(Z^H))$, so that 
-$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$ is essentially surjective at the level of maximal groupoids, and this suffices for essential surjectivity.
-
-Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ} is a homotopy pullback, Proposition \ref{TFAE PROP} implies that one needs only check that the maps of Kan complexes
-\begin{equation}\label{KANMAP EQ}
-      k \left(\Omega[G/H \cdot \eta], X \right) \to 
-	k \left(\Omega[G/H \cdot \eta], Y \right)
-\qquad \text{or} \qquad
-	k\left(\iota^{\**}\left(X^H\right)\right) \to 
-	k\left(\iota^{\**}\left(Y^H\right)\right)
-\end{equation}
-are weak equivalences. As before, essential surjectivity is equivalent to the fact that the maps \eqref{KANMAP EQ} induce surjections on connected components. Hence, it now suffices to show that for each $0$-simplex $x \in X^H$ the top map of loop spaces in 
-\begin{equation}\label{OMEGASQ EQ}
-\begin{tikzcd}
-	\Omega(k(\iota^{\**}X^H),x) \ar{r} \ar{d} &
-	\Omega(k(\iota^{\**}Y^H),f(x)) \ar{d}
-\\
-	X(x;x) \ar{r} &
-	Y(f(x);f(x))
-\end{tikzcd}
-\end{equation}
-is a weak equivalence.
-Note that the bottom map in 
-\eqref{OMEGASQ EQ}
-is a weak equivalence since $F$ is fully faithful
-and that the vertical maps are the inclusion of the connected components corresponding to automorphisms of $x$ in 
-$\tau(\iota^{\**} X^H)$.
-It thus suffices to check that the top map in
-\eqref{OMEGASQ EQ} is an isomorphism on $\pi_0$,
-and this follows since the map of categories
-$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
-is fully faithful. 
-\end{proof}
+%\begin{proof}
+%Noting that the $0$-simplices of $k(\partial \Omega[C],X)$
+%are precisely the $C$-profiles $(x_1,\cdots,x_k,x_0)$,
+%fully faithfulness can be reinterpreted as saying that all fiber maps
+%$p^{-1}(x_1,\cdots,x_k,x_0) \to 
+%q^{-1}(f(x_1),\cdots,f(x_k),f(x_0))$
+%are weak equivalences. But since $p,q$ are Kan fibrations, this is equivalent to the condition that \eqref{COMSQ EQ}
+%is a homotopy pullback (see \cite[Lemma 3.9]{CM13a}), and the first half follows.
+%
+%For the second half, note first that the bottom map in 
+%\eqref{COMSQ EQ} can be rewritten as
+%\[
+%	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, X \right) \to 
+%	\prod_{0\leq i \leq k} k \left(G/H_i \cdot \eta, Y \right).
+%\]
+%
+%Assume first that $f$ is a weak equivalence. Proposition \ref{TFAE PROP} then implies that the horizontal maps in \eqref{COMSQ EQ}
+%are weak equivalences, so that the square is a pull back square, and thus $f$ is fully faithful. 
+%That $f$ is essentially surjective follows from the identity
+%$k \left(\Omega[G/H \cdot \eta], Z \right) = k(\iota^{\**}(Z^H))$, so that 
+%$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$ is essentially surjective at the level of maximal groupoids, and this suffices for essential surjectivity.
+%
+%Assume now that $f$ is fully faithful and essentially surjective. Since \eqref{COMSQ EQ} is a homotopy pullback, Proposition \ref{TFAE PROP} implies that one needs only check that the maps of Kan complexes
+%\begin{equation}\label{KANMAP EQ}
+%      k \left(\Omega[G/H \cdot \eta], X \right) \to 
+%	k \left(\Omega[G/H \cdot \eta], Y \right)
+%\qquad \text{or} \qquad
+%	k\left(\iota^{\**}\left(X^H\right)\right) \to 
+%	k\left(\iota^{\**}\left(Y^H\right)\right)
+%\end{equation}
+%are weak equivalences. As before, essential surjectivity is equivalent to the fact that the maps \eqref{KANMAP EQ} induce surjections on connected components. Hence, it now suffices to show that for each $0$-simplex $x \in X^H$ the top map of loop spaces in 
+%\begin{equation}\label{OMEGASQ EQ}
+%\begin{tikzcd}
+%	\Omega(k(\iota^{\**}X^H),x) \ar{r} \ar{d} &
+%	\Omega(k(\iota^{\**}Y^H),f(x)) \ar{d}
+%\\
+%	X(x;x) \ar{r} &
+%	Y(f(x);f(x))
+%\end{tikzcd}
+%\end{equation}
+%is a weak equivalence.
+%Note that the bottom map in 
+%\eqref{OMEGASQ EQ}
+%is a weak equivalence since $F$ is fully faithful
+%and that the vertical maps are the inclusion of the connected components corresponding to automorphisms of $x$ in 
+%$\tau(\iota^{\**} X^H)$.
+%It thus suffices to check that the top map in
+%\eqref{OMEGASQ EQ} is an isomorphism on $\pi_0$,
+%and this follows since the map of categories
+%$\tau(\iota^{\**}(X^H)) \to \tau(\iota^{\**}(Y^H))$
+%is fully faithful. 
+%\end{proof}
 
 
+%The following is a variation on Definition \ref{MAPSPACE DEF}.
 
-The following is a variation on Definition \ref{MAPSPACE DEF}.
-
-\begin{remark}
-It is important not to confuse Definitions \ref{MAPSPACE DEF} 
-and \ref{MAPSPACESEG DEF}. Indeed, when $X$ is a dendroidal Segal, its $0$-th level $X_0$ is a $G$-$\infty$-operad, and one can thus form two ``spaces of maps'' 
-$X_0(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACE DEF})
-and
-$X(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACESEG DEF}).
-The constructions leading to these spaces are quite different. When $X$ is complete Segal, 
-the fact that these two spaces are homotopic follows 
-from Remark \ref{CONCRECOM REM}, since $X$ must then be both dendroidally and simplicially equivalent to $X_0^{J_d(m)}$. 
-The claim that this holds without completeness is harder, with the rest of the section devoted to establishing this.
-\end{remark}
+%\begin{remark}
+%It is important not to confuse Definitions \ref{MAPSPACE DEF} 
+%and \ref{MAPSPACESEG DEF}. Indeed, when $X$ is a dendroidal Segal, its $0$-th level $X_0$ is a $G$-$\infty$-operad, and one can thus form two ``spaces of maps'' 
+%$X_0(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACE DEF})
+%and
+%$X(x_1,\cdots,x_k;x_0)$ (cf. Definition \ref{MAPSPACESEG DEF}).
+%The constructions leading to these spaces are quite different. When $X$ is complete Segal, 
+%the fact that these two spaces are homotopic follows 
+%from Remark \ref{CONCRECOM REM}, since $X$ must then be both dendroidally and simplicially equivalent to $X_0^{J_d(m)}$. 
+%The claim that this holds without completeness is harder, with the rest of the section devoted to establishing this.
+%\end{remark}
 
 
 
@@ -4628,12 +4641,6 @@ The claim that this holds without completeness is harder, with the rest of the s
 \newpage
 
 \section{Scratchwork (to be folded into previous sections eventually)}
-
-\[
-	u^{\**} \colon \mathsf{dSet}_G 
-\rightleftarrows 
-	\mathsf{dSet}^G \colon u_{\**}
-\]
 
 
 
@@ -4699,13 +4706,6 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{remark}
 
 
-
-\begin{remark}
-	Note that $\mathsf{Sc}_{T[Ge]}$, $\mathsf{Sc}_{T[Gf]}$
-	in \eqref{FOURSQ EQ}
-	are cover inclusions, and thus $G$-anodyne, relate to 
-	\cite[\S 6.2]{Rez10}, \cite[\S 10]{Rez01}.
-\end{remark}
 
 
 \begin{remark}
