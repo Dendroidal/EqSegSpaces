@@ -833,7 +833,24 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 	\begin{equation}
 	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
 	\end{equation}
-where $T/G$ is the underlying tree in the orbital representation ({\color{blue} this needs to be expanded on}).
+        where $T/G$ denotes the underlying tree in the orbital representation.
+        Explicitly, the underlying set of $T/G$ is precisely the $G$-orbits of $T$, with a modified broad-poset structure.
+        For each edge $[e] \in T/G$, we have
+        $[t] \in [e]^\uparrow$ iff $t \in e^\uparrow$.
+        % a generating broad relation
+        % $[e_1]\dots [e_n] \leq [e]$
+        % where $\set{e_1,\dots,e_n}$ is a complete set of representatives for the $G$-orbits of the union $G e^{\uparrow}$:
+        % \begin{equation}
+        %       \set{[e_1],\dots,[e_n]} = \left(
+        %             \bigcup_{t_i \in e^{\uparrow}}G t_i
+        %             \right)/G.
+        % \end{equation}
+        It is easy to check that $T/G$ is in fact a tree.
+
+        We note that the generating broad relations are not given by
+        $[e_1]\dots[e_n] \leq [e]$ for $e_1\dots e_n = e^\uparrow$,
+        as in general this would not be a \textit{simple} broad poset.
+        % ({\color{blue} this needs to be expanded on}).
 \end{remark}
 
 
@@ -977,12 +994,15 @@ where we note that the equivalence between the colimit and union formulas now fo
 
 \begin{remark}
       \label{ORB_HORN_REM}
-      Furthering the observation from Remark \ref{ORB_FACE_REM} that $\mathsf{Face}_o(T) \simeq \mathsf{Face}(T/G)$,
-      we record that this isomorphism induces an isomorphism of posets of subcomplexes
+      The observation from Remark \ref{ORB_FACE_REM} that $\mathsf{Face}_o(T) \simeq \mathsf{Face}(T/G)$,
+      further induces an isomorphism on the poset of subcomplexes which are unions of (orbital) faces:
       \begin{equation}
-            \sets{\bigcup_i\Omega[S_i] \subseteq \Omega[T]}{i \in \NN,\ S_i \in \mathsf{Face}_o(T)} \simeq
-            \sets{\bigcup_i\Omega[U_i] \subseteq \Omega[T/G]}{i \in \NN,\ S_i/G \in \mathsf{Face}(T/G)}.
+            \set{\bigcup_i\Omega[S_i]} \leftrightarrow \set{\bigcup_i\Omega[S_i/G]}.
       \end{equation}
+      % \begin{equation}
+      %       \set{\bigcup_i\Omega[S_i] \subseteq \Omega[T] \ : \ S_i \in \mathsf{Face}_o(T)} \simeq
+      %       \set{\bigcup_i\Omega[U_i] \subseteq \Omega[T/G] \ : \ S_i/G \in \mathsf{Face}(T/G)}.
+      % \end{equation}
       In particular, $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$. ({\color{blue} this needs work})
 \end{remark}
 
@@ -1205,40 +1225,40 @@ where we note that the equivalence between the colimit and union formulas now fo
                         %%%% -------------------- edges ----------
                         % ---------- conjugates ----------
                         \draw[<->]
-                        (Pa)++(-.5,.5) -- (.5,.5) node [midway,above] {$+1$};
+                        (Pa)++(-.8,.5) -- (.8,.5) node [midway,above] {$+1$};
                         \draw[<->]
                         (Tbb)++(-.5,.5) -- ++(-1,0) node [midway,above] {$+1$};
                         % faces
                         \draw[->]
-                        (Paa)++(0,-.2) -- ++(0,-.4);
+                        (Paa)++(0,-.3) -- ++(0,-.7);
                         \draw[->]
-                        (Pr)++(0,-.25) -- ++(0,-.4);
+                        (Pr)++(0,-.3) -- ++(0,-.7);
                         \draw[->]
-                        (Tb)++(0,-.2) -- ++(.5,-.4);
+                        (Tb)++(0,-.3) -- ++(.5,-.7);
                         \draw[->]
-                        (Tbb)++(0,-.2) -- ++(-.5,-.4);
+                        (Tbb)++(0,-.3) -- ++(-.5,-.7);
                         % ---------- faces of Pa
                         \draw[->]
-                        (Pa)++(-.2,-.2) -- (1.1,-.7);
+                        (Pa)++(-.2,-.2) -- ++(-2.5,-.8);
                         \draw[->]
-                        (Pa)++(-.1,-.3) -- (2.6,-1);
+                        (Pa)++(-.1,-.3) -- ++(-.7,-.7);
                         \draw[->]
-                        (Pa)++(.1,-.3) -- (4.3,-1);
+                        (Pa)++(.1,-.3) -- ++(.7,-.7);
                         \draw[->]
-                        (Pa)++(.2,-.2) -- (5.7,-.7);
+                        (Pa)++(.2,-.2) -- ++(2.5,-.8);
                         % ---------- faces of Pab and Pae and Par and PGa
                         \draw[->]
-                        (Pabb)++(-.3,-.2) -- ++(-.5,-.5);
+                        (Pabb)++(-.2,-.4) -- ++(-.5,-.5);
                         \draw[->]
-                        (Pabb)++(.7,-.1) -- ++(.5,-.4);
+                        (Pabb)++(.2,-.4) -- ++(.5,-.5);
                         \draw[->]
-                        (Pae)++(.3,-.2) -- ++(.5,-.5);
+                        (Pae)++(.2,-.4) -- ++(.5,-.5);
                         \draw[->]
-                        (Pae)++(-.6,-.1) -- ++(-.5,-.4);
+                        (Pae)++(-.2,-.4) -- ++(-.5,-.5);
                         \draw[->]
-                        (PGa)++(0,-.3) -- ++(0,-.5);
+                        (PGa)++(0,-.4) -- ++(0,-.5);
                         \draw[->]
-                        (Par)++(0,-.3) -- ++(0,-.55);
+                        (Par)++(0,-.4) -- ++(0,-.5);
                   \end{tikzpicture}
             \end{equation}
       \end{figure}
@@ -2530,6 +2550,18 @@ $p = Hg$. This shows that $H$ is indeed a lift for the left square.
 Uniqueness follows since any lift of the left square induces a lift of the outer right square.
 \end{proof}
 
+% \begin{remark}
+%       In the special case where $\mathcal{C}$ is a class of generating trivial cofibrations, we have that
+%       the hypersaturation and saturation of $\mathcal{C}$ are equal,
+%       and hence the above proof shows that $\mathcal{C}^{\boxslash}$ and $\hat{\mathcal{C}}^{\boxslash}$ are equal,
+%       where $\hat{\mathcal{D}}$ is the (hyper)saturation of $\mathcal C$.
+%       % Indeed, the saturation of such $\mathcal{C}$ are the class of trivial cofibrations,
+%       % and these are closed under the cancellation property \eqref{CANCEL_EQ}.
+%       % by \cite[\S 2.1]{Hov99}, we see that
+%       % the saturation of such $\mathcal{C}$ (i.e the class of trivial cofibrations)
+%       % is given by ${}^{\boxslash}(\mathcal{C}^{\boxslash})$
+% \end{remark}
+
 As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor
 $N^G: \Op^G \to \mathsf{dSet}^G$.
 Recalling the adjuction below,
@@ -2556,8 +2588,8 @@ where $E_* = E \cap T_*$, $H = \mathrm{Stab}_G(T_*)$, and
 $j$ is a generalized inner horn inclusion in $\Omega$. 
 
 Let $\dSet_h \subset \dSet$ and $\dSet^{G,h} \subset \dSet^G$
-denote the wide subcategories spanned by $(G)$-inner horn inclusions,
-so $\dSet_h^{\boxslash}$ and $(\dSet^{G,h})^\boxslash$ are the categories of $(G)$-$\infty$-operads.
+denote the wide subcategories spanned by $(G)$-inner horn inclusions
+(so, in particular, $\dSet_h^{\boxslash}$ and $(\dSet^{G,h})^\boxslash$ are the categories of $(G)$-$\infty$-operads).
 
 \begin{proposition}
       \label{SRLP_IHI_PROP}
@@ -2573,36 +2605,37 @@ so $\dSet_h^{\boxslash}$ and $(\dSet^{G,h})^\boxslash$ are the categories of $(G
       $\Omega[T] \xleftarrow{\iota_! j/N} \Lambda^{G e}[T] \xrightarrow{f} X$,
       consider the following diagram, where $n \in N$.
       \begin{equation}
-            \begin{tikzcd}
-                  \iota_!\Lambda^{H e}[T_*] \arrow[dd, "\iota_! j"'] \arrow[rr] \arrow[dr, "n"]
-                  &&
-                  \iota_!\Lambda^{H.e}[T_*]/N \simeq \Lambda^{G e}[T] \arrow[dd, near end, "\iota_!j/N"] \arrow[r, "f"]
+            \begin{tikzcd}[row sep = 3em]
+                  \iota_!\Lambda^{H e}[T_*] \arrow[d] \arrow[r, "n"]
+                  &
+                  \iota_!\Lambda^{H e}[T_*] \arrow[r, "q"] \arrow[d]
+                  &
+                  \Lambda^{G e}[T] \arrow[r, "f"] \arrow[d]
                   &
                   X
                   \\
+                  \iota_!\Omega[T_*] \arrow[r, "n"']
+                  \arrow[urrr, very near start, crossing over, dashed, "\exists! \phi"]
                   &
-                  \iota_!\Lambda^{H.e}[T_*] \arrow[dd] \arrow[ur, twoheadrightarrow]
-                  \\
-                  \iota_!\Omega[T_*] \arrow[rr, crossing over]
-                  \arrow[uurrr, crossing over, bend right=10, very near start, dotted, "\exists! \phi"] \arrow[dr, "n"]
-                  &&
-                  \iota_!\Omega[T_*]/N \simeq \Omega[T]
-                  \\
+                  \iota_!\Omega[T_*] \arrow[r, "q"']
+                  \arrow[urr, dashed, very near start, crossing over, out=15, in=-145, "\exists! \phi"]
                   &
-                  \iota_!\Omega[T_*] \arrow[ur, twoheadrightarrow] \arrow[uuurr, dotted, out=0, in=-90, "\exists! \phi"']
+                  \Omega[T]
             \end{tikzcd}
       \end{equation}
-      Since the hypersaturations (in $\Omega)$ of
-      the inner horn inclusions and the generalized inner horn inclusions coincide
-      by \cite[Lemma 5.1]{MW09} (or Proposition \ref{HYPER PROP}),
-      we have unique lifts $\phi$ as drawn by Lemma \ref{HYPER_LP_PROP} and Remark \ref{HORN_DECOMP_EQ}.
+      % Since the hypersaturations (in $\Omega)$ of
+      % the inner horn inclusions and the generalized inner horn inclusions coincide
+      % by \cite[Lemma 5.1]{MW09} (or Proposition \ref{HYPER PROP}),
+      % we have unique lifts $\phi$ as drawn by Lemma \ref{HYPER_LP_PROP} and \eqref{HORN_DECOMP_EQ}.
+      We have unique lifts $\phi$ as drawn by
+      \cite[Lemma 5.1]{MW09}, Lemma \ref{HYPER_LP_PROP}, and \eqref{HORN_DECOMP_EQ}.
       Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence $\phi$ factors through $\Omega[T]$,
       finishing the proof.
 \end{proof}
 
 \begin{corollary}
-      Fix $X \in \mathsf{dSet}^G$. Then
-      $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$
+      Fix $X \in \mathsf{dSet}^G$.
+      $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$  
       iff
       $X \in (\mathsf{dSet}^{G,h})^{\boxslash !}$.
 \end{corollary}
@@ -2624,9 +2657,9 @@ so $\dSet_h^{\boxslash}$ and $(\dSet^{G,h})^\boxslash$ are the categories of $(G
             (\mathsf{dSet}^{G,h})^{\boxslash !} = (\iota_!\dSet_h)^{\boxslash !} = \iota_!(\dSet_h^{\boxslash !}),
       \end{equation}
       so in particular $X$ is a $G$-object in $\dSet_h^{\boxslash !}$.
-      Thus, \cite[Theorem 6.1, Proposition 6.10]{MW09} implies that
+      Then \cite[Theorem 6.1, Proposition 6.10]{MW09} imply that
       $X \simeq N_d \circ \tau_d \circ X$
-      (where we consider $X$ as a functor $G \to (\mathsf{dSet}_h)^{\boxslash}$).
+      (where we consider $X$ as a functor $G \to (\mathsf{dSet}_h)^{\boxslash !}$).
 \end{proof}
 
 
