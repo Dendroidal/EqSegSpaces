@@ -4227,7 +4227,6 @@ degenerate object, which is thus in the image of $X\to X^J$.
 %\]
 \end{proof}
 
-{\color{red} HERE}
 
 \begin{definition}
 	Two maps $f,f'\colon A \rightrightarrows B$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
@@ -4236,20 +4235,20 @@ degenerate object, which is thus in the image of $X\to X^J$.
 	$A \xrightarrow{H} B^J \rightrightarrows B$
 	are $f,f'$.
 	
-	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there is $g \colon Y \to X$
+	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there exists $g \colon Y \to X$
 	such that $gf \sim_J id_X$, $fg \sim_J id_Y$.
 \end{definition}
 
 \begin{remark}
-	It follows from Proposition \ref{JDDK PROP} and 2-out-of-3 that if 
-	$f\sim_J f'$ then $f$ is a DK-equivalence iff $f'$is.
-	Thus by 2-out-of-6 all $J$-homotopy equivalences are DK-equivalences.
+	For $f\sim_J f'$, Proposition \ref{JDDK PROP} and 2-out-of-3 applied to $A \xrightarrow{H} B^J \rightrightarrows B$ imply that $f$ is a DK-equivalence iff $f'$ is.
+	Thus by 2-out-of-6 $J$-homotopy equivalences are DK-equivalences.
 \end{remark}
 
 
 \begin{remark}\label{ALLXJK REM}
-	Let $X$ be a Segal space. All simplicial operators
-	$X^{J^n} \to X^{J^m}$ are induced by equivalences of groupoids $\widetilde{[m]} \to \widetilde{[n]}$, and one easily checks that these operators are thus $J$-homotopy equivalences and thus also DK-equivalences.
+	Let $X$ be a dendroidal Segal space. All simplicial operators
+	$X^{J^m} \to X^{J^{m'}}$ are induced by equivalences of groupoids $\widetilde{[m']} \to \widetilde{[m]}$,
+	and are thus $J$-homotopy equivalences and thus also DK-equivalences.
 \end{remark}
 
 
@@ -4265,22 +4264,33 @@ and complete equivalence $X \to \tilde{X}$ such that
 
 
 \begin{proof}
-	Our argument will mostly adapt the construction of the completion functor in \cite[\S 10.4]{Rez01}.
+Our proof mostly adapts the construction of the completion functor in \cite[\S 10.4]{Rez01}.
 
-	Firstly, we let 
+Firstly, we let 
 $X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
 = \mathsf{ssdSet}^G$
-be the object whose $m$-th level (in the new simplicial direction)
+be the object whose $m$-th level
 is $X^{J^m}$.
-	Since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object,
-	$X^{J^{\bullet}}$ is Reedy fibrant with respect to the dendroidal space model structure on 
-	$\mathsf{sdSet}^G$.
-	In particular, it follows that
-	$X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
-	is a fibration in $\mathsf{ssdSet}^G$.
 
-In particular, this implies that for each $T \in \Omega_G$ and
-vertex map $[0] \to [m]$ the induced square
+We will regard the new simplicial direction in $\mathsf{ssdSet}^G=(\mathsf{sdSet}^G)^{\Delta^{op}}$ as horizontal and the old one as vertical, and abbreviate the Reedy model structure on $(\mathsf{sdSet}^G)^{\Delta^{op}}$
+with respect to the dendroidal Reedy model structure on 
+$\mathsf{sdSet}^G$
+as the \textit{horizontal Reedy model structure} on 
+$\mathsf{ssdSet}^G$.
+
+Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object, it follows that 
+$X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
+$X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
+is a horizontal fibration in $(\mathsf{sdSet}^G)^{\Delta^{op}}$ as well.
+As such, for $T \in \Omega_G$
+the evaluations 
+\begin{equation}\label{MOREOVER EQ}
+X^{J^{\bullet}}(\Omega[T]) \to
+\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])
+\end{equation}
+are horizontal Reedy fibrations in $\mathsf{ssSet}$
+in the sense of in \S \ref{JOINBOUS SEC}.
+In particular, for each vertex map $[0] \to [m]$ the induced square
 \[
 \begin{tikzcd}
 	X^{J^m}(\Omega[T]) \ar[->>]{r} \ar[->>]{d}&
@@ -4292,17 +4302,17 @@ vertex map $[0] \to [m]$ the induced square
 \]
 is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
 induces weak equivalences on fibers,
-so that the map from $X^{J^m}(T)$ to the pullback of the remaining diagram is a trivial Kan fibration.
-By Remark \ref{HYPERSIMPL REM} we have just shown that for each fixed $T \in \Omega_G$ the map
-\begin{equation}\label{MOREOVER EQ}
-X^{J^{\bullet}}(T) \to
-\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(T)
-\end{equation}
-satisfies the ``moreover'' condition in 
-Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of this map are in fact homotopy fibers.
+so that the map from $X^{J^m}(\Omega[T])$ to the pullback of the remaining diagram is a trivial Kan fibration.
 
-We now write $\tilde{X}$ for any dendroidal Reedy fibrant replacement of the diagonal 
-$\delta^{\**} \left(X^{J^{\bullet}}\right)$,
+By (the dual of) Remark \ref{HYPERSIMPL REM} we have just shown that \eqref{MOREOVER EQ}
+satisfies the ``moreover'' condition in 
+Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of
+$\delta^{\**}\left(X^{J^{\bullet}}(\Omega[T])\right) \to
+\delta^{\**}\left(\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])\right)$
+are in fact homotopy fibers.
+
+We now write $\tilde{X}$ for a dendroidal Reedy fibrant replacement of the diagonal 
+$\delta^{\**} \left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$,
 which we note can always be chosen so that
 $\delta^{\**} \left(X^{J^{\bullet}}\right) \to \tilde{X}$
 is a monomorphism and
@@ -4313,25 +4323,25 @@ $\Delta[0]=\Lambda^0[1]\to \Delta[1]$,
 $\Delta[0]=\Lambda^1[1]\to \Delta[1]$
 is automatic).
 
-To see that $\tilde{X}$ is a complete Segal space, note that there is a composite
-$X_0^{J^{\bullet}} \to 
+To see that $\tilde{X}$ is a complete Segal space, note that in the composite
+$X_0^{J^{\bullet}} \to
 \delta^{\**}\left( X^{J^{\bullet}} \right)
 \to \tilde{X}$
-where the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
-and the second by definition of $\tilde{X}$.
-But since $X_0^{J^{\bullet}}$ is a complete Segal space, so is $\tilde{X}$.
+the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv) and the second by definition of $\tilde{X}$.
+But since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
 
 For the remaining claim that the composite
 $X = X^{J^{0}} \to 
 \delta^{\**}\left( X^{J_{\bullet}} \right)
 \to \tilde{X}$
 is a DK equivalence, 
-though the first map is no longer a dendroidal Reedy equivalence, 
+note that though
+the first map is no longer a dendroidal Reedy equivalence, 
 it is nonetheless an equivalence
 on fibers over
 $\prod_{e_i \in E_G(T)} \left(X(\eta)\right)^{H_i}$
 for each $T\in \Omega_G$.
-And since we established above that the fibers of
+And since we have shown that the fibers of
 $\delta^{\**}\left( X^{J^{\bullet}} \right)(T)$
  are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(T)$ (since Reedy replacement does not change the homotopy fibers), and thus $X \to \tilde{X}$ is indeed fully faithful.
 Essential surjectivity is trivial since the objects coincide.
@@ -4699,13 +4709,6 @@ $\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simp
 \end{remark}
 
 
-
-\begin{remark}
-	Note that $\mathsf{Sc}_{T[Ge]}$, $\mathsf{Sc}_{T[Gf]}$
-	in \eqref{FOURSQ EQ}
-	are cover inclusions, and thus $G$-anodyne, relate to 
-	\cite[\S 6.2]{Rez10}, \cite[\S 10]{Rez01}.
-\end{remark}
 
 
 \begin{remark}
