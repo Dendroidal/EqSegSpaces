@@ -826,7 +826,7 @@ whose left adjoint is the induced functor
 $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 \end{remark}
 
-
+{\color{red} HERE}
 
 \begin{remark}\label{ORB_FACE_REM}
 	In fact, we have an isomorphism of posets
@@ -850,10 +850,64 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
         We note that the generating broad relations are not given by
         $[e_1]\dots[e_n] \leq [e]$ for $e_1\dots e_n = e^\uparrow$,
         as in general this would not be a \textit{simple} broad poset.
-        % ({\color{blue} this needs to be expanded on}).
+        
+{\color{red} HERE}
+
+\begin{equation}
+	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
+	every node/.style={font=\scriptsize,inner sep = 2pt}]%
+		\tikzstyle{level 2}=[sibling distance=2.25em]%
+		\begin{scope}
+			\node at (0,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$b\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{-j}a$}}%
+				edge from parent node [swap] {$r\phantom{j}$}};%
+			\node (T2) at (5em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-a\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{j} -b$}}%
+				edge from parent node [swap] {$-r$}};%
+			\node at (14em,-0.2) [font=\normalsize] {$S$};
+			\node (S) at (14em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-a\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{j} a$}}%
+				edge from parent node [swap] {$r$}};%
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (5.5em,0) -- (-0.5em,0) node[midway,inner sep=4pt,font=\normalsize]{$T$}; %
+%		\draw[->]
+%	(T2)++(0.8,.5) -- (-1,0)+(S) node [midway,above] {$+1$};
+		\end{scope}%
+%----Orbital picture-------
+		\begin{scope}[xshift=25em]
+			\node at (0em,-0.2) [font=\normalsize] {$T/G$};
+			\node at (0,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node {}}%
+					child{node {}%
+					edge from parent node {}}%
+				edge from parent node {}};%
+			\node at (7em,-0.2) [font=\normalsize] {$S/G$};
+			\node at (7em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node {}}%
+				edge from parent node {}};%
+		\end{scope}
+	\end{tikzpicture}%
+\end{equation}%        
+        
+        
 \end{remark}
 
-
+{\color{red} HERE}
 
 \subsection{Equivariant dendroidal sets}
 
@@ -2377,9 +2431,11 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 
 
 \begin{remark}\label{SLICE REM}
-	Setting $G=e$ and slicing over the stick tree $\eta$, the previous result
+	Setting $G=e$ and restricting to the overcategory
+	$\mathsf{dSet}_{/\eta} \simeq \mathsf{sSet}$,
+	Proposition \ref{HYPER PROP}
 	recovers the well known claim that 
-	the hypersaturation of the simplicial inner horns
+	the hypersaturation of the simplicial inner horn inclusions
 	$\{\Lambda^i[m] \to \Delta[m] \colon 0< i < m\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
 	$\{Sc[m] \to \Delta[m]\colon m \geq 0\}$.
@@ -2411,34 +2467,34 @@ are in $S$. The case of right horn inclusions $\Lambda^m[m] \to \Delta[m]$ is du
 
 
 \begin{remark}\label{ANHYPER REM}
-The smallest hypersaturated class containing the inner horns and the left horn inclusion
-$\Lambda^0[2] \to \Delta[2]$
+The smallest hypersaturated class containing the inner horn inclusions and the left horn inclusion
+$\Lambda^0[2] \to \Delta[2]$ 
 in fact contains all left horn inclusions
-$\Lambda^0[m] \to \Delta[m]$ for $m \geq 2$.
-Indeed, this follows inductively from the following diagram since
-the bottom map is inner
+$\Lambda^0[m] \to \Delta[m]$ 
+for $m \geq 2$.
+Indeed, this follows inductively from the left diagram
+below since the bottom map is inner while the top and left maps are given by the center and right pullback diagrams.
 \begin{equation}
 \begin{tikzcd}
 	\Lambda^{0,1}[m] \ar{r} \ar{d} &
 	\Lambda^{0}[m] \ar{d}
+& &
+	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[m] \ar{d}
+&
+	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[m] \ar{d}
 \\
 	\Lambda^{1}[m] \ar{r} & \Delta[m] 
+& &
+	\Delta[m-1] \ar{r}[swap]{d^1} &
+	\Lambda^0[m] 
+&
+	\Delta[m-1] \ar{r}[swap]{d^0} &
+	\Lambda^1[m] 
 \end{tikzcd}
 \end{equation}
-and the top and left maps are given by following pushouts
-\begin{equation}
-\begin{tikzcd}
-	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	\Lambda^{0,1}[m] \ar{d}
-&
-	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	\Lambda^{0,1}[m] \ar{d}
-\\
-	\Delta[m-1] \ar{r}[swap]{d^1} & \Lambda^0[m] 
-&
-	\Delta[m-1] \ar{r}[swap]{d^0} & \Lambda^1[m] 
-\end{tikzcd}
-\end{equation}
+The case of right horn inclusions is dual.
 \end{remark}
 
 
@@ -2447,7 +2503,7 @@ Write $\widetilde{[m]}$
 for the contractible groupoid on objects $\{0,1,\cdots,m\}$. Note that the $k$-simplices of $\widetilde{[m]}$
 are encoded as strings $a_0 a_1 \cdots a_k$
 with $a_{i} \in \{0,1,\cdots,m\}$, and that a simplex is non-degenerate iff $a_{i-1}\not = a_{i}, 1 \leq i \leq k$.
-Then the maps
+We claim that the maps
 \begin{equation}\label{INVER EQ}
 %	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
 %\qquad
@@ -4201,6 +4257,41 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 
 \subsection{Rezk completion and fibrant Segal operads}
 
+
+\[
+\begin{tikzpicture}
+[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
+	\node at (0,0) [font=\normalsize] {$C \star \eta$}
+		child{node [dummy,fill=black] {}
+			child{node [dummy] {}
+				child{
+				edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+				child{
+				edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+			edge from parent node [swap] {$G/H_0$}}
+		edge from parent node [swap] {$G/H_0$}};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+	\node at (5,0) [font=\normalsize] {$\eta \star C$}
+		child{node [dummy] {}
+			child{node [dummy,fill=black] {}
+				child{
+				edge from parent node [swap] {$G/H_k$}}
+			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+			child{node [dummy,fill=black] {}
+				child{
+				edge from parent node {$G/H_1$}}
+			edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+		edge from parent node [swap] {$G/H_0$}
+		};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+\end{tikzpicture}
+\]
+
+
+
+
 {\color{blue} fill context}
 
 
@@ -4247,17 +4338,17 @@ and the natural map of squares between them is an injective fibration of squares
 \begin{tikzcd}[column sep=14]	
 	X\left(\Omega[1] \otimes \Omega[C]\right)
 	\ar[->>]{r} \ar[->>]{d}&
-	X(\Omega[C \star \eta]) \ar[->>]{d}
+	X(\Omega[\eta \star C]) \ar[->>]{d}
 &
 	\underset{i}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d} &
-	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
-	\times X([1])^{H_0} \ar[->>]{d}
+	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
+	\times X(\eta)^{H_0} \ar[->>]{d}
 \\
-	X(\Omega[\eta \star C]) \ar[->>]{r} &
+	X(\Omega[C \star \eta])	 \ar[->>]{r} &
 	X(\Omega[C])
 &
-	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
-	\times X(\eta)^{H_0} \ar[->>]{r} &
+	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
+	\times X([1])^{H_0}	 \ar[->>]{r} &
 	\underset{i}{\prod} X(\eta)^{H_i}
 \end{tikzcd}
 \end{equation}
