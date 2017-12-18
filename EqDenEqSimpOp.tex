@@ -15,6 +15,7 @@
 }
 \usepackage[open=false]{bookmark}
 
+
 \input{commands.tex}%
 
 
@@ -22,7 +23,8 @@
 
 %-------- TIKZ -----------------------------------------
 \usepackage{tikz}%
-\usetikzlibrary{matrix,arrows,decorations.pathmorphing,cd,patterns}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,
+cd,patterns,calc}
 \tikzset{%
   treenode/.style = {shape=rectangle, rounded corners,%
                      draw, align=center,%
@@ -475,6 +477,18 @@ and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where w
 
 We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
 
+If $T\in \Omega_G$ has tree components $T_1,\cdots, T_k$, we write
+$E(T) = \amalg_i E(T_i)$, 
+$E^{\mathsf{i}}(T) = \amalg_i E^{\mathsf{i}}(T_i)$,
+$V(T) = \amalg_i V(T_i)$
+for its sets of edges, inner edges and vertices, as well as
+$E_G(T) = E(T)/G$,
+$E^{\mathsf{i}}_G(T) = E^{\mathsf{i}}(T)/G$,
+$V_G(T) = V(T)/G$ for its sets of 
+\textit{edge orbits},
+\textit{inner edge orbits} and
+\textit{$G$-vertices}.
+
 Before discussing face maps in the equivariant context, it is worth commenting on the complementary roles of the expanded and orbital representations.
 On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation,
 so that the arrows of $\Omega_{G}$ are best understood from that perspective.
@@ -826,38 +840,22 @@ whose left adjoint is the induced functor
 $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 \end{remark}
 
-{\color{red} HERE}
 
 \begin{remark}\label{ORB_FACE_REM}
-	In fact, we have an isomorphism of posets
+	In fact, there is an isomorphism of posets
 	\begin{equation}
 	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
 	\end{equation}
-        where $T/G$ denotes the underlying tree in the orbital representation.
-        Explicitly, the underlying set of $T/G$ is precisely the $G$-orbits of $T$, with a modified broad-poset structure.
-        For each edge $[e] \in T/G$, we have
-        $[t] \in [e]^\uparrow$ iff $t \in e^\uparrow$.
-        % a generating broad relation
-        % $[e_1]\dots [e_n] \leq [e]$
-        % where $\set{e_1,\dots,e_n}$ is a complete set of representatives for the $G$-orbits of the union $G e^{\uparrow}$:
-        % \begin{equation}
-        %       \set{[e_1],\dots,[e_n]} = \left(
-        %             \bigcup_{t_i \in e^{\uparrow}}G t_i
-        %             \right)/G.
-        % \end{equation}
-        It is easy to check that $T/G$ is in fact a tree.
-
-        We note that the generating broad relations are not given by
-        $[e_1]\dots[e_n] \leq [e]$ for $e_1\dots e_n = e^\uparrow$,
-
-        as in general this would not be a \textit{simple} broad poset.
-        
-{\color{red} HERE}
-
-        as in general this would lead to repeated elements in $[e]^{\uparrow}$.
-        % ({\color{blue} this needs to be expanded on}).
-
-
+	where $T/G$ denotes the underlying tree in the orbital representation of $T$. 
+	
+	However, we caution that though this claim is  intuitive, care is needed when formalizing it.
+	For example, the broad poset of $T/G$ is in general \textit{not} the quotient of the broad poset of $T$,
+	as that may fail the simplicity axiom in 
+	\cite[Def. 5.9]{Per17}.
+	In fact, the assignment $T \mapsto T/G$ is \textit{not}
+	a functor $\Omega_G \to \Omega$, as shown by
+	the following (for $G = \mathbb{Z}_{/2} = \{\pm 1\}$),
+	where no dashed arrow exists.
 \begin{equation}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
 	every node/.style={font=\scriptsize,inner sep = 2pt}]%
@@ -877,7 +875,6 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 					child{node {}%
 					edge from parent node [very near end] {$\phantom{j} -b$}}%
 				edge from parent node [swap] {$-r$}};%
-			\node at (14em,-0.2) [font=\normalsize] {$S$};
 			\node (S) at (14em,0){}%
 				child{node [dummy] {}%
 					child{node {}%
@@ -885,29 +882,70 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 					child{node {}%
 					edge from parent node [very near end] {$\phantom{j} a$}}%
 				edge from parent node [swap] {$r$}};%
+			\node at ($(S)+(0,-0.25)$) [font=\normalsize] {$S$};
 		\draw[decorate,decoration={brace,amplitude=2.5pt}] (5.5em,0) -- (-0.5em,0) node[midway,inner sep=4pt,font=\normalsize]{$T$}; %
-%		\draw[->]
-%	(T2)++(0.8,.5) -- (-1,0)+(S) node [midway,above] {$+1$};
+		\draw[->]
+	($(T2) + (1,.75)$) -- ($(S)+(-1,.75)$) node [midway,above] {$b \mapsto -a$};
 		\end{scope}%
 %----Orbital picture-------
 		\begin{scope}[xshift=25em]
-			\node at (0em,-0.2) [font=\normalsize] {$T/G$};
-			\node at (0,0){}%
+			\node (TG) at (0,0){}%
 				child{node [dummy] {}%
 					child{node {}%
 					edge from parent node {}}%
 					child{node {}%
 					edge from parent node {}}%
 				edge from parent node {}};%
-			\node at (7em,-0.2) [font=\normalsize] {$S/G$};
-			\node at (7em,0){}%
+			\node at ($(TG) + (0,-0.25)$) [font=\normalsize] {$T/G$};
+			\node (SG) at (9em,0){}%
 				child{node [dummy] {}%
 					child{node {}%
 					edge from parent node {}}%
 				edge from parent node {}};%
+			\node at ($(SG) + (0,-0.25)$) [font=\normalsize] {$S/G$};
+			\draw[->,dashed]
+			($(TG) + (1,.75)$) -- ($(SG)+(-1,.75)$);
 		\end{scope}
 	\end{tikzpicture}%
-\end{equation}%        
+\end{equation}%
+We now outline the formal construction of $T/G$.
+
+Given $\underline{e},\underline{f}$ tuples of edges of $T$, 
+write $\underline{f} \leq \underline{e}$
+if $\underline{e} = e_1 e_2 \cdots e_k$
+and there is a tuple decomposition
+$\underline{f} = 
+\underline{f}_1 \underline{f}_2 \cdots
+\underline{f}_k$
+such that $\underline{f}_i \leq e_i$.
+When the $e_i$ are $\leq_d$-incomparable,
+\cite[Prop. 5.30]{Per17} says that such decomposition is unique, so that $\underline{e},\underline{f}$ consist of distinct edges and we can regard 
+$\underline{e},\underline{f}$ as subsets of $E(T)$.
+	
+{\color{red} HERE}	
+	
+        Explicitly, the underlying set of $T/G$ is precisely the $G$-orbits of $T$, with a modified broad-poset structure.
+        For each edge $[e] \in T/G$, we have
+        $[t] \in [e]^\uparrow$ iff $t \in e^\uparrow$.
+        % a generating broad relation
+        % $[e_1]\dots [e_n] \leq [e]$
+        % where $\set{e_1,\dots,e_n}$ is a complete set of representatives for the $G$-orbits of the union $G e^{\uparrow}$:
+        % \begin{equation}
+        %       \set{[e_1],\dots,[e_n]} = \left(
+        %             \bigcup_{t_i \in e^{\uparrow}}G t_i
+        %             \right)/G.
+        % \end{equation}
+        It is easy to check that $T/G$ is in fact a tree.
+
+
+
+        
+
+
+{\color{red} HERE}
+
+planar structures chosen arbitrarily
+ 
         
         
 \end{remark}
