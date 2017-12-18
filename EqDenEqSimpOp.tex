@@ -855,7 +855,7 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 	In fact, the assignment $T \mapsto T/G$ is \textit{not}
 	a functor $\Omega_G \to \Omega$, as shown by
 	the following (for $G = \mathbb{Z}_{/2} = \{\pm 1\}$),
-	where no dashed arrow exists.
+	since no dashed arrow exists.
 \begin{equation}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
 	every node/.style={font=\scriptsize,inner sep = 2pt}]%
@@ -908,7 +908,8 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 		\end{scope}
 	\end{tikzpicture}%
 \end{equation}%
-We now outline the formal construction of $T/G$.
+We now outline the formal construction of $T/G$,
+starting with some preliminary notation.
 
 Given $\underline{e},\underline{f}$ tuples of edges of $T$, 
 write $\underline{f} \leq \underline{e}$
@@ -920,40 +921,26 @@ $\underline{f} =
 such that $\underline{f}_i \leq e_i$.
 When the $e_i$ are $\leq_d$-incomparable,
 \cite[Prop. 5.30]{Per17} says that such decomposition is unique, so that $\underline{e},\underline{f}$ consist of distinct edges and we can regard 
-$\underline{e},\underline{f}$ as subsets of $E(T)$.
+$\underline{e},\underline{f}$ as subsets $\underline{e},\underline{f} \subseteq E(T)$.
 	
-{\color{red} HERE}	
-	
-        Explicitly, the underlying set of $T/G$ is precisely the $G$-orbits of $T$, with a modified broad-poset structure.
-        For each edge $[e] \in T/G$, we have
-        $[t] \in [e]^\uparrow$ iff $t \in e^\uparrow$.
-        % a generating broad relation
-        % $[e_1]\dots [e_n] \leq [e]$
-        % where $\set{e_1,\dots,e_n}$ is a complete set of representatives for the $G$-orbits of the union $G e^{\uparrow}$:
-        % \begin{equation}
-        %       \set{[e_1],\dots,[e_n]} = \left(
-        %             \bigcup_{t_i \in e^{\uparrow}}G t_i
-        %             \right)/G.
-        % \end{equation}
-        It is easy to check that $T/G$ is in fact a tree.
-
-
-
-        
-
-
-{\color{red} HERE}
-
-planar structures chosen arbitrarily
- 
-        
-        
+We now say that a relation
+$\underline{f} \leq \underline{e}$	
+is an \textit{orbital relation} if
+$\underline{e} \subseteq E(T)$
+is a orbital $G$-subset and $\underline{f} \subseteq E(T)$ is a $G$-subset. 
+Reinterpreting the orbital relations of $T$ 
+as broad relations on the set $E_{G}(T)$ of edge orbits,
+one easily checks that this defines a 
+dendroidally ordered set \cite[Def. 5.9]{Per17},
+i.e. a tree, that we call $T/G$.
+Note that this defines a functor
+$(-)/G \colon \Omega_G^+ \to \Omega$,
+where $\Omega_G^+$ is the subcategory of orbital face maps
+(with planarizations chosen arbitrarily).
 \end{remark}
 
-{\color{red} HERE}
 
 \subsection{Equivariant dendroidal sets}
-
 
 Recall \cite[\S 5.4]{Per17} that the category of 
 \textit{$G$-equivariant dendroidal sets}
