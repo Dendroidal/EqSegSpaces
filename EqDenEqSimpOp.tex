@@ -849,7 +849,7 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 
         We note that the generating broad relations are not given by
         $[e_1]\dots[e_n] \leq [e]$ for $e_1\dots e_n = e^\uparrow$,
-        as in general this would not be a \textit{simple} broad poset.
+        as in general this would lead to repeated elements in $[e]^{\uparrow}$.
         % ({\color{blue} this needs to be expanded on}).
 \end{remark}
 
@@ -1373,7 +1373,6 @@ where we note that the equivalence between the colimit and union formulas now fo
       %       \end{tikzpicture}
       % \end{equation}
 \end{example}
-\todo[inline]{come make: add space, make lines more natural}
 
 Lastly, we recall that there is another important presheaf category in the discussion of equivariant trees,
 namely the category of \textit{genuine $G$-equivariant dendroidal sets} $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$.
@@ -1389,7 +1388,6 @@ induces a pair of natural adjunctions as below.
       \end{tikzcd}
 \end{equation}
 
-\todo[inline]{come make: make lines more natural and even}
 \begin{remark}
       Given $T \in \Omega_G$, the two ``Yoneda'' objects in $\mathsf{dSet}_G$ agree, as
       \mbox{$\Omega_G[T] = \upsilon_{\**}\Omega[T]$}.
@@ -2637,75 +2635,82 @@ Uniqueness follows since any lift of the left square induces a lift of the outer
 % \end{remark}
 
 As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor
-$N^G: \Op^G \to \mathsf{dSet}^G$.
-Recalling the adjuction below,
 \begin{equation}
-      \begin{tikzcd}[column sep =5em]
-            \mathsf{dSet}^G \ar{r}[swap]{\iota^{\**}} 
-            &
-            \mathsf{dSet}
-            \ar[bend right]{l}[swap,midway]{\iota_{!}}
-            \ar[bend left]{l}{\iota_{\**}}
+      N^G: \Op^G \to \mathsf{dSet}^G.
+\end{equation} 
+We note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/N$, where $T_{\**}$ is a component of $T$ and
+$N$ the graph subgroup of $G \times \mathrm{Aut}(T_{\**})$ encoding the given action.
+Similarly,
+recalling the adjuction
+\begin{equation}
+      \begin{tikzcd}
+            G \cdot (-) : \mathsf{dSet}
+            \rightleftarrows
+            \mathsf{dSet}^G : \mathsf{fgt}
+            % [column sep =5em]
+            % \mathsf{dSet}^G \ar{r}[swap]{\iota^{\**}} 
+            % &
+            % \mathsf{dSet}
+            % \ar[bend right]{l}[swap,midway]{\iota_{!}}
+            % \ar[bend left]{l}{\iota_{\**}}
       \end{tikzcd}
 \end{equation}
-we note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/N$, where $T_{\**}$ is a component of $T$ and
-$N$ the graph subgroup of $G \times \mathrm{Aut}(T_{\**})$ encoding the given action.
-Similarly, as with \eqref{T_DECOMP_EQ}, we have that any $G$-inner horn inclusion
+we have that any $G$-inner horn inclusion
 $\Lambda^{E}[T] \to \Omega[T]$ can be written
 \begin{equation}
       \label{HORN_DECOMP_EQ}
-      (\iota_!j)/N: \iota_! \left(
-            \Lambda^{E_*}[T_*] \to \Omega[T_*]
-      \right)/N,
+      (G \cdot j)/N: G \cdot \left(
+            {\Lambda^{E_*}[T_*] \to \Omega[T_*]}
+      \right) / N,
 \end{equation}
 where $E_* = E \cap T_*$, $H = \mathrm{Stab}_G(T_*)$, and
-$j$ is a generalized inner horn inclusion in $\Omega$. 
+$j$ is a generalized inner horn inclusion in $\Omega$ (cf. \eqref{T_DECOMP_EQ}). 
 
 Let $\dSet_h \subset \dSet$ and $\dSet^{G,h} \subset \dSet^G$
 denote the wide subcategories spanned by $(G)$-inner horn inclusions
 (so, in particular, $\dSet_h^{\boxslash}$ and $(\dSet^{G,h})^\boxslash$ are the categories of $(G)$-$\infty$-operads).
 
-\begin{proposition}
-      \label{SRLP_IHI_PROP}
-      $(\iota_!\dSet_h)^{\boxslash !} = (\dSet^{G,h})^{\boxslash !}$;
-      that is, for all $X \in \mathsf{dSet}^G$,
-      $X$ has the strict right lifting property against all $G$-inner horn inclusions
-      iff
-      it has the strict right lifting property against those $G$-inner horn inclusions where $T = G \cdot T_*$. 
-\end{proposition}
-\begin{proof}
-      Fix $T \simeq (G \cdot T_{\**})/N \in \Omega_G$.
-      For any span
-      $\Omega[T] \xleftarrow{\iota_! j/N} \Lambda^{G e}[T] \xrightarrow{f} X$,
-      consider the following diagram, where $n \in N$.
-      \begin{equation}
-            \begin{tikzcd}[row sep = 3em]
-                  \iota_!\Lambda^{H e}[T_*] \arrow[d] \arrow[r, "n"]
-                  &
-                  \iota_!\Lambda^{H e}[T_*] \arrow[r, "q"] \arrow[d]
-                  &
-                  \Lambda^{G e}[T] \arrow[r, "f"] \arrow[d]
-                  &
-                  X
-                  \\
-                  \iota_!\Omega[T_*] \arrow[r, "n"']
-                  \arrow[urrr, very near start, crossing over, dashed, "\exists! \phi"]
-                  &
-                  \iota_!\Omega[T_*] \arrow[r, "q"']
-                  \arrow[urr, dashed, very near start, crossing over, out=15, in=-145, "\exists! \phi"]
-                  &
-                  \Omega[T]
-            \end{tikzcd}
-      \end{equation}
-      % Since the hypersaturations (in $\Omega)$ of
-      % the inner horn inclusions and the generalized inner horn inclusions coincide
-      % by \cite[Lemma 5.1]{MW09} (or Proposition \ref{HYPER PROP}),
-      % we have unique lifts $\phi$ as drawn by Lemma \ref{HYPER_LP_PROP} and \eqref{HORN_DECOMP_EQ}.
-      We have unique lifts $\phi$ as drawn by
-      \cite[Lemma 5.1]{MW09}, Lemma \ref{HYPER_LP_PROP}, and \eqref{HORN_DECOMP_EQ}.
-      Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence $\phi$ factors through $\Omega[T]$,
-      finishing the proof.
-\end{proof}
+% \begin{proposition}
+%       \label{SRLP_IHI_PROP}
+%       $(\iota_!\dSet_h)^{\boxslash !} = (\dSet^{G,h})^{\boxslash !}$;
+%       that is, for all $X \in \mathsf{dSet}^G$,
+%       $X$ has the strict right lifting property against all $G$-inner horn inclusions
+%       iff
+%       it has the strict right lifting property against those $G$-inner horn inclusions where $T = G \cdot T_*$. 
+% \end{proposition}
+% \begin{proof}
+%       Fix $T \simeq (G \cdot T_{\**})/N \in \Omega_G$.
+%       For any span
+%       $\Omega[T] \xleftarrow{\iota_! j/N} \Lambda^{G e}[T] \xrightarrow{f} X$,
+%       consider the following diagram, where $n \in N$.
+%       \begin{equation}
+%             \begin{tikzcd}[row sep = 3em]
+%                   \iota_!\Lambda^{H e}[T_*] \arrow[d] \arrow[r, "n"]
+%                   &
+%                   \iota_!\Lambda^{H e}[T_*] \arrow[r, "q"] \arrow[d]
+%                   &
+%                   \Lambda^{G e}[T] \arrow[r, "f"] \arrow[d]
+%                   &
+%                   X
+%                   \\
+%                   \iota_!\Omega[T_*] \arrow[r, "n"']
+%                   \arrow[urrr, very near start, crossing over, dashed, "\exists! \phi"]
+%                   &
+%                   \iota_!\Omega[T_*] \arrow[r, "q"']
+%                   \arrow[urr, dashed, very near start, crossing over, out=15, in=-145, "\exists! \phi"]
+%                   &
+%                   \Omega[T]
+%             \end{tikzcd}
+%       \end{equation}
+%       % Since the hypersaturations (in $\Omega)$ of
+%       % the inner horn inclusions and the generalized inner horn inclusions coincide
+%       % by \cite[Lemma 5.1]{MW09} (or Proposition \ref{HYPER PROP}),
+%       % we have unique lifts $\phi$ as drawn by Lemma \ref{HYPER_LP_PROP} and \eqref{HORN_DECOMP_EQ}.
+%       We have unique lifts $\phi$ as drawn by
+%       \cite[Lemma 5.1]{MW09}, Lemma \ref{HYPER_LP_PROP}, and \eqref{HORN_DECOMP_EQ}.
+%       Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence $\phi$ factors through $\Omega[T]$,
+%       finishing the proof.
+% \end{proof}
 
 \begin{corollary}
       Fix $X \in \mathsf{dSet}^G$.
@@ -2724,12 +2729,39 @@ denote the wide subcategories spanned by $(G)$-inner horn inclusions
       by Propositions \ref{HYPER PROP} and \ref{HYPER_LP_PROP}.
 
       Conversely,
-      we note that $\iota_!\dSet_h$ is precisely the set of $G$-inner horn inclusions where $T = G \cdot T_{\**}$,
-      and thus by Proposition \ref{SRLP_IHI_PROP}
-      we have that
+      we first note that
+      $(\mathsf{dSet}^{G,h})^{\boxslash !} = (G \cdot \dSet_h)^{\boxslash !}$.
+      Indeed, for any map \mbox{$\Lambda^{G e}[T] \to X$}
+      % any span \mbox{$\Omega[T] \xleftarrow{G \cdot j/N} \Lambda^{G e}[T] \xrightarrow{f} X$},
+      we have the following commuting diagram, where $n \in N$.
       \begin{equation}
-            (\mathsf{dSet}^{G,h})^{\boxslash !} = (\iota_!\dSet_h)^{\boxslash !} = \iota_!(\dSet_h^{\boxslash !}),
+            \begin{tikzcd}[row sep = 3em]
+                  G \cdot \Lambda^{H e}[T_*] \arrow[d] \arrow[r, "n"]
+                  &
+                  G \cdot \Lambda^{H e}[T_*] \arrow[r, "q"] \arrow[d]
+                  &
+                  \Lambda^{G e}[T] \arrow[r, "f"] \arrow[d]
+                  &
+                  X
+                  \\
+                  G \cdot \Omega[T_*] \arrow[r, "n"']
+                  \arrow[urrr, very near start, crossing over, dashed, "\exists! \phi"]
+                  &
+                  G \cdot \Omega[T_*] \arrow[r, "q"']
+                  \arrow[urr, dashed, very near start, crossing over, out=15, in=-145, "\exists! \phi"]
+                  &
+                  \Omega[T]
+            \end{tikzcd}
       \end{equation}
+      When $X \in (G \cdot \dSet_h)^{\boxslash !}$,
+      we have unique lifts $\phi$ by
+      \cite[Lemma 5.1]{MW09}, Lemma \ref{HYPER_LP_PROP}, and \eqref{HORN_DECOMP_EQ}.
+      Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence $\phi$ factors through $\Omega[T]$,
+      
+      Second, we know $G \cdot (-)$ commutes with $(-)^{\boxslash !}$, and
+      % \begin{equation}
+      %       (\mathsf{dSet}^{G,h})^{\boxslash !} = (\iota_!\dSet_h)^{\boxslash !} = \iota_!(\dSet_h^{\boxslash !}),
+      % \end{equation}
       so in particular $X$ is a $G$-object in $\dSet_h^{\boxslash !}$.
       Then \cite[Theorem 6.1, Proposition 6.10]{MW09} imply that
       $X \simeq N_d \circ \tau_d \circ X$
