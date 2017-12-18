@@ -1107,7 +1107,7 @@ where we note that the equivalence between the colimit and union formulas now fo
 	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
       and consider the tree $T \in \Omega^G \subset \Omega_G$ below.
       \begin{equation}
-            \begin{tikzpicture}[grow= up, level distance = 1.5em, every node/.style = {font=\footnotesize}]
+            \begin{tikzpicture}[grow= up, level distance = 1.7em, every node/.style = {font=\footnotesize}]
                   \tikzstyle{level 2}=[sibling distance=4em]
                   \tikzstyle{level 3}=[sibling distance=4em]
                   \node{$T$}
@@ -2457,29 +2457,28 @@ the following two propositions follow from the discussion in Remark \ref{ORB_HOR
       \end{equation}
       are built cellularly from generating orbital horn inclusions.
 \end{proposition}
-% \begin{proof}
-%       This follows identically to the non-equivariant result \cite[Lemma 5.1]{MW09},
-%       as for any edge orbit $G e \subseteq E$,
-%       the following diagram is a pushout,
-%       \begin{equation}
-%             \begin{tikzcd}
-%                   \Lambda^{E - G e}_o[T - Ge] \arrow[r] \arrow[d]
-%                   &
-%                   \Lambda^{E}_o[T] \arrow[d]
-%                   \\
-%                   \Omega[T - G e] \arrow[r]
-%                   &
-%                   \Lambda^{E - G e}_o[T]
-%             \end{tikzcd}
-%       \end{equation}
-%       and thus the result follows by induction on $|T/G| \times |E/G|$ ordered lexicographically.
-% \end{proof}
+\begin{proof}
+      For any edge orbit $G e \subseteq E$,
+      the following diagram is a pushout,
+      \begin{equation}
+            \begin{tikzcd}
+                  \Lambda^{E - G e}_o[T - Ge] \arrow[r] \arrow[d]
+                  &
+                  \Lambda^{E}_o[T] \arrow[d]
+                  \\
+                  \Omega[T - G e] \arrow[r]
+                  &
+                  \Lambda^{E - G e}_o[T]
+            \end{tikzcd}
+      \end{equation}
+      and thus the result follows by induction on $|T/G| \times |E/G|$ ordered lexicographically.
+\end{proof}
 
 \begin{proposition}
       \label{SC_IN_OHORN_PROP}
       Segal core inclusions $Sc[T] \to \Omega[T]$ are built cellularly out of orbital horn inclusions.
 \end{proposition}
-We include a short direct proof of this result (which similarly proves \cite[Prop. 2.4]{CM13a}).
+% We include a short direct proof of this result (which similarly proves \cite[Prop. 2.4]{CM13a}).
 % as it has the advantage of being significantly shorter,
 % and is based on techniques similar to those used in this paper (cf. the setup for the proof of Prop. \ref{CHAREDGE LEM}).
 \begin{proof}
@@ -2854,7 +2853,7 @@ denote the wide subcategories spanned by $(G)$-inner horn inclusions
 \end{corollary}
 
 \begin{proof}
-      Since $\Omega(T)$ is the free coloured operad on its vertices, we have that
+      Since $\Omega(T)$ is the free coloured operad on the vertices of $T$, we have that
       \begin{equation}
             \mathsf{dSet}^G(\Omega[T], N^G(\O)) = \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O)
       \end{equation}
