@@ -2380,32 +2380,106 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	Setting $G=e$ and slicing over the stick tree $\eta$, the previous result
 	recovers the well known claim that 
 	the hypersaturation of the simplicial inner horns
-	$\{\Lambda^i[n] \to \Delta[n] \colon 0< i < n\}$
+	$\{\Lambda^i[m] \to \Delta[m] \colon 0< i < m\}$
 	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[n] \to \Delta[n]\colon n \geq 0\}$.
+	$\{Sc[m] \to \Delta[m]\colon m \geq 0\}$.
 \end{remark}
+
+{\color{red} HERE}
 
 
 \begin{remark}\label{HYPERSATKAN REM}
 	We will make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
 	Namely, we claim that the hypersaturation of all simplicial horns 
-	$\{\Lambda^i[n] \to \Delta[n] \colon 0 \leq i \leq n\}$
+	$\{\Lambda^i[m] \to \Delta[m] \colon 0 \leq i \leq m\}$
 	coincides with the hypersaturation of all vertex inclusion maps
-	$\{\Delta[0] \to \Delta[n]\}$.
+	$\{\Delta[0] \to \Delta[m]\}$.
 	Call the latter hypersaturation $S$. 
-	One easily checks that the maps $\{0\} \to Sc[T]$ are in $S$, so that by cancellation so are the Segal core inclusions 
-	$\{Sc[n] \to \Delta[n]\}$ and hence by Remark \ref{SLICE REM} so are all inner horn inclusions. 
-	Moreover, for left horns $\Lambda^0[n]$
-	the maps $\{0\} \to \Lambda^0[n]$ are built cellularly
+	One easily checks that the maps $\{0\} \to Sc[m]$ are in $S$, so that by cancellation so are the Segal core inclusions 
+	$\{Sc[m] \to \Delta[m]\}$ and hence by Remark \ref{SLICE REM} so are all inner horn inclusions. 
+	Moreover, for left horns $\Lambda^0[m]$
+	the maps $\{0\} \to \Lambda^0[m]$ are built cellularly
 	from left horn inclusions
-	$\Lambda^0[k] \to \Delta[k]$ with $k<n$
+	$\Lambda^0[k] \to \Delta[k]$ with $k<m$
 	(in join notation (see \cite[\S 1.2.8]{Lur09} or \cite[\S 7.4]{Per17}),
-	$\{0\} \to \Lambda^0[n]$ is 
-	$\Delta[0] \star (\emptyset \to \partial \Delta[n-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[n-1]$).
+	$\{0\} \to \Lambda^0[m]$ is 
+	$\Delta[0] \star (\emptyset \to \partial \Delta[m-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[m-1]$).
 	But hence by induction and the cancellation property all left horn inclusions 
-	$\Lambda^0[n] \to \Delta[n]$
-are in $S$. The case of right horn inclusions $\Lambda^n[n] \to \Delta[n]$ is dual.
+	$\Lambda^0[m] \to \Delta[m]$
+are in $S$. The case of right horn inclusions $\Lambda^m[m] \to \Delta[m]$ is dual.
 \end{remark}
+
+
+\begin{remark}\label{ANHYPER REM}
+The smallest hypersaturated class containing the inner horns and the left horn inclusion
+$\Lambda^0[2] \to \Delta[2]$
+in fact contains all left horn inclusions
+$\Lambda^0[m] \to \Delta[m]$ for $m \geq 2$.
+Indeed, this follows inductively from the following diagram since
+the bottom map is inner
+\begin{equation}
+\begin{tikzcd}
+	\Lambda^{0,1}[m] \ar{r} \ar{d} &
+	\Lambda^{0}[m] \ar{d}
+\\
+	\Lambda^{1}[m] \ar{r} & \Delta[m] 
+\end{tikzcd}
+\end{equation}
+and the top and left maps are given by following pushouts
+\begin{equation}
+\begin{tikzcd}
+	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[m] \ar{d}
+&
+	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[m] \ar{d}
+\\
+	\Delta[m-1] \ar{r}[swap]{d^1} & \Lambda^0[m] 
+&
+	\Delta[m-1] \ar{r}[swap]{d^0} & \Lambda^1[m] 
+\end{tikzcd}
+\end{equation}
+\end{remark}
+
+
+\begin{remark}\label{CONTGR REM}
+Write $\widetilde{[m]}$
+for the contractible groupoid on objects $\{0,1,\cdots,m\}$. Note that the $k$-simplices of $\widetilde{[m]}$
+are encoded as strings $a_0 a_1 \cdots a_k$
+with $a_{i} \in \{0,1,\cdots,m\}$, and that a simplex is non-degenerate iff $a_{i-1}\not = a_{i}, 1 \leq i \leq k$.
+Then the maps
+\begin{equation}\label{INVER EQ}
+%	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
+%\qquad
+	\Delta[n] = N [m] \xrightarrow{012\cdots m} N \widetilde{[m]},\quad m \geq 1
+\end{equation}
+are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 2$.
+
+Indeed, we show a little more. We say a subcomplex 
+$A \subseteq N \widetilde{[m]}$ is \textit{$0$-stable}
+if a $m$-simplex $\underline{a}$ is in $A$ iff the $(m+1)$-simplex $0\underline{a}$ is.
+We claim that any inclusion $A \to A'$ of $0$-stable subcomplexes is built cellularly from left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 1$.
+Indeed, it suffices to check this when $A'$ attaches as little as 
+possible to $A$, and $0$-simplicity guarantees that in that case the only two non-degenerate simplices in $A \setminus A'$
+have the form 
+$\underline{a}$ and $0\underline{a}$
+(note that $\underline{a}$ can not start with a $0$).
+But then $A\to A'$ is a pushout of 
+$\Lambda^{0}[k+1] \to \Delta[k+1]$ where $k$ is the dimension of $\underline{a}$.
+
+The desired claim follows by noting that both the domain and codomain of \eqref{INVER EQ} are $0$-stable and that the horns 
+$\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simplices.
+\end{remark}
+
+
+
+{\color{red} HERE}
+
+
+
+
+
+
 
 Focusing now on the saturated classes of morphisms generated by the \textit{orbital} horn inclusions,
 the following two propositions follow from the discussion in Remark \ref{ORB_HORN_REM} and their non-equivariant analogues \cite[Lemma 5.1]{MW09} and \cite[Prop. 2.4]{CM13a}.
@@ -4671,79 +4745,21 @@ a complete dendroidal Segal space.
 
 {\color{blue} FILL}
 
-\newpage
+
+\begin{remark}
+Indexing systems are precisely the Segal sieves of $\Omega_G$.
+\end{remark}
+
 
 \section{Scratchwork (to be folded into previous sections eventually)}
 
 
 
-\begin{remark}\label{ANHYPER REM}
-The smallest hypersaturated class containing the inner horns and the left horn inclusion
-$\Lambda^0[2] \to \Delta[2]$
-in fact contains all left horn inclusions
-$\Lambda^0[n] \to \Delta[n]$ for $n \geq 2$.
-Indeed, this follows inductively from the following diagram since
-the bottom map is inner
-\begin{equation}
-\begin{tikzcd}
-	\Lambda^{0,1}[n] \ar{r} \ar{d} &
-	\Lambda^{0}[n] \ar{d}
-\\
-	\Lambda^{1}[n] \ar{r} & \Delta[n] 
-\end{tikzcd}
-\end{equation}
-and the top and left maps are given by following pushouts
-\begin{equation}
-\begin{tikzcd}
-	\Lambda^{0}[n-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	\Lambda^{0,1}[n] \ar{d}
-&
-	\Lambda^{0}[n-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	\Lambda^{0,1}[n] \ar{d}
-\\
-	\Delta[n-1] \ar{r}[swap]{d^1} & \Lambda^0[n] 
-&
-	\Delta[n-1] \ar{r}[swap]{d^0} & \Lambda^1[n] 
-\end{tikzcd}
-\end{equation}
-\end{remark}
-
-
-\begin{remark}\label{CONTGR REM}
-Write $\widetilde{[n]}$
-for the contractible groupoid on objects $\{0,1,\cdots,n\}$. Note that the $k$-simplices of $\widetilde{[n]}$
-are encoded as strings $a_0 a_1 \cdots a_k$
-with $a_{i} \in \{0,1,\cdots,n\}$, and that a simplex is non-degenerate iff $a_{i-1}\not = a_{i}, 1 \leq i \leq k$.
-Then the maps
-\begin{equation}\label{INVER EQ}
-%	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
-%\qquad
-	\Delta[n] = N [n] \xrightarrow{012\cdots n} N \widetilde{[n]},\quad n \geq 1
-\end{equation}
-are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 2$.
-
-Indeed, we show a little more. Call subcomplex 
-$A \subset N \widetilde{[n]}$ is \textit{$0$-stable}
-if a $n$-simplex $\underline{a}$ is in $A$ iff the $n+1$-simplex $0\underline{a}$ is.
-We claim that any inclusion $A \to A'$ of $0$-stable subcomplexes is built cellularly from left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 1$.
-Indeed, it suffices to check this when $A'$ attaches as little as 
-possible to $A$, and $0$-simplicity guarantees that in that case the only two non-degenerate simplices in $A-A'$
-have the form 
-$\underline{a}$ and $0\underline{a}$
-(note that $\underline{a}$ can not start with a $0$).
-But then $A\to A'$ is a pushout of 
-$\Lambda^{0}[k+1] \to \Delta[k+1]$ where $k$ is the dimension of $\underline{a}$.
-
-The desired claim follows by noting that both the domain and codomain of \eqref{INVER EQ} are $0$-stable and that the horns 
-$\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simplices.
-\end{remark}
 
 
 
 
-\begin{remark}
-Indexing systems are precisely the Segal sieves of $\Omega_G$.
-\end{remark}
+
 
 \begin{remark}
 {\color{blue} bla bla} the diagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
