@@ -15,6 +15,7 @@
 }
 \usepackage[open=false]{bookmark}
 
+
 \input{commands.tex}%
 
 
@@ -22,7 +23,8 @@
 
 %-------- TIKZ -----------------------------------------
 \usepackage{tikz}%
-\usetikzlibrary{matrix,arrows,decorations.pathmorphing,cd,patterns}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,
+cd,patterns,calc}
 \tikzset{%
   treenode/.style = {shape=rectangle, rounded corners,%
                      draw, align=center,%
@@ -475,6 +477,18 @@ and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where w
 
 We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
 
+If $T\in \Omega_G$ has tree components $T_1,\cdots, T_k$, we write
+$E(T) = \amalg_i E(T_i)$, 
+$E^{\mathsf{i}}(T) = \amalg_i E^{\mathsf{i}}(T_i)$,
+$V(T) = \amalg_i V(T_i)$
+for its sets of edges, inner edges and vertices, as well as
+$E_G(T) = E(T)/G$,
+$E^{\mathsf{i}}_G(T) = E^{\mathsf{i}}(T)/G$,
+$V_G(T) = V(T)/G$ for its sets of 
+\textit{edge orbits},
+\textit{inner edge orbits} and
+\textit{$G$-vertices}.
+
 Before discussing face maps in the equivariant context, it is worth commenting on the complementary roles of the expanded and orbital representations.
 On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatically represented by the expanded representation,
 so that the arrows of $\Omega_{G}$ are best understood from that perspective.
@@ -827,13 +841,89 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 \end{remark}
 
 
-
 \begin{remark}\label{ORB_FACE_REM}
-	In fact, we have an isomorphism of posets
+	In fact, there is an isomorphism of posets
 	\begin{equation}
 	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
 	\end{equation}
-        where $T/G$ denotes the underlying tree in the orbital representation.
+	where $T/G$ denotes the underlying tree in the orbital representation of $T$. 
+	
+	However, we caution that though this claim is  intuitive, care is needed when formalizing it.
+	For example, the broad poset of $T/G$ is in general \textit{not} the quotient of the broad poset of $T$,
+	as that may fail the simplicity axiom in 
+	\cite[Def. 5.9]{Per17}.
+	In fact, the assignment $T \mapsto T/G$ is \textit{not}
+	a functor $\Omega_G \to \Omega$, as shown by
+	the following (for $G = \mathbb{Z}_{/2} = \{\pm 1\}$),
+	where no dashed arrow exists.
+\begin{equation}
+	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
+	every node/.style={font=\scriptsize,inner sep = 2pt}]%
+		\tikzstyle{level 2}=[sibling distance=2.25em]%
+		\begin{scope}
+			\node at (0,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$b\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{-j}a$}}%
+				edge from parent node [swap] {$r\phantom{j}$}};%
+			\node (T2) at (5em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-a\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{j} -b$}}%
+				edge from parent node [swap] {$-r$}};%
+			\node (S) at (14em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap,very near end] {$-a\phantom{j}$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{j} a$}}%
+				edge from parent node [swap] {$r$}};%
+			\node at ($(S)+(0,-0.25)$) [font=\normalsize] {$S$};
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (5.5em,0) -- (-0.5em,0) node[midway,inner sep=4pt,font=\normalsize]{$T$}; %
+		\draw[->]
+	($(T2) + (1,.75)$) -- ($(S)+(-1,.75)$) node [midway,above] {$b \mapsto -a$};
+		\end{scope}%
+%----Orbital picture-------
+		\begin{scope}[xshift=25em]
+			\node (TG) at (0,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node {}}%
+					child{node {}%
+					edge from parent node {}}%
+				edge from parent node {}};%
+			\node at ($(TG) + (0,-0.25)$) [font=\normalsize] {$T/G$};
+			\node (SG) at (9em,0){}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node {}}%
+				edge from parent node {}};%
+			\node at ($(SG) + (0,-0.25)$) [font=\normalsize] {$S/G$};
+			\draw[->,dashed]
+			($(TG) + (1,.75)$) -- ($(SG)+(-1,.75)$);
+		\end{scope}
+	\end{tikzpicture}%
+\end{equation}%
+We now outline the formal construction of $T/G$.
+
+Given $\underline{e},\underline{f}$ tuples of edges of $T$, 
+write $\underline{f} \leq \underline{e}$
+if $\underline{e} = e_1 e_2 \cdots e_k$
+and there is a tuple decomposition
+$\underline{f} = 
+\underline{f}_1 \underline{f}_2 \cdots
+\underline{f}_k$
+such that $\underline{f}_i \leq e_i$.
+When the $e_i$ are $\leq_d$-incomparable,
+\cite[Prop. 5.30]{Per17} says that such decomposition is unique, so that $\underline{e},\underline{f}$ consist of distinct edges and we can regard 
+$\underline{e},\underline{f}$ as subsets of $E(T)$.
+	
+{\color{red} HERE}	
+	
         Explicitly, the underlying set of $T/G$ is precisely the $G$-orbits of $T$, with a modified broad-poset structure.
         For each edge $[e] \in T/G$, we have
         $[t] \in [e]^\uparrow$ iff $t \in e^\uparrow$.
@@ -847,13 +937,20 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
         % \end{equation}
         It is easy to check that $T/G$ is in fact a tree.
 
-        We note that the generating broad relations are not given by
-        $[e_1]\dots[e_n] \leq [e]$ for $e_1\dots e_n = e^\uparrow$,
-        as in general this would lead to repeated elements in $[e]^{\uparrow}$.
-        % ({\color{blue} this needs to be expanded on}).
+
+
+        
+
+
+{\color{red} HERE}
+
+planar structures chosen arbitrarily
+ 
+        
+        
 \end{remark}
 
-
+{\color{red} HERE}
 
 \subsection{Equivariant dendroidal sets}
 
@@ -1374,34 +1471,7 @@ where we note that the equivalence between the colimit and union formulas now fo
       % \end{equation}
 \end{example}
 
-Lastly, we recall that there is another important presheaf category in the discussion of equivariant trees,
-namely the category of \textit{genuine $G$-equivariant dendroidal sets} $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$.
-The inclusion $\Omega \times G^{op} \into \Omega_G$ sending a tree $T$ to the $G$-free $G$-tree $G \cdot T$
-induces a pair of natural adjunctions as below.
-\begin{equation}
-      \begin{tikzcd}[column sep =5em]
-            \mathsf{dSet}_G \ar{r}[swap]{\upsilon^{\**}} 
-            &
-            \mathsf{dSet}^G
-            \ar[bend right]{l}[swap,midway]{\upsilon_{!}}
-            \ar[bend left]{l}{\upsilon_{\**}}
-      \end{tikzcd}
-\end{equation}
 
-\begin{remark}
-      Given $T \in \Omega_G$, the two ``Yoneda'' objects in $\mathsf{dSet}_G$ agree, as
-      \mbox{$\Omega_G[T] = \upsilon_{\**}\Omega[T]$}.
-      This furthermore implies that $\Omega[T] = \upsilon^{\**} \Omega_G[T]$. 
-      % \begin{equation}
-      %       \begin{tikzcd}
-      %             \Omega_G \arrow[dr, "\Omega_G[-]"] \arrow[d, "{\Omega[-]}"']
-      %             \\
-      %             \mathsf{dSet}^G \arrow[r, "u_{\**}"]
-      %             &
-      %             \mathsf{dSet}_G
-      %       \end{tikzcd}
-      % \end{equation}
-\end{remark}
 
 
 
@@ -2374,110 +2444,6 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 \end{proof}
 
 
-\begin{remark}\label{SLICE REM}
-	Setting $G=e$ and slicing over the stick tree $\eta$, the previous result
-	recovers the well known claim that 
-	the hypersaturation of the simplicial inner horns
-	$\{\Lambda^i[m] \to \Delta[m] \colon 0< i < m\}$
-	coincides with the hypersaturation of the simplicial Segal core inclusions
-	$\{Sc[m] \to \Delta[m]\colon m \geq 0\}$.
-\end{remark}
-
-{\color{red} HERE}
-
-
-\begin{remark}\label{HYPERSATKAN REM}
-	We will make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
-	Namely, we claim that the hypersaturation of all simplicial horns 
-	$\{\Lambda^i[m] \to \Delta[m] \colon 0 \leq i \leq m\}$
-	coincides with the hypersaturation of all vertex inclusion maps
-	$\{\Delta[0] \to \Delta[m]\}$.
-	Call the latter hypersaturation $S$. 
-	One easily checks that the maps $\{0\} \to Sc[m]$ are in $S$, so that by cancellation so are the Segal core inclusions 
-	$\{Sc[m] \to \Delta[m]\}$ and hence by Remark \ref{SLICE REM} so are all inner horn inclusions. 
-	Moreover, for left horns $\Lambda^0[m]$
-	the maps $\{0\} \to \Lambda^0[m]$ are built cellularly
-	from left horn inclusions
-	$\Lambda^0[k] \to \Delta[k]$ with $k<m$
-	(in join notation (see \cite[\S 1.2.8]{Lur09} or \cite[\S 7.4]{Per17}),
-	$\{0\} \to \Lambda^0[m]$ is 
-	$\Delta[0] \star (\emptyset \to \partial \Delta[m-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[m-1]$).
-	But hence by induction and the cancellation property all left horn inclusions 
-	$\Lambda^0[m] \to \Delta[m]$
-are in $S$. The case of right horn inclusions $\Lambda^m[m] \to \Delta[m]$ is dual.
-\end{remark}
-
-
-\begin{remark}\label{ANHYPER REM}
-The smallest hypersaturated class containing the inner horns and the left horn inclusion
-$\Lambda^0[2] \to \Delta[2]$
-in fact contains all left horn inclusions
-$\Lambda^0[m] \to \Delta[m]$ for $m \geq 2$.
-Indeed, this follows inductively from the following diagram since
-the bottom map is inner
-\begin{equation}
-\begin{tikzcd}
-	\Lambda^{0,1}[m] \ar{r} \ar{d} &
-	\Lambda^{0}[m] \ar{d}
-\\
-	\Lambda^{1}[m] \ar{r} & \Delta[m] 
-\end{tikzcd}
-\end{equation}
-and the top and left maps are given by following pushouts
-\begin{equation}
-\begin{tikzcd}
-	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	\Lambda^{0,1}[m] \ar{d}
-&
-	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
-	\Lambda^{0,1}[m] \ar{d}
-\\
-	\Delta[m-1] \ar{r}[swap]{d^1} & \Lambda^0[m] 
-&
-	\Delta[m-1] \ar{r}[swap]{d^0} & \Lambda^1[m] 
-\end{tikzcd}
-\end{equation}
-\end{remark}
-
-
-\begin{remark}\label{CONTGR REM}
-Write $\widetilde{[m]}$
-for the contractible groupoid on objects $\{0,1,\cdots,m\}$. Note that the $k$-simplices of $\widetilde{[m]}$
-are encoded as strings $a_0 a_1 \cdots a_k$
-with $a_{i} \in \{0,1,\cdots,m\}$, and that a simplex is non-degenerate iff $a_{i-1}\not = a_{i}, 1 \leq i \leq k$.
-Then the maps
-\begin{equation}\label{INVER EQ}
-%	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
-%\qquad
-	\Delta[n] = N [m] \xrightarrow{012\cdots m} N \widetilde{[m]},\quad m \geq 1
-\end{equation}
-are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 2$.
-
-Indeed, we show a little more. We say a subcomplex 
-$A \subseteq N \widetilde{[m]}$ is \textit{$0$-stable}
-if a $m$-simplex $\underline{a}$ is in $A$ iff the $(m+1)$-simplex $0\underline{a}$ is.
-We claim that any inclusion $A \to A'$ of $0$-stable subcomplexes is built cellularly from left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 1$.
-Indeed, it suffices to check this when $A'$ attaches as little as 
-possible to $A$, and $0$-simplicity guarantees that in that case the only two non-degenerate simplices in $A \setminus A'$
-have the form 
-$\underline{a}$ and $0\underline{a}$
-(note that $\underline{a}$ can not start with a $0$).
-But then $A\to A'$ is a pushout of 
-$\Lambda^{0}[k+1] \to \Delta[k+1]$ where $k$ is the dimension of $\underline{a}$.
-
-The desired claim follows by noting that both the domain and codomain of \eqref{INVER EQ} are $0$-stable and that the horns 
-$\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simplices.
-\end{remark}
-
-
-
-{\color{red} HERE}
-
-
-
-
-
-
 
 Focusing now on the saturated classes of morphisms generated by the \textit{orbital} horn inclusions,
 the following two propositions follow from the discussion in Remark \ref{ORB_HORN_REM} and their non-equivariant analogues \cite[Lemma 5.1]{MW09} and \cite[Prop. 2.4]{CM13a}.
@@ -2546,7 +2512,162 @@ We include a short direct proof of this result (which similarly proves \cite[Pro
 
 
 
-% We now indicate some of the applications of (hyper)saturations.
+{\color{red} HERE}
+
+\begin{remark}\label{SLICE REM}
+	Setting $G=e$ and restricting to the overcategory
+	$\mathsf{dSet}_{/\eta} \simeq \mathsf{sSet}$,
+	Proposition \ref{HYPER PROP}
+	recovers the well known claim that 
+	the hypersaturation of the simplicial inner horn inclusions
+	$\{\Lambda^i[m] \to \Delta[m] \colon 0< i < m\}$
+	coincides with the hypersaturation of the simplicial Segal core inclusions
+	$\{Sc[m] \to \Delta[m]\colon m \geq 0\}$.
+\end{remark}
+
+
+\begin{remark}\label{HYPERSATKAN REM}
+	We will make use of a variant of the previous remark for the hypersaturation of \textit{all} simplicial horns.
+	Namely, we claim that the hypersaturation of all simplicial horns 
+	$\{\Lambda^i[m] \to \Delta[m] \colon 0 \leq i \leq m\}$
+	coincides with the hypersaturation of all vertex inclusion maps
+	$\{\Delta[0] \to \Delta[m]\}$.
+	Call the latter hypersaturation $S$. 
+	One easily checks that the maps $\{0\} \to Sc[m]$ are in $S$, so that by cancellation so are the Segal core inclusions 
+	$\{Sc[m] \to \Delta[m]\}$ and hence by Remark \ref{SLICE REM} so are all inner horn inclusions. 
+	Moreover, for left horns $\Lambda^0[m]$
+	the maps $\{0\} \to \Lambda^0[m]$ are built cellularly
+	from left horn inclusions
+	$\Lambda^0[k] \to \Delta[k]$ with $k<m$
+	(in join notation (see \cite[\S 1.2.8]{Lur09} or \cite[\S 7.4]{Per17}),
+	$\{0\} \to \Lambda^0[m]$ is 
+	$\Delta[0] \star (\emptyset \to \partial \Delta[m-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[m-1]$).
+	But hence by induction and the cancellation property all left horn inclusions 
+	$\Lambda^0[m] \to \Delta[m]$
+are in $S$. The case of right horn inclusions $\Lambda^m[m] \to \Delta[m]$ is dual.
+\end{remark}
+
+
+\begin{remark}\label{ANHYPER REM}
+The smallest hypersaturated class containing the inner horn inclusions and the left horn inclusion
+$\Lambda^0[2] \to \Delta[2]$ 
+in fact contains all left horn inclusions
+$\Lambda^0[m] \to \Delta[m]$ 
+for $m \geq 2$.
+Indeed, this follows inductively from the left diagram
+below since the bottom map is inner while the top and left maps are given by the center and right pullback diagrams.
+\begin{equation}
+\begin{tikzcd}
+	\Lambda^{0,1}[m] \ar{r} \ar{d} &
+	\Lambda^{0}[m] \ar{d}
+& &
+	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[m] \ar{d}
+&
+	\Lambda^{0}[m-1] \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]&
+	\Lambda^{0,1}[m] \ar{d}
+\\
+	\Lambda^{1}[m] \ar{r} & \Delta[m] 
+& &
+	\Delta[m-1] \ar{r}[swap]{d^1} &
+	\Lambda^0[m] 
+&
+	\Delta[m-1] \ar{r}[swap]{d^0} &
+	\Lambda^1[m] 
+\end{tikzcd}
+\end{equation}
+The case of right horn inclusions is dual.
+\end{remark}
+
+
+\begin{remark}\label{CONTGR REM}
+Write $\widetilde{[m]}$
+for the contractible groupoid on objects $\{0,1,\cdots,m\}$. Note that the $k$-simplices of $\widetilde{[m]}$
+are encoded as strings $a_0 a_1 \cdots a_k$
+with $a_{i} \in \{0,1,\cdots,m\}$, and that a simplex is non-degenerate iff $a_{i-1}\not = a_{i}, 1 \leq i \leq k$.
+We claim that the maps
+\begin{equation}\label{INVER EQ}
+%	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
+%\qquad
+	\Delta[n] = N [m] \xrightarrow{012\cdots m} N \widetilde{[m]},\quad m \geq 1
+\end{equation}
+are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 2$.
+
+Indeed, we show a little more. We say a subcomplex 
+$A \subseteq N \widetilde{[m]}$ is \textit{$0$-stable}
+if a $m$-simplex $\underline{a}$ is in $A$ iff the $(m+1)$-simplex $0\underline{a}$ is.
+We claim that any inclusion $A \to A'$ of $0$-stable subcomplexes is built cellularly from left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 1$.
+Indeed, it suffices to check this when $A'$ attaches as little as 
+possible to $A$, and $0$-simplicity guarantees that in that case the only two non-degenerate simplices in $A \setminus A'$
+have the form 
+$\underline{a}$ and $0\underline{a}$
+(note that $\underline{a}$ can not start with a $0$).
+But then $A\to A'$ is a pushout of 
+$\Lambda^{0}[k+1] \to \Delta[k+1]$ where $k$ is the dimension of $\underline{a}$.
+
+The desired claim follows by noting that both the domain and codomain of \eqref{INVER EQ} are $0$-stable and that the horns 
+$\Lambda^0[1]$ are unneeded since \eqref{INVER EQ} is an isomorphism on $0$-simplices.
+\end{remark}
+
+
+
+{\color{red} HERE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Genuine equivariant operads}
+
+
+
+
+Lastly, we recall that there is another important presheaf category in the discussion of equivariant trees,
+namely the category of \textit{genuine $G$-equivariant dendroidal sets} $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$.
+The inclusion $\Omega \times G^{op} \into \Omega_G$ sending a tree $T$ to the $G$-free $G$-tree $G \cdot T$
+induces a pair of natural adjunctions as below.
+\begin{equation}
+      \begin{tikzcd}[column sep =5em]
+            \mathsf{dSet}_G \ar{r}[swap]{\upsilon^{\**}} 
+            &
+            \mathsf{dSet}^G
+            \ar[bend right]{l}[swap,midway]{\upsilon_{!}}
+            \ar[bend left]{l}{\upsilon_{\**}}
+      \end{tikzcd}
+\end{equation}
+
+\begin{remark}
+      Given $T \in \Omega_G$, the two ``Yoneda'' objects in $\mathsf{dSet}_G$ agree, as
+      \mbox{$\Omega_G[T] = \upsilon_{\**}\Omega[T]$}.
+      This furthermore implies that $\Omega[T] = \upsilon^{\**} \Omega_G[T]$. 
+      % \begin{equation}
+      %       \begin{tikzcd}
+      %             \Omega_G \arrow[dr, "\Omega_G[-]"] \arrow[d, "{\Omega[-]}"']
+      %             \\
+      %             \mathsf{dSet}^G \arrow[r, "u_{\**}"]
+      %             &
+      %             \mathsf{dSet}_G
+      %       \end{tikzcd}
+      % \end{equation}
+\end{remark}
+
+
+
+
+
 
 Given a class $\mathcal{C}$ of normal monomorphisms in $\mathsf{dSet}^G$, let $\mathcal{C}^{\boxslash !}$
 denote the classes of maps satisfying the 
@@ -2634,12 +2755,21 @@ Uniqueness follows since any lift of the left square induces a lift of the outer
 %       % is given by ${}^{\boxslash}(\mathcal{C}^{\boxslash})$
 % \end{remark}
 
+
+
+
+
+
+
+
+
+
 As a corollary of Proposition \ref{HYPER PROP}, we will fully characterize the image of the nerve functor
 \begin{equation}
       N^G: \Op^G \to \mathsf{dSet}^G.
 \end{equation} 
-We note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/N$, where $T_{\**}$ is a component of $T$ and
-$N$ the graph subgroup of $G \times \mathrm{Aut}(T_{\**})$ encoding the given action.
+We note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/\Gamma$, where $T_{\**}$ is a component of $T$ and
+$\Gamma$ the graph subgroup of $G \times \mathrm{Aut}(T_{\**})$ encoding the given action.
 Similarly,
 recalling the adjuction
 \begin{equation}
@@ -2659,9 +2789,9 @@ we have that any $G$-inner horn inclusion
 $\Lambda^{E}[T] \to \Omega[T]$ can be written
 \begin{equation}
       \label{HORN_DECOMP_EQ}
-      (G \cdot j)/N: G \cdot \left(
+      (G \cdot j)/\Gamma: G \cdot \left(
             {\Lambda^{E_*}[T_*] \to \Omega[T_*]}
-      \right) / N,
+      \right) / \Gamma,
 \end{equation}
 where $E_* = E \cap T_*$, $H = \mathrm{Stab}_G(T_*)$, and
 $j$ is a generalized inner horn inclusion in $\Omega$ (cf. \eqref{T_DECOMP_EQ}). 
@@ -2712,14 +2842,19 @@ denote the wide subcategories spanned by $(G)$-inner horn inclusions
 %       finishing the proof.
 % \end{proof}
 
+
+
+
+
 \begin{corollary}
       Fix $X \in \mathsf{dSet}^G$.
       $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$  
       iff
       $X \in (\mathsf{dSet}^{G,h})^{\boxslash !}$.
 \end{corollary}
+
 \begin{proof}
-      Since $\Omega(T)$ is the free coloured operad on it's vertices, we have that
+      Since $\Omega(T)$ is the free coloured operad on its vertices, we have that
       \begin{equation}
             \mathsf{dSet}^G(\Omega[T], N^G(\O)) = \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O)
       \end{equation}
@@ -2733,21 +2868,22 @@ denote the wide subcategories spanned by $(G)$-inner horn inclusions
       $(\mathsf{dSet}^{G,h})^{\boxslash !} = (G \cdot \dSet_h)^{\boxslash !}$.
       Indeed, for any map \mbox{$\Lambda^{G e}[T] \to X$}
       % any span \mbox{$\Omega[T] \xleftarrow{G \cdot j/N} \Lambda^{G e}[T] \xrightarrow{f} X$},
-      we have the following commuting diagram, where $n \in N$.
+      we have the following commuting diagram, where 
+      $\gamma \in \Gamma$.
       \begin{equation}
             \begin{tikzcd}[row sep = 3em]
-                  G \cdot \Lambda^{H e}[T_*] \arrow[d] \arrow[r, "n"]
+                  G \cdot \Lambda^{H e}[T_*] \arrow[d] \arrow[r, "\gamma"]
                   &
-                  G \cdot \Lambda^{H e}[T_*] \arrow[r, "q"] \arrow[d]
+                  G \cdot \Lambda^{H e}[T_*] \arrow[r] \arrow[d]
                   &
                   \Lambda^{G e}[T] \arrow[r, "f"] \arrow[d]
                   &
                   X
                   \\
-                  G \cdot \Omega[T_*] \arrow[r, "n"']
+                  G \cdot \Omega[T_*] \arrow[r, "\gamma"']
                   \arrow[urrr, very near start, crossing over, dashed, "\exists! \phi"]
                   &
-                  G \cdot \Omega[T_*] \arrow[r, "q"']
+                  G \cdot \Omega[T_*] \arrow[r]
                   \arrow[urr, dashed, very near start, crossing over, out=15, in=-145, "\exists! \phi"]
                   &
                   \Omega[T]
@@ -2756,7 +2892,7 @@ denote the wide subcategories spanned by $(G)$-inner horn inclusions
       When $X \in (G \cdot \dSet_h)^{\boxslash !}$,
       we have unique lifts $\phi$ by
       \cite[Lemma 5.1]{MW09}, Lemma \ref{HYPER_LP_PROP}, and \eqref{HORN_DECOMP_EQ}.
-      Uniqueness then implies that $\phi = n \cdot \phi$ for all $n \in N$, and hence $\phi$ factors through $\Omega[T]$,
+      Uniqueness then implies that $\phi = \phi \circ \gamma $ for all $\gamma \in \Gamma$, and hence $\phi$ factors through $\Omega[T]$,
       
       Second, we know $G \cdot (-)$ commutes with $(-)^{\boxslash !}$, and
       % \begin{equation}
@@ -2767,9 +2903,6 @@ denote the wide subcategories spanned by $(G)$-inner horn inclusions
       $X \simeq N_d \circ \tau_d \circ X$
       (where we consider $X$ as a functor $G \to (\mathsf{dSet}_h)^{\boxslash !}$).
 \end{proof}
-
-
-
 
 
 
@@ -4233,6 +4366,41 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 
 \subsection{Rezk completion and fibrant Segal operads}
 
+
+\[
+\begin{tikzpicture}
+[grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
+	\node at (0,0) [font=\normalsize] {$C \star \eta$}
+		child{node [dummy,fill=black] {}
+			child{node [dummy] {}
+				child{
+				edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+				child{
+				edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+			edge from parent node [swap] {$G/H_0$}}
+		edge from parent node [swap] {$G/H_0$}};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+	\node at (5,0) [font=\normalsize] {$\eta \star C$}
+		child{node [dummy] {}
+			child{node [dummy,fill=black] {}
+				child{
+				edge from parent node [swap] {$G/H_k$}}
+			edge from parent node [swap,near end] {$G/H_k$} node [name=Kn] {}}
+			child{node [dummy,fill=black] {}
+				child{
+				edge from parent node {$G/H_1$}}
+			edge from parent node [near end] {$G/H_1$}
+node [name=Kone,swap] {}}
+		edge from parent node [swap] {$G/H_0$}
+		};
+		\draw [dotted,thick] (Kone) -- (Kn) ;
+\end{tikzpicture}
+\]
+
+
+
+
 {\color{blue} fill context}
 
 
@@ -4279,17 +4447,17 @@ and the natural map of squares between them is an injective fibration of squares
 \begin{tikzcd}[column sep=14]	
 	X\left(\Omega[1] \otimes \Omega[C]\right)
 	\ar[->>]{r} \ar[->>]{d}&
-	X(\Omega[C \star \eta]) \ar[->>]{d}
+	X(\Omega[\eta \star C]) \ar[->>]{d}
 &
 	\underset{i}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d} &
-	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
-	\times X([1])^{H_0} \ar[->>]{d}
+	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
+	\times X(\eta)^{H_0} \ar[->>]{d}
 \\
-	X(\Omega[\eta \star C]) \ar[->>]{r} &
+	X(\Omega[C \star \eta])	 \ar[->>]{r} &
 	X(\Omega[C])
 &
-	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
-	\times X(\eta)^{H_0} \ar[->>]{r} &
+	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
+	\times X([1])^{H_0}	 \ar[->>]{r} &
 	\underset{i}{\prod} X(\eta)^{H_i}
 \end{tikzcd}
 \end{equation}
