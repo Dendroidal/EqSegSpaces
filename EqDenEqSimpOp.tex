@@ -1866,7 +1866,7 @@ Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement i
 \end{remark}
 
 
-\begin{example}
+\begin{example}\label{THM71 EX}
 	As indicated above, Lemma \ref{CHAREDGE LEM} can be used to
 	reorganize and streamline the rather long proofs of \cite[Thms 7.1 and 7.2]{Per17}. We illustrate this in the hardest case, that of \cite[Thm. 7.1(i)]{Per17}, which states that if
 	$S,T \in \Omega_G$ are open (i.e. have no stumps) and
@@ -3694,19 +3694,38 @@ is a Quillen equivalence.
 	Corollary \ref{SDSETG COR}(iii) together with the observation that $\left(\gamma^{\**} \gamma_{\**} X\right)_0 = X_0$.
 \end{proof}
 
-We will find it useful to also have a characterization of the
-fibrant objects in $\mathsf{PreOp}^G$.
-In doing so, it becomes useful to consider a fourth model structure on the category $\mathsf{sdSet}^G$ whose fibrant objects ``interpolate'' between the fibrant objects in the two model structures in Theorem \ref{ANOQUEQUIV THM}.
-This is the model structure of equivariant dendroidal Segal spaces, that we discuss in the next section.
 
 
 \section{Equivariant dendroidal Segal spaces}
 
+As mentioned in the introduction, we conjecture that the model categories 
+$\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
+in \S \ref{CEDSS SEC} and \S \ref{PREOP SEC}
+are equivalent to a suitable model structure on the category 
+$\mathsf{Op}^G$ of (coloured) $G$-operads.
+However, our present description of the weak equivalences in 
+$\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
+is rather different from the description of the desired weak equivalences in $\mathsf{Op}^G$,
+which are the Dwyer Kan equivalences, 
+characterized by fully faithfulness and essential surjectivity requirements.
 
-{\color{blue} Rewrite this}
+As such, our goal in this final section is to prove
+Theorem \ref{COMPIFFDK THM},
+which states that weak equivalences between fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
+do indeed admit a Dwyer Kan type description.
+Moreover, in Corollary \ref{FIB_PREOP_COR} we also characterize the fibrant objects of $\mathsf{PreOp}^G$.
 
-DK-equivalences will provide an explicit description of complete/joint equivalences between dendroidal Segal objects (and thus also between fibrant pre-operads), as we will prove in
-{\color{red} whatever below}. 
+To do so, it is useful to consider yet another model structure on the category $\mathsf{sdSet}^G$,
+whose fibrant objects are the so called
+\textit{equivariant dendroidal Segal spaces},
+and which ``interpolate''
+between the fibrant objects 
+in the categories $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
+See Remark \ref{INTERP REM} for a precise statement.
+
+
+
+ 
 
 \subsection{The homotopy genuine operad and Dwyer Kan equivalences}
 
@@ -3749,7 +3768,7 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 \end{proof}
 
 
-\begin{notation}
+\begin{notation}\label{GCOR NOT}
 Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
 $H_0 \geq H_i$, $1 \leq i \leq k$ we write
 $C_{\amalg_i H_0/H_i}$ for the $G$-corolla (well defined up to isomorphism)
@@ -4408,6 +4427,11 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 \subsection{Rezk completion and fibrant Segal operads}
 
 
+In the next result we make use of a decomposition of the tensor product $[1] \otimes C$,
+where $[1]$ is the $1$-simplex regarded as a $G$-trivial $G$-tree, and $C$ is a $G$-corolla 
+(see Notation \ref{GCOR NOT}). Slightly adapting the discussion
+in Example \ref{THM71 EX}, $[1] \otimes C$ is the union of two maximal $G$-subtrees $C \star \eta$ and $\eta \star C$,
+whose orbital representations are depicted below.
 \[
 \begin{tikzpicture}
 [grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
@@ -4438,11 +4462,19 @@ node [name=Kone,swap] {}}
 		\draw [dotted,thick] (Kone) -- (Kn) ;
 \end{tikzpicture}
 \]
+Moreover, much as in \eqref{GENLEXREL EQ}, 
+$C \star \eta$ and $\eta \star C$ have a common orbital face, which we denote simply as $C$
+(this face is canonically isomorphic to the original $C$),
+leading to a decomposition
+\[
+\Omega[1] \otimes \Omega[C]
+	\simeq
+\Omega[C \star \eta] \otimes_{\Omega[C]} \Omega[\eta \star C]
+\]
+We note that this holds even if $k=0$, 
+which is an exceptional case since then
+$[1] \otimes C = C \star \eta$.
 
-
-
-
-{\color{blue} fill context}
 
 
 \begin{proposition}\label{JDDK PROP}
@@ -4704,9 +4736,9 @@ The monomorphism condition is clear.
 \end{proof}
 
 
-\begin{corollary}
+\begin{theorem}\label{COMPIFFDK THM}
 	A map of $X \to Y$ of dendroidal Segal spaces is a complete equivalence iff it is a DK-equivalence.
-\end{corollary}
+\end{theorem}
 
 
 \begin{proof}
@@ -4819,7 +4851,7 @@ showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof
 \end{proof}
 
 
-\begin{remark}
+\begin{remark}\label{INTERP REM}
 	For any dendroidal Segal space 
 	$X \in \mathsf{sdSet}^G$ one hence has complete equivalences
 \[
@@ -4992,7 +5024,7 @@ Indexing systems are precisely the Segal sieves of $\Omega_G$.
 \end{remark}
 
 
-\section{Scratchwork (to be folded into previous sections eventually)}
+\section{Scratchwork}
 
 
 
