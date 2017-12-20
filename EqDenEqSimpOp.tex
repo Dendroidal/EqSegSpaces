@@ -945,7 +945,7 @@ the orbital outer faces of $T$ are indexed by orbital relations.
 
 
 
-\subsection{Equivariant dendroidal sets}
+\subsection{Equivariant dendroidal sets}\label{EQDENDSETS SEC}
 
 Recall \cite[\S 5.4]{Per17} that the category of 
 \textit{$G$-equivariant dendroidal sets}
@@ -3931,7 +3931,7 @@ of $p\colon X\to Y$ and regarding $J \in \mathsf{dSet}^G$ as a simplicially cons
 \end{proof}
 
 
-\begin{theorem}
+\begin{theorem}\label{PREOPMOD THM}
 	The category $\mathsf{Preop}^G$ of $G$-preoperads has a model structure such that
 	\begin{itemize}
 		\item the cofibrations are the normal monomorphisms;
@@ -4110,8 +4110,8 @@ we define the space of maps
 $X(x_1,\cdots,x_n ; x_0) \in \mathsf{sSet}$ via the pullback square
 \[
 \begin{tikzcd}[column sep=4em]
-	X(x_1,\cdots,x_k;x_0) \ar{r} \ar{d}&
-	X(\Omega[C]) \ar{d}
+	X(x_1,\cdots,x_k;x_0) \ar{r} \ar[->>]{d}&
+	X(\Omega[C]) \ar[->>]{d}
 \\
 	\Delta[0] \ar{r}[swap]{(x_1,\cdots,x_k;x_0)} &
 	\prod_{0\leq i \leq k} X(\eta)^{H_i}
@@ -4832,7 +4832,8 @@ Since the top left corner of the map of squares
 and noting that fibers (in the category of square diagrams)
 of a fibration between pullback squares are a fibrant pullback square,
 the desire claim that the total diagram in \eqref{BIGSQ EQ}
-induces equivalences on fibers will follow provided that the same holds for the following squares.
+induces equivalences on fibers will follow provided that the same holds for the following squares 
+(which adapt \cite[Lemma 12.4]{Rez01}).
 \[
 \begin{tikzcd}[column sep=17]
 	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
@@ -5308,28 +5309,212 @@ a complete dendroidal Segal space.
 
 \section{Indexing system analogue results}
 
+Just as in \cite[\S 9]{Per17}, we dedicate our final section
+to outlining the generalizations of our results to the 
+\textit{indexing systems} of Blumberg and Hill \cite{BH15}.
+Or more precisely, we will work with the \textit{weak indexing systems}
+of \cite[\S 9]{Per17}, \cite[\S 4.4]{BP17},
+which are a slight generalization of indexing systems, 
+and were also independently identified by Gutierrez and White in \cite{GW17}.
+
+
+We begin by recalling the key notion of sieve.
+
+\begin{definition}
+A \textit{sieve} of a category $\mathcal{C}$
+is a full subcategory $\mathcal{S} \subseteq \mathcal{C}$ such that for any arrow $c \to s$ in $\mathcal{C}$ such that $s \in \mathcal{S}$ it is also $c \in \mathcal{C}$.
+\end{definition}
+
+Note that a sieve $\mathcal{S} \subseteq \mathcal{C}$
+determines a presheaf 
+$\delta_{\mathcal{S}} \in \mathsf{Set}^{\mathcal{C}^{op}}$ by 
+$\delta_{\mathcal{S}}(c) = \**$ if $c \in \mathcal{S}$ and
+$\delta_{\mathcal{S}}(c) = \emptyset$ if $c \not \in \mathcal{S}$.
+In fact, there is a clear bijection between sieves and such 
+\textit{characteristic presheaves}, i.e. presheaves taking only the values $\**$ and $\emptyset$, 
+and we will hence often blur the distinction between the two concepts.
+
+Sieves are prevalent in equivariant homotopy theory. Indeed, families $\mathcal{F}$ of subgroups of $G$ are effectively the same as sieves $\mathsf{O}_{\mathcal{F}} \subseteq \mathsf{O}_G$
+of the orbit category
+$\mathsf{O}_G$ (formed by the $G$-sets $G/H$).
+
+Weak indexing systems can then be thought of as the operadic analogue of families. In particular, they are described by sieves $\Omega_{\mathcal{F}} \subseteq \Omega_G$,
+but additional conditions are needed to ensure compatibility 
+with the operadic composition and unit.
+In the following, we abbreviate 
+$\delta_{\mathcal{F}} = \delta_{\Omega_{\mathcal{F}}}$ and,
+for each $G$-vertex $V$ of $T \in \Omega_G$, we write 
+$T_V$ for the orbital outer face whose only
+$G$-vertex is $V$.
+
+\begin{definition}
+A \textit{weak indexing system} is a full subcategory
+$\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
+\begin{itemize}
+	\item[(i)] $\Omega_{\mathcal{F}}$ is a sieve of 
+	$\Omega_G$;
+	\item[(ii)] for each $T \in \Omega_G$ it is 
+	$T \in \Omega_{\mathcal{F}}$ iff 
+	$\forall_{V \in V_G(T)} T_V \in \Omega_{\mathcal{F}}$
+	or, equivalently, if
+\begin{equation}\label{SEGCOMB EQ}
+\delta_{\mathcal{F}}(T) =
+\prod_{V \in V_G(T)}\delta_{\mathcal{F}}(T_V).
+\end{equation}
+\end{itemize}
+\end{definition}
+
+
+\begin{remark}
+	Condition (ii) can be interpreted as combining the following two conditions:
+\begin{itemize}
+	\item[(ii')] the characteristic presheaf $\delta_{\mathcal{F}}$ is Segal, i.e. 
+	$\delta_{\mathcal{F}}(T) = 
+	\delta_{\mathcal{F}}(Sc[T])$
+	for all $T \in \Omega_G$;
+	\item[(ii'')] $(G/G \cdot \eta) \in \Omega_{\mathcal{F}}$.
+\end{itemize}
+
+Here, (ii'') reflects the existence of units in $G$-operads,
+which are encoded by the
+$G$-trivial $1$-corolla $G/G\cdot [1]$
+(note that by the sieve condition (i) it is
+$(G/G\cdot [1]) \in \Omega_{\mathcal{F}}$
+iff 
+$(G/G\cdot \eta) \in \Omega_{\mathcal{F}}$).
+
+Similarly, (ii') reflects the composition in $G$-operads.
+Indeed, (i) and (ii'') imply that
+all stick $G$-trees $G/H \cdot \eta$ are in 
+$\Omega_{\mathcal{F}}$,
+so that the right hand side of \eqref{SEGCOMB EQ}
+can be reinterpreted as $\delta_{\mathcal{F}}(Sc[T])$
+(more formally, $\delta_{\mathcal{F}}(Sc[T])$ is defined via an analogue of 
+Notation \ref{UNIQUELIM NOT}, 
+so as to obtain a functor
+$\delta_{\mathcal{F}}(-) \colon 
+(\mathsf{dSet}_G)^{op} \to \mathsf{sSet}$ 
+and by reinterpreting $Sc[T]$ as an object in 
+$\mathsf{dSet}_G$ via applying $\upsilon_{\**}$).
+\end{remark}
+
+\begin{remark}
+The original notion of indexing system 
+in \cite[Def. 3.22]{BH15} is recovered by demanding that all
+$G$-trivial $n$-corollas $G/G \cdot C_n$ are in 
+$\Omega_{\mathcal{F}}$.
+\end{remark}
+
+
+\begin{remark}\label{WHYF REM}
+	The $\mathcal{F}$ in the notation $\Omega_{\mathcal{F}}$
+is meant to suggest an alternate description of (weak) indexing systems in terms of families of subgroups.
+
+Namely, given a weak indexing system $\Omega_{\mathcal{F}}$ and $n \geq 0$, we let $\mathcal{F}_n$
+denote the family of those subgroups 
+of $\Gamma \leq G \times \Sigma_n = G \times \mathsf{Aut}(C_n)$ which are graphs of partial homomorphisms
+	$G \geq H \to \Sigma_n$
+	such that the associated $G$-corolla $G\cdot_H C_n$ is in $\Omega_{\mathcal{F}}$.
+	$\mathcal{F}$ then stands for the collection
+	$\mathcal{F} = \{\mathcal{F}_{n}\}_{n \geq 0}$.
+
+More generally, for each $U \in \Omega$, we similarly write
+$\mathcal{F}_U$
+for the family of graph subgroups of $G \times \mathsf{Aut}(U)$ encoding partial homomorphisms 
+$G \geq H \to \mathsf{Aut}(U)$ such that
+$G \cdot_H U \in \Omega_{\mathcal{F}}$.
+
+
+The fact that each $\mathcal{F}_U$ is a family is a consequence of the sieve condition (i).
+On the other hand, (ii) imposes more complex conditions on $\{\mathcal{F}_{n}\}_{n \geq 0}$
+which \cite[Def. 3.22]{BH15} makes explicit.
+\end{remark}
+
+
+All results in the paper now extend to the context of a general weak indexing system $\Omega_{\mathcal{F}}$
+essentially by replacing $\Omega_G$ by $\Omega_{\mathcal{F}}$ throughout. The following are some notable consequences:
+\begin{itemize}
+\item notions in $\mathsf{dSet}^G$ such as 
+	``$G$-normal monomorphism'', ``$G$-inner horn'', $G$-inner anodyne, $G$-$\infty$-operad are replaced with
+	``$\mathcal{F}$-normal monomorphism'', ``$\mathcal{F}$-inner horn'', $\mathcal{F}$-inner anodyne, $\mathcal{F}$-$\infty$-operad;
+\item the model structure on $\mathsf{dSet}^G$ from 
+\cite[Thm. 2.1]{Per17} is replaced with the model structure
+$\mathsf{dSet}^G_{\mathcal{F}}$ (on the \textit{same} underlying category) from 
+\cite[Thm. 2.2]{Per17},
+whose cofibrations are the $\mathcal{F}$-normal monomorphisms
+and whose fibrant objects are the $\mathcal{F}$-$\infty$-operads;
+\item $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$ is replaced with
+	$\mathsf{dSet}_{\mathcal{F}} = \mathsf{Set}^{\Omega_{\mathcal{F}}^{op}}$.
+\end{itemize}
+We briefly outline the main reasons why these substitutions do not affect our proofs.
+
+Firstly, the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, extends automatically. Indeed, if $T \in \Omega_{\mathcal{F}}$ the sieve condition implies
+that the filtrations produced by the original 
+Lemma \ref{CHAREDGE LEM} must necessarily use only 
+$\mathcal{F}$-inner horn inclusions.
+Therefore, all results in \S \ref{HYPERSAT SEC}, 
+most notably Proposition \ref{HYPER PROP} concerning hypersaturations,
+extend to a general weak indexing system $\Omega_{\mathcal{F}}$
+via the same proof.
+
+Next, in \S \ref{CEDSS SEC}, one can again consider two different Reedy model structures on 
+$\mathsf{sdSet}^G$.
+Firstly, using the fact that $\Delta$ is Reedy and the model structure $\mathsf{dSet}^G_{\mathcal{F}}$, one obtains a
+\textit{$\mathcal{F}$-simplicial model structure} on
+$\mathsf{dSet}^G$.
+Secondly, using the fact that $\Omega^{op} \times G$ is generalized Reedy such that the families 
+$\{\mathcal{F}_U\}$ in Remark \ref{WHYF REM}
+are Reedy admissible (see Example \ref{FGRAPHREEDY EX})
+together with the Kan model structure on 
+$\mathsf{sSet}$, Theorem \ref{REEDYADM THM} yields a 
+\textit{$\mathcal{F}$-dendroidal Reedy model structure}
+on $\mathsf{sdSet}^G$.
+Thus, by applying Proposition \ref{COMBMODSTR PROP} to combine the two structures,
+one obtains a $\mathcal{F}$-joint/$\mathcal{F}$-complete model structure, which we denote
+$\mathsf{sdSet}^G_{\mathcal{F}}$.
+The remaining discussion in \S \ref{CEDSS SEC} then follows through to yield the analogue of Theorem \ref{INC0AGJ THM}.
+\begin{theorem}\label{FINC0AGJ THM}
+	The constant/$0$-th level adjunction
+	\[
+	c_!\colon 
+	\mathsf{dSet}^G_{\mathcal{F}} \rightleftarrows \mathsf{sdSet}^G_{\mathcal{F}}
+	\colon (-)_0
+	\]
+	is a Quillen equivalence.
+\end{theorem}
+In \S \ref{PREOP SEC} the modifications are entirely straightforward, with the model structure 
+$\mathsf{sdSet}^G_{\mathcal{F}}$
+inducing a model structure
+$\mathsf{PreOp}^G_{\mathcal{F}}$ via the obvious analogue of 
+Theorem \ref{PREOPMOD THM}, and yielding the analogue of Theorem \ref{ANOQUEQUIV THM}.
+\begin{theorem}\label{FANOQUEQUIV THM}
+The adjunction
+\[
+	\gamma^{\**} \colon \mathsf{PreOp}^G_{\mathcal{F}}
+\rightleftarrows
+	\mathsf{sdSet}^G_{\mathcal{F}} \colon \gamma_{\**}
+\]
+is a Quillen equivalence.
+\end{theorem}
+
+{\color{red} HERE}
+
 
 {\color{blue} FILL}
 
 
-\begin{remark}
-Indexing systems are precisely the Segal sieves of $\Omega_G$.
-\end{remark}
+
+
 
 
 \section{Scratchwork}
 
 
-
-
-
-
-
-
-
 \begin{remark}
 {\color{blue} bla bla} the diagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
 \end{remark}
+
+
 
 
 
@@ -5465,7 +5650,7 @@ in certain subfamilies
 $\{\mathcal{F}_U\}_{U \in \Omega}
 \subset \{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
 
-\begin{example}
+\begin{example}\label{FGRAPHREEDY EX}
 	Let $\mathbb{R} = G \times \Omega^{op}$ and let
 	$\{\mathcal{F}_U\}_{U \in \Omega}$ be the family of graph subgroups determined by a weak indexing system $\mathcal{F}$.
 	Then $\{\mathcal{F}_U\}$ is Reedy-admissible.
