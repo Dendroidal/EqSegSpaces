@@ -4013,7 +4013,7 @@ See Remark \ref{INTERP REM} for a precise statement.
 
  
 
-\subsection{The homotopy genuine operad and Dwyer Kan equivalences}
+\subsection{The homotopy genuine operad and Dwyer Kan equivalences}\label{HMPTYGEN SEC}
 
 
 \begin{definition}
@@ -4718,7 +4718,7 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 \end{remark}
 
 \subsection{Rezk completion and fibrant Segal operads}
-
+\label{REZKCOMP SEC}
 
 In the next result we make use of a decomposition of the tensor product $[1] \otimes C$,
 where $[1]$ is the $1$-simplex regarded as a $G$-trivial $G$-tree, and $C$ is a $G$-corolla 
@@ -5365,7 +5365,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 \end{definition}
 
 
-\begin{remark}
+\begin{remark}\label{SEGCOMB REM}
 	Condition (ii) can be interpreted as combining the following two conditions:
 \begin{itemize}
 	\item[(ii')] the characteristic presheaf $\delta_{\mathcal{F}}$ is Segal, i.e. 
@@ -5496,13 +5496,23 @@ The adjunction
 \]
 is a Quillen equivalence.
 \end{theorem}
-
-{\color{red} HERE}
-
-
-{\color{blue} FILL}
-
-
+In \S \ref{HMPTYGEN SEC} $\mathcal{F}$-dendroidal Segal spaces are defined in the natural way. The most notable difference is then that one works only with 
+$\mathcal{F}$-corollas, i.e. $G$-corollas
+$C \in \Omega_{\mathcal{F}}$,
+and thus only with $\mathcal{F}$-profiles, thus obtaining a notion of $\mathcal{F}$-fully faithfullness and of $\mathcal{F}$-DK-equivalence 
+(essential surjectivity needs not be changed due to condition (ii'') in Remark \ref{SEGCOMB REM} implying that the stick $G$-trees $G/H \cdot \eta$ are all in $\Omega_{\mathcal{F}}$).
+Thus, noting that the Segal condition (ii') in Remark \ref{SEGCOMB REM}
+ensures that the grafted $G$-trees 
+$T=C \amalg_{Ge} D$ in \eqref{HOMOTCIRC EQ}
+are in $\Omega_{\mathcal{F}}$
+whenever $C,D$ are $\mathcal{F}$-corollas,
+the remaining discussion in 
+\S \ref{HMPTYGEN SEC}, \S \ref{REZKCOMP SEC}
+generalizes to yield the analogue of 
+Theorem \ref{COMPIFFDK THM}.
+\begin{theorem}\label{FCOMPIFFDK THM}
+A map of $X \to Y$ of $\mathcal{F}$-dendroidal Segal spaces is a $\mathcal{F}$-complete equivalence iff it is a $\mathcal{F}$-DK-equivalence.
+\end{theorem}
 
 
 
