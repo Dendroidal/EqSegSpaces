@@ -77,9 +77,12 @@ cd,patterns,calc}
 
 
 \begin{abstract}
-      bla bla, generalizing \cite{CM13a}.
+	We introduce the analogues of complete Segal space and of Segal category in the context of equivariant operads with norm maps, and build suitable model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
+	$G$-$\infty$-operads built in a previous paper.
+
+	Moreover, we establish variants of these results for the Blumberg-Hill indexing systems. 
       
-      In an appendix, we discuss Reedy categories in the equivariant context.
+	In an appendix, we discuss Reedy categories in the equivariant context.
 \end{abstract}
 
 
@@ -115,13 +118,13 @@ The starting point of this project was the discovery by the authors of,
 for each finite group $G$,
 a category $\Omega_G$ of $G$-trees whose objects diagrammatically encode compositions of norms maps 
 and whose arrows encode the necessary compatibilities between such compositions.
-Our categories $\Omega_G$ are a somewhat non-obvious equivariant generalization of the dendroidal category $\Omega$
+Our categories $\Omega_G$ are a somewhat non-obvious  generalization of the dendroidal category $\Omega$
 of Cisinski-Moerdijk-Weiss, 
 and indeed all the key combinatorial concepts in their work,
 such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,6]{Per17}.
 As such, it is natural to ask whether the Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} can also be generalized to the equivariant context. 
 
-We recall that the main result of their program is the existence of a Quillen equivalence
+Recall that the main result of their program is the existence of a Quillen equivalence
 \[
 	W_{!} \colon \mathsf{dSet} 
 		\rightleftarrows
@@ -144,7 +147,7 @@ Their program was carried out in three main steps:
 From the perspective of the Cisinski-Moerdijk program, 
 \cite{Per17} is then the equivariant analogue of the first step \cite{CM11} (as well as \cite{MW09}), 
 while the present paper provides the equivariant analogue of the
-second step \cite{CM13b}.
+second step \cite{CM13a}.
 More explicitly, in \cite{Per17}, and inspired by the category $\Omega_G$ of $G$-trees,
 the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
@@ -179,10 +182,64 @@ and the formal definition of which we prefer to postpone to a follow-up paper.
 
 The organization of the paper is as follows.
 
-{\color{blue} Fill this}
+\S \ref{PREL SEC} mostly recalls the necessary notions concerning the category $\Omega_G$ of $G$-trees and the category $\mathsf{dSet}^G$ of $G$-dendroidal sets 
+that were introduced in \cite{Per17}.
+However, some new notions and results can be found throughout, most notably the notion of \textit{orbital face} in Definition \ref{ORBFACE DEF}
+and the associated notion of \textit{orbital horn} in 
+\S \ref{EQDENDSETS SEC}.
+
+The main goal of \S \ref{EQINNERAN SEC} is to establish
+Proposition \ref{HYPER PROP},
+which roughly states that Segal core inclusions, horn inclusions and orbital horn inclusions can in some circumstances be used interchangeably.
+The bulk of the technical work takes place in 
+\S \ref{CHAREDGE SEC} where Lemma \ref{CHAREDGE LEM},
+a powerful technical result we call the
+\textit{characteristic edge lemma}, is established.
+\S \ref{HYPERSAT SEC} then shows Proposition \ref{HYPER PROP} via a string of easy applications of 
+Lemma \ref{CHAREDGE LEM}.
+Lastly, \S \ref{GENEQOP SEC} recasts the \textit{genuine equivariant operads} of \cite{BP17} in a different perspective more suitable for our purposes in \S \ref{EDSS_SEC}.
+
+\S \ref{QUIEQ SEC} establishes the desired Quillen equivalences between 
+$\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
+via largely abstract methods.
+Our approach is inspired by 
+\cite[Thm. 6.6]{CM13a}, which observes that the (complete) model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
+As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common localizations, 
+which is then applied in \S \ref{CEDSS SEC} to obtain the Quillen equivalence
+$\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
+in Theorem \ref{INC0AGJ THM}.
+\S \ref{PREOP SEC} then uses purely formal techniques to induce the model structure on
+$\mathsf{PreOp}^G$ from the model structure on
+$\mathsf{sdSet}^G$
+and to establish the Quillen equivalence
+$\mathsf{PreOp}^G \rightleftarrows \mathsf{sdSet}^G$
+in Theorem \ref{ANOQUEQUIV THM}.
+
+Then in our last main section \S \ref{EDSS_SEC},
+and motivated by the fact that in our desired model structure on $G$-operads $\mathsf{sOp}^G$
+(to be described in a follow-up paper)
+the weak equivalences are Dwyer Kan equivalences
+(i.e. characterized by fully faithfulness and essential surjectivity), 
+we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer Kan type description of the weak equivalences 
+between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$.
+
+\S \ref{INDEX SEC}, which is transversal to the remainder of the paper, outlines generalizations of all our results where the role of the category $\Omega_G$ of $G$-trees
+is played by a certain type of subcategory
+$\Omega_{\mathcal{F}} \subseteq \Omega_G$
+which (almost exactly) corresponds to one of the 
+\textit{indexing systems} first identified
+by Blumberg and Hill in \cite{BH15}.
+
+Lastly, Appendix \ref{EQREED AP} discusses an equivariant variation of the \textit{generalized Reedy categories}
+of \cite{BM11} which plays an essential role in \S \ref{CEDSS SEC}
+when describing the model structure on $\mathsf{sdSet}^G$.
+The key to this appendix is the \textit{Reedy-admissibility} condition in 
+Definition \ref{GENRED DEF}(iv),
+which is a rather non-obvious equivariant generalization of one of the Reedy category axioms in \cite{BM11}.
 
 
-\section{Preliminaries}
+
+\section{Preliminaries}\label{PREL SEC}
 
 \subsection{The category of trees $\Omega$}
 
@@ -554,7 +611,7 @@ which respects the $G$-actions on the two categories.
 
 We now introduce the notion of face suggested by the orbital representation.
 
-\begin{definition}
+\begin{definition}\label{ORBFACE DEF}
 	Let $T \in \Omega_G$.
 	An \textit{orbital face} of $T$ is a map 
 	$S \hookrightarrow T$ in $\Omega_G$ which is injective on edges. Further, an orbital face is called
@@ -1475,7 +1532,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
 
 
 
-\section{Equivariant inner anodyne maps}
+\section{Equivariant inner anodyne maps}\label{EQINNERAN SEC}
 
 
 Much as in \cite[\S 2]{CM13a}, 
@@ -2669,7 +2726,7 @@ $\Lambda^0[1] \to \Delta[1]$ are unneeded since \eqref{INVER EQ} is an isomorphi
 
 
 
-\subsection{Genuine equivariant operads}
+\subsection{Genuine equivariant operads}\label{GENEQOP SEC}
 
 
 %%%% Third Try
@@ -3305,7 +3362,7 @@ Uniqueness follows since any lift of the left square induces a lift of the outer
 
 
 
-\section{Quillen equivalences}
+\section{Quillen equivalences}\label{QUIEQ SEC}
 
 Our main goal in this section is to prove Theorems \ref{INC0AGJ THM} and \ref{ANOQUEQUIV THM},
 which jointly establish the Quillen equivalence of three model categories:
@@ -5377,10 +5434,8 @@ a complete dendroidal Segal space.
 
 
 
-\newpage
 
-
-\section{Indexing system analogue results}
+\section{Indexing system analogue results}\label{INDEX SEC}
 
 Just as in \cite[\S 9]{Per17}, we dedicate our final section
 to outlining the generalizations of our results to the 
@@ -5606,7 +5661,7 @@ A map of $X \to Y$ of $\mathcal{F}$-dendroidal Segal spaces is a $\mathcal{F}$-c
 
 \appendix
 
-\section{Equivariant Reedy model structures}
+\section{Equivariant Reedy model structures}\label{EQREED AP}
 
 
 {\color{blue} Bla bla one of the axioms in \cite{BM11} is different from the others point of view}
