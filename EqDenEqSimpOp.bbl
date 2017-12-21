@@ -10,6 +10,12 @@ Julia~E. Bergner.
 \newblock Equivalence of models for equivariant {$(\infty,1)$}-categories.
 \newblock {\em Glasg. Math. J.}, 59(1):237--253, 2017.
 
+\bibitem[BH15]{BH15}
+Andrew~J. Blumberg and Michael~A. Hill.
+\newblock Operadic multiplications in equivariant spectra, norms, and
+  transfers.
+\newblock {\em Adv. Math.}, 285:658--708, 2015.
+
 \bibitem[BM11]{BM11}
 Clemens Berger and Ieke Moerdijk.
 \newblock On an extension of the notion of {R}eedy category.
@@ -34,6 +40,11 @@ Denis-Charles Cisinski and Ieke Moerdijk.
 Denis-Charles Cisinski and Ieke Moerdijk.
 \newblock Dendroidal sets and simplicial operads.
 \newblock {\em J. Topol.}, 6(3):705--756, 2013.
+
+\bibitem[GW17]{GW17}
+J.~Guti\'errez and D.~White.
+\newblock Encoding equivariant commutativity via operads.
+\newblock arXiv preprint: 1707.02130, 2017.
 
 \bibitem[HHM16]{HHM16}
 Gijs Heuts, Vladimir Hinich, and Ieke Moerdijk.
@@ -99,10 +110,5 @@ Emily Riehl.
 Marc Stephan.
 \newblock On equivariant homotopy theory for model categories.
 \newblock {\em Homology Homotopy Appl.}, 18(2):183--208, 2016.
-
-\bibitem[Wei12]{Wei12}
-Ittay Weiss.
-\newblock Broad posets, trees, and the dendroidal category.
-\newblock Available at: \texttt{https://arxiv.org/abs/1201.3987}, 2012.
 
 \end{thebibliography}
