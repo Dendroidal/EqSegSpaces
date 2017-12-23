@@ -2731,18 +2731,14 @@ $\Lambda^0[1] \to \Delta[1]$ are unneeded since \eqref{INVER EQ} is an isomorphi
 
 %%%% Third/Fourth Try
 
-We recall that categories can be identified with their nerves, as the functor $N: \Cat \to \sSet$ is fully faithful.
+Recall that categories can be identified with their nerves, as the functor $N: \Cat \to \sSet$ is fully faithful.
 Moreover, the essential image of the nerve is characterized as precisely those simplicial sets
-with the strict\footnote{
-  Recall that here \textit{strict} means that the usual lifts exist and are unique}
-right lifting proprety against the inner horn inclusions \cite[Prop. 1.1.2.2]{Lur09}.
-Similarly, \cite[Prop. 5.3 and Theorem 6.1]{MW09} show that the operadic nerve $N: \Op \to \dSet$ is fully faithful,
+with the strict right lifting property 
+(where \textit{strict} means that the lifts are unique)
+against the inner horn inclusions \cite[Prop. 1.1.2.2]{Lur09}.
+Similarly, \cite[Prop. 5.3 and Thm. 6.1]{MW09} show that the operadic nerve $N: \Op \to \dSet$ is fully faithful,
 with image those dendroidal sets with the strict right lifting property against (dendroidal) inner horn inclusions.
 
-\begin{remark}
-      We note that these characterizations compliment the definitions for the weaker algebraic structures of
-      $\infty$-categories and $\infty$-operads, by adding the adjective ``strict''.
-\end{remark}
 
 Additionally, \cite[Cor. 2.6]{CM13a} equivalently characterizes the image of $N$ as those dendroidal sets with
 strict lifts against Segal core inclusions.
@@ -2820,13 +2816,7 @@ it follows that both $p$ and $Hg$ are lifts for the top square in the right diag
 $p = Hg$. This shows that $H$ is also in fact a lift for the left square.
 Uniqueness follows since any lift of the left square induces a lift of the outer right square.
 \end{proof}
-\begin{remark}
-      If $\mathcal C$ is a \textit{generating} set of trivial cofibrations,
-      then the saturation and hypersaturations of $\mathcal C$ are both the class of trivial cofibrations,
-      and so the above states that
-      $\mathcal C$ and its hypersaturation have the same class of maps
-      satisfying the (non-strict) right lifting property.
-\end{remark}
+
 
 In the equivariant setting,
 we recall that the 
@@ -5510,9 +5500,9 @@ but additional conditions are needed to ensure compatibility
 with the operadic composition and unit.
 In the following, we abbreviate 
 $\delta_{\mathcal{F}} = \delta_{\Omega_{\mathcal{F}}}$ and,
-for each $G$-vertex $V$ of $T \in \Omega_G$, we write 
+for each $G$-vertex $v$ of $T \in \Omega_G$, we write 
 $T_V$ for the orbital outer face whose only
-$G$-vertex is $V$.
+$G$-vertex is $v$.
 
 \begin{definition}
 A \textit{weak indexing system} is a full subcategory
@@ -5522,11 +5512,11 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
               $\Omega_G$;              
 	\item[(ii)] for each $T \in \Omega_G$ it is 
 	$T \in \Omega_{\mathcal{F}}$ iff 
-	$\forall_{V \in V_G(T)} T_V \in \Omega_{\mathcal{F}}$
+	$\forall_{v \in V_G(T)} T_v \in \Omega_{\mathcal{F}}$
 	or, equivalently, if
 \begin{equation}\label{SEGCOMB EQ}
 \delta_{\mathcal{F}}(T) =
-\prod_{V \in V_G(T)}\delta_{\mathcal{F}}(T_V).
+\prod_{v \in V_G(T)}\delta_{\mathcal{F}}(T_v).
 \end{equation}
 \end{itemize}
 \end{definition}
