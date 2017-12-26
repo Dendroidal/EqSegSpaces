@@ -621,12 +621,42 @@ We now introduce the notion of face suggested by the orbital representation.
 \end{definition}
 
 
-\begin{example} The following are two planar orbital faces of the $G$-tree $T$ in \eqref{TWOREP EQ},
-with $R \hookrightarrow T$ an orbital outer face and 
+\begin{example}\label{ORBFACE EX}
+The following are three planar orbital faces of the $G$-tree $T$ in \eqref{TWOREP EQ},
+with $R_1 \hookrightarrow T$,  
+$R_2 \hookrightarrow T$ orbital outer faces and 
 $S \hookrightarrow T$ an orbital inner face.
 \begin{equation}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
 	every node/.style={font=\scriptsize,inner sep = 2pt}]%
+	\begin{scope}
+		\tikzstyle{level 2}=[sibling distance=7em]%
+			\node at (17.5em,0){}%	
+				child{node [dummy] {}%
+					child{
+					edge from parent node [swap] {$k c$}}%
+					child{
+					edge from parent node  {$i c$}}%
+				edge from parent node [swap] {$i d$}};%
+			\node at (3.5em,0){}%
+				child{node [dummy] {}%
+					child{
+					edge from parent node [swap] {$j c$}}%
+					child{
+					edge from parent node  {$\phantom{j}c$}}%
+				edge from parent node [swap] {$d$}};%
+		\begin{scope}[every node/.style={font=\footnotesize}]%
+			\node at (32em,0){}%
+				child{node [dummy] {}%
+					child{
+					edge from parent node [right] {$(G/K) \cdot c$}}%
+				edge from parent node [right] {$(G/H) \cdot d$}};%
+		\end{scope}%
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (18em,0) -- (3em,0) node[midway,inner sep=4pt,font=\normalsize]{$R_1$}; %
+		\node at (32em,-0.15) [font=\normalsize] {$R_1$};
+	\end{scope}
+%-----Second line-------
+	\begin{scope}[yshift = -7em]
 		\begin{scope}
 		\tikzstyle{level 2}=[sibling distance=2.25em]%
 			\node at (0,0){}%
@@ -637,7 +667,7 @@ $S \hookrightarrow T$ an orbital inner face.
 					edge from parent node [swap,near end] {$b\phantom{j}$}}%
 					child{node {}%
 					edge from parent node [very near end] {$\phantom{-j}a$}}%
-				edge from parent node [swap] {$\phantom{j}c$}};%
+				edge from parent node [swap] {$c\phantom{j}$}};%
 			\node at (7em,0){}%
 				child{node [dummy] {}%
 					child{node {}%
@@ -676,10 +706,11 @@ $S \hookrightarrow T$ an orbital inner face.
 					edge from parent node [very near end] {$(G/L) \cdot a$}}%
 				edge from parent node [right] {$(G/K) \cdot c$}};%
 		\end{scope}%
-		\draw[decorate,decoration={brace,amplitude=2.5pt}] (21.5em,0) -- (-0.5em,0) node[midway,inner sep=4pt,font=\normalsize]{$R$}; %
-		\node at (32em,-0.15) [font=\normalsize] {$R$};
-%------- Second line ------
-	\begin{scope}[yshift = -8em]
+		\draw[decorate,decoration={brace,amplitude=2.5pt}] (21.5em,0) -- (-0.5em,0) node[midway,inner sep=4pt,font=\normalsize]{$R_2$}; %
+		\node at (32em,-0.15) [font=\normalsize] {$R_2$};
+	\end{scope}
+%------- Third line ------
+	\begin{scope}[yshift = -15em]
 		\begin{scope}
 		\tikzstyle{level 2}=[sibling distance=3em]%
 			\node at (3.5em,0){}%
@@ -696,7 +727,7 @@ $S \hookrightarrow T$ an orbital inner face.
 					edge from parent node [very near end] {$\phantom{j}b$}}%
 					child[sibling distance=2.5em,level distance=2.2em]{node {}%
 					edge from parent node [near end] {$\phantom{-j}a$}}%
-				edge from parent node [swap] {$\phantom{j}d$}};%
+				edge from parent node [swap] {$d\phantom{j}$}};%
 			\node at (17.5em,0){}%
 				child{node [dummy] {}%
 					child[sibling distance=2.5em,level distance=2.2em]{node {}%
@@ -711,7 +742,7 @@ $S \hookrightarrow T$ an orbital inner face.
 					edge from parent node [very near end] {$\phantom{j}i b$}}%
 					child[sibling distance=2.5em,level distance=2.2em]{node {}%
 					edge from parent node [near end] {$\phantom{-j}i a$}}%
-				edge from parent node [swap] {$\phantom{j}i d$}};%	
+				edge from parent node [swap] {$i d\phantom{j}$}};%	
 		\end{scope}
 		\begin{scope}[every node/.style={font=\footnotesize}]%
 		\tikzstyle{level 2}=[sibling distance=2.25em]%
@@ -729,7 +760,7 @@ $S \hookrightarrow T$ an orbital inner face.
 	\end{tikzpicture}%
 \end{equation}%
 These examples illustrate our motivation for the term 
-``orbital face'': the tree diagrams in the orbital representations of $R,S$ look like faces of the tree in the orbital representation of $T$.
+``orbital face'': the tree diagrams in the orbital representations of $R_1,R_2,S$ look like faces of the tree in the orbital representation of $T$.
 
 Adapting the notation for (non-equivariant) inner faces, we write
 $S = T-Gc = T-\{c,jc,ic,kc\}$ and analogously throughout the paper.
@@ -738,7 +769,7 @@ We will need no analogous notation for orbital outer faces.
 
 
 \begin{notation}\label{TREEDIFNOT NOT}
-	In the remainder of the paper we sometimes need to consider (non-equivariant) and orbital faces simultaneously.
+	In the remainder of the paper we sometimes need to consider (non-equivariant) faces and orbital faces simultaneously.
 	As such, we reserve the letters $U,V,W$ for trees in $\Omega$
 	and the letters $R,S,T$ for $G$-trees in $\Omega_G$.
 \end{notation}
@@ -914,7 +945,7 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 	a functor $\Omega_G \to \Omega$, as shown by
 	the following (for $G = \mathbb{Z}_{/2} = \{\pm 1\}$),
 	since no dashed arrow exists.
-\begin{equation}
+\begin{equation}\label{QUOTMAP EQ}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2.2em,
 	every node/.style={font=\scriptsize,inner sep = 2pt}]%
 		\tikzstyle{level 2}=[sibling distance=2.25em]%
@@ -2730,40 +2761,50 @@ $\Lambda^0[1] \to \Delta[1]$ are unneeded since \eqref{INVER EQ} is an isomorphi
 
 
 
-
-
 \subsection{Genuine equivariant operads}\label{GENEQOP SEC}
 
-Recall that categories can be identified with their nerves, as the functor
-\begin{equation}
-      \mbox{$N: \Cat \to \sSet$, \qquad \qquad $N\mathcal C (n) = \mathsf{Cat}([n], \mathcal C)$}
-\end{equation}
+
+Recall that categories can be identified with their nerves, since the \textit{nerve functor}
+$N \colon \mathsf{Cat} \to \mathsf{sSet}$, 
+given by $N\mathcal C (n) = \mathsf{Cat}([n], \mathcal C)$, 
 is fully faithful.
-Moreover, the essential image of the nerve is characterized as precisely those simplicial sets
+%\begin{equation}
+%      \mbox{$N: \Cat \to \sSet$, \qquad \qquad $N\mathcal C (n) = \mathsf{Cat}([n], \mathcal C)$}
+%\end{equation}
+Moreover, the essential image of the nerve is characterized as those simplicial sets
 with the strict right lifting property 
 (where \textit{strict} means that the lifts are unique)
 against the inner horn inclusions \cite[Prop. 1.1.2.2]{Lur09}.
-Similarly, \cite[Prop. 5.3 and Thm. 6.1]{MW09} show that the operadic nerve
-\begin{equation}
-      \label{NERVE_EQ}
-      \mbox{$N: \Op \to \dSet$, \qquad \qquad $N\O(U) = \Op(U,\O)$}
-\end{equation}
-is fully faithful,
-with image those dendroidal sets with the strict right lifting property against (dendroidal) inner horn inclusions.
 
-Additionally, \cite[Cor. 2.6]{CM13a} equivalently characterizes the image of $N$ as those dendroidal sets with
-strict lifts against Segal core inclusions.
-Such interactions between different lifting conditions are found throughout \cite[\S 2]{CM13a} and elsewhere (e.g. \cite[Lemma 3.5]{JT06}),
-and we state a general result of this form.
+More generally, 
+there is a similar operadic story. Any tree $U \in \Omega$ is naturally associated to a colored operad 
+$\Omega(U) \in \mathsf{Op}$ \cite[\S 3]{MW07}, and
+\cite[Prop. 5.3 and Thm. 6.1]{MW09} show that the operadic nerve
+$N \colon \mathsf{Op} \to \mathsf{sdet}$, 
+given by $N\mathcal{O} (U) = \mathsf{Op}(\Omega(U), \mathcal {O})$,
+%\begin{equation}
+%      \label{NERVE_EQ}
+%      \mbox{$N: \Op \to \dSet$, \qquad \qquad $N\O(U) = \Op(U,\O)$}
+%\end{equation}
+is again fully faithful
+with essential image the dendroidal sets with the strict right lifting property against (dendroidal) inner horn inclusions.
+Moreover, \cite[Cor. 2.6]{CM13a} provides an alternate characterization via strict lifts against Segal core inclusions. The equivalence between these two characterizations is an observation concerning the notion of hypersaturation in the previous section, as follows.
 
-\begin{lemma}\label{HYPER_LP_LEM}
+
+%Additionally, \cite[Cor. 2.6]{CM13a} equivalently characterizes the image of $N$ as those dendroidal sets with
+%strict lifts against Segal core inclusions.
+%Such interactions between different lifting conditions are found throughout \cite[\S 2]{CM13a} and elsewhere (e.g. \cite[Lemma 3.5]{JT06}),
+%and we state a general result of this form.
+
+\begin{proposition}\label{HYPERLP PROP}
       If two classes $\mathcal{C},\mathcal{D}$
-      of cofibrations in some model category %normal monomorphisms of $\mathsf{dSet}^G$
-      have the same (hyper)saturation, then
-      the class of maps satisfying the (strict) right lifting properties against $\mathcal C$ and $\mathcal D$ are equal.
-\end{lemma}
+      of cofibrations in a model category %normal monomorphisms of $\mathsf{dSet}^G$
+      have the same hypersaturation, then
+      the two classes of maps with the strict right lifting property against $\mathcal C$ and $\mathcal D$ coincide.
+\end{proposition}
+
 \begin{proof}
-      It suffices to check that the hypersaturation closure conditions are compatible with strict right lifting properties.
+	It suffices to check that the hypersaturation closure conditions are compatible with strict right lifting properties.
 The claims concerning pushouts, transfinite compositions and retracts follow from the easy observation that the proofs of the analogue claims for the usual right lifting property \cite[Lemma 11.1.4]{Ri14} are compatible with the uniqueness requirement.
 
 %For any pushout (respectively (dashed) retract)
@@ -2788,7 +2829,7 @@ The claims concerning pushouts, transfinite compositions and retracts follow fro
 
 %For transfinite composites,
 %both the definition of the lift for the composite and its uniqueness are immediate.
-We thus address only the cancellation property, which is the most interesting case. Suppose then that $r$ has the strict right lifting property against normal monomorphisms $f$ and $gf$, and consider a lifting problem as on the left below.
+We thus address only the cancellation property. Suppose then that $r$ has the strict right lifting property against cofibrations $f$ and $gf$, and consider a lifting problem as on the left below.
 \begin{equation}
 \begin{tikzcd}[column sep = 8em]
 	B \ar{r}{p} \ar{dd}[swap]{g}& 
@@ -2812,8 +2853,7 @@ We thus address only the cancellation property, which is the most interesting ca
 \arrow[from=B, to=Y,crossing over]
 \end{tikzcd}
 \end{equation}
-By assumption, one can find a unique lift $H$ for the outer square on the right.
-% We claim that $H$ is also the unique lift for the left square.
+By assumption, there is a unique lift $H$ for the outer square on the right, and we claim that $H$ is also the unique lift for the left square.
 Noting that
 $pf = Hgf$
 and 
@@ -2822,70 +2862,183 @@ it follows that both $p$ and $Hg$ are lifts for the top square in the right diag
 $p = Hg$. This shows that $H$ is also in fact a lift for the left square.
 Uniqueness follows since any lift of the left square induces a lift of the outer right square.
 \end{proof}
-
-In the equivariant setting, each $T \in \Omega_G$ generates a test $G$-operad,
-and so the natural generalization of \eqref{NERVE_EQ}
-lands not in $\dSet^G$ but
-the richer presheaf category of
-\textit{genuine $G$-equivariant dendroidal sets} $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$.
-There is a natural adjunction
-\begin{equation}
-      \label{DSETG_EQ}
-      \upsilon^{\**}: \dSet_G \rightleftarrows \dSet^G : \upsilon_{\**}
+Roughly speaking, our goal in this section is that of describing those presheaves with the 
+strict right lifting property against any of the classes of maps in Proposition \ref{HYPER PROP},
+which we call genuine equivariant operads.
+However, some care is needed.
+Namely, it is essential to work with the category
+$\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$
+of \textit{genuine $G$-dendroidal sets}
+rather than with the category
+$\mathsf{dSet}^G = \mathsf{Set}^{\Omega^{op} \times G}$
+of $G$-dendroidal sets, i.e. it is essential to work with presheaves that are evaluated on 
+$G$-trees $T \in \Omega_G$
+rather than non-equivariant trees $U \in \Omega$
+(the motivation for this is given in 
+Remark \ref{DESTIAL REM} below).
+To relate these presheaf categories, note that the fully faithful inclusion
+$\upsilon \colon \Omega \times G^{op} \to \Omega_G$
+given by $U \mapsto G \cdot U$ induces an adjunction
+\begin{equation}\label{DSETG_EQ}
+	\upsilon^{\**}: \dSet_G \rightleftarrows \dSet^G : \upsilon_{\**}
 \end{equation}
-induced by the inclusion $\Omega \times G^{op} \into \Omega_G$.
-\begin{definition}
-      \label{GEN_OP_DEF}
-      $X \in \dSet_G$ is called a \textit{(combinatorial) genuine equivariant operad} if
-      $X$ has the strict right lifting property against the images under $\upsilon_{\**}$
-      of all $G$-inner horn inclusions.
-      \begin{equation}
-            \label{GGIOP_EQ}
-            \upsilon_{\**}\left( \Lambda^{E}[T] \to \Omega[T] \right),
-            \qquad \qquad
-            T \in \Omega_G,\ E \subseteq E^{\mathrm{i}}(T)
-      \end{equation}
+
+
+\begin{remark}
+Mimicking the notation in \S \ref{EQDENDSETS SEC},
+we write $\Omega_G[-] \colon \Omega_G \to \mathsf{dSet}_G$
+for the Yoneda embedding.
+On the other hand, in 
+\S \ref{EQDENDSETS SEC} we extended the notation $\Omega[-]$
+to obtain a functor $\Omega[-] \colon \Omega_G \to \mathsf{dSet}^G$.
+These two ``representable functors'' are related by 
+$\Omega_G[T] = \upsilon_{\**} \Omega[T]$.
+\end{remark}
+
+The following definition is then the main purpose of this section.
+
+\begin{definition}\label{GEN_OP_DEF}
+	$\mathcal{P} \in \dSet_G$ is called a \textit{genuine equivariant operad} if
+	$\mathcal{P}$ has the strict right lifting property against the images under $\upsilon_{\**}$
+	of the Segal core inclusions, i.e. against the maps
+	\begin{equation}\label{GGIOP_EQ}
+		\upsilon_{\**}\left(Sc[T] \to \Omega[T] \right),
+		\qquad
+		T \in \Omega_G.
+	\end{equation}
+Equivalently, by Propositions \ref{HYPER PROP} and \ref{HYPERLP PROP}, one may replace Segal core inclusions with either orbital $G$-inner horn inclusions or $G$-inner horn inclusions.
 \end{definition}
 
-% \begin{remark}
-%       Since $\upsilon^{\**}\colim_\alpha \upsilon_{\**}X_\alpha = \colim X_\alpha$ for all $X \in \dSet^G$,
-%       Proposition \ref{HYPER PROP} and Lemma \ref{HYPER_LP_LEM} imply that
-%       $X \in \dSet_G$ is a genuine operad iff
-%       $X$ has the strict lifting property against images of all Segal core inclusions.
-% \end{remark}
 
-To help unpack and motivate Definition \ref{GEN_OP_DEF}, we recall genuine equivariant operads from \cite{BP17}.
-Briefly, these are algebraic objects
-which embody the fact that,
-while trees encode compositions of generic operations (giving rise to regular operads),
-$G$-trees encode compositions of \textit{norm maps}.
+\begin{example}
+	To illustrate the role of the strict lifting condition against the maps in \eqref{GGIOP_EQ},
+	consider the $G$-tree $T$ in \eqref{TWOREP EQ},
+	along with the subgroup $K = \lbrace -1 \rbrace$ therein
+	and the orbital faces $R_1,R_2,S$ in Example \ref{ORBFACE EX}. 
+	The strict lifting condition then says that the left map in	
+\begin{equation}\label{NORM_COMP_GEN_EQ}
+\begin{tikzcd}
+	\mathcal{P}(R_1) \times_{\mathcal{P}(G/K \cdot \eta)} \mathcal{P}(R_2)  &
+	\mathcal{P}(T) \ar{l}[swap]{\simeq} \ar{r} &
+	\mathcal{P}(S)&
+\end{tikzcd}
+\end{equation}
+is an isomorphism, so that $T$ induces a 
+\textit{composition map}
+$
+	\mathcal{P}(R_1) \times_{\mathcal{P}(G/K \cdot \eta)} \mathcal{P}(R_2)  \to
+	\mathcal{P}(S)
+$.
+Here we note that $R_1,R_2,S$ are \textit{$G$-corollas}
+(i.e. $G$-trees with a single $G$-vertex).
+Informally, one then thinks of the $\mathcal{P}(C)$, where
+$C$ ranges over the $G$-corollas,
+as the mapping sets of the genuine equivariant operad $\mathcal{P}$,
+so that the strict lifting conditions equip these mapping sets with associative and unital composition maps.
 
-\begin{example}%
-      To illustrate, consider the $G$-tree from \eqref{TWOREP EQ} (or \cite[Example 4.9]{Per17}).
-      This visualises the fact that the non-equivariant composition
-      \mbox{$\O(2) \times \O(3) \times \O(3) \to \O(6)$},
-      read off from the \textit{expanded representation},
-      restricts to a composition of fixed-points 
-      \begin{equation}
-            \label{NORM_COMP_EQ}
-            \O(H/K)^H \times \O(K/L \amalg K/K)^K \to \O(H/L \amalg H/K)^H
-      \end{equation}
-      read off from the \textit{orbital representation}.
-      Here, $\O(A)$ with $A \in \Set^H$ denotes $\O(|A|)$ with an appropriately twisted $H$-action,
-      and moreover $\O(A)^H$ is equivalent to the set of maps $\Op^G(\Omega(C_A), \O)$,
-      where $C_A \in \Omega_G$ is the $G$-corolla with leaf set $G \cdot_H A$ (see Notation \ref{GCOR NOT}).
-      Finally, $\O(A)^H$ encodes norm maps $N^A X \to X$ for any $\O$-algebra $X$,
-      where the \textit{norm} $N^A X$ denotes
-      $X^{\times |A|}$ also with an appropriately twisted $H$-action (e.g. \cite[Defn. 6.1]{BH15}). %\cite[\S A.3.2]{HHR16}
+We caution, however, that this is not quite the whole story,
+since the composition maps need also be compatible with the presheaf structure, which is more complex in the equivariant context. 
+More explicitly, non-equivariantly one needs only compatibility with the symmetric group actions,
+reflecting the fact that (almost) all maps between corollas are symmetry isomorphisms. 
+But in the equivariant context $G$-corollas are also related via \textit{quotient maps}
+(such as the map in \eqref{QUOTMAP EQ}),
+which induce subtler compatibility conditions.
+Nonetheless, our intended application in \S \ref{EDSS_SEC}
+will not require an explicit discussion of these additional compatibilities.
 \end{example}
 
-With this setup, a genuine equivariant operad $\P \in \Op_G$ can be given by the data of
-levels $\P(A)$ for each $A \in \Set^H$ (analogous to the evaluations $\O(H/K)^H$),
-%restriction and conjugation maps $\P(A) \to \P(A|_K)$ and $\P(A) \to \P(gA)$,
-and composition maps as in \eqref{NORM_COMP_EQ} for any $T \in \Omega_G$,
-with appropriate naturality, unitality, and associativity conditions imposed by maps of $G$-trees.
-% (which in particular describe how these compositions and evaluations interact under restriction and conjugation).
-For a complete definition and further discussion, see \cite[\S4]{BP17}.
+
+\begin{remark}
+Consider a single colored $G$-operad $\mathcal{O}$
+(i.e. an operad with a $G$-action commuting with all structure)
+and a finite $H$-set $A$ for some subgroup $H \leq G$,
+and write $\Gamma_A \leq G \times \Sigma_{|A|}$
+for the graph of the homomorphism 
+$H \to \Sigma_{|A|}$ encoding $A$.
+We then abbreviate 
+$\mathcal{O}(A)^H = \mathcal{O}(|A|)^{\Gamma_A}$,
+and call this the 
+\textit{set of $A$-norm maps of $\mathcal{O}$}
+(this is because, for each $\mathcal{O}$-algebra $R$,
+$\mathcal{O}(A)^H$ indexes operations
+$N^A R \to R$, where the
+\textit{norm} $N^A R$ denotes
+$R^{\times |A|}$ with a suitably twisted $H$-action  \cite[Def. 6.1]{BH15}.
+
+Letting $T,R_1,R_2,S \in \Omega_G$ and $H,K,L\leq G$ again be as in
+\eqref{TWOREP EQ} and Example \ref{ORBFACE EX},
+the diagram of hom sets
+\begin{equation}\label{NORM_COMP_OP_EQ}
+\begin{tikzcd}
+	\mathsf{Op}^G(\Omega(R_1), \mathcal{O})\times 
+	\mathsf{Op}^G(\Omega(R_2), \mathcal{O})  &
+	\mathsf{Op}^G(\Omega(T), \mathcal{O}) \ar{r} \ar{l}[swap]{\simeq}&
+	\mathsf{Op}^G(\Omega(S), \mathcal{O})&
+\end{tikzcd}
+\end{equation}
+can be interpreted, after unpacking notation, as giving a 
+composition of norm maps
+\begin{equation}\label{NORM_COMP_EQ}
+\O(H/K)^H \times \O(K/L \amalg K/K)^K \to \O(H/L \amalg H/K)^H
+\end{equation}
+The diagrams \eqref{NORM_COMP_GEN_EQ} for genuine operads $\mathcal{P}$ can then be regarded as abstracting the diagrams \eqref{NORM_COMP_OP_EQ} for $G$-operads $\O$,
+though with two key differences. 
+The more obvious difference is the fact that 
+\eqref{NORM_COMP_OP_EQ} features no analogue of
+the $\mathcal{P}(G/K \cdot \eta)$ term, 
+though this is simply since we chose $\O$ to be single colored.
+The subtler, and more crucial, difference is the fact that the terms in \eqref{NORM_COMP_GEN_EQ}
+need not be described by fixed point sets as in 
+\eqref{NORM_COMP_EQ}.
+
+Therefore, one can regard genuine equivariant operads as objects that mimic the composition combinatorics of the  norm maps in a (regular) equivariant operad, while relaxing the fixed point conditions.
+In fact, the reader of \cite{BP17} may recognize this as the informal description of genuine equivariant operads given in the introduction to that work,
+though our current formal setting is rather different.
+Moreover, the connection between the two settings is as follows.
+There is a nerve functor
+\begin{equation}\label{NG EQ}
+N_G \colon \Op_G \to \dSet_G, \qquad N_G\P(T) = \Op_G(\Omega_G(T), \P)
+\end{equation}
+where $\Op_G$ denotes a colored generalization of the genuine equivariant operads of \cite{BP17}. Moreover, $N_G$ is fully faithful and its essential image are the genuine equivariant operads in the sense of Definition \ref{GEN_OP_DEF}.
+However, we will not require these facts, and thus delay their proof to a sequel.
+\end{remark}
+
+
+
+
+%\begin{example}%
+%      To illustrate, consider the $G$-tree from \eqref{TWOREP EQ} (or \cite[Example 4.9]{Per17}).
+%      This visualises the fact that the non-equivariant composition
+%      \mbox{$\O(2) \times \O(3) \times \O(3) \to \O(6)$},
+%      read off from the \textit{expanded representation},
+%      restricts to a composition of fixed-points 
+%      \begin{equation}
+%            \label{NORM_COMP_EQ}
+%            \O(H/K)^H \times \O(K/L \amalg K/K)^K \to \O(H/L \amalg H/K)^H
+%      \end{equation}
+%      read off from the \textit{orbital representation}.
+%      Here, $\O(A)$ with $A \in \Set^H$ denotes $\O(|A|)$ with an appropriately twisted $H$-action,
+%      and moreover $\O(A)^H$ is equivalent to the set of maps $\Op^G(\Omega(C_A), \O)$,
+%      where $C_A \in \Omega_G$ is the $G$-corolla with leaf set $G \cdot_H A$ (see Notation \ref{GCOR NOT}).
+%      Finally, $\O(A)^H$ encodes norm maps $N^A X \to X$ for any $\O$-algebra $X$,
+%      where the \textit{norm} $N^A X$ denotes
+%      $X^{\times |A|}$ also with an appropriately twisted $H$-action (e.g. \cite[Defn. 6.1]{BH15}). %\cite[\S A.3.2]{HHR16}
+%\end{example}
+
+%To help unpack and motivate Definition \ref{GEN_OP_DEF}, we recall genuine equivariant operads from \cite{BP17}.
+%Briefly, these are algebraic objects
+%which embody the fact that,
+%while trees encode compositions of generic operations (giving rise to regular operads),
+%$G$-trees encode compositions of \textit{norm maps}.
+
+
+%With this setup, a genuine equivariant operad $\P \in \Op_G$ can be given by the data of
+%levels $\P(A)$ for each $A \in \Set^H$ (analogous to the evaluations $\O(H/K)^H$),
+%%%restriction and conjugation maps $\P(A) \to \P(A|_K)$ and $\P(A) \to \P(gA)$,
+%and composition maps as in \eqref{NORM_COMP_EQ} for any $T \in \Omega_G$,
+%with appropriate naturality, unitality, and associativity conditions imposed by maps of $G$-trees.
+%%% (which in particular describe how these compositions and evaluations interact under restriction and conjugation).
+%For a complete definition and further discussion, see \cite[\S4]{BP17}.
 
 % \begin{remark}
 %       Genuine operads are strictly more data than ``coefficient system of operads'',
@@ -2911,129 +3064,103 @@ For a complete definition and further discussion, see \cite[\S4]{BP17}.
 %       encodes the weaker notion of commutative monoids with $G$-action (and only trivial norm maps).
 % \end{example}
 
-As anticipated, there is a natural nerve functor
-\begin{equation}
-      N_G: \Op_G \to \dSet_G, \qquad \qquad N_G\P(T) = \Op_G(\upsilon_{\**}\Omega(T), \P)
-\end{equation}
-fitting into a commuting diagram of adjunctions (cf. \eqref{DSETG_EQ}, \cite[Cor. 4.40]{BP17}) 
-\begin{equation}
-      \label{OP_ADJ_EQ}
-      \begin{tikzcd}
-            \Op_G \arrow[d, shift left, "N_G"] \arrow[r, shift left, "\upsilon^{\**}"]
-            &
-            \Op^G \arrow[d, shift left, "N^G"] \arrow[l, shift left, "\upsilon_{\**}"]
-            \\
-            \dSet_G \arrow[u, shift left] \arrow[r, shift left, "\upsilon^{\**}"]
-            &
-            \dSet^G \arrow[u, shift left] \arrow[l, shift left, "\upsilon_{\**}"].
-      \end{tikzcd}
-\end{equation}
+%As anticipated, there is a natural nerve functor
+%\begin{equation}
+%      N_G: \Op_G \to \dSet_G, \qquad \qquad N_G\P(T) = \Op_G(\upsilon_{\**}\Omega(T), \P)
+%\end{equation}
+%fitting into a commuting diagram of adjunctions (cf. \eqref{DSETG_EQ}, \cite[Cor. 4.40]{BP17}) 
+%\begin{equation}
+%      \label{OP_ADJ_EQ}
+%      \begin{tikzcd}
+%            \Op_G \arrow[d, shift left, "N_G"] \arrow[r, shift left, "\upsilon^{\**}"]
+%            &
+%            \Op^G \arrow[d, shift left, "N^G"] \arrow[l, shift left, "\upsilon_{\**}"]
+%            \\
+%            \dSet_G \arrow[u, shift left] \arrow[r, shift left, "\upsilon^{\**}"]
+%            &
+%            \dSet^G \arrow[u, shift left] \arrow[l, shift left, "\upsilon_{\**}"].
+%      \end{tikzcd}
+%\end{equation}
 
-\begin{remark}
-      For $T \in \Omega_G$, the two ``Yoneda'' objects in $\mathsf{dSet}_G$ agree, as
-      \mbox{$\Omega_G[T] = \upsilon_{\**}\Omega[T]$},
-      implying in particular that, for $X \in \dSet^G$,
-      $\dSet^G(\Omega[T],X) = \upsilon_{\**}X(T)$.
+
+
+%This nerve functor identifies the two given definitions of genuine equivariant operads, 
+%Indeed, given $X \in \dSet_G$,
+%$X$ is a (combinatorial) genuine equivarinat operad
+%iff
+%$X$ is isomorphic to the nerve of some $\P \in \Op_G$.
+%This can be proven using techniques analogous to those from \cite[Theorem 6.1]{MW09} or in \S \ref{EDSS_SEC}.
+%However, the necessary generalizations require the use of \textit{coloured} genuine equivariant operads,
+%and we delay their discussion, and the proof of this result, to a sequel.      
+
+We end this section by explaining why genuine $G$-dendroidal sets $\mathsf{dSet}_G$, rather than 
+$G$-dendroidal sets $\mathsf{dSet}_G$,
+must be used in Definition \ref{GEN_OP_DEF}.
+
+\begin{remark}\label{DESTIAL REM}
+Suppose $X \in \mathsf{dSet}^G$ has the strict right lifting property against all Segal core inclusions
+$Sc[T] \to \Omega[T]$, $T \in \Omega_G$.
+By specifying to the case of $T = G \cdot T_{\**}$
+a free $G$-tree, 
+\eqref{T_DECOMP_EQ} implies that,
+after forgetting the $G$-action,
+$X \in \mathsf{dSet}$
+has the strict lifting property
+against the inclusions 
+$Sc[T_{\**}] \to \Omega[T_{\**}]$, $T_{\**}$.
+But the strict lifting properties with respect to all other $G$-trees $T \in \Omega_G$ are now automatic.
+Indeed, writing $T \simeq G \cdot_H T_{\**}$
+for some $T_{\**} \in \Omega^H$ one has that by \eqref{T_DECOMP_EQ}
+$G$-equivariant lifts against 
+$G \cdot_H \left(Sc[T_{\**}] \to \Omega[T_{\**}]\right)$
+are the same as
+$H$-equivariant lifts against 
+$Sc[T_{\**}] \to \Omega[T_{\**}]$.
+Consider now the following diagram,
+where $\Phi$ is the unique non-equivariant lift.
+\begin{equation}
+\begin{tikzcd}[row sep = 3em]
+	Sc[T_*] \arrow[d] \arrow[r, "h"] &
+	Sc[T_*] \arrow{r}{\phi} \arrow[d] &
+	X \ar{r}{h^{-1}}&
+	X
+\\
+	\Omega[T_*] \arrow[r, "h"'] &
+	\Omega[T_*]
+	\arrow[dashed]{ru}[swap]{\Phi}
+\end{tikzcd}
+\end{equation}
+Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle problem, so that strictness implies it is also
+$h^{-1} \Phi h = \Phi$.
+In other words, $\Phi$ is also the unique 
+$H$-equivariant lift.
+
+
+
+In summary, we have shown that if we had instead used $\mathsf{dSet}^G$ in Definition \ref{GEN_OP_DEF},
+then non-free $G$-trees would be superfluous, 
+so that by \cite[Theorem 6.1]{MW09}
+the $X \in \mathsf{dSet}^G$ with such a lifting property
+would be simply the nerves of $G$-operads.
+To see why this is an unsatisfactory situation we recall a fundamental basic example.
+The category $\mathsf{Top}^G$ of $G$-spaces admits two main equivariant notions of weak equivalence:
+the genuine equivalences, which care about all fixed point spaces, and the naive equivalences, 
+which care only about the total spaces.
+However, this distinction vanishes when working in the discrete setting of $G$-sets $\mathsf{Set}^G$,
+unless one instead works with 
+$G$-coefficient systems $\mathsf{Set}^{\mathsf{O}_G^{op}}$.
+Similarly, the category $\mathsf{sOp}^G$ 
+of $G$-simplicial operads
+admits two natural notions of weak equivalence, one which cares about the spaces of norm maps for
+all $H$-sets $A$ and one which cares only about the spaces of norm maps for trivial $H$-sets.
+However, this distinction vanishes when working in the discrete setting of $G$-dendroidal sets $\mathsf{dSet}^G$,
+unless one works instead with genuine 
+$G$-dendroidal sets $\mathsf{dSet}_G$.
 \end{remark}
 
-This nerve functor identifies the two given definitions of genuine equivariant operads, 
-Indeed, given $X \in \dSet_G$,
-$X$ is a (combinatorial) genuine equivarinat operad
-iff
-$X$ is isomorphic to the nerve of some $\P \in \Op_G$.
-This can be proven using techniques analogous to those from \cite[Theorem 6.1]{MW09} or in \S \ref{EDSS_SEC}.
-However, the necessary generalizations require the use of \textit{coloured} genuine equivariant operads,
-and we delay their discussion, and the proof of this result, to a sequel.      
 
-We end this section by discussing the failure of $\dSet^G$ to contain strict genuine operads.
-Indeed, a first guess for such objects would be the direct analogue of \cite[Prop. 5.3 and Theorem 6.1]{MW09},
-namely those $X \in \dSet^G$ with the strict right lifting property against $G$-inner horn inclusions.
-However, we find that this encodes the more naive notion of $G$-operads:
 
-\begin{proposition}
-      \label{SRLP_OP_PROP}
-      For $X \in \mathsf{dSet}^G$,
-      $X \simeq N^G(\O)$ for some $\O \in \mathsf{Op}^G$  
-      iff
-      $X$ has the strict right lifting property against $G$-inner horn inclusions.
-\end{proposition}
-\begin{proof}
-      Since $\Omega(T)$ is the free coloured operad on the vertices of $T$, we have that
-      \begin{equation}
-            \mathsf{dSet}^G(\Omega[T], N^G(\O)) = \mathsf{Op}^G(\Omega(T), \O) \simeq \mathsf{dSet}^G(Sc[T], N^G\O)
-      \end{equation}
-      for any $T \in \Omega_G$.
-      Thus $N^G(\O)$ has the desired strict lifts % is in $(\mathsf{dSet}^{G,h})^{\boxslash !}$
-      % $(\Omega_{G, SCI})^{\boxslash !}$, and hence is in $(\Omega_{G,IHI})^{\boxslash !}$
-      by Propositions \ref{HYPER PROP} and \ref{HYPER_LP_LEM}.
 
-      Conversely,
-      we first note that any $T \in \Omega_G$ can be written $(G \cdot T_{\**})/\Gamma$, where $T_{\**}$ is a component of $T$ and
-      $\Gamma$ the graph subgroup of $G \times \mathrm{Aut}(T_{\**})$ encoding the given action.
-      Similarly,
-      recalling the adjuction
-      \begin{equation}
-            \begin{tikzcd}
-                  G \cdot (-) : \mathsf{dSet}
-                  \rightleftarrows
-                  \mathsf{dSet}^G : \mathsf{fgt}
-            \end{tikzcd}
-      \end{equation}
-      we have that any $G$-inner horn inclusion
-      $\Lambda^{E}[T] \to \Omega[T]$ can be written
-      \begin{equation}
-            \label{HORN_DECOMP_EQ}
-            (G \cdot j)/\Gamma: G \cdot \left(
-                  {\Lambda^{E_*}[T_*] \to \Omega[T_*]}
-            \right) / \Gamma,
-      \end{equation}
-      where $E_* = E \cap T_*$, $H = \mathrm{Stab}_G(T_*)$, and
-      $\Gamma$ is a generalized inner horn inclusion in $\Omega$ (cf. \eqref{T_DECOMP_EQ}). 
-      
-      Second, we claim
-      that to show $X$ has strict lifts against all $G$-inner horn inclusions,
-      it suffices to check against those where $T = G \cdot T_{\**}$ is $G$-free.
-      Indeed, for any map \mbox{$\Lambda^{G e}[T] \to X$}
-      we have the following commuting diagram, where 
-      $\gamma \in \Gamma$.
-      \begin{equation}
-            \begin{tikzcd}[row sep = 3em]
-                  G \cdot \Lambda^{H e}[T_*] \arrow[d] \arrow[r, "\gamma"]
-                  &
-                  G \cdot \Lambda^{H e}[T_*] \arrow[r] \arrow[d]
-                  &
-                  \Lambda^{G e}[T] \arrow[r, "f"] \arrow[d]
-                  &
-                  X
-                  \\
-                  G \cdot \Omega[T_*] \arrow[r, "\gamma"']
-                  \arrow[urrr, very near start, crossing over, dashed, "\exists! \phi"]
-                  &
-                  G \cdot \Omega[T_*] \arrow[r]
-                  \arrow[urr, dashed, very near start, crossing over, out=15, in=-145, "\exists! \phi"]
-                  &
-                  \Omega[T]
-            \end{tikzcd}
-      \end{equation}
-      We have unique lifts $\phi$ by
-      \cite[Lemma 5.1]{MW09}, Lemma \ref{HYPER_LP_LEM}, and \eqref{HORN_DECOMP_EQ}.
-      Uniqueness then implies that $\phi = \phi \circ \gamma $ for all $\gamma \in \Gamma$, and hence $\phi$ factors through $\Omega[T]$.
-      
-      Finally, we know $X$ has strict lifts against $G$-inner horn inclusions for $G$-free $G$-trees iff
-      $\mathsf{fgt}(X) \in \dSet$ has strict lifts against inner horn inclusions,
-      and so \cite[Theorem 6.1, Proposition 6.10]{MW09} imply that
-      $X \simeq N_d \circ \tau_d \circ X$.
-\end{proof}
-
-\begin{remark}
-      The main observation of this proof is 
-      % that it is sufficient to only consider $G$-inner horn inclusions on $G$-free $G$-trees $T = G \cdot T_{\**}$;
-      that ``strictness'' reduces the involved combinatorics to simply $\Omega \times G^{op} \subset \Omega_G$,
-      missing the required subtlety of genuine operads.
-      
-      In contrast, the associated \textit{weak} algebraic notation of $G$-$\infty$-operad
-      can be characterized in $\dSet^G$, as the above reduction does not occur without strictness.
-\end{remark}
 
 % \begin{remark}
 %       There is a model structure on $\dSet_G$ with fibrant objects
