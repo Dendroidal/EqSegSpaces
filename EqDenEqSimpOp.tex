@@ -248,7 +248,6 @@ which is a fairly non-obvious equivariant generalization of one of the generaliz
 
 \subsection{The category of trees $\Omega$}
 
-{\color{red} HERE}
 
 We start by recalling the key features of the category $\Omega$ of trees that will be used throughout.
 Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17},
@@ -312,29 +311,30 @@ Given a broad relation $t_0 \cdots t_n \leq t$,
 we further write $t_i \leq_d t$.
 Pictorially, this says that the edge $t_i$ is above $t$,
 and it is thus clear that $\leq_d$ defines a partial order on edges of $T$.
-Trees always have a single $\leq_d$-maximal edge, called the \textit{root}. Edges other than the root or the leaves are called \textit{inner edges}. In our example $r$ is the root, $b,d,f$ are inner edges and $a,e,c$ are leaves. 
+Trees always have a single $\leq_d$-maximal edge, called the \textit{root}. Edges other than the root or the leaves are called \textit{inner edges}. In our example $r$ is the root, $a,e,c$ are leaves, and $b,d,f$ are inner edges. 
 
-We denote the sets of edges (inner edges, vertices) of $T$ by
-$\boldsymbol{E}(T)$ (resp. 
-$\boldsymbol{E}^{\mathsf{i}}(T)$,
-$\boldsymbol{V}(T)$).
+We denote the sets of edges, inner edges, vertices of $T$ by 
+$\boldsymbol{E}(T)$, $\boldsymbol{E}^{\mathsf{i}}(T)$,
+$\boldsymbol{V}(T)$.
 
 The Cisinski-Moerdijk-Weiss category $\Omega$ of trees then has as objects the tree diagrams as in \eqref{FIRSTTREE EQ}
 and as maps $\varphi \colon T \to S$ the monotone maps of broad posets
 (meaning that if $t_1 \cdots t_k \leq t$ then
 $\varphi(t_1) \cdots \varphi(t_k) \leq \varphi(t)$).
-In fact, in \cite{Wei12} Weiss further identified axioms characterizing those broad posets that are associated to trees (see \cite[Defs. 5.1 and 5.9]{Per17}).
+In fact, in \cite{Wei12} Weiss characterized 
+those broad posets associated to trees (see \cite[Defs. 5.1 and 5.9]{Per17}),
+so that one is free to work intrinsically with broad posets.
 
-Further, our discussion will be somewhat simplified by the assumption that $\Omega$
+Moreover, our discussion will be somewhat simplified by the assumption that $\Omega$
 contains exactly one representative of each planarized tree.
 Informally, this means that trees $T \in \Omega$
 come with a preferred planar representation,
 though this can also be formalized in purely algebraic terms, see \cite[\S 3.1]{BP17}.
 For our purposes, the main consequence is that any map 
 $S \to T$ in $\Omega$ has a (strictly) unique factorization
-$S \simeq S' \to T$ as an isomorphism followed by a \textit{planar map} \cite[Prop. 3.21]{BP17}. 
-Roughly speaking, $S'$ is obtained from $S$
-by pulling back the planarization of $T$.
+$S \xrightarrow{\simeq} S' \to T$ as an isomorphism followed by a \textit{planar map} \cite[Prop. 3.21]{BP17}. 
+Informally, $S'$ is obtained from $S$
+by ``pulling back'' the planarization of $T$.
 
 We now recall the key classes of maps of $\Omega$.
 A map $\varphi \colon S \to T$ which is injective on edges is called a \textit{face map}
@@ -357,11 +357,11 @@ The following result is \cite[Cor. 3.32]{BP17}.
 as a degeneracy followed by an inner face map followed by an outer face map.
 \end{proposition}
 
-We now recall a more explicit characterization and notation for planar inner/outer faces
+We next recall an explicit characterization and notation for planar inner/outer faces
 (planar degeneracies are characterized by edge multiplicities, see \cite[Prop. 3.47(ii)]{BP17}).
-For any subset $D \subseteq E(T)$, there is a planar inner face
-$T-D$ which removes the inner edges in $D$ but keeps all broad relations involving edges not in $D$
-(this is the hardest class of maps to visualize pictorially, as the vertices adjacent to each $d \in D$ are combined via broad transitivity/composition).
+For any subset $E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$, there is a planar inner face
+$T-E$ which removes the inner edges in $E$ but keeps all broad relations involving edges not in $E$
+(this is the hardest class of maps to visualize pictorially, as the vertices adjacent to each $e \in E$ are combined via broad transitivity/composition).
 For each broad relation
 $t_1 \cdots t_k = \underline{t} \leq t$ in $T$,
 there is a planar outer face
@@ -373,23 +373,25 @@ $\underline{l}_{T_{\underline{t} \leq t}} = \underline{t}$
 Moreover, the edges $s$ of $T_{\underline{t} \leq t}$ are the edges of $T$ such that
 $s \leq_d t$ and $\forall_{i} s \not < t_i$ while the vertices are the $s^{\uparrow} \leq s$ such that 
 $s \leq_d t$ and $\forall_{i} s \not \leq t_i$ 
-(pictorially, $T_{\underline{t} \leq t}$ removes the parts of $T$ not above $t$ and above some $t_i$).
+(pictorially, $T_{\underline{t} \leq t}$ removes those sections of $T$ not above $t$ and above some $t_i$).
 
 
 \begin{remark}\label{INNFULL REM}
-	Inner faces $T-D \hookrightarrow T$ are always full, i.e. $T-D$ contains all broad relations of $T$ whose edges are in $T-D$.
+	Inner faces $T-E \hookrightarrow T$ are always full, i.e. $T-E$ contains all broad relations of $T$ between those edges in 
+$\boldsymbol{E}(T-E) = \boldsymbol{E}(T) \setminus E$.
 	By contrast, whenever $T$ has stumps some of its outer faces $T_{\underline{t} \leq t}$ are not full,
 	the main example being the maximal outer faces
-	``removing stumps'' \cite[Not. 5.41]{Per17}.
+	that ``remove stumps'' \cite[Not. 5.41]{Per17}.
 \end{remark}
 
 
 \begin{remark}\label{DEGREE REM}
 	Following \cite[Ex. 2.8]{BM11}, one has a degree function 
-	$|-|\colon \Omega \to \mathbb{N}$ given by $|T|=|V(T)|$
+	$|-|\colon \Omega \to \mathbb{N}$ given by $|T|=|\boldsymbol{V}(T)|$
 	such that non isomorphim face maps (resp. degeneracies) strictly increase (decrease) $|-|$.
 	As such, the subcategory of face maps is denoted $\Omega^+$ while that of degeneracies is denoted $\Omega^-$.
 \end{remark}
+
 
 We now collect a couple of useful lemmas concerning faces.
 
@@ -408,17 +410,25 @@ We now collect a couple of useful lemmas concerning faces.
 \]
 	such that the horizontal maps are outer face maps and the left vertical map is an inner face map.
 
-Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
+Then $\boldsymbol{E}^{\mathsf{i}}(V) = 
+\boldsymbol{E}^{\mathsf{i}}(U) \cap 
+\boldsymbol{E}^{\mathsf{i}} (\bar{V})$.
 \end{lemma}
 
 \begin{proof}
 	Write $r$ and $\underline{l}=l_1\cdots l_n$
 	for the root and leaf tuple of $V$ or, equivalently, of $\bar{V}$.
 	Since the horizontal maps are outer, an edge
-	$e \in E^{\mathsf{i}}(U)$ (resp. $e \in E^{\mathsf{i}}(\bar{U})$)
-	is also in $E^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
+	$e \in \boldsymbol{E}^{\mathsf{i}}(U)$ 
+	(resp. $e \in \boldsymbol{E}^{\mathsf{i}}(\bar{U})$)
+	is also in $\boldsymbol{E}^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
 	$e <_d r$ and $\forall_i e \not \leq l_i$.
-	But then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}}(\bar{V})$. 
+	But then 
+	$\boldsymbol{E}^{\mathsf{i}}(V) =
+	\boldsymbol{E}^{\mathsf{i}}(U) \cap 
+	\boldsymbol{E}^{\mathsf{i}}(V) =
+	\boldsymbol{E}^{\mathsf{i}}(U) \cap
+	\boldsymbol{E}^{\mathsf{i}}(\bar{V})$. 
 \end{proof}
 
 
@@ -427,17 +437,18 @@ Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
 	$U^{\cup} \hookrightarrow T$, $U^{\cap} \hookrightarrow T$,
 	also with root $t$, such that
 \begin{equation}\label{CUPCAP EQ}
-	E(U^{\cup}) = \bigcup_i E(U_i), \quad
-	V(U^{\cup}) = \bigcup_i V(U_i), \qquad
-	E(U^{\cap}) = \bigcap_i E(U_i), \quad
-	V(U^{\cap}) = \bigcap_i V(U_i).
+	\boldsymbol{E}(U^{\cup}) = \bigcup_i \boldsymbol{E}(U_i), \quad
+	\boldsymbol{V}(U^{\cup}) = \bigcup_i \boldsymbol{V}(U_i), \qquad
+	\boldsymbol{E}(U^{\cap}) = \bigcap_i \boldsymbol{E}(U_i), \quad
+	\boldsymbol{V}(U^{\cap}) = \bigcap_i \boldsymbol{V}(U_i).
 \end{equation}
 Moreover, these are the smallest (resp. largest) outer faces
 containing (contained in) all $U_i$.
 \end{lemma}
 
 \begin{remark}
-	One can check that it actually suffices to assume the $U_i$ have a common edge.
+	More generally, $U^{\cup}$ and $U^{\cap}$
+	can be defined whenever the $U_i$ have a common edge.
 \end{remark}
 
 \begin{proof}
@@ -448,7 +459,6 @@ containing (contained in) all $U_i$.
 	Antisymmetry and simplicity are inherited from $T$, the nodal axiom is obvious from \eqref{CUPCAP EQ}, and the root axiom follows since the $U_i$ have a common root (in $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
 	$s \leq_d s' \leq_d t$).
 \end{proof}
-
 
 
 \subsection{The category of $G$-trees $\Omega_G$}
@@ -525,32 +535,33 @@ given by the (single) tree on the right.
 Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
 $a,b,c,d$ have isotropy $L,K,K,H$.
 
-%{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
 Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is given as follows.
 Given a non-equivariant forest diagram $F$ 
 (i.e. a finite collection of tree diagrams side by side),
 there is
-an associated broad poset just as before, and one thus obtains a category $\Phi$ of forests.
+an associated broad poset just as before, and one thus obtains a category $\Phi$ of forests and broad monotone maps.
 Letting $\Phi^G$ denote $G$-objects in $\Phi$, referred to as $G$-forests,
-the category
-$\Omega_G \subset \Phi^G$
-of $G$-trees
-is defined to be the full subcategory of those $G$-forests such that the $G$-action is transitive on tree components.
+the category $\Omega_G \subset \Phi^G$ of $G$-trees
+is defined as the full subcategory of those $G$-forests such that the $G$-action is transitive on tree components.
 
-We note that any $G$-tree $T$ can then be written as
-$T \simeq G \cdot_H T_{\**}$, where $T_{\**}$ is some fixed tree component, $H\leq G$ is the subgroup sending that component to itself,
+We note that any $G$-tree $T$ can be written as
+an induction $T \simeq G \cdot_H T_{\**}$, where $T_{\**}$ is some fixed tree component, $H\leq G$ is the subgroup sending $T_{\**}$ to itself,
 and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where we caution that $\Omega^G \subsetneq \Omega_G$).
+For example, in \eqref{TWOREP EQ} it is 
+$T \simeq G \cdot_H T_d$ for $H\leq G$, $T \in \Omega_G$ as defined therein and
+$T_d \in \Omega^H$ the tree component containing $d$. 
 
-We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
+Moreover, we similarly assume that $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, each of which is  planarized.
 
 If $T\in \Omega_G$ has tree components $T_1,\cdots, T_k$, we write
-$E(T) = \amalg_i E(T_i)$, 
-$E^{\mathsf{i}}(T) = \amalg_i E^{\mathsf{i}}(T_i)$,
-$V(T) = \amalg_i V(T_i)$
+$\boldsymbol{E}(T) = \amalg_i \boldsymbol{E}(T_i)$, 
+$\boldsymbol{E}^{\mathsf{i}}(T) = 
+\amalg_i \boldsymbol{E}^{\mathsf{i}}(T_i)$,
+$\boldsymbol{V}(T) = \amalg_i \boldsymbol{V}(T_i)$
 for its sets of edges, inner edges and vertices, as well as
-$E_G(T) = E(T)/G$,
-$E^{\mathsf{i}}_G(T) = E^{\mathsf{i}}(T)/G$,
-$V_G(T) = V(T)/G$ for its sets of 
+$\boldsymbol{E}_G(T) = \boldsymbol{E}(T)/G$,
+$\boldsymbol{E}^{\mathsf{i}}_G(T) = \boldsymbol{E}^{\mathsf{i}}(T)/G$,
+$\boldsymbol{V}_G(T) = \boldsymbol{V}(T)/G$ for its sets of 
 \textit{edge orbits},
 \textit{inner edge orbits} and
 \textit{$G$-vertices}.
@@ -560,8 +571,9 @@ On the one hand, the $G$-broad posets associated to $G$-trees are diagrammatical
 so that the arrows of $\Omega_{G}$ are best understood from that perspective.
 On the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
 are given by the orbital representations of  
-$G$-trees (see \cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
-As a result, different aspects of our discussion will be guided by different representations, and this will require us to discuss the different notions of face/boundary/horn suggested by the two representations.
+$G$-trees (see Example \ref{STRICTLIFT EX} and Remark \ref{NORMMAP REM}, or alternatively 
+\cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
+As a result, different aspects of our discussion are guided by different representations, and this will require us to discuss the different notions of face/boundary/horn suggested by the two representations.
 We start by recalling the notion of face discussed in \cite{Per17}, which is motivated by the expanded representation.
 
 
@@ -594,6 +606,8 @@ We start by recalling the notion of face discussed in \cite{Per17}, which is mot
 	gU \ar[hookrightarrow]{r} & T
 \end{tikzcd}
 \end{equation}
+Alternatively, planar faces $U \hookrightarrow T$ can be viewed as sub-broad posets $U \subseteq T$,
+identifying this $G$-action with the natural action on subsets. However, we prefer the planar face language since it is easier to relate to the presheaves $\Omega[T]$ discussed in the next section.
 \end{notation}
 
 
@@ -618,14 +632,13 @@ which respects the $G$-actions on the two categories.
 	$\mathsf{Face}(T) \subset \Omega^+ \downarrow T$ (which is a section of $pl$) does not respect the $G$-actions, as displayed in (\ref{FACEGACT EQ}).
 \end{remark}
 
-We now introduce the notion of face suggested by the orbital representation.
+We now introduce the notion of face of a $G$-tree that is suggested by the orbital representation.
 
 \begin{definition}\label{ORBFACE DEF}
 	Let $T \in \Omega_G$.
 	An \textit{orbital face} of $T$ is a map 
 	$S \hookrightarrow T$ in $\Omega_G$ which is injective on edges. Further, an orbital face is called
-	\textit{planar/inner/outer} if any (and thus all)
-	of its component maps is.
+	\textit{planar/inner/outer} if so are all of its component maps.
 \end{definition}
 
 
@@ -818,11 +831,11 @@ Both the factorization $U \to GU \to T$ and its minimality are immediate from th
 	Secondly, the root tuple of 
 	$GU$ is $G\cdot_H r_U$.
 	Lastly, we need to characterize the leaf tuple of $GU$. We call a leaf $l$ of $U$ \textit{orbital} if 
-all the edges in $Hl \cap E(U)$ are leaves of $U$, 
+all the edges in $Hl \cap \boldsymbol{E}(U)$ are leaves of $U$, 
 	and claim that the leaves of $GU$ are the tuple $\underline{l}$ formed by the $G$-orbits of the orbital leaves of $U$. 
 	Indeed, a leaf $l$ of $U$ is also a leaf of $HU$ iff 
-	$\forall_{h \in H}$($l \in E(hU)$ implies that $l$ is a leaf of $hU$) iff
-	$\forall_{h \in H}$($h^{-1} l \in E(U)$ implies that $l$ is a leaf of $U$).
+	$\forall_{h \in H}$($l \in \boldsymbol{E}(hU)$ implies that $l$ is a leaf of $hU$) iff
+	$\forall_{h \in H}$($h^{-1} l \in \boldsymbol{E}(U)$ implies that $l$ is a leaf of $U$).
 	
 	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 
 	It is now clear that $U \to G\bar{U} \to T$ is the minimal factorization with $G\bar{U}$ an \textit{outer} orbital face,
@@ -911,8 +924,9 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 
 \end{example}
 
+
 \begin{remark}
-	It is clear from the proof of 
+	It follows from the proof of 
 	Proposition \ref{MINGFACT PROP}
 	that, if $U \in \mathsf{Face}(T)$ has isotropy $H$,
 	the induced map 
@@ -920,14 +934,17 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 	$H$ is also the isotropy of the root $r_U$.
 \end{remark}
 
+
 \begin{remark}\label{GINNER REM}
-	For any inner face $V-e$ of $V$ one has 
+	For any inner face $V-e$ 
+	of a face $V \hookrightarrow T$ one has 
 	that $G(V-e)$ is either $GV - Ge$ or $GV$.
-	Indeed, the latter will happen iff $V-e$ contains either an inner edge of a leaf of the form $ge$.
+	Indeed, the latter holds iff $V-e$ contains either an inner edge of a leaf of the form $ge$.
 \end{remark}
 
+
 \begin{remark}
-	Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ does not act on $\mathsf{Face}_o(T)$)
+Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ does not act on $\mathsf{Face}_o(T)$)
 \[
 	\mathsf{Face}(T) \xrightarrow{G(-)} \mathsf{Face}_o(T).
 \]
@@ -1018,27 +1035,26 @@ $\underline{f} =
 such that $\underline{f}_i \leq e_i$.
 When the $e_i$ are $\leq_d$-incomparable,
 \cite[Prop. 5.30]{Per17} says that such decomposition is unique, so that $\underline{e},\underline{f}$ consist of distinct edges and we can regard 
-$\underline{e},\underline{f}$ as subsets $\underline{e},\underline{f} \subseteq E(T)$.
+$\underline{e},\underline{f}$ as subsets $\underline{e},\underline{f} \subseteq \boldsymbol{E}(T)$.
 	
 We now say that a relation
 $\underline{f} \leq \underline{e}$	
 is an \textit{orbital relation} if
-$\underline{e} \subseteq E(T)$
-is a orbital $G$-subset and $\underline{f} \subseteq E(T)$ is a $G$-subset. 
+$\underline{e} \subseteq \boldsymbol{E}(T)$
+is an orbital $G$-subset and $\underline{f} \subseteq \boldsymbol{E}(T)$ is a $G$-subset. 
 Reinterpreting the orbital relations of $T$ 
-as broad relations on the set $E_{G}(T)$ of edge orbits,
+as broad relations on the set $\boldsymbol{E}_{G}(T)$ of edge orbits,
 one readily checks that this defines a 
 dendroidally ordered set \cite[Def. 5.9]{Per17},
-i.e. a tree, that we call $T/G$.
+i.e. a tree, that we denote $T/G$.
 Note that one hence has a functor
 $(-)/G \colon \Omega_G^+ \to \Omega$,
 where $\Omega_G^+$ is the subcategory of orbital face maps,
 and planarizations of the $T/G$ are chosen arbitrarily.
 
-Lastly, we observe that, much as in the non-equivariant case,
+Lastly, we observe that, in analogy to the non-equivariant case,
 the orbital outer faces of $T$ are indexed by orbital relations.
 \end{remark}
-
 
 
 
@@ -1065,9 +1081,9 @@ an inclusion; the equivalence between the colimit and union formulas follows fro
 	\bigcup_{U \in \mathsf{Face}(T),U \neq T_i}
 	\Omega[U]
 \]
-and, for $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$ a
+and, for $\emptyset \neq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ a
 non-empty $G$-subset of inner edges 
-(we abbreviate $E_i = E \cap E^{\mathsf{i}}(T_i)$), \textit{$G$-inner horns}
+(we abbreviate $E_i = E \cap \boldsymbol{E}^{\mathsf{i}}(T_i)$), \textit{$G$-inner horns}
 \[
 	\Lambda^{E}[T] = 
 	\mathop{\colim}_{U \in 
@@ -1081,7 +1097,7 @@ non-empty $G$-subset of inner edges
 \]
 which, informally, are the subcomplexes of $\Omega[T]$ that remove the inner faces $T_i-D$ for $D \subseteq E_i$.
 
-Lastly, letting $\mathsf{Face}_{sc}(T)$ denote those outer faces of $T$ with no inner vertices (these are either single edges $t$ or generated by single vertices $t^{\uparrow} \leq t$), we define the 
+Lastly, letting $\mathsf{Face}_{sc}(T)$ denote those outer faces of $T$ with no inner edges (these are either single edges $t$ or generated by single vertices $t^{\uparrow} \leq t$), we define the 
 \textit{Segal core of $T$}
 \[
 	Sc[T] 
@@ -1125,6 +1141,7 @@ are defined only for $U \in \Omega$ (cf. Notation \ref{TREEDIFNOT NOT}).
 	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
 \end{remark}
 
+
 Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
 
 The saturation of the boundary inclusions 
@@ -1132,7 +1149,7 @@ $\partial \Omega[T] \to \Omega[T]$
 is the class of \textit{$G$-normal monormorphisms},
 i.e. those monomorphisms $X \to Y$ in $\mathsf{dSet}^G$ such that
 $Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$. 
-Moreover, since this condition is actually independent of the $G$-action, we will usually call these simply \textit{normal monomorphisms}.
+Moreover, since one can forget the $G$-action when verifying this condition, we will usually call these simply \textit{normal monomorphisms}.
 
 The saturation of the $G$-inner horn inclusions 
 $\Lambda^E[T] \to \Omega[T]$
@@ -1149,7 +1166,7 @@ We can now recall \cite[Thm 2.1]{Per17}, which was the main result therein.
 
 
 \begin{remark}
-The definition $G$-$\infty$-operads just given is a priori distinct from the original definition \cite[Def. 6.12]{Per17} which used only 
+The definition of $G$-$\infty$-operads just given is a priori distinct from the original definition \cite[Def. 6.12]{Per17} which used only 
 \textit{generating $G$-inner horn inclusion}, i.e. 
 those inclusions $\Lambda^{Ge}[T] \to \Omega[T]$ with $E=Ge$ an inner edge orbit.
 The present definition has the technical advantages of being naturally compatible with restricting the $G$-action and of allowing for a simpler proof of Lemma \ref{CHAREDGE LEM}, 
@@ -1157,13 +1174,14 @@ which is our main tool for showing that maps
 are $G$-inner anodyne.
 The equivalence between the two definitions follows from 
 \cite[Prop. 6.17]{Per17},
-although we also independently recover this 
+although we also independently recover this fact
 from Lemma \ref{CHAREDGE LEM} in Corollary \ref{REGGENHORN COR}.
 \end{remark}
 
+
 In additional to the $G$-inner horns defined before, we now introduce a new kind of horn that, much like orbital faces,
 is naturally suggested by the orbital representation of $G$-trees.
-Given $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we define the associated 
+Given $E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we define the associated 
 \textit{orbital $G$-inner horn} by
 \[
 	\Lambda^{E}_o[T] = 
@@ -1178,8 +1196,9 @@ Given $E \subseteq E^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we d
 \]
 where we note that the equivalence between the colimit and union formulas now follows from Proposition \ref{MINGFACT PROP}.
 
+
 \begin{remark}\label{ORB_HORN_REM}
-We now extend the identification 
+One can strengthen the identification 
 $\mathsf{Face}_o(T) \simeq \mathsf{Face}(T/G)$
 in Remark \ref{ORB_FACE_REM}.
 
@@ -1198,7 +1217,7 @@ In particular, note that $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$
 and $Sc[T]$ corresponds to $Sc[T/G]$.
 \end{remark}
 
-
+{\color{red} HERE}
 
 \begin{example}
 	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
@@ -2918,7 +2937,7 @@ Equivalently, by Propositions \ref{HYPER PROP} and \ref{HYPERLP PROP}, one may r
 \end{definition}
 
 
-\begin{example}
+\begin{example}\label{STRICTLIFT EX}
 	To illustrate the role of the strict lifting condition against the maps in \eqref{GGIOP_EQ},
 	consider the $G$-tree $T$ in \eqref{TWOREP EQ},
 	along with the subgroup $K = \lbrace -1 \rbrace$ therein
@@ -3116,7 +3135,7 @@ after forgetting the $G$-action,
 $X \in \mathsf{dSet}$
 has the strict lifting property
 against the inclusions 
-$Sc[T_{\**}] \to \Omega[T_{\**}]$, $T_{\**}$.
+$Sc[T_{\**}] \to \Omega[T_{\**}]$, $T_{\**} \in \Omega$.
 But the strict lifting properties with respect to all other $G$-trees $T \in \Omega_G$ are now automatic.
 Indeed, writing $T \simeq G \cdot_H T_{\**}$
 for some $T_{\**} \in \Omega^H$ one has that by \eqref{T_DECOMP_EQ}
@@ -3566,7 +3585,7 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
       for the contractible groupoid with objects 
       $0,1,\cdots,m$ (cf. Remark \ref{CONTGR REM}), we denote
       \[
-            J^m = \iota_{!} (N \widetilde{[m]})
+            J^m = \iota_{!} \left(N \widetilde{[m]}\right)
       \]
       where $N$ is the nerve functor.
       $J^m$ is regarded as equipped with the trivial $G$-action. Further, we abbreviate $J = J^1$.
@@ -5498,21 +5517,6 @@ Theorem \ref{COMPIFFDK THM}.
 A map of $X \to Y$ of $\mathcal{F}$-dendroidal Segal spaces is a $\mathcal{F}$-complete equivalence iff it is a $\mathcal{F}$-DK-equivalence.
 \end{theorem}
 
-
-
-
-\section{Scratchwork}
-
-
-\begin{remark}
-{\color{blue} bla bla} the diagrams for compositions of norm maps are given by orbital representations, but the category $\Omega_G$ is better described in terms of the expanded representation.
-\end{remark}
-
-
-
-
-
-\newpage
 
 
 \appendix
