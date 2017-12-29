@@ -78,7 +78,7 @@ cd,patterns,calc}
 
 
 \begin{abstract}
-	We introduce the analogues of complete Segal space and of Segal category in the context of equivariant operads with norm maps, and build suitable model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
+	We introduce the analogues of the notions of complete Segal space and of Segal category in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
 	$G$-$\infty$-operads built in a previous paper.
 
 	Moreover, we establish variants of these results for the Blumberg-Hill indexing systems. 
@@ -109,21 +109,23 @@ cd,patterns,calc}
 
 This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
 \textit{equivariant operads with norm maps}.
-Informally, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
-(and which has no analogue in the theory of equivariant categories).
+Here, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
+(see Remark \ref{NORMMAP REM} for a brief definition of norm maps or the introductions to 
+\cite{Per17},\cite{BP17} for a more extensive discussion).
 The need to understand norm maps, particularly in the context of $G$-ring spectra,
 as well as their usefulness,
 was made clear by Hill, Hopkins and Ravenel in their solution of the Kervaire invariant one problem \cite{HHR16}.
 
 The starting point of this project was the discovery by the authors of,
 for each finite group $G$,
-a category $\Omega_G$ of $G$-trees whose objects diagrammatically encode compositions of norms maps 
+a category $\Omega_G$ of $G$-trees whose objects diagrammatically encode compositions of norm maps 
 and whose arrows encode the necessary compatibilities between such compositions.
 Our categories $\Omega_G$ are a somewhat non-obvious  generalization of the dendroidal category $\Omega$
 of Cisinski-Moerdijk-Weiss, 
 and indeed all the key combinatorial concepts in their work,
 such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,6]{Per17}.
-As such, it is natural to ask whether the Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} can also be generalized to the equivariant context. 
+As such, it is natural to attempt to generalize the 
+Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} to the equivariant context. 
 
 Recall that the main result of their program is the existence of a Quillen equivalence
 \[
@@ -133,16 +135,16 @@ Recall that the main result of their program is the existence of a Quillen equiv
 \]
 where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
 is the category of presheaves over $\Omega$, 
-called \textit{dendroidal sets},
+which are called \textit{dendroidal sets},
 and 
 $\mathsf{sOp}$ is the category of simplicial colored operads.
 Their program was carried out in three main steps:
 \begin{inparaenum}
 	\item[(i)] \cite{CM11} established the existence of the model structure on $\mathsf{dSet}$
-	(with some of the key combinatorial analysis based on Moerdijk and Weiss' work in \cite{MW09});
+	(with some of the key combinatorial analysis based on Moerdijk and Weiss' previous work in \cite{MW09});
 	\item[(ii)] \cite{CM13a} established auxiliary model structures on the categories $\mathsf{sdSet}$ and $\mathsf{PreOp}$
 	of dendroidal spaces and pre-operads, and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
-	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result.
+	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program.
 \end{inparaenum}
 
 From the perspective of the Cisinski-Moerdijk program, 
@@ -158,15 +160,17 @@ Further, it was shown therein that whenever a $G$-operad
 $\O \in \mathsf{sOp}^G$ is
 suitably fibrant the homotopy coherent nerve
 $N_{hc}(\O)$ is such a 
-$G$-$\infty$-operad (rather than just an ``$\infty$-operad with $G$-action'').
-In the present paper, our main results are then the existence of suitable model structures on the categories 
+$G$-$\infty$-operad (rather than just an ``$\infty$-operad with a $G$-action'').
+In the present paper our main results,
+Theorems \ref{INC0AGJ THM}, \ref{PREOPMOD THM}, \ref{ANOQUEQUIV THM},
+are then the existence of suitable model structures on the categories 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 of $G$-dendroidal spaces and $G$-pre-operads,
 as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
 
-It is worth noting that, much as was the case with the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
+It is worth noting that, much as was the case of the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
 the authors introduced the notion of 
 \textit{genuine equivariant operads},
@@ -174,10 +178,10 @@ which are new algebraic objects motivated by the combinatorics of norm maps as e
 And while a priori the work in \cite{BP17} is largely perpendicular to the Cisinski-Moerdijk program
 (the main result \cite[Thm. III]{BP17} is what one might call the 
 ``operadic Elmendorf-Piacenza theorem'', which is an equivariant phenomenon),
-many of the new technical hurdles in this paper versus \cite{CM13a} can be traced back to the fact that
-at many points in the discussion we are secretly dealing with colored genuine equivariant operads, 
-which are the colored generalization of the structures discussed in \cite{BP17},
-and the formal definition of which we prefer to postpone to a follow-up paper.
+some of the new technical hurdles in this paper versus \cite{CM13a} come from the need to work with 
+(colored) genuine equivariant operads, 
+which we repackage in \S \ref{GENEQOP SEC} via an independent (but equivalent) perspective to that of \cite{BP17}.
+
 
 \vskip 10pt
 
@@ -217,32 +221,34 @@ $\mathsf{PreOp}^G \rightleftarrows \mathsf{sdSet}^G$
 in Theorem \ref{ANOQUEQUIV THM}.
 
 Then in our last main section \S \ref{EDSS_SEC},
-and motivated by the fact that in our desired model structure on $G$-operads $\mathsf{sOp}^G$
+and motivated by the fact that in our desired model structure on simplicial $G$-operads $\mathsf{sOp}^G$
 (to be described in a follow-up paper)
 the weak equivalences are Dwyer Kan equivalences
 (i.e. characterized by fully faithfulness and essential surjectivity), 
 we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer Kan type description of the weak equivalences 
 between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$.
 
-\S \ref{INDEX SEC}, which is transversal to the remainder of the paper, outlines generalizations of all our results where the role of the category $\Omega_G$ of $G$-trees
-is played by a certain type of subcategory
+\S \ref{INDEX SEC}, which is transversal to the remainder of the paper, generalizes all our main results by replacing the category $\Omega_G$ of $G$-trees
+with certain special subcategories
 $\Omega_{\mathcal{F}} \subseteq \Omega_G$
-which (almost exactly) corresponds to one of the 
+which (almost exactly) correspond to the 
 \textit{indexing systems} first identified
 by Blumberg and Hill in \cite{BH15}.
 
-Lastly, Appendix \ref{EQREED AP} discusses an equivariant variation of the \textit{generalized Reedy categories}
+Lastly, Appendix \ref{EQREED AP} discusses an equivariant variant of the \textit{generalized Reedy categories}
 of \cite{BM11} which plays an essential role in \S \ref{CEDSS SEC}
 when describing the model structure on $\mathsf{sdSet}^G$.
 The key to this appendix is the \textit{Reedy-admissibility} condition in 
 Definition \ref{GENRED DEF}(iv),
-which is a rather non-obvious equivariant generalization of one of the Reedy category axioms in \cite{BM11}.
+which is a fairly non-obvious equivariant generalization of one of the generalized Reedy axioms in \cite{BM11}.
 
 
 
 \section{Preliminaries}\label{PREL SEC}
 
 \subsection{The category of trees $\Omega$}
+
+{\color{red} HERE}
 
 We start by recalling the key features of the category $\Omega$ of trees that will be used throughout.
 Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17},
@@ -286,7 +292,7 @@ Edges $t$ for which:
 \item[(ii)] $t^{\uparrow} = \epsilon$, such as $b$, are called \textit{stumps};
 \item[(iii)] $t^{\uparrow}$ is undefined, such as $a,c,e$, are called \textit{leaves}.
 \end{inparaenum}
-The vertices of $T$ are then encoded symbolically as 
+Each vertex of $T$ is then encoded symbolically as 
 $t^{\uparrow} \leq t$, which we call a \textit{generating broad relation}. 
 This notation is meant to suggest a form of transitivity: for example, the generating relations
 $ab \leq d$ and $def \leq r$
@@ -309,13 +315,15 @@ and it is thus clear that $\leq_d$ defines a partial order on edges of $T$.
 Trees always have a single $\leq_d$-maximal edge, called the \textit{root}. Edges other than the root or the leaves are called \textit{inner edges}. In our example $r$ is the root, $b,d,f$ are inner edges and $a,e,c$ are leaves. 
 
 We denote the sets of edges (inner edges, vertices) of $T$ by
-$E(T)$ (resp. $E^{\mathsf{i}}(T)$, $V(T)$).
+$\boldsymbol{E}(T)$ (resp. 
+$\boldsymbol{E}^{\mathsf{i}}(T)$,
+$\boldsymbol{V}(T)$).
 
-The Cisinski-Moerdijk-Weiss category $\Omega$ of trees then has as objects tree diagrams as in \eqref{FIRSTTREE EQ}
+The Cisinski-Moerdijk-Weiss category $\Omega$ of trees then has as objects the tree diagrams as in \eqref{FIRSTTREE EQ}
 and as maps $\varphi \colon T \to S$ the monotone maps of broad posets
 (meaning that if $t_1 \cdots t_k \leq t$ then
 $\varphi(t_1) \cdots \varphi(t_k) \leq \varphi(t)$).
-In fact, Weiss further identified axioms characterizing those broad posets that are associated to trees (see \cite[Defs. 5.1 and 5.9]{Per17}).
+In fact, in \cite{Wei12} Weiss further identified axioms characterizing those broad posets that are associated to trees (see \cite[Defs. 5.1 and 5.9]{Per17}).
 
 Further, our discussion will be somewhat simplified by the assumption that $\Omega$
 contains exactly one representative of each planarized tree.
@@ -349,10 +357,10 @@ The following result is \cite[Cor. 3.32]{BP17}.
 as a degeneracy followed by an inner face map followed by an outer face map.
 \end{proposition}
 
-We now recall a more explicit characterization (and notation) for planar inner/outer faces
+We now recall a more explicit characterization and notation for planar inner/outer faces
 (planar degeneracies are characterized by edge multiplicities, see \cite[Prop. 3.47(ii)]{BP17}).
 For any subset $D \subseteq E(T)$, there is a planar inner face
-$T-D$ which removes the inner edges in $E$ but keeps all broad relations involving edges not in $D$
+$T-D$ which removes the inner edges in $D$ but keeps all broad relations involving edges not in $D$
 (this is the hardest class of maps to visualize pictorially, as the vertices adjacent to each $d \in D$ are combined via broad transitivity/composition).
 For each broad relation
 $t_1 \cdots t_k = \underline{t} \leq t$ in $T$,
@@ -380,7 +388,7 @@ $s \leq_d t$ and $\forall_{i} s \not \leq t_i$
 	Following \cite[Ex. 2.8]{BM11}, one has a degree function 
 	$|-|\colon \Omega \to \mathbb{N}$ given by $|T|=|V(T)|$
 	such that non isomorphim face maps (resp. degeneracies) strictly increase (decrease) $|-|$.
-	The category of face maps is thus denoted $\Omega^+$ and that of degeneracies is denoted $\Omega^-$.
+	As such, the subcategory of face maps is denoted $\Omega^+$ while that of degeneracies is denoted $\Omega^-$.
 \end{remark}
 
 We now collect a couple of useful lemmas concerning faces.
@@ -405,7 +413,7 @@ Then $E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U) \cap E^{\mathsf{i}} (\bar{V})$.
 
 \begin{proof}
 	Write $r$ and $\underline{l}=l_1\cdots l_n$
-	for the root and leaf tuple of $V$, or equivalently $\bar{V}$.
+	for the root and leaf tuple of $V$ or, equivalently, of $\bar{V}$.
 	Since the horizontal maps are outer, an edge
 	$e \in E^{\mathsf{i}}(U)$ (resp. $e \in E^{\mathsf{i}}(\bar{U})$)
 	is also in $E^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
@@ -445,7 +453,7 @@ containing (contained in) all $U_i$.
 
 \subsection{The category of $G$-trees $\Omega_G$}
 
-We next recall the category $\Omega_G$ of $G$-trees first defined in \cite[\S 5.3]{Per17}. We start with an explicit and representative example of a $G$-tree (for more examples, see \cite[\S 4.3]{Per17}).
+We next recall the category $\Omega_G$ of $G$-trees introduced in \cite[\S 5.3]{Per17}. We start with an explicit and representative example of a $G$-tree (for more examples, see \cite[\S 4.3]{Per17}).
 Letting $G = \{ \pm 1, \pm i, \pm j, \pm k\}$ denote the group of quaternionic units 
 and $G \geq H \geq K \geq L$ denote the subgroups %
 $H = \langle j \rangle$, %
@@ -515,22 +523,22 @@ given by the (single) tree on the right.
 	\end{tikzpicture}%
 \end{equation}%
 Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
-$a,b,c,d$ have stabilizers $L,K,K,H$.
+$a,b,c,d$ have isotropy $L,K,K,H$.
 
 %{\color{blue} Compactly, $G$-trees can be described as ``indecomposable $G$-forests''.}
 Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is given as follows.
 Given a non-equivariant forest diagram $F$ 
 (i.e. a finite collection of tree diagrams side by side),
 there is
-an associated broad poset just as before, and thus one obtains a category $\Phi$ of forests.
-Letting $\Phi^G$ denote $G$-objects on $\Phi$, referred to as $G$-forests,
+an associated broad poset just as before, and one thus obtains a category $\Phi$ of forests.
+Letting $\Phi^G$ denote $G$-objects in $\Phi$, referred to as $G$-forests,
 the category
 $\Omega_G \subset \Phi^G$
 of $G$-trees
 is defined to be the full subcategory of those $G$-forests such that the $G$-action is transitive on tree components.
 
 We note that any $G$-tree $T$ can then be written as
-$G \cdot_H T_{\**}$, where $T_{\**}$ is some fixed tree component, $H\leq G$ is the subgroup sending that component to itself,
+$T \simeq G \cdot_H T_{\**}$, where $T_{\**}$ is some fixed tree component, $H\leq G$ is the subgroup sending that component to itself,
 and we regard $T_{\**} \in \Omega^H$, i.e., as a tree with a $H$-action (where we caution that $\Omega^G \subsetneq \Omega_G$).
 
 We note that we also assume $G$-trees (and forests in general) are planarized, meaning that they come with a total order of the tree components, which are themselves planarized.
@@ -598,8 +606,8 @@ We start by recalling the notion of face discussed in \cite{Per17}, which is mot
 
 
 \begin{remark}\label{PLFUNCTOR REM}
-	Recalling that notation $\Omega^+ \subset \Omega$
-	(non-equivariant) subcategory of face maps,
+	Recalling the notation $\Omega^+ \subset \Omega$
+	for the subcategory of face maps,
 	we write $\Omega^+ \downarrow T$ for the category of all faces of $T \in \Omega_G$.
 	By pulling back the planarization of $T$ one then obtains a \textit{planarization functor}
 	\[
@@ -791,8 +799,8 @@ We will need no analogous notation for orbital outer faces.
 \begin{proof}
 Assume first that $U=\bar{U}^T$ is outer and write $H\leq G$ for
 the isotropy of its root $r_U$.
-By Lemma \ref{CUPCAP LEM} there exists a smallest outer face 
-containing all $\{h U \hookrightarrow T\}_{h \in H}$,
+By Lemma \ref{CUPCAP LEM} there exists a smallest planar outer face 
+containing all $h U \hookrightarrow T$ for $h \in H$,
 which we denote by $HU$.
 Moreover, $HU$ inherits the $H$-action from $T$ 
 (by either its construction or its characterization).
@@ -813,8 +821,8 @@ Both the factorization $U \to GU \to T$ and its minimality are immediate from th
 all the edges in $Hl \cap E(U)$ are leaves of $U$, 
 	and claim that the leaves of $GU$ are the tuple $\underline{l}$ formed by the $G$-orbits of the orbital leaves of $U$. 
 	Indeed, a leaf $l$ of $U$ is also a leaf of $HU$ iff 
-	$\forall_{h \in H}$ ($l \in E(hU)$ implies that $l$ is a leaf of $hU$) iff
-	$\forall_{h \in H}$ ($h^{-1} l \in E(U)$ implies that $l$ is a leaf of $U$).
+	$\forall_{h \in H}$($l \in E(hU)$ implies that $l$ is a leaf of $hU$) iff
+	$\forall_{h \in H}$($h^{-1} l \in E(U)$ implies that $l$ is a leaf of $U$).
 	
 	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 
 	It is now clear that $U \to G\bar{U} \to T$ is the minimal factorization with $G\bar{U}$ an \textit{outer} orbital face,
@@ -2948,7 +2956,7 @@ will not require an explicit discussion of these additional compatibilities.
 \end{example}
 
 
-\begin{remark}
+\begin{remark}\label{NORMMAP REM}
 Consider a single colored $G$-operad $\mathcal{O}$
 (i.e. an operad with a $G$-action commuting with all structure)
 and a finite $H$-set $A$ for some subgroup $H \leq G$,
@@ -2963,7 +2971,8 @@ and call this the
 $\mathcal{O}(A)^H$ indexes operations
 $N^A R \to R$, where the
 \textit{norm} $N^A R$ denotes
-$R^{\times |A|}$ with a suitably twisted $H$-action  \cite[Def. 6.1]{BH15}.
+$R^{\times |A|}$ together with the $H$-action
+given by the graph subgroup $\Gamma_A \leq G \times \Sigma_{|A|}$.
 
 Letting $T,R_1,R_2,S \in \Omega_G$ and $H,K,L\leq G$ again be as in
 \eqref{TWOREP EQ} and Example \ref{ORBFACE EX},
