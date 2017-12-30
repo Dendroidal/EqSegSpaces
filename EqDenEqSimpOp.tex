@@ -638,7 +638,7 @@ We now introduce the notion of face of a $G$-tree that is suggested by the orbit
 	Let $T \in \Omega_G$.
 	An \textit{orbital face} of $T$ is a map 
 	$S \hookrightarrow T$ in $\Omega_G$ which is injective on edges. Further, an orbital face is called
-	\textit{planar/inner/outer} if so are all of its component maps.
+	\textit{inner/outer} if any (and thus all) of its  component maps is and \textit{planar} if it is a planar map of forests.
 \end{definition}
 
 
@@ -2321,11 +2321,10 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 \subsection{Segal cores, horns and orbital horns}\label{HYPERSAT SEC}
 
-{\color{red} HERE}
 
 \begin{proposition}\label{ORB_HORN_PROP}
 	For $G$-subsets  
-	$\emptyset \neq F \subseteq E \subseteq E^{\mathsf{i}}(T)$
+	$\emptyset \neq F \subseteq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$
 	the inclusions
 \begin{equation}\label{ORBHORNINC EQ}
 	\Lambda_o^{E}[T] \to \Omega[T],\qquad
@@ -2334,10 +2333,9 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 	are $G$-inner anodyne.
 \end{proposition}
 
-
 \begin{proof}
 We are free to assume that $T \in \Omega^G \subseteq \Omega_G$. Indeed, otherwise writing $T = G \cdot_H T_{\**}$, where $T_{\**} \in \Omega^H$ is a fixed component and 
-$E_{\**}=E \cap E^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap E^{\mathsf{i}}(T_{\**})$,
+$E_{\**}=E \cap \boldsymbol{E}^{\mathsf{i}}(T_{\**})$, $F_{\**} = F \cap \boldsymbol{E}^{\mathsf{i}}(T_{\**})$,
 the maps in \eqref{ORBHORNINC EQ} are
 $G \cdot_H 
 \left( \Lambda_o^{E_{\**}}[T_{\**}] \to \Omega[T_{\**}]\right)$
@@ -2388,7 +2386,8 @@ We again check the characteristic conditions. (Ch0) is clear.
 For (Ch1), note that for an outer face 
 $V \hookrightarrow U_i$, and writing $\bar{V} = \bar{V}^T$,
 Lemma \ref{INNINT LEM} implies
-$E^{\mathsf{i}}(V) = E^{\mathsf{i}}(U_i) \cap E^{\mathsf{i}}(\bar{V})$
+$\boldsymbol{E}^{\mathsf{i}}(V) = 
+\boldsymbol{E}^{\mathsf{i}}(U_i) \cap \boldsymbol{E}^{\mathsf{i}}(\bar{V})$
 and hence since $\Xi_{U_i} = F = \Xi$ the 
 hypothesis $\Xi_{V} = \emptyset$ in (Ch1) implies it is also
 $\Xi_{\bar{V}} = \emptyset$.
@@ -2405,7 +2404,8 @@ and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
 
 \begin{proposition}\label{REG_HORN_PROP}
 For $G$-equivariant 
-$\emptyset \neq F \subseteq E \subseteq E^{\mathsf{i}}(T)$
+$\emptyset \neq F \subseteq E \subseteq 
+\boldsymbol{E}^{\mathsf{i}}(T)$
 the inclusions
 \begin{equation}
 	\Lambda^{E}[T] \to \Lambda^{F}[T]
@@ -2475,7 +2475,7 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 	hence we need only show that 
 	$\Lambda^{E}[T] \to \Lambda^{Ge}[T]$ is built cellularly from generating horns. 
 	But this is immediate from the induction hypothesis,
-	Remark \ref{FACCES REM}, and the proof of Proposition \ref{REG_HORN_PROP} since all
+	Remark \ref{FACCES REM}, and the proof of Proposition \ref{REG_HORN_PROP}, since all
 	$U_{i}$ therein satisfy $|U_i|<|T|$.
 \end{proof}
 
@@ -2495,15 +2495,16 @@ such that both $f$ and $gf$ are in the class, then so is $g$.
 The following is an equivariant generalization of 
 \cite[Props. 2.4 and 2.5]{CM13a}.
 
+
 \begin{proposition}\label{HYPER PROP}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
 \item the $G$-inner horn inclusions
 $\Lambda^{E} [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-subset $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-subset $\emptyset \neq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$; 
 \item the orbital $G$-inner horn inclusions
 $\Lambda^{E}_o [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
-$G$-subset $\emptyset \neq E \subseteq E^{\mathsf{i}}(T)$; 
+$G$-subset $\emptyset \neq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$; 
 \item the $G$-Segal core inclusions
 $Sc[T] \to \Omega[T]$ for $T \in \Omega_G$.
 \end{itemize}
@@ -2527,18 +2528,18 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	$\Lambda_o^E[T] \to \Lambda^E[T]$ is in the orbital hypersaturation, and by the cancellation property so is $\Lambda^E[T] \to \Omega[T]$.
 	
 	For the claim that the $G$-inner inclusions are in the Segal hypersaturation,
-	note that $Sc[T] \to \Omega[T]$ can be shown to be $G$-inner anodyne by setting $I=\**$, $U_{\**} = T$, $\Xi^{\**} = E^{\mathsf{i}}(T)$
+	note that $Sc[T] \to \Omega[T]$ can be shown to be $G$-inner anodyne by setting $I=\**$, $U_{\**} = T$, $\Xi^{\**} = \boldsymbol{E}^{\mathsf{i}}(T)$
 	(this differs from Remark \ref{RECOVER REM}(i), but the arguments therein still hold).
 	Therefore, arguing exactly as above for the factorization
-	$Sc[T] \to \Lambda^{E^{\mathsf{i}}(T)}[T] \to \Omega[T]$,
+	$Sc[T] \to \Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to \Omega[T]$,
 	one obtains by induction on $|T_{\**}|$ that
-	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to \Omega[T]$
+	$\Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to \Omega[T]$
 	is in the Segal hypersaturation. 
-	But now letting $E \subseteq E^{\mathsf{i}}(T)$ be any $G$-subset and considering the factorization
-	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to 
+	But now letting $E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ be any $G$-subset and considering the factorization
+	$\Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to 
 	\Lambda^{E}[T] \to
 	\Omega[T]$ the induction hypothesis applies to the cells of
-	$\Lambda^{E^{\mathsf{i}}(T)}[T] \to \Lambda^{E}[T]$
+	$\Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to \Lambda^{E}[T]$
 	(just as in Corollary \ref{REGGENHORN COR}),
 	which is thus also in the Segal hypersaturation.
 	But by the cancellation property, so is 
@@ -2583,15 +2584,14 @@ $Sc[T] \to \Omega[T]$
 are built cellularly from the orbital horn inclusions
 $\Lambda^E_o[T] \to \Omega[T]$, and that the two classes have the same hypersaturation. 
 
-	Indeed, this observation indicates an alternate route to the proof of Proposition \ref{HYPER PROP}
+	Indeed, this observation indicates an alternate route for proving Proposition \ref{HYPER PROP}
 	(which the authors considered in early versions of this work)
 	without making direct use of the characteristic edge lemma machinery.
 	Namely, following the considerations above, the main missing claim is the first part of Proposition \ref{ORB_HORN_PROP}, stating that the inclusions
-	$\Lambda^E_o[T] \to \Omega[T]$ are $G$-inner anodyne.
-	This latter claim is not too hard to prove directly. 
+	$\Lambda^E_o[T] \to \Omega[T]$ are $G$-inner anodyne, and this latter claim is not too hard to prove directly. 
 	Indeed, while the proof does require some of the ideas in the proof of Lemma \ref{CHAREDGE LEM},
-	many of the subtler arguments in the proof of Lemma \ref{CHAREDGE LEM}
-become trivial when $I=\**$ is a singleton, as is the case in Proposition \ref{ORB_HORN_PROP}.
+	many of the subtler arguments in that proof
+	become trivial when $I=\**$ is a singleton, as is the case in Proposition \ref{ORB_HORN_PROP}.
 \end{remark}
 
 %Focusing now on the saturated classes of morphisms generated by the \textit{orbital} horn inclusions,
@@ -2742,7 +2742,7 @@ We claim that the maps
 \begin{equation}\label{INVER EQ}
 %	\Delta[2] \xrightarrow{010} N \widetilde{[1]}
 %\qquad
-	\Delta[n] = N [m] \xrightarrow{012\cdots m} N \widetilde{[m]},\quad m \geq 1
+	\Delta[m] = N [m] \xrightarrow{012\cdots m} N \widetilde{[m]},\quad m \geq 1
 \end{equation}
 are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 2$.
 
@@ -2763,6 +2763,7 @@ $\Lambda^0[1] \to \Delta[1]$ are unneeded since \eqref{INVER EQ} is an isomorphi
 \end{remark}
 
 
+{\color{red} HERE}
 
 
 \subsection{Genuine equivariant operads}\label{GENEQOP SEC}
@@ -3175,34 +3176,6 @@ $G$-dendroidal sets $\mathsf{dSet}_G$.
 %       However, this structure is more subtle than that of \cite{Per17},
 %       and its discussion will also be delayed to a sequel.
 % \end{remark}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
