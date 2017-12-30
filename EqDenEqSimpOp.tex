@@ -1601,7 +1601,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
 
 
 Much as in \cite[\S 2]{CM13a}, 
-it is essential for us to show that the inclusions $Sc[T] \to \Omega[T]$, $T\in \Omega_G$ are $G$-inner anodyne.
+we need to show that the inclusions $Sc[T] \to \Omega[T]$, $T\in \Omega_G$ are $G$-inner anodyne.
 In addition, some parts of the equivariant dendroidal story are 
 naturally described in terms of 
 orbital $G$-inner horns $\Lambda^E_o[T]$ 
@@ -1610,53 +1610,60 @@ and one must hence also show that the inclusions
 $\Lambda^E_o[T] \to \Omega[T]$
 are $G$-inner anodyne.
 
-In practice, the proofs of such results are long and somewhat repetitive, as they share many technical arguments.
-Indeed, the case of orbital horns requires using many of the arguments in the long proof of \cite[Thm 7.1]{Per17}).
+In practice, the proofs of such results are long as well as somewhat repetitive, since they share many technical arguments.
+In fact, dealing with the case of orbital horns requires using many of the arguments in the long proof of \cite[Thm 7.1]{Per17}.
 
-As such, we split our analysis into two parts.
+As such, we split our technical analysis into two parts.
 In \S \ref{CHAREDGE SEC} we prove Lemma \ref{CHAREDGE LEM} which  we call the \textit{characteristic edge lemma} and
 which abstractly identifies sufficient conditions for a map to be $G$-inner anodyne
 (see Remark \ref{RECOVER REM} for a comparison with previous results in the literature).
 %As an illustration of its power, we briefly summarize how 
 %Lemma \ref{CHAREDGE LEM} significantly simplifies the proof of \cite[Thm 7.1]{Per17}.
 Then, in \S \ref{HYPERSAT SEC} we deduce that the desired maps
-are $G$-inner anodyne by applying Lemma \ref{CHAREDGE LEM}.
+are $G$-inner anodyne by applying Lemma \ref{CHAREDGE LEM},
+and further establish Proposition \ref{HYPER PROP} which,
+informally,
+says that Segal core inclusions, $G$-inner horn inclusions and orbital $G$-inner horn inclusions can be used interchangeably in some contexts.
 
+
+Lastly, \S \ref{GENEQOP SEC} briefly discusses \textit{colored genuine equivariant operads}
+(which in the single color case were first introduced in \cite{BP17}), which play an important role in \S \ref{HMPTYGEN SEC}.
 
 
 \subsection{The characteristic edge lemma} \label{CHAREDGE SEC}
 
+
 \begin{definition}\label{CHAREDGE DEF}
-      Let $T \in \Omega_G$, $A \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
+	Let $T \in \Omega_G$, $A \subseteq \Omega[T]$ a subdendroidal set, and $\{U_i\}_{i \in I} \subseteq \mathsf{Face}(T)$ a subset.
 
-       Given a set $\Xi^i$ of inner edges of $U_i$ and a subface $V \hookrightarrow U_i$, denote $\Xi_V^i = \Xi^i \cap E^{\mathsf{i}}(V)$.
+	Given a set $\Xi^i$ of inner edges of $U_i$ and a subface $V \hookrightarrow U_i$, denote $\Xi_V^i = \Xi^i \cap \boldsymbol{E}^{\mathsf{i}}(V)$.
 
-      Suppose further that the indexing set $I$ is a 
-      finite $G$-poset. For each $i \in I$ denote
-      \[
-            A_{<i} = A \cup \bigcup_{j \colon j<i} \Omega[U_j]
-      \]
-      We say that $\{\Xi^i \subseteq E^{\mathsf{i}}(U_i)\}$ 
-      is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $A$} if:
-      \begin{itemize}
-      \item[(Ch0)] $A$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g A = A$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
-      \item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
-            of $U_i$ such that $\Xi_{V}^i = \emptyset$
-            is contained in $A_{<i}$;
-      \item[(Ch2)] for all $i$, any face
-            $V \hookrightarrow U_i$ such that $(V-\Xi_V^i) \in A$
-            is contained in $A_{<i}$;
-      \item[(Ch3)] for all $j \not \geq i$, 
-            all faces $V \hookrightarrow U_i$ such that 
-            $(V-\Xi^i_V) \hookrightarrow U_j$
-            are contained in $A_{<i}$.
-      \end{itemize}
+	Suppose further that the indexing set $I$ is a 
+	finite $G$-poset. For each $i \in I$ denote
+\[
+	A_{<i} = A \cup \bigcup_{j<i} \Omega[U_j]
+\]
+	We say that $\{\Xi^i \subseteq \boldsymbol{E}^{\mathsf{i}}(U_i)\}$
+	is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $A$} if:
+	\begin{itemize}
+	\item[(Ch0)] $A$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g A = A$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
+	\item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
+		of $U_i$ such that $\Xi_{V}^i = \emptyset$
+		is contained in $A_{<i}$;
+	\item[(Ch2)] for all $i$, any face
+		$V \hookrightarrow U_i$ such that $(V-\Xi_V^i) \in A$
+		is contained in $A_{<i}$;
+	\item[(Ch3)] for all $j \not \geq i$, 
+		all faces $V \hookrightarrow U_i$ such that 
+		$(V-\Xi^i_V) \hookrightarrow U_j$
+		are contained in $A_{<i}$.
+	\end{itemize}
 \end{definition}
 
 
 \begin{remark}\label{XIIII REM}
-If $g i \neq i$, then $i,g i$ are incomparable in $I$. Indeed, otherwise $i<gi<g^2i<g^3i<\cdots$ would violate antisymmetry.
-Therefore, (Ch3) applies whenever $j=gi$ for $gi\neq i$.
+If $g i \neq i$, then $i,g i$ are incomparable in $I$. Indeed, if $i<gi$ then $i<gi<g^2i<\cdots$ would violate antisymmetry, and likewise if $i>gi$.
+Hence, (Ch3) applies when $j=gi$ for $gi\neq i$.
 
 In particular, we assume throughout that if
 $gi \neq i$ then $U_{gi} \neq U_i$,
@@ -1666,9 +1673,7 @@ or else it would be $U_i \in A_{<i}$.
 
 \begin{remark}\label{SOMEMAIN REM}
 In some of the main examples (see Propositions \ref{ORB_HORN_PROP} and \ref{REG_HORN_PROP}), there exists a $G$-equivariant set 
-$\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap E^{\mathsf{i}}(U_i)$.
-
-%In such cases (Ch3) guarantees that, for fixed $\Xi$ and $A$, the characteristic conditions are monotone on $\{U_i\}$, in the sense that if they hold for $\{U_i\}$ they also hold for all of its subsets. NO LONGER TRUE
+$\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap \boldsymbol{E}^{\mathsf{i}}(U_i)$.
 	
 We caution that, for fixed $A$ and $\{U_i\}$, our characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2),(Ch3) more restrictive.
 \end{remark}
@@ -1682,13 +1687,14 @@ If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{
 is $G$-inner anodyne. In fact, it is cellular on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
+Recall that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called \textit{convex} if $s \in S$ and 
+$p<s$ implies $p \in S$.
 
 \begin{proof}
 We start with the case of $I \simeq G/H$ transitive so that, abbreviating $U = U_{[e]}$, $\{U_i\}$ is the set of conjugates $gU$. 
-Note that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
 We likewise abbreviate $\Xi = \Xi^{[e]}$ and
 $\Xi_V = \Xi_V^{[e]}$ for $V \hookrightarrow U$.
-Moreover, in this case one has $A_{<[g]}=A$ in (Ch1),(Ch2),(Ch3).
+Moreover, in this case one has $A_{<[g]}=A$ in (Ch1),(Ch2),(Ch3) and that $H$ is also the isotropy of $U$ in $\mathsf{Face}(T)$.
 
 We write $\mathsf{Face}_{\Xi}^{lex}(U)$
 for the $H$-poset of planar faces $V \hookrightarrow U$
@@ -1724,16 +1730,17 @@ Letting $K \leq H$ denote the isotropy of
 $W$ in $\mathsf{Face}_{\Xi}^{lex}(U)$ and regarding $W \in \Omega^{K}\subseteq \Omega_{K}$, we claim there is a pushout diagram
 \begin{equation}\label{FIRPUSH EQ}
 \begin{tikzcd}
-	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d} \ar{r}&
+	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d} \ar{r}
+	\arrow[dr, phantom, "\ulcorner", very near start]&
 	A_C \ar{d}
 \\
 	G \cdot_{K} \Omega[W] \ar{r}&
 	A_{C'}
 \end{tikzcd}
 \end{equation}
-where we note that inner edge set $\Xi_{W}$ is $K$-equivariant
-since $\Xi_W = \Xi \cap E^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
-The desired pushout will follow once we establish the following claims:
+where we note that the inner edge set $\Xi_{W}$ is $K$-equivariant
+since $\Xi_W = \Xi \cap \boldsymbol{E}^{\mathsf{i}}(W)$ and $\Xi$ is $H$-equivariant by (Ch0).
+The pushout \eqref{FIRPUSH EQ} will follow once we establish the following claims:
 \begin{enumerate}
 \item[(a)] all proper outer faces $V$ of $W$ are in $A_C$;
 \item[(b)] an inner face $W - D$ of $W$ is in $A_C$ iff 
@@ -1742,17 +1749,14 @@ $D \not \subseteq \Xi_{W}$;
 the $G$-isotropy (i.e. the isotropy in $\mathsf{Face}(T)$)
 of faces 
 $W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
-%the $G$-isotropy of inner faces 
-%(i.e. their isotropy in $\mathsf{Face}(T)$)
-%is contained in $G_W$.
 \end{enumerate}
 
 To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
 	\[
-	\Xi_V = \Xi \cap E^{\mathsf{i}} (V) 
-	= \Xi \cap E^{\mathsf{i}}(W) \cap E^{\mathsf{i}}(\bar{V})
-	= \Xi \cap E^{\mathsf{i}}(\bar{W}) \cap E^{\mathsf{i}}(\bar{V})
-	= \Xi \cap E^{\mathsf{i}}(\bar{V})
+	\Xi_V = \Xi \cap \boldsymbol{E}^{\mathsf{i}} (V) 
+	= \Xi \cap \boldsymbol{E}^{\mathsf{i}}(W) \cap \boldsymbol{E}^{\mathsf{i}}(\bar{V})
+	= \Xi \cap \boldsymbol{E}^{\mathsf{i}}(\bar{W}) \cap \boldsymbol{E}^{\mathsf{i}}(\bar{V})
+	= \Xi \cap \boldsymbol{E}^{\mathsf{i}}(\bar{V})
 	= \Xi_{\bar{V}}
 	\]
 where the second step follows from Lemma \ref{INNINT LEM}
@@ -1790,23 +1794,6 @@ $\mathsf{Face}_{\Xi}^{lex}(U)$ the face $V$ must contain as inner edges all edge
 $\Xi_V=\Xi_{\bar{V}} = \Xi_{\bar{W}} = \Xi_{W}$,
 so that not only $W - \Xi_{W} = W' \hookrightarrow V$ but also $W \hookrightarrow V$. But then it is $W \leq V$ in either case, establishing the desired contradiction. 
 
-%\todo[inline]{What precisely is being contradicted is not clear on the first read through. I might reword the above as follows:}
-%{\color{blue}
-%  For the ``only if'' direction of (b), let $W' = W - \Xi_W$.
-%  (Ch2) and the fact that $W \notin A_C$ together imply that $W' \notin A$,
-%  and hence it remains to show that $W'$ is not a face of any $g V$ for $g \in G$, $V \in C$.
-%  Suppose otherwise; say $W' \into g V$.
-%  If $g \notin H$, then we would have $W' \into g V \into g U \neq U$,
-%  and (Ch3) would imply $W \in A$.
-%  Thus we need only consider $g \in H$, and since $C$ is $H$-equivariant, we may assume $g = e$.
-%  But now since $W' \into V$, we have $\bar W = \bar W ' \into \bar V$.
-%  We claim this implies $W < V$, contradicting $W \notin A_C$.
-%  Indeed, either $\bar W \into \bar V$ with $\bar W \neq \bar V$, or,
-%  if $\bar W = \bar V$, the definition of $\mathsf{Face}^{lex}_{\Xi}(U)$ implies that $V$ must contain all of
-%  $\Xi_V = \Xi_{\bar V} = \Xi_{\bar W} = \Xi_{W}$ as inner edges,
-%  and thus not only $W - \Xi_W = W' \into V$, but also $W \into V$.
-%}
-
 We now show (c).
 If $g(W-D)=W-D$ then $g(W - \Xi_W) \hookrightarrow U$,
 and thus $W - \Xi_W \hookrightarrow g^{-1}U$,
@@ -1824,7 +1811,6 @@ $h\Xi_{W} = \Xi_{hW} \subseteq \Xi_{\bar{W}} = \Xi_{W}$, where the last step fol
 $W \in \mathsf{Face}_{\Xi}^{lex}(U)$, and by cardinality reasons it must in fact be $h \Xi_{W} = \Xi_{W}$. But then $hW,W$
 have the same outer closure and the same inner edges, and thus 
 $hW=W$, establishing (c).
-
 
 Lastly, we address the case of general $I$.
 For each $G$-equivariant convex subset $J$ of $I$, set
@@ -1844,14 +1830,14 @@ conditions follow from the original conditions.
 \end{proof}
 
 
-
 \begin{remark}\label{CHAREDGE2 REM}
 The requirement $A \subseteq \Omega[T]$ in Definition \ref{CHAREDGE DEF} can be relaxed.
-Given an inclusion $A \subseteq B$,
+Given an inclusion $A \subseteq B$ with 
+$B \in \mathsf{dSet}^G$,
 a set of non-degenerate dendrices
 $\{b_i \in B(U_i)\}_{i \in I}$
 and a collection of edges
-$\{\Xi^i \subset E^{\mathsf{i}}(U_i)\}_{i \in I}$, 
+$\{\Xi^i \subseteq \boldsymbol{E}^{\mathsf{i}}(U_i)\}_{i \in I}$, 
 suppose that $I$ is a finite $G$-poset and that:
 \begin{itemize}
 	\item[(Ch0.1)] the maps $b_i \colon \Omega[U_i] \to B$ are monomorphisms;
@@ -1865,23 +1851,19 @@ suppose that $I$ is a finite $G$-poset and that:
 		$\Omega[U_i] \xrightarrow{b_i} Y \xrightarrow{g} Y$
 		and
 		$\Omega[U_i]  \xrightarrow{g} \Omega[U_{gi}] \xrightarrow{b_{gi}} Y$ coincide;
-		\item[(iv)] $g \Xi^i=\Xi^{gi}$.
+		\item[(iv)] $g \left(\Xi^i\right)=\Xi^{gi}$.
 	\end{inparaenum}
-%	\item[(Ch0*3)] for each face $V \hookrightarrow U_i$ and $g \in G$
-%	then $g y_i(V) = y_i(V)$ implies 
-%	$g y_i(\bar{V}) = y_i(\bar{V})$.
 \end{itemize}
 Under (Ch0.1),
-the $\Omega[U_i]$ are identified with subcomplexes of $B$,
-and non-degenerate dendrices $b \in b_i(\Omega[U_i])(V)$
-are identified with faces $V \hookrightarrow U_i$.
-
-The original conditions (Ch1),(Ch2),(Ch3) can then be reinterpreted by, 
+the $\Omega[U_i]$ are then identified with the subcomplexes $b_i(\Omega[U_i]) \subseteq B$, with the non-degenerate dendrices of $ b_i(\Omega[U_i])$
+being the images $b_i(\varphi_V)$ of the face maps $\varphi_V \colon V \hookrightarrow U_i$.
+The original conditions (Ch1),(Ch2),(Ch3) can hence be reinterpreted by, 
 for each $V \hookrightarrow U_i$, 
-regarding expressions such as $V \in A$, $(V-\Xi^i_V)\in U_j$
-as $b_i(V) \in A$, $b_i(V-\Xi^i_V) \in b_j(\Omega[U_j])$.
+regarding expressions such as $V \in A$, 
+$(V-\Xi^i_V) \hookrightarrow U_j$
+as $b_i(\varphi_V) \in A$, $b_i(\varphi_{V-\Xi^i_V}) \in b_j(\Omega[U_j])$.
 
-The proof of Lemma \ref{CHAREDGE DEF} now carries through to show that 
+The proof of Lemma \ref{CHAREDGE LEM} now carries through to show that the inclusion
 \begin{equation}
 	A \to A \cup \bigcup_{i \in I} b_i(\Omega[U_i])
 \end{equation}
@@ -1927,7 +1909,7 @@ Lemma \ref{CHAREDGE LEM} readily recovers several arguments in the literature:
 \begin{itemize}
 \item[(i)] In \cite[\S 10]{Rez01} (also \cite[\S 6.2]{Rez10}), Rezk introduces the notion of \textit{covers}, which in our language are the subsets
 $Sc[n] \subseteq A \subseteq \Delta[n]$
-such that if $V$ is in $A$ then so is the closure $\bar{V}^{[n]}$
+such that if $V \hookrightarrow [n]$ is in $A$ then so is the outer closure $\bar{V}^{[n]}$
 (in words, $A$ is generated by outer faces).
 Similarly, in the proof of \cite[Prop. 2.4]{CM13a}
 Cisinski and Moerdijk use subcomplexes $S_j$ that can be regarded as
@@ -1937,16 +1919,17 @@ $Sc[T] \subseteq A \subseteq \Omega[T]$
 such that if $V$ is in $A$ then so is $\bar{V}^{T}$.
 Lastly, the subcomplexes 
 $\Omega[T] \cup_l \Omega[S] \subseteq \Omega[T \circ_l S]$
-in the grafting result \cite[Lemma 5.2]{MW09} (and similarly for the equivariant analogue \cite[Prop. 6.19]{Per17}) are also dendroidal covers.
+in the grafting result \cite[Lemma 5.2]{MW09},
+and likewise for the equivariant analogue \cite[Prop. 6.19]{Per17}, are also dendroidal covers.
 
 Lemma \ref{CHAREDGE LEM} implies
 that any inclusion $A \to A'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
 is $G$-inner anodyne. 
 Indeed, let $I=\mathsf{Face}_{A'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$ contained in $A'$, ordered by inclusion, 
-$\Xi = E^{\mathsf{i}}(T)$ and $U_V = V$.
+$\Xi = \boldsymbol{E}^{\mathsf{i}}(T)$ and $U_V = V$.
 (Ch0) is clear, (Ch1) follows since 
 $Sc(T) \subseteq A$, (Ch2) follows since $A$ is a cover and
-(Ch3) follows since the $U_i$ are closed.
+(Ch3) follows since the $U_i$ are outer.
 
 Alternatively, one can also use $I=\mathsf{Face}_{A',o}^{out}(T)$
 for the $G$-trivial set of orbital outer faces 
@@ -1954,15 +1937,15 @@ $GV \hookrightarrow T$,
 together with an \textit{arbitrary} total order (see Remark \ref{TWOPROOF REM} for a similar example).
 
 Lastly, note that in the special case 
-$\{U_i\}=\{T\}$, $\Xi=E^{\mathsf{i}}(T)$,
+$\{U_i\}=\{T\}$, $\Xi=\boldsymbol{E}^{\mathsf{i}}(T)$,
 (Ch1) says precisely $Sc[T] \subseteq A$.
 
 
 \item[(ii)] In \cite[Lemma 9.7]{MW09}, Moerdijk and Weiss introduced a \textit{characteristic edge} condition that can be regarded as a special case of our characteristic edge collection condition as generalized in Remark \ref{CHAREDGE2 REM}, and which served as one of our main inspirations.
 
 Therein, they work in the case of $B= \Omega[T] \otimes \Omega[S]$
-a tensor product of (non-equivariant) representable dendroidal sets, in which case (Ch0.1) is easily verified (and (Ch0.2) is moot).
-In our notation, they then require that $I \simeq \**$ (so that (Ch3) is also moot), 
+a tensor product of (non-equivariant) representable dendroidal sets, in which case (Ch0.1) is easily verified (and (Ch0.2) is automatic).
+In our notation, they then require that $I \simeq \**$ (so that (Ch3) is also automatic), 
 the dendrex 
 $b_{\**} \in \left(\Omega[T] \otimes \Omega[S]\right)(U_{\**})$ encodes a special type of subtree $U_{\**}$ of $\Omega[T] \otimes \Omega[S]$, which they call an \textit{initial segment},
 and they further require that $\Xi^{\**} = \{\xi\}$ is a singleton, called the \textit{characteristic edge}.
@@ -1973,17 +1956,12 @@ which coincides with (Ch2) in this specific setting.
 
 Similarly, in \cite[Lemma 7.39]{Per17} the second author introduced a \textit{characteristic edge orbit} condition that generalizes that in \cite{MW09} to the equivariant context 
 by letting $I \simeq G/H$
-and the $\Xi^{[g]}=\Xi \cap E^{\mathsf{i}}(U_{[g]})$ be determined by a $G$-edge orbit $\Xi \simeq Gf$ (cf. Remark \ref{SOMEMAIN REM}).
+and the $\Xi^{[g]}=\Xi \cap \boldsymbol{E}^{\mathsf{i}}(U_{[g]})$ be determined by a $G$-edge orbit $\Xi \simeq G \xi$ (cf. Remark \ref{SOMEMAIN REM}).
 
 However, both of the lemmas in \cite{MW09} and \cite{Per17}
 have the drawback of needing to be used iteratively
 (so that much effort therein is spent showing that this can be done) while Lemma \ref{CHAREDGE LEM} is designed so that a single use suffices for the natural applications.
-Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $A$ should contain all outer faces, essentially provide abstract conditions under which the original characteristic edge arguments of \cite{MW09},\cite{Per17} can be iterated.
-%Further, we note that in \cite{MW09},\cite{Per17} it is essential to make a good choice for the well-ordering in (Ch3).
-%
-%We end by noting the importance of the $G$-equivariance of $\Xi$
-%in (Ch0),(Ch0*2). In proving \cite[Prop. 7.44]{Per17} the second author chose the $\Xi$ to be sets of edges of the subtrees $y_i$, and thus not necessarily $G$-equivariant,
-%leading to the need of extra ad hoc arguments in that proof when establishing the analogue of condition (c) in the proof of Lemma \ref{CHAREDGE LEM}.
+Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $A$ should contain all outer faces of the $U_i$, essentially provide abstract conditions under which the original characteristic edge arguments of \cite{MW09},\cite{Per17} can be iterated.
 \end{itemize}
 \end{remark}
 
@@ -2002,16 +1980,12 @@ Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement i
 \end{equation}
 are $G$-inner anodyne.
 
-% As detailed in \cite[\S 5.1]{Per17},
-% and originally due to Weiss in \cite{Wei12},
-% there is an algebraically flavoured model for $\Omega$
-% as certain types of \textit{broad posets}.
 Given $S,T \in \Omega_G$, it is possible \cite[\S 7.1]{Per17} to define a $G$-equivariant broad poset $S \otimes T$
 so that 
-$\left(\Omega[S] \otimes \Omega[T]\right)(V) = Hom(V,S \otimes T)$
-where the Hom set is taken in broad posets.
-Intuitively $S \otimes T$ is an object with edge set $E(S) \times E(T)$
-and where each edge $(s,t) \in S \otimes T$
+$\left(\Omega[S] \otimes \Omega[T]\right)(V) = hom(V,S \otimes T)$
+where the hom-set is taken in broad posets.
+Intuitively $S \otimes T$ is an object with edge set $\boldsymbol{E}(S) \times \boldsymbol{E}(T)$
+and where each edge $(s,t)$ of $S \otimes T$
 may, depending on whether $s \in S$, $t \in T$ are leaves or not,
 admit two \textit{distinct} vertices: a $S$-vertex 
 $(s,t)^{\uparrow S} = s^{\uparrow} \times t \leq (s,t)$
@@ -2021,7 +1995,7 @@ $(s,t)^{\uparrow T} = s \times t^{\uparrow} \leq (s,t)$.
 To recover \cite[Thm. 7.1(i)]{Per17} from Lemma \ref{CHAREDGE LEM}, we first let $I = \mathsf{Max}(S \otimes T)$
 be the $G$-poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
 (these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
-As an example, let $\mathbb{Z}_{/2} = \{\pm 1\}$
+As an example, let $G=\mathbb{Z}_{/2} = \{\pm 1\}$
 and consider the $\mathbb{Z}_{/2}$-trees
 \[%
 	\begin{tikzpicture}[auto,grow=up, every node/.style = {font=\footnotesize}]%
@@ -2054,19 +2028,19 @@ $\mathsf{Max}(S \otimes T)$
 in Figure \ref{FIGURE} (note that $(s,t)$ is abbreviated as $t_s$).
 In words, the maximal subtrees are built by starting with the
 ``double root'' $r_0$ and iteratively choosing between the available $S$ and $T$ vertices (along all upward paths) until the 
-``double leaves'' are reached.
+``double leaves'' $a_1,a_{-1},-a_1,-a_{-1}$ are reached.
 The generating relations $U \leq U'$ in 
 $\mathsf{Max}(S \otimes T)$
 occur whenever $U$ contains an outer face $V$ shaped as on the left below and, by ``replacing'' $V$ with $V'$ as on the right, one obtains $U'$.
 \begin{equation}\label{GENLEXREL EQ}
 	\begin{tikzpicture}[auto,grow=up, level distance = 2em,
-	every node/.style={font=\scriptsize},
+	every node/.style={font=\footnotesize},
 	dummy/.style = {circle,draw,inner sep=0pt,
 	minimum size=1.75mm}]
 	\begin{scope}
 	\tikzstyle{level 2}=[sibling distance=10em]%
 	\tikzstyle{level 3}=[sibling distance=2.5em]%
-		\node at (0,0) {$V$}
+		\node at (0,0) [font=\normalsize]{$V$}
 			child{node [dummy,fill=black] {}
 				child{node [dummy] {}
 					child{
@@ -2089,7 +2063,7 @@ occur whenever $U$ contains an outer face $V$ shaped as on the left below and, b
 	\begin{scope}
 	\tikzstyle{level 2}=[sibling distance=5em]%
 	\tikzstyle{level 3}=[sibling distance=2em]%
-		\node at (8,0) {$V'$}
+		\node at (8,0) [font=\normalsize] {$V'$}
 			child{node [dummy] {}
 				child{node [dummy,fill=black] {}
 					child{
@@ -2130,7 +2104,7 @@ Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 	\tikzstyle{level 3}=[sibling distance=2.5em]%
 	\tikzstyle{level 4}=[sibling distance=2em]%
 		\node at (0,-0.5) {$\Xi^1=\{\xi_1,-\xi_1,\xi_{-1},-\xi_{-1}\}$};%
-		\node at (0,0) {$U_1$}%
+		\node at (0,0) [font=\normalsize] {$U_1$}%
 			child{node [dummy,fill=black] {}%
 				child{node [dummy] {}%
 					child{node [dummy] {}
@@ -2154,7 +2128,7 @@ Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 				edge from parent node {$r_{1}$}}%
 			edge from parent node [swap] {$r_0$}};
 		\node at (0,3.5) {$\Xi^2=\{\xi_1,\xi_{-1}-\xi_1,-\xi_{-1}\}$};%
-		\node at (0,4) {$U_2$}%
+		\node at (0,4) [font=\normalsize] {$U_2$}%
 			child{node [dummy] {}%
 				child{node [dummy,fill=black] {}%
 					child{node [dummy] {}
@@ -2178,7 +2152,7 @@ Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
 		\node at (-4.75,6.5) {$\Xi^3=\{\xi_0,-\xi_1,-\xi_{-1}\}$};%
-		\node at (-4.75,7) {$U_3$}%
+		\node at (-4.75,7) [font=\normalsize] {$U_3$}%
 			child{node [dummy] {}%
 				child{node [dummy,fill=black] {}%
 					child{node [dummy] {}
@@ -2200,7 +2174,7 @@ Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
 		\node at (4.75,6.5) {$-\Xi^3=\{\xi_1,\xi_{-1},-\xi_0\}$};%
-		\node at (4.75,7) {$-U_3$}%
+		\node at (4.75,7) [font=\normalsize] {$-U_3$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy,fill=black] {}
@@ -2222,7 +2196,7 @@ Boardman-Vogt relation (see \cite[\S 5.1]{MW07}).
 				edge from parent node {$\xi_0$}}%
 			edge from parent node [swap] {$r_0$}};
 		\node at (0,8.5) {$\Xi^4=\{\xi_0,-\xi_0\}$};%
-		\node at (0,9) {$U_4$}%
+		\node at (0,9) [font=\normalsize] {$U_4$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}%
 					child{node [dummy,fill=black] {}
@@ -2261,7 +2235,8 @@ for faces
 $S' \hookrightarrow S$, $T' \hookrightarrow T$,
 a factorization
 $V \hookrightarrow S' \otimes T' \hookrightarrow S \otimes T$
-exists iff the edges of $V$ are in $E(S') \times E(T')$.
+exists iff the edges of $V$ are in 
+$\boldsymbol{E}(S') \times \boldsymbol{E}(T')$.
 
 For (Ch1), note first that there is an equivariant grafting decomposition
 $T = T_{\not < G\xi} \amalg_{G \xi} T^{\leq G\xi}$, 
@@ -2283,7 +2258,7 @@ Then it follows from \cite[Lemma 7.37]{Per17}
 that there exists a generating relation $U_k < U_i$
 such that $(V - \Xi^{U_i}_V) \hookrightarrow U_k$
 (indeed, \cite[Lemma 7.37]{Per17} makes the slightly stronger claim that such a relation can be performed on the outer closure $\bar{V}^{U_i}$). But then, as one sees from \eqref{GENLEXREL EQ},
-all edges $e \in U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
+all edges $e$ of $U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
 
 Lastly, for (Ch2), suppose $V \hookrightarrow U$ and 
 $(V - \Xi^{U}_V) \in A$.
@@ -2299,8 +2274,8 @@ Then it will also be
 $V \hookrightarrow S' \otimes T$
 unless there is at least one edge
 $(g \xi)_s \in \Xi^{U}_V$ such that $s \not \in S'$.
-But then since the outer closure $\bar{V}^U$ can have no leaf with $S$-coordinate $s$ (this would contradict $s \not \in S'$),
-there exists some minimal outer face $U_{(g\xi)_s}^{<s}$ of $U$ with root $(g\xi_s)$ and such that its leaves have $S$-coordinate $<_d s$.
+But then since the outer closure $\bar{V}^U$ can have no leaf with $S$-coordinate $s$ (this would contradict $s \not \in S'$), 
+by Lemma \ref{CUPCAP LEM} there exists some minimal outer face $U_{(g\xi)_s}^{<s}$ of $U$ with root $(g\xi)_s$ and such that its leaves have $S$-coordinate $<_d s$.
 By minimality, one has that $U_{(g\xi)_s}^{<s} \hookrightarrow \bar{V}^U$ and that all inner edges of $U_{(g\xi)_s}^{<s}$ have
 $S$-coordinate $s$.
 Further, note that $U_{(g\xi)_s}^{<s}$
@@ -2316,17 +2291,18 @@ But then $V \hookrightarrow U'$ and (Ch2) follows.
 
  
 \begin{remark}
-We briefly outline how to modify the previous example to prove 
+We briefly outline how to modify the example above to prove 
 \cite[Thm 7.1(ii)]{Per17}, in which case some notable subtleties arise.
-The result again states that \eqref{THM71 EQ} is $G$-inner anodyne, but now with one of $S,T$ allowed to have stumps while the other is required to be linear.
+The result again states that \eqref{THM71 EQ} is $G$-inner anodyne, but now with one of $S,T$ allowed to have stumps while the other is required to be linear, i.e. of the form $G/H \cdot [n]$.
 
-One again sets $I=\mathsf{Max}(S\otimes T)$, where maximal trees are defined just as before, but some care is now needed.
+One again sets $I=\mathsf{Max}(S\otimes T)$, with maximal trees defined just as before, but some caution is needed.
 To see why, note that if the black nodes $\bullet$ in \eqref{GENLEXREL EQ} are replaced with stumps then $V'$
-is actually a subtree of $V$.
+becomes a subtree of $V$, so that not all maximal trees are maximal with regard to inclusion.
 
 When $S$ has stumps and $T$ is linear this causes no issues and the proof above holds
-(though we note that it can now be 
-$\Xi^U=\emptyset$, in which case the argument for (Ch1) shows $U\in A$).
+(notably, it can now be 
+$\Xi^U=\emptyset$, in which case (Ch1) demands $U \in A$,
+as indeed follows from the argument).
 
 However, when $S$ is linear and $T$ has stumps the proof above breaks down (more precisely, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
 $\mathsf{Max}(S\otimes T)$
@@ -2345,6 +2321,7 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 \subsection{Segal cores, horns and orbital horns}\label{HYPERSAT SEC}
 
+{\color{red} HERE}
 
 \begin{proposition}\label{ORB_HORN_PROP}
 	For $G$-subsets  
