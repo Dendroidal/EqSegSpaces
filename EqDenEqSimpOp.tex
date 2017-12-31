@@ -3330,7 +3330,6 @@ $G$-dendroidal sets $\mathsf{dSet}_G$.
 
 \section{Quillen equivalences}\label{QUIEQ SEC}
 
-{\color{red} HERE}
 
 Our main goal in this section is to prove Theorems \ref{INC0AGJ THM} and \ref{ANOQUEQUIV THM},
 which jointly establish the Quillen equivalence of three model categories:
@@ -3348,22 +3347,9 @@ on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distin
 As such, we will find it helpful to first focus on the abstract properties of such ``joint left Bousfield localizations''.
 
 
-%Our goal in this section is to simultaneously generalize
-%to the equivariant context
-%the notions of locally constant simplicial dendroidal set
-%\cite[\S 4]{CM13a}
-%and of 
-%complete dendroidal Segal space
-%\cite[\S 6]{CM13a}. In loc. cit. these two notions
-%are related by \cite[Thm. 6.6]{CM13a},
-%which says that the complete dendroidal space model structure
-%on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
-%Our perspective in this paper is that many parts of the overall story are made clearer by focusing on this observation,
-%and as such both this section and \S \ref{PREOP SEC}
-
-
 
 \subsection{Joint left Bousfield localizations}\label{JOINBOUS SEC}
+
 
 Throughout we assume familiarity with the theory of left Bousfield localizations as in \cite{Hir03}.
 
@@ -3383,21 +3369,21 @@ Throughout we assume familiarity with the theory of left Bousfield localizations
 \end{itemize}
 \end{proposition}
 
-
 \begin{proof}
-	The joint model structure $(C,W,F)$ can be obtained by either left Bousfield localizing $(C,W_1,F_1)$ with regards to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
+The joint localized model structure $(C,W,F)$ can be obtained by either left Bousfield localizing $(C,W_1,F_1)$ with regard to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
 	
-	(ii) follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
-the local equivalences between local objects match the
-initial weak equivalences.
-
 For (i), the claim that joint fibrant objects are fibrant in both of the original model structures follows since $C \cap W$ contains both $C \cap W_1$ and $C \cap W_2$ (in fact, this shows that $F \subseteq F_1 \cap F_2$).
 The converse claim follows from the observation that fibrant objects in any model structure are already local with respect to the weak equivalences in that same model structure.
+
+Lastly, (ii) follows from the local Whitehead theorem \cite[Thm. 3.3.8]{Hir03}, stating that
+the local equivalences between local objects match the
+initial weak equivalences.
 \end{proof}
 
 
-The prototypical example of Proposition \ref{COMBMODSTR PROP}
-is given by the category $\mathsf{ssSet}$ of bisimplicial sets together with the two possible Reedy structures (over the Kan model structure on $\mathsf{sSet}$).
+The prototypical example of Proposition \ref{COMBMODSTR PROP} is given by the category 
+$\mathsf{ssSet} \simeq \mathsf{Set}^{\Delta^{op} \times \Delta^{op}}$
+of bisimplicial sets together with the two possible Reedy structures (over the Kan model structure on $\mathsf{sSet}$).
 Explicitly, writing the levels of 
 $X \in \mathsf{ssSet}$ as $X_n(m)$
 one can either form a Reedy model structure with respect to the 
@@ -3482,7 +3468,7 @@ are trivial Kan fibrations, so that by
 Remark \ref{HYPERSATKAN REM} one has that 
 $\tilde{X}_L \to \tilde{X}_K$ is a trivial Kan fibration whenever
 $K \to L$ is anodyne.
-Therefore, $\tilde{X}$ is horizontal fibrant, as desired.
+Therefore, $\tilde{X}$ is also horizontal fibrant, as desired.
 
 %(ii) follows since by (i) $\tilde{X}$ is then local
 %(with the vertical Reedy model structure as the initial model structure)
@@ -3518,7 +3504,6 @@ $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	Proposition \ref{SSSETJREE PROP} (iii) and (iv). \end{proof}
 
 
-
 \begin{corollary}\label{SSETSSETADJ COR}
 	The adjunction
 \[
@@ -3533,7 +3518,7 @@ against both sets of maps in
 $\delta^{\**} (f)$ is a Kan fibration in $\mathsf{sSet}$.
 \end{corollary}
 
-Note that the ``moreover'' claim in this result is not quite formal, since the maps in \eqref{GTRCOHOR EQ},\eqref{GTRCOVER EQ} are not known to be generating trivial cofibrations for the joint model structure in $\mathsf{ssSet}$.
+Note that the ``moreover'' claim in this result is not quite formal, since the maps in \eqref{GTRCOHOR EQ},\eqref{GTRCOVER EQ} are not known to be generating trivial cofibrations for the joint model structure on $\mathsf{ssSet}$.
 
 
 \begin{proof}
@@ -3546,7 +3531,7 @@ Note that the ``moreover'' claim in this result is not quite formal, since the m
 	is a monomorphism for all $n\geq 0$.
 	This holds since:
 \begin{inparaenum}
-	\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (indeed, faces are indexed by subsets of $\{0,1,\cdots,n\}$); 
+	\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (since faces are indexed by subsets of $\{0,1,\cdots,n\}$); 
 	\item[(ii)] for any face inclusion one has 
 		$\delta_{!}\left( F \to \Delta[n]\right) = 
 		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monormorphism.
@@ -3573,7 +3558,7 @@ Indeed, this first map be built by iteratively attaching the maps
 \]
 where $F$ ranges over the poset $\mathsf{Face}_{\supsetneq \{i\}}$
 of faces of $\Delta[n]$ strictly containing $\{i\}$ 
-(note that for $F=\Delta[n]$ it is $\Lambda^F[n]=\emptyset$, so that these maps are not in general built out of the maps in \eqref{GTRCOHOR EQ}). 
+(note that for $F=\Delta[n]$ it is $\Lambda^F[n]=\emptyset$, so that these maps are in general not built out of the maps in \eqref{GTRCOHOR EQ}). 
 
 Lastly, the Quillen equivalence condition 
 is that for all $X \in \mathsf{sSet}$ and joint fibrant
@@ -3588,16 +3573,19 @@ are weak equivalences. This latter claim follows by cellular induction on $X$, s
 
 
 \begin{remark}\label{HYPERSIMPL REM}
-	Just as in the proof of Proposition \ref{SSSETJREE PROP}, one can use hypersaturations to simplify the lifiting condition
+	Just as in the proof of Proposition \ref{SSSETJREE PROP}, hypersaturations simplify the lifiting condition
 	in the previous result. 
 	Namely,	$X \to Y$ is a vertical fibration (i.e. it has the lifting property against \eqref{GTRCOVER EQ})
 	iff, for each monomorphism $K \to L$ in $\mathsf{sSet}$,
 	$X_L \to X_K \times_{Y_K} Y_L$
 	is a Kan fibration.
 	The lifting property against \eqref{GTRCOVER EQ}
-	is then the condition that 
+	then requires that 
 	$X_L \to X_K \times_{Y_K} Y_L$ is a trivial Kan fibration
-	when $K \to L$ is a horn inclusion. But then a straightforward hypersaturation argument together with Remark \ref{HYPERSATKAN REM} show that it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$, induced by the vertex maps $[0] \to [n]$, are trivial Kan fibrations.
+	when $K \to L$ is a horn inclusion. 
+	But a straightforward argument shows that the $K \to L$ with this property are hypersaturated,
+	so that by 
+Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$, induced by the vertex maps $[0] \to [n]$, are trivial Kan fibrations.
 \end{remark}
 
 
@@ -3670,18 +3658,20 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 %$H \to \mathsf{Aut}(T_{\**})$.
 
 \begin{notation}\label{JM NOT}
-      Writing
-      $\widetilde{[m]} = 
-      (0 \rightleftarrows 
-      1 \rightleftarrows \cdots
-      \rightleftarrows m)$
-      for the contractible groupoid with objects 
-      $0,1,\cdots,m$ (cf. Remark \ref{CONTGR REM}), we denote
-      \[
-            J^m = \iota_{!} \left(N \widetilde{[m]}\right)
-      \]
-      where $N$ is the nerve functor.
-      $J^m$ is regarded as equipped with the trivial $G$-action. Further, we abbreviate $J = J^1$.
+Writing
+	$\widetilde{[m]} = 
+	(0 \rightleftarrows 
+	1 \rightleftarrows \cdots
+	\rightleftarrows m)$
+for the contractible groupoid with objects 
+$0,1,\cdots,m$ (cf. Remark \ref{CONTGR REM}),
+we denote
+\[
+J^m = \iota_{!} \left(N \widetilde{[m]}\right)
+\]
+where $N$ is the nerve functor and
+$\iota_! \colon \mathsf{sSet} \to \mathsf{dSet}$ is the standard inclusion.
+We will regard $J^m$ as equipped with the trivial $G$-action and further abbreviate $J = J^1$.
 \end{notation}
 
 
@@ -3781,8 +3771,14 @@ Proposition \ref{HYPER PROP} now finishes the proof.
 \end{proof}
 
 \begin{remark}
-      We will use the terms ``joint fibrant'' and ``complete dendroidal Segal space'' interchangeably;
-      see \S \ref{EDSS_SEC} for further discussion and historical context. 
+Historically the joint Reedy model structure is usually called the \textit{Rezk model structure} and its fibrant objects are called 
+\textit{complete (dendroidal) Segal spaces}.
+This is because most discussions in the literature prefer
+to first introduce the Segal space model structure on
+$\mathsf{ssSet}$/$\mathsf{sdSet}$, which is an intermediate localization of the 
+horizontal/dendroidal Reedy model structure.
+In this work we chose to first focus on the properties of the Rezk model structure that are consequences of the joint perspective, 
+postponing the Segal space perspective to \S \ref{EDSS_SEC}.
 \end{remark}
 
 We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}. Note that the equivalences in the simplicial Reedy model structure are the dendroidal equivalences and vice versa.
@@ -3809,7 +3805,6 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 	(iv) follows from (i).
 \end{proof}
 
-
 \begin{theorem}\label{INC0AGJ THM}
 	The constant/$0$-th level adjunction
 	\[
@@ -3817,7 +3812,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 	\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G
 	\colon (-)_0
 	\]
-	where $\mathsf{sdSet}^G$ is given the joint Reedy model structure,
+	where $\mathsf{sdSet}^G$ is given the Rezk/joint Reedy model structure,
 	is a Quillen equivalence.
 \end{theorem}
 
@@ -3839,7 +3834,10 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
 \begin{remark}\label{CONCRECOM REM}
 	Given a $G$-$\infty$-operad $X \in \mathsf{dSet}^G$,
 	one can obtain an explicit model for $\widetilde{c_{!} (X)}$
-	as the object $X^{J^{\bullet}} \in \mathsf{sdSet}^G$.
+	as the object $X^{J^{\bullet}} \in \mathsf{sdSet}^G$,
+	where $J^{m}$ was defined in Notation \ref{JM NOT}
+	and $X^{J^m}\in \mathsf{dSet}^G$ is defined as in 
+	Notation \ref{UNILIMDEN NOT}.
 	Indeed, since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object in $\mathsf{dSet}^G$,
 	one has that $X^{J^{\bullet}} \in \mathsf{sdSet}^G$
 	is simplicial fibrant.
@@ -3863,6 +3861,8 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
 %	so that $X^{J^m}(\Omega[T]) \sim k(\Omega[T],X)$.
 \end{remark}
 
+
+{\color{red} HERE}
 
 
 \subsection{Equivariant Segal operads}\label{PREOP SEC}
@@ -3895,8 +3895,8 @@ $\gamma_{\**}X(U)$ is given by the pullback on the right below.
 \\
 	X([n]) \ar{r} & \gamma_! X([n]) 
 &&
-	\prod_{E(U)} X_0(\eta) \ar{r} &
-	\prod_{E(U)} X(\eta)
+	\prod_{\boldsymbol{E}(U)} X_0(\eta) \ar{r} &
+	\prod_{\boldsymbol{E}(U)} X(\eta)
 	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
 \]
@@ -3917,7 +3917,7 @@ induces a pushout square
 
 
 Noting that the assignment
-$U \mapsto \prod_{E(U)} Y(\eta)$
+$U \mapsto \prod_{\boldsymbol{E}(U)} Y(\eta)$
 is the coskeleton $\mathsf{csk}_{\eta} Y$
 leads to the following.
 
@@ -3953,7 +3953,7 @@ then so is $\gamma^{\**}\gamma_{\**} X$;
 \begin{proof}
 (ii) is immediate from the observation that
 $\mathsf{csk}_{\eta} Y=
-\prod_{E(-)} Y(\eta)$.
+\prod_{\boldsymbol{E}(-)} Y(\eta)$.
 Moreover, it readily follows that
 for $B \in \mathsf{dSet}^G$ it is
 $(\mathsf{csk}_{\eta} Y)(B)=
