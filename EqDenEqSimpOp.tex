@@ -2763,8 +2763,6 @@ $\Lambda^0[1] \to \Delta[1]$ are unneeded since \eqref{INVER EQ} is an isomorphi
 \end{remark}
 
 
-{\color{red} HERE}
-
 
 \subsection{Genuine equivariant operads}\label{GENEQOP SEC}
 
@@ -2778,11 +2776,11 @@ is fully faithful.
 %\end{equation}
 Moreover, the essential image of the nerve is characterized as those simplicial sets
 with the strict right lifting property 
-(where \textit{strict} means that the lifts are unique)
-against the inner horn inclusions \cite[Prop. 1.1.2.2]{Lur09}.
+against the inner horn inclusions \cite[Prop. 1.1.2.2]{Lur09}
+(here \textit{strict} means that the usual lifts are unique).
 
 More generally, 
-there is a similar operadic story. Any tree $U \in \Omega$ is naturally associated to a colored operad 
+one has a similar operadic story. Any tree $U \in \Omega$ has a naturally associated colored operad 
 $\Omega(U) \in \mathsf{Op}$ \cite[\S 3]{MW07}, and
 \cite[Prop. 5.3 and Thm. 6.1]{MW09} show that the operadic nerve
 $N \colon \mathsf{Op} \to \mathsf{sdet}$, 
@@ -2792,18 +2790,21 @@ given by $N\mathcal{O} (U) = \mathsf{Op}(\Omega(U), \mathcal {O})$,
 %      \mbox{$N: \Op \to \dSet$, \qquad \qquad $N\O(U) = \Op(U,\O)$}
 %\end{equation}
 is again fully faithful
-with essential image the dendroidal sets with the strict right lifting property against (dendroidal) inner horn inclusions.
-Moreover, \cite[Cor. 2.6]{CM13a} provides an alternate characterization via strict lifts against Segal core inclusions. The equivalence between these two characterizations is an observation concerning the notion of hypersaturation in the previous section, as follows.
-
+with essential image the dendroidal sets with the strict right lifting property against dendroidal inner horn inclusions.
+Moreover, \cite[Cor. 2.6]{CM13a} provides an alternative characterization via strict lifts against Segal core inclusions. The equivalence between these two characterizations is an observation concerning the notion of hypersaturation discussed in the previous section, as follows.
 
 %Additionally, \cite[Cor. 2.6]{CM13a} equivalently characterizes the image of $N$ as those dendroidal sets with
 %strict lifts against Segal core inclusions.
 %Such interactions between different lifting conditions are found throughout \cite[\S 2]{CM13a} and elsewhere (e.g. \cite[Lemma 3.5]{JT06}),
 %and we state a general result of this form.
 
+In the next result, note that we need not assume that the maps in
+\eqref{CANCEL_EQ} are cofibrations.
+
 \begin{proposition}\label{HYPERLP PROP}
       If two classes $\mathcal{C},\mathcal{D}$
-      of cofibrations in a model category %normal monomorphisms of $\mathsf{dSet}^G$
+      of maps in a category
+%      of cofibrations in a model category %normal monomorphisms of $\mathsf{dSet}^G$
       have the same hypersaturation, then
       the two classes of maps with the strict right lifting property against $\mathcal C$ and $\mathcal D$ coincide.
 \end{proposition}
@@ -2834,7 +2835,7 @@ The claims concerning pushouts, transfinite compositions and retracts follow fro
 
 %For transfinite composites,
 %both the definition of the lift for the composite and its uniqueness are immediate.
-We thus address only the cancellation property. Suppose then that $r$ has the strict right lifting property against cofibrations $f$ and $gf$, and consider a lifting problem as on the left below.
+We thus address only the cancellation property \eqref{CANCEL_EQ}. Suppose that $r$ has the strict right lifting property against cofibrations $f$ and $gf$, and consider a lifting problem as on the left below.
 \begin{equation}
 \begin{tikzcd}[column sep = 8em]
 	B \ar{r}{p} \ar{dd}[swap]{g}& 
@@ -2887,6 +2888,14 @@ given by $U \mapsto G \cdot U$ induces an adjunction
 \begin{equation}\label{DSETG_EQ}
 	\upsilon^{\**}: \dSet_G \rightleftarrows \dSet^G : \upsilon_{\**}
 \end{equation}
+Explicitly, one has 
+$\upsilon_{\**}X(T) \simeq X(T_{\**})^H$,
+where $T \simeq G \cdot_H T_{\**}$ for 
+$T_{\**} \in \Omega^H$,
+and the $H$-action on 
+$X(T_{\**})$ is defined diagonally, i.e. by the composites
+$X(T_{\**}) \xrightarrow{X(h^{-1})}
+X(T_{\**}) \xrightarrow{h} X(T_{\**})$.
 
 
 \begin{remark}
@@ -2902,9 +2911,10 @@ $\Omega_G[T] = \upsilon_{\**} \Omega[T]$.
 
 The following definition is then the main purpose of this section.
 
+
 \begin{definition}\label{GEN_OP_DEF}
-	$\mathcal{P} \in \dSet_G$ is called a \textit{genuine equivariant operad} if
-	$\mathcal{P}$ has the strict right lifting property against the images under $\upsilon_{\**}$
+	$Z \in \dSet_G$ is called a \textit{genuine equivariant operad} if
+	$Z$ has the strict right lifting property against the images under $\upsilon_{\**}$
 	of the Segal core inclusions, i.e. against the maps
 	\begin{equation}\label{GGIOP_EQ}
 		\upsilon_{\**}\left(Sc[T] \to \Omega[T] \right),
@@ -2918,27 +2928,27 @@ Equivalently, by Propositions \ref{HYPER PROP} and \ref{HYPERLP PROP}, one may r
 \begin{example}\label{STRICTLIFT EX}
 	To illustrate the role of the strict lifting condition against the maps in \eqref{GGIOP_EQ},
 	consider the $G$-tree $T$ in \eqref{TWOREP EQ},
-	along with the subgroup $K = \lbrace -1 \rbrace$ therein
+	along with the subgroup $K = \langle -1 \rangle$ therein
 	and the orbital faces $R_1,R_2,S$ in Example \ref{ORBFACE EX}. 
 	The strict lifting condition then says that the left map in	
 \begin{equation}\label{NORM_COMP_GEN_EQ}
 \begin{tikzcd}
-	\mathcal{P}(R_1) \times_{\mathcal{P}(G/K \cdot \eta)} \mathcal{P}(R_2)  &
-	\mathcal{P}(T) \ar{l}[swap]{\simeq} \ar{r} &
-	\mathcal{P}(S)&
+	Z(R_1) \times_{Z(G/K \cdot \eta)} Z(R_2)  &
+	Z(T) \ar{l}[swap]{\simeq} \ar{r} &
+	Z(S)&
 \end{tikzcd}
 \end{equation}
 is an isomorphism, so that $T$ induces a 
 \textit{composition map}
 $
-	\mathcal{P}(R_1) \times_{\mathcal{P}(G/K \cdot \eta)} \mathcal{P}(R_2)  \to
-	\mathcal{P}(S)
+	Z(R_1) \times_{Z(G/K \cdot \eta)} Z(R_2)  \to
+	Z(S)
 $.
 Here we note that $R_1,R_2,S$ are \textit{$G$-corollas}
 (i.e. $G$-trees with a single $G$-vertex).
-Informally, one then thinks of the $\mathcal{P}(C)$, where
+Informally, one then thinks of the $Z(C)$, where
 $C$ ranges over the $G$-corollas,
-as the mapping sets of the genuine equivariant operad $\mathcal{P}$,
+as the mapping sets of the genuine equivariant operad $Z$,
 so that the strict lifting conditions equip these mapping sets with associative and unital composition maps.
 
 We caution, however, that this is not quite the whole story,
@@ -2963,11 +2973,11 @@ $H \to \Sigma_{|A|}$ encoding $A$.
 We then abbreviate 
 $\mathcal{O}(A)^H = \mathcal{O}(|A|)^{\Gamma_A}$,
 and call this the 
-\textit{set of $A$-norm maps of $\mathcal{O}$}
-(this is because, for each $\mathcal{O}$-algebra $R$,
+\textit{set of $A$-norm maps of $\mathcal{O}$}.
+This name comes from the fact that, for each $\mathcal{O}$-algebra $R$,
 $\mathcal{O}(A)^H$ indexes operations
 $N^A R \to R$, where the
-\textit{norm} $N^A R$ denotes
+\textit{$A$-norm object} $N^A R$ denotes
 $R^{\times |A|}$ together with the $H$-action
 given by the graph subgroup $\Gamma_A \leq G \times \Sigma_{|A|}$.
 
@@ -2987,11 +2997,11 @@ composition of norm maps
 \begin{equation}\label{NORM_COMP_EQ}
 \O(H/K)^H \times \O(K/L \amalg K/K)^K \to \O(H/L \amalg H/K)^H
 \end{equation}
-The diagrams \eqref{NORM_COMP_GEN_EQ} for genuine operads $\mathcal{P}$ can then be regarded as abstracting the diagrams \eqref{NORM_COMP_OP_EQ} for $G$-operads $\O$,
+The diagrams \eqref{NORM_COMP_GEN_EQ} for genuine operads $Z$ can then be regarded as abstracting the diagrams \eqref{NORM_COMP_OP_EQ} for $G$-operads $\O$,
 though with two key differences. 
 The more obvious difference is the fact that 
 \eqref{NORM_COMP_OP_EQ} features no analogue of
-the $\mathcal{P}(G/K \cdot \eta)$ term, 
+the $Z(G/K \cdot \eta)$ term, 
 though this is simply since we chose $\O$ to be single colored.
 The subtler, and more crucial, difference is the fact that the terms in \eqref{NORM_COMP_GEN_EQ}
 need not be described by fixed point sets as in 
@@ -3000,15 +3010,14 @@ need not be described by fixed point sets as in
 Therefore, one can regard genuine equivariant operads as objects that mimic the composition combinatorics of the  norm maps in a (regular) equivariant operad, while relaxing the fixed point conditions.
 In fact, the reader of \cite{BP17} may recognize this as the informal description of genuine equivariant operads given in the introduction to that work,
 though our current formal setting is rather different.
-Moreover, the connection between the two settings is as follows.
+The connection between the two settings is as follows.
 There is a nerve functor
 \begin{equation}\label{NG EQ}
 N_G \colon \Op_G \to \dSet_G, \qquad N_G\P(T) = \Op_G(\Omega_G(T), \P)
 \end{equation}
 where $\Op_G$ denotes a colored generalization of the genuine equivariant operads of \cite{BP17}. Moreover, $N_G$ is fully faithful and its essential image are the genuine equivariant operads in the sense of Definition \ref{GEN_OP_DEF}.
-However, we will not require these facts, and thus delay their proof to a sequel.
+However, we do not presently require these facts, and thus delay their proof to a sequel.
 \end{remark}
-
 
 
 
@@ -3099,8 +3108,9 @@ However, we will not require these facts, and thus delay their proof to a sequel
 %However, the necessary generalizations require the use of \textit{coloured} genuine equivariant operads,
 %and we delay their discussion, and the proof of this result, to a sequel.      
 
-We end this section by explaining why genuine $G$-dendroidal sets $\mathsf{dSet}_G$, rather than 
-$G$-dendroidal sets $\mathsf{dSet}_G$,
+
+We end this section by explaining why it is that genuine $G$-dendroidal sets $\mathsf{dSet}_G$, rather than 
+$G$-dendroidal sets $\mathsf{dSet}^G$,
 must be used in Definition \ref{GEN_OP_DEF}.
 
 \begin{remark}\label{DESTIAL REM}
@@ -3123,7 +3133,8 @@ are the same as
 $H$-equivariant lifts against 
 $Sc[T_{\**}] \to \Omega[T_{\**}]$.
 Consider now the following diagram,
-where $\Phi$ is the unique non-equivariant lift.
+where $\phi$ is a $H$-equivariant map and 
+$\Phi$ is the unique non-equivariant lift.
 \begin{equation}
 \begin{tikzcd}[row sep = 3em]
 	Sc[T_*] \arrow[d] \arrow[r, "h"] &
@@ -3136,12 +3147,10 @@ where $\Phi$ is the unique non-equivariant lift.
 	\arrow[dashed]{ru}[swap]{\Phi}
 \end{tikzcd}
 \end{equation}
-Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle problem, so that strictness implies it is also
+Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle lifting problem, so that strictness implies it is also
 $h^{-1} \Phi h = \Phi$.
-In other words, $\Phi$ is also the unique 
+In other words, $\Phi$ is in fact also the unique 
 $H$-equivariant lift.
-
-
 
 In summary, we have shown that if we had instead used $\mathsf{dSet}^G$ in Definition \ref{GEN_OP_DEF},
 then non-free $G$-trees would be superfluous, 
@@ -3165,9 +3174,6 @@ $G$-dendroidal sets $\mathsf{dSet}_G$.
 \end{remark}
 
 
-
-
-
 % \begin{remark}
 %       There is a model structure on $\dSet_G$ with fibrant objects
 %       those $X \in \dSet_G$ with the (non-strict) right lifting property against \eqref{GGIOP_EQ},
@@ -3179,15 +3185,9 @@ $G$-dendroidal sets $\mathsf{dSet}_G$.
 
 
 
-
-
-
-
-\newpage
-
-
-
 \section{Quillen equivalences}\label{QUIEQ SEC}
+
+{\color{red} HERE}
 
 Our main goal in this section is to prove Theorems \ref{INC0AGJ THM} and \ref{ANOQUEQUIV THM},
 which jointly establish the Quillen equivalence of three model categories:
