@@ -4761,14 +4761,14 @@ $X^h(J) = X(J)$, which is clear.
 The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 \end{remark}
 
+
+
 \subsection{Rezk completion and fibrant Segal operads}
 \label{REZKCOMP SEC}
 
-{\color{red} HERE}
-
 In the next result we make use of a decomposition of the tensor product $[1] \otimes C$,
 where $[1]$ is the $1$-simplex regarded as a $G$-trivial $G$-tree, and $C$ is a $G$-corolla 
-(see Notation \ref{GCOR NOT}). Slightly adapting the discussion
+(see Notation \ref{GCOR NOT}). Adapting the discussion
 in Example \ref{THM71 EX}, $[1] \otimes C$ is the union of two maximal $G$-subtrees $C \star \eta$ and $\eta \star C$,
 whose orbital representations are depicted below.
 \[
@@ -4801,9 +4801,9 @@ node [name=Kone,swap] {}}
 		\draw [dotted,thick] (Kone) -- (Kn) ;
 \end{tikzpicture}
 \]
-Moreover, much as in \eqref{GENLEXREL EQ}, 
-$C \star \eta$ and $\eta \star C$ have a common orbital face, which we denote simply as $C$
-(this face is canonically isomorphic to the original $C$),
+Moreover, just as in \eqref{GENLEXREL EQ}, 
+$C \star \eta$ and $\eta \star C$ have a common orbital face, which we denote simply by $C$
+(since this face is canonically isomorphic to the original $C$),
 leading to a decomposition
 \[
 \Omega[1] \otimes \Omega[C]
@@ -4815,21 +4815,21 @@ which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
 
-
 \begin{proposition}\label{JDDK PROP}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
 	Then the map $X \to X^{J}$ is a $DK$-equivalence.
 \end{proposition}
 
-
 \begin{proof}
 	Note first that for any $T \in \Omega_G$ the map
-	$X^{J}(T) \to X^{\Omega[1]}(T)$ can be rewritten as
+	$X^{J}(\Omega[T]) \to X^{\Omega[1]}(\Omega[T])$ can be rewritten as
 	$\left(X^{\Omega[T]}\right)(J) \to
-	\left(X^{\Omega[T]}\right)(\Omega[1])
+	\left(X^{\Omega[T]}\right)(\Delta[1])
 %	= \left(\iota^{\**}\left(X^{\Omega[T]}\right)\right)(1)
 	$,
-	and since $\iota^{\**}\left( X^{\Omega[T]} \right)$
+	where $X^{\Omega[T]} \in \mathsf{ssSet}$ is defined 
+	in analogy to Notation \ref{UNILIMDEN NOT}.
+	Since $X^{\Omega[T]}$
 	is a (simplicial) Segal space
 	Proposition \ref{SESP PROP}(iv) says that this map is 
 	a weak equivalence onto a subset of components,
@@ -4839,9 +4839,9 @@ $[1] \otimes C = C \star \eta$.
 	the right square below are homotopy monomorphisms.
 \begin{equation}\label{BIGSQ EQ}
 \begin{tikzcd}
-	X(C) \ar{r} \ar[->>]{d} & 
-	X^{J}(C) \ar{r} \ar[->>]{d} & 
-	X^{\Omega[1]}(C) \ar[->>]{d}
+	X(\Omega[C]) \ar{r} \ar[->>]{d} & 
+	X^{J}(\Omega[C]) \ar{r} \ar[->>]{d} & 
+	X^{\Omega[1]}(\Omega[C]) \ar[->>]{d}
 \\
 	\prod_{0\leq i\leq k} X(\eta)^{H_i} \ar{r}&
 	\prod_{0\leq i\leq k} \left(X^{J}(\eta)\right)^{H_i} \ar{r} &
@@ -4853,10 +4853,10 @@ Since fully faithfulness of $X \to X^{J}$
 is the statement that the leftmost square in \eqref{BIGSQ EQ} induces weak equivalences on fibers, it suffices to show that so does the composite square.
 
 Now note that
-$X^{\Omega[1]}(C) = X\left(\Omega[1] \otimes \Omega[C]\right)$ and that there is a pullback diagram as on the left below. Moreover, both squares below are pullback squares which are injective fibrant squares
+$X^{\Omega[1]}(\Omega[C]) = X\left(\Omega[1] \otimes \Omega[C]\right)$ and that there is a pullback diagram as on the left below. Moreover, both squares below are pullback squares which are injective fibrant squares
 and the natural map of squares between them is an injective fibration of squares (alternatively, the fibrancy claims state that the resulting cube is an injective fibrant cube).
 \begin{equation}\label{OTBIGSQ EQ}
-\begin{tikzcd}[column sep=14]	
+\begin{tikzcd}[column sep=14]
 	X\left(\Omega[1] \otimes \Omega[C]\right)
 	\ar[->>]{r} \ar[->>]{d}&
 	X(\Omega[\eta \star C]) \ar[->>]{d}
@@ -4866,11 +4866,12 @@ and the natural map of squares between them is an injective fibration of squares
 	\times X(\eta)^{H_0} \ar[->>]{d}
 \\
 	X(\Omega[C \star \eta])	 \ar[->>]{r} &
-	X(\Omega[C])
+	X(\Omega[C]) \arrow[lu, phantom, "\lrcorner", very near start]
 &
 	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
 	\times X([1])^{H_0}	 \ar[->>]{r} &
 	\underset{i}{\prod} X(\eta)^{H_i}
+	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
 \end{equation}
 Since the top left corner of the map of squares 
@@ -4904,13 +4905,13 @@ induces equivalences on fibers will follow provided that the same holds for the 
 \]
 But this is clear from the fact that the top right vertical
 maps in these diagrams are trivial Kan fibrations
-thanks to the Segal condition.
+due to the Segal condition for $X$.
 
 Lastly, to check essential surjectivity, 
 since $G$ acts trivially on $J$ one has
 $\left(\iota_G^{\**}\left( X^J \right)\right)(G/H)=
 \left(\iota_G^{\**}\left( X \right)(G/H)\right)^J$
-so that we reduce to the case of $X$ a (simplicial) Segal space.
+so that we reduce to the case of $X \in \mathsf{ssSet}$ a (simplicial) Segal space.
 Noting that $J$ is a contractible Kan complex,
 one has a map 
 $H \colon J \times J \to \{0\} \times J$
@@ -4921,8 +4922,8 @@ $H|_{\{1\}\times J} = (0,0)$.
 But noting that 
 $X(J \times J) \to X(\{0\} \times J)$
 can be written as 
-$X^J(0) \to X^J(J)$, the composite below
-shows that any object in $\left(X^J\right)_0$ is indeed equivalent to a 
+$X^J(0) \to X^J(J)$, the composites below
+show that any object in $\left(X^J\right)_0$ is indeed equivalent to a 
 degenerate object, which is thus in the image of $X\to X^J$.
 \[
 	X^J(0) \xrightarrow{X(H)} 
@@ -4956,25 +4957,28 @@ degenerate object, which is thus in the image of $X\to X^J$.
 
 
 \begin{definition}
-	Two maps $f,f'\colon A \rightrightarrows B$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
+	Two maps $f,f'\colon X \rightrightarrows Y$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
 	there is a $H$ such that
 	the two composites
-	$A \xrightarrow{H} B^J \rightrightarrows B$
+	$X \xrightarrow{H} Y^J \rightrightarrows Y$
 	are $f,f'$.
 	
 	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there exists $g \colon Y \to X$
 	such that $gf \sim_J id_X$, $fg \sim_J id_Y$.
 \end{definition}
 
+
 \begin{remark}
-	For $f\sim_J f'$, Proposition \ref{JDDK PROP} and 2-out-of-3 applied to $A \xrightarrow{H} B^J \rightrightarrows B$ imply that $f$ is a DK-equivalence iff $f'$ is.
+	For $f\sim_J f'$, Proposition \ref{JDDK PROP} and 2-out-of-3 applied to $X \xrightarrow{H} Y^J \rightrightarrows Y$ imply that $f$ is a DK-equivalence iff $f'$ is.
 	Thus by 2-out-of-6 $J$-homotopy equivalences are DK-equivalences.
 \end{remark}
 
 
 \begin{remark}\label{ALLXJK REM}
 	Let $X$ be a dendroidal Segal space. All simplicial operators
-	$X^{J^m} \to X^{J^{m'}}$ are induced by equivalences of groupoids $\widetilde{[m']} \to \widetilde{[m]}$,
+	$X^{J^m} \to X^{J^{m'}}$
+	(see Notation \ref{JM NOT})
+	are induced by equivalences of groupoids $\widetilde{[m']} \to \widetilde{[m]}$,
 	and are thus $J$-homotopy equivalences and thus also DK-equivalences.
 \end{remark}
 
@@ -5023,8 +5027,8 @@ In particular, for each vertex map $[0] \to [m]$ the induced square
 	X^{J^m}(\Omega[T]) \ar[->>]{r} \ar[->>]{d}&
 	X(\Omega[T]) \ar[->>]{d}
 \\
-	\underset{e_i \in E_G(T)} {\prod} \left(X^{J^m}(\eta)\right)^{H_i} \ar[->>]{r} &
-	\underset{e_i \in E_G(T)} {\prod} \left(X(\eta)\right)^{H_i}
+	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X^{J^m}(\eta)\right)^{H_i} \ar[->>]{r} &
+	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i}
 \end{tikzcd}
 \]
 is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
@@ -5066,7 +5070,7 @@ note that though
 the first map is no longer a dendroidal Reedy equivalence, 
 it is nonetheless an equivalence
 on fibers over
-$\prod_{e_i \in E_G(T)} \left(X(\eta)\right)^{H_i}$
+$\prod_{e_i \in \boldsymbol{E}_G(T)} \left(X(\eta)\right)^{H_i}$
 for each $T\in \Omega_G$.
 And since we have shown that the fibers of
 $\delta^{\**}\left( X^{J^{\bullet}} \right)(T)$
@@ -5089,7 +5093,7 @@ Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(
 is a Kan equivalence in $\mathsf{sSet}$. 
 Indeed, the completion condition states that
 $X(\eta)^H = X(G \cdot \Omega[\eta])^H
-\xrightarrow{\sim} X(G\cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram are equivalent to the homotopy fibers of the right diagram,
+\xrightarrow{\sim} X(G\cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram below are weakly equivalent to the homotopy fibers of the right diagram,
 i.e. to the loop spaces 
 $\Omega\left(X(\eta)^H,x\right)$.
 \begin{equation}\label{WHATEV EQ}
@@ -5109,7 +5113,8 @@ Therefore, since $X(G\cdot J)^H \to X(G\cdot \Omega[1])^H = X(C_{H/H})$ is a hom
 fully faithfulness implies that 
 $X(\eta)^H \to Y(\eta)^H$
 induces isomorphisms on homotopy groups.
-Injectivity on components is similar 
+Injectivity of $X(\eta)^H \to Y(\eta)^H$
+on components is similar 
 ($x,x'$ are in the same component iff the $(x,x')$ fiber in \eqref{WHATEV EQ} is non-empty) while essential surjectivity implies surjectivity on components,
 and thus $X(\eta)^H \to Y(\eta)^H$ is indeed a Kan equivalence.
 
@@ -5124,8 +5129,8 @@ Consider the diagram
 	X(Sc[T]) \ar{r} \ar[->>]{d}&
 	Y(Sc[T]) \ar[->>]{d}
 \\
-	\underset{e_i \in E_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
-	\underset{e_i \in E_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
+	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
 \end{tikzcd}
 \end{equation}
 where the maps marked $\sim$ are trivial fibrations by the Segal condition.
@@ -5139,9 +5144,8 @@ $X(\eta)^H \to Y(\eta)^H$ are surjetive on components.
 \end{proof}
 
 
-\begin{corollary}
-      \label{FIB_PREOP_COR}
-	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}(X)$ is fibrant in the Segal space model structure on 
+\begin{corollary}\label{FIB_PREOP_COR}
+	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}X$ is fibrant in the Segal space model structure on 
 	$\mathsf{sdSet}^G$.
 \end{corollary}
 
@@ -5350,17 +5354,18 @@ a complete dendroidal Segal space.
 
 
 
-
 \section{Indexing system analogue results}\label{INDEX SEC}
 
+
 Just as in \cite[\S 9]{Per17}, we dedicate our final section
-to outlining the generalizations of our results to the 
+to outlining the generalizations of our results indexed by the 
 \textit{indexing systems} of Blumberg and Hill \cite{BH15}.
 Or more precisely, we will work with the \textit{weak indexing systems}
 of \cite[\S 9]{Per17}, \cite[\S 4.4]{BP17},
 which are a slight generalization of indexing systems, 
 and were also independently identified by Gutierrez and White in \cite{GW17}.
 
+{\color{red} HERE}
 
 We begin by recalling the key notion of sieve.
 
