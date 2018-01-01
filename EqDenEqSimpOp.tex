@@ -1217,12 +1217,13 @@ In particular, note that $\Lambda^{Ge}_o[T]$ corresponds to $\Lambda^{[e]}[T/G]$
 and $Sc[T]$ corresponds to $Sc[T/G]$.
 \end{remark}
 
-{\color{red} HERE}
 
 \begin{example}
-      Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
-      and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top below.
-      \begin{equation}\label{HORN_EX_FIG}
+	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
+	and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top below.
+	The following depicts the poset of planar faces of $T$ \textit{not in} $\Lambda_o^{Gb}[T]$.
+	By contrast, $\Lambda^{Gb}[T]$ lacks only the boxed faces (which are precisely those faces in the picture below that are \textit{inner} faces of $T$).
+	      \begin{equation}\label{HORN_EX_FIG}
             \newlength{\mywidth}
             \setlength{\mywidth}{1.7em}%1.7
             \newlength{\rh}
@@ -1243,7 +1244,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
                         edge from parent node [swap] {$-b$}}
                       child{node [dummy] {}
                         child{edge from parent node [] {$a$}}
-                        edge from parent node [] {$b$}}
+                        edge from parent node {$b$}}
                       edge from parent node [swap] {$c$}}
                     edge from parent node [swap] {$d$}};
                   % -------- Middle row --------
@@ -1254,14 +1255,14 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
                         child{edge from parent node [swap] {$-a$}}
                         edge from parent node [swap] {$-b$}}
                       child{
-                        edge from parent node [] {$a$}
+                        edge from parent node [] {$\phantom{-b}a$}
                       }
                       edge from parent node [swap] {$c$}}
                     edge from parent node [swap] {$d$}};
                   \node (Tbb) at (-6em,0) {}
                   child{node [dummy] {}
                     child{node [dummy] {}
-                      child{edge from parent node [swap] {$-a$}}
+                      child{edge from parent node [swap] {$-a\phantom{b}$}}
                       child{node [dummy] {}
                         child{edge from parent node [] {$a$}}
                         edge from parent node [] {$b$}}
@@ -1313,14 +1314,14 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
                   child{node [dummy] {}
                     child{node [dummy] {}
                       child{edge from parent node [swap] {$-b$}}
-                      child{edge from parent node [] {$a$}}
+                      child{edge from parent node [] {$\phantom{-b}a$}}
                       edge from parent node [swap] {$c$}
                     }
                     edge from parent node [swap] {$d$}};
                   \node (Pabb) at (12em,-\rh) {}
                   child{node [dummy] {}
                     child{node [dummy] {}
-                      child{edge from parent node [swap] {$-a$}}
+                      child{edge from parent node [swap] {$-a\phantom{b}$}}
                       child{edge from parent node [] {$b$}}
                       edge from parent node [swap] {$c$}
                     }
@@ -1340,13 +1341,13 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
                   (TGb)++(1.1,1.8) -- ($(Tb)+(-.2,-.2)$); % ++(.5,.3\rh);
                   % horn boxes
                   \draw
-                  (TGb)++(-1,-.2) rectangle ++(2,1.9);
+                  (TGb)++(-1.1,-.2) rectangle ++(2.2,1.9);
                   \draw
-                  (Tbb)++(-1.23,-.1) rectangle ++(2.46,2.2);
+                  (Tbb)++(-1.33,-.1) rectangle ++(2.66,2.2);
                   \draw
-                  (Tb)++(-1.23,-.1) rectangle ++(2.46,2.2);
+                  (Tb)++(-1.33,-.1) rectangle ++(2.66,2.2);
                   \draw
-                  (T)++(-1.23,-.2) rectangle ++(2.46,2.3);
+                  (T)++(-1.33,-.2) rectangle ++(2.66,2.3);
             \end{tikzpicture}
       \end{equation}           
       % Consider the subposet of $\mathsf{Face}(T)$
@@ -5365,23 +5366,22 @@ of \cite[\S 9]{Per17}, \cite[\S 4.4]{BP17},
 which are a slight generalization of indexing systems, 
 and were also independently identified by Gutierrez and White in \cite{GW17}.
 
-{\color{red} HERE}
-
 We begin by recalling the key notion of sieve.
 
 \begin{definition}
 A \textit{sieve} of a category $\mathcal{C}$
-is a full subcategory $\mathcal{S} \subseteq \mathcal{C}$ such that for any arrow $c \to s$ in $\mathcal{C}$ such that $s \in \mathcal{S}$ it is also $c \in \mathcal{C}$.
+is a full subcategory $\mathcal{S} \subseteq \mathcal{C}$ such that for any arrow $c \to s$ in $\mathcal{C}$ such that $s \in \mathcal{S}$ it is also $c \in \mathcal{S}$.
 \end{definition}
 
 Note that a sieve $\mathcal{S} \subseteq \mathcal{C}$
 determines a presheaf 
-$\delta_{\mathcal{S}} \in \mathsf{Set}^{\mathcal{C}^{op}}$ by 
+$\delta_{\mathcal{S}} \in \mathsf{Set}^{\mathcal{C}^{op}}$ 
+via 
 $\delta_{\mathcal{S}}(c) = \**$ if $c \in \mathcal{S}$ and
 $\delta_{\mathcal{S}}(c) = \emptyset$ if $c \not \in \mathcal{S}$.
 In fact, there is a clear bijection between sieves and such 
 \textit{characteristic presheaves}, i.e. presheaves taking only the values $\**$ and $\emptyset$, 
-and we will hence often blur the distinction between the two concepts.
+and we will hence blur the distinction between the two concepts.
 
 Sieves are prevalent in equivariant homotopy theory. Indeed, families $\mathcal{F}$ of subgroups of $G$ are effectively the same as sieves $\mathsf{O}_{\mathcal{F}} \subseteq \mathsf{O}_G$
 of the orbit category
@@ -5393,7 +5393,7 @@ with the operadic composition and unit.
 In the following, we abbreviate 
 $\delta_{\mathcal{F}} = \delta_{\Omega_{\mathcal{F}}}$ and,
 for each $G$-vertex $v$ of $T \in \Omega_G$, we write 
-$T_V$ for the orbital outer face whose only
+$T_v$ for the orbital outer face whose only
 $G$-vertex is $v$.
 
 \begin{definition}
@@ -5408,14 +5408,14 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 	or, equivalently, if
 \begin{equation}\label{SEGCOMB EQ}
 \delta_{\mathcal{F}}(T) =
-\prod_{v \in V_G(T)}\delta_{\mathcal{F}}(T_v).
+\prod_{v \in \boldsymbol{V}_G(T)}\delta_{\mathcal{F}}(T_v).
 \end{equation}
 \end{itemize}
 \end{definition}
 
 
 \begin{remark}\label{SEGCOMB REM}
-	Condition (ii) can be interpreted as combining the following two conditions:
+	Condition (ii) can be reinterpreted as combining the following two conditions:
 \begin{itemize}
 	\item[(ii')] the characteristic presheaf $\delta_{\mathcal{F}}$ is Segal, i.e. 
 	$\delta_{\mathcal{F}}(T) = 
@@ -5439,7 +5439,7 @@ $\Omega_{\mathcal{F}}$,
 so that the right hand side of \eqref{SEGCOMB EQ}
 can be reinterpreted as $\delta_{\mathcal{F}}(Sc[T])$
 (more formally, $\delta_{\mathcal{F}}(Sc[T])$ is defined via an analogue of 
-Notation \ref{UNIQUELIM NOT}, 
+Notation \ref{UNILIMDEN NOT}, 
 so as to obtain a functor
 $\delta_{\mathcal{F}}(-) \colon 
 (\mathsf{dSet}_G)^{op} \to \mathsf{sSet}$ 
@@ -5481,7 +5481,7 @@ which \cite[Def. 3.22]{BH15} makes explicit.
 
 
 All results in the paper now extend to the context of a general weak indexing system $\Omega_{\mathcal{F}}$
-essentially by replacing $\Omega_G$ by $\Omega_{\mathcal{F}}$ throughout. The following are some notable consequences:
+by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The following are some notable consequences:
 \begin{itemize}
 \item notions in $\mathsf{dSet}^G$ such as 
 	``$G$-normal monomorphism'', ``$G$-inner horn'', $G$-inner anodyne, $G$-$\infty$-operad are replaced with
@@ -5519,9 +5519,10 @@ $\mathsf{sSet}$, Theorem \ref{REEDYADM THM} yields a
 \textit{$\mathcal{F}$-dendroidal Reedy model structure}
 on $\mathsf{sdSet}^G$.
 Thus, by applying Proposition \ref{COMBMODSTR PROP} to combine the two structures,
-one obtains a $\mathcal{F}$-joint/$\mathcal{F}$-complete model structure, which we denote
+one obtains a $\mathcal{F}$-joint/$\mathcal{F}$-Rezk model structure, which we denote
 $\mathsf{sdSet}^G_{\mathcal{F}}$.
 The remaining discussion in \S \ref{CEDSS SEC} then follows through to yield the analogue of Theorem \ref{INC0AGJ THM}.
+
 \begin{theorem}\label{FINC0AGJ THM}
 	The constant/$0$-th level adjunction
 	\[
@@ -5570,8 +5571,6 @@ A map of $X \to Y$ of $\mathcal{F}$-dendroidal Segal spaces is a $\mathcal{F}$-c
 \section{Equivariant Reedy model structures}\label{EQREED AP}
 
 
-{\color{blue} Bla bla one of the axioms in \cite{BM11} is different from the others point of view}
-
 In \cite{BM11} Berger and Moerdijk extend the notion of Reedy category so as to allow for categories $\mathbb{R}$
  with non-trivial automorphism groups 
  $\mathsf{Aut}(r)$ for $r \in \mathbb{R}$.
@@ -5609,7 +5608,8 @@ $\mathsf{Aut}(r \to r')$ for its automorphim group in the arrow category and wri
 \end{equation}
 for the obvious projections. We now introduce our equivariant generalization of
 the ``generalized Reedy categories''
-of \cite[Def. 1.1]{BM11}.
+of \cite[Def. 1.1]{BM11}, 
+the novelty of which is in axiom (iv).
 
 \begin{definition}\label{GENRED DEF}
 A \textit{generalized Reedy category structure} on a
@@ -5666,7 +5666,7 @@ is Reedy-admissible.
 	with $\mathbb{S} = \mathbb{S}^-$. Then a pair
 	$\{\mathcal{F}_0,\mathcal{F}_1\}$
 	of families of subgroups of $G$ is Reddy-admissible
-	iff $\mathcal{F}_0 \supset \mathcal{F}_1$.
+	iff $\mathcal{F}_0 \supseteq \mathcal{F}_1$.
 \end{example}
 
 
@@ -5678,25 +5678,28 @@ is Reedy-admissible.
 	Further, for each $s \in \mathbb{S}$ we write
 	$\mathcal{F}_s^{\Gamma}$ for the family of 
 	$G$-graph subgroups of $G \times \mathsf{Aut}_{\mathbb{S}}(s)$, i.e., those subgroups 
-	$K \leq G \times \mathsf{Aut}_{\mathbb{S}}(s)$ such that $K \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
+	$K \leq G \times \mathsf{Aut}_{\mathbb{S}}(s)$ 
+	which are graphs of partial homomorphisms
+	$G \geq H \to \mathsf{Aut}_{\mathbb{S}}(s)$. We note that $G$-graph subgroups are also characterized by the condition $K \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
 	
 	Reedy admissibility of $\{\mathcal{F}_s^{\Gamma}\}$ follows since for every degeneracy map 
 	$s \twoheadrightarrow s'$ in $\mathbb{S}^-$ one has that the homomorphism
 	$\pi_s \colon \mathsf{Aut}_{\mathbb{S}}(s \twoheadrightarrow s')
-	\to \mathsf{Aut}_{\Omega}(s)$ is injective
+	\to \mathsf{Aut}_{\mathbb{S}}(s)$ is injective
 	(we note that this is equivalent to axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
 \end{example}
 
-Our primary example of interest will come by setting
+Our primary example of interest is obtained by setting
 $\mathbb{S} = \Omega^{op}$ in the previous example.
-In fact, in this case we will also be interested 
+In fact, in this case we are also interested 
 in certain subfamilies
 $\{\mathcal{F}_U\}_{U \in \Omega}
 \subset \{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
 
+
 \begin{example}\label{FGRAPHREEDY EX}
 	Let $\mathbb{R} = G \times \Omega^{op}$ and let
-	$\{\mathcal{F}_U\}_{U \in \Omega}$ be the family of graph subgroups determined by a weak indexing system $\mathcal{F}$.
+	$\{\mathcal{F}_U\}_{U \in \Omega}$ be the family of graph subgroups determined by a weak indexing system $\mathcal{F}$ (see Remark \ref{WHYF REM}).
 	Then $\{\mathcal{F}_U\}$ is Reedy-admissible.
 	To see this, recall first that each $K \in \mathcal{F}_U$ encodes 
 	an $H$-action on $U \in \Omega$ for some $H \leq G$
@@ -5708,10 +5711,13 @@ $\{\mathcal{F}_U\}_{U \in \Omega}
 	$G \cdot_{\bar{H}} U' \to G \cdot_H U$.
 \end{example}
 
+
 We now state the main result.
 We will assume throughout that $\mathcal{C}$ is a model category such that for any group $G$ and family of subgroups $\mathcal{F}$,
 the category $\mathcal{C}^G$ admits the
 $\mathcal{F}$-model structure
+with weak equivalences/fibrations detected by the fixed points
+$X^H$ for $H \in \mathcal{F}$
 (for example, this is the case whenever $\C$ is a cofibrantly generated cellular model category in the sense of \cite{Ste16}).
 
 
@@ -5727,9 +5733,45 @@ $\mathcal{C}^{\mathbb{R}}$ such that a map $A \to B$ is
 \end{itemize}
 \end{theorem}
 
-The proof of this result is given at the end of the appendix after establishing some routine generalizations of the key lemmas in \cite{BM11}
-(indeed, the true novelty in this appendix is the Reedy-admissibility condition in part (iv) of Definition \ref{GENRED DEF}).
 
+The proof of Theorem \ref{REEDYADM THM}
+is given at the end of the appendix after establishing some routine generalizations of the key lemmas in \cite{BM11}.
+We note that the work in \cite{BM11} has two main components: a formal analysis of the 
+\textit{latching} and \textit{matching objects}
+$L_r A$ and $M_r A$, which depends only on axioms 
+\cite[Def. 1.1]{BM11}(i),(ii),(iii), 
+and a model category analysis,
+which depends on the extra axiom 
+\cite[Def. 1.1]{BM11}(iv).
+
+Since axioms (i),(ii),(iii) in Definition \ref{GENRED DEF} repeat \cite[Def. 1.1]{BM11}(i),(ii),(iii), we will only briefly recall the definitions of latching and matching objects.
+Writing $\iota_n \colon \mathbb{R}_{\leq n} \to \mathbb{R}$ for the inclusion of the full subcategory of those $r \in \mathbb{R}$ with $|r|\leq n$, we have adjunctions
+\begin{equation}
+\begin{tikzcd}[column sep =5em]
+	\mathcal{C}^{\mathbb{R}} \ar{r}[swap]{\iota_n^{\**}} 
+	&
+	\mathcal{C}^{\mathbb{R}_{\leq n}}
+	\ar[bend right]{l}[swap,midway]{\iota_{n,!}}
+	\ar[bend left]{l}{\iota_{n,\**}}
+\end{tikzcd}
+\end{equation}
+One then defines \textit{$n$-skeleta}
+by $\mathsf{sk}_n A = \iota_{n,!} \iota_n^{\**} A$
+and \textit{$n$-coskeleta}
+by $\mathsf{csk}_n A = \iota_{n,\**} \iota_n^{\**} A$
+as well as 
+\textit{$r$-latching objects} by
+$L_r A = \left(\mathsf{sk}_{|r|-1} A\right)_r$
+and 
+\textit{$r$-matching objects} by
+$M_r A = \left(\mathsf{csk}_{|r|-1} A\right)_r$.
+Axioms (i),(ii),(iii) then imply that
+$\mathsf{sk}_n A$ (resp. $\mathsf{csk}_n A$)
+depends only on the restriction to 
+$\mathbb{R}_{\leq n}^{+}$ (resp. $\mathbb{R}_{\leq n}^{-}$). We refer the reader to \cite[\S 4]{BM11} for a detailed discussion.
+
+We now turn to the model categorical analysis, which depends on the Reedy-admissibility condition (iv)
+in Definition \ref{GENRED DEF}, and is the actual novelty in this appendix.
 We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}
 (we note that \cite[Prop. 6.6]{BP17} can be proven in terms of fibrations, and thus does not depend on special assumptions on $\C$).
 \begin{proposition}
@@ -5765,7 +5807,7 @@ $\mathsf{res}^{\bar{G}}_G \colon
 preserves all four classes of genuine cofibrations, trivial cofibrations, fibrations and trivial fibrations.
 \end{corollary}
 
-The following formalizes an argument implicit in the proof of \cite[Lemma 5.2]{BM11}).
+The following formalizes an argument implicit in the proof of \cite[Lemma 5.2]{BM11}.
 
 \begin{definition}
 Consider a commutative diagram
@@ -5777,10 +5819,8 @@ Consider a commutative diagram
 	\end{tikzcd}
 \end{equation}
 in $\C^{\mathbb{R}}$. A collection of maps 
-$f_s \colon B_s \to X_s$ for $|s|\leq n$ 
-that induce a lift of the restriction of \eqref{BLA EQ}
- to $\C^{\mathbb{R}_{\leq n}}$ will be called a 
-\textit{$n$-partial lift}. 
+$f_r \colon B_r \to X_r$ for $|r|\leq n$ 
+that induce a lift of the restriction to $\C^{\mathbb{R}_{\leq n}}$ is called a \textit{$n$-partial lift}. 
 \end{definition}
 
 
@@ -5870,6 +5910,12 @@ Lemmas \ref{GINJ LEM} and \ref{GINJMIN LEM} generalize key parts of the proofs o
 The duality of their proofs reflects the duality in 
 Corollary \ref{RESGEN COR}.
 \end{remark}
+
+In the following, given $K \leq \mathsf{Aut}(\mathbb{S})$,
+we write $K \ltimes \mathbb{S} \to K$ for the Grothendieck construction. Informally, 
+$K \ltimes \mathbb{S}$ is obtained from $\mathbb{S}$
+by formally adding arrows $h \colon s \to hs$.
+
 
 \begin{remark}
 	Lemma \ref{GINJ LEM} will be applied when
@@ -5991,7 +6037,7 @@ $\mathsf{lim}_{\mathbb{S}} (A \to B)$ is a cofibration provided that $A \to B$ i
 On the other hand, the proof of \cite[Lemma 5.3]{BM11} argues that 
 $\mathsf{lim}_{\mathbb{S}} (A \to B)$ is a cofibration provided that $A \to B$ is a projective Reedy cofibration, i.e. a Reedy cofibration for $\{\{e\}\}$ the trivial families 
 (note that all projective cofibrations are genuine cofibrations, so that our claim is more general).
-Since the cofibration half of the projective analogue of Corollary \ref{RESGEN COR} only holds if $\phi$ is a monormorphism, the argument in the proof of \cite[Lemma 5.3]{BM11} also includes an injectivity check that is not needed for our proof of Lemma \ref{REEDYTRCOF LEM}.
+Since the cofibration half of the projective analogue of Corollary \ref{RESGEN COR} only holds if $\phi$ is a monomorphism, the argument in the proof of \cite[Lemma 5.3]{BM11} also includes an injectivity check that is not needed in our proof of Lemma \ref{REEDYTRCOF LEM}.
 \end{remark}
 
 
@@ -6007,7 +6053,7 @@ Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizati
 	X_r \amalg_{L_r X} L_r A \to Y_r \times_{M_r Y} M_r A
 \]
 in $\mathcal{C}^{\mathsf{Aut}(r)}$, 
-thus building both $A$ and the factorization inductively (see, e.g., the proof of \cite[Thm. 1.6]{BM11}).
+thus building both $A$ and the factorization inductively (see e.g. the proof of \cite[Thm. 1.6]{BM11}).
 \end{proof}
 
 
