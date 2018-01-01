@@ -198,7 +198,9 @@ Proposition \ref{HYPER PROP},
 which roughly states that Segal core inclusions, horn inclusions and orbital horn inclusions can in some circumstances be used interchangeably.
 The bulk of the technical work takes place in 
 \S \ref{CHAREDGE SEC} where Lemma \ref{CHAREDGE LEM},
-a powerful technical result we call the
+a powerful tool
+% technical result
+we call the
 \textit{characteristic edge lemma}, is established.
 \S \ref{HYPERSAT SEC} then shows Proposition \ref{HYPER PROP} via a string of easy applications of 
 Lemma \ref{CHAREDGE LEM}.
@@ -220,8 +222,8 @@ and to establish the Quillen equivalence
 $\mathsf{PreOp}^G \rightleftarrows \mathsf{sdSet}^G$
 in Theorem \ref{ANOQUEQUIV THM}.
 
-Then in our last main section \S \ref{EDSS_SEC},
-and motivated by the fact that in our desired model structure on simplicial $G$-operads $\mathsf{sOp}^G$
+In our last main section \S \ref{EDSS_SEC},
+motivated by the fact that in our desired model structure on simplicial $G$-operads $\mathsf{sOp}^G$
 (to be described in a follow-up paper)
 the weak equivalences are Dwyer Kan equivalences
 (i.e. characterized by fully faithfulness and essential surjectivity), 
@@ -1220,9 +1222,9 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
 
 \begin{example}
 	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
-	and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top below.
+	and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top of \eqref{HORN_EX_FIG} below.
 	The following depicts the poset of planar faces of $T$ \textit{not in} $\Lambda_o^{Gb}[T]$.
-	By contrast, $\Lambda^{Gb}[T]$ lacks only the boxed faces (which are precisely those faces in the picture below that are \textit{inner} faces of $T$).
+	By contrast, $\Lambda^{Gb}[T]$ lacks only the boxed faces (which are precisely those faces pictured below that are \textit{inner} faces of $T$).
 	      \begin{equation}\label{HORN_EX_FIG}
             \newlength{\mywidth}
             \setlength{\mywidth}{1.7em}%1.7
@@ -2873,7 +2875,7 @@ More generally,
 one has a similar operadic story. Any tree $U \in \Omega$ has a naturally associated colored operad 
 $\Omega(U) \in \mathsf{Op}$ \cite[\S 3]{MW07}, and
 \cite[Prop. 5.3 and Thm. 6.1]{MW09} show that the operadic nerve
-$N \colon \mathsf{Op} \to \mathsf{sdet}$, 
+$N \colon \mathsf{Op} \to \mathsf{dSet}$, 
 given by $N\mathcal{O} (U) = \mathsf{Op}(\Omega(U), \mathcal {O})$,
 %\begin{equation}
 %      \label{NERVE_EQ}
@@ -3206,8 +3208,7 @@ must be used in Definition \ref{GEN_OP_DEF}.
 \begin{remark}\label{DESTIAL REM}
 Suppose $X \in \mathsf{dSet}^G$ has the strict right lifting property against all Segal core inclusions
 $Sc[T] \to \Omega[T]$, $T \in \Omega_G$.
-By specifying to the case of $T = G \cdot T_{\**}$
-a free $G$-tree, 
+By specifying to the cases of free $G$-trees $T = G \cdot T_{\**}$,
 \eqref{T_DECOMP_EQ} implies that,
 after forgetting the $G$-action,
 $X \in \mathsf{dSet}$
@@ -3237,7 +3238,7 @@ $\Phi$ is the unique non-equivariant lift.
 	\arrow[dashed]{ru}[swap]{\Phi}
 \end{tikzcd}
 \end{equation}
-Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle lifting problem, so that strictness implies it is also
+Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle lifting problem, so that strictness implies % it is also
 $h^{-1} \Phi h = \Phi$.
 In other words, $\Phi$ is in fact also the unique 
 $H$-equivariant lift.
@@ -3718,7 +3719,7 @@ Proposition \ref{HYPER PROP} now finishes the proof.
 \end{proof}
 
 \begin{remark}
-Historically the joint Reedy model structure is usually called the \textit{Rezk model structure} and its fibrant objects are called 
+Historically, the joint Reedy model structure has been called the \textit{Rezk model structure} with fibrant objects the 
 \textit{complete (dendroidal) Segal spaces}.
 This is because most discussions in the literature prefer
 to first introduce the Segal space model structure on
@@ -3779,23 +3780,23 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
 
 
 \begin{remark}\label{CONCRECOM REM}
-	Given a $G$-$\infty$-operad $X \in \mathsf{dSet}^G$,
-	one can obtain an explicit model for $\widetilde{c_{!} (X)}$
-	as the object $X^{J^{\bullet}} \in \mathsf{sdSet}^G$,
-	where $J^{m}$ was defined in Notation \ref{JM NOT}
-	and $X^{J^m}\in \mathsf{dSet}^G$ is defined as in 
-	Notation \ref{UNILIMDEN NOT}.
-	Indeed, since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object in $\mathsf{dSet}^G$,
-	one has that $X^{J^{\bullet}} \in \mathsf{sdSet}^G$
-	is simplicial fibrant.
-	Hence, by Corollary \ref{JOINTFIBCHAR COR}(ii)
-	$c_{!}(X) \to X^{J^{\bullet}}$
-	will indeed be a joint fibrant replacement provided that it is a dendroidal equivalence.
-	But this follows from \cite[Cor. 8.21]{Per17},
-	which implies that the maps $X^{J^m} \to X^{J^0}=X$
-	are trivial fibrations in $\mathsf{dSet}^G$
-	(formally, \cite[Cor. 8.21]{Per17} says that $\upsilon_{\**}(X^{J^m}) = X^{(J^m)} \to \upsilon_{\**}(X)$
-	is a trivial fibration in $\mathsf{dSet}_G$, which is an equivalent statement, as noted at the end of the proof of \cite[Thm. 8.22]{Per17}).
+      Given a $G$-$\infty$-operad $X \in \mathsf{dSet}^G$,
+      one can obtain an explicit model for $\widetilde{c_{!} (X)}$
+      by the object $X^{J^{\bullet}} \in \mathsf{sdSet}^G$,
+      where $J^{m}$ was defined in Notation \ref{JM NOT}
+      and $X^{J^m}\in \mathsf{dSet}^G$ is defined as in 
+      Notation \ref{UNILIMDEN NOT}.
+      Indeed, since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object in $\mathsf{dSet}^G$,
+      one has that $X^{J^{\bullet}} \in \mathsf{sdSet}^G$
+      is simplicial fibrant.
+      Hence, by Corollary \ref{JOINTFIBCHAR COR}(ii)
+      $c_{!}(X) \to X^{J^{\bullet}}$
+      will be a joint fibrant replacement provided that it is a dendroidal equivalence.
+      But this follows from \cite[Cor. 8.21]{Per17},
+      which implies that the maps $X^{J^m} \to X^{J^0}=X$
+      are trivial fibrations in $\mathsf{dSet}^G$
+      (formally, \cite[Cor. 8.21]{Per17} says that $\upsilon_{\**}(X^{J^m}) = X^{(J^m)} \to \upsilon_{\**}(X)$
+      is a trivial fibration in $\mathsf{dSet}_G$, which is an equivalent statement, as noted at the end of the proof of \cite[Thm. 8.22]{Per17}).
 %
 %	Given a $G$-$\infty$-operad $X \in \mathsf{dSet}^G$, a joint fibrant model in 
 %	$\mathsf{sdSet}^G$ is given by 
@@ -4811,7 +4812,7 @@ leading to a decomposition
 	\simeq
 \Omega[C \star \eta] \otimes_{\Omega[C]} \Omega[\eta \star C]
 \]
-We note that this holds even if $k=0$, 
+We note that this holds even if $C = C_{\varnothing}$ is a 0-corolla, %$k=0$, 
 which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
@@ -4831,7 +4832,7 @@ $[1] \otimes C = C \star \eta$.
 	where $X^{\Omega[T]} \in \mathsf{ssSet}$ is defined 
 	in analogy to Notation \ref{UNILIMDEN NOT}.
 	Since $X^{\Omega[T]}$
-	is a (simplicial) Segal space
+	is a (simplicial) Segal space,
 	Proposition \ref{SESP PROP}(iv) says that this map is 
 	a weak equivalence onto a subset of components,
 	i.e. a \textit{homotopy monomorphism}.
@@ -4958,13 +4959,13 @@ degenerate object, which is thus in the image of $X\to X^J$.
 
 
 \begin{definition}
-	Two maps $f,f'\colon X \rightrightarrows Y$ between dendroidal Segal spaces are called $J$-homotopic, written $f \sim_J f'$, if
+	Two maps $f,f'\colon X \rightrightarrows Y$ between dendroidal Segal spaces are called \textit{$J$-homotopic}, written $f \sim_J f'$, if
 	there is a $H$ such that
 	the two composites
 	$X \xrightarrow{H} Y^J \rightrightarrows Y$
 	are $f,f'$.
 	
-	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a $J$-homotopy equivalence if there exists $g \colon Y \to X$
+	Further, a map $f\colon X \to Y$ of dendroidal Segal spaces is called a \textit{$J$-homotopy equivalence} if there exists $g \colon Y \to X$
 	such that $gf \sim_J id_X$, $fg \sim_J id_Y$.
 \end{definition}
 
@@ -5402,7 +5403,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 \begin{itemize}
 	\item[(i)] $\Omega_{\mathcal{F}}$ is a sieve of 
               $\Omega_G$;              
-	\item[(ii)] for each $T \in \Omega_G$ it is 
+	\item[(ii)] for each $T \in \Omega_G$,
 	$T \in \Omega_{\mathcal{F}}$ iff 
 	$\forall_{v \in V_G(T)} T_v \in \Omega_{\mathcal{F}}$
 	or, equivalently, if
@@ -5427,7 +5428,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 Here, (ii'') reflects the existence of units in $G$-operads,
 which are encoded by the
 $G$-trivial $1$-corolla $G/G\cdot [1]$
-(note that by the sieve condition (i) it is
+(note that by the sieve condition (i),
 $(G/G\cdot [1]) \in \Omega_{\mathcal{F}}$
 iff 
 $(G/G\cdot \eta) \in \Omega_{\mathcal{F}}$).
