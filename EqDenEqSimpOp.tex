@@ -1218,7 +1218,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
 \end{remark}
 
 
-\begin{example}
+\begin{example}\label{HORNEX EX}
 	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
 	and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top below.
 	The following depicts the poset of planar faces of $T$ \textit{not in} $\Lambda_o^{Gb}[T]$.
@@ -2441,7 +2441,7 @@ Lemma \ref{CHAREDGE LEM} with $I = \{\**\}$ a singleton and
 	A=\Lambda_o^{E}[T].
 \]
 It remains to check the characteristic conditions in Definition \ref{CHAREDGE DEF}.
-	(Ch0) and (Ch3) are clear.
+(Ch0) and (Ch3) are clear.
 
 Note that for $V\hookrightarrow T$ it is $V \not \in A$ iff 
 $GV = T-E'$ for some $G$-subset
@@ -2490,6 +2490,19 @@ $E' \subseteq E$, $F' \subseteq F$,
 then $GV \hookrightarrow T-Ge$ iff $G(V - \Xi_V) \hookrightarrow T-Ge$
 and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
 \end{proof}
+
+
+\begin{example}
+Keeping the setup in Example \ref{HORNEX EX}, we consider the inclusion $\Lambda_o^{Gb}[T] \to \Omega[T]$.
+Denoting the left tree in the middle row of \eqref{HORN_EX_FIG} by $S$, the poset 
+$\mathsf{Face}^{leq}_{\Xi}(U)=
+\mathsf{Face}^{leq}_{Gb}(T)$
+specified by the proofs of Proposition \ref{ORB_HORN_PROP} and Lemma \ref{CHAREDGE LEM} is the $G$-poset
+$S \to T \leftarrow -S$.
+The argument then shows that $\Lambda_o^{Gb}[T] \to \Omega[T]$ is built cellularly by attaching
+$G \cdot \left(\Lambda^b[S] \to \Omega[S]\right)$
+followed by $\Lambda^{Gb}[T] \to \Omega[T]$.
+\end{example}
 
 
 \begin{proposition}\label{REG_HORN_PROP}
