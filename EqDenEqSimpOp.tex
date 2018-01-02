@@ -78,7 +78,7 @@ cd,patterns,calc}
 
 
 \begin{abstract}
-	We introduce the analogues of the notions of complete Segal spaces and of Segal categories in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
+	We introduce the analogues of the notions of complete Segal space and of Segal category in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
 	$G$-$\infty$-operads built in a previous paper.
 
 	Moreover, we establish variants of these results for the Blumberg-Hill indexing systems. 
@@ -112,9 +112,10 @@ This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larg
 Here, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
 (see Remark \ref{NORMMAP REM} for a brief definition of norm maps or the introductions to 
 \cite{Per17},\cite{BP17} for a more extensive discussion).
-The need to understand norm maps, % particularly in the context of $G$-ring spectra,
-as well as their utility,
-was made clear by Hill, Hopkins and Ravenel, who constructed them in the context of $G$-ring spectra
+The need to understand norm maps
+%particularly in the context of $G$-ring spectra,
+%as well as their usefulness,
+was made clear by Hill, Hopkins and Ravenel, who used  them in the context of $G$-ring spectra
 as part of their solution of the Kervaire invariant one problem \cite{HHR16}.
 
 The starting point of this project was the discovery by the authors of,
@@ -1343,7 +1344,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
                   (TGb)++(1.1,1.8) -- ($(Tb)+(-.2,-.2)$); % ++(.5,.3\rh);
                   % horn boxes
                   \draw
-                  (TGb)++(-1.1,-.2) rectangle ++(2.2,1.9);
+                  (TGb)++(-1.1,-.1) rectangle ++(2.2,1.8);
                   \draw
                   (Tbb)++(-1.33,-.1) rectangle ++(2.66,2.2);
                   \draw
@@ -2496,12 +2497,13 @@ and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
 
 \begin{example}
 Keeping the setup in Example \ref{HORNEX EX}, we consider the inclusion $\Lambda_o^{Gb}[T] \to \Omega[T]$.
-Denoting the leftmost tree in the middle row of \eqref{HORN_EX_FIG} by $S$, the poset 
+Denoting the leftmost tree in the middle row of \eqref{HORN_EX_FIG} by $S$, the intersection of the 
+$G$-poset in \eqref{HORN_EX_FIG} with the $G$-poset 
 $\mathsf{Face}^{lex}_{\Xi}(U)=
 \mathsf{Face}^{lex}_{Gb}(T)$
 specified by the proofs of Proposition \ref{ORB_HORN_PROP} and Lemma \ref{CHAREDGE LEM} is the $G$-poset
 $S \to T \leftarrow -S$.
-The argument then shows that $\Lambda_o^{Gb}[T] \to \Omega[T]$ is built cellularly by attaching
+The argument in those proofs then shows that $\Lambda_o^{Gb}[T] \to \Omega[T]$ is built cellularly by attaching
 $G \cdot \left(\Lambda^b[S] \to \Omega[S]\right)$
 followed by $\Lambda^{Gb}[T] \to \Omega[T]$.
 \end{example}
@@ -5787,7 +5789,7 @@ depends only on the restriction to
 $\mathbb{R}_{\leq n}^{+}$ (resp. $\mathbb{R}_{\leq n}^{-}$). We refer the reader to \cite[\S 4]{BM11} for a detailed discussion.
 
 We now turn to the model categorical analysis, which depends on the Reedy-admissibility condition (iv)
-in Definition \ref{GENRED DEF}, and is the actual novelty in this appendix.
+in Definition \ref{GENRED DEF}, and is the actual novelty of this appendix.
 We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}
 (we note that \cite[Prop. 6.6]{BP17} can be proven in terms of fibrations, and thus does not depend on special assumptions on $\C$).
 \begin{proposition}
