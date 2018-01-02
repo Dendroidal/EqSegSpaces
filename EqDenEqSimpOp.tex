@@ -198,9 +198,7 @@ Proposition \ref{HYPER PROP},
 which roughly states that Segal core inclusions, horn inclusions and orbital horn inclusions can in some circumstances be used interchangeably.
 The bulk of the technical work takes place in 
 \S \ref{CHAREDGE SEC} where Lemma \ref{CHAREDGE LEM},
-a powerful tool
-% technical result
-we call the
+a powerful technical result we call the
 \textit{characteristic edge lemma}, is established.
 \S \ref{HYPERSAT SEC} then shows Proposition \ref{HYPER PROP} via a string of easy applications of 
 Lemma \ref{CHAREDGE LEM}.
@@ -1222,7 +1220,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
 
 \begin{example}
 	Let $G = \mathbb{Z}_{/2} = \{\pm 1\}$,
-	and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top of \eqref{HORN_EX_FIG} below.
+	and consider the tree $T \in \Omega^G \subset \Omega_G$ at the top below.
 	The following depicts the poset of planar faces of $T$ \textit{not in} $\Lambda_o^{Gb}[T]$.
 	By contrast, $\Lambda^{Gb}[T]$ lacks only the boxed faces (which are precisely those faces pictured below that are \textit{inner} faces of $T$).
 	      \begin{equation}\label{HORN_EX_FIG}
@@ -1302,7 +1300,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
                   (Tb)++(-1.33,2.2) -- ($(T)+(.2,-.3)$); % ++(.5,.3\rh);
                   % ------- Bottom row ---------
                   % orbital
-                  \node (TGb) at (0,-\rh) {$T - Gb$}
+                  \node (TGb) at (0,-\rh) {}
                   child{node [dummy] {}
                     child{node [dummy] {}
                       child{
@@ -3208,7 +3206,8 @@ must be used in Definition \ref{GEN_OP_DEF}.
 \begin{remark}\label{DESTIAL REM}
 Suppose $X \in \mathsf{dSet}^G$ has the strict right lifting property against all Segal core inclusions
 $Sc[T] \to \Omega[T]$, $T \in \Omega_G$.
-By specifying to the cases of free $G$-trees $T = G \cdot T_{\**}$,
+By specifying to the cases of $T = G \cdot T_{\**}$
+the free $G$-trees,
 \eqref{T_DECOMP_EQ} implies that,
 after forgetting the $G$-action,
 $X \in \mathsf{dSet}$
@@ -3238,7 +3237,7 @@ $\Phi$ is the unique non-equivariant lift.
 	\arrow[dashed]{ru}[swap]{\Phi}
 \end{tikzcd}
 \end{equation}
-Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle lifting problem, so that strictness implies % it is also
+Then $h^{-1} \Phi h$ is a lift for the composite lifting problem, but since $h^{-1} \phi h = \phi$, that composite lifting problem in fact coincides with the middle lifting problem, so that strictness implies it is also
 $h^{-1} \Phi h = \Phi$.
 In other words, $\Phi$ is in fact also the unique 
 $H$-equivariant lift.
@@ -3719,13 +3718,14 @@ Proposition \ref{HYPER PROP} now finishes the proof.
 \end{proof}
 
 \begin{remark}
-Historically, the joint Reedy model structure has been called the \textit{Rezk model structure} with fibrant objects the 
+Historically, the joint Reedy model structure has been called the \textit{Rezk model structure} and its fibrant objects have been called 
 \textit{complete (dendroidal) Segal spaces}.
-This is because most discussions in the literature prefer
-to first introduce the Segal space model structure on
+This is because most discussions in the literature 
+\cite{Rez01,CM13a}
+prefer to first introduce the Segal space model structure on
 $\mathsf{ssSet}$/$\mathsf{sdSet}$, which is an intermediate localization of the 
 horizontal/dendroidal Reedy model structure.
-In this work we chose to first focus on the properties of the Rezk model structure that are consequences of the joint perspective, 
+In this work we first focus on the properties of the Rezk model structure that are consequences of the joint perspective, 
 postponing the Segal space perspective to \S \ref{EDSS_SEC}.
 \end{remark}
 
@@ -3782,7 +3782,7 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
 \begin{remark}\label{CONCRECOM REM}
       Given a $G$-$\infty$-operad $X \in \mathsf{dSet}^G$,
       one can obtain an explicit model for $\widetilde{c_{!} (X)}$
-      by the object $X^{J^{\bullet}} \in \mathsf{sdSet}^G$,
+      as the object $X^{J^{\bullet}} \in \mathsf{sdSet}^G$,
       where $J^{m}$ was defined in Notation \ref{JM NOT}
       and $X^{J^m}\in \mathsf{dSet}^G$ is defined as in 
       Notation \ref{UNILIMDEN NOT}.
@@ -4812,7 +4812,7 @@ leading to a decomposition
 	\simeq
 \Omega[C \star \eta] \otimes_{\Omega[C]} \Omega[\eta \star C]
 \]
-We note that this holds even if $C = C_{\varnothing}$ is a 0-corolla, %$k=0$, 
+We note that this holds even if $k=0$, 
 which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
@@ -5403,7 +5403,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 \begin{itemize}
 	\item[(i)] $\Omega_{\mathcal{F}}$ is a sieve of 
               $\Omega_G$;              
-	\item[(ii)] for each $T \in \Omega_G$,
+	\item[(ii)] for each $T \in \Omega_G$ it is
 	$T \in \Omega_{\mathcal{F}}$ iff 
 	$\forall_{v \in V_G(T)} T_v \in \Omega_{\mathcal{F}}$
 	or, equivalently, if
@@ -5428,7 +5428,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 Here, (ii'') reflects the existence of units in $G$-operads,
 which are encoded by the
 $G$-trivial $1$-corolla $G/G\cdot [1]$
-(note that by the sieve condition (i),
+(note that by the sieve condition (i) it is
 $(G/G\cdot [1]) \in \Omega_{\mathcal{F}}$
 iff 
 $(G/G\cdot \eta) \in \Omega_{\mathcal{F}}$).
