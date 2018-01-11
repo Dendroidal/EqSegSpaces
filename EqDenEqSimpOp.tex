@@ -115,17 +115,18 @@ Here, norm maps are a new piece of structure that must be considered when dealin
 The need to understand norm maps
 %particularly in the context of $G$-ring spectra,
 %as well as their usefulness,
-was made clear by Hill, Hopkins and Ravenel, who used  them in the context of $G$-ring spectra
+was made clear by Hill, Hopkins and Ravenel, who used  them in the context of equivariant ring spectra
 as part of their solution of the Kervaire invariant one problem \cite{HHR16}.
 
 The starting point of this project was the discovery by the authors of,
 for each finite group $G$,
 a category $\Omega_G$ of $G$-trees whose objects diagrammatically encode compositions of norm maps 
+(in a $G$-equivariant operad)
 and whose arrows encode the necessary compatibilities between such compositions.
 Our categories $\Omega_G$ are a somewhat non-obvious  generalization of the dendroidal category $\Omega$
 of Cisinski-Moerdijk-Weiss, 
 and indeed all the key combinatorial concepts in their work,
-such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,6]{Per17}.
+such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,\S 6]{Per17}.
 As such, it is natural to attempt to generalize the 
 Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} to the equivariant context. 
 
@@ -136,7 +137,7 @@ Recall that the main result of their program is the existence of a Quillen equiv
 	\mathsf{sOp}  \colon N_{hc} 
 \]
 where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
-is the category of presheaves over $\Omega$, 
+is the category of presheaves on $\Omega$, 
 which are called \textit{dendroidal sets},
 and 
 $\mathsf{sOp}$ is the category of simplicial colored operads.
@@ -191,7 +192,7 @@ The organization of the paper is as follows.
 
 \S \ref{PREL SEC} mostly recalls the necessary notions concerning the category $\Omega_G$ of $G$-trees and the category $\mathsf{dSet}^G$ of $G$-dendroidal sets 
 that were introduced in \cite{Per17}.
-However, some new notions and results can be found throughout, most notably the notion of \textit{orbital face} in Definition \ref{ORBFACE DEF}
+However, some new notions and results can be found throughout, most notably the notion of \textit{orbital face} of a $G$-tree in Definition \ref{ORBFACE DEF}
 and the associated notion of \textit{orbital horn} in 
 \S \ref{EQDENDSETS SEC}.
 
@@ -210,7 +211,7 @@ Lastly, \S \ref{GENEQOP SEC} recasts the \textit{genuine equivariant operads} of
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
 via largely abstract methods.
 Our approach is inspired by 
-\cite[Thm. 6.6]{CM13a}, which observes that the (complete) model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
+\cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
 As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common localizations, 
 which is then applied in \S \ref{CEDSS SEC} to obtain the Quillen equivalence
 $\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
@@ -382,7 +383,7 @@ $s \leq_d t$ and $\forall_{i} s \not \leq t_i$
 	Inner faces $T-E \hookrightarrow T$ are always full, i.e. $T-E$ contains all broad relations of $T$ between those edges in 
 $\boldsymbol{E}(T-E) = \boldsymbol{E}(T) \setminus E$.
 	By contrast, whenever $T$ has stumps some of its outer faces $T_{\underline{t} \leq t}$ are not full,
-	the main example being the maximal outer faces
+	the main example being given by the maximal outer faces
 	that ``remove stumps'' \cite[Not. 5.41]{Per17}.
 \end{remark}
 
@@ -458,7 +459,7 @@ containing (contained in) all $U_i$.
 	(cf. \cite[Rem. 5.2]{Per17}) $U^{\cup}$ and $U^{\cap}$,
 	hence we need only verify the axioms in 
 	\cite[Defs. 5.1, 5.3, 5.9]{Per17}. 
-	Antisymmetry and simplicity are inherited from $T$, the nodal axiom is obvious from \eqref{CUPCAP EQ}, and the root axiom follows since the $U_i$ have a common root (in $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
+	Antisymmetry and simplicity are inherited from $T$, the nodal axiom is obvious from \eqref{CUPCAP EQ}, and the root axiom follows since the $U_i$ have a common root (in the $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
 	$s \leq_d s' \leq_d t$).
 \end{proof}
 
@@ -609,7 +610,8 @@ We start by recalling the notion of face discussed in \cite{Per17}, which is mot
 \end{tikzcd}
 \end{equation}
 Alternatively, planar faces $U \hookrightarrow T$ can be viewed as sub-broad posets $U \subseteq T$,
-identifying this $G$-action with the natural action on subsets. However, we prefer the planar face language since it is easier to relate to the presheaves $\Omega[T]$ discussed in the next section.
+identifying this $G$-action with the natural action on subsets. However, we prefer the planar face framework since it is more readily related to the presheaves $\Omega[T]$ discussed in the next section
+(see Remark \ref{FACEGACT REM}).
 \end{notation}
 
 
@@ -637,7 +639,7 @@ which respects the $G$-actions on the two categories.
 We now introduce the notion of face of a $G$-tree that is suggested by the orbital representation.
 
 \begin{definition}\label{ORBFACE DEF}
-	Let $T \in \Omega_G$.
+	Let $T \in \Omega_G$ be a $G$-tree.
 	An \textit{orbital face} of $T$ is a map 
 	$S \hookrightarrow T$ in $\Omega_G$ which is injective on edges. Further, an orbital face is called
 	\textit{inner/outer} if any (and thus all) of its  component maps is and \textit{planar} if it is a planar map of forests.
@@ -819,10 +821,10 @@ containing all $h U \hookrightarrow T$ for $h \in H$,
 which we denote by $HU$.
 Moreover, $HU$ inherits the $H$-action from $T$ 
 (by either its construction or its characterization).
-Moreover, the natural map
+The natural map
 $G \cdot_H HU \to T$
 is then injective on edges
-(for a map of forests $F \to F'$
+(for any map of forests $F \to F'$
 the images of the tree components of $F$ are pairwise $\leq_d$-incomparable iff so are the images of the roots)
 and we thus let $GU$ be $G \cdot_H HU$
 with the planar structure induced from $T$.
@@ -948,7 +950,9 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 \begin{remark}
 Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ does not act on $\mathsf{Face}_o(T)$)
 \[
-	\mathsf{Face}(T) \xrightarrow{G(-)} \mathsf{Face}_o(T).
+	\mathsf{Face}(T) \xrightarrow{G(-)} \mathsf{Face}_o(T),
+\qquad
+	U \mapsto GU.
 \]
 Moreover, there is a natural inclusion
 $\mathsf{Face}_o(T) \subseteq \mathsf{Face}(T)/G$ (sending an orbital face $S$ to the class of components $[S_{\**}]$)
@@ -1045,7 +1049,8 @@ is an \textit{orbital relation} if
 $\underline{e} \subseteq \boldsymbol{E}(T)$
 is an orbital $G$-subset and $\underline{f} \subseteq \boldsymbol{E}(T)$ is a $G$-subset. 
 Reinterpreting the orbital relations of $T$ 
-as broad relations on the set $\boldsymbol{E}_{G}(T)$ of edge orbits,
+as broad relations on the set 
+$\boldsymbol{E}_{G}(T) = \boldsymbol{E}(T)/G$ of edge orbits,
 one readily checks that this defines a 
 dendroidally ordered set \cite[Def. 5.9]{Per17},
 i.e. a tree, that we denote $T/G$.
@@ -1073,9 +1078,7 @@ to obtain $\Omega[T] \in \mathsf{dSet}^G$ via
 	\Omega[T] = \Omega[T_1] \amalg \cdots \amalg \Omega[T_k]
 \]
 regarded as a $G$-object in $\mathsf{dSet}$.
-One further defines \textit{boundaries} (in the union formula, 
-the injection $\Omega[U] \to \Omega[T]$ is regarded as 
-an inclusion; the equivalence between the colimit and union formulas follows from Proposition \ref{UNIQUEFACT PROP})
+One further defines \textit{boundaries} (in the union formula we regard the injections $\Omega[U] \to \Omega[T]$ as inclusions; the equivalence between the colimit and union formulas follows from Proposition \ref{UNIQUEFACT PROP})
 \[
 	\partial \Omega[T] = 
 	\mathop{\colim}_{U \in \mathsf{Face}(T),U \neq T_i}
@@ -1159,7 +1162,7 @@ is called the class of \textit{$G$-inner anodyne maps},
 while those $X \in \mathsf{dSet}^G$
 with the right lifting property against all $G$-inner horn inclusions are called \textit{$G$-$\infty$-operads}.
 
-We can now recall \cite[Thm 2.1]{Per17}, which was the main result therein.
+We can now recall the statement of \cite[Thm 2.1]{Per17}, which was the main result therein.
 
 \begin{theorem}
 	There is a model structure on $\mathsf{dSet^G}$
@@ -1169,19 +1172,19 @@ We can now recall \cite[Thm 2.1]{Per17}, which was the main result therein.
 
 \begin{remark}
 The definition of $G$-$\infty$-operads just given is a priori distinct from the original definition \cite[Def. 6.12]{Per17} which used only 
-\textit{generating $G$-inner horn inclusion}, i.e. 
+\textit{generating $G$-inner horn inclusions}, i.e. 
 those inclusions $\Lambda^{Ge}[T] \to \Omega[T]$ with $E=Ge$ an inner edge orbit.
 The present definition has the technical advantages of being naturally compatible with restricting the $G$-action and of allowing for a simpler proof of Lemma \ref{CHAREDGE LEM}, 
 which is our main tool for showing that maps
 are $G$-inner anodyne.
 The equivalence between the two definitions follows from 
 \cite[Prop. 6.17]{Per17},
-although we also independently recover this fact
-from Lemma \ref{CHAREDGE LEM} in Corollary \ref{REGGENHORN COR}.
+although we will also independently recover this fact
+from Lemma \ref{CHAREDGE LEM} as Corollary \ref{REGGENHORN COR}.
 \end{remark}
 
 
-In additional to the $G$-inner horns defined before, we now introduce a new kind of horn that, much like orbital faces,
+In addition to the $G$-inner horns defined above, we now introduce a new kind of horn that, much like orbital faces,
 is naturally suggested by the orbital representation of $G$-trees.
 Given $E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we define the associated 
 \textit{orbital $G$-inner horn} by
@@ -1695,7 +1698,7 @@ and $Sc[T]$ corresponds to $Sc[T/G]$.
 
 Much as in \cite[\S 2]{CM13a}, 
 we need to show that the inclusions $Sc[T] \to \Omega[T]$, $T\in \Omega_G$ are $G$-inner anodyne.
-In addition, some parts of the equivariant dendroidal story are 
+In addition, parts of the equivariant dendroidal story are 
 naturally described in terms of 
 orbital $G$-inner horns $\Lambda^E_o[T]$ 
 (rather than $G$-inner horns $\Lambda^E[T]$),
@@ -1704,7 +1707,7 @@ $\Lambda^E_o[T] \to \Omega[T]$
 are $G$-inner anodyne.
 
 In practice, the proofs of such results are long as well as somewhat repetitive, since they share many technical arguments.
-In fact, dealing with the case of orbital horns requires using many of the arguments in the long proof of \cite[Thm 7.1]{Per17}.
+In fact, dealing with the case of orbital horn inclusions requires using many of the arguments in the long proof of \cite[Thm 7.1]{Per17}.
 
 As such, we split our technical analysis into two parts.
 In \S \ref{CHAREDGE SEC} we prove Lemma \ref{CHAREDGE LEM} which  we call the \textit{characteristic edge lemma} and
@@ -1760,7 +1763,7 @@ Hence, (Ch3) applies when $j=gi$ for $gi\neq i$.
 
 In particular, we assume throughout that if
 $gi \neq i$ then $U_{gi} \neq U_i$,
-or else it would be $U_i \in A_{<i}$.
+or else $U_i$ would be in $A_{<i}$.
 \end{remark}
 
 
@@ -1844,7 +1847,7 @@ of faces
 $W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
 \end{enumerate}
 
-To check (a), writing $\bar{V}$ for the corresponding outer face of $U$, one has
+To check (a), writing $\bar{V}=\bar{V}^U$ for the corresponding outer face of $U$, one has
 	\[
 	\Xi_V = \Xi \cap \boldsymbol{E}^{\mathsf{i}} (V) 
 	= \Xi \cap \boldsymbol{E}^{\mathsf{i}}(W) \cap \boldsymbol{E}^{\mathsf{i}}(\bar{V})
@@ -1865,7 +1868,8 @@ We now check the ``if'' direction of (b).
 If $D \not \subseteq \Xi_{W}$
 then $W' = W - (D \setminus \Xi_{W})$
 is in $\mathsf{Face}_{\Xi}^{lex}(U)$
-(since $\bar{W}' = \bar{W}$ and $\Xi_{W'} = \Xi_{W}$)
+(since $\bar{W}' = \bar{W}$ and thus
+$\Xi_{W'} = \Xi_{W}  = \Xi_{\bar{W}} = \Xi_{\bar{W}'}$)
 and $W'<W$, and thus $W' \in A_C$.
 
 For the ``only if'' direction of (b), 
@@ -1933,7 +1937,7 @@ and a collection of edges
 $\{\Xi^i \subseteq \boldsymbol{E}^{\mathsf{i}}(U_i)\}_{i \in I}$, 
 suppose that $I$ is a finite $G$-poset and that:
 \begin{itemize}
-	\item[(Ch0.1)] the maps $b_i \colon \Omega[U_i] \to B$ are monomorphisms;
+	\item[(Ch0.1)] the maps $b_i \colon \Omega[U_i] \to B$ are injective away from $b_i^{-1}(A)$;
 	\item[(Ch0.2)] $A$, $\{U_i\}$ ,$\{b_i\}$ and $\{\Xi^i\}$
 	are all $G$-equivariant in the sense that:
 	\begin{inparaenum}
@@ -1947,20 +1951,36 @@ suppose that $I$ is a finite $G$-poset and that:
 		\item[(iv)] $g \left(\Xi^i\right)=\Xi^{gi}$.
 	\end{inparaenum}
 \end{itemize}
-Under (Ch0.1),
-the $\Omega[U_i]$ are then identified with the subcomplexes $b_i(\Omega[U_i]) \subseteq B$, with the non-degenerate dendrices of $ b_i(\Omega[U_i])$
-being the images $b_i(\varphi_V)$ of the face maps $\varphi_V \colon V \hookrightarrow U_i$.
-The original conditions (Ch1),(Ch2),(Ch3) can hence be reinterpreted by, 
-for each $V \hookrightarrow U_i$, 
-regarding expressions such as $V \in A$, 
+%Under (Ch0.1),
+%the $\Omega[U_i]$ are then identified with the subcomplexes $b_i(\Omega[U_i]) \subseteq B$, with the non-degenerate dendrices of $ b_i(\Omega[U_i])$
+%being the images $b_i(\varphi_V)$ of the face maps $\varphi_V \colon V \hookrightarrow U_i$.
+The original conditions (Ch1),(Ch2),(Ch3) can now be reinterpreted by, 
+for each face $\varphi_V \colon V \hookrightarrow U_i$, 
+reinterpreting expressions such as ``$V$ contained in $A_{<i}$'', 
 $(V-\Xi^i_V) \hookrightarrow U_j$
-as $b_i(\varphi_V) \in A$, $b_i(\varphi_{V-\Xi^i_V}) \in b_j(\Omega[U_j])$.
+as $b_i(\varphi_V) \in A_{<i}$, $b_i(\varphi_{V-\Xi^i_V}) \in b_j(\Omega[U_j])$.
 
-The proof of Lemma \ref{CHAREDGE LEM} now carries through to show that the inclusion
+The proof of Lemma \ref{CHAREDGE LEM} now carries through mostly unchanged to show that the inclusion
 \begin{equation}
 	A \to A \cup \bigcup_{i \in I} b_i(\Omega[U_i])
 \end{equation}
 is $G$-inner anodyne (again built cellularly from $G$-inner horn inclusions).
+Indeed, writing 
+$A_C = A \cup \bigcup_{g\in G,V \in C} b(\Omega[gV])$,
+the obvious analogues of (a),(b) in the proof
+show that one can form the analogous diagram \eqref{FIRPUSH EQ} and that
+$A_{C'} \setminus A_{C}$ is generated by the dendrices
+$g b_i(\varphi_{W-D})$ for $D \subseteq \Xi_W$. 
+That \eqref{FIRPUSH EQ} is indeed a pushout then follows from (Ch0.1), which ensures that all dendrices attached by each conjugate inclusion
+$g\left(\Lambda^{\Xi_W}[W] \to \Omega[W]\right)$
+are distinct, together with the analogue of (c), 
+which ensures that all such conjugate inclusions
+attach different dendrices.
+As a technical note, precisely reformulating (c) requires accounting for the isotropy issue discussed in Remark \ref{FACEGACT REM}, and is thus slightly cumbersome. However, just as in first line of the proof of (c), it is immediate from (Ch3) that
+$\Lambda^{\Xi_W}[W] \to \Omega[W]$
+and $g\left(\Lambda^{\Xi_W}[W] \to \Omega[W]\right)$
+could only possibly attach common dendrices if $g\in H$, so that the bulk of the argument in the proof of (c) concerns the $H$-isotropy in $\mathsf{Face}(W)$, 
+and thus carries through with no noteworthy changes.
 %hence we note only the main differences.
 %When writing the analogue of (\ref{FIRPUSH EQ}), 
 %$K$ must be defined by noting that, cf. Remark \ref{FACEGACT REM},
@@ -2005,7 +2025,9 @@ $Sc[n] \subseteq A \subseteq \Delta[n]$
 such that if $V \hookrightarrow [n]$ is in $A$ then so is the outer closure $\bar{V}^{[n]}$
 (in words, $A$ is generated by outer faces).
 Similarly, in the proof of \cite[Prop. 2.4]{CM13a}
-Cisinski and Moerdijk use subcomplexes $S_j$ that can be regarded as
+Cisinski and Moerdijk use subcomplexes
+% $S_j$
+that can be regarded as
 \textit{dendroidal covers},
 i.e. subcomplexes
 $Sc[T] \subseteq A \subseteq \Omega[T]$
@@ -2400,7 +2422,7 @@ as indeed follows from the argument).
 However, when $S$ is linear and $T$ has stumps the proof above breaks down (more precisely, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
 $\mathsf{Max}(S\otimes T)$
 and to modify the $\Xi^U$ to be those inner edges $(g \xi)_s$ such that
-$(g _xi)_s \in t_s^{\uparrow T}$ for some $t_s$
+$(g \xi)_s \in t_s^{\uparrow T}$ for some $t_s$
 (pictorially, this says that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then hold.
 For (Ch2), only the argument for the interesting case of
 $V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
@@ -2942,7 +2964,7 @@ The claims concerning pushouts, transfinite compositions and retracts follow fro
 
 %For transfinite composites,
 %both the definition of the lift for the composite and its uniqueness are immediate.
-We thus address only the cancellation property \eqref{CANCEL_EQ}. Suppose that $r$ has the strict right lifting property against cofibrations $f$ and $gf$, and consider a lifting problem as on the left below.
+We thus address only the cancellation property \eqref{CANCEL_EQ}. Suppose that $r$ has the strict right lifting property against $f$ and $gf$, and consider a lifting problem as on the left below.
 \begin{equation}
 \begin{tikzcd}[column sep = 8em]
 	B \ar{r}{p} \ar{dd}[swap]{g}& 
