@@ -2434,7 +2434,7 @@ Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the 
 
 
 
-\subsection{Segal cores, horns and orbital horns}\label{HYPERSAT SEC}
+\subsection{Segal core, horn and orbital horn inclusions}\label{HYPERSAT SEC}
 
 
 \begin{proposition}\label{ORB_HORN_PROP}
@@ -2478,7 +2478,7 @@ and thus that the orbital outer face $G V$ contains none of the edge orbits in $
 and hence $A=\Lambda_o^{E}[T]$ contains $V$.
 
 For (Ch2), note that if $V \not \in A$, i.e., 
-$GV = T - E'$, then Remark \ref{GINNER REM} implies that
+$GV = T - E'$ for $E' \subseteq E$, then Remark \ref{GINNER REM} implies that
 $G(V-\Xi_V) = T - E''$ for $E'\subseteq E'' \subseteq E$,
 and thus also $(V-\Xi_V) \not \in A$.
 
@@ -2493,6 +2493,7 @@ we instead apply Lemma \ref{CHAREDGE LEM} with $I = (E \setminus F)/G$, with an
 	A=\Lambda_o^{E}[T].
 \]
 Note that the $U_{Ge}$ are the orbital inner faces $T - Ge$ for $Ge \subseteq E \setminus F$, and thus the map
+\eqref{CHARLEM EQ}
 in Lemma \ref{CHAREDGE LEM} is indeed $\Lambda_o^{E}[T] \to \Lambda_o^{F}[T]$.
 Further, we are free to abbreviate $\Xi = \Xi^{Ge}$ and $\Xi_V = \Xi^{Ge}_V$, since
 $\Xi^{Ge}$ is independent of $G e$.
@@ -2572,7 +2573,7 @@ $V \hookrightarrow T-(E' \cup E'')$.
 	that inclusions of non-equivariant horns
 	$\Lambda^{E}[T] \to \Lambda^{F}[T]$
 	are inner anodyne,
-	with the first proof using $I = E \setminus F$ (with any total order) and the second using 
+	with the first proof using $I = E \setminus F$ (with an arbitrary total order) and the second using 
 	$I = \mathcal{P}_0(E \setminus F)$. 
 
 	The discrepancy is explained as follows: 
@@ -2585,7 +2586,7 @@ $V \hookrightarrow T-(E' \cup E'')$.
 
 
 \begin{remark}\label{FACCES REM}
-All $G$-inner horn inclusions attached in the proof of the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, correspond to $G$-trees whose non-equivariant components are faces of the $U_i$. Moreover, when $I$ has a transitive $G$-action, the last horn inclusion attached (corresponding to the maximum of $\mathsf{Face}^{lex}_{\Xi}(U)$) is
+All $G$-inner horn inclusions attached in the proof of the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, correspond to $G$-trees whose non-equivariant components are faces of the $U_i$. Moreover, when $I \simeq G/H$ has a transitive $G$-action, the last horn inclusion attached (corresponding to the maximum of $\mathsf{Face}^{lex}_{\Xi}(U)$) is
 $G \cdot_H \left( \Lambda^{\Xi}[U] \to \Omega[U] \right)$.
 \end{remark}
 
@@ -2598,7 +2599,7 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 \end{corollary}
 
 \begin{proof}
-	The proof is by induction on $|T_{\**}|$ for $T_{\**}\in \Omega$ a tree component (cf. Remark \ref{DEGREE REM}). As before one is free to assume $T \in \Omega^G$.	
+	The proof is by induction on $|T_{\**}|$ for $T_{\**}\in \Omega$ a tree component (cf. Remark \ref{DEGREE REM}). As in the proof of Proposition \ref{REG_HORN_PROP} one is free to assume $T \in \Omega^G$.	
 	A choice of edge orbit $Ge$ in $E$ yields a factorization
 	$\Lambda^{E}[T] \to \Lambda^{Ge}[T] \to \Omega[T]$,
 	hence we need only show that 
@@ -2713,7 +2714,7 @@ $Sc[T] \to \Omega[T]$
 are built cellularly from the orbital horn inclusions
 $\Lambda^E_o[T] \to \Omega[T]$, and that the two classes have the same hypersaturation. 
 
-	Indeed, this observation indicates an alternate route for proving Proposition \ref{HYPER PROP}
+	We note that this last observation indicates an alternate route for proving Proposition \ref{HYPER PROP}
 	(which the authors considered in early versions of this work)
 	without making direct use of the characteristic edge lemma machinery.
 	Namely, following the considerations above, the main missing claim is the first part of Proposition \ref{ORB_HORN_PROP}, stating that the inclusions
@@ -2788,7 +2789,7 @@ $\Lambda^E_o[T] \to \Omega[T]$, and that the two classes have the same hypersatu
 %      and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
 %\end{proof}
 
-We end this section with some necessary remarks about hypersaturations of simplicial horns.
+We end this section with some necessary remarks about hypersaturations of \textit{simplicial} horns.
 
 
 \begin{remark}\label{SLICE REM}
@@ -3035,7 +3036,7 @@ On the other hand, in
 \S \ref{EQDENDSETS SEC} we extended the notation $\Omega[-]$
 to obtain a functor $\Omega[-] \colon \Omega_G \to \mathsf{dSet}^G$.
 These two ``representable functors'' are related by 
-$\Omega_G[T] = \upsilon_{\**} \Omega[T]$.
+$\Omega_G[T] \simeq \upsilon_{\**} \Omega[T]$.
 \end{remark}
 
 The following definition is then the main purpose of this section.
@@ -3083,7 +3084,7 @@ so that the strict lifting conditions equip these mapping sets with associative 
 We caution, however, that this is not quite the whole story,
 since the composition maps need also be compatible with the presheaf structure, which is more complex in the equivariant context. 
 More explicitly, non-equivariantly one needs only compatibility with the symmetric group actions,
-reflecting the fact that (almost) all maps between corollas are symmetry isomorphisms. 
+reflecting the fact that all (non-degenerate) maps between corollas are symmetry isomorphisms. 
 But in the equivariant context $G$-corollas are also related via \textit{quotient maps}
 (such as the map in \eqref{QUOTMAP EQ}),
 which induce subtler compatibility conditions.
@@ -3107,7 +3108,7 @@ This name comes from the fact that, for each $\mathcal{O}$-algebra $R$,
 $\mathcal{O}(A)^H$ indexes operations
 $N^A R \to R$, where the
 \textit{$A$-norm object} $N^A R$ denotes
-$R^{\times |A|}$ together with the $H$-action
+$R^{\times |A|}$ together with the twisted $H$-action
 given by the graph subgroup $\Gamma_A \leq G \times \Sigma_{|A|}$.
 
 Letting $T,R_1,R_2,S \in \Omega_G$ and $H,K,L\leq G$ again be as in
@@ -3121,8 +3122,8 @@ the diagram of hom sets
 	\mathsf{Op}^G(\Omega(S), \mathcal{O})&
 \end{tikzcd}
 \end{equation}
-can be interpreted, after unpacking notation, as giving a 
-composition of norm maps
+can be interpreted, after unpacking notation (see \cite[\S 4.3]{Per17}),
+as a composition of norm maps
 \begin{equation}\label{NORM_COMP_EQ}
 \O(H/K)^H \times \O(K/L \amalg K/K)^K \to \O(H/L \amalg H/K)^H
 \end{equation}
@@ -3245,12 +3246,11 @@ must be used in Definition \ref{GEN_OP_DEF}.
 \begin{remark}\label{DESTIAL REM}
 Suppose $X \in \mathsf{dSet}^G$ has the strict right lifting property against all Segal core inclusions
 $Sc[T] \to \Omega[T]$, $T \in \Omega_G$.
-By specifying to the cases of $T = G \cdot T_{\**}$
+By specifying to the cases of $T \simeq G \cdot T_{\**}$
 the free $G$-trees,
 \eqref{T_DECOMP_EQ} implies that,
-after forgetting the $G$-action,
-$X \in \mathsf{dSet}$
-has the strict lifting property
+after forgetting the $G$-action so as to regard $X$ as an object in  $\mathsf{dSet}$,
+$X$ has the strict lifting property
 against the inclusions 
 $Sc[T_{\**}] \to \Omega[T_{\**}]$, $T_{\**} \in \Omega$.
 But the strict lifting properties with respect to all other $G$-trees $T \in \Omega_G$ are now automatic.
@@ -3296,7 +3296,8 @@ $G$-coefficient systems $\mathsf{Set}^{\mathsf{O}_G^{op}}$.
 Similarly, the category $\mathsf{sOp}^G$ 
 of $G$-simplicial operads
 admits two natural notions of weak equivalence, one which cares about the spaces of norm maps for
-all $H$-sets $A$ and one which cares only about the spaces of norm maps for trivial $H$-sets.
+all $H$-sets $A$ and one which cares only about the spaces of norm maps for trivial $H$-sets
+(which are simply the usual multiplication).
 However, this distinction vanishes when working in the discrete setting of $G$-dendroidal sets $\mathsf{dSet}^G$,
 unless one works instead with genuine 
 $G$-dendroidal sets $\mathsf{dSet}_G$.
@@ -3356,7 +3357,7 @@ Throughout we assume familiarity with the theory of left Bousfield localizations
 \end{proposition}
 
 \begin{proof}
-The joint localized model structure $(C,W,F)$ can be obtained by either left Bousfield localizing $(C,W_1,F_1)$ with regard to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
+The joint localized model structure $(C,W,F)$ can be obtained by either left Bousfield localizing $(C,W_1,F_1)$ with regard to the generating trivial cofibrations of $(C,W_2,F_2)$ or vice-versa. That the two processes yield the same model structure follows from the universal property of left Bousfield localizations \cite[Prop. 3.4.18]{Hir03}.
 	
 For (i), the claim that joint fibrant objects are fibrant in both of the original model structures follows since $C \cap W$ contains both $C \cap W_1$ and $C \cap W_2$ (in fact, this shows that $F \subseteq F_1 \cap F_2$).
 The converse claim follows from the observation that fibrant objects in any model structure are already local with respect to the weak equivalences in that same model structure.
@@ -3453,7 +3454,8 @@ $\tilde{X}_{n} \to \tilde{X}_{0}$
 are trivial Kan fibrations, so that by
 Remark \ref{HYPERSATKAN REM} one has that 
 $\tilde{X}_L \to \tilde{X}_K$ is a trivial Kan fibration whenever
-$K \to L$ is anodyne.
+$K \to L$ is anodyne
+(since the $K \to L$ with this property are hypersaturated).
 Therefore, $\tilde{X}$ is also horizontal fibrant, as desired.
 
 %(ii) follows since by (i) $\tilde{X}$ is then local
@@ -3471,7 +3473,7 @@ while the second ``iff'' in (iii) follows from (i).
 For (iv), note first that 
 $\delta^{\**} \colon \mathsf{ssSet} \to \mathsf{sSet}$
 is left Quillen for either the horizontal or vertical Reedy structures (and thus also for the joint Reedy structure).
-But noting that all objects are cofibrant, and regarding 
+But noting that all objects in $\mathsf{ssSet}$ are cofibrant, and regarding 
 $X_{0}$ as a bisimplicial set that is vertically constant, 
 the claim follows by noting that by (i) the map
 $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
@@ -3487,7 +3489,8 @@ $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	Since horizontal Reedy fibrant replacement maps
 	$X \to \tilde{X}$ are diagonal equivalences, 
 	one reduces to the case of $X,Y$ horizontal Reedy fibrant. The result now follows by combining
-	Proposition \ref{SSSETJREE PROP} (iii) and (iv). \end{proof}
+	parts (iii) and (iv) of Proposition \ref{SSSETJREE PROP}.
+\end{proof}
 
 
 \begin{corollary}\label{SSETSSETADJ COR}
@@ -3515,7 +3518,9 @@ Note that the ``moreover'' claim in this result is not quite formal, since the m
 	it is enough to show that 
 	$\delta_{!}\left( \partial \Delta[n] \to \Delta[n]\right)$
 	is a monomorphism for all $n\geq 0$.
-	This holds since:
+	Recalling that 
+	$\partial \Delta[n] = \mathop{\colim}_{\text{faces }F \neq \Delta[n]}F$,
+	this holds since:
 \begin{inparaenum}
 	\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (since faces are indexed by subsets of $\{0,1,\cdots,n\}$); 
 	\item[(ii)] for any face inclusion one has 
@@ -3523,7 +3528,7 @@ Note that the ``moreover'' claim in this result is not quite formal, since the m
 		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monormorphism.
 \end{inparaenum}
 
-The claim that $\delta_!$ preserves trivial cofibrations easily follows from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
+The claim that $\delta_!$ preserves trivial cofibrations follows easily from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
 Namely, we will argue that the maps
 $\delta_! \left( \Lambda^i[n] \to \Delta[n]\right)$
 are built cellularly out of the maps in 
@@ -3536,15 +3541,22 @@ One has a factorization
 where the second map is clearly built cellularly out of the maps in 
 \eqref{GTRCOHOR EQ}, and we claim that 
 the first map is likewise built cellularly out of the maps in \eqref{GTRCOVER EQ}.
-Indeed, this first map be built by iteratively attaching the maps
-\[
+Indeed, this first map is built by iteratively attaching the maps
+\begin{equation}\label{LAMBDAFPUSH EQ}
 	\left(\Lambda^{F}[n] \to \Lambda^i[n] \right)
 		\square
 	\left(\Lambda^{i}F \to F \right)
-\]
+\end{equation}
 where $F$ ranges over the poset $\mathsf{Face}_{\supsetneq \{i\}}$
-of faces of $\Delta[n]$ strictly containing $\{i\}$ 
-(note that for $F=\Delta[n]$ it is $\Lambda^F[n]=\emptyset$, so that these maps are in general not built out of the maps in \eqref{GTRCOHOR EQ}). 
+of faces of $\Delta[n]$ strictly containing $\{i\}$
+(more formally, for convex
+$C \subseteq C' \subseteq \mathsf{Face}_{\supsetneq \{i\}}$ such that $C' = C \amalg \{F\}$,
+the map 
+$\delta_! \Lambda^i[n] \cup \bigcup_{G \in C} G
+\to
+\delta_! \Lambda^i[n] \cup \bigcup_{G \in C'} G$
+is a pushout of \eqref{LAMBDAFPUSH EQ}).
+Note that for $F=\Delta[n]$ it is $\Lambda^F[n]=\emptyset$, so that these maps are in general not built out of the maps in \eqref{GTRCOHOR EQ}. 
 
 Lastly, the Quillen equivalence condition 
 is that for all $X \in \mathsf{sSet}$ and joint fibrant
@@ -3612,7 +3624,8 @@ or simply as the \textit{dendroidal Reedy model structure} for the sake of brevi
 
 Throughout, we will write the levels of 
 $X \in \mathsf{sdSet}^G$ as 
-$X_n(U)$. We now extend Notation \ref{UNIQUELIM NOT}.
+$X_n(U)$ for $n\geq 0$, $U \in \Omega$.
+We now extend Notation \ref{UNIQUELIM NOT}.
 Note that the representable functor of
 $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$.
 
@@ -3629,7 +3642,8 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 	$J \in \mathsf{dSet}^{G}$ we define
 	$X^J \in \mathsf{sdSet}^G$ by
 	$X^J(U) = X\left(\Omega[G \cdot U] \otimes J 
-	\right)$.
+	\right)$,
+	where $\otimes$ is the tensor product of dendroidal sets (see Example \ref{THM71 EX} for an informal definition or \cite[\S 9]{MW09},\cite[\S 7]{Per17} for an in-depth discussion).
 \end{notation}
 
 %In particular, we will throughout abbreviate
@@ -3725,11 +3739,11 @@ for $T \in \Omega_G$ are Kan equivalences in $\mathsf{sSet}$.
 \begin{proof}
 (i) simply repeats Proposition \ref{COMBMODSTR PROP}(i). In the remainder we write $K \to L$ for a generic monomorphism in 
 $\mathsf{sSet}$
-and $A \to B$ a generic normal monomorphism in $\mathsf{dSet}^G$.
+and $A \to B$ for a generic normal monomorphism in $\mathsf{dSet}^G$.
 
 For (ii), note that $X$ is simplicial fibrant iff 
 $X_L \to X_K$ is always a fibration in $\mathsf{dSet}^G$. 
-Thus, $X$ will also have the right lifting property against  \eqref{DENDTRIVCOF EQ} iff 
+Thus, $X$ will also have the right lifting property against \eqref{DENDTRIVCOF EQ} iff 
 $X_L \to X_K$ is a trivial fibration whenever $K \to L$ is anodyne. But by Remark \ref{HYPERSATKAN REM}
 it suffices to consider the vertex inclusions $\Delta[0] \to \Delta[n]$.
 The claim now follows from 2-out-of-3 applied to the composites $X_0 \to X_n \to X_0$.
@@ -3744,7 +3758,7 @@ it suffices to verify that the maps $X_L \to X_K$ have the right lifting propert
 \[
 	\Lambda^{G e} [T] \to \Omega[T],
 	\quad
-	T \in \Omega_G, e \in E^{\mathsf{i}}(T)
+	T \in \Omega_G, e \in \boldsymbol{E}^{\mathsf{i}}(T)
 \qquad
 \text{and}
 \qquad
@@ -3775,7 +3789,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 	Suppose that $X, Y \in \mathsf{sdSet}^G$ are dendroidal Reedy fibrant. Then:
 \begin{itemize}
 	\item[(i)] for all $n$ the vertex maps $X_{n} \to X_{0}$ are trivial fibrations in $\mathsf{dSet}^G$;
-	\item[(ii)] any simplicial Reedy fibrant replacement $\tilde{X}$ of $X$ is in fact fibrant in the joint Reedy model structure;
+	\item[(ii)] any simplicial Reedy fibrant replacement $\tilde{X}$ of $X$ is fibrant in the joint Reedy model structure;
 	\item[(iii)] a map $X \to Y$ is a joint weak equivalence
 	iff it is a dendroidal weak equivalence iff 
 	$X_0 \to Y_0$ is an equivalence in $\mathsf{dSet}^G$;
@@ -3946,9 +3960,9 @@ $(\mathsf{csk}_{\eta} Y)(B)=
 \prod_{B(\eta)} Y(\eta)$
 and thus (iii) follows from (ii).
 
-For (i), formal considerations imply that if $X$ is dendroidal fibrant then the map 
+For (i), formal considerations imply that if $X$ is dendroidal (Reedy) fibrant then the map 
 $X \to \mathsf{csk}_{\eta} X$ is a dendroidal fibration
-(and that $\mathsf{csk}_{\eta} X$ is dendroidal fibrant).
+(and $\mathsf{csk}_{\eta} X$ is dendroidal fibrant).
 Hence, the result will follow provided that 
 $\mathsf{csk}_{\eta} X_0$ is also dendroidal fibrant.
 But since $\mathsf{csk}_{\eta} X_0$ is $\eta$-coskeletal, 
@@ -4003,7 +4017,9 @@ Regarding $E_{\infty}$ as a simplicially constant object in $\mathsf{sdSet}^G$, 
 $E_{\infty}\times (X\to Y)$, so that one is free to assume that $X,Y$ are normal.
 
 One is thus free to pick a section $s\colon Y \to X$
-of $p\colon X\to Y$ and regarding $J \in \mathsf{dSet}^G$ as a simplicially constant object of $\mathsf{sdSet}^G$ our assumption yields the lift below, so that $p$ is a homotopy equivalence.
+of $p\colon X\to Y$ and,
+regarding $J \in \mathsf{dSet}^G$ as a simplicially constant object of $\mathsf{sdSet}^G$,
+our assumption yields the lift below, showing that $p$ is a homotopy equivalence.
 \begin{equation}
 \begin{tikzcd}[column sep = 4em]
 	X \coprod X \ar{r}{(id_X,sp)} \ar{d} &
@@ -4020,7 +4036,7 @@ of $p\colon X\to Y$ and regarding $J \in \mathsf{dSet}^G$ as a simplicially cons
 	\begin{itemize}
 		\item the cofibrations are the normal monomorphisms;
 		\item the weak equivalences are the maps 
-		that become joint equivalences when regarded as maps in 
+		that become Rezk/joint equivalences when regarded as maps in 
 		$\mathsf{sdSet}^G$.
 	\end{itemize}
 \end{theorem}
@@ -4134,7 +4150,7 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 	Proposition \ref{CSKETALT PROP}(iii) shows that 
 	$(\gamma^{\**}\gamma_{\**}X)(\Omega[T]) \to 
 	(\gamma^{\**} \gamma_{\**}X)(Sc[T])$
-	is fact a trivial Kan fibration.
+	is a trivial Kan fibration.
 \end{proof}
 
 
@@ -4171,7 +4187,7 @@ where $C_{\Sigma_i |H_0/H_i|}$ is regarded as a (non-equivariant) corolla togeth
 \[
 	\partial \Omega[C] \to X
 \]
-	for some $G$-corolla $C \in \Sigma_G$. 
+	for some $G$-corolla $C$. 
 	More explicitly, a $G$-profile is described by the following data:
 	\begin{itemize}
 	\item subgroups $H_i \leq G$, $0\leq i \leq k$ such that
@@ -4236,12 +4252,12 @@ Definition \ref{GEN_OP_DEF}.
 \begin{definition}\label{DKEQUIV DEF}
 	A map $f \colon X \to Y$ of equivariant dendroidal Segal spaces is called 
 \begin{itemize}
-	\item \textit{fully faithful} if for all $C\in \Sigma_G$ and $C$-profile $(x_1,\cdots,x_n;x_0)$ on $X$ the map
+	\item \textit{fully faithful} if for all $G$-corollas $C$ and $C$-profiles $(x_1,\cdots,x_n;x_0)$ on $X$ the maps
 \[
 	X(x_1,\cdots,x_k;x_0) \to
 	Y\left(f(x_1),\cdots,f(x_k);f(x_0)\right)
 \]
-is a Kan equivalence in $\mathsf{sSet}$;
+are Kan equivalences in $\mathsf{sSet}$;
 	\item \textit{essentially surjective} if
 	the map $\iota_G^{\**}ho(X) \to \iota_G^{\**}ho(Y)$
 	is essentially surjective on all category levels of the $G$-coefficient system;
@@ -4296,14 +4312,14 @@ for the corresponding class.
 	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
 	\textit{$H$-equivalence} 
 	if $[f]$ is an isomorphism in the category
-	$ho\left(\iota^{\**}(X^H)\right)$.
+	$ho\left(\iota^{\**}\left( X^H \right)\right)$.
 \end{definition}
 
 In what follows, and in analogy to \cite[\S 11.2]{Rez01},
 we will need to understand the interaction between the homotopy genuine operad $ho(X)$ and the mapping spaces
 $X(x_1,\cdots,x_n;x_0)$.
 
-Suppose $C,D \in \Sigma_G$ are $G$-corollas that can be grafted,
+Suppose $C,D$ are $G$-corollas that can be grafted,
 i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
 and write $T= C \amalg_{G e} D$ for the grafted $G$-tree. 
 For any dendroidal Segal space $X$ one then has
@@ -4556,7 +4572,7 @@ hence both maps $Sc[T] \to Sc_{T[Ge]}[T] \to \Omega[T]$ are $G$-inner anodyne), 
 	X(\Omega[T-Ge-Gf])
 \end{tikzcd}
 \end{equation}
-But since the desired associativity conditions amount to the claim that the top right and left bottom composites 
+Since the desired associativity conditions now amount to the claim that the top right and left bottom composites 
 $X(Sc[T]) \to X(\Omega[T-Ge-Gf])$
 are homotopic, the associativity result follows from Remark \ref{HOMOLIFTS REM}.
 For the ``further'' claim, note that by Remark \ref{HOMOLIFTS REM} one is free to modify \eqref{HOMOTCIRC EQ} so as to use any lift of the form below.
@@ -4627,7 +4643,7 @@ But then since the $G$-tree $T$ is degenerate on the $G$-corolla $D$, such a lif
 	operations.
 	However, in the equivariant case there are further 
 	``compatibilities with quotients of $G$-trees'',
-	which mirror the remarks in 
+	which reflect the remarks in 
 	Example \ref{STRICTLIFT EX}.
 	Nonetheless, describing these extra compatibilities would require using $G$-trees with more than three $G$-vertices, and since such compatibilites are not needed for our present goals, we omit their discussion. 
 \end{remark}
@@ -4689,7 +4705,7 @@ The following roughly summarizes (and slightly refines)
 	Let $X \in \mathsf{ssSet}$ be a Segal space. Then:
 \begin{itemize}
 	\item[(i)] equivalences of $X$ define a subset of connected components
-	$X^h(1) \subset X(1)$;
+	$X^h(1) \subseteq X(1)$;
 	\item [(ii)] the pullbacks
 \begin{equation}\label{XHDEF EQ}
 \begin{tikzcd}[row sep=1.5em]
@@ -4700,14 +4716,15 @@ The following roughly summarizes (and slightly refines)
 	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
 \end{equation}
-define a Segal space $X^h \subset X$, consisting of a union of connected components at each level;
+define a Segal space $X^h \subseteq X$, consisting of a union of connected components at each level;
 	\item[(iii)] the maps
 	$X^h(2) \xrightarrow{(d_2,d_1)}
 	X^h(\Lambda^0[2])$, 
 	$X^h(2) \xrightarrow{(d_0,d_1)} 
 	X^h(\Lambda^2[2])$
 	are trivial fibrations;
-	\item[(iv)] the map $X(J) \to X({\Delta[1]}) = X(1)$ factors through a weak equivalence $X(J) \to X^h(1)$.
+	\item[(iv)] the map $X(J) \to X({\Delta[1]}) = X(1)$ factors through a weak equivalence 
+	$X(J) \xrightarrow{\sim} X^h(1)$.
 \end{itemize}
 \end{proposition}
 
@@ -4716,7 +4733,7 @@ define a Segal space $X^h \subset X$, consisting of a union of connected compone
 For (i), given 
 $f \colon x \to y$ in $X_0(1)$
 one has that $[f]$ has a left inverse iff there exists $p$
-as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)$, by Remark \ref{HYPERSATKAN REM} there is a lift in the right diagram
+as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)$, there is a lift in the right diagram
 \[
 \begin{tikzcd}[column sep =40]
 	& X(2) \ar[->>]{d}{(d_2,d_1)}
@@ -4734,10 +4751,9 @@ as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)
 showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
 
 For (ii), that $X^h$ is closed under the simplicial operators follows since equivalences are closed under composition.
-Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted
-as on the left below,
-cellular induction induces the right pullbacks for all 
-$K\in \mathsf{sSet}$.
+Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted as on the left below,
+cellular induction yields the more general right pullbacks for all 
+$K \in \mathsf{sSet}$.
 \[
 \begin{tikzcd}[row sep=1.5em]
 	X^h(\Delta[n]) \ar{r} \ar{d} &
@@ -4878,7 +4894,7 @@ $[1] \otimes C = C \star \eta$.
 	a weak equivalence onto a subset of components,
 	i.e. a \textit{homotopy monomorphism}.
 	Hence, for any $G$-corolla
-	$C=C_{\amalg_i H_0/H_i}$ the horizontal maps in 
+	$C \simeq C_{\amalg_i H_0/H_i}$ the horizontal maps in 
 	the right square below are homotopy monomorphisms.
 \begin{equation}\label{BIGSQ EQ}
 \begin{tikzcd}
@@ -4920,16 +4936,17 @@ and the natural map of squares between them is an injective fibration of squares
 Since the top left corner of the map of squares 
 \eqref{OTBIGSQ EQ} is the right vertical map in \eqref{BIGSQ EQ},
 and noting that fibers (in the category of square diagrams)
-of a fibration between pullback squares are a fibrant pullback square,
-the desire claim that the total diagram in \eqref{BIGSQ EQ}
+of a fibration between pullback squares are fibrant pullback squares,
+the desired claim that the total diagram in \eqref{BIGSQ EQ}
 induces equivalences on fibers will follow provided that the same holds for the following squares 
-(which adapt \cite[Lemma 12.4]{Rez01}).
+(which adapt \cite[Lemma 12.4]{Rez01}),
+where the horizontal maps are the obvious degeneracies.
 \[
 \begin{tikzcd}[column sep=17]
-	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
+	X(\Omega[C]) \ar{r}{s} \ar[->>]{dd}&
 	X(\Omega[C \star \eta]) \ar[->>]{d}{\sim}
 &
-	X(\Omega[C]) \ar{r}{s_{\eta}} \ar[->>]{dd}&
+	X(\Omega[C]) \ar{r}{s} \ar[->>]{dd}&
 	X(\Omega[\eta \star C]) \ar[->>]{d}{\sim}
 \\
 	& X(\Omega[C]) \underset{X(\eta)^{H_0}}{\times} X([1])^{H_0} \ar[->>]{d}
@@ -4937,11 +4954,11 @@ induces equivalences on fibers will follow provided that the same holds for the 
 	& \underset{i \neq 0}{\prod} X([1])^{H_i} 
 	\underset{\underset{i \neq 0}{\prod} X(\eta)^{H_i}}{\times} X(\Omega[C]) \ar[->>]{d}
 \\
-	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
+	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s} &
 	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
 	\times X([1])^{H_0}
 &
-	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s_0} &
+	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s} &
 	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
 	\times X(\eta)^{H_0}
 \end{tikzcd}
@@ -5022,7 +5039,7 @@ degenerate object, which is thus in the image of $X\to X^J$.
 	$X^{J^m} \to X^{J^{m'}}$
 	(see Notation \ref{JM NOT})
 	are induced by equivalences of groupoids $\widetilde{[m']} \to \widetilde{[m]}$,
-	and are thus $J$-homotopy equivalences and thus also DK-equivalences.
+	and are thus $J$-homotopy equivalences and hence also DK-equivalences.
 \end{remark}
 
 
@@ -5055,7 +5072,7 @@ $\mathsf{ssdSet}^G$.
 Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object, it follows that 
 $X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
 $X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
-is a horizontal fibration in $(\mathsf{sdSet}^G)^{\Delta^{op}}$ as well.
+is a horizontal fibration in $\mathsf{ssdSet}^G$ as well.
 As such, for $T \in \Omega_G$
 the evaluations 
 \begin{equation}\label{MOREOVER EQ}
@@ -5116,20 +5133,22 @@ on fibers over
 $\prod_{e_i \in \boldsymbol{E}_G(T)} \left(X(\eta)\right)^{H_i}$
 for each $T\in \Omega_G$.
 And since we have shown that the fibers of
-$\delta^{\**}\left( X^{J^{\bullet}} \right)(T)$
- are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(T)$ (since Reedy replacement does not change the homotopy fibers), and thus $X \to \tilde{X}$ is indeed fully faithful.
+$\delta^{\**}\left( X^{J^{\bullet}} \right)(\Omega[T])$
+ are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(\Omega[T])$ (since Reedy replacement does not change the homotopy fibers), 
+and thus $X \to \tilde{X}$ is indeed fully faithful.
+
 Essential surjectivity is trivial since the objects coincide.
 The monomorphism condition is clear.
 \end{proof}
 
 
 \begin{theorem}\label{COMPIFFDK THM}
-	A map of $X \to Y$ of dendroidal Segal spaces is a complete equivalence iff it is a DK-equivalence.
+	A map $X \to Y$ of dendroidal Segal spaces is a complete equivalence iff it is a DK-equivalence.
 \end{theorem}
 
 
 \begin{proof}
-By the previous result one is free to assume that $X,Y$ are complete, so that by Proposition \ref{COMBMODSTR PROP}(ii)
+By part (i) of the previous result one is free to assume that $X,Y$ are complete, so that by Proposition \ref{COMBMODSTR PROP}(ii)
 complete equivalences coincide with simplicial equivalences.
 
 Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(\eta)^H \to Y(\eta)^H$
@@ -5195,13 +5214,14 @@ $X(\eta)^H \to Y(\eta)^H$ are surjetive on components.
 
 \begin{proof}
 	We start with the ``only if'' direction.
-Recall that $\gamma^{\**} X$ is a dendroidal Segal space if it has the right lifting property against the maps of the form
+Recall that $\gamma^{\**} X$ is a dendroidal Segal space iff it has the right lifting property against the maps of the form
 \begin{equation}\label{SOMEMAPS EQ}
 	(\Lambda^i[n] \to \Delta[n]) \square (\partial \Omega[T] \to \Omega[T])
 \qquad
 	(\partial \Delta[n] \to \Delta[n]) \square (Sc[T] \to \Omega[T]).
 \end{equation}
-With the exception of the first type of maps when $T = G\cdot_H \eta$, in which case the lifting condition is automatic since
+With the exception of the first type of maps when $T = G\cdot_H \eta$, in which case the lifting condition
+against $\gamma^{\**} X$ is automatic since
 $\gamma^{\**}X(\eta)$ is discrete, all other maps induce isomorphisms at the $\eta$-level, so that by 
 Remark \ref{GAMMASH REM} applying $\gamma_{!}$ to these maps yields trivial cofibrations in 
 $\mathsf{PreOp}^G$.
@@ -5244,7 +5264,7 @@ showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof
 \[
 \gamma_{\**} X \to X \to \tilde{X}
 \] 
-where $\gamma_{\**}X$ is a fibrant preoperad and $\tilde{X}$
+where $\gamma_{\**}X$ is a fibrant preoperad and $\tilde{X}$ is
 a complete dendroidal Segal space.
 \end{remark}
 
@@ -5429,9 +5449,8 @@ Sieves are prevalent in equivariant homotopy theory. Indeed, families $\mathcal{
 of the orbit category
 $\mathsf{O}_G$ (formed by the $G$-sets $G/H$).
 
-Weak indexing systems can then be thought of as the operadic analogue of families. In particular, they are described by sieves $\Omega_{\mathcal{F}} \subseteq \Omega_G$,
-but additional conditions are needed to ensure compatibility 
-with the operadic composition and unit.
+Weak indexing systems can then be thought of as the operadic analogue of families. In particular, they are described by certain sieves $\Omega_{\mathcal{F}} \subseteq \Omega_G$,
+though additional conditions are needed to ensure compatibility with the operadic composition and unit.
 In the following, we abbreviate 
 $\delta_{\mathcal{F}} = \delta_{\Omega_{\mathcal{F}}}$ and,
 for each $G$-vertex $v$ of $T \in \Omega_G$, we write 
@@ -5525,16 +5544,17 @@ which \cite[Def. 3.22]{BH15} makes explicit.
 All results in the paper now extend to the context of a general weak indexing system $\Omega_{\mathcal{F}}$
 by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The following are some notable consequences:
 \begin{itemize}
-\item notions in $\mathsf{dSet}^G$ such as 
-	``$G$-normal monomorphism'', ``$G$-inner horn'', $G$-inner anodyne, $G$-$\infty$-operad are replaced with
-	``$\mathcal{F}$-normal monomorphism'', ``$\mathcal{F}$-inner horn'', $\mathcal{F}$-inner anodyne, $\mathcal{F}$-$\infty$-operad;
+\item notions in $\mathsf{dSet}^G$ discussed in \S \ref{PREL SEC} such as 
+	``$G$-normal monomorphism'', ``$G$-inner horn'', ``$G$-inner anodyne'', ``$G$-$\infty$-operad'' are replaced with
+	``$\mathcal{F}$-normal monomorphism'', ``$\mathcal{F}$-inner horn'', ``$\mathcal{F}$-inner anodyne'', ``$\mathcal{F}$-$\infty$-operad'';
 \item the model structure on $\mathsf{dSet}^G$ from 
 \cite[Thm. 2.1]{Per17} is replaced with the model structure
 $\mathsf{dSet}^G_{\mathcal{F}}$ (on the \textit{same} underlying category) from 
 \cite[Thm. 2.2]{Per17},
 whose cofibrations are the $\mathcal{F}$-normal monomorphisms
 and whose fibrant objects are the $\mathcal{F}$-$\infty$-operads;
-\item $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$ is replaced with
+\item genuine dendroidal sets $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$ are replaced with
+$\mathcal{F}$-dendroidal sets
 	$\mathsf{dSet}_{\mathcal{F}} = \mathsf{Set}^{\Omega_{\mathcal{F}}^{op}}$.
 \end{itemize}
 We briefly outline the main reasons why these substitutions do not affect our proofs.
@@ -5551,8 +5571,8 @@ via the same proof.
 Next, in \S \ref{CEDSS SEC}, one can again consider two different Reedy model structures on 
 $\mathsf{sdSet}^G$.
 Firstly, using the fact that $\Delta$ is Reedy and the model structure $\mathsf{dSet}^G_{\mathcal{F}}$, one obtains a
-\textit{$\mathcal{F}$-simplicial model structure} on
-$\mathsf{dSet}^G$.
+\textit{$\mathcal{F}$-simplicial Reedy model structure} on
+$\mathsf{sdSet}^G$.
 Secondly, using the fact that $\Omega^{op} \times G$ is generalized Reedy such that the families 
 $\{\mathcal{F}_U\}$ in Remark \ref{WHYF REM}
 are Reedy admissible (see Example \ref{FGRAPHREEDY EX})
@@ -5592,7 +5612,7 @@ In \S \ref{HMPTYGEN SEC} $\mathcal{F}$-dendroidal Segal spaces are defined in th
 $\mathcal{F}$-corollas, i.e. $G$-corollas
 $C \in \Omega_{\mathcal{F}}$,
 and thus only with $\mathcal{F}$-profiles, thus obtaining a notion of $\mathcal{F}$-fully faithfullness and of $\mathcal{F}$-DK-equivalence 
-(essential surjectivity needs not be changed due to condition (ii'') in Remark \ref{SEGCOMB REM} implying that the stick $G$-trees $G/H \cdot \eta$ are all in $\Omega_{\mathcal{F}}$).
+(essential surjectivity needs not be changed due to condition (ii'') in Remark \ref{SEGCOMB REM} implying that all the stick $G$-trees $G/H \cdot \eta$ are in $\Omega_{\mathcal{F}}$).
 Thus, noting that the Segal condition (ii') in Remark \ref{SEGCOMB REM}
 ensures that the grafted $G$-trees 
 $T=C \amalg_{Ge} D$ in \eqref{HOMOTCIRC EQ}
@@ -5619,7 +5639,7 @@ In \cite{BM11} Berger and Moerdijk extend the notion of Reedy category so as to 
 For such $\mathbb{R}$ and suitable model category $\mathcal{C}$ they then show that there is a 
 \textit{Reedy model structure}
 on $\mathcal{C}^{\mathbb{R}}$
-that is defined by modifying the usual characterizations of
+defined by modifying the usual characterizations of
 Reedy cofibrations, weak equivalences and fibrations
 (see \cite[Thm. 1.6]{BM11} or
 Theorem \ref{REEDYADM THM} below)
@@ -5694,20 +5714,24 @@ $\theta \in \mathsf{Iso}(\mathbb{R})$ then $\theta$ is an identity.
 \end{example}
 
 \begin{example}
-For any generalized Reedy category $\mathbb{R}$, the collection $\{\mathcal{F}_{\text{all}}\}$
+For any generalized Reedy category $\mathbb{R}$
+(i.e. if $\mathbb{R}$ satisfies (i),(ii),(iii)),
+the collection $\{\mathcal{F}_{\text{all}}\}$
 of the families of all subgroups of $\mathsf{Aut}(r)$
 is Reedy-admissible.
 \end{example}
 
 \begin{example}
-	Let $G$ be a group and set $\mathbb{R} = G \times (0 \to 1)$ with $\mathbb{R} = \mathbb{R}^+$. Then any pair 
+	Let $G$ be a group and set $\mathbb{R} = G \times (0 \to 1)$ with $\mathbb{R} = \mathbb{R}^+$
+	(and thus necessarily $\mathbb{R}^- = \mathsf{Iso}(\mathbb{R})$).
+	Then any pair 
 	$\{\mathcal{F}_0,\mathcal{F}_1\}$
 	of families of subgroups of $G$ is Reedy-admissible.
 	
-	Similarly, set $\mathbb{S} = G \times (0 \leftarrow 1)$
-	with $\mathbb{S} = \mathbb{S}^-$. Then a pair
+	Similarly, set $\mathbb{R} = G \times (0 \leftarrow 1)$
+	with $\mathbb{R} = \mathbb{R}^-$. Then a pair
 	$\{\mathcal{F}_0,\mathcal{F}_1\}$
-	of families of subgroups of $G$ is Reddy-admissible
+	of families of subgroups of $G$ is Reedy-admissible
 	iff $\mathcal{F}_0 \supseteq \mathcal{F}_1$.
 \end{example}
 
@@ -5720,36 +5744,38 @@ is Reedy-admissible.
 	Further, for each $s \in \mathbb{S}$ we write
 	$\mathcal{F}_s^{\Gamma}$ for the family of 
 	$G$-graph subgroups of $G \times \mathsf{Aut}_{\mathbb{S}}(s)$, i.e., those subgroups 
-	$K \leq G \times \mathsf{Aut}_{\mathbb{S}}(s)$ 
+	$\Gamma \leq G \times \mathsf{Aut}_{\mathbb{S}}(s)$ 
 	which are graphs of partial homomorphisms
-	$G \geq H \to \mathsf{Aut}_{\mathbb{S}}(s)$. We note that $G$-graph subgroups are also characterized by the condition $K \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
+	$G \geq H \to \mathsf{Aut}_{\mathbb{S}}(s)$. We note that $G$-graph subgroups are also characterized by the condition $\Gamma \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
 	
 	Reedy admissibility of $\{\mathcal{F}_s^{\Gamma}\}$ follows since for every degeneracy map 
 	$s \twoheadrightarrow s'$ in $\mathbb{S}^-$ one has that the homomorphism
 	$\pi_s \colon \mathsf{Aut}_{\mathbb{S}}(s \twoheadrightarrow s')
 	\to \mathsf{Aut}_{\mathbb{S}}(s)$ is injective
-	(we note that this is equivalent to axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
+	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
 \end{example}
 
 Our primary example of interest is obtained by setting
 $\mathbb{S} = \Omega^{op}$ in the previous example.
-In fact, in this case we are also interested 
+Moreover, in this case we are also interested 
 in certain subfamilies
 $\{\mathcal{F}_U\}_{U \in \Omega}
-\subset \{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
+\subseteq
+\{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
 
 
 \begin{example}\label{FGRAPHREEDY EX}
 	Let $\mathbb{R} = G \times \Omega^{op}$ and let
 	$\{\mathcal{F}_U\}_{U \in \Omega}$ be the family of graph subgroups determined by a weak indexing system $\mathcal{F}$ (see Remark \ref{WHYF REM}).
 	Then $\{\mathcal{F}_U\}$ is Reedy-admissible.
-	To see this, recall first that each $K \in \mathcal{F}_U$ encodes 
-	an $H$-action on $U \in \Omega$ for some $H \leq G$
+	To see this, recall first that each $\Gamma \in \mathcal{F}_U$ encodes 
+	a $H$-action on $U \in \Omega$ for some $H \leq G$
 	so that $G \cdot_H U$ is a $\mathcal{F}$-tree.
-	Given a face map $f \colon U' \hookrightarrow U$, 
-	the subgroup $\pi^{-1}_U(K)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
-	$U'$ inherits the $\bar{H}$-action from $U$ along $f$ (so that $f$ becomes a $\bar{H}$-map), 
-	so that $\pi_{U'}(\pi^{-1}_U(K))$ encodes the $\bar{H}$-action on $U'$. Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
+	Given a face map $\varphi \colon U' \hookrightarrow U$, 
+	the subgroup $\pi^{-1}_U(\Gamma)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
+	$U'$ inherits the $\bar{H}$-action from $U$ along $\varphi$ (thus making $\varphi$ a $\bar{H}$-map), 
+	so that $\pi_{U'}(\pi^{-1}_U(\Gamma))$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
+	Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
 	$G \cdot_{\bar{H}} U' \to G \cdot_H U$.
 \end{example}
 
@@ -5816,7 +5842,7 @@ We now turn to the model categorical analysis, which depends on the Reedy-admiss
 in Definition \ref{GENRED DEF}, and is the actual novelty of this appendix.
 We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}
 (we note that \cite[Prop. 6.6]{BP17} can be proven in terms of fibrations, and thus does not depend on 
-special assumptions on $\C$).
+cofibrant generation assumptions on $\C$).
 \begin{proposition}
 Let $\phi \colon G \to \bar{G}$ be a homomorphism and
 $\mathcal{F}$, $\bar{\mathcal{F}}$ families of subgroups of
@@ -5884,8 +5910,8 @@ that induce a lift of the restriction to $\C^{\mathbb{R}_{\leq n}}$ is called a 
 	\end{tikzcd}
 \end{equation}
 in $\mathcal{C}^{\mathsf{Aut}(r)}$
-for each $r$ such that $|r|=n$. Furthermore, extensions of the 
-$(n-1)$-partial lift to a $n$-partial lift are in bijection with choices of $\mathsf{Aut}(r)$-equivariant lifts in the diagrams \eqref{BLALIFT EQ} for $r$ ranging over representatives of the isomorphism classes of $r$ with $|r|=n$.
+for each $r \in \mathbb{R}$ such that $|r|=n$. Furthermore, extensions of the 
+$(n-1)$-partial lift to a $n$-partial lift are in bijection with choices of $\mathsf{Aut}(r)$-equivariant lifts in the diagrams \eqref{BLALIFT EQ} for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
 \end{lemma}
 
 In the next result, by $\{\mathcal{F}_r\}$-cofibration/trivial cofibration/fibration/trivial fibration 
@@ -5914,8 +5940,8 @@ $
 are $\mathsf{Aut}(s)$-genuine (resp. trivial) cofibrations. 
 Then $\mathsf{Lan}_{\pi\colon \mathbb{S} \to K}(A \to B)$
 is a $K$-genuine (trivial) cofibration.
-
 \end{lemma}
+
 
 \begin{proof}
 By adjunction, one needs only show that for any 
@@ -5966,6 +5992,16 @@ we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck construction. Informa
 $K \ltimes \mathbb{R}$ is obtained from $\mathbb{R}$
 by formally adding arrows $k \colon r \to k r$ for 
 $k\in K, r \in \mathbb{R}$.
+
+Further, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
+the category of arrows
+$r' \xrightarrow{+} r$ in $\mathbb{R}^+$
+(resp. 
+$r \xrightarrow{-} r'$ in $\mathbb{R}^-$)
+with $|r'|<|r|$
+so that
+$L_r A = \mathop{\colim}_{\mathbb{R}^+(r)}A$
+($M_r X = \mathop{\lim}_{\mathbb{R}^-(r)}X$).
 
 
 \begin{remark}
@@ -6018,7 +6054,7 @@ in $\mathcal{C}^{\mathbb{R}}$. Then the maps $A_r \to B_r$ are all $\{\mathcal{F
 \end{lemma}
 
 \begin{proof}
-It suffices to check by induction on $n$ that the analogous claim with the restriction $|r|\leq n$ also holds. The $n=0$ case is obvious. Otherwise, letting $r$ range over representatives of the isomorphism classes of $r$ with $|r|=n$,
+It suffices to check by induction on $n$ that the analogous claim restricted to $|r|\leq n$ also holds. The $n=0$ case is obvious. Otherwise, letting $r$ range over representatives of the isomorphism classes of $r$ with $|r|=n$,
 it suffices to check that for each $H \in \mathcal{F}_r$
 the map
 $A_r \to B_r$ is a $H$-genuine weak equivalence iff 
@@ -6102,7 +6138,7 @@ Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizati
 
 	We refer to the model category axioms in \cite[Def. 1.1.3]{Hov99}. 	
 	Both 2-out-of-3 and the retract axioms are immediate
-(recall that retracts commute with limits/colimits).	
+(recall that retracts commute with Kan extensions).	
 	The lifting axiom follows from Corollary \ref{BLALIFT COR}
 	while the task of building factorizations $X \to A \to Y$ of a given map $X \to Y$ follows by a similar standard argument by iteratively factorizing the maps
 \[
