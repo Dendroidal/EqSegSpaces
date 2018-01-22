@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt
-,draft
+%,draft
 ]{article}%
 
 
@@ -15,6 +15,7 @@
 }
 \usepackage[open=false]{bookmark}
 
+%\usepackage[draft]{showkeys}
 
 \input{commands.tex}%
 
@@ -52,7 +53,7 @@ cd,patterns,calc}
   % \color[rgb]{1,1,1}
 }
 
-\usepackage[draft]{showkeys}
+
 \usepackage{todonotes}%[obeyDraft]
 
 
@@ -1929,15 +1930,18 @@ conditions follow from the original conditions.
 
 \begin{remark}\label{CHAREDGE2 REM}
 The requirement $A \subseteq \Omega[T]$ in Definition \ref{CHAREDGE DEF} can be relaxed.
-Given an inclusion $A \subseteq B$ with 
+Consider an inclusion $A \subseteq B$ with 
 $B \in \mathsf{dSet}^G$,
 a set of non-degenerate dendrices
 $\{b_i \in B(U_i)\}_{i \in I}$
 and a collection of edges
 $\{\Xi^i \subseteq \boldsymbol{E}^{\mathsf{i}}(U_i)\}_{i \in I}$, 
-suppose that $I$ is a finite $G$-poset and that:
+with $I$ a finite $G$-poset.
+Letting
+$A_{<i} = A \cup \bigcup_{j<i} b_j\left(\Omega[U_j]\right)$,
+suppose then that:
 \begin{itemize}
-	\item[(Ch0.1)] the maps $b_i \colon \Omega[U_i] \to B$ are injective away from $b_i^{-1}(A)$;
+	\item[(Ch0.1)] the maps $b_i \colon \Omega[U_i] \to B$ are injective away from $b_i^{-1}(A_{<i})$;
 	\item[(Ch0.2)] $A$, $\{U_i\}$ ,$\{b_i\}$ and $\{\Xi^i\}$
 	are all $G$-equivariant in the sense that:
 	\begin{inparaenum}
@@ -2117,14 +2121,14 @@ and consider the $\mathbb{Z}_{/2}$-trees
 	\begin{scope}[level distance = 2.1em]
 	\tikzstyle{level 2}=[sibling distance=3em]%
 	\tikzstyle{level 3}=[sibling distance=2.5em]%
-		\node at (0,0) {$S$}%
+		\node at (0,0) [font=\normalsize] {$S$}%
 			child{node [dummy,fill=black] {}%
 				child{
 				edge from parent node [near end,swap] {$-1$}}%
 				child{
 				edge from parent node [near end]{$\phantom{-}1$}}%
 			edge from parent node [swap] {$0$}};%
-		\node at (4,0) {$T$}%
+		\node at (4,0) [font=\normalsize] {$T$}%
 			child{node [dummy] {}%
 				child{node [dummy] {}
 					child{
@@ -5883,7 +5887,7 @@ preserves all four genuine classes of
 cofibrations, trivial cofibrations, fibrations and trivial fibrations.
 \end{corollary}
 
-The following formalizes an argument implicit in the proof of \cite[Lemma 5.2]{BM11}.
+Lemmas \ref{BLALIFT LEM} and \ref{BLAFACT LEM} below formalize straightforward arguments implicit in the proofs of \cite[Lemma 5.2]{BM11} and \cite[Thm 1.6]{BM11}.
 
 \begin{definition}
 Consider a commutative diagram
@@ -5896,7 +5900,14 @@ Consider a commutative diagram
 \end{equation}
 in $\C^{\mathbb{R}}$. A collection of maps 
 $f_r \colon B_r \to X_r$ for $|r|\leq n$ 
-that induce a lift of the restriction to $\C^{\mathbb{R}_{\leq n}}$ is called a \textit{$n$-partial lift}. 
+that induce a lift of the restriction to $\C^{\mathbb{R}_{\leq n}}$ is called a \textit{$n$-partial lift}.
+
+Similarly, given a map $f\colon X \to Y$ in $\mathcal{C}^{\mathbb{R}}$, 
+a factorization 
+$\iota_{n}^{\**}X \to A \to \iota_{n}^{\**}Y$
+of $\iota_{n}^{\**} f$ in 
+$\mathcal{C}^{\mathbb{R}_{\leq n}}$
+is called a \textit{$n$-partial factorization}.
 \end{definition}
 
 
@@ -5913,6 +5924,44 @@ in $\mathcal{C}^{\mathsf{Aut}(r)}$
 for each $r \in \mathbb{R}$ such that $|r|=n$. Furthermore, extensions of the 
 $(n-1)$-partial lift to a $n$-partial lift are in bijection with choices of $\mathsf{Aut}(r)$-equivariant lifts in the diagrams \eqref{BLALIFT EQ} for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
 \end{lemma}
+
+
+\begin{lemma}\label{BLAFACT LEM}
+	Let $\C$ be any bicomplete category.
+Then extensions
+\[
+\begin{tikzcd}
+	\mathbb{R}_{\leq n-1} \ar{r}{A} \ar[hookrightarrow]{d}&
+	\mathcal{C}
+\\
+	\mathbb{R}_{\leq n} \ar[dashed]{ru}[swap]{\tilde{A}}
+\end{tikzcd}
+\]
+are determined uniquely up to unique isomorphism (in $\mathcal{C}^{\mathbb{R}_{\leq n}}$)
+by choices of $\mathsf{Aut}(r)$-equivariant factorizations
+\[
+\left(\iota_{n,!}A \right)_r \dashedrightarrow
+\tilde{A}_r \dashedrightarrow
+\left(\iota_{n,\**}A\right)_r
+\]
+for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
+	
+More generally, given a map 
+$X \to Y$ in $\mathcal{C}^{\mathbb{R}}$,
+extensions of a $(n-1)$-partial factorization
+$\iota_{\leq n-1}^{\**}X \to A \to \iota_{\leq n-1}^{\**} Y$ in $\mathcal{C}^{\mathbb{R}_{\leq n-1}}$
+to a $n$-partial factorization
+$\iota_{\leq n}^{\**}X \to \tilde{A} \to \iota_{\leq}^{\**} Y$ in $\mathcal{C}^{\mathbb{R}_{\leq n}}$
+are determined uniquely up to unique isomorphism 
+by choices of $\mathsf{Aut}(r)$-equivariant factorizations
+\[
+	X_r \amalg_{L_r X} \left(\iota_{n,!}A \right)_r \dashedrightarrow
+	\tilde{A}_r \dashedrightarrow
+	Y_r \times_{M_r Y} \left(\iota_{n,\**}A\right)_r
+\]
+for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
+\end{lemma}
+
 
 In the next result, by $\{\mathcal{F}_r\}$-cofibration/trivial cofibration/fibration/trivial fibration 
 we mean a map as described in 
@@ -6140,12 +6189,14 @@ Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizati
 	Both 2-out-of-3 and the retract axioms are immediate
 (recall that retracts commute with Kan extensions).	
 	The lifting axiom follows from Corollary \ref{BLALIFT COR}
-	while the task of building factorizations $X \to A \to Y$ of a given map $X \to Y$ follows by a similar standard argument by iteratively factorizing the maps
+	while the task of building factorizations $X \to A \to Y$ of a given map $X \to Y$ follows by a similar standard argument from Lemma \ref{BLAFACT LEM} by iteratively factoring the maps
 \[
 	X_r \amalg_{L_r X} L_r A \to Y_r \times_{M_r Y} M_r A
 \]
 in $\mathcal{C}^{\mathsf{Aut}(r)}$, 
-thus building both $A$ and the factorization inductively (see e.g. the proof of \cite[Thm. 1.6]{BM11}).
+thus building both $A$ and the factorization inductively
+(recall that $L_r A$, $M_r A$ depend only on 
+the restriction $\iota_{|r|-1}^{\**} A$, and are thus well defined in each inductive step).
 \end{proof}
 
 
