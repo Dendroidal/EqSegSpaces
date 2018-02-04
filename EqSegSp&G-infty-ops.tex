@@ -15,7 +15,7 @@
 }
 \usepackage[open=false]{bookmark}
 
-%\usepackage[draft]{showkeys}
+\usepackage[draft]{showkeys}
 
 \input{commands.tex}%
 
@@ -5077,7 +5077,7 @@ Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object, it follows t
 $X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
 $X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
 is a horizontal fibration in $\mathsf{ssdSet}^G$ as well.
-As such, for $T \in \Omega_G$
+As such, it follows from Lemma \ref{REEDYTRFIB LEM}(i) that for $T \in \Omega_G$
 the evaluations 
 \begin{equation}\label{MOREOVER EQ}
 X^{J^{\bullet}}(\Omega[T]) \to
@@ -6094,16 +6094,24 @@ $A \to B$ in $\C^{\mathbb{R}}$ so that
 
 We now have the tools to prove the following lemmas, which are the essence of Theorem \ref{REEDYADM THM}.
 
+
 \begin{lemma}\label{REEDYTRCOF LEM}
 Let $\mathbb{R}$ be generalized Reedy and 
 $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$ a Reedy-admissible family.
 
 Suppose further that $A \to B$ is a $\{\mathcal{F}_r\}$-Reedy cofibration
-in $\mathcal{C}^{\mathbb{R}}$. Then the maps $A_r \to B_r$ are all $\{\mathcal{F}_r\}$-weak equivalences iff so are the maps $A_r \amalg_{L_r A} L_r B \to B_r$.
+in $\mathcal{C}^{\mathbb{R}}$. Then:
+\begin{itemize}
+	\item[(i)] for all $r \in \mathbb{R}$ and $H \in \mathcal{F}_r$
+	the maps $L_r A \to L_r B$ and $A_r \to B_r$ are
+	$H$-genuine cofibrations;
+	\item[(ii)] the maps $A_r \to B_r$ are all $\{\mathcal{F}_r\}$-weak equivalences iff so are the maps $A_r \amalg_{L_r A} L_r B \to B_r$.
+\end{itemize}
 \end{lemma}
 
 \begin{proof}
-It suffices to check by induction on $n$ that the analogous claim restricted to $|r|\leq n$ also holds. The $n=0$ case is obvious. Otherwise, letting $r$ range over representatives of the isomorphism classes of $r$ with $|r|=n$,
+We start with (ii), arguing by induction on $n$
+that the analogous claim restricted to $|r|\leq n$ also holds. The $n=0$ case is obvious. Otherwise, letting $r$ range over representatives of the isomorphism classes of $r$ with $|r|=n$,
 it suffices to check that for each $H \in \mathcal{F}_r$
 the map
 $A_r \to B_r$ is a $H$-genuine weak equivalence iff 
@@ -6114,29 +6122,42 @@ $K = H$ and
 $\mathbb{S} = H \ltimes \mathbb{R}^+(r)$
 to the map $d^{\**}A \to d^{\**}B$. Note that $\mathcal{F}$-trivial cofibrations are always genuine trivial cofibrations, for any family, so that the trivial cofibrancy requirements are immediate from Corollary \ref{RESGEN COR}. 
 It thus follows that the maps labelled $\sim$ in
-\[
+\begin{equation}\label{WHATEV EQ}
 \begin{tikzcd}[row sep=10]
-   L_r A \ar[>->]{r}{\sim} \ar[d]   & 
+   L_r A \ar[>->]{r}{\sim} \ar[d]  & 
    L_r B \ar[d] & 
 \\
    A_r \ar[>->]{r}{\sim}&  A_r \amalg_{L_r A} L_r B 
     \ar[>->]{r} &
    B_r
 \end{tikzcd}
-\]
-are $H$-genuine trivial cofibrations, finishing the proof.
+\end{equation}
+are $H$-genuine trivial cofibrations, finishing the proof of (ii).
+
+Lastly (i) follows from a streamlined version of the argument above, 
+with the same instance of Lemma \ref{GINJ LEM} showing that the maps 
+$L_r A \to L_r B$ are $H$-genuine cofibrations and thus,
+by again considering the diagram \eqref{WHATEV EQ},
+that so are the maps $A_r \to B_r$. 
 \end{proof}
+
 
 \begin{lemma}\label{REEDYTRFIB LEM}
 Let $\mathbb{R}$ be generalized Reedy and 
 $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$ a Reedy-admissible family.
 
 Suppose further that $X \to Y$ is a $\{\mathcal{F}_r\}$-Reedy fibration
-in $\mathcal{C}^{\mathbb{R}}$. Then the maps $X_r \to Y_r$ are all $\{\mathcal{F}_r\}$-weak equivalences iff so are the maps $X_r \to Y_r \times_{M_r Y} M_r X$.
+in $\mathcal{C}^{\mathbb{R}}$. Then:
+\begin{itemize}
+\item[(i)] for all $r \in \mathbb{R}$ and $H \in \mathcal{F}_r$
+	the maps $M_r X \to M_r Y$ and $X_r \to Y_r$ are
+	$H$-genuine fibrations;
+\item[(ii)] the maps $X_r \to Y_r$ are all $\{\mathcal{F}_r\}$-weak equivalences iff so are the maps $X_r \to Y_r \times_{M_r Y} M_r X$.
+\end{itemize}
 \end{lemma}
 
 \begin{proof}
-One repeats the same induction argument on $|r|$.
+For (ii), one repeats the same induction argument on $|r|$ as in the previous proof.
 In the induction step, it suffices to verify that, for each $r$ with $|r|=n$ and $H \in \mathcal{F}_r$, the map
 $X_r \to Y_r$ is a $H$-genuine weak equivalence iff 
 so is $X_r \to Y_r \times_{M_r Y} M_r X$.
@@ -6160,8 +6181,24 @@ It follows that the maps labelled $\sim$ in
 	M_r Y
 \end{tikzcd}
 \]
-are $H$-genuine trivial fibrations, finishing the proof.
+are $H$-genuine trivial fibrations, finishing the proof of (ii).
+
+(i) again follows from a streamlined argument.
 \end{proof}
+
+\begin{remark}
+	Given a family $\mathcal{F}$ of subgroups of $G$,
+	it is immediate from the definitions that 
+	$X \to Y$ is a $\mathcal{F}$-weak equivalence/$\mathcal{F}$-fibration iff it is a genuine
+	$H$-weak equivalence/$H$-fibration
+	for each $H \in \mathcal{F}$.
+	However, the analogue claim fails for cofibrations.
+	For an example, consider $\mathcal{C} = \mathsf{sSet}$ and
+	$\mathcal{F}=\{\{e\}\}$ the family containing only the trivial subgroup. Then the $\mathcal{F}$-cofibrant objects are the projective cofibrant objects, which can be shown to be exactly the $G$-free objects of $\mathsf{sSet}^G$.
+	On the other hand, all objects of $\mathsf{sSet}^G$ are genuine $\{e\}$-cofibrant,
+	since this simply means that their restriction to
+	$\mathsf{sSet}^{\{e\}}=\mathsf{sSet}$ is cofibrant.
+\end{remark}
 
 \begin{remark}
 The proofs of Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM}
@@ -6183,7 +6220,7 @@ $\phi \colon G \to \bar{G}$ is injective, the argument in the proof of \cite[Lem
 
 
 \begin{proof}[proof of Theorem \ref{REEDYADM THM}]
-Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM} say that the characterizations of trivial cofibrations (resp. trivial fibrations) in the statement of Theorem \ref{REEDYADM THM} are correct, i.e. that they describe the maps that are both cofibrations (resp. fibrations) and weak equivalences.	
+Lemmas \ref{REEDYTRCOF LEM}(ii) and \ref{REEDYTRFIB LEM}(ii) say that the characterizations of trivial cofibrations (resp. trivial fibrations) in the statement of Theorem \ref{REEDYADM THM} are correct, i.e. that they describe the maps that are both cofibrations (resp. fibrations) and weak equivalences.	
 
 	We refer to the model category axioms in \cite[Def. 1.1.3]{Hov99}. 	
 	Both 2-out-of-3 and the retract axioms are immediate
