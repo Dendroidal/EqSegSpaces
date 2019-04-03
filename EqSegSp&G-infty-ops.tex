@@ -344,7 +344,7 @@ We now recall the key classes of maps of $\Omega$.
 A map $\varphi \colon S \to T$ which is injective on edges is called a \textit{face map}
 while a map that is surjective on edges and preserves leaves is called a \textit{degeneracy map}
 (the extra requirement ensures that leaves of $S$ do not become stumps of $T$).
-Moreover, a face map is further called an \textit{inner face map}
+Moreover, a face map $\varphi$ is further called an \textit{inner face map}
 if $\varphi(r_S) = r_T$ and 
 $\varphi(\underline{l}_S) = \underline{l}_T$ 
 (where $r_{(-)}$ denotes the root edge and $\underline{l}_{(-)}$ the leaf tuple)
@@ -944,12 +944,12 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 	For any inner face $V-e$ 
 	of a face $V \hookrightarrow T$ one has 
 	that $G(V-e)$ is either $GV - Ge$ or $GV$.
-	Indeed, the latter holds iff $V-e$ contains either an inner edge of a leaf of the form $ge$.
+	Indeed, the latter holds iff $V-e$ contains either an inner edge or a leaf of the form $ge$.
 \end{remark}
 
 
 \begin{remark}
-Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ does not act on $\mathsf{Face}_o(T)$)
+Writing $\mathsf{Face}_o(T)$ for the poset of planar orbital faces, Proposition \ref{MINGFACT PROP} gives a $G$-equivariant functor (note that $G$ acts trivially on $\mathsf{Face}_o(T)$)
 \[
 	\mathsf{Face}(T) \xrightarrow{G(-)} \mathsf{Face}_o(T),
 \qquad
@@ -1187,7 +1187,7 @@ from Lemma \ref{CHAREDGE LEM} as Corollary \ref{REGGENHORN COR}.
 
 In addition to the $G$-inner horns defined above, we now introduce a new kind of horn that, much like orbital faces,
 is naturally suggested by the orbital representation of $G$-trees.
-Given $E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we define the associated 
+Given $\emptyset \neq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ a $G$-equivariant set of inner edges, we define the associated 
 \textit{orbital $G$-inner horn} by
 \[
 	\Lambda^{E}_o[T] = 
@@ -1948,9 +1948,9 @@ suppose then that:
 		\item[(ii)] there are associative and unital isomorphisms
 		$U_i \xrightarrow{g} U_{g_i}$;
 		\item[(iii)] the composites
-		$\Omega[U_i] \xrightarrow{b_i} Y \xrightarrow{g} Y$
+		$\Omega[U_i] \xrightarrow{b_i} B \xrightarrow{g} B$
 		and
-		$\Omega[U_i]  \xrightarrow{g} \Omega[U_{gi}] \xrightarrow{b_{gi}} Y$ coincide;
+		$\Omega[U_i]  \xrightarrow{g} \Omega[U_{gi}] \xrightarrow{b_{gi}} B$ coincide;
 		\item[(iv)] $g \left(\Xi^i\right)=\Xi^{gi}$.
 	\end{inparaenum}
 \end{itemize}
@@ -2616,9 +2616,8 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 Following the discussion preceding \cite[Prop. 3.6.8]{HHM16},
 a class of normal monomorphisms of $\mathsf{dSet}^G$
 (or, more generally, a subclass of the cofibrations in a model category) is called
-\textit{hypersaturated} if it is closed under
-pushouts, transfinite composition, retracts,
-as well as the following additional cancellation property: 
+\textit{hypersaturated} if it is saturated (i.e. it is closed under
+pushouts, transfinite composition and retracts) and satisfies the following additional cancellation property: 
 if $f,g$ are normal monomorphisms
 \begin{equation}\label{CANCEL_EQ}
 A \xrightarrow{f} B \xrightarrow{g} C
@@ -2655,8 +2654,8 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	one sets
 	$I=\**$, $U_{\**} = T$ and $\Xi^{\**} = E$,
 	Remark \ref{FACCES REM} implies that in the factorization
-	$\Lambda_o^E[T] \to \Lambda^EF[T] \to \Omega[T]$
-	the first map $\Lambda_o^E[T] \to \Lambda^EF[T]$ is built cellularly out of $G$-horns with $|S_{\**}| < |T_{\**}|$.
+	$\Lambda_o^E[T] \to \Lambda^E[T] \to \Omega[T]$
+	the first map $\Lambda_o^E[T] \to \Lambda^E[T]$ is built cellularly out of $G$-horns with $|S_{\**}| < |T_{\**}|$.
 	But then the induction hypothesis says that 
 	$\Lambda_o^E[T] \to \Lambda^E[T]$ is in the orbital hypersaturation, and by the cancellation property so is $\Lambda^E[T] \to \Omega[T]$.
 	
@@ -3393,14 +3392,14 @@ Further, in the horizontal Reedy model structure the generating trivial cofibrat
 	\left( \Lambda^i[n] \to \Delta[n] \right)
 \square
 	\left( \partial \Delta[m] \to \Delta[m] \right),
-\qquad n \geq i \geq 0,m\geq 0.
+\qquad n \geq 1, m\geq 0, n \geq i \geq 0.
 \end{equation}
 while for the vertical Reedy model structure the generating trivial cofibrations are the maps
 \begin{equation}\label{GTRCOVER EQ}
 	\left( \partial \Delta[n] \to \Delta[n] \right)
 \square
 	\left( \Lambda^j[m] \to \Delta[m] \right),
-\qquad n\geq 0,m\geq j \geq 0.
+\qquad n\geq 0, m\geq 1,m\geq j \geq 0.
 \end{equation}
 
 We caution the reader about a possible hiccup with the terminology: 
@@ -3528,7 +3527,7 @@ Note that the ``moreover'' claim in this result is not quite formal, since the m
 	\item[(i)] any two face inclusions $F_1 \to \Delta[n]$, $F_2 \to \Delta[n]$ factor through a minimal face inclusion $F \to \Delta[n]$ (since faces are indexed by subsets of $\{0,1,\cdots,n\}$); 
 	\item[(ii)] for any face inclusion one has 
 		$\delta_{!}\left( F \to \Delta[n]\right) = 
-		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monormorphism.
+		\left(F^{\times 2} \to \Delta[n]^{\times 2} \right)$, which is a monomorphism.
 \end{inparaenum}
 
 The claim that $\delta_!$ preserves trivial cofibrations follows easily from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
@@ -3694,7 +3693,7 @@ We will regard $J^m$ as equipped with the trivial $G$-action and further abbrevi
 		\square
 	\left(\partial \Omega[T] \to \Omega[T]\right),
 	\qquad
-	n\geq i \geq 0, T \in \Omega_G.
+ 	n\geq 1, n\geq i \geq 0, T \in \Omega_G.
 \end{equation}
 while the simplicial Reedy structure has as generating trivial cofibrations the maps
 \begin{equation}\label{SIMPTRIVCOF EQ}
@@ -4535,7 +4534,7 @@ In the next result, we write $T[Ge]$ (resp. $T[Gf]$) for the orbital outer face 
 	satisfy all associativity conditions with respect to 
 	$G$-trees with three $G$-vertices.
 	Further, if $C=C_{H/H}$ and $\varphi = s(e)$ is the degeneracy on $e$, then $\varphi \circ_{Ge} (-)$ is homotopic to the identity, and similarly for 
-	$D=C_{H/H}$ and $\varphi = s(e)$.
+	$D=C_{H/H}$ and $\psi = s(e)$.
 \end{proposition}
 
 
