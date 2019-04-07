@@ -13,6 +13,6 @@
 \contentsline {subsection}{\numberline {4.3}Equivariant Segal operads}{30}{subsection.4.3}
 \contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{32}{section.5}
 \contentsline {subsection}{\numberline {5.1}The homotopy genuine operad and Dwyer Kan equivalences}{32}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Rezk completion and fibrant Segal operads}{37}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.2}Rezk completion and fibrant Segal operads}{38}{subsection.5.2}
 \contentsline {section}{\numberline {6}Indexing system analogue results}{42}{section.6}
 \contentsline {section}{\numberline {A}Equivariant Reedy model structures}{44}{appendix.A}
