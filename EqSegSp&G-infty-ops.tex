@@ -1829,7 +1829,7 @@ Letting $K \leq H$ denote the isotropy of
 $W$ in $\mathsf{Face}_{\Xi}^{lex}(U)$ and regarding $W \in \Omega^{K}\subseteq \Omega_{K}$, we claim there is a pushout diagram
 \begin{equation}\label{FIRPUSH EQ}
 \begin{tikzcd}
-	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d} \ar{r}
+	G \cdot_{K} \Lambda^{\Xi_{W}}[W] \ar{d}[swap]{\iota} \ar{r}
 	\arrow[dr, phantom, "\ulcorner", very near start]&
 	A_C \ar{d}
 \\
@@ -1849,6 +1849,15 @@ the $G$-isotropy (i.e. the isotropy in $\mathsf{Face}(T)$)
 of faces 
 $W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
 \end{enumerate}
+To see why these claims suffice, write $P$ for the pushout of  \eqref{FIRPUSH EQ} with $A_{C'}$ removed. Surjectivity of $P \to A_{C'}$ is immediate from the assumptions on $C,C'$.
+For injectivity, since $A_C \to A_{C'}$ is certainly injective, it suffices to check that the restriction of the bottom horizontal map in \eqref{FIRPUSH EQ} to the complement of the image of the left vertical map 
+$\iota$ satisfies
+\begin{inparaenum}
+\item[(i)] it is injective and
+\item[(ii)] its image does not overlap with the image of $A_C$. 
+\end{inparaenum} 
+Condition (ii) follows from (a),(b). As for (i), injectivity is automatic when further restricting to the intersection with an individual conjugate $\Omega[gW] = g\Omega[W]$, with (c) ensuring injectivity across different conjugate intersections.
+
 
 To check (a), writing $\bar{V}=\bar{V}^U$ for the corresponding outer face of $U$, one has
 	\[
@@ -3104,10 +3113,10 @@ will not require an explicit discussion of these additional compatibilities.
 
 
 \begin{remark}\label{NORMMAP REM}
-Consider a single colored $G$-operad $\mathcal{O}$
+Consider a single colored $G$-operad $\mathcal{O}$ on the category of sets
 (i.e. an operad with a $G$-action commuting with all structure)
-and a finite $H$-set $A$ for some subgroup $H \leq G$,
-and write $\Gamma_A \leq G \times \Sigma_{|A|}$
+and a finite $H$-set $A$ for some subgroup $H \leq G$.
+Write $\Gamma_A \leq G \times \Sigma_{|A|}$
 for the graph of the homomorphism 
 $H \to \Sigma_{|A|}$ encoding $A$.
 We then abbreviate 
@@ -5857,7 +5866,7 @@ $M_r A = \left(\mathsf{csk}_{|r|-1} A\right)_r$.
 Axioms (i),(ii),(iii) then imply that
 $\mathsf{sk}_n A$ (resp. $\mathsf{csk}_n A$)
 depends only on the restriction to 
-$\mathbb{R}_{\leq n}^{+}$ (resp. $\mathbb{R}_{\leq n}^{-}$). We refer the reader to \cite[\S 4]{BM11} for a detailed discussion.
+$\mathbb{R}_{\leq n}^{+}$ (resp. $\mathbb{R}_{\leq n}^{-}$). We refer the reader to \cite[\S 4,\S 6]{BM11} for a detailed discussion.
 
 We now turn to the model categorical analysis, which depends on the Reedy-admissibility condition (iv)
 in Definition \ref{GENRED DEF}, and is the actual novelty of this appendix.

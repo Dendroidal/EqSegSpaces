@@ -6,8 +6,8 @@
 \contentsline {section}{\numberline {3}Equivariant inner anodyne maps}{11}{section.3}
 \contentsline {subsection}{\numberline {3.1}The characteristic edge lemma}{12}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Segal core, horn and orbital horn inclusions}{18}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Genuine equivariant operads}{21}{subsection.3.3}
-\contentsline {section}{\numberline {4}Quillen equivalences}{24}{section.4}
+\contentsline {subsection}{\numberline {3.3}Genuine equivariant operads}{22}{subsection.3.3}
+\contentsline {section}{\numberline {4}Quillen equivalences}{25}{section.4}
 \contentsline {subsection}{\numberline {4.1}Joint left Bousfield localizations}{25}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Complete equivariant dendroidal Segal spaces}{27}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Equivariant Segal operads}{30}{subsection.4.3}
