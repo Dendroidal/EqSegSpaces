@@ -40,6 +40,9 @@ The following lists the corrections of typos listed in the preliminary referee r
 %\item[24.] Reworded ``is cellular on'' to ``is built by attaching'' $G$-inner horn inclusions
 \item[29.] replaced instances of $Y$ with $B$
 \item[31.] replaced ``subsets'' with ``simplicial subsets'' in the discussion of covers (``which in our language are the simplicial subsets'')
+\item[32.] added comment noting that the ``dendroidal cover'' definition extends to the equivariant context
+\item[33.] added the missing word ``planar'' to ``$G$-poset of outer faces''
+\item[35.] added comment saying that in the proof of the second ``anodyne horn inclusion'' lemma we again assume $T \in \Omega^G \subseteq \Omega_G$.
 \item[36.] reworded the definition of hypersaturated class
 \item[38.] fixed $\Lambda^EF[T]$ typo
 \item[45.] Changed ``Theorem 6.1'' to ``Thm. 6.1'' when citing MW09 (in the Remark discussing why strict lifting properties in $\mathsf{dSet}^G$ are unsatisfactory)
@@ -59,9 +62,11 @@ The following lists the corrections of typos listed in the preliminary referee r
 
 Similarly, a similar comment was added in the remark immediately preceding \S 4.
 \item[79.] fixed $\varphi$ to be $\psi$
+\item[80.] changed the $H$-equivalence from ``$f$'' to ``$j$'' to avoid confusion
 \item[82.] fixed ``automorphim'' typo
 \item[83.] removed the word ``degeneracy'' in the discussion of generalized Reedy category structure on $G \times \mathbb{S}$
 \item[84.] added comment saying that ``$L_r$ and $M_r$ are recalled below'' before the theorem
+\item[87.] Fixed the indexes in the ``extension of partial factorizations'' lemma
 \end{itemize}
 
 
@@ -92,6 +97,17 @@ In addition, some extra detail concerning how \cite[Prop. 3.3.18]{Hir03} was bei
 Additionally, checked all references to the paper to make sure that they match the final version.
 \end{itemize}
 
+
+\section{Departures from suggestions/direct answer to comments}
+
+\begin{itemize}
+\item[27.] The new (Ch2) follows from the original conditions, but it requires both the original (Ch2) and (Ch3), which work in tandem. The discussion was expanded to provide more detail on this. 
+
+As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined without much worry.
+However, separating (Ch3) is needed to control the isotropies (which is why (Ch3) is needed when verifying condition (c) in the proof). In fact, in earlier iterations of the characteristic edge lemma condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified.
+
+\item[40.] this is a matter of taste, but I find changing $T$ to $S$ in $\Lambda^E_o[T] \to \Omega[T]$ to contrast with $Sc[T] \to \Omega[T]$ to be a bit confusing. To emphasize that both of the $T$ variables are free, rather than chosen, I've instead added ``$T\in \Omega_G$'' to both expressions 
+\end{itemize}
 
 
 \end{document} 

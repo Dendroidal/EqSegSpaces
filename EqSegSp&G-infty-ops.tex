@@ -1926,7 +1926,9 @@ By the $I$ transitive case, it now suffices to check that
 $\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in Gj}$ with respect to $A_J$.
 (Ch0) is clear, and since by $G$-equivariance and convexity it is $A_{<gj} \subseteq A_J$,
 the new (Ch1),(Ch2),(Ch3)
-conditions follow from the original conditions.
+conditions follow from the original conditions
+(for (Ch2), note that if 
+$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \nin A$, then convexity of $J'$ implies $(V - \Xi^i_V) \hookrightarrow U_j$ for some $j \not \geq i$, so that in this case the new (Ch2) follows from the original (Ch3)).
 \end{proof}
 
 
@@ -2037,7 +2039,8 @@ that can be regarded as
 \textit{dendroidal covers},
 i.e. subcomplexes
 $Sc[T] \subseteq A \subseteq \Omega[T]$
-such that if $V$ is in $A$ then so is $\bar{V}^{T}$.
+such that if $V$ is in $A$ then so is $\bar{V}^{T}$
+(note that this definition extends unchanged to the equivariant context).
 Lastly, the subcomplexes 
 $\Omega[T] \cup_l \Omega[S] \subseteq \Omega[T \circ_l S]$
 in the grafting result \cite[Lemma 5.2]{MW09},
@@ -2046,7 +2049,7 @@ and likewise for the equivariant analogue \cite[Prop. 6.19]{Per18}, are also den
 Lemma \ref{CHAREDGE LEM} implies
 that any inclusion $A \to A'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
 is $G$-inner anodyne. 
-Indeed, let $I=\mathsf{Face}_{A'}^{out}(T)$ be the $G$-poset of outer faces $V \hookrightarrow T$ contained in $A'$, ordered by inclusion, 
+Indeed, let $I=\mathsf{Face}_{A'}^{out}(T)$ be the $G$-poset of planar outer faces $V \hookrightarrow T$ contained in $A'$, ordered by inclusion, 
 $\Xi = \boldsymbol{E}^{\mathsf{i}}(T)$ and $U_V = V$.
 (Ch0) is clear, (Ch1) follows since 
 $Sc(T) \subseteq A$, (Ch2) follows since $A$ is a cover and
@@ -2550,6 +2553,8 @@ are $G$-inner anodyne.
 \end{proposition}
 
 \begin{proof}
+Arguing just as at the beginning of Proposition \ref{ORB_HORN_PROP}, we may assume $T \in \Omega^G \subseteq \Omega_{G}$.
+
 We now apply Lemma \ref{CHAREDGE LEM} with 
 $I = \mathcal{P}_0(E\setminus F)$
 the poset of non-empty subsets $\emptyset \neq E' \subseteq (E \setminus F)$, ordered by \textit{reverse inclusion}, and
@@ -2715,9 +2720,9 @@ due to isotropy concerns.
 Similarly, \cite[Props. 2.4 and 2.5]{CM13a} 
 (or Remark \ref{RECOVER REM}(i) and Proposition \ref{HYPER PROP} when $G=\**$)
 imply that the Segal core inclusions 
-$Sc[T] \to \Omega[T]$
+$Sc[T] \to \Omega[T], T \in \Omega_G$
 are built cellularly from the orbital horn inclusions
-$\Lambda^E_o[T] \to \Omega[T]$, and that the two classes have the same hypersaturation. 
+$\Lambda^E_o[T] \to \Omega[T], T \in \Omega_G$, and that the two classes have the same hypersaturation. 
 
 	We note that this last observation indicates an alternate route for proving Proposition \ref{HYPER PROP}
 	(which the authors considered in early versions of this work)
@@ -4704,8 +4709,8 @@ $f$, $g$, $h$, $hgf$.
 Applying the 2-out-of-6 properties in $\mathsf{sSet}$ and $\mathsf{Cat}$ to mapping spaces and homotopy categories $\iota_G^{\**}ho(-)$,
 the only non obvious conditions are the fully faithfulness of $g,h$ for $C$-profiles not in the image of $f$. 
 But since by Proposition \ref{ASSOC PROP} the maps
-$f \circ_{Ge} (-)$, $(-)\circ_{Ge} f$
-are weak equivalences when $f$ is a $H$-equivalence,
+$j \circ_{Ge} (-)$, $(-)\circ_{Ge} j$
+are weak equivalences when $j$ is a $H$-equivalence,
 this last claim follows from essential surjectivity.
 \end{proof}
 
@@ -5952,9 +5957,9 @@ Then extensions
 are determined uniquely up to unique isomorphism (in $\mathcal{C}^{\mathbb{R}_{\leq n}}$)
 by choices of $\mathsf{Aut}(r)$-equivariant factorizations
 \[
-\left(\iota_{n,!}A \right)_r \dashedrightarrow
+\left(\iota_{n-1,!}A \right)_r \dashedrightarrow
 \tilde{A}_r \dashedrightarrow
-\left(\iota_{n,\**}A\right)_r
+\left(\iota_{n-1,\**}A\right)_r
 \]
 for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
 	
@@ -5963,13 +5968,13 @@ $X \to Y$ in $\mathcal{C}^{\mathbb{R}}$,
 extensions of a $(n-1)$-partial factorization
 $\iota_{\leq n-1}^{\**}X \to A \to \iota_{\leq n-1}^{\**} Y$ in $\mathcal{C}^{\mathbb{R}_{\leq n-1}}$
 to a $n$-partial factorization
-$\iota_{\leq n}^{\**}X \to \tilde{A} \to \iota_{\leq}^{\**} Y$ in $\mathcal{C}^{\mathbb{R}_{\leq n}}$
+$\iota_{\leq n}^{\**}X \to \tilde{A} \to \iota_{\leq n}^{\**} Y$ in $\mathcal{C}^{\mathbb{R}_{\leq n}}$
 are determined uniquely up to unique isomorphism 
 by choices of $\mathsf{Aut}(r)$-equivariant factorizations
 \[
-	X_r \amalg_{L_r X} \left(\iota_{n,!}A \right)_r \dashedrightarrow
+	X_r \amalg_{L_r X} \left(\iota_{n-1,!}A \right)_r \dashedrightarrow
 	\tilde{A}_r \dashedrightarrow
-	Y_r \times_{M_r Y} \left(\iota_{n,\**}A\right)_r
+	Y_r \times_{M_r Y} \left(\iota_{n-1,\**}A\right)_r
 \]
 for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
 \end{lemma}
