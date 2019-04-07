@@ -108,11 +108,11 @@ cd,patterns,calc}
 
 \section{Introduction}
 
-This paper follows \cite{Per17} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
+This paper follows \cite{Per18} and \cite{BP17} and is the third piece of a larger project aimed at understanding the homotopy theory of 
 \textit{equivariant operads with norm maps}.
 Here, norm maps are a new piece of structure that must be considered when dealing with equivariant operads
 (see Remark \ref{NORMMAP REM} for a brief definition of norm maps or the introductions to 
-\cite{Per17},\cite{BP17} for a more extensive discussion).
+\cite{Per18},\cite{BP17} for a more extensive discussion).
 The need to understand norm maps
 %particularly in the context of $G$-ring spectra,
 %as well as their usefulness,
@@ -127,7 +127,7 @@ and whose arrows encode the necessary compatibilities between such compositions.
 Our categories $\Omega_G$ are a somewhat non-obvious  generalization of the dendroidal category $\Omega$
 of Cisinski-Moerdijk-Weiss, 
 and indeed all the key combinatorial concepts in their work,
-such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,\S 6]{Per17}.
+such as faces, degeneracies, boundaries and horns, generalize to $G$-trees \cite[\S 5,\S 6]{Per18}.
 As such, it is natural to attempt to generalize the 
 Cisinski-Moerdijk program \cite{CM11},\cite{CM13a},\cite{CM13b} to the equivariant context. 
 
@@ -152,10 +152,10 @@ Their program was carried out in three main steps:
 \end{inparaenum}
 
 From the perspective of the Cisinski-Moerdijk program, 
-\cite{Per17} is then the equivariant analogue of the first step \cite{CM11} (as well as \cite{MW09}), 
+\cite{Per18} is then the equivariant analogue of the first step \cite{CM11} (as well as \cite{MW09}), 
 while the present paper provides the equivariant analogue of the
 second step \cite{CM13a}.
-More explicitly, in \cite{Per17}, and inspired by the category $\Omega_G$ of $G$-trees,
+More explicitly, in \cite{Per18}, and inspired by the category $\Omega_G$ of $G$-trees,
 the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
 are ``equivariant operads with norm maps up to homotopy'',
@@ -174,7 +174,7 @@ as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
 
-It is worth noting that, much as was the case of the work in \cite{Per17}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
+It is worth noting that, much as was the case of the work in \cite{Per18}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
 the authors introduced the notion of 
 \textit{genuine equivariant operads},
@@ -192,7 +192,7 @@ which we repackage in \S \ref{GENEQOP SEC} via an independent (but equivalent) p
 The organization of the paper is as follows.
 
 \S \ref{PREL SEC} mostly recalls the necessary notions concerning the category $\Omega_G$ of $G$-trees and the category $\mathsf{dSet}^G$ of $G$-dendroidal sets 
-that were introduced in \cite{Per17}.
+that were introduced in \cite{Per18}.
 However, some new notions and results can be found throughout, most notably the notion of \textit{orbital face} of a $G$-tree in Definition \ref{ORBFACE DEF}
 and the associated notion of \textit{orbital horn} in 
 \S \ref{EQDENDSETS SEC}.
@@ -254,7 +254,7 @@ which is a fairly non-obvious equivariant generalization of one of the generaliz
 
 
 We start by recalling the key features of the category $\Omega$ of trees that will be used throughout.
-Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per17},
+Our official model for $\Omega$ will be Weiss' algebraic model of \textit{broad posets} as discussed in \cite[\S 5]{Per18},
 % and \cite{Wei12},
 hence we first recall some key notation and terminology.
 Given a tree diagram $T$ such as
@@ -327,7 +327,7 @@ and as maps $\varphi \colon T \to S$ the monotone maps of broad posets
 (meaning that if $t_1 \cdots t_k \leq t$ then
 $\varphi(t_1) \cdots \varphi(t_k) \leq \varphi(t)$).
 In fact, in \cite{Wei12} Weiss characterized 
-those broad posets associated to trees (see \cite[Defs. 5.1 and 5.9]{Per17}),
+those broad posets associated to trees (see \cite[Defs. 5.1 and 5.9]{Per18}),
 so that one is free to work intrinsically with broad posets.
 
 Moreover, our discussion will be somewhat simplified by the assumption that $\Omega$
@@ -349,7 +349,8 @@ Moreover, a face map $\varphi$ is further called an \textit{inner face map}
 if $\varphi(r_S) = r_T$ and 
 $\varphi(\underline{l}_S) = \underline{l}_T$ 
 (where $r_{(-)}$ denotes the root edge and $\underline{l}_{(-)}$ the leaf tuple)
-and called an \textit{outer face map} if it does not factor through any non-identity inner face maps.
+and called an \textit{outer face map} if it does not admit a factorization as a non-isomorphism inner face map followed by a face map.
+
 The following result is \cite[Cor. 3.32]{BP17}.
 \begin{proposition}\label{UNIQUEFACT PROP}
 	A map $\varphi \colon S \to T$ in $\Omega$ has a factorization, unique up to unique isomorphisms,
@@ -386,7 +387,7 @@ $s \leq_d t$ and $\forall_{i} s \not \leq t_i$
 $\boldsymbol{E}(T-E) = \boldsymbol{E}(T) \setminus E$.
 	By contrast, whenever $T$ has stumps some of its outer faces $T_{\underline{t} \leq t}$ are not full,
 	the main example being given by the maximal outer faces
-	that ``remove stumps'' \cite[Not. 5.41]{Per17}.
+	that ``remove stumps'' \cite[Not. 5.41]{Per18}.
 \end{remark}
 
 
@@ -458,9 +459,9 @@ containing (contained in) all $U_i$.
 
 \begin{proof}
 	\eqref{CUPCAP EQ} determines pre-broad posets 
-	(cf. \cite[Rem. 5.2]{Per17}) $U^{\cup}$ and $U^{\cap}$,
+	(cf. \cite[Rem. 5.2]{Per18}) $U^{\cup}$ and $U^{\cap}$,
 	hence we need only verify the axioms in 
-	\cite[Defs. 5.1, 5.3, 5.9]{Per17}. 
+	\cite[Defs. 5.1, 5.3, 5.9]{Per18}. 
 	Antisymmetry and simplicity are inherited from $T$, the nodal axiom is obvious from \eqref{CUPCAP EQ}, and the root axiom follows since the $U_i$ have a common root (in the $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
 	$s \leq_d s' \leq_d t$).
 \end{proof}
@@ -468,7 +469,7 @@ containing (contained in) all $U_i$.
 
 \subsection{The category of $G$-trees $\Omega_G$}
 
-We next recall the category $\Omega_G$ of $G$-trees introduced in \cite[\S 5.3]{Per17}. We start with an explicit and representative example of a $G$-tree (for more examples, see \cite[\S 4.3]{Per17}).
+We next recall the category $\Omega_G$ of $G$-trees introduced in \cite[\S 5.3]{Per18}. We start with an explicit and representative example of a $G$-tree (for more examples, see \cite[\S 4.3]{Per18}).
 Letting $G = \{ \pm 1, \pm i, \pm j, \pm k\}$ denote the group of quaternionic units 
 and $G \geq H \geq K \geq L$ denote the subgroups %
 $H = \langle j \rangle$, %
@@ -540,7 +541,7 @@ given by the (single) tree on the right.
 Note that the edge labels on the expanded representation encode the action of $G$ so that the edges 
 $a,b,c,d$ have isotropy $L,K,K,H$.
 
-Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per17} is given as follows.
+Formally, the definition of $\Omega_G$ \cite[Def. 5.44]{Per18} is given as follows.
 Given a non-equivariant forest diagram $F$ 
 (i.e. a finite collection of tree diagrams side by side),
 there is
@@ -577,9 +578,9 @@ so that the arrows of $\Omega_{G}$ are best understood from that perspective.
 On the other hand, the diagrams encoding compositions of norm maps of an equivariant operad $\mathcal{O}$
 are given by the orbital representations of  
 $G$-trees (see Example \ref{STRICTLIFT EX} and Remark \ref{NORMMAP REM}, or alternatively 
-\cite[Ex. 4.9]{Per17}, \cite[(1.10)]{BP17}).
+\cite[Ex. 4.9]{Per18}, \cite[(1.10)]{BP17}).
 As a result, different aspects of our discussion are guided by different representations, and this will require us to discuss the different notions of face/boundary/horn suggested by the two representations.
-We start by recalling the notion of face discussed in \cite{Per17}, which is motivated by the expanded representation.
+We start by recalling the notion of face discussed in \cite{Per18}, which is motivated by the expanded representation.
 
 
 \begin{definition}
@@ -968,12 +969,12 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 	\begin{equation}
 	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
 	\end{equation}
-	where $T/G$ denotes the underlying tree in the orbital representation of $T$. 
+	where $T/G$, which is formally defined below, can be informally thought of as the underlying tree in the orbital representation of $T$. 
 	
-	However, we caution that though this claim is  intuitive, care is needed when formalizing it.
+	However, we should first caution that though this claim is intuitive, some care is needed.
 	For example, the broad poset of $T/G$ is in general \textit{not} the quotient of the broad poset of $T$,
 	as that may fail the simplicity axiom in 
-	\cite[Def. 5.9]{Per17}.
+	\cite[Def. 5.9]{Per18}.
 	In fact, the assignment $T \mapsto T/G$ is \textit{not}
 	a functor $\Omega_G \to \Omega$, as shown by
 	the following (for $G = \mathbb{Z}_{/2} = \{\pm 1\}$),
@@ -1042,7 +1043,7 @@ $\underline{f} =
 \underline{f}_k$
 such that $\underline{f}_i \leq e_i$.
 When the $e_i$ are $\leq_d$-incomparable,
-\cite[Prop. 5.30]{Per17} says that such decomposition is unique, so that $\underline{e},\underline{f}$ consist of distinct edges and we can regard 
+\cite[Prop. 5.30]{Per18} says that such decomposition is unique, so that $\underline{e},\underline{f}$ consist of distinct edges and we can regard 
 $\underline{e},\underline{f}$ as subsets $\underline{e},\underline{f} \subseteq \boldsymbol{E}(T)$.
 	
 We now say that a relation
@@ -1054,7 +1055,7 @@ Reinterpreting the orbital relations of $T$
 as broad relations on the set 
 $\boldsymbol{E}_{G}(T) = \boldsymbol{E}(T)/G$ of edge orbits,
 one readily checks that this defines a 
-dendroidally ordered set \cite[Def. 5.9]{Per17},
+dendroidally ordered set \cite[Def. 5.9]{Per18},
 i.e. a tree, that we denote $T/G$.
 Note that one hence has a functor
 $(-)/G \colon \Omega_G^+ \to \Omega$,
@@ -1069,7 +1070,7 @@ the orbital outer faces of $T$ are indexed by orbital relations.
 
 \subsection{Equivariant dendroidal sets}\label{EQDENDSETS SEC}
 
-Recall \cite[\S 5.4]{Per17} that the category of 
+Recall \cite[\S 5.4]{Per18} that the category of 
 \textit{$G$-equivariant dendroidal sets}
 is the presheaf category 
 $\mathsf{dSet}^G = \mathsf{Set}^{\Omega^{op} \times G}$.
@@ -1164,7 +1165,7 @@ is called the class of \textit{$G$-inner anodyne maps},
 while those $X \in \mathsf{dSet}^G$
 with the right lifting property against all $G$-inner horn inclusions are called \textit{$G$-$\infty$-operads}.
 
-We can now recall the statement of \cite[Thm 2.1]{Per17}, which was the main result therein.
+We can now recall the statement of \cite[Thm 2.1]{Per18}, which was the main result therein.
 
 \begin{theorem}
 	There is a model structure on $\mathsf{dSet^G}$
@@ -1173,14 +1174,14 @@ We can now recall the statement of \cite[Thm 2.1]{Per17}, which was the main res
 
 
 \begin{remark}
-The definition of $G$-$\infty$-operads just given is a priori distinct from the original definition \cite[Def. 6.12]{Per17} which used only 
+The definition of $G$-$\infty$-operads just given is a priori distinct from the original definition \cite[Def. 6.12]{Per18} which used only 
 \textit{generating $G$-inner horn inclusions}, i.e. 
 those inclusions $\Lambda^{Ge}[T] \to \Omega[T]$ with $E=Ge$ an inner edge orbit.
 The present definition has the technical advantages of being naturally compatible with restricting the $G$-action and of allowing for a simpler proof of Lemma \ref{CHAREDGE LEM}, 
 which is our main tool for showing that maps
 are $G$-inner anodyne.
 The equivalence between the two definitions follows from 
-\cite[Prop. 6.17]{Per17},
+\cite[Prop. 6.17]{Per18},
 although we will also independently recover this fact
 from Lemma \ref{CHAREDGE LEM} as Corollary \ref{REGGENHORN COR}.
 \end{remark}
@@ -1708,14 +1709,14 @@ $\Lambda^E_o[T] \to \Omega[T]$
 are $G$-inner anodyne.
 
 In practice, the proofs of such results are long as well as somewhat repetitive, since they share many technical arguments.
-In fact, dealing with the case of orbital horn inclusions requires using many of the arguments in the long proof of \cite[Thm 7.1]{Per17}.
+In fact, dealing with the case of orbital horn inclusions requires using many of the arguments in the long proof of \cite[Thm 7.1]{Per18}.
 
 As such, we split our technical analysis into two parts.
 In \S \ref{CHAREDGE SEC} we prove Lemma \ref{CHAREDGE LEM} which  we call the \textit{characteristic edge lemma} and
 which abstractly identifies sufficient conditions for a map to be $G$-inner anodyne
 (see Remark \ref{RECOVER REM} for a comparison with previous results in the literature).
 %As an illustration of its power, we briefly summarize how 
-%Lemma \ref{CHAREDGE LEM} significantly simplifies the proof of \cite[Thm 7.1]{Per17}.
+%Lemma \ref{CHAREDGE LEM} significantly simplifies the proof of \cite[Thm 7.1]{Per18}.
 Then, in \S \ref{HYPERSAT SEC} we deduce that the desired maps
 are $G$-inner anodyne by applying Lemma \ref{CHAREDGE LEM},
 and further establish Proposition \ref{HYPER PROP} which,
@@ -2040,7 +2041,7 @@ such that if $V$ is in $A$ then so is $\bar{V}^{T}$.
 Lastly, the subcomplexes 
 $\Omega[T] \cup_l \Omega[S] \subseteq \Omega[T \circ_l S]$
 in the grafting result \cite[Lemma 5.2]{MW09},
-and likewise for the equivariant analogue \cite[Prop. 6.19]{Per17}, are also dendroidal covers.
+and likewise for the equivariant analogue \cite[Prop. 6.19]{Per18}, are also dendroidal covers.
 
 Lemma \ref{CHAREDGE LEM} implies
 that any inclusion $A \to A'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
@@ -2074,21 +2075,21 @@ as well as the key characteristic condition
 \cite[Lemma 9.7]{MW09}(ii),
 which coincides with (Ch2) in this specific setting.
 
-Similarly, in \cite[Lemma 7.39]{Per17} the second author introduced a \textit{characteristic edge orbit} condition that generalizes that in \cite{MW09} to the equivariant context 
+Similarly, in \cite[Lemma 7.39]{Per18} the second author introduced a \textit{characteristic edge orbit} condition that generalizes that in \cite{MW09} to the equivariant context 
 by letting $I \simeq G/H$
 and the $\Xi^{[g]}=\Xi \cap \boldsymbol{E}^{\mathsf{i}}(U_{[g]})$ be determined by a $G$-edge orbit $\Xi \simeq G \xi$ (cf. Remark \ref{SOMEMAIN REM}).
 
-However, both of the lemmas in \cite{MW09} and \cite{Per17}
+However, both of the lemmas in \cite{MW09} and \cite{Per18}
 have the drawback of needing to be used iteratively
 (so that much effort therein is spent showing that this can be done) while Lemma \ref{CHAREDGE LEM} is designed so that a single use suffices for the natural applications.
-Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per17} that $A$ should contain all outer faces of the $U_i$, essentially provide abstract conditions under which the original characteristic edge arguments of \cite{MW09},\cite{Per17} can be iterated.
+Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement in \cite{MW09},\cite{Per18} that $A$ should contain all outer faces of the $U_i$, essentially provide abstract conditions under which the original characteristic edge arguments of \cite{MW09},\cite{Per18} can be iterated.
 \end{itemize}
 \end{remark}
 
 
 \begin{example}\label{THM71 EX}
 	As indicated above, Lemma \ref{CHAREDGE LEM} can be used to
-	reorganize and streamline the rather long proofs of \cite[Thms 7.1 and 7.2]{Per17}. We illustrate this in the hardest case, that of \cite[Thm. 7.1(i)]{Per17}, which states that if
+	reorganize and streamline the rather long proofs of \cite[Thms 7.1 and 7.2]{Per18}. We illustrate this in the hardest case, that of \cite[Thm. 7.1(i)]{Per18}, which states that if
 	$S,T \in \Omega_G$ are open (i.e. have no stumps) and
 	$G \xi$ is an inner edge orbit of $T$ the maps
 \begin{equation}\label{THM71 EQ}
@@ -2100,7 +2101,7 @@ Indeed, conditions (Ch1) and (Ch3), the first of which relaxes the requirement i
 \end{equation}
 are $G$-inner anodyne.
 
-Given $S,T \in \Omega_G$, it is possible \cite[\S 7.1]{Per17} to define a $G$-equivariant broad poset $S \otimes T$
+Given $S,T \in \Omega_G$, it is possible \cite[\S 7.1]{Per18} to define a $G$-equivariant broad poset $S \otimes T$
 so that 
 $\left(\Omega[S] \otimes \Omega[T]\right)(V) = hom(V,S \otimes T)$
 where the hom-set is taken in broad posets.
@@ -2112,9 +2113,9 @@ $(s,t)^{\uparrow S} = s^{\uparrow} \times t \leq (s,t)$
 and a $T$-vertex
 $(s,t)^{\uparrow T} = s \times t^{\uparrow} \leq (s,t)$.
 
-To recover \cite[Thm. 7.1(i)]{Per17} from Lemma \ref{CHAREDGE LEM}, we first let $I = \mathsf{Max}(S \otimes T)$
+To recover \cite[Thm. 7.1(i)]{Per18} from Lemma \ref{CHAREDGE LEM}, we first let $I = \mathsf{Max}(S \otimes T)$
 be the $G$-poset of maximal subtrees $U \hookrightarrow S \otimes T$ 
-(these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per17}.
+(these are called \textit{percolation schemes} in \cite[\S 9]{MW09}), ordered lexicographically \cite[Def. 7.29]{Per18}.
 As an example, let $G=\mathbb{Z}_{/2} = \{\pm 1\}$
 and consider the $\mathbb{Z}_{/2}$-trees
 \[%
@@ -2210,7 +2211,7 @@ occur whenever $U$ contains an outer face $V$ shaped as on the left below and, b
 \end{equation}
 The claim that $\leq$ is indeed a partial order 
 (at least if one of $S,T$ is open) is 
-\cite[Prop. 7.31]{Per17}.
+\cite[Prop. 7.31]{Per18}.
 As an aside, we note that   
 $V,V'$ above have a common inner face
 $V-\{e_1,e_2\} = V'-\{a_3,b_3,c_3\}$,
@@ -2350,7 +2351,7 @@ the vertex $(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ in $U$
 is a $T$-vertex (see Figure \ref{FIGURE}).
 We now verify (Ch1),(Ch2),(Ch3).
 We recall that, since $S,T$ are assumed open,
-\cite[Lemma 7.19]{Per17} guarantees that,
+\cite[Lemma 7.19]{Per18} guarantees that,
 for faces
 $S' \hookrightarrow S$, $T' \hookrightarrow T$,
 a factorization
@@ -2374,10 +2375,10 @@ $V \hookrightarrow S \otimes T^{\leq G\xi}$, and thus $V \in A$.
 For (Ch3), suppose $U_j \not \geq U_i$, 
 $V \hookrightarrow U_i$ and
 $(V - \Xi^{U_i}_V) \hookrightarrow U_j$.
-Then it follows from \cite[Lemma 7.37]{Per17}
+Then it follows from \cite[Lemma 7.37]{Per18}
 that there exists a generating relation $U_k < U_i$
 such that $(V - \Xi^{U_i}_V) \hookrightarrow U_k$
-(indeed, \cite[Lemma 7.37]{Per17} makes the slightly stronger claim that such a relation can be performed on the outer closure $\bar{V}^{U_i}$). But then, as one sees from \eqref{GENLEXREL EQ},
+(indeed, \cite[Lemma 7.37]{Per18} makes the slightly stronger claim that such a relation can be performed on the outer closure $\bar{V}^{U_i}$). But then, as one sees from \eqref{GENLEXREL EQ},
 all edges $e$ of $U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
 
 Lastly, for (Ch2), suppose $V \hookrightarrow U$ and 
@@ -2403,7 +2404,7 @@ has at least one inner edge
 (since by definition of $\Xi^U$ the vertex 
 $(g \xi)_s^{\uparrow U} \leq (g \xi)_s$ is a $T$-vertex)
 and that $V$ contains none of those inner edges (or else it would be $s \in S'$).
-Thus by applying \cite[Lemma 7.34]{Per17}
+Thus by applying \cite[Lemma 7.34]{Per18}
 to $U_{(g\xi)_s}^{<s}$ one obtains a maximal subtree $U' < U$
 containing all edges of $U$ that are not inner edges of $U_{(g\xi)_s}^{<s}$.
 But then $V \hookrightarrow U'$ and (Ch2) follows.
@@ -2412,7 +2413,7 @@ But then $V \hookrightarrow U'$ and (Ch2) follows.
  
 \begin{remark}
 We briefly outline how to modify the example above to prove 
-\cite[Thm 7.1(ii)]{Per17}, in which case some notable subtleties arise.
+\cite[Thm 7.1(ii)]{Per18}, in which case some notable subtleties arise.
 The result again states that \eqref{THM71 EQ} is $G$-inner anodyne, but now with one of $S,T$ allowed to have stumps while the other is required to be linear, i.e. of the form $G/H \cdot [n]$.
 
 One again sets $I=\mathsf{Max}(S\otimes T)$, with maximal trees defined just as before, but some caution is needed.
@@ -2434,7 +2435,7 @@ $V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
 changes. In this case, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
 and (Ch2) follows.
 
-Lastly, we note that \cite[Thm. 7.2]{Per17} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per17} when $S$ is linear.
+Lastly, we note that \cite[Thm. 7.2]{Per18} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per18} when $S$ is linear.
 \end{remark}
 
 
@@ -2707,7 +2708,7 @@ Corollary \ref{REGGENHORN COR} does recover
 the analogue of the pushouts \eqref{ORBHORNPUSH EQ}
 does not hold for (non-orbital) $G$-inner horns,
 so that the proof of Corollary \ref{REGGENHORN COR}
-(see also the original proof in \cite[Prop. 6.17]{Per17})
+(see also the original proof in \cite[Prop. 6.17]{Per18})
 is intrinsically harder when $G \neq \**$,
 due to isotropy concerns.
 
@@ -2822,7 +2823,7 @@ We end this section with some necessary remarks about hypersaturations of \texti
 	the maps $\{0\} \to \Lambda^0[m]$ are built cellularly
 	from left horn inclusions
 	$\Lambda^0[k] \to \Delta[k]$ with $k<m$
-	(in join notation (see \cite[\S 1.2.8]{Lur09} or \cite[\S 7.4]{Per17}),
+	(in join notation (see \cite[\S 1.2.8]{Lur09} or \cite[\S 7.4]{Per18}),
 	$\{0\} \to \Lambda^0[m]$ is 
 	$\Delta[0] \star (\emptyset \to \partial \Delta[m-1])$, and the filtration follows from the cellular filtration of $\partial \Delta[m-1]$).
 	But hence by induction and the cancellation property all left horn inclusions 
@@ -3126,7 +3127,7 @@ the diagram of hom sets
 	\mathsf{Op}^G(\Omega(S), \mathcal{O})&
 \end{tikzcd}
 \end{equation}
-can be interpreted, after unpacking notation (see \cite[\S 4.3]{Per17}),
+can be interpreted, after unpacking notation (see \cite[\S 4.3]{Per18}),
 as a composition of norm maps
 \begin{equation}\label{NORM_COMP_EQ}
 \O(H/K)^H \times \O(K/L \amalg K/K)^K \to \O(H/L \amalg H/K)^H
@@ -3156,7 +3157,7 @@ However, we do not presently require these facts, and thus delay their proof to 
 
 
 %\begin{example}%
-%      To illustrate, consider the $G$-tree from \eqref{TWOREP EQ} (or \cite[Example 4.9]{Per17}).
+%      To illustrate, consider the $G$-tree from \eqref{TWOREP EQ} (or \cite[Example 4.9]{Per18}).
 %      This visualises the fact that the non-equivariant composition
 %      \mbox{$\O(2) \times \O(3) \times \O(3) \to \O(6)$},
 %      read off from the \textit{expanded representation},
@@ -3296,7 +3297,7 @@ the genuine equivalences, which care about all fixed point spaces, and the naive
 which care only about the total spaces.
 However, this distinction vanishes when working in the discrete setting of $G$-sets $\mathsf{Set}^G$,
 unless one instead works with 
-$G$-coefficient systems $\mathsf{Set}^{\mathsf{O}_G^{op}}$.
+$G$-coefficient systems $\mathsf{Set}^{\mathsf{O}_G^{op}}$ (recall that $\mathsf{O}_G$ is the \textit{orbit category} formed by the $G$-sets $G/H$ for $H \leq G$ and $G$-equivariant maps between them).
 Similarly, the category $\mathsf{sOp}^G$ 
 of $G$-simplicial operads
 admits two natural notions of weak equivalence, one which cares about the spaces of norm maps for
@@ -3313,7 +3314,7 @@ $G$-dendroidal sets $\mathsf{dSet}_G$.
 %       those $X \in \dSet_G$ with the (non-strict) right lifting property against \eqref{GGIOP_EQ},
 %       % (referred to as either \textit{weak} genuine equivariant operads, or \textit{genuine} $G$-$\infty$-operads).
 %       and (following the previous remark) the adjunction \eqref{DSETG_EQ} is a Quillen equivalence.
-%       However, this structure is more subtle than that of \cite{Per17},
+%       However, this structure is more subtle than that of \cite{Per18},
 %       and its discussion will also be delayed to a sequel.
 % \end{remark}
 
@@ -3325,7 +3326,7 @@ $G$-dendroidal sets $\mathsf{dSet}_G$.
 Our main goal in this section is to prove Theorems \ref{INC0AGJ THM} and \ref{ANOQUEQUIV THM},
 which jointly establish the Quillen equivalence of three model categories:
 the category of equivariant dendroidal sets $\mathsf{dSet}^G$
-with the ``$G$-$\infty$-operad'' model structure of \cite[Thm. 2.1]{Per17};
+with the ``$G$-$\infty$-operad'' model structure of \cite[Thm. 2.1]{Per18};
 the category of equivariant dendroidal spaces
 $\mathsf{sdSet}^G$ with the
 ``complete equivariant dendroidal Segal space'' model structure in \S \ref{CEDSS SEC} and;
@@ -3620,7 +3621,7 @@ $\mathsf{sdSet}^G = \mathsf{Set}^{\Delta^{op} \times \Omega^{op} \times G}$
 of $G$-equivariant simplicial dendroidal sets.
 
 Since $\Delta$ is a (usual) Reedy category the model structure on $\mathsf{dSet}^G$ 
-in \cite[Thm. 2.1]{Per17} induces 
+in \cite[Thm. 2.1]{Per18} induces 
 a model structure on $\mathsf{sdSet}^G$
 that we will refer to as the \textit{simplicial Reedy model structure}.
 
@@ -3656,7 +3657,7 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 	$X^J \in \mathsf{sdSet}^G$ by
 	$X^J(U) = X\left(\Omega[G \cdot U] \otimes J 
 	\right)$,
-	where $\otimes$ is the tensor product of dendroidal sets (see Example \ref{THM71 EX} for an informal definition or \cite[\S 9]{MW09},\cite[\S 7]{Per17} for an in-depth discussion).
+	where $\otimes$ is the tensor product of dendroidal sets (see Example \ref{THM71 EX} for an informal definition or \cite[\S 9]{MW09},\cite[\S 7]{Per18} for an in-depth discussion).
 \end{notation}
 
 %In particular, we will throughout abbreviate
@@ -3736,9 +3737,9 @@ We call the saturation of the maps in \eqref{JOINTCOF EQ} the class of \textit{n
 The joint fibrant objects $X \in \mathsf{sdSet}^G$ have the following equivalent characterizations:
 \begin{itemize}
 	\item[(i)] $X$ is both simplicial Reedy fibrant and dendroidal Reedy fibrant;
-	\item[(ii)] $X$ is simplicial Reedy fibrant and all maps 
+	\item[(ii)] $X$ is simplicial Reedy fibrant and all the simplicial structure maps 
 	$X_0 \to X_n$ are weak equivalences in $\mathsf{dSet}^{G}$;
-	\item[(iii)] $X$ is dendroidal Reedy fibrant and all maps
+	\item[(iii)] $X$ is dendroidal Reedy fibrant and all the natural maps
 \[
 	X\left(\Omega[T]\right) \to X\left(Sc[T]\right)
 \qquad \text{and} \qquad
@@ -3765,8 +3766,8 @@ For (iii), note first that $X$ is dendroidal fibrant iff $X(B) \to X(A)$ is alwa
 Therefore, $X$ will have the right lifting property against \eqref{SIMPTRIVCOF EQ} iff 
 $X(B) \to X(A)$ is a trivial Kan fibration whenever $A\to B$ is a generating trivial cofibration of $\mathsf{dSet}^G$.
 By adjunction, this is equivalent to showing that
-$X_L \to X_K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Per17}
-(see also the beginning of \cite[\S 8.1]{Per17})
+$X_L \to X_K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Per18}
+(see also the beginning of \cite[\S 8.1]{Per18})
 it suffices to verify that the maps $X_L \to X_K$ have the right lifting property against the maps
 \[
 	\Lambda^{G e} [T] \to \Omega[T],
@@ -3858,17 +3859,17 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
       Hence, by Corollary \ref{JOINTFIBCHAR COR}(ii)
       $c_{!}(X) \to X^{J^{\bullet}}$
       will be a joint fibrant replacement provided that it is a dendroidal equivalence.
-      But this follows from \cite[Cor. 8.21]{Per17},
+      But this follows from \cite[Cor. 8.21]{Per18},
       which implies that the maps $X^{J^m} \to X^{J^0}=X$
       are trivial fibrations in $\mathsf{dSet}^G$
-      (formally, \cite[Cor. 8.21]{Per17} says that $\upsilon_{\**}(X^{J^m}) = X^{(J^m)} \to \upsilon_{\**}(X)$
-      is a trivial fibration in $\mathsf{dSet}_G$, which is an equivalent statement, as noted at the end of the proof of \cite[Thm. 8.22]{Per17}).
+      (formally, \cite[Cor. 8.21]{Per18} says that $\upsilon_{\**}(X^{J^m}) = X^{(J^m)} \to \upsilon_{\**}(X)$
+      is a trivial fibration in $\mathsf{dSet}_G$, which is an equivalent statement, as noted at the end of the proof of \cite[Thm. 8.22]{Per18}).
 %
 %	Given a $G$-$\infty$-operad $X \in \mathsf{dSet}^G$, a joint fibrant model in 
 %	$\mathsf{sdSet}^G$ is given by 
 %	$X^{J^m}$.
 %	Moreover, note that it follows from 
-%	\cite[Cor. 8.21]{Per17}
+%	\cite[Cor. 8.21]{Per18}
 %	that $\upsilon_{\**}\left(X^{J^m}\right) =
 %	 X^{(J^m)} \to X^{(\Delta[m])}$
 %	is a trivial fibration in $\mathsf{sdSet}_G$, 
@@ -4248,6 +4249,7 @@ $ho(X)$ is a genuine equivariant operad in the sense of
 Definition \ref{GEN_OP_DEF}.
 \end{definition}
 
+In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with objects the $G$-sets $G/H$ for $H \leq G$ and arrows the $G$-equivariant maps between them.
 
 \begin{remark}
 	Writing $\iota$ for the inclusion $\Delta \to \Omega$
@@ -5433,11 +5435,11 @@ a complete dendroidal Segal space.
 \section{Indexing system analogue results}\label{INDEX SEC}
 
 
-Just as in \cite[\S 9]{Per17}, we dedicate our final section
+Just as in \cite[\S 9]{Per18}, we dedicate our final section
 to outlining the generalizations of our results indexed by the 
 \textit{indexing systems} of Blumberg and Hill \cite{BH15}.
 Or more precisely, we will work with the \textit{weak indexing systems}
-of \cite[\S 9]{Per17}, \cite[\S 4.4]{BP17},
+of \cite[\S 9]{Per18}, \cite[\S 4.4]{BP17},
 which are a slight generalization of indexing systems, 
 and were also independently identified by Gutierrez and White in \cite{GW17}.
 
@@ -5561,9 +5563,9 @@ by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The 
 	``$G$-normal monomorphism'', ``$G$-inner horn'', ``$G$-inner anodyne'', ``$G$-$\infty$-operad'' are replaced with
 	``$\mathcal{F}$-normal monomorphism'', ``$\mathcal{F}$-inner horn'', ``$\mathcal{F}$-inner anodyne'', ``$\mathcal{F}$-$\infty$-operad'';
 \item the model structure on $\mathsf{dSet}^G$ from 
-\cite[Thm. 2.1]{Per17} is replaced with the model structure
+\cite[Thm. 2.1]{Per18} is replaced with the model structure
 $\mathsf{dSet}^G_{\mathcal{F}}$ (on the \textit{same} underlying category) from 
-\cite[Thm. 2.2]{Per17},
+\cite[Thm. 2.2]{Per18},
 whose cofibrations are the $\mathcal{F}$-normal monomorphisms
 and whose fibrant objects are the $\mathcal{F}$-$\infty$-operads;
 \item genuine dendroidal sets $\mathsf{dSet}_G = \mathsf{Set}^{\Omega_G^{op}}$ are replaced with
