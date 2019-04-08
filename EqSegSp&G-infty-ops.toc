@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Preliminaries}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}The category of trees $\Omega $}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}The category of $G$-trees $\Omega _G$}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Equivariant dendroidal sets}{9}{subsection.2.3}
+\contentsline {section}{\numberline {3}Equivariant inner anodyne maps}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}The characteristic edge lemma}{12}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Segal core, horn and orbital horn inclusions}{18}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Genuine equivariant operads}{22}{subsection.3.3}
+\contentsline {section}{\numberline {4}Quillen equivalences}{25}{section.4}
+\contentsline {subsection}{\numberline {4.1}Joint left Bousfield localizations}{25}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Complete equivariant dendroidal Segal spaces}{28}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Equivariant Segal operads}{30}{subsection.4.3}
+\contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{32}{section.5}
+\contentsline {subsection}{\numberline {5.1}The homotopy genuine operad and Dwyer Kan equivalences}{33}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Rezk completion and fibrant Segal operads}{38}{subsection.5.2}
+\contentsline {section}{\numberline {6}Indexing system analogue results}{42}{section.6}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{44}{appendix.A}

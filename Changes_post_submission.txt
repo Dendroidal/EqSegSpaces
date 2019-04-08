@@ -1,0 +1,4 @@
+- Sharpened the final lemmas in the appendix (REEDYTRCOF LEM and REEDYTRFIC LEM)
+ to discuss non-trivial cofibrations and fibrations.
+
+- Added mention of Lemma REEDYTRFIC LEM to the proof of the completion result Proposition COMPLE PROP.
