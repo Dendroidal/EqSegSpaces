@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt
-%,draft
+,draft
 ]{article}%
 
 
@@ -15,7 +15,6 @@
 }
 \usepackage[open=false]{bookmark}
 
-\usepackage[draft]{showkeys}
 
 \input{commands.tex}%
 
@@ -51,8 +50,9 @@ cd,patterns,calc}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
+  
+  \usepackage[draft]{showkeys}
 }
-
 
 \usepackage{todonotes}%[obeyDraft]
 
@@ -3698,11 +3698,17 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 	for the unique limit preserving functors such that
 	$X(\Omega[G \cdot U]) = X(U)$, $X_{\Delta[n]} = X_n$.
 	
-	Moreover, for fixed 
-	$J \in \mathsf{dSet}^{G}$ we define
-	$X^J \in \mathsf{sdSet}^G$ by
-	$X^J(U) = X\left(\Omega[G \cdot U] \otimes J 
-	\right)$,
+        Moreover,
+        % for fixed $J \in \mathsf{dSet}^{G}$,
+        we define
+        \[
+              X^{(-)}\colon \left(\mathsf{dSet}^G \right)^{op} \longto \mathsf{sdSet}^G,
+              \qquad
+              X^J(U) = X(\Omega[G \cdot U] \otimes J),
+        \]
+	% $X^J \in \mathsf{sdSet}^G$ by
+	% $X^J(U) = X\left(\Omega[G \cdot U] \otimes J 
+	% \right)$,
 	where $\otimes$ is the tensor product of dendroidal sets (see Example \ref{THM71 EX} for an informal definition or \cite[\S 9]{MW09},\cite[\S 7]{Per18} for an in-depth discussion).
 \end{notation}
 
@@ -3981,6 +3987,7 @@ $\gamma_{!}X (U) = X(U)$ if $U \not \in \Delta$
 while $\gamma_{!}X ([n])$ for $[n] \in \Delta$ is given by the pushout on the left below; 
 $\gamma_{\**}X(U)$ is given by the pullback on the right below.
 \[
+      \label{GAMMASTAR_EQ}
 \begin{tikzcd}
 	X(\eta) \ar{r} \ar{d} \arrow[dr, phantom, "\ulcorner", very near start]  &
 	\pi_0 X(\eta) \ar{d}
@@ -4234,6 +4241,7 @@ foreshadowing Corollary \ref{FIB_PREOP_COR}).
 
 
 \begin{proposition}
+      \label{DSSFIB_PROP}
 If $X \in \mathsf{sdSet}^G$ is a dendroidal Segal space, then
 $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 \end{proposition}
@@ -4247,6 +4255,9 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 	is a trivial Kan fibration.
 \end{proof}
 
+
+To define fully-faithfulness for dendroidal Segal spcaes, we need appropriate models for mappings spaces.
+These will be indexed over ``equivariant tuples'' of objects of $X$, as determined by $G$-corollas.
 
 \begin{notation}\label{GCOR NOT}
 Given subgroups $H_i \leq G$, $0\leq i \leq k$ such that
@@ -4316,14 +4327,16 @@ $X(x_1,\cdots,x_k ; x_0) \in \mathsf{sSet}$ via the pullback square
 \]
 \end{definition}
 
+To capture essential surjectivity, we associate a system of categories to any dendroidal Segal space.
 \begin{definition}\label{HMTPYGEN DEF}
 	Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	The \textit{homotopy genuine operad} 
 	$ho(X)\in \mathsf{dSet}_G$ is defined
 by
 	\[
-	ho(X) = \pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right) \right).
-	\]
+	ho(X) = \pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right) \right),
+        \]
+where $\upsilon_{\**}$  and $\gamma_{\**}$ are defined as in \eqref{DSETG_EQ} and \eqref{GAMMASTAR_EQ}.
 Note that the Segal condition on $X$ implies that 
 $ho(X)$ is a genuine equivariant operad in the sense of
 Definition \ref{GEN_OP_DEF}.
@@ -4337,11 +4350,22 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
 	$\Delta \times \mathsf{O}_G \to 
 	\Omega \times \mathsf{O}_G \to
 	\Omega_G$,
-	one has that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories formed by the homotopy categories
-	$ho(X)(C_{H/H})=
-	ho \left(\iota^{\**}\left(X^H\right)\right) = 
-	\pi_0 \left(\iota^{\**} \gamma_{\**}
-	\left(X^H\right)\right)$ for $H \leq G$.
+        unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories\footnote{
+          Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
+        formed by % the homotopy categories
+	\[
+              ho(X)(G \cdot_H [\bullet]) =
+              \pi_0 \left((\gamma_{\**}X)([\bullet])\right)^H = 
+              \pi_0 \left( \iota^{\**} \gamma_{\**}(X^H)\right)_\bullet =
+              ho(\iota^{\**}(X^H))_\bullet,
+        \]
+        % $ ho(X)(C_{H/H})=
+        % ho \left(\iota^{\**}\left(X^H\right)\right) =
+        % \pi_0 \left(\iota^{\**} \gamma_{\**}
+        %       \left(X^H\right)\right)$
+        for $H \leq G$,
+        where the second equality follows from the discussion afer \eqref{DSETG_EQ} and the observation from \eqref{GAMMASTAR_EQ} that $\gamma_{\**}X(U)^H = \gamma_{\**}(X^H)(U)$ for $U \in \Omega^H$ with trivial $H$-action,
+        and the second $ho$ defined on Segal spaces as in \cite[\S 5.5]{Rez01}.
 \end{remark}
 
 \begin{definition}\label{DKEQUIV DEF}
@@ -5299,7 +5323,7 @@ This finishes the proof that DK-equivalences
 $f \colon X \to Y$ are also simplicial equivalences.
 
 Assuming now that $f\colon X \to Y$ is a simplicial equivalence, fully faithfulness follows from \eqref{DKCOM EQ} by considering maps of fibers and essential surjectivity follows since the maps
-$X(\eta)^H \to Y(\eta)^H$ are surjetive on components.
+$X(\eta)^H \to Y(\eta)^H$ are surjective on components.
 \end{proof}
 
 
@@ -5562,12 +5586,12 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
               $\Omega_G$;              
 	\item[(ii)] for each $T \in \Omega_G$ it is
 	$T \in \Omega_{\mathcal{F}}$ iff 
-	$\forall_{v \in V_G(T)} T_v \in \Omega_{\mathcal{F}}$
-	or, equivalently, if
-\begin{equation}\label{SEGCOMB EQ}
-\delta_{\mathcal{F}}(T) =
-\prod_{v \in \boldsymbol{V}_G(T)}\delta_{\mathcal{F}}(T_v).
-\end{equation}
+	$\forall_{v \in V_G(T)} T_v \in \Omega_{\mathcal{F}}$;
+	equivalently,
+        \begin{equation}\label{SEGCOMB EQ}
+              \delta_{\mathcal{F}}(T) =
+              \prod_{v \in \boldsymbol{V}_G(T)}\delta_{\mathcal{F}}(T_v).
+        \end{equation}
 \end{itemize}
 \end{definition}
 
@@ -5710,7 +5734,7 @@ $\mathcal{F}$-corollas, i.e. $G$-corollas
 $C \in \Omega_{\mathcal{F}}$,
 and thus only with $\mathcal{F}$-profiles, thus obtaining a notion of $\mathcal{F}$-fully faithfullness and of $\mathcal{F}$-DK-equivalence 
 (essential surjectivity needs not be changed due to condition (ii'') in Remark \ref{SEGCOMB REM} implying that all the stick $G$-trees $G/H \cdot \eta$ are in $\Omega_{\mathcal{F}}$).
-Thus, noting that the Segal condition (ii') in Remark \ref{SEGCOMB REM}
+Thus, noting that the Segal condition (ii) in Definition \eqref{SEGCOMB EQ} % (ii') in Remark \ref{SEGCOMB REM}
 ensures that the grafted $G$-trees 
 $T=C \amalg_{Ge} D$ in \eqref{HOMOTCIRC EQ}
 are in $\Omega_{\mathcal{F}}$
@@ -5969,7 +5993,7 @@ For $\mathcal{F}_{\text{all}}$
 the family of all subgroups of $G$
 the model structure
 $\C^G_{\mathcal{F}_{\text{all}}}$ is called the 
-\textit{genuine model structure}.
+\textit{genuine or fine model structure}.
 We regard this as the default model structure, 
 and as such denote it simply as $\C^G$.
 
@@ -6346,3 +6370,7 @@ the restriction $\iota_{|r|-1}^{\**} A$, and are thus well defined in each induc
 
 
 \end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
