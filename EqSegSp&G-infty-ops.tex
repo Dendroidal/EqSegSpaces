@@ -458,12 +458,16 @@ containing (contained in) all $U_i$.
 \end{remark}
 
 \begin{proof}
-	\eqref{CUPCAP EQ} determines pre-broad posets 
-	(cf. \cite[Rem. 5.2]{Per18}) $U^{\cup}$ and $U^{\cap}$,
-	hence we need only verify the axioms in 
-	\cite[Defs. 5.1, 5.3, 5.9]{Per18}. 
-	Antisymmetry and simplicity are inherited from $T$, the nodal axiom is obvious from \eqref{CUPCAP EQ}, and the root axiom follows since the $U_i$ have a common root (in the $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
-	$s \leq_d s' \leq_d t$).
+	Since edges and vertices are simply elements and generating broad relations of the broad poset of a tree,  
+	\eqref{CUPCAP EQ} generates pre-broad posets 
+	(cf. \cite[Rem. 5.2]{Per18}) $U^{\cup}$ and $U^{\cap}$.
+	It now suffices to check that 
+	$U^{\cup}$ and $U^{\cap}$ are trees,
+	i.e. that they satisfy the axioms in 
+	\cite[Defs. 5.1, 5.3, 5.9]{Per18}.
+	Antisymmetry and simplicity are inherited from $T$, the root axiom follows since the $U_i$ have a common root (in the $U^{\cap}$ case note that if $s$ is in $U^{\cap}$, then so is any $s'$ such that
+	$s \leq_d s' \leq_d t$),
+	and the nodal axiom is obvious from \eqref{CUPCAP EQ} (which, a posteriori, is correct as an identity on sets of edge and vertex sets).
 \end{proof}
 
 
@@ -1157,7 +1161,7 @@ $\partial \Omega[T] \to \Omega[T]$
 is the class of \textit{$G$-normal monormorphisms},
 i.e. those monomorphisms $X \to Y$ in $\mathsf{dSet}^G$ such that
 $Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$. 
-Moreover, since one can forget the $G$-action when verifying this condition, we will usually call these simply \textit{normal monomorphisms}.
+Moreover, since one can forget the $G$-action when verifying this condition \cite[Rem. 6.7]{Per18}, we will usually call these simply \textit{normal monomorphisms}.
 
 The saturation of the $G$-inner horn inclusions 
 $\Lambda^E[T] \to \Omega[T]$
@@ -2897,7 +2901,7 @@ are built cellularly out of left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ 
 
 Indeed, we show a little more. We say a subcomplex 
 $A \subseteq N \widetilde{[m]}$ is \textit{$0$-stable}
-if a $m$-simplex $\underline{a}$ is in $A$ iff the $(m+1)$-simplex $0\underline{a}$ is.
+if a $k$-simplex $\underline{a}$ is in $A$ iff the $(k+1)$-simplex $0\underline{a}$ is.
 We claim that any inclusion $A \to A'$ of $0$-stable subcomplexes is built cellularly from left horn inclusions $\Lambda^{0}[k] \to \Delta[k]$ with $k\geq 1$.
 Indeed, it suffices to check this when $A'$ attaches as little as 
 possible to $A$, and $0$-stability guarantees that in that case the only two non-degenerate simplices in $A \setminus A'$
@@ -3727,14 +3731,48 @@ Writing
 	\rightleftarrows m)$
 for the contractible groupoid with objects 
 $0,1,\cdots,m$ (cf. Remark \ref{CONTGR REM}),
-we denote
+we write $J^m \in \mathsf{sSet}$ for the nerve
 \[
-J^m = \iota_{!} \left(N \widetilde{[m]}\right) \in \dSet^G
+J^m = N \widetilde{[m]}
 \]
-where $N$ is the nerve functor and
-$\iota_! \colon \mathsf{sSet} \to \mathsf{dSet}$ is the standard inclusion.
-We will regard $J^m$ as equipped with the trivial $G$-action and further abbreviate $J = J^1$.
+and abbreviate $J = J^1$.
+%where $N$ is the nerve functor.
+Moreover, we slightly abuse notation by also writing $J^m \in \mathsf{dSet}^G$ for the corresponding dendroidal set 
+(under the standard inclusion $\iota_! \colon \mathsf{sSet} \to \mathsf{dSet}$) with the trivial $G$-action.
+In fact, we use $J^m \in \mathsf{dSet}^G$ by default and the few  exceptions,
+Proposition \ref{SESP PROP},
+the end of
+Proposition \ref{JDDK PROP}
+and
+Theorem \ref{COMPIFFDK THM},
+should be clear from context.
+
+Lastly, we make a notational remark that may avoid confusion. $J^m$ will always feature in expressions $X(J^m)$, $X^{J^m}$ (or slight variants) as defined in Notation \ref{UNILIMDEN NOT}. As such, $J^{m}$ as $m$ changes should be thought of as ``varying in the dendroidal direction'' (which corresponds to the horizontal simplicial direction $m$), never in the (vertical) simplicial direction $n$.
+% and further abbreviate $J = J^1$.
 \end{notation}
+
+
+\begin{remark}\label{JREEDYCOF REM}
+$J^{\bullet} \in \left(\mathsf{sSet}\right)^{\Delta}$ 
+(and thus $J^{\bullet} \in \left(\mathsf{dSet}^G\right)^{\Delta}$) is a Reedy cofibrant cosimplicial object. 
+
+To see this, we mimic the notation (and argument) in the proof of
+Corollary \ref{SSETSSETADJ COR} by writing 
+$F$ for both a subset $F \subseteq \{0,1,\cdots,m\}$
+and face $F \to [m]$, as well as $\widetilde{F} \to \widetilde{[m]}$ for the natural subgroupoid.
+Further, note that for any simplex $x \in N\widetilde{[m]}$, which can be identified with a non-empty string on $\{0,1,\cdots,n\}$, there is a smallest face $F^x \to [m]$ such that 
+$x \in N\widetilde{F^x}$, namely $F^x$ is the set of ``letters'' of $x$.
+
+The latching map $L_m J^{\bullet} \to J^m$ is then
+$
+\left(\mathop{\colim}_{\text{faces }F \neq [m]} N \widetilde{F}\right) \to N\widetilde{[m]}
+$
+which is monomorphism since:
+\begin{inparaenum}
+	\item[(i)] for any face $F$ the map $N \widetilde{F} \to N\widetilde{[m]}$ is a monomorphism;
+	\item[(ii)] any simplex $x \in N \widetilde{F}$ is identified with the simplex $x \in N \widetilde{F^x}$ in the colimit.
+\end{inparaenum}
+\end{remark}
 
 
 \begin{proposition}
@@ -3901,7 +3939,7 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
       where $J^{m}$ was defined in Notation \ref{JM NOT}
       and $X^{J^m}\in \mathsf{dSet}^G$ is defined as in 
       Notation \ref{UNILIMDEN NOT}.
-      Indeed, since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object in $\mathsf{dSet}^G$,
+      Indeed, since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object in $\mathsf{dSet}^G$ (cf. Remark \ref{JREEDYCOF REM}),
       one has that $X^{J^{\bullet}} \in \mathsf{sdSet}^G$
       is simplicial fibrant.
       Hence, by Corollary \ref{JOINTFIBCHAR COR}(ii)
@@ -4781,6 +4819,8 @@ one recovers the Segal spaces of \cite{Rez01}.
 The following roughly summarizes (and slightly refines)
 \cite[Lemma 5.8, Theorem 6.2, Prop. 11.1, Lemma 11.10]{Rez01} in our setup.
 
+Adapting Notation \ref{UNILIMDEN NOT}, for fixed $X \in \mathsf{ssSet}$ we write $X(-)\colon \mathsf{sSet}^{op} \to \mathsf{sSet}$ for the limit preserving functor such that
+$X(\Delta[m]) = X(m)$. 
 
 \begin{proposition}\label{SESP PROP}
 	Let $X \in \mathsf{ssSet}$ be a Segal space. Then:
@@ -4790,7 +4830,7 @@ The following roughly summarizes (and slightly refines)
 	\item [(ii)] the pullbacks
 \begin{equation}\label{XHDEF EQ}
 \begin{tikzcd}[row sep=1.5em]
-	X^h(n) \ar{r} \ar{d} & X(n) \ar{d}
+	X^h(m) \ar{r} \ar{d} & X(m) \ar{d}
 \\
 	X^h(1) \times_{X(0)} \cdots \times_{X(0)} X^h(1) \ar{r} &
 	X(1) \times_{X(0)} \cdots \times_{X(0)} X(1)
@@ -4837,14 +4877,14 @@ cellular induction yields the more general right pullbacks for all
 $K \in \mathsf{sSet}$.
 \[
 \begin{tikzcd}[row sep=1.5em]
-	X^h(\Delta[n]) \ar{r} \ar{d} &
-	X(\Delta[n]) \ar{d}
+	X^h(\Delta[m]) \ar{r} \ar{d} &
+	X(\Delta[m]) \ar{d}
 &&
 	X^h(K) \ar{r} \ar{d} &
 	X(K) \ar{d}
 \\
-	X^h(\mathsf{sk}_1 \Delta[n]) \ar{r} &
-	X(\mathsf{sk}_1 \Delta[n])
+	X^h(\mathsf{sk}_1 \Delta[m]) \ar{r} &
+	X(\mathsf{sk}_1 \Delta[m])
 	\arrow[lu, phantom, "\lrcorner", very near start]
 &&
 	X^h(\mathsf{sk}_1 K) \ar{r} &
@@ -4853,11 +4893,11 @@ $K \in \mathsf{sSet}$.
 \end{tikzcd}
 \]
 Since 
-$\mathsf{sk}_1 (\partial \Delta[n]) = 
-\mathsf{sk}_1 \Delta[n]$
+$\mathsf{sk}_1 (\partial \Delta[m]) = 
+\mathsf{sk}_1 \Delta[m]$
 if $n \geq 2$
 it follows that the maps
-$X^h(n) \to X^h(\partial \Delta[n])$, $n\geq 2$
+$X^h(m) \to X^h(\partial \Delta[m])$, $m \geq 2$
 are Kan fibrations, and since the map $X^h(1)\ \to X(0) \times X(0)$
 is certainly a Kan fibration, $X^h$ is indeed Reedy fibrant. 
 The Segal condition for $X^h$ is obvious from the pullback \eqref{XHDEF EQ}.
@@ -5150,7 +5190,7 @@ $\mathsf{sdSet}^G$
 as the \textit{horizontal Reedy model structure} on 
 $\mathsf{ssdSet}^G$.
 
-Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object, it follows that 
+Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}), it follows that 
 $X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
 $X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
 is a horizontal fibration in $\mathsf{ssdSet}^G$ as well.
@@ -5161,7 +5201,7 @@ X^{J^{\bullet}}(\Omega[T]) \to
 \left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])
 \end{equation}
 are horizontal Reedy fibrations in $\mathsf{ssSet}$
-in the sense of in \S \ref{JOINBOUS SEC}.
+in the sense of \S \ref{JOINBOUS SEC}.
 In particular, for each vertex map $[0] \to [m]$ the induced square
 \[
 \begin{tikzcd}
@@ -5204,7 +5244,7 @@ But since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM
 
 For the remaining claim that the composite
 $X = X^{J^{0}} \to 
-\delta^{\**}\left( X^{J_{\bullet}} \right)
+\delta^{\**}\left( X^{J^{\bullet}} \right)
 \to \tilde{X}$
 is a DK equivalence, 
 note that though
