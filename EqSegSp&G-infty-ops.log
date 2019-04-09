@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  8 APR 2019 18:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  8 APR 2019 20:23
 entering extended mode
 **./EqSegSp&G-infty-ops.tex
 (EqSegSp&G-infty-ops.tex
@@ -1200,18 +1200,18 @@ n/10 is a monomor-
  []
 
 [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-Overfull \hbox (1.86284pt too wide) detected at line 5036
-[]
- []
-
-
-Overfull \hbox (0.26787pt too wide) detected at line 5066
+Overfull \hbox (1.86284pt too wide) detected at line 5061
 []
  []
 
 [39]
-Overfull \hbox (3.85019pt too wide) in paragraph at lines 5121--5126
-[][]\OT1/cmr/bx/n/10 Definition 5.25. []\OT1/cmr/m/n/10 Two maps $\OML/cmm/m/it
+Overfull \hbox (0.26787pt too wide) detected at line 5091
+[]
+ []
+
+
+Overfull \hbox (3.85019pt too wide) in paragraph at lines 5146--5151
+[][]\OT1/cmr/bx/n/10 Definition 5.27. []\OT1/cmr/m/n/10 Two maps $\OML/cmm/m/it
 /10 f; f[]\U/MnSymbolC/m/n/10  \OML/cmm/m/it/10 X \U/MnSymbolA/m/n/10  \OML/c
 mm/m/it/10 Y$ \OT1/cmr/m/n/10 be-tween den-droidal Se-gal spaces are called $\O
 ML/cmm/m/it/10 J$\OT1/cmr/m/it/10 -homotopic\OT1/cmr/m/n/10 ,
@@ -1225,22 +1225,22 @@ OT1/cmr/m/it/10 Al-gebr. Geom. Topol.\OT1/cmr/m/n/10 ,
  []
 
 ) [52]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6352.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6352.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6377.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6377.
  (EqSegSp&G-infty-ops.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6352.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6352.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6377.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6377.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6352.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6377.
  ) 
 Here is how much of TeX's memory you used:
- 30117 strings out of 493312
- 575273 string characters out of 3138900
- 671864 words of memory out of 3000000
- 32806 multiletter control sequences out of 15000+200000
+ 30203 strings out of 493312
+ 577406 string characters out of 3138900
+ 671193 words of memory out of 3000000
+ 32890 multiletter control sequences out of 15000+200000
  47382 words of font info for 176 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,20n,86p,3282b,1896s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1285,9 +1285,9 @@ cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7
 Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on EqSegSp&G-infty-ops.pdf (52 pages, 1003786 bytes).
+Output written on EqSegSp&G-infty-ops.pdf (52 pages, 1006907 bytes).
 PDF statistics:
- 1279 PDF objects out of 1440 (max. 8388607)
- 266 named destinations out of 1000 (max. 500000)
+ 1285 PDF objects out of 1440 (max. 8388607)
+ 268 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
