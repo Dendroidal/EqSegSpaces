@@ -38,6 +38,7 @@ The following lists the corrections of typos listed in the preliminary referee r
 \item[20.] Replaced ``is an orbital $G$-subset'' with ``is a transitive $G$-subset''
 \item[22.] added ``$\emptyset \neq E$''
 %\item[24.] Reworded ``is cellular on'' to ``is built by attaching'' $G$-inner horn inclusions
+\item[28.] explained what ``associative and unital'' means for the isomorphisms $U_i \xrightarrow{g} U_{gi}$
 \item[29.] replaced instances of $Y$ with $B$
 \item[31.] replaced ``subsets'' with ``simplicial subsets'' in the discussion of covers (``which in our language are the simplicial subsets'')
 \item[32.] added comment noting that the ``dendroidal cover'' definition extends to the equivariant context
@@ -112,6 +113,14 @@ Additionally, checked all references to the paper to make sure that they match t
 As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined without much worry.
 However, separating (Ch3) is needed to control the isotropies (which is why (Ch3) is needed when verifying condition (c) in the proof). In fact, in earlier iterations of the characteristic edge lemma condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified.
 
+\item[30.] Corrected $A_C = A \cup \bigcup_{g\in G,V \in C} b_{[g]}(\Omega[gV]) = 
+A \cup \bigcup_{g\in G,V \in C} g b_{[e]}(\Omega[V])$.
+
+Similarly, added the alternate formula already in the proof of the characteristic edge lemma.
+
+{\color{red} To do:} Explain that here $gV$ refers to the image of $V$ under the induced isomorphism 
+$\mathsf{Face}(U_{[e]}) \xrightarrow{g} \mathsf{Face}(U_{[g]})$
+
 \item[40.] this is a matter of taste, but I find changing $T$ to $S$ in $\Lambda^E_o[T] \to \Omega[T]$ to contrast with $Sc[T] \to \Omega[T]$ to be a bit confusing. To emphasize that both of the $T$ variables are free, rather than chosen, I've instead added ``$T\in \Omega_G$'' to both expressions 
 \end{itemize}
 
@@ -122,6 +131,9 @@ However, separating (Ch3) is needed to control the isotropies (which is why (Ch3
 
 \begin{itemize}
 \item[9.] Rephrased the language in the ``$U^{\cup}$ and $U^{\cap}$'' proof to explain why the argument isn't circular. The main point being that ``edge'' and ``vertex'' are simply suggestive names for ``element'' and ``generating relation'' of the broad poset.
+
+\item[21.] Provided references for the characterization of $G$-normal monomorphisms.
+ 
 
 \item[26.] Added a new paragraph explaining why conditions (a)(b)(c) imply that the given square is a pushout.
 
