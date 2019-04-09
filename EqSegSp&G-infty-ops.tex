@@ -4120,10 +4120,10 @@ $E_{\infty}\times (X\to Y)$, so that one is free to assume that $X,Y$ are normal
 One is thus free to pick a section $s\colon Y \to X$
 of $p\colon X\to Y$ and,
 regarding $J \in \mathsf{dSet}^G$ as a simplicially constant object of $\mathsf{sdSet}^G$,
-our assumption yields the lift below, showing that $p$ is a homotopy equivalence.
+our assumption yields the lift below, showing that $p$ is a homotopy equivalence (the implicit claim that $X \otimes J$ is a cylinder object follows from \cite[Prop. 7.25]{Per18}, which implies $X \amalg X \to X \otimes J$ is a normal monomorphism, and \cite[Thm. 7.1]{Per18}, which implies the inclusions $X \to X \otimes J$ are $G$-inner anodyne on each simplicial level, thus dendroidal equivalences and hence joint equivalences).
 \begin{equation}
 \begin{tikzcd}[column sep = 4em]
-	X \coprod X \ar{r}{(id_X,sp)} \ar{d} &
+	X \amalg X \ar{r}{(id_X,sp)} \ar{d} &
 	X \ar{d}{p}
 \\
 	X \otimes J \ar[dashed]{ru} \ar{r} & Y
@@ -4855,7 +4855,7 @@ For (i), given
 $f \colon x \to y$ in $X_0(1)$
 one has that $[f]$ has a left inverse iff there exists $p$
 as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)$, there is a lift in the right diagram
-\[
+\begin{equation}\label{LEFTINV EQ}
 \begin{tikzcd}[column sep =40]
 	& X(2) \ar[->>]{d}{(d_2,d_1)}
 &
@@ -4868,14 +4868,14 @@ as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)
 	\Delta[1] \ar{r}[swap]{(H,s_0 d_1(H))} \ar[dashed]{ru} &
 	X(1) \times_{X(0)} X(1)
 \end{tikzcd}
-\]
+\end{equation}
 showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
 
 For (ii), that $X^h$ is closed under the simplicial operators follows since equivalences are closed under composition.
 Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted as on the left below,
 cellular induction yields the more general right pullbacks for all 
 $K \in \mathsf{sSet}$.
-\[
+\begin{equation}\label{XHGENDEF EQ}
 \begin{tikzcd}[row sep=1.5em]
 	X^h(\Delta[m]) \ar{r} \ar{d} &
 	X(\Delta[m]) \ar{d}
@@ -4891,7 +4891,7 @@ $K \in \mathsf{sSet}$.
 	X(\mathsf{sk}_1 K)
 	\arrow[lu, phantom, "\lrcorner", very near start]
 \end{tikzcd}
-\]
+\end{equation}
 Since 
 $\mathsf{sk}_1 (\partial \Delta[m]) = 
 \mathsf{sk}_1 \Delta[m]$
@@ -4905,7 +4905,7 @@ The Segal condition for $X^h$ is obvious from the pullback \eqref{XHDEF EQ}.
 For (iii), it suffices by symmetry to establish the first claim.
 It is then enough to show that for any choice of section 
 in the following diagram the top composite is a Kan equivalence.
-\[
+\begin{equation}
 \begin{tikzcd}[column sep = 60]
 	X^h(1) \times_{X_0} X^h(1) \ar[bend left=17,dashed]{r} 
 	\ar[->>]{rd}[swap]{(id,d_0)}&
@@ -4915,7 +4915,7 @@ in the following diagram the top composite is a Kan equivalence.
 \\
 	& X^h(1) \times X(0)
 \end{tikzcd}
-\]
+\end{equation}
 But this composite is a map of Kan fibrations over
 $X^h(1) \times X(0)$ with the map between the fibers over 
 $(f \colon x \to y,z)$
@@ -4925,17 +4925,46 @@ which is a Kan equivalence since $f \in X_0^h(1)$ is an equivalence.
 Thus the composite is a Kan equivalence, establishing (iii).
 
 
-Lastly, for (iv) note that (iii) says that $X^h$ is local with respect to the outer horn inclusions
+Lastly, for (iv) note first that (iii) says that $X^h$ is local with respect to the outer horn inclusions
 $\Lambda^0[2] \to \Delta[2]$ and
 $\Lambda^2[2] \to \Delta[2]$, 
 and hence by Remarks 
 \ref{ANHYPER REM} and \ref{CONTGR REM}
 the map 
 $X^h(J) \to X^h(1)$ 
-is a Kan equivalence.
-The only remaining claim is that
-$X^h(J) = X(J)$, which is clear.
+is a Kan equivalence. 
+It remains to show
+$X^h(J) = X(J)$, for which we consider
+the following diagrams, where maps out of $X(J)$ are labeled as $\partial_{\underline{a}}$ for $\underline{a}$ the associated simplex of $J$ (which is a string on $\{0,1\}$)
+\[
+\begin{tikzcd}[column sep = 20]
+	X(J) \ar[bend left=19]{rr}{\partial_{00}} \ar{r}{\partial_{010}}
+	\ar[->]{rd}[swap]{(\partial_{01},\partial_{10})}&
+	X(2) \ar[->]{r}{d_1} \ar[->]{d}{(d_2,d_0)} &
+	X(1) 
+%	\ar[->>]{dl}{(id,d_0)}
+&
+	X(J) \ar[bend left=19]{rr}{\partial_{11}} \ar{r}{\partial_{101}}
+	\ar[->]{rd}[swap]{(\partial_{10},\partial_{01})}&
+	X(2) \ar[->]{r}{d_1} \ar[->]{d}{(d_2,d_0)} &
+	X(1) 
+%	\ar[->]{dl}{(id,d_0)}
+\\
+	& X(1) \times_{X(0)} X(1) &
+&
+	& X(1) \times_{X(0)} X(1) &
+\end{tikzcd}
+\]
+Since $\partial_{00},\partial_{11}$ are degenerate, for any $x \in X_0(J)$ one has that 
+$\partial_{01}(x)$, $\partial_{10}(x)$ are inverse equivalences, as exhibited by $\partial_{010}(x), \partial_{101}(x)$
+(cf. \eqref{LEFTINV EQ}).
+This shows that $\partial_{01}, \partial_{10}$
+factor through $X^h(1)$
+so that
+$X(J) \to X(\mathsf{sk}_1 J)$ factors through
+$X^h(\mathsf{sk}_1 J)$, and thus \eqref{XHGENDEF EQ} finishes the proof.
 \end{proof}
+
 
 \begin{remark}
 The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
@@ -6240,7 +6269,7 @@ $K = H$ and
 $\mathbb{S} = H \ltimes \mathbb{R}^+(r)$
 to the map $d^{\**}A \to d^{\**}B$. Note that $\mathcal{F}$-trivial cofibrations are always genuine trivial cofibrations, for any family, so that the trivial cofibrancy requirements are immediate from Corollary \ref{RESGEN COR}. 
 It thus follows that the maps labelled $\sim$ in
-\begin{equation}\label{WHATEV EQ}
+\begin{equation}\label{WHATEV2 EQ}
 \begin{tikzcd}[row sep=10]
    L_r A \ar[>->]{r}{\sim} \ar[d]  & 
    L_r B \ar[d] & 
@@ -6255,7 +6284,7 @@ are $H$-genuine trivial cofibrations, finishing the proof of (ii).
 Lastly (i) follows from a streamlined version of the argument above, 
 with the same instance of Lemma \ref{GINJ LEM} showing that the maps 
 $L_r A \to L_r B$ are $H$-genuine cofibrations and thus,
-by again considering the diagram \eqref{WHATEV EQ},
+by again considering the diagram \eqref{WHATEV2 EQ},
 that so are the maps $A_r \to B_r$. 
 \end{proof}
 
