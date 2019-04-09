@@ -815,9 +815,9 @@ We will need no analogous notation for orbital outer faces.
 
 \begin{proposition}\label{MINGFACT PROP}
 	Let $T \in \Omega_G$.
-	Any (non-equivariant) planar face $U \hookrightarrow T$ has a minimal factorization
-	$U \hookrightarrow GU \hookrightarrow T$
-	through a planar orbital face $GU$.
+	For any (non-equivariant) planar face $U \hookrightarrow T$ 
+	there is a smallest planar orbital face $GU \hookrightarrow T$
+	such that $U \hookrightarrow GU$. 
 \end{proposition}
 
 \begin{proof}
@@ -848,11 +848,9 @@ all the edges in $Hl \cap \boldsymbol{E}(U)$ are leaves of $U$,
 	$\forall_{h \in H}$($l \in \boldsymbol{E}(hU)$ implies that $l$ is a leaf of $hU$) iff
 	$\forall_{h \in H}$($h^{-1} l \in \boldsymbol{E}(U)$ implies that $l$ is a leaf of $U$).
 	
-	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 
-	It is now clear that $U \to G\bar{U} \to T$ is the minimal factorization with $G\bar{U}$ an \textit{outer} orbital face,
-	and thus the factorization
-	$U \to GU \to T$ exists and is minimal
-	since inner faces are full (Remark \ref{INNFULL REM})
+	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 	
+	It is now clear that $G\bar{U}$ is the smallest planar \textit{outer} orbital face such that $U \to G\bar{U}$, and thus $GU$ is the smallest planar orbital face such that $U \to G U$
+	due to the fact that inner faces are full (Remark \ref{INNFULL REM})
 	together with the inner-outer factorization of
 	orbital faces (Remark \ref{INNOUTORB REM}).
 \end{proof}
@@ -4097,17 +4095,21 @@ Further, we note that Remark \ref{GAMMASH REM} applies to these maps.
 \end{notation}
 
 
+In what follows, we say a map in $\mathsf{PreOp}^G$ is a normal monomorphism if it is one in $\mathsf{sdSet}^G$.
+
 \begin{lemma}\label{GENSET LEM}
-	The maps in $\mathsf{PreOp}^G$ that are normal monomorphisms in $\mathsf{sdSet}^G$ are the saturation of the set of maps
+	The normal monomorphisms in $\mathsf{PreOp}^G$ are the saturation of the set of maps
 $\{\emptyset \to G/H\cdot \eta \colon H \leq G\} \cup \gamma_! (\mathcal{I}')$.
 \end{lemma}
 
+
 \begin{proof}
-	Using the cellular filtration in $\mathsf{sdSet}^G$, 
-	any normal monomorphism $A \to B$ in $\mathsf{PreOp}^G$ can (upon inclusion) be written as a transfinite composition of pushouts of maps in 
-	$\{\emptyset \to G/H\cdot \eta\} \cup \mathcal{I}'$.
-	But since the squares \eqref{GAMMASH EQ} are pushouts the same also holds for  
-	$\{\emptyset \to G/H\cdot \eta\} \cup \gamma_!(\mathcal{I}')$.
+	If $A \to B$ in $\mathsf{PreOp}^G$ is a normal monomorphism, then using the cellular filtration in $\mathsf{sdSet}^G$ one can write 
+	$\gamma^{\**}(A \to B)$ as a transfinite composition of pushouts of maps in 
+	$\{\emptyset \to G/H\cdot \eta\} \cup \mathcal{I}'$, 
+	and hence $\gamma_!\gamma^{\**}(A \to B) \simeq (A \to B)$ can similarly be written as a transfinite composition of pushouts of maps in 
+	$\{\emptyset \to G/H\cdot \eta\} \cup \gamma_!\left(\mathcal{I}'\right)$.
+	The remaining claim that the maps in $\{\emptyset \to G/H\cdot \eta\} \cup \gamma_!(\mathcal{I}')$ are normal monomorphisms follows from the pushouts \eqref{GAMMASH EQ}.
 \end{proof}
 
 
