@@ -18,6 +18,8 @@
 
 \input{commands.tex}%
 
+\usepackage{todonotes}
+\usepackage{multirow}
 
 
 
@@ -47,18 +49,15 @@ cd,patterns,calc}
 \usepackage{ifdraft}
 \ifdraft{
   \color[RGB]{63,63,63}
-  % \pagecolor[rgb]{0.5,0.5,0.5}
-%  \pagecolor[RGB]{220,220,204}
+  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
+  % \pagecolor[rgb]{0.5,0.5,0.5}
   
   \usepackage{showkeys}
 }
 {
 \usepackage[notref]{showkeys}
 }
-
-\usepackage{todonotes}%[obeyDraft]
-\usepackage{multirow}
 
 % -------- Reference Numbering
 % \numberwithin{equation}{section}%
@@ -202,11 +201,11 @@ The following table provides a summary of the parallel narratives, listing the d
         \\ \hline
         Segal precategories $\mathsf{SeCat}$ & Segal preoperads $\mathsf{PreOp}$ & equiv. Segal preoperads $\mathsf{PreOp}^G$
         \\
-        ``Hirschowitz-Simpson'' & model structure from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
+        Hirschowitz-Simpson & model structure from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
         \\
         Segal categories & Segal operads & equiv. Segal operads
         \\ \hline
-        simplicial categories & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
+        simplicial categories $\mathsf{sCat}$ & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
         \\
         Bergner model structure & model structure from \cite{CM13b} & model structure from \cite{BP_sq}
         \\ \hline
@@ -5211,15 +5210,22 @@ Moreover, just as in \eqref{GENLEXREL EQ},
 $C \star \eta$ and $\eta \star C$ have a common orbital face, which we denote simply by $C$
 (since this face is canonically isomorphic to the original $C$),
 leading to a decomposition
-\[
-\Omega[1] \otimes \Omega[C]
-	\simeq
-\Omega[C \star \eta] \otimes_{\Omega[C]} \Omega[\eta \star C]
-\]
+\begin{equation}
+      \label{OTIMESOC_EQ}
+      \Omega[1] \otimes \Omega[C]
+      \simeq
+      \Omega[C \star \eta] \coprod_{\Omega[C]} \Omega[\eta \star C]
+\end{equation}
 We note that this holds even if $k=0$, 
 which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
+\begin{remark}
+      When $G = e$ and $C = [1]$, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
+      \[
+            \Delta[1] \times \Delta[1] \simeq \Delta[2] \coprod_{\Delta[1]} \Delta[2].
+      \]
+\end{remark}
 
 \begin{proposition}\label{JDDK PROP}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
@@ -6387,11 +6393,30 @@ The duality of their proofs reflects the duality in
 Corollary \ref{RESGEN COR}.
 \end{remark}
 
-In the following, given $K \leq \mathsf{Aut}(\mathbb{R})$,
-we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck construction. Informally, 
-$K \ltimes \mathbb{R}$ is obtained from $\mathbb{R}$
-by formally adding arrows $k \colon r \to k r$ for 
-$k\in K, r \in \mathbb{R}$.
+In the following, given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
+we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck fibration associated to the action map $K \to \Cat$.
+Informally, we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
+$e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \to r'$ in $\mathbb R$.
+\[
+      \begin{tikzcd}% [row sep = small, column sep = small]
+            r \arrow[rr, "k"] \arrow[dr, "hk"']
+            &&
+            k r \arrow[dl, "h"]
+            & % ----------
+            r \arrow[r, "k"] \arrow[d, "f"']
+            &
+            k r \arrow[d, "k f"]
+            \\
+            &
+            h k r
+            &
+            & % ----------
+            r' \arrow[r, "k"]
+            &
+            k r'
+      \end{tikzcd}
+\]
+Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$. 
 
 Further, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
 the category of arrows
