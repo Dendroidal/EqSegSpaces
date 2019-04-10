@@ -48,7 +48,7 @@ cd,patterns,calc}
 \ifdraft{
   \color[RGB]{63,63,63}
   % \pagecolor[rgb]{0.5,0.5,0.5}
-  \pagecolor[RGB]{220,220,204}
+%  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   
   \usepackage[draft]{showkeys}
@@ -351,7 +351,8 @@ $\varphi(\underline{l}_S) = \underline{l}_T$
 (where $r_{(-)}$ denotes the root edge and $\underline{l}_{(-)}$ the leaf tuple)
 and called an \textit{outer face map} if it does not admit a factorization as a non-isomorphism inner face map followed by a face map.
 
-The following result is \cite[Cor. 3.32]{BP17}.
+The following result is \cite[Cor. 3.32]{BP17}, with the additional planar statement following from the unique factorization of maps in $\Omega$ as isomorphisms followed by planar maps. 
+
 \begin{proposition}\label{UNIQUEFACT PROP}
 	A map $\varphi \colon S \to T$ in $\Omega$ has a factorization, unique up to unique isomorphisms,
 \[
@@ -361,6 +362,8 @@ The following result is \cite[Cor. 3.32]{BP17}.
 	T	
 \]
 as a degeneracy followed by an inner face map followed by an outer face map.
+
+Moreover, if $\varphi$ is planar, there is a (strictly) unique factorization with $\varphi^{-},\varphi^i,\varphi^o$ also planar. 
 \end{proposition}
 
 We next recall an explicit characterization and notation for planar inner/outer faces
@@ -622,11 +625,15 @@ identifying this $G$-action with the natural action on subsets. However, we pref
 \end{notation}
 
 
-\begin{notation}
+
+\begin{notation}\label{BARUT NOT}
 	Given $T\in \Omega_G$ and a planar face
-	$U \hookrightarrow T$ we write $\bar{U}^T$, 
-	or just $\bar{U}$ when no confusion should arise, 
-	for the \textit{outer closure of $U$}, i.e. the smallest planar outer face of $T$ containing $U$.
+	$\varphi \colon U \hookrightarrow T$ we write $\bar{U}^T$, or just $\bar{U}$ when no confusion should arise, for the face in the unique planar factorization
+	$U \overset{\varphi^i}{\hookrightarrow} \bar{U}^T \overset{\varphi^o}{\hookrightarrow} T$
+	in Proposition \ref{UNIQUEFACT PROP}.
+	We will call $\bar{U}^T$ the \textit{outer closure of $U$}, due to it being the smallest planar outer face of $T$ containing $U$ (to see this, let $V \hookrightarrow T$ be a planar outer face such that $U \hookrightarrow V$; then Proposition \ref{UNIQUEFACT PROP} applied to 
+	$U \hookrightarrow \bar{U}^V \hookrightarrow V \hookrightarrow T$ implies it must be $\bar{U}^V = \bar{U}^T$, showing 
+	$\bar{U}^T \hookrightarrow V$).
 \end{notation}
 
 
@@ -807,10 +814,57 @@ We will need no analogous notation for orbital outer faces.
 \end{notation}
 
 
-\begin{remark}\label{INNOUTORB REM}
-	It follows from Proposition \ref{UNIQUEFACT PROP} that any orbital face $S \hookrightarrow T$ has a factorization
-	$S \hookrightarrow R \hookrightarrow T$, unique up to isomorphism, as an orbital inner face followed by an orbital outer face.	
-\end{remark}
+
+One has the following orbital face analogue of Proposition \ref{UNIQUEFACT PROP}.
+
+\begin{proposition}\label{INNOUTORB PROP}
+	Any orbital face $\varphi \colon S \hookrightarrow T$ in $\Omega_G$ has a factorization 
+	$S \overset{\varphi^i}{\hookrightarrow} R \overset{\varphi^o}{\hookrightarrow} T$, unique up to unique isomorphism, as an orbital inner face followed by an orbital outer face.	
+	
+	Moreover, if $\varphi$ is planar, there is a (strictly) unique factorization with $\varphi^i,\varphi^o$ also planar. 
+\end{proposition}
+
+
+
+\begin{proof}
+It suffices to prove the planar statement.
+Writing $T = \amalg_{i \in I} T_i$ and $S = \amalg_{j\in J} S_j$ for the tree component decompositions,
+$\varphi \colon S \hookrightarrow T$ is described by a map 
+$\varphi \colon J \to I$ together with planar face maps
+$S_j \hookrightarrow T_{\varphi(j)}$.
+Abbreviating $\bar{S}_j = \bar{S}_j^{T_{\varphi(j)}}$ (cf. Notation \ref{BARUT NOT}), the uniqueness in Proposition \ref{UNIQUEFACT PROP}
+shows that the maps 
+$S_j \hookrightarrow \bar{S}_j \hookrightarrow T_{\varphi(j)}$ must be the components of the desired factorization
+$S \hookrightarrow R \hookrightarrow T$, so that it remains only to show that 
+$R = \amalg_j \bar{S}_j$
+admits a unique compatible $G$-action and that the natural map
+$R \to T$ is injective.
+To obtain the $G$-action on $R$, we again apply 
+Proposition \ref{UNIQUEFACT PROP}
+to obtain unique dashed arrows as in the following diagram.
+\[
+\begin{tikzcd}
+	S_j \ar[hookrightarrow]{r} \ar{d}{g} & 
+	\bar{S}_j \ar[hookrightarrow]{r} \ar[dashed]{d}{g} &
+	T_{\varphi(j)} \ar{d}{g}
+\\
+	S_{gj} \ar[hookrightarrow]{r} & 
+	\bar{S}_{gj} \ar[hookrightarrow]{r} & T_{g\varphi(j)}
+\end{tikzcd}
+\]
+That the $G$-action is associative and unital, meaning that the composite
+$\bar{S}_j \xrightarrow{g} \bar{S}_{gj} \xrightarrow{\bar{g}} \bar{S}_{\bar{g}gj}$ equals 
+$\bar{S}_j \xrightarrow{\bar{g}g} \bar{S}_{\bar{g}gj}$
+and that 
+$\bar{S}_j \xrightarrow{e} \bar{S}_{ej}$
+is the identity $\bar{S}_j = \bar{S}_{ej}$, 
+follows from the analogous properties for $S,T$ and the uniqueness in Proposition \ref{UNIQUEFACT PROP}. 
+Lastly, the remaining claim that $R \to T$ is injective follows since each map $\bar{S}_j \hookrightarrow T$ is injective together with the fact that the roots $r_{\bar{S}_j} = r_{S_j}$
+are $\leq_d$-incomparable, so that edges of $T$ in different $\bar{S}_j$ are also $\leq_d$-incomparable \cite[Cor. 5.25]{Per18}.
+\end{proof}
+
+{\color{red} HERE}
+
 
 
 \begin{proposition}\label{MINGFACT PROP}
@@ -852,7 +906,7 @@ all the edges in $Hl \cap \boldsymbol{E}(U)$ are leaves of $U$,
 	It is now clear that $G\bar{U}$ is the smallest planar \textit{outer} orbital face such that $U \to G\bar{U}$, and thus $GU$ is the smallest planar orbital face such that $U \to G U$
 	due to the fact that inner faces are full (Remark \ref{INNFULL REM})
 	together with the inner-outer factorization of
-	orbital faces (Remark \ref{INNOUTORB REM}).
+	orbital faces (Proposition \ref{INNOUTORB PROP}).
 \end{proof}
 
 
