@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt
-,draft
+ ,draft
 ]{article}%
 
 
@@ -51,11 +51,14 @@ cd,patterns,calc}
 %  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   
-  \usepackage[draft]{showkeys}
+  \usepackage{showkeys}
+}
+{
+\usepackage[notref]{showkeys}
 }
 
 \usepackage{todonotes}%[obeyDraft]
-
+\usepackage{multirow}
 
 % -------- Reference Numbering
 % \numberwithin{equation}{section}%
@@ -144,12 +147,16 @@ and
 $\mathsf{sOp}$ is the category of simplicial colored operads.
 Their program was carried out in three main steps:
 \begin{inparaenum}
-	\item[(i)] \cite{CM11} established the existence of the model structure on $\mathsf{dSet}$
+	\item[(i)] \cite{CM11} established the existence of the $\infty$-operad model structure on $\mathsf{dSet}$ 
 	(with some of the key combinatorial analysis based on Moerdijk and Weiss' previous work in \cite{MW09});
 	\item[(ii)] \cite{CM13a} established auxiliary model structures on the categories $\mathsf{sdSet}$ and $\mathsf{PreOp}$
-	of dendroidal spaces and pre-operads, and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
-	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program.
+              of dendroidal spaces and pre-operads,
+              modeling complete dendroidal Segal spaces and Segal operads respectively,
+              and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
+	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program.\footnote{
+                This narrative is itself a generalization of the interactions between the various models for $(\infty,1)$-categories, including complete Segal spaces and Segal categories. A survey of such models can be found at e.g. \cite{Ber10}.}
 \end{inparaenum}
+
 
 From the perspective of the Cisinski-Moerdijk program, 
 \cite{Per18} is then the equivariant analogue of the first step \cite{CM11} (as well as \cite{MW09}), 
@@ -170,9 +177,45 @@ Theorems \ref{INC0AGJ THM}, \ref{PREOPMOD THM}, \ref{ANOQUEQUIV THM},
 are then the existence of suitable model structures on the categories 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 of $G$-dendroidal spaces and $G$-pre-operads,
+modeling complete equivariant dendroidal Segal spaces and equivariant Segal operads,
 as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
+
+The following table provides a summary of the parallel narratives, listing the different model categories as well as the nomenclature for the fibrant objects.
+\begin{table}[htbp]
+      \centering
+      \begin{tabular}{|c|c|c|}
+        \hline
+        ``categories up to htpy'' & ``operads up to htpy'' & ``genuine equiv. operads up to htpy''
+        \\ \hline
+        simplicial sets $\sSet$ & dendroidal sets $\dSet$ & equivariant dendroidal sets $\dSet^G$
+        \\
+        Joyal model structure & model structure from \cite{CM11} & model structure from \cite{Per18}
+        \\
+        $\infty$-categories & $\infty$-operads & $G$-$\infty$-operads
+        \\ \hline
+        bisimplicial sets $\mathsf{ssSet}$ & simplicial dendroidal sets $\mathsf{sdSet}$ & equiv. simplicial dend. sets $\mathsf{sdSet}^G$
+        \\
+        Rezk model structure & model structure from \cite{CM13a} & model structure from \S \ref{CEDSS SEC}
+        \\
+        complete Segal spaces & complete dendroidal Segal spaces & complete equiv. dend. Segal spaces
+        \\ \hline
+        Segal precategories $\mathsf{SeCat}$ & Segal preoperads $\mathsf{PreOp}$ & equiv. Segal preoperads $\mathsf{PreOp}^G$
+        \\
+        ``Hirschowitz-Simpson'' & model structure from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
+        \\
+        Segal categories & Segal operads & equiv. Segal operads
+        \\ \hline
+        simplicial categories & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
+        \\
+        Bergner model structure & model structure from \cite{CM13b} & model structure from \cite{BP_sq}
+        \\ \hline
+      \end{tabular}
+\end{table}
+
+
+
 
 It is worth noting that, much as was the case of the work in \cite{Per18}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
@@ -187,6 +230,17 @@ some of the new technical hurdles in this paper versus \cite{CM13a} come from th
 which we repackage in \S \ref{GENEQOP SEC} via an independent (but equivalent) perspective to that of \cite{BP17}.
 
 
+
+
+
+
+
+
+
+
+
+
+% -------------------- ORGANIZATION --------------------
 \vskip 10pt
 
 The organization of the paper is as follows.
@@ -212,7 +266,8 @@ Lastly, \S \ref{GENEQOP SEC} recasts the \textit{genuine equivariant operads} of
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
 via largely abstract methods.
 Our approach is inspired by 
-\cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
+\cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures,
+and our narrative has been modified to highlight this.
 As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common localizations, 
 which is then applied in \S \ref{CEDSS SEC} to obtain the Quillen equivalence
 $\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
@@ -245,7 +300,6 @@ when describing the model structure on $\mathsf{sdSet}^G$.
 The key to this appendix is the \textit{Reedy-admissibility} condition in 
 Definition \ref{GENRED DEF}(iv),
 which is a fairly non-obvious equivariant generalization of one of the generalized Reedy axioms in \cite{BM11}.
-
 
 
 \section{Preliminaries}\label{PREL SEC}
@@ -337,7 +391,7 @@ come with a preferred planar representation,
 though this can also be formalized in purely algebraic terms, see \cite[\S 3.1]{BP17}.
 For our purposes, the main consequence is that any map 
 $S \to T$ in $\Omega$ has a (strictly) unique factorization
-$S \xrightarrow{\simeq} S' \to T$ as an isomorphism followed by a \textit{planar map} \cite[Prop. 3.21]{BP17}. 
+$S \xrightarrow{\simeq} S' \to T$ as an isomorphism followed by a \textit{planar map} \cite[Prop. 3.23]{BP17}. 
 Informally, $S'$ is obtained from $S$
 by ``pulling back'' the planarization of $T$.
 
@@ -473,6 +527,13 @@ containing (contained in) all $U_i$.
 	and the nodal axiom is obvious from \eqref{CUPCAP EQ} (which, a posteriori, is correct as an identity on sets of edge and vertex sets).
 \end{proof}
 
+\begin{remark}
+      The category $\Omega$ and the definitions/result given in this section are all generalizations from the simplicial category $\Delta$.
+      Specifically, we have an inclusions $\Delta \into \Omega$ sending $[n]$ to the linear tree with $n+1$ edges,
+      and an arrow $f$ in $\Delta$ is an (inner,outer) face or degeneracy iff it is so in $\Omega$.
+      Moreover, letting $\eta$ denote the ``stick'', the unique tree with one edge,
+      the image of $\Delta$ is equal to the overcategory $\Omega \downarrow \eta$.
+\end{remark}
 
 \subsection{The category of $G$-trees $\Omega_G$}
 
@@ -1847,10 +1908,17 @@ If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{
 		A \to A \cup \bigcup_{i \in I} \Omega[U_i]
 	\end{equation}
 is $G$-inner anodyne. 
-In fact, \eqref{CHARLEM EQ} is cellular on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+In fact, \eqref{CHARLEM EQ} is cellular\footnote{
+  Given a class of maps $I$, an arrow $f$ is said to be \textit{cellular on $I$} or \textit{built cellularly from $I$} if
+  it is a relative $I$-cell complex in the sense of \cite[Defn. 2.1.9]{Hov99} (see also \cite[Cor. 2.1.15]{Hov99}, \cite[Example 12.6.12]{Ri14}).
+  % \cite[Example 12.6.12, Cor. 12.8.5]{Ri14}).
+  % If $I$ is a set of generating cofibrations, then the closure of cellular maps under retracts is the class of all cofibrations \cite[Cor. 2.1.15]{Hov99}.
+  % In particular, cellular maps are closed under pushouts and transfinite composition, but not retracts.
+}
+on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
-Recall that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called \textit{convex} if $s \in S$ and 
+Recall, following \cite{Go91}, that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called \textit{convex} (or \textit{downward closed}) if $s \in S$ and 
 $p<s$ implies $p \in S$.
 
 \begin{proof}
@@ -1883,7 +1951,7 @@ A \cup \bigcup_{g\in G,V \in C} g \Omega[V].
 It now suffices to show that whenever
 $C \subseteq C'$
 the map 
-$A_C \to A_{C'}$ is built cellularly from 
+$A_C \to A_{C'}$ is built cellulary from 
 $G$-inner horn inclusions
 (indeed, setting $C=\emptyset$ and 
 $C'=\mathsf{Face}_{\Xi}^{lex}(U)$ recovers \eqref{CHARLEM EQ}
@@ -3381,7 +3449,7 @@ the $X \in \mathsf{dSet}^G$ with such a lifting property
 would be simply the nerves of $G$-operads.
 To see why this is an unsatisfactory situation we recall a fundamental basic example.
 The category $\mathsf{Top}^G$ of $G$-spaces admits two main equivariant notions of weak equivalence:
-the genuine equivalences, which care about all fixed point spaces, and the naive equivalences, 
+the fine (or genuine) equivalences, which care about all fixed point spaces, and the weak (or na\'ive) equivalences, 
 which care only about the total spaces.
 However, this distinction vanishes when working in the discrete setting of $G$-sets $\mathsf{Set}^G$,
 unless one instead works with 
@@ -3421,10 +3489,11 @@ $\mathsf{sdSet}^G$ with the
 the category of equivariant preoperads $\mathsf{PreOp}^G$
 with the ``equivariant Segal operad'' model structure in \S \ref{PREOP SEC}.
 
-Our perspective will be that these Quillen equivalences are best understood in light of the equivariant analogue of \cite[Thm. 6.6]{CM13a},
+Our perspective will be that these Quillen equivalences are best understood in light of the observation from \cite[Thm. 6.6]{CM13a},
 which says that the complete dendroidal space model structure
-on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
-As such, we will find it helpful to first focus on the abstract properties of such ``joint left Bousfield localizations''.
+on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures
+As such, we will find it helpful to first focus on the abstract properties of such ``joint left Bousfield localizations''\footnote{
+  The equivariant analgoue of \cite[Thm. 6.6]{CM13a} can be found in Remark \ref{INTERP REM}, and will be a consequence of this abstract analysis and an understanding of the fibrant objects in question.}.
 
 
 
@@ -3514,6 +3583,10 @@ for each $m \geq 0$, and dually for the vertical Reedy structure.
 	$X_{(-)} \colon \mathsf{sSet}^{op} \to \mathsf{sSet}$
 	for the unique limit preserving functor such that
 	$X_{\Delta[n]} = X_n$.
+        This can be realized by the Yoneda Lemma as
+        $X_K =\Hom_{\mathsf{sSet}}(K, X(\bullet)) \in \sSet$.
+        % which induces an adjunction isormorphism
+        % $\Hom_{\mathsf{sSet}}(L, X_K) = \Hom_{\mathsf{sSet}}(K, \sSet(L, X_{\bullet}))$.
 \end{notation}
 
 %\begin{remark}
@@ -3763,14 +3836,24 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 \]
 	for the unique limit preserving functors such that
 	$X(\Omega[G \cdot U]) = X(U)$, $X_{\Delta[n]} = X_n$.
-	
+        As in Definition \ref{UNIQUELIM NOT}, these can be realized by the Yoneda Lemma as
+        \[
+              X(A) = \Hom_{\mathsf{dSet}^G}(A, X_{\bullet}) \in \sSet,
+              \qquad
+              X_K = \Hom_{\sSet}(K, X(\bullet)) \in \dSet^G,
+        \]
+        and thus we have an adjunction isomorphism
+        \[
+              \Hom_{\mathsf{sSet}}(L, X(A)) \simeq \Hom_{\mathsf{dSet}^G}(A, X_L).
+        \]
+        
         Moreover,
         % for fixed $J \in \mathsf{dSet}^{G}$,
         we define
         \[
               X^{(-)}\colon \left(\mathsf{dSet}^G \right)^{op} \longto \mathsf{sdSet}^G,
               \qquad
-              X^J(U) = X(\Omega[G \cdot U] \otimes J),
+              X^A(U) = X(\Omega[G \cdot U] \otimes A),
         \]
 	% $X^J \in \mathsf{sdSet}^G$ by
 	% $X^J(U) = X\left(\Omega[G \cdot U] \otimes J 
@@ -4223,6 +4306,10 @@ $\mathsf{sdSet}^G$
 (see \cite[Cor. A.2.6.5]{Lur09} and \cite[Cor. A.2.6.6]{Lur09}). 
 \end{proof}
 
+\begin{notation}
+      We refer to the fibrant objects of $\mathsf{PreOp}^G$ as \textit{equivariant Segal operads}.
+      Following Corollary \ref{FIB_PREOP_COR}, they will be characterized by Proposition \ref{DSSCHAR_PROP}.
+\end{notation}
 
 \begin{theorem}\label{ANOQUEQUIV THM}
 The adjunction
@@ -4271,7 +4358,7 @@ Theorem \ref{COMPIFFDK THM},
 which states that weak equivalences between fibrant objects in either of 
 $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
 do indeed admit a Dwyer Kan type description.
-Moreover, in Corollary \ref{FIB_PREOP_COR} we also characterize the fibrant objects of $\mathsf{PreOp}^G$
+Moreover, in Corollary \ref{FIB_PREOP_COR} we also characterize the fibrant objects, equivariant Segal operads, of $\mathsf{PreOp}^G$
 (this independently extends a result that first appeared in Bergner's work \cite{Ber07}).
 
 To do so, it is useful to consider yet another model structure on the category $\mathsf{sdSet}^G$,
@@ -4309,6 +4396,17 @@ if $\gamma^{\**}X$ is a dendroidal Segal space
 foreshadowing Corollary \ref{FIB_PREOP_COR}).
 \end{notation}
 
+The following equivariant analogue of \cite[Cor. 5.6]{CM13a} is an immediate consequence of Proposition \ref{HYPER PROP}.
+\begin{proposition}
+      \label{DSSCHAR_PROP}
+      Suppose $X \in \mathsf{sdSet}^G$ is dendroidal Reedy fibrant. The following are equivalent.
+      \begin{enumerate}[label = (\roman*)]
+      \item $X$ is an equivariant dendroidal Segal space.
+      \item $X(\Omega[T]) \to X(Sc[T])$ is a trivial Kan fibration for all $T \in \Omega_G$.
+      \item $X(\Omega[T]) \to X(\Lambda^E[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $G$-subsets $\varnothing \neq E \subseteq \boldsymbol E^i(T)$.
+      \item $X(\Omega[T]) \to X(\Lambda_o^E[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $G$-subsets $\varnothing \neq E \subseteq \boldsymbol E^i(T)$.
+      \end{enumerate}
+\end{proposition}
 
 \begin{proposition}
       \label{DSSFIB_PROP}
@@ -4325,8 +4423,7 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 	is a trivial Kan fibration.
 \end{proof}
 
-
-To define fully-faithfulness for dendroidal Segal spcaes, we need appropriate models for mappings spaces.
+To define fully-faithfulness for dendroidal Segal spaces, we need appropriate models for mappings spaces.
 These will be indexed over ``equivariant tuples'' of objects of $X$, as determined by $G$-corollas.
 
 \begin{notation}\label{GCOR NOT}
@@ -4372,7 +4469,7 @@ where $C_{\Sigma_i |H_0/H_i|}$ is regarded as a (non-equivariant) corolla togeth
 	To simplify notation, we denote a $G$-profile as 
 	$(x_1,\cdots,x_k;x_0)$, and refer to it as a 
 	\textit{$C$-profile} on $X$.
-
+%
 Further, for $X \in \mathsf{sdSet}^G_S$ a dendroidal Segal space we define a \textit{$C$-profile} on $X$ 
 as a $C$-profile on $X_0$.
 \end{definition}
@@ -4397,7 +4494,7 @@ $X(x_1,\cdots,x_k ; x_0) \in \mathsf{sSet}$ via the pullback square
 \]
 \end{definition}
 
-To capture essential surjectivity, we associate a system of categories to any dendroidal Segal space.
+For essential surjectivity, we associate a system of categories to any dendroidal Segal space.
 \begin{definition}\label{HMTPYGEN DEF}
 	Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space.
 	The \textit{homotopy genuine operad} 
@@ -4407,7 +4504,9 @@ by
 	ho(X) = \pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right) \right),
         \]
 where $\upsilon_{\**}$  and $\gamma_{\**}$ are defined as in \eqref{DSETG_EQ} and \eqref{GAMMASTAR_EQ}.
-Note that the Segal condition on $X$ implies that 
+Note that
+the Segal condition Proposition \ref{DSSCHAR_PROP}(ii) on $X$,
+combined with Proposition \ref{CSKETALT PROP} and Notation \ref{UNILIMDEN NOT}, implies that 
 $ho(X)$ is a genuine equivariant operad in the sense of
 Definition \ref{GEN_OP_DEF}.
 \end{definition}
@@ -4422,20 +4521,21 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
 	\Omega_G$,
         unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories\footnote{
           Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
-        formed by % the homotopy categories
+        formed by the simplicial sets with $m$-simplices% the homotopy categories
 	\[
-              ho(X)(G \cdot_H [\bullet]) =
-              \pi_0 \left((\gamma_{\**}X)([\bullet])\right)^H = 
-              \pi_0 \left( \iota^{\**} \gamma_{\**}(X^H)\right)_\bullet =
-              ho(\iota^{\**}(X^H))_\bullet,
+              ho(X)(G \cdot_H [m]) =
+              \pi_0 \left((\gamma_{\**}X)([m])\right)^H = 
+              \pi_0 \left( \iota^{\**} \gamma_{\**}(X^H)\right)(m) = 
+              ho(\iota^{\**}(X^H))(m),
         \]
         % $ ho(X)(C_{H/H})=
         % ho \left(\iota^{\**}\left(X^H\right)\right) =
         % \pi_0 \left(\iota^{\**} \gamma_{\**}
         %       \left(X^H\right)\right)$
         for $H \leq G$,
-        where the second equality follows from the discussion afer \eqref{DSETG_EQ} and the observation from \eqref{GAMMASTAR_EQ} that $\gamma_{\**}X(U)^H = \gamma_{\**}(X^H)(U)$ for $U \in \Omega^H$ with trivial $H$-action,
-        and the second $ho$ defined on Segal spaces as in \cite[\S 5.5]{Rez01}.
+        where the second equality follows from \eqref{GAMMASTAR_EQ} and the discussion after \eqref{DSETG_EQ},
+        % and the observation, using \eqref{GAMMASTAR_EQ}, that $\gamma_{\**}X(U)^H = \gamma_{\**}(X^H)(U)$ for $U \in \Omega^H$ with trivial $H$-action,
+        and the second $ho$ is defined on Segal spaces as in \cite[\S 5.5]{Rez01}.
 \end{remark}
 
 \begin{definition}\label{DKEQUIV DEF}
@@ -5468,24 +5568,31 @@ has the following properties:
 	$\gamma^{\**}X$ is a dendroidal Segal space yields a lift
 \[
 \begin{tikzcd}
-	\gamma^{\**} X \ar[equal]{r} \ar{d}&
-	\gamma^{\**} X
-\\
-	\gamma^{\**}\gamma_{\**}\tilde{X} \ar[dashed]{ru}
+      \gamma^{\**} X \ar[equal]{r} \ar{d}&
+      \gamma^{\**} X
+      \\
+      \gamma^{\**}\gamma_{\**}\tilde{X} \ar[dashed]{ru}
 \end{tikzcd}
 \]
 showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof.
 \end{proof}
 
-
 \begin{remark}\label{INTERP REM}
-	For any dendroidal Segal space 
-	$X \in \mathsf{sdSet}^G$ one hence has complete equivalences
-\[
-\gamma_{\**} X \to X \to \tilde{X}
-\] 
-where $\gamma_{\**}X$ is a fibrant preoperad and $\tilde{X}$ is
-a complete dendroidal Segal space.
+      For any dendroidal Segal space 
+      $X \in \mathsf{sdSet}^G$ one hence has complete equivalences
+      \[
+            \gamma_{\**} X \to X \to \tilde{X}
+      \] 
+      where $\gamma_{\**}X$ is a fibrant preoperad and $\tilde{X}$ is
+      a complete dendroidal Segal space.
+      
+      In fact, the joint/Rezk model structure on $\mathsf{sdSet}^G$ is the localization of the dendroidal Segal space model structure
+      with respect to the maps
+      $\Omega[T] \otimes (\set{i} \to J)$
+      (regarded a constant in the simplicial direction),
+      generalizing \cite[Thm. 6.6]{CM13a}.
+      Indeed, they both have the same cofibrations, and so it suffices to show that they have the same fibrant objects;
+      this is immediate from Corollaries \ref{JOINTFIBCHAR COR}(iii) and \ref{FIB_PREOP_COR}.
 \end{remark}
 
 
@@ -5646,7 +5753,7 @@ to outlining the generalizations of our results indexed by the
 Or more precisely, we will work with the \textit{weak indexing systems}
 of \cite[\S 9]{Per18}, \cite[\S 4.4]{BP17},
 which are a slight generalization of indexing systems, 
-and were also independently identified by Gutierrez and White in \cite{GW17}.
+and were also independently identified by Gutierrez and White in \cite{GW18}.
 
 We begin by recalling the key notion of sieve.
 
@@ -6092,7 +6199,7 @@ For $\mathcal{F}_{\text{all}}$
 the family of all subgroups of $G$
 the model structure
 $\C^G_{\mathcal{F}_{\text{all}}}$ is called the 
-\textit{genuine or fine model structure}.
+\textit{fine (or genuine) model structure}.
 We regard this as the default model structure, 
 and as such denote it simply as $\C^G$.
 
@@ -6452,6 +6559,7 @@ thus building both $A$ and the factorization inductively
 (recall that $L_r A$, $M_r A$ depend only on 
 the restriction $\iota_{|r|-1}^{\**} A$, and are thus well defined in each inductive step).
 \end{proof}
+
 
 
 
