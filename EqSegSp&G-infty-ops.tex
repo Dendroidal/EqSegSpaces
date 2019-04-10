@@ -2593,6 +2593,7 @@ Lastly, we note that \cite[Thm. 7.2]{Per18} follows from a minor variant of the 
 
 
 \begin{proposition}\label{ORB_HORN_PROP}
+	Let $T \in \Omega_G$.
 	For $G$-subsets  
 	$\emptyset \neq F \subseteq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$
 	the inclusions
@@ -2688,7 +2689,8 @@ followed by $\Lambda^{Gb}[T] \to \Omega[T]$.
 
 
 \begin{proposition}\label{REG_HORN_PROP}
-For $G$-equivariant 
+Let $T \in \Omega_G$.
+For $G$-subsets 
 $\emptyset \neq F \subseteq E \subseteq 
 \boldsymbol{E}^{\mathsf{i}}(T)$
 the inclusions
@@ -2742,9 +2744,31 @@ $V \hookrightarrow T-(E' \cup E'')$.
 \end{remark}
 
 
+
+The following repeats Remark \ref{RECOVER REM}(i),
+but the alternative proof will simplify the proof of Proposition \ref{HYPER PROP}. 
+
+\begin{proposition}\label{SCANOD PROP}
+Let $T \in \Omega_G$. The inclusions $Sc[T] \to \Omega[T]$ are $G$-inner anodyne.
+\end{proposition}
+
+\begin{proof}
+We may yet again assume $T \in \Omega^G \subseteq \Omega_G$. 
+Now apply Lemma \ref{CHAREDGE LEM} with 
+$I=\**$, $U_{\**} = T$, $\Xi^{\**} = \boldsymbol{E}^{\mathsf{i}}(T)$.
+The conditions (Ch0),(Ch1),(Ch2),(Ch3) follow as in 
+Remark \ref{RECOVER REM}(i).
+\end{proof}
+
+
+
+
+
+
 \begin{remark}\label{FACCES REM}
 All $G$-inner horn inclusions attached in the proof of the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, correspond to $G$-trees whose non-equivariant components are faces of the $U_i$. Moreover, when $I \simeq G/H$ has a transitive $G$-action, the last horn inclusion attached (corresponding to the maximum of $\mathsf{Face}^{lex}_{\Xi}(U)$) is
-$G \cdot_H \left( \Lambda^{\Xi}[U] \to \Omega[U] \right)$.
+$G \cdot_H \left( \Lambda^{\Xi}[U] \to \Omega[U] \right)$, while all other horn inclusions used are of the form
+$G \cdot_K (\Lambda^{\Xi_W}[W] \to \Omega[W])$ for some $W$ with $|W| < |U|$.
 \end{remark}
 
 
@@ -2785,6 +2809,9 @@ The following is an equivariant generalization of
 \begin{proposition}\label{HYPER PROP}
 The following sets of maps generate the same hypersaturated class:
 \begin{itemize}
+\item the generating $G$-inner horn inclusions
+$\Lambda^{Ge} [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
+$e \in \boldsymbol{E}^{\mathsf{i}}(T)$; 
 \item the $G$-inner horn inclusions
 $\Lambda^{E} [T] \to \Omega[T]$ for $T \in \Omega_G$ and 
 $G$-subset $\emptyset \neq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$; 
@@ -2801,7 +2828,9 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 
 
 \begin{proof}
-	The fact that $G$-inner horn inclusions generate the orbital and Segal hypersaturations has been established in Proposition \ref{ORB_HORN_PROP} and Remark \ref{RECOVER REM}(i).
+	That the first two hypersaturations coincide is clear from Corollary \ref{REGGENHORN COR}.
+
+	The fact that $G$-inner horn inclusions generate the maps in the orbital and Segal hypersaturations has been established in Proposition \ref{ORB_HORN_PROP} and Remark \ref{RECOVER REM}(i), Proposition \ref{SCANOD PROP}.
 	
 	To see that the $G$-inner horn inclusions are in the orbital hypersaturation, we again argue by induction on $|T_{\**}|$, with the base cases those where $\Lambda^{E} [T]=\Lambda^{E}_o [T]$.
 	Recalling that in the proof of Proposition \ref{ORB_HORN_PROP}
@@ -2811,17 +2840,16 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	$\Lambda_o^E[T] \to \Lambda^E[T] \to \Omega[T]$
 	the first map $\Lambda_o^E[T] \to \Lambda^E[T]$ is built cellularly out of $G$-horns with $|S_{\**}| < |T_{\**}|$.
 	But then the induction hypothesis says that 
-	$\Lambda_o^E[T] \to \Lambda^E[T]$ is in the orbital hypersaturation, and by the cancellation property so is $\Lambda^E[T] \to \Omega[T]$.
-	
-	For the claim that the $G$-inner inclusions are in the Segal hypersaturation,
-	note that $Sc[T] \to \Omega[T]$ can be shown to be $G$-inner anodyne by setting $I=\**$, $U_{\**} = T$, $\Xi^{\**} = \boldsymbol{E}^{\mathsf{i}}(T)$
-	(this differs from Remark \ref{RECOVER REM}(i), but the arguments therein still hold).
+	$\Lambda_o^E[T] \to \Lambda^E[T]$ is in the orbital hypersaturation, and by the cancellation property \eqref{CANCEL_EQ} so is $\Lambda^E[T] \to \Omega[T]$.
+
+	For the claim that the $G$-inner horn inclusions are in the Segal hypersaturation, note that Proposition \ref{SCANOD PROP} sets
+	$I=\**$, $U_{\**} = T$, $\Xi^{\**} = \boldsymbol{E}^{\mathsf{i}}(T)$.
 	Therefore, arguing exactly as above for the factorization
 	$Sc[T] \to \Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to \Omega[T]$,
 	one obtains by induction on $|T_{\**}|$ that
 	$\Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to \Omega[T]$
 	is in the Segal hypersaturation. 
-	But now letting $E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ be any $G$-subset and considering the factorization
+	But now letting $\emptyset \neq E \subseteq \boldsymbol{E}^{\mathsf{i}}(T)$ be any $G$-subset and considering the factorization
 	$\Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to 
 	\Lambda^{E}[T] \to
 	\Omega[T]$ the induction hypothesis applies to the cells of
