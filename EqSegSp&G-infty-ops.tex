@@ -863,7 +863,19 @@ Lastly, the remaining claim that $R \to T$ is injective follows since each map $
 are $\leq_d$-incomparable, so that edges of $T$ in different $\bar{S}_j$ are also $\leq_d$-incomparable \cite[Cor. 5.25]{Per18}.
 \end{proof}
 
-{\color{red} HERE}
+
+The argument at the end of the previous proof has the following two consequences.
+
+\begin{remark}\label{ROOTISOMONO REM}
+	If $U \in \mathsf{Face}(T)$ has isotropy $H$,
+	the induced map 
+	$G \cdot_H U \to T$ is injective on edges iff
+	$H$ is also the isotropy of the root $r_U$.
+\end{remark}
+
+\begin{remark}\label{INNFULLORB REM}
+	Orbital inner faces $S \hookrightarrow T$ are full (cf. Remark \ref{INNFULL REM}), i.e. all broad relations in $T$ between edges of $S$ are also in $S$. 
+\end{remark}
 
 
 
@@ -885,11 +897,10 @@ Moreover, $HU$ inherits the $H$-action from $T$
 The natural map
 $G \cdot_H HU \to T$
 is then injective on edges
-(for any map of forests $F \to F'$
-the images of the tree components of $F$ are pairwise $\leq_d$-incomparable iff so are the images of the roots)
+(Remark \ref{ROOTISOMONO REM})
 and we thus let $GU$ be $G \cdot_H HU$
-with the planar structure induced from $T$.
-Both the factorization $U \to GU \to T$ and its minimality are immediate from the description of $HU$.
+with the planar structure induced from $T$. The claim that $GU$ is the smallest planar orbital face such that $U \hookrightarrow GU$ is clear.
+
 
 	Before tackling the general case, we collect some key observations.
 	Firstly, if $U$ is outer then so is the (non-equivariant) face $HU$ and the orbital face $GU$.
@@ -902,12 +913,14 @@ all the edges in $Hl \cap \boldsymbol{E}(U)$ are leaves of $U$,
 	$\forall_{h \in H}$($l \in \boldsymbol{E}(hU)$ implies that $l$ is a leaf of $hU$) iff
 	$\forall_{h \in H}$($h^{-1} l \in \boldsymbol{E}(U)$ implies that $l$ is a leaf of $U$).
 	
-	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 	
-	It is now clear that $G\bar{U}$ is the smallest planar \textit{outer} orbital face such that $U \to G\bar{U}$, and thus $GU$ is the smallest planar orbital face such that $U \to G U$
-	due to the fact that inner faces are full (Remark \ref{INNFULL REM})
-	together with the inner-outer factorization of
-	orbital faces (Proposition \ref{INNOUTORB PROP}).
+	
+	In the general case, we define $GU$ as the orbital inner face of $G \bar{U}$ that removes all edge orbits not represented in $U$ 	(that all such edge orbits are inner follows from the description of the roots and leaves of $G\bar{U}$ in the previous paragraph). 
+	For the remaining claim that $G U$ is the smallest planar orbital face with $U \hookrightarrow GU$, let $U \hookrightarrow S$ be any such face, and write $S \hookrightarrow \bar{S} \hookrightarrow T$ for the planar orbital factorization given by Proposition \ref{INNOUTORB PROP}.
+	Then by the outer case established before it is	
+	$GU \hookrightarrow G \bar{U} \hookrightarrow \bar{S}$ and, since all edges of $GU$ (which are the orbits of the edges of $U$) are in $S$, it follows that $GU \hookrightarrow S \hookrightarrow \bar{S}$ due to the inner face inclusion 
+	$S \hookrightarrow \bar{S}$ being full (Remark \ref{INNFULLORB REM}).
 \end{proof}
+
 
 
 \begin{example}
@@ -988,14 +1001,7 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 \end{example}
 
 
-\begin{remark}
-	It follows from the proof of 
-	Proposition \ref{MINGFACT PROP}
-	that, if $U \in \mathsf{Face}(T)$ has isotropy $H$,
-	the induced map 
-	$G \cdot_H U \to T$ is a monomorphism iff
-	$H$ is also the isotropy of the root $r_U$.
-\end{remark}
+
 
 
 \begin{remark}\label{GINNER REM}
