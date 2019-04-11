@@ -49,7 +49,7 @@ cd,patterns,calc}
 \usepackage{ifdraft}
 \ifdraft{
   \color[RGB]{63,63,63}
-  \pagecolor[RGB]{220,220,204}
+ % \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   
@@ -3609,8 +3609,13 @@ for each $m \geq 0$, and dually for the vertical Reedy structure.
 	$X_{(-)} \colon \mathsf{sSet}^{op} \to \mathsf{sSet}$
 	for the unique limit preserving functor such that
 	$X_{\Delta[n]} = X_n$.
-        This can be realized by the Yoneda Lemma as
-        $X_K =\Hom_{\mathsf{sSet}}(K, X(\bullet)) \in \sSet$.
+	
+%	Note that for fixed $K\in \mathsf{sSet}$ one then has an adjunction
+%	$K\times (-) \colon \mathsf{sSet} \rightleftarrows 
+%	\mathsf{ssSet} \colon (-)_K$ (in fact, this is part of a two-variable adjunction, but we will not need that fact. See Remark \ref{TWOVARADJ REM}).
+	
+%        This can be realized by the Yoneda Lemma as
+%       $X_K =\Hom_{\mathsf{sSet}}(K, X(\bullet)) \in \sSet$.
         % which induces an adjunction isormorphism
         % $\Hom_{\mathsf{sSet}}(L, X_K) = \Hom_{\mathsf{sSet}}(K, \sSet(L, X_{\bullet}))$.
 \end{notation}
@@ -3656,7 +3661,7 @@ are trivial Kan fibrations, so that by
 Remark \ref{HYPERSATKAN REM} one has that 
 $\tilde{X}_L \to \tilde{X}_K$ is a trivial Kan fibration whenever
 $K \to L$ is anodyne
-(since the $K \to L$ with this property are hypersaturated).
+(since the $K \to L$ with this property are hypersaturated; see Remark \ref{HYPERMODEL REM} for a similar argument).
 Therefore, $\tilde{X}$ is also horizontal fibrant, as desired.
 
 %(ii) follows since by (i) $\tilde{X}$ is then local
@@ -3806,9 +3811,9 @@ are weak equivalences. This latter claim follows by cellular induction on $X$, s
 	then requires that 
 	$X_L \to X_K \times_{Y_K} Y_L$ is a trivial Kan fibration
 	when $K \to L$ is a horn inclusion. 
-	But a straightforward argument shows that the $K \to L$ with this property are hypersaturated,
+	But a straightforward argument (cf. Remark \ref{HYPERMODEL REM}) shows that the $K \to L$ with this property are hypersaturated,
 	so that by 
-Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$, induced by the vertex maps $[0] \to [n]$, are trivial Kan fibrations.
+Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$, induced by maps $[0] \to [n]$, are trivial Kan fibrations.
 \end{remark}
 
 
@@ -3862,30 +3867,89 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 \]
 	for the unique limit preserving functors such that
 	$X(\Omega[G \cdot U]) = X(U)$, $X_{\Delta[n]} = X_n$.
-        As in Definition \ref{UNIQUELIM NOT}, these can be realized by the Yoneda Lemma as
-        \[
-              X(A) = \Hom_{\mathsf{dSet}^G}(A, X_{\bullet}) \in \sSet,
-              \qquad
-              X_K = \Hom_{\sSet}(K, X(\bullet)) \in \dSet^G,
-        \]
-        and thus we have an adjunction isomorphism
-        \[
-              \Hom_{\mathsf{sSet}}(L, X(A)) \simeq \Hom_{\mathsf{dSet}^G}(A, X_L).
-        \]
-        
-        Moreover,
-        % for fixed $J \in \mathsf{dSet}^{G}$,
-        we define
-        \[
-              X^{(-)}\colon \left(\mathsf{dSet}^G \right)^{op} \longto \mathsf{sdSet}^G,
-              \qquad
-              X^A(U) = X(\Omega[G \cdot U] \otimes A),
-        \]
+%        As in Definition \ref{UNIQUELIM NOT}, these can be realized by the Yoneda Lemma as
+%        \[
+%              X(A) = \Hom_{\mathsf{dSet}^G}(A, X_{\bullet}) \in \sSet,
+%              \qquad
+%              X_K = \Hom_{\sSet}(K, X(\bullet)) \in \dSet^G,
+%        \]
+%        and thus we have an adjunction isomorphism
+%        \[
+%              \Hom_{\mathsf{sSet}}(L, X(A)) \simeq \Hom_{\mathsf{dSet}^G}(A, X_L).
+%        \]
+%    
+  
+Moreover,
+for fixed $J \in \mathsf{dSet}^{G}$
+we define $X^J \in \mathsf{sdSet}^G$ by 
+$X^J(U) = X(\Omega[G\cdot U] \otimes J)$,
+%\[
+%              X^{(-)}\colon \left(\mathsf{dSet}^G \right)^{op} \longto \mathsf{sdSet}^G,
+%              \qquad
+%              X^A(U) = X(\Omega[G \cdot U] \otimes A),
+%        \]
 	% $X^J \in \mathsf{sdSet}^G$ by
 	% $X^J(U) = X\left(\Omega[G \cdot U] \otimes J 
 	% \right)$,
 	where $\otimes$ is the tensor product of dendroidal sets (see Example \ref{THM71 EX} for an informal definition or \cite[\S 9]{MW09},\cite[\S 7]{Per18} for an in-depth discussion).
 \end{notation}
+
+
+
+\begin{remark}\label{TWOVARADJ REM}
+The notation just defined fits into a 
+%so called
+two-variable adjunction 
+(cf. \cite[\S 10.1]{Ri14})
+\[
+	\mathsf{sSet} \times \mathsf{dSet}^G
+	\xrightarrow{\times} \mathsf{sdSet}^G
+\qquad
+	\mathsf{sdSet}^G \times \left(\mathsf{dSet}^G\right)^{op}
+	\xrightarrow{(-)(-)} \mathsf{sSet}
+\qquad
+	\mathsf{sdSet}^G \times \left(\mathsf{sSet}\right)^{op}
+	\xrightarrow{(-)_{(-)}} \mathsf{dSet}^G
+\]
+For our purposes, the relevance of this is that for maps
+$K \to L$ in $\mathsf{sSet}$,
+$A \to B$ in $\mathsf{dSet}^G$ and
+$X \to Y$ in $\mathsf{sdSet}^G$ the three induced lifting problems shown below are all equivalent.
+\begin{equation}
+	\begin{tikzcd}
+		K \times B \coprod_{K \times A} L \times A \ar{r} \ar{d} & X \ar{d}
+	&
+		K \ar{r} \ar{d} & X(B) \ar{d}
+	&
+		A \ar{r} \ar{d} & X_L \ar{d}
+	\\
+		L \times B \ar{r} \ar[dashed]{ru} &  Y
+	&
+		L \ar{r} \ar[dashed]{ru} & X(A) \times_{Y(A)} Y(B)
+	&
+		B \ar{r} \ar[dashed]{ru} & X_K \times_{Y_K} Y_L
+	\end{tikzcd}
+\end{equation}
+\end{remark}
+
+
+\begin{remark}\label{HYPERMODEL REM}
+Fix $X \in \mathsf{sdSet}^G$ and suppose that,
+for all normal monomorphisms $A\to B$ in $\mathsf{dSet}^G$,
+$X(B) \to X(A)$ is a Kan fibration in $\mathsf{sSet}$.
+Then the class of normal monomorphisms $A \to B$
+such that $X(B) \to X(A)$
+is a \emph{trivial} Kan fibration is hypersaturated. 
+Indeed, saturation follows from properties of trivial fibrations  while \eqref{CANCEL_EQ} follows from $2$-out-of-$3$ for Kan equivalences.
+A similar remark holds if
+$X_L \to X_K$ is 
+a fibration in $\mathsf{dSet}^G$
+for all monomorphisms $K\to L$ in $\mathsf{sSet}$.
+\end{remark}
+
+
+
+
 
 %In particular, we will throughout abbreviate
 %$X(T) = X(\Omega[T])$ for $T \in \Omega_G$.
@@ -3937,7 +4001,6 @@ $F$ for both a subset $F \subseteq \{0,1,\cdots,m\}$
 and face $F \to [m]$, as well as $\widetilde{F} \to \widetilde{[m]}$ for the natural subgroupoid.
 Further, note that for any simplex $x \in N\widetilde{[m]}$, which can be identified with a non-empty string on $\{0,1,\cdots,n\}$, there is a smallest face $F^x \to [m]$ such that 
 $x \in N\widetilde{F^x}$, namely $F^x$ is the set of ``letters'' of $x$.
-
 The latching map $L_m J^{\bullet} \to J^m$ is then
 $
 \left(\mathop{\colim}_{\text{faces }F \neq [m]} N \widetilde{F}\right) \to N\widetilde{[m]}
@@ -4016,34 +4079,50 @@ for $T \in \Omega_G$ are Kan equivalences in $\mathsf{sSet}$.
 $\mathsf{sSet}$
 and $A \to B$ for a generic normal monomorphism in $\mathsf{dSet}^G$.
 
+
 For (ii), note that $X$ is simplicial fibrant iff 
 $X_L \to X_K$ is always a fibration in $\mathsf{dSet}^G$. 
-Thus, $X$ will also have the right lifting property against \eqref{DENDTRIVCOF EQ} iff 
+And $X$ will also have the right lifting property against \eqref{DENDTRIVCOF EQ} iff 
 $X_L \to X_K$ is a trivial fibration whenever $K \to L$ is anodyne. But by Remark \ref{HYPERSATKAN REM}
 it suffices to consider the vertex inclusions $\Delta[0] \to \Delta[n]$.
 The claim now follows from 2-out-of-3 applied to the composites $X_0 \to X_n \to X_0$.
 
+
 For (iii), note first that $X$ is dendroidal fibrant iff $X(B) \to X(A)$ is always a Kan fibration.
-Therefore, $X$ will have the right lifting property against \eqref{SIMPTRIVCOF EQ} iff 
+Further, $X$ will have the right lifting property against \eqref{SIMPTRIVCOF EQ} iff 
 $X(B) \to X(A)$ is a trivial Kan fibration whenever $A\to B$ is a generating trivial cofibration of $\mathsf{dSet}^G$.
-By adjunction, this is equivalent to showing that
-$X_L \to X_K$ is a fibration in $\mathsf{dSet}^G$ for any monomorphism $K \to L$ in $\mathsf{sSet}$. Moreover, by the fibration between fibrant objects part of \cite[Prop. 8.8]{Per18}
-(see also the beginning of \cite[\S 8.1]{Per18})
-it suffices to verify that the maps $X_L \to X_K$ have the right lifting property against the maps
-\[
+By adjunction, this is equivalent to 
+$X_L \to X_K$ always being a fibration in $\mathsf{dSet}^G$.
+Further, since for $K=\emptyset$ it is $X_{K}=\**$, this requires $X_L$ to always be fibrant. In other words, $X$ has the right lifting property against \eqref{SIMPTRIVCOF EQ} iff
+$X_L \to X_K$ is always a fibration between fibrant objects in $\mathsf{dSet}^G$.
+By the characterizations of fibrant objects and of fibrations between fibrant objects (see \cite[Prop. 8.8]{Per18} and the beginning of \cite[\S 8.1]{Per18}), it suffices to check that the maps $X_L \to X_K$ have the right lifting property against the maps 
+($\square^{\otimes}$ denotes the pushout product with respect to
+% the tensor product 
+$\otimes$)
+\begin{equation}\label{FIBBFIB EQ}
 	\Lambda^{G e} [T] \to \Omega[T],
-	\quad
+	\phantom{1}
 	T \in \Omega_G, e \in \boldsymbol{E}^{\mathsf{i}}(T)
 \qquad
-\text{and}
-\qquad
-	\Omega[T] \otimes \left( \{i\} \to J_d\right),
-	\quad
+	\left( \partial\Omega[T] \to \Omega[T]\right) \square^{\otimes} \left( \{i\} \to J\right),
+	\phantom{1}
 	T \in \Omega_G, i = \{0,1\}
-\]
-and it thus suffices to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
-Proposition \ref{HYPER PROP} now finishes the proof.
+\end{equation}
+(note that the case $K=\emptyset$ shows that the $X_L$ are fibrant).
+
+It now suffices to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
+To conclude the proof, we use Remark \ref{HYPERMODEL REM}
+combined with Proposition \ref{HYPER PROP}
+and the observation that the maps 
+$\left( \partial\Omega[T] \to \Omega[T]\right) \square^{\otimes} \left( \{i\} \to J\right)$
+are in the hypersaturation of the maps
+$ \Omega[T] \otimes \left( \{i\} \to J\right)$
+(this follows by induction on $|T_{\**}|$, since the map
+$\emptyset \to \partial \Omega[T]$ is built cellularly from boundary inclusions
+$\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$).
 \end{proof}
+
+
 
 \begin{remark}
 Historically, the joint Reedy model structure has been called the \textit{Rezk model structure} and its fibrant objects have been called 
