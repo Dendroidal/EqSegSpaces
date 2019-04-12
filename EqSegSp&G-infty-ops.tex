@@ -4044,14 +4044,16 @@ $\mathsf{dSet}^G$.
 \end{proposition}
 
 
+
 \begin{proof}
-	For the claims concerning the dendroidal Reedy structure, 
-	note that the presheaves $\Omega[T] \in \mathsf{dSet}^G$
-	are precisely the quotients $(G \cdot \Omega[U])/K$ for $U\in \Omega$ and $K \leq G \times \mathsf{Aut}(U)$ a $G$-graph subgroup,
-	so that $\partial \Omega[T] \to \Omega[T]$
-	represents the maps $X(U)^K \to (M_U X)^K$ for $X \in \mathsf{dSet}^G$.
-	
-	The claims concerning the simplicial Reedy structure are immediate.
+The claims concerning the simplicial Reedy structure are standard. For the dendroidal Reedy model structure, the result follows by Proposition \ref{REEDYCOFGEN PROP} and Example \ref{REEDYCOFGEN EX}. 
+%	For the claims concerning the dendroidal Reedy structure, 
+%	note that the presheaves $\Omega[T] \in \mathsf{dSet}^G$
+%	are precisely the quotients $(G \cdot \Omega[U])/K$ for $U\in \Omega$ and $K \leq G \times \mathsf{Aut}(U)$ a $G$-graph subgroup,
+%	so that $\partial \Omega[T] \to \Omega[T]$
+%	represents the maps $X(U)^K \to (M_U X)^K$ for $X \in \mathsf{dSet}^G$.
+%	
+%	The claims concerning the simplicial Reedy structure are immediate.
 \end{proof}
 
 
@@ -6243,7 +6245,7 @@ $\mathcal{C}^{\mathbb{R}}$ such that a map $A \to B$ is
 
 
 The proof of Theorem \ref{REEDYADM THM}
-is given at the end of the appendix after establishing some routine generalizations of the key lemmas in \cite{BM11}.
+is given near the end of the appendix after establishing some routine generalizations of the key lemmas in \cite{BM11}.
 We note that the work in \cite{BM11} has two main components: a formal analysis of the 
 \textit{latching} and \textit{matching objects}
 $L_r A$ and $M_r A$, which depends only on axioms 
@@ -6694,9 +6696,135 @@ the restriction $\iota_{|r|-1}^{\**} A$, and are thus well defined in each induc
 
 
 
+Lastly, we briefly discuss the cofibrant generation of equivariant Reedy model structures.
+
+For $K\in \mathsf{Set}, X \in \mathcal{C}$ we write
+$K \cdot X = \coprod_K X$ and
+$\{K,X\}=X^{\times K}$ for the standard tensoring and cotensoring of $\mathcal{C}$ over $\mathsf{Set}$. One then has a two-variable adjunction
+\[
+	\mathsf{Set}^{\mathbb{R}} \times \mathcal{C}
+	\xrightarrow{(-)\cdot(-)}
+	\mathcal{C}^{\mathbb{R}}
+\qquad
+	\mathcal{C}^{op} \times  \mathcal{C}^{\mathbb{R}}
+	\xrightarrow{\mathcal{C}(-,-)}
+	\mathsf{Set}^{\mathbb{R}}
+\qquad
+	\left(\mathsf{Set}^{\mathbb{R}}\right)^{op} \times \mathcal{C}^{\mathbb{R}}
+	\xrightarrow{\{-,-\}_{\mathbb{R}}}
+	\mathcal{C}
+\]
+where 
+$\{K_{\bullet},X_{\bullet}\}_{\mathbb{R}} =
+ \int_{r \in \mathbb{R}} \{K_r,X_r\}$
+ is the end (sometimes called the weighted limit \cite[\S 7.1]{Ri14}).
 
 
 
+The following is essentially \cite[Lemma 3.5]{RV14}, converted to our notation.
+
+
+\begin{lemma} For $X \in \mathcal{C}^{\mathbb{R}}, r \in \mathbb{R}$ there is a natural identification
+$
+M_r X \simeq \{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-),X \}_{\mathbb{R}}
+$.
+\end{lemma}
+
+\begin{proof}
+Abbreviating $\mathbb{R}_{\leq n-1}$ as $\mathbb{R}_{<n}$, this follows from the calculation
+\begin{align}
+	M_r X 
+\simeq &
+	\int_{\bar{r} \in \mathbb{R}_{<|r|}} 
+\left\{\mathbb{R}(r,\bar{r}),X_{\bar{r}}\right\}
+\simeq
+	\int_{\bar{r} \in \mathbb{R}_{<|r|}} 
+\left\{\mathbb{R}(r,\bar{r}),
+	\int_{r \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},-) ,X \right\}\right\}\simeq
+\\
+\simeq&
+	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{r \in \mathbb{R}}
+\left\{\mathbb{R}(r,\bar{r}),
+	\left\{\mathbb{R}(\bar{r},-) ,X \right\}\right\}
+\simeq
+%	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{r \in \mathbb{R}}
+%\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}\simeq
+%\\
+%\simeq &
+	\int_{r \in \mathbb{R}} \int_{\bar{r} \in \mathbb{R}_{<|r|}}
+\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}\simeq
+\\
+\simeq &
+	\int_{r \in \mathbb{R}} 
+\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}
+\simeq
+	\int_{r \in \mathbb{R}} 
+\left\{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-) ,X \right\} =
+\{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-),X \}_{\mathbb{R}} 
+\end{align}
+where the second step is the Yoneda lemma, the fourth step is Fubini together with adjointness for $\{-,-\}$, and the sixth step is the coYoneda lemma \cite[Ex. 1.4.6]{Ri14}.
+\end{proof}
+
+Combining this lemma with the observation that, if a group $H$ acts on 
+$K \in \mathsf{Set}^{\mathbb{R}}$,
+then $\{K/H,X\}_{\mathbb{R}} = \left(\{K,X\}_{\mathbb{R}}\right)^H$ now yields the following.
+
+\begin{proposition}\label{REEDYCOFGEN PROP}
+Suppose the model category $\mathcal{C}$ is cofibrantly generated,
+$\mathbb{R}$ is generalized Reedy and 
+$\{\mathcal{F}_r\}_{r \in \mathbb{R}}$
+is a Reedy-admissible collection of families.
+
+Then the $\{\mathcal{F}_r\}$-Reedy model structure on 
+$\mathcal{C}^{\mathbb{R}}$ is also cofibrantly generated.
+
+More explicitly, letting 
+$\mathcal{I}$ (resp. $\mathcal{J}$)
+denote a set of generating (resp. trivial) cofibrations of $\mathcal{C}$,
+the generating cofibrations for $\mathcal{C}^{\mathbb{R}}$
+are the maps of the form
+\[
+\left(\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-) \to
+ \mathbb{R}(r,-)\right)/H \right)
+\square
+i,
+\qquad
+r \in \mathbb{R}, H \in \mathcal{F}_r, i \in \mathcal{I}
+\]
+while the generating trivial cofibrations are the maps of the form
+\[
+\left(\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-) \to
+ \mathbb{R}(r,-)\right)/H \right)
+\square
+j,
+\qquad
+r \in \mathbb{R}, H \in \mathcal{F}_r, j \in \mathcal{J}.
+\]
+\end{proposition}
+
+
+\begin{example}\label{REEDYCOFGEN EX}
+For $\mathbb{R} = \Delta^{op}$, it is well known that
+$\mathsf{sk}_{n-1} \Delta^{op}(n,-) = \mathsf{sk}_{n-1} \Delta[n] = \partial \Delta[n]$.
+
+Similarly, letting $\mathbb{R} = G \times \Omega^{op}$ as in 
+Example \ref{FGRAPHREEDY EX} and letting 
+$\Gamma \in \mathcal{F}_U$ be a graph subgroup encoding a $H$ action on $U$, then
+\begin{align}
+	\left( \mathsf{sk}_{|U|-1} \left( G \times \Omega^{op} \right)(U,-) \right)/\Gamma
+= &
+	\left( \mathsf{sk}_{|U|-1} \left( G \cdot \Omega[U] \right) \right)/\Gamma
+=
+	\left( G \cdot \mathsf{sk}_{|U|-1}  \Omega[U] \right)/\Gamma =
+\\
+= &
+	\left( G \cdot \partial \Omega[U] \right)/\Gamma
+=
+	G \cdot_H \partial \Omega[U] = \partial \Omega[G \cdot_H U]
+\end{align}
+where the third equality is \cite{BM11} (see also \cite[Cor 5.63]{Per18})
+and the last equality is \eqref{T_DECOMP_EQ}.
+\end{example}
 
 
 \bibliography{biblio}{}
