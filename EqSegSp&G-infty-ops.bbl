@@ -10,6 +10,11 @@ Julia~E. Bergner.
 \newblock A characterization of fibrant {S}egal categories.
 \newblock {\em Proc. Amer. Math. Soc.}, 135(12):4031--4037, 2007.
 
+\bibitem[Ber10]{Ber10}
+Julia~E. Bergner.
+\newblock {\em A Survey of {$(\infty, 1)$}-Categories}, pages 69--83.
+\newblock Springer New York, New York, NY, 2010.
+
 \bibitem[Ber17]{Ber17}
 Julia~E. Bergner.
 \newblock Equivalence of models for equivariant {$(\infty,1)$}-categories.
@@ -26,10 +31,16 @@ Clemens Berger and Ieke Moerdijk.
 \newblock On an extension of the notion of {R}eedy category.
 \newblock {\em Math. Z.}, 269(3-4):977--1004, 2011.
 
+\bibitem[BP]{BP_sq}
+Peter Bonventre and Lu{\'i}s Pereira.
+\newblock Equivariant dendroidal sets and simplicial operads.
+\newblock In preparation.
+
 \bibitem[BP17]{BP17}
 Peter Bonventre and Lu{\'i}s~Alexandre Pereira.
 \newblock Genuine equivariant operads.
-\newblock arXiv preprint: 1707.02226, 2017.
+\newblock arXiv preprint:
+  \href{https://arxiv.org/abs/1707.02226v1}{\texttt{1707.02226v1}}, 2017.
 
 \bibitem[CM11]{CM11}
 Denis-Charles Cisinski and Ieke Moerdijk.
@@ -46,10 +57,15 @@ Denis-Charles Cisinski and Ieke Moerdijk.
 \newblock Dendroidal sets and simplicial operads.
 \newblock {\em J. Topol.}, 6(3):705--756, 2013.
 
-\bibitem[GW17]{GW17}
-J.~Guti\'errez and D.~White.
+\bibitem[Goo92]{Go91}
+Thomas~G. Goodwillie.
+\newblock Calculus. {II}. {A}nalytic functors.
+\newblock {\em $K$-Theory}, 5(4):295--332, 1991/92.
+
+\bibitem[GW18]{GW18}
+J.~Guti{\'e}rrez and D.~White.
 \newblock Encoding equivariant commutativity via operads.
-\newblock arXiv preprint: 1707.02130, 2017.
+\newblock {\em Algebr. Geom. Topol.}, 18(5):2919--2962, 2018.
 
 \bibitem[HHM16]{HHM16}
 Gijs Heuts, Vladimir Hinich, and Ieke Moerdijk.
@@ -81,12 +97,12 @@ Jacob Lurie.
 \newblock Princeton University Press, Princeton, NJ, 2009.
 
 \bibitem[MW07]{MW07}
-I.~Moerdijk and I.~Weiss.
+Ieke Moerdijk and Ittay Weiss.
 \newblock Dendroidal sets.
 \newblock {\em Algebr. Geom. Topol.}, 7:1441--1470, 2007.
 
 \bibitem[MW09]{MW09}
-I.~Moerdijk and I.~Weiss.
+Ieke. Moerdijk and Ittay Weiss.
 \newblock On inner {K}an complexes in the category of dendroidal sets.
 \newblock {\em Adv. Math.}, 221(2):343--389, 2009.
 
@@ -111,6 +127,11 @@ Emily Riehl.
   Monographs}.
 \newblock Cambridge University Press, Cambridge, 2014.
 
+\bibitem[RV14]{RV14}
+Emily Riehl and Dominic Verity.
+\newblock The theory and practice of {R}eedy categories.
+\newblock {\em Theory Appl. Categ.}, 29:256--301, 2014.
+
 \bibitem[Ste16]{Ste16}
 Marc Stephan.
 \newblock On equivariant homotopy theory for model categories.
@@ -119,6 +140,7 @@ Marc Stephan.
 \bibitem[Wei12]{Wei12}
 Ittay Weiss.
 \newblock Broad posets, trees, and the dendroidal category.
-\newblock Available at: \texttt{https://arxiv.org/abs/1201.3987}, 2012.
+\newblock arXiv preprint:
+  \href{https://arxiv.org/abs/1201.3987}{\texttt{1201.3987}}, 2012.
 
 \end{thebibliography}
