@@ -49,14 +49,14 @@ cd,patterns,calc}
 \usepackage{ifdraft}
 \ifdraft{
   \color[RGB]{63,63,63}
- % \pagecolor[RGB]{220,220,204}
+  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   
   \usepackage{showkeys}
 }
 {
-\usepackage[notref]{showkeys}
+  \usepackage[notref]{showkeys}
 }
 
 % -------- Reference Numbering
@@ -152,7 +152,9 @@ Their program was carried out in three main steps:
               of dendroidal spaces and pre-operads,
               modeling complete dendroidal Segal spaces and Segal operads respectively,
               and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
-	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program.\footnote{This narrative is itself a generalization of the interactions between the various models for $(\infty,1)$-categories, including complete Segal spaces and Segal categories. A survey of such models can be found at e.g. \cite{Ber10}.}
+	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program\footnote{
+                Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers and is itself a generalization of the Bergner-Joyal-Lurie-Rezk-Tierney program studying the various models for $(\infty,1)$-categories.
+                A survey of such models can be found at e.g. \cite{Ber10}.}.
 \end{inparaenum}
 
 
@@ -184,40 +186,39 @@ Table \ref{TABLE} provides a summary of the parallel narratives, listing the dif
 \begin{table}[htbp]
       \label{TABLE}
       \centering
-      \begin{tabular}{|c|c|c|}
-        \hline
-        ``categories up to htpy'' & ``operads up to htpy'' & ``genuine equiv. operads up to htpy''
-        \\ \hline
-        simplicial sets $\sSet$ & dendroidal sets $\dSet$ & equivariant dendroidal sets $\dSet^G$
-        \\
-        Joyal model structure & model structure from \cite{CM11} & model structure from \cite{Per18}
-        \\
-        $\infty$-categories & $\infty$-operads & $G$-$\infty$-operads
-        \\ \hline
-        bisimplicial sets $\mathsf{ssSet}$ & simplicial dendroidal sets $\mathsf{sdSet}$ & equiv. simplicial dend. sets $\mathsf{sdSet}^G$
-        \\
-        Rezk model structure & model structure from \cite{CM13a} & model structure from \S \ref{CEDSS SEC}
-        \\
-        complete Segal spaces & complete dendroidal Segal spaces & complete equiv. dend. Segal spaces
-        \\ \hline
-        Segal precategories $\mathsf{SeCat}$ & Segal preoperads $\mathsf{PreOp}$ & equiv. Segal preoperads $\mathsf{PreOp}^G$
-        \\
-        Hirschowitz-Simpson & model structure from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
-        \\
-        Segal categories & Segal operads & equiv. Segal operads
-        \\ \hline
-        simplicial categories $\mathsf{sCat}$ & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
-        \\
-        Bergner model structure & model structure from \cite{CM13b} & model structure from \cite{BP_sq}
-        \\ \hline
-      \end{tabular}
+      \resizebox{\columnwidth}{!}{%
+        \begin{tabular}{|c|c|c|}
+          \hline
+          ``categories up to htpy'' & ``operads up to htpy'' & ``equivariant operads up to htpy''
+          \\ \hline
+          simplicial sets $\sSet$ & dendroidal sets $\dSet$ & equivariant dendroidal sets $\dSet^G$
+          \\
+          Joyal model structure & model struc. from \cite{CM11} & model structure from \cite{Per18}
+          \\
+          $\infty$-categories & $\infty$-operads & $G$-$\infty$-operads
+          \\ \hline
+          bisimplicial sets $\mathsf{ssSet}$ & simp. dend. sets $\mathsf{sdSet}$ & equiv. simp. dend. sets $\mathsf{sdSet}^G$
+          \\
+          Rezk model structure & model struc. from \cite{CM13a} & model structure from \S \ref{CEDSS SEC}
+          \\
+          complete Segal spaces & complete dend. Segal spaces & complete equiv. dend. Segal spaces
+          \\ \hline
+          Segal precategories $\mathsf{SeCat}$ & Segal preoperads $\mathsf{PreOp}$ & equiv. Segal preoperads $\mathsf{PreOp}^G$
+          \\
+          Hirschowitz-Simpson & model struc. from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
+          \\
+          Segal categories & Segal operads & equiv. Segal operads
+          \\ \hline
+          simplicial categories $\mathsf{sCat}$ & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
+          \\
+          Bergner model structure & model struc. from \cite{CM13b} & model structure from \cite{BP_sq}
+          \\ \hline
+        \end{tabular}
+      }
       \caption{A summary of models for $\infty$-categories, $\infty$-operads, and $G$-$\infty$-operads.}
 \end{table}
 
-
-
-
-It is worth noting that, much as was the case of the work in \cite{Per18}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers the Bergner-Joyal-Lurie-Rezk-Tierney program studying $\infty$-categories. As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
+It is worth noting that, much as was the case of the work in \cite{Per18}, our results are not formal consequences of their non-equivariant analogues, due to the nature of norm maps\footnote{As a point of contrast, we note that the lack of norms in the categorical case causes the equivariant generalization of this latter program to indeed be formal; see \cite{Ste16,Ber17}.}.
 Indeed, in \cite{BP17}, the second piece of our project,
 the authors introduced the notion of 
 \textit{genuine equivariant operads},
@@ -266,8 +267,10 @@ Lastly, \S \ref{GENEQOP SEC} recasts the \textit{genuine equivariant operads} of
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
 via largely abstract methods.
 Our approach is inspired by 
-\cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures,
-and our narrative has been modified to highlight this.
+\cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
+Rather than aiming for a direct equivariant analogue\footnote{Such a result can be found in Remark \ref{INTERP REM}.},
+we instead use this observation as an organizational framework for understanding and comparing the many model structures on $\mathsf{sdSet}^G$.
+%
 As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common localizations, 
 which is then applied in \S \ref{CEDSS SEC} to obtain the Quillen equivalence
 $\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
@@ -3521,10 +3524,15 @@ the category of equivariant preoperads $\mathsf{PreOp}^G$
 with the ``equivariant Segal operad'' model structure in \S \ref{PREOP SEC}.
 
 Our perspective will be that these Quillen equivalences are best understood in light of the observation from \cite[Thm. 6.6]{CM13a},
-which says that the complete dendroidal space model structure
-on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures
-As such, we will find it helpful to first focus on the abstract properties of such ``joint left Bousfield localizations''\footnote{
-  The equivariant analgoue of \cite[Thm. 6.6]{CM13a} can be found in Remark \ref{INTERP REM}, and will be a consequence of this abstract analysis and an understanding of the fibrant objects in question.}.
+which says that the complete dendroidal Segal space model structure
+on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
+%
+Using the existance of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
+as one of these ``joint left Bousfield localizations'' --- though with a different choice of second localization\footnote{
+  As a result of this choice, the direct analogue of \cite[Thm. 6.6]{CM13a}, found in Remark \ref{INTERP REM} at the end of \S \ref{EDSS_SEC}, does not form an essential or even necessary piece of our analysis.}.
+%
+As such, we will find it helpful to first focus on the abstract properties of these constructions. % such ``joint left Bousfield localizations'',
+
 
 
 
@@ -5307,10 +5315,11 @@ which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
 \begin{remark}
-      When $G = e$ and $C = [1]$, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
+      In the non-equivariant simplicial context, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
       \[
-            \Delta[1] \times \Delta[1] \simeq \Delta[2] \coprod_{\Delta[1]} \Delta[2].
+            \Delta[1] \times \Delta[1] \simeq \Delta[2] \coprod_{\Delta[1]} \Delta[2]
       \]
+      when we choose $C = [1]$. 
 \end{remark}
 
 \begin{proposition}\label{JDDK PROP}
@@ -5708,7 +5717,7 @@ showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof
       In fact, the joint/Rezk model structure on $\mathsf{sdSet}^G$ is the localization of the dendroidal Segal space model structure
       with respect to the maps
       $\Omega[T] \otimes (\set{i} \to J)$
-      (regarded a constant in the simplicial direction),
+      (regarded as constant in the simplicial direction),
       generalizing \cite[Thm. 6.6]{CM13a}.
       Indeed, they both have the same cofibrations, and so it suffices to show that they have the same fibrant objects;
       this is immediate from Corollaries \ref{JOINTFIBCHAR COR}(iii) and \ref{FIB_PREOP_COR}.
@@ -6480,8 +6489,8 @@ Corollary \ref{RESGEN COR}.
 \end{remark}
 
 In the following, given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
-we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck fibration associated to the action map $K \to \Cat$.
-Informally, we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
+we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck fibration associated to the functor $K \to \Cat$ encoding the action of $K$ on $\mathbb R$.
+Informally, the objects are unchanged, but we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
 $e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \to r'$ in $\mathbb R$.
 \[
       \begin{tikzcd}% [row sep = small, column sep = small]
@@ -6502,7 +6511,18 @@ $e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \
             k r'
       \end{tikzcd}
 \]
-Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$. 
+Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
+the map $K \ltimes \mathbb R \to K$ sends $(k,f)$ to $k$.
+
+
+\begin{remark}
+      $K \ltimes \mathbb R$ recovers familiar constructions:
+      \begin{itemize}
+      \item In the case where $\mathbb R$ is simply a group (thought of as a category with a single object), $K \ltimes R$ is
+            precisely the semi-direct product of $K$ on $\mathbb R$.
+      \item For a general category $\mathbb R$ with trivial $K$-action, $K \ltimes \mathbb R$ is just the product $K \times \mathbb R$.
+      \end{itemize}
+\end{remark}
 
 Further, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
 the category of arrows
@@ -6830,6 +6850,7 @@ $\Gamma \in \mathcal{F}_U$ be a graph subgroup encoding a $H$ action on $U$, the
 where the third equality is \cite{BM11} (see also \cite[Cor 5.63]{Per18})
 and the last equality is \eqref{T_DECOMP_EQ}.
 \end{example}
+
 
 
 \bibliography{biblio}{}
