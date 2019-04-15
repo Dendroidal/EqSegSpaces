@@ -3550,7 +3550,7 @@ The joint localized model structure $\mathcal{C}_{1,2}$ can be obtained by eithe
 the identity functors 
 $\mathcal{C}_1 \to L_1 \mathcal{C}_2$ and
 $\mathcal{C}_2 \to L_2 \mathcal{C}_1$
-are left Quillen and thus, by the universal property of left Bousfield localizations \cite[Prop. 3.3.18]{Hir03}, so are the identity functors
+are left Quillen and thus, by the universal property of left Bousfield localizations \cite[Prop. 3.3.18]{Hir03} (cofibrant approximations \cite[Def. 8.1.2]{Hir03} cause no issue since $\mathcal{C}_1,\mathcal{C}_2$ have the same cofibrations), so are the identity functors
 $L_2 \mathcal{C}_1 \to L_1 \mathcal{C}_2$ and 
 $L_1 \mathcal{C}_2 \to L_2 \mathcal{C}_1$. This implies that $L_2 \mathcal{C}_1$ and $L_1 \mathcal{C}_2$ indeed coincide.
 	
@@ -5257,7 +5257,7 @@ where $[1]$ is the $1$-simplex regarded as a $G$-trivial $G$-tree, and $C$ is a 
 (see Notation \ref{GCOR NOT}). Adapting the discussion
 in Example \ref{THM71 EX}, $[1] \otimes C$ is the union of two maximal $G$-subtrees $C \star \eta$ and $\eta \star C$,
 whose orbital representations are depicted below.
-\[
+\begin{equation}\label{OTIMESDECOMP EQ}
 \begin{tikzpicture}
 [grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
 	\node at (0,0) [font=\normalsize] {$C \star \eta$}
@@ -5286,7 +5286,7 @@ node [name=Kone,swap] {}}
 		};
 		\draw [dotted,thick] (Kone) -- (Kn) ;
 \end{tikzpicture}
-\]
+\end{equation}
 Moreover, just as in \eqref{GENLEXREL EQ}, 
 $C \star \eta$ and $\eta \star C$ have a common orbital face, which we denote simply by $C$
 (since this face is canonically isomorphic to the original $C$),
@@ -5307,6 +5307,59 @@ $[1] \otimes C = C \star \eta$.
             \Delta[1] \times \Delta[1] \simeq \Delta[2] \coprod_{\Delta[1]} \Delta[2].
       \]
 \end{remark}
+
+
+
+The next result will make use of the cube diagram below, where 
+$\partial \Omega[C] = \partial^l \Omega[C] \amalg \partial^r \Omega[C]$ is the decomposition of the edges of $C$ into leaves and roots. All maps are the inclusions determined by the decomposition \eqref{OTIMESOC_EQ}, but it seems worthwhile to be explicit regarding how 
+$\partial^l \Omega[C]$ and $\partial^r \Omega[C]$
+include into
+$\Omega[1] \otimes \Omega[C]$. The edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
+are $\{0,1\} \times \boldsymbol{E}(C)$
+so that an edge $l$ in $\partial^l \Omega[C]$ includes as $(0,l)$ while an edge $r$ in $\partial^r \Omega[C]$ includes as $(1,r)$ (we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root).
+\begin{equation}\label{BIGCUBE EQ}
+\begin{tikzcd}[column sep=1pt,row sep=10pt]
+	\partial \Omega[C] \ar{rr} \ar{rd} \ar{dd} && 
+	\Omega[1] \otimes \partial^l \Omega[C]  \amalg \partial^r \Omega[C] \ar{rd} \ar{dd}
+\\
+	&
+	|[alias=WW]|
+	\partial^l \Omega[C]  \amalg  \Omega[1] \otimes \partial^r \Omega[C] && 
+	|[alias=RR]|
+	\Omega [1] \otimes \partial \Omega[C] \ar{dd}
+\\
+	\Omega[C] \ar{rr} \ar{rd} &&
+	\Omega[\eta \star C] \ar{rd}
+\\
+	&
+	|[alias=LL]|
+	\Omega[C \star \eta]  \ar{rr} &&
+	\Omega[1] \otimes \Omega[C]  
+\arrow[from=WW,to=RR,crossing over]
+\arrow[from=WW,to=LL,crossing over]
+\end{tikzcd}
+\end{equation}
+Moreover, note that this is a projective cofibrant cube (recall that $\chi \colon (0 \to 1)^{\times n} \to \mathsf{dSet}^G$
+is projective cofibrant if the maps 
+$\colim_{\underline{j} < \underline{i}} \chi_{\underline{j}} \to \chi_{\underline{i}}$
+are normal monomorphisms
+for each 
+$\underline{i} \in (0 \to 1)^{\times n}$).
+Indeed, since all maps in \eqref{BIGCUBE EQ} are monomorphisms of presheaves, we can regard all objects as subpresheaves of 
+$\Omega[1] \otimes \Omega[C]$, so that projective cofibrancy is the same as \eqref{BIGCUBE EQ} being strongly cartesian, i.e., 
+the objects
+$\partial \Omega[C]$, $\Omega[C]$,
+$\Omega[1] \otimes \partial^l \Omega[C]  \amalg \partial^r \Omega[C] $ and 
+$\partial^l \Omega[C]  \amalg  \Omega[1] \otimes \partial^r \Omega[C]$
+being the intersection of the objects they map to.
+
+% When $k \neq 0$ in \eqref{OTIMESDECOMP EQ}, this can be readily verified using the fact that all subtrees are full \cite[Prop. 7.15]{Per18}. When $k=0$, one could technically appeal to \cite[Cor. 7.24]{Per18}, but a more direct analysis for this very specific case seems more expedient.
+
+Lastly, note that both of the horizontal faces of \eqref{BIGCUBE EQ}
+are pushout squares.
+
+
+
 
 \begin{proposition}\label{JDDK PROP}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
@@ -5345,47 +5398,88 @@ $[1] \otimes C = C \star \eta$.
 Since fully faithfulness of $X \to X^{J}$
 is the statement that the leftmost square in \eqref{BIGSQ EQ} induces weak equivalences on fibers, it suffices to show that so does the composite square.
 
+
+%Now note that
+%$X^{\Omega[1]}(\Omega[C]) = X\left(\Omega[1] \otimes \Omega[C]\right)$ and that there is a pullback diagram as on the left below. Moreover, both squares below are pullback squares which are injective fibrant squares
+%and the natural map of squares between them is an injective fibration of squares (alternatively, the fibrancy claims state that the resulting cube is an injective fibrant cube).
+
 Now note that
-$X^{\Omega[1]}(\Omega[C]) = X\left(\Omega[1] \otimes \Omega[C]\right)$ and that there is a pullback diagram as on the left below. Moreover, both squares below are pullback squares which are injective fibrant squares
-and the natural map of squares between them is an injective fibration of squares (alternatively, the fibrancy claims state that the resulting cube is an injective fibrant cube).
-\begin{equation}\label{OTBIGSQ EQ}
-\begin{tikzcd}[column sep=14]
-	X\left(\Omega[1] \otimes \Omega[C]\right)
-	\ar[->>]{r} \ar[->>]{d}&
-	X(\Omega[\eta \star C]) \ar[->>]{d}
-&
-	\underset{i}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d} &
-	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
-	\times X(\eta)^{H_0} \ar[->>]{d}
+$X^{\Omega[1]}(\Omega[C]) = X\left(\Omega[1] \otimes \Omega[C]\right)$, so that \eqref{BIGCUBE EQ} induces the cube \eqref{BIGCUBEDU EQ} below with dual properties: this is an injective fibrant cube whose horizontal faces are pullback squares.
+Moreover, we will find it convenient to slightly repackage these properties. Regarding the top and bottom faces of \eqref{BIGCUBEDU EQ} as objects in the category of square diagrams, the vertical maps in \eqref{BIGCUBEDU EQ} are then a fibration between projective fibrant pullback squares.
+
+\begin{equation}\label{BIGCUBEDU EQ}
+\begin{tikzcd}[column sep=1pt,row sep=10pt]
+	X\left(\Omega[1] \otimes \Omega[C]\right) \ar[->>]{rr} \ar[->>]{rd} \ar[->>]{dd} && 
+	X(\Omega[\eta \star C]) \ar[->>]{rd} \ar[->>]{dd}
 \\
-	X(\Omega[C \star \eta])	 \ar[->>]{r} &
-	X(\Omega[C]) \arrow[lu, phantom, "\lrcorner", very near start]
-&
+	&
+	|[alias=WW]|
+	X(\Omega[C \star \eta]) && 
+	|[alias=RR]|
+	X(\Omega[C]) \ar[->>]{dd}
+\\
+	\underset{i}{\prod} X([1])^{H_i} \ar[->>]{rr} \ar[->>]{rd} &&
+	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
+	\times X(\eta)^{H_0} \ar[->>]{rd}
+\\
+	&
+	|[alias=LL]|
 	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
-	\times X([1])^{H_0}	 \ar[->>]{r} &
-	\underset{i}{\prod} X(\eta)^{H_i}
-	\arrow[lu, phantom, "\lrcorner", very near start]
+	\times X([1])^{H_0}  \ar[->>]{rr} &&
+	\underset{i}{\prod} X(\eta)^{H_i} 
+\arrow[from=WW,to=RR,crossing over,->>]
+\arrow[from=WW,to=LL,crossing over,->>]
 \end{tikzcd}
 \end{equation}
-Since the top left corner of the map of squares 
-\eqref{OTBIGSQ EQ} is the right vertical map in \eqref{BIGSQ EQ},
-and noting that fibers (in the category of square diagrams)
-of a fibration between pullback squares are fibrant pullback squares,
-the desired claim that the total diagram in \eqref{BIGSQ EQ}
-induces equivalences on fibers will follow provided that the same holds for the following squares 
+Noting next that fibers (in the category of square diagrams)
+of a fibration between pullback squares are fibrant pullback squares, if follows that the 
+fibers of the top left vertical map in \eqref{BIGCUBEDU EQ}
+are homotopy pullbacks of the fibers of the remaining vertical maps.
+And since this top left vertical map is the right vertical map in \eqref{BIGSQ EQ}, the desired claim that the total diagram in \eqref{BIGSQ EQ}
+induces equivalences on fibers will follow provided that the same holds for the following total diagrams 
 (which adapt \cite[Lemma 12.4]{Rez01}),
 where the horizontal maps are the obvious degeneracies.
+
+
+%\begin{equation}\label{OTBIGSQ EQ}
+%\begin{tikzcd}[column sep=14]
+%	X\left(\Omega[1] \otimes \Omega[C]\right)
+%	\ar[->>]{r} \ar[->>]{d}&
+%	X(\Omega[\eta \star C]) \ar[->>]{d}
+%&
+%	\underset{i}{\prod} X([1])^{H_i} \ar[->>]{r} \ar[->>]{d} &
+%	\left(\underset{i \neq 0}{\prod} X([1])^{H_i}\right)
+%	\times X(\eta)^{H_0} \ar[->>]{d}
+%\\
+%	X(\Omega[C \star \eta])	 \ar[->>]{r} &
+%	X(\Omega[C]) \arrow[lu, phantom, "\lrcorner", very near start]
+%&
+%	\left(\underset{i \neq 0}{\prod} X(\eta)^{H_i}\right)
+%	\times X([1])^{H_0}	 \ar[->>]{r} &
+%	\underset{i}{\prod} X(\eta)^{H_i}
+%	\arrow[lu, phantom, "\lrcorner", very near start]
+%\end{tikzcd}
+%\end{equation}
+%Since the top left corner of the map of squares 
+%\eqref{OTBIGSQ EQ} is the right vertical map in \eqref{BIGSQ EQ},
+%and noting that fibers (in the category of square diagrams)
+%of a fibration between pullback squares are fibrant pullback squares,
+%the desired claim that the total diagram in \eqref{BIGSQ EQ}
+%induces equivalences on fibers will follow provided that the same holds for the following squares 
+%(which adapt \cite[Lemma 12.4]{Rez01}),
+%where the horizontal maps are the obvious degeneracies.
 \[
 \begin{tikzcd}[column sep=17]
-	X(\Omega[C]) \ar{r}{s} \ar[->>]{dd}&
+	X(\Omega[C]) \ar{r}{s} \ar[equal]{d}&
 	X(\Omega[C \star \eta]) \ar[->>]{d}{\sim}
 &
-	X(\Omega[C]) \ar{r}{s} \ar[->>]{dd}&
+	X(\Omega[C]) \ar{r}{s} \ar[equal]{d}&
 	X(\Omega[\eta \star C]) \ar[->>]{d}{\sim}
 \\
-	& X(\Omega[C]) \underset{X(\eta)^{H_0}}{\times} X([1])^{H_0} \ar[->>]{d}
+	X(\Omega[C]) \ar{r}{s} \ar[->>]{d}&
+	X(\Omega[C]) \underset{X(\eta)^{H_0}}{\times} X([1])^{H_0} \ar[->>]{d}
 &
-	& \underset{i \neq 0}{\prod} X([1])^{H_i} 
+	X(\Omega[C]) \ar{r}{s} \ar[->>]{d} & \underset{i \neq 0}{\prod} X([1])^{H_i} 
 	\underset{\underset{i \neq 0}{\prod} X(\eta)^{H_i}}{\times} X(\Omega[C]) \ar[->>]{d}
 \\
 	\underset{i}{\prod} X(\eta)^{H_i} \ar{r}[swap]{s} &
@@ -5398,8 +5492,8 @@ where the horizontal maps are the obvious degeneracies.
 \end{tikzcd}
 \]
 But this is clear from the fact that the top right vertical
-maps in these diagrams are trivial Kan fibrations
-due to the Segal condition for $X$.
+maps in these diagrams are trivial Kan fibrations(by the Segal condition for $X$) and the fact that the bottom squares are pullback squares.
+
 
 Lastly, to check essential surjectivity, 
 since $G$ acts trivially on $J$ one has
