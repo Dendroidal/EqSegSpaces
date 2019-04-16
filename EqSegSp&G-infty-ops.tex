@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt
- ,draft
+% ,draft
 ]{article}%
 
 
@@ -49,7 +49,7 @@ cd,patterns,calc}
 \usepackage{ifdraft}
 \ifdraft{
   \color[RGB]{63,63,63}
-  \pagecolor[RGB]{220,220,204}
+%  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   
@@ -423,7 +423,7 @@ The following result is \cite[Cor. 3.32]{BP17}, with the additional planar state
 \]
 as a degeneracy followed by an inner face map followed by an outer face map.
 
-Moreover, if $\varphi$ is planar, there is a (strictly) unique factorization with $\varphi^{-},\varphi^i,\varphi^o$ also planar. 
+Moreover, there is a (strictly) unique factorization with $\varphi^i,\varphi^o$ planar. 
 \end{proposition}
 
 We next recall an explicit characterization and notation for planar inner/outer faces
@@ -694,11 +694,11 @@ identifying this $G$-action with the natural action on subsets. However, we pref
 
 
 \begin{notation}\label{BARUT NOT}
-	Given $T\in \Omega_G$ and a planar face
-	$\varphi \colon U \hookrightarrow T$ we write $\bar{U}^T$, or just $\bar{U}$ when no confusion should arise, for the face in the unique planar factorization
+	Given $T\in \Omega_G$ and a face
+	$\varphi \colon U \hookrightarrow T$ we write $\bar{U}^T$, or just $\bar{U}$ when no confusion should arise, for the planar face in the unique factorization
 	$U \overset{\varphi^i}{\hookrightarrow} \bar{U}^T \overset{\varphi^o}{\hookrightarrow} T$
-	in Proposition \ref{UNIQUEFACT PROP}.
-	We will call $\bar{U}^T$ the \textit{outer closure of $U$}, due to it being the smallest planar outer face of $T$ containing $U$ (to see this, let $V \hookrightarrow T$ be a planar outer face such that $U \hookrightarrow V$; then Proposition \ref{UNIQUEFACT PROP} applied to 
+	(cf. Proposition \ref{UNIQUEFACT PROP}) with $\varphi^o$ planar.
+	We will call $\bar{U}^T$ the \textit{outer closure of $U$}, due to it being the smallest planar outer face of $T$ such that $U \hookrightarrow \bar{U}^T$ (to see this, let $V \hookrightarrow T$ be a planar outer face such that $U \hookrightarrow V$; then Proposition \ref{UNIQUEFACT PROP} applied to 
 	$U \hookrightarrow \bar{U}^V \hookrightarrow V \hookrightarrow T$ implies it must be $\bar{U}^V = \bar{U}^T$, showing 
 	$\bar{U}^T \hookrightarrow V$).
 \end{notation}
@@ -888,7 +888,7 @@ One has the following orbital face analogue of Proposition \ref{UNIQUEFACT PROP}
 	Any orbital face $\varphi \colon S \hookrightarrow T$ in $\Omega_G$ has a factorization 
 	$S \overset{\varphi^i}{\hookrightarrow} R \overset{\varphi^o}{\hookrightarrow} T$, unique up to unique isomorphism, as an orbital inner face followed by an orbital outer face.	
 	
-	Moreover, if $\varphi$ is planar, there is a (strictly) unique factorization with $\varphi^i,\varphi^o$ also planar. 
+	Moreover, there is a (strictly) unique factorization with $\varphi^o$ planar. 
 \end{proposition}
 
 
@@ -948,13 +948,14 @@ The argument at the end of the previous proof has the following two consequences
 
 \begin{proposition}\label{MINGFACT PROP}
 	Let $T \in \Omega_G$.
-	For any (non-equivariant) planar face $U \hookrightarrow T$ 
+	For any (non-equivariant) face $U \hookrightarrow T$ 
 	there is a smallest planar orbital face $GU \hookrightarrow T$
 	such that $U \hookrightarrow GU$. 
 \end{proposition}
 
-\begin{proof}
-Assume first that $U=\bar{U}^T$ is outer and write $H\leq G$ for
+\begin{proof} Without loss of generality, we assume $U$ is planar throughout.
+
+Suppose first that $U=\bar{U}^T$ is outer and write $H\leq G$ for
 the isotropy of its root $r_U$.
 By Lemma \ref{CUPCAP LEM} there exists a smallest planar outer face 
 containing all $h U \hookrightarrow T$ for $h \in H$,
@@ -1262,21 +1263,45 @@ evaluations $X(U)$ of $X \in \mathsf{dSet}^G$
 are defined only for $U \in \Omega$ (cf. Notation \ref{TREEDIFNOT NOT}).
 
 \begin{remark}\label{FACEGACT REM}
-	For $T \in \Omega_G$, a planar face $\varphi_U \colon U \to T$
+	For $T \in \Omega_G$, a planar face $\varphi_U \colon U \hookrightarrow T$
 	can also be regarded as a dendrex $\varphi_U \in \Omega[T](U)$.
 	However, the $G$-isotropy $H$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
-	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
-	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
+	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)^{op}$-action,	
+	where $\mathsf{Aut}(U)^{op}$ acts by precomposition,
+	and the $G \times \mathsf{Aut}(U)^{op}$-isotropy of $\varphi_U$
 	is a subgroup 
 	$\Gamma \leq G \times \mathsf{Aut}(U)$
-	which is the graph of a homomorphism
-	$\phi\colon H \to \mathsf{Aut}(U)$.
-	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
-	$\phi(h)$ is the left isomorphism in \eqref{FACEGACT EQ},
-	so that $U\in \Omega$ is equipped with a canonical $H$-action.
+	consisting of elements
+	$(h,\phi^{-1}(h))$
+	where $h\in H$ and
+	$\phi\colon H \to \mathsf{Aut}(U)$ is a homomorphism.
+	Indeed, noting that \eqref{FACEGACT EQ} implies there is an identity $\Omega[gU] = g \Omega[U]$ as subpresheaves of $\Omega[T]$, it follows that the $G$-isotropy $H$ of $U \in \mathsf{Face}(T)$ coincides with the $G$-isotropy of the subpresheaf $\Omega[U]\subseteq \Omega[T]$ so that, by Yoneda, 
+	$U \in \Omega$ has a canonical $H$-action 
+	$\phi \colon H \to \mathsf{Aut}(U)$
+	(more explicitly, $\phi(h)$ is the left isomorphism in \eqref{FACEGACT EQ}).
 	We abuse notation by writing 
 	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
 \end{remark}
+
+
+
+%\begin{remark}\label{FACEGACT REM}
+%	For $T \in \Omega_G$, a planar face $\varphi_U \colon U \to T$
+%	can also be regarded as a dendrex $\varphi_U \in \Omega[T](U)$.
+%	However, the $G$-isotropy $H$ of $U \in \mathsf{Face}(T)$ must not be confused with the $G$-isotropy of $\varphi_U$.
+%	Instead, $\Omega[T](U)$ has a larger $G \times \mathsf{Aut}(U)$-action,
+%	and the $G \times \mathsf{Aut}(U)$-isotropy of $\varphi_U$
+%	is a subgroup 
+%	$\Gamma \leq G \times \mathsf{Aut}(U)$
+%	which is the graph of a homomorphism
+%	$\phi\colon H \to \mathsf{Aut}(U)$.
+%	One readily checks that if $hU = U$ in $\mathsf{Face}(T)$ then
+%	$\phi(h)$ is the left isomorphism in \eqref{FACEGACT EQ},
+%	so that $U\in \Omega$ is equipped with a canonical $H$-action.
+%	We abuse notation by writing 
+%	$U \in \Omega^H \subseteq \Omega_H$ to denote this.  
+%\end{remark}
+
 
 
 Recall that a class of maps is called \textit{saturated} if it is closed under pushouts, transfinite composition and retracts. 
@@ -1286,7 +1311,7 @@ The saturation of the boundary inclusions
 $\partial \Omega[T] \to \Omega[T]$
 is the class of \textit{$G$-normal monormorphisms},
 i.e. those monomorphisms $X \to Y$ in $\mathsf{dSet}^G$ such that
-$Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$ (non-equivariantly, this is \cite[1.3]{CM11}, and also holds equivariantly by \cite[Rem. 6.7]{Per18}; alternatively, it can be shown using \cite[Prop. 6.5(ii)]{Per18} and \cite[Prop. 5.62]{Per18}).
+$Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$ (non-equivariantly, this is \cite[Prop. 1.5]{CM11}, and also holds equivariantly by \cite[Rem. 6.7]{Per18}; alternatively, it can be shown using \cite[Prop. 6.5(ii)]{Per18} and \cite[Prop. 5.62]{Per18}).
 Moreover, since one can forget the $G$-action when verifying this condition, we will usually call these simply \textit{normal monomorphisms}. 
 
 
@@ -1876,7 +1901,7 @@ Lastly, \S \ref{GENEQOP SEC} briefly discusses \textit{colored genuine equivaria
 	is a \textit{characteristic inner edge collection of $\{U_i\}$ with respect to $A$} if:
 	\begin{itemize}
 	\item[(Ch0)] $A$, $\{U_i\}$ and $\{\Xi^i\}$ are all $G$-equivariant, i.e. $g A = A$, $g U_i = U_{gi}$, $g \Xi^i = \Xi^{gi}$ as appropriate; 
-	\item[(Ch1)] for all $i$, any outer face $V = \bar{V}^{U_i}$
+	\item[(Ch1)] for all $i$, any outer face $V \simeq \bar{V}^{U_i}$
 		of $U_i$ such that $\Xi_{V}^i = \emptyset$
 		is contained in $A_{<i}$;
 	\item[(Ch2)] for all $i$, any face
@@ -1914,8 +1939,7 @@ If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{
 		A \to A \cup \bigcup_{i \in I} \Omega[U_i]
 	\end{equation}
 is $G$-inner anodyne. 
-In fact, \eqref{CHARLEM EQ} is cellular\footnote{
-  Given a class of maps $I$, an arrow $f$ is said to be \textit{cellular on $I$} or \textit{built cellularly from $I$} if
+In fact, \eqref{CHARLEM EQ} is cellular\footnote{Given a class of maps $I$, an arrow $f$ is said to be \textit{cellular on $I$} or \textit{built cellularly from $I$} if
   it is a relative $I$-cell complex in the sense of \cite[Defn. 2.1.9]{Hov99} (see also \cite[Cor. 2.1.15]{Hov99}, \cite[Example 12.6.12]{Ri14}).
   % \cite[Example 12.6.12, Cor. 12.8.5]{Ri14}).
   % If $I$ is a set of generating cofibrations, then the closure of cellular maps under retracts is the class of all cofibrations \cite[Cor. 2.1.15]{Hov99}.
@@ -1948,7 +1972,7 @@ $V \leq V'$ if either
 We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
 $\bar{V}=\bar{V}^U$.
 
-For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write
+For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write (for the identity $\Omega[gV]=g\Omega[V]$, see Remark \ref{FACEGACT REM})
 \[
 A_C = 
 A \cup \bigcup_{g\in G,V \in C} \Omega[gV]= 
@@ -2126,7 +2150,8 @@ The proof of Lemma \ref{CHAREDGE LEM} now carries through mostly unchanged to sh
 \end{equation}
 is $G$-inner anodyne (again built cellularly from $G$-inner horn inclusions).
 Indeed, writing 
-$A_C = A \cup \bigcup_{g\in G,V \in C} b_{[g]}(\Omega[gV]) = 
+$A_C = 
+%A \cup \bigcup_{g\in G,V \in C} b_{[g]}(\Omega[gV]) = 
 A \cup \bigcup_{g\in G,V \in C} g b_{[e]}(\Omega[V])$,
 the obvious analogues of (a),(b) in the proof
 show that one can form the analogous diagram \eqref{FIRPUSH EQ} and that
