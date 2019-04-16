@@ -89,6 +89,8 @@ Similarly, a similar comment was added in the remark immediately preceding \S 4.
 
 In addition, some extra detail concerning how \cite[Prop. 3.3.18]{Hir03} was being used was added, and some of the notation in Proposition 4.1 and its proof was adjusted to allow for this.
 
+In further addition, made an observation as to why cofibrant approximation is a non issue.
+
 \item[49.] Fixed reference to ``Thm. 3.3.8'' of Hir03 to be ``Thm 3.2.13'' (I had an old version of the paper)
 
 \item[85.] Modified the reference \cite[\S 4]{BM11} to \cite[\S 4,\S 6]{BM11}, to note that \S 6 is where (co)skeleta are actually discussed. 
@@ -129,13 +131,13 @@ In addition, some extra detail concerning how \cite[Prop. 3.3.18]{Hir03} was bei
 As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined without much worry.
 However, separating (Ch3) is needed to control the isotropies (which is why (Ch3) is needed when verifying condition (c) in the proof). In fact, in earlier iterations of the characteristic edge lemma condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified.
 
-\item[30.] Corrected $A_C = A \cup \bigcup_{g\in G,V \in C} b_{[g]}(\Omega[gV]) = 
+\item[30.] Corrected $A_C = 
 A \cup \bigcup_{g\in G,V \in C} g b_{[e]}(\Omega[V])$.
 
-Similarly, added the alternate formula already in the proof of the characteristic edge lemma.
+Similarly, added the alternate $g \Omega[V]$ formula already in the proof of the characteristic edge lemma.
 
-{\color{red} To do:} Explain that here $gV$ refers to the image of $V$ under the induced isomorphism 
-$\mathsf{Face}(U_{[e]}) \xrightarrow{g} \mathsf{Face}(U_{[g]})$
+Moreover, expanded Remark FACEGACT REM to explain why $\Omega[gV] = g\Omega[V]$ and better explain the connection with isotropy of representable subpresheaves.
+
 
 
 \item[37.] I do not think the proof of Proposition HYPER PROP should require anything analogous to the mentioned condition (b) in the proof of Lemma CHAREDGE LEM. The point is that for $U \in \Omega$ and $V \hookrightarrow$ a planar face, it is $|V|<|U|$ unless $V=U$. We've added an extra sentence to Remark FACCES REM that should make this point clearer.
@@ -187,9 +189,11 @@ Changed the language in the proof to reflect the restatement and provide some ex
 
 \item[21.] Provided references for the characterization of $G$-normal monomorphisms.
  
+\item[23.] Adapted the definition of outer closure to also include non-planar faces.
 
 \item[26.] Added a new paragraph explaining why conditions (a)(b)(c) imply that the given square is a pushout.
 
+\item[34.] Adapted the definition of $GV$ to also include non-planar faces.
 
 \item[42.] Clarified the meaning of hypersaturation when not assuming that the maps are cofibrations.
 
@@ -238,7 +242,15 @@ Edited Proposition SESP PROP and its proof to replace appearances of $n$ with $m
 \item[74.] Added Proposition to beginning of \S 5.1 characterizing equivariant dendroidal Segal spaces in the vein of [CM13a, Cor. 5.6]
 
 \item[81.] added an explanation for why $X^h(J) = X(J)$.
+
+
+\item expanded the discussion of cube fibrancy/cofibrancy before and during the proof of JDDK PROP, and (hopefully) made the overall argument a little clearer.
+
+
 \end{itemize}
+
+
+
 
 \end{document} 
 
