@@ -4667,12 +4667,12 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
         unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of categories\footnote{
           Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
         formed by the simplicial sets with $m$-simplices% the homotopy categories
-	\[
+	\begin{equation}\label{HOCOEFF EQ}
               ho(X)(G \cdot_H [m]) =
               \pi_0 \left((\gamma_{\**}X)([m])\right)^H = 
               \pi_0 \left( \iota^{\**} \gamma_{\**}(X^H)\right)(m) = 
               ho(\iota^{\**}(X^H))(m),
-        \]
+    \end{equation}
         % $ ho(X)(C_{H/H})=
         % ho \left(\iota^{\**}\left(X^H\right)\right) =
         % \pi_0 \left(\iota^{\**} \gamma_{\**}
@@ -5415,7 +5415,7 @@ are pushout squares.
 	where $X^{\Omega[T]} \in \mathsf{ssSet}$ is defined 
 	in analogy to Notation \ref{UNILIMDEN NOT}.
 	Since $X^{\Omega[T]}$
-	is a (simplicial) Segal space,
+	is a (simplicial) Segal space (by adjunction together with \cite[Thm. 7.1]{Per18}),
 	Proposition \ref{SESP PROP}(iv) says that this map is 
 	a weak equivalence onto a subset of components,
 	i.e. a \textit{homotopy monomorphism}.
@@ -5535,11 +5535,13 @@ maps in these diagrams are trivial Kan fibrations(by the Segal condition for $X$
 
 
 Lastly, to check essential surjectivity, 
-since $G$ acts trivially on $J$ one has
-$\left(\iota_G^{\**}\left( X^J \right)\right)(G/H)=
-\left(\iota_G^{\**}\left( X \right)(G/H)\right)^J$
-so that we reduce to the case of $X \in \mathsf{ssSet}$ a (simplicial) Segal space.
-Noting that $J$ is a contractible Kan complex,
+since $G$ acts trivially on $J$ equation \eqref{HOCOEFF EQ} yields
+$\iota_G^{\**} ho\left( X^J \right)(G/H)=
+ho\left(\iota^{\**}\left(X^J\right)^H\right)=
+ho\left(\iota^{\**}\left(X^H\right)^J\right)$,
+where $(-)^H$ denotes fixed points,
+so we reduce to the case of $X \in \mathsf{ssSet}$ a (simplicial) Segal space.
+Since $J$ is a contractible Kan complex,
 one has a map 
 $H \colon J \times J \to \{0\} \times J$
 such that 
@@ -5550,7 +5552,7 @@ But noting that
 $X(J \times J) \to X(\{0\} \times J)$
 can be written as 
 $X^J(0) \to X^J(J)$, the composites below
-show that any object in $\left(X^J\right)_0$ is indeed equivalent to a 
+show that any object in $\left(X^J\right)_0$ is equivalent to a 
 degenerate object, which is thus in the image of $X\to X^J$.
 \[
 	X^J(0) \xrightarrow{X(H)} 
