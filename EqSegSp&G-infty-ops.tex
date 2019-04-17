@@ -2565,7 +2565,7 @@ $(V - \Xi^{U_i}_V) \hookrightarrow U_j$.
 Then it follows from \cite[Lemma 7.37]{Per18}
 that there exists a generating relation $U_k < U_i$
 such that $(V - \Xi^{U_i}_V) \hookrightarrow U_k$
-(indeed, \cite[Lemma 7.37]{Per18} makes the slightly stronger claim that such a relation can be performed on the outer closure $\bar{V}^{U_i}$). But then, as one sees from \eqref{GENLEXREL EQ},
+(indeed, \cite[Lemma 7.37]{Per18} makes the claim that such a relation can be performed on an ``elementary subtree'' \cite[Def. 7.16]{Per18} or, in our notation, on the outer closure $\bar{V}^{U_i}$; and, via grafting, it is straightforward to extend such a $<$ relation for $\bar{V}^{U_i}$ to one for $U_i$ \cite[Rem. 7.30]{Per18}). But then, as one sees from \eqref{GENLEXREL EQ},
 all edges $e$ of $U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
 
 Lastly, for (Ch2), suppose $V \hookrightarrow U$ and 
@@ -4761,7 +4761,7 @@ $X(x_1,\cdots,x_n;x_0)$.
 
 Suppose $C,D$ are $G$-corollas that can be grafted,
 i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
-and write $T= C \amalg_{G e} D$ for the grafted $G$-tree. 
+and write $T= C \amalg_{G e} D$ for the grafted $G$-tree \cite[Def. 5.14, Prop. 6.19]{Per18}. 
 For any dendroidal Segal space $X$ one then has
 $X(Sc[T]) \simeq X(\Omega[C]) \times_{X(\eta)^H} X(\Omega[D])$
 and one can hence choose a section in the middle row below
@@ -5421,7 +5421,7 @@ are pushout squares.
 	where $X^{\Omega[T]} \in \mathsf{ssSet}$ is defined 
 	in analogy to Notation \ref{UNILIMDEN NOT}.
 	Since $X^{\Omega[T]}$
-	is a (simplicial) Segal space (by adjunction together with \cite[Thm. 7.1]{Per18}),
+	is a (simplicial) Segal space (by adjunction together with \cite[Prop. 7.25, Thm. 7.1]{Per18}),
 	Proposition \ref{SESP PROP}(iv) says that this map is 
 	a weak equivalence onto a subset of components,
 	i.e. a \textit{homotopy monomorphism}.
@@ -6423,9 +6423,9 @@ $\mathbb{R}_{\leq n}^{+}$ (resp. $\mathbb{R}_{\leq n}^{-}$). We refer the reader
 
 We now turn to the model categorical analysis, which depends on the Reedy-admissibility condition (iv)
 in Definition \ref{GENRED DEF}, and is the actual novelty of this appendix.
-We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}
-(we note that \cite[Prop. 6.6]{BP17} can be proven in terms of fibrations, and thus does not depend on 
-cofibrant generation assumptions on $\C$).
+We first recall the following, cf. \cite[Props. 6.5 and 6.6]{BP17}.
+%(we note that \cite[Prop. 6.6]{BP17} can be proven in terms of fibrations, and thus does not depend on 
+%cofibrant generation assumptions on $\C$).
 \begin{proposition}
 Let $\phi \colon G \to \bar{G}$ be a homomorphism and
 $\mathcal{F}$, $\bar{\mathcal{F}}$ families of subgroups of
@@ -6449,6 +6449,21 @@ $\phi(H) \in \bar{\mathcal{F}}$
 (resp. for $\bar{H} \in \bar{\mathcal{F}}$ it is
 $\phi^{-1}(H) \in \mathcal{F}$).
 \end{proposition}
+
+
+
+\begin{proof}
+For $H \leq G$, $\bar{H} \leq \bar{G}$, the fixed point formulas
+$\left(\mathsf{res}^{\bar{G}}_G Y \right)^H = Y^{\phi(H)}$
+and
+$\left(\mathsf{Hom}_{G}(\bar{G},X)\right)^{\bar{H}}=
+\prod_{[\bar{g}] \in \phi(G) \backslash \bar{G}/\bar{H}}
+X^{\phi^{-1}(\bar{g}\bar{H}\bar{g}^{-1})}$
+show that the right adjoints preserve (trivial) fibrations.
+\end{proof}
+
+
+
 
 For $\mathcal{F}_{\text{all}}$
 the family of all subgroups of $G$
