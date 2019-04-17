@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt
-% ,draft
+ ,draft
 ]{article}%
 
 
@@ -49,7 +49,7 @@ cd,patterns,calc}
 \usepackage{ifdraft}
 \ifdraft{
   \color[RGB]{63,63,63}
-%  \pagecolor[RGB]{220,220,204}
+  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   
@@ -81,7 +81,7 @@ cd,patterns,calc}
 
 
 \begin{abstract}
-	We introduce the analogues of the notions of complete Segal space and of Segal category in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
+	We introduce the analogues of the notions of complete Segal spaces and Segal categories in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
 	$G$-$\infty$-operads built in a previous paper.
 
 	Moreover, we establish variants of these results for the Blumberg-Hill indexing systems. 
@@ -143,7 +143,9 @@ where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
 is the category of presheaves on $\Omega$, 
 which are called \textit{dendroidal sets},
 and 
-$\mathsf{sOp}$ is the category of simplicial colored operads.
+$\mathsf{sOp}$ is the category of simplicial colored operads\footnote{
+  These objects have also been referred to as \textit{multicategories enriched in simplicial sets}.
+}.
 Their program was carried out in three main steps:
 \begin{inparaenum}
 	\item[(i)] \cite{CM11} established the existence of the $\infty$-operad model structure on $\mathsf{dSet}$ 
@@ -261,7 +263,7 @@ a powerful technical result we call the
 \textit{characteristic edge lemma}, is established.
 \S \ref{HYPERSAT SEC} then shows Proposition \ref{HYPER PROP} via a string of easy applications of 
 Lemma \ref{CHAREDGE LEM}.
-Lastly, \S \ref{GENEQOP SEC} recasts the \textit{genuine equivariant operads} of \cite{BP17} in a different perspective more suitable for our purposes in \S \ref{EDSS_SEC}.
+Lastly, \S \ref{GENEQOP SEC} recasts the genuine equivariant operads of \cite{BP17} in a different perspective more suitable for our purposes in \S \ref{EDSS_SEC}.
 
 \S \ref{QUIEQ SEC} establishes the desired Quillen equivalences between 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
@@ -271,8 +273,11 @@ Our approach is inspired by
 Rather than aiming for a direct equivariant analogue\footnote{Such a result can be found in Remark \ref{INTERP REM}.},
 we instead use this observation as an organizational framework for understanding and comparing the many model structures on $\mathsf{sdSet}^G$.
 %
-As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common localizations, 
-which is then applied in \S \ref{CEDSS SEC} to obtain the Quillen equivalence
+As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common or \textit{joint} localizations,
+as well as characterizations of the ``joint fibrant'' objects and equivalences in Proposition \ref{COMBMODSTR PROP}.
+This is then applied in \S \ref{CEDSS SEC} to obtain
+a charaterization for complete equivariant dendroidal Segal spaces in Corollary \ref{JOINTFIBCHAR COR}
+and the Quillen equivalence
 $\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
 in Theorem \ref{INC0AGJ THM}.
 \S \ref{PREOP SEC} then uses purely formal techniques to induce the model structure on
@@ -288,7 +293,8 @@ motivated by the fact that in our desired model structure on simplicial $G$-oper
 the weak equivalences are Dwyer Kan equivalences
 (i.e. characterized by fully faithfulness and essential surjectivity), 
 we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer Kan type description of the weak equivalences 
-between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$.
+between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
+(which are themselves charaterized in Proposition \ref{DSSCHAR_PROP} and Theorem \ref{FIB_PREOP_COR}).
 
 \S \ref{INDEX SEC}, which is transversal to the rest of the paper, generalizes all our main results by replacing the category $\Omega_G$ of $G$-trees
 with certain special subcategories
@@ -306,7 +312,7 @@ which is a fairly non-obvious equivariant generalization of one of the generaliz
 
 \subsection{Acknowledgements}
 
-The authors would like to the anonymous referee for their helpful suggestions and comments, including the creation and use of Table \ref{TABLE} from the introduction as an organizational summary.
+The authors would like to thank the anonymous referee for their helpful suggestions and comments, including the creation and use of Table \ref{TABLE} from the introduction as an organizational summary.
 
 \section{Preliminaries}\label{PREL SEC}
 
@@ -391,7 +397,7 @@ those broad posets associated to trees (see \cite[Defs. 5.1 and 5.9]{Per18}),
 so that one is free to work intrinsically with broad posets.
 
 Moreover, our discussion will be somewhat simplified by the assumption that $\Omega$
-contains exactly one representative of each planarized tree.
+contains exactly one representative of each \textit{planarized} tree.
 Informally, this means that trees $T \in \Omega$
 come with a preferred planar representation,
 though this can also be formalized in purely algebraic terms, see \cite[\S 3.1]{BP17}.
