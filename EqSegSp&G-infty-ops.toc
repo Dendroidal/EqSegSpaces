@@ -11,9 +11,9 @@
 \contentsline {section}{\numberline {4}Quillen equivalences}{27}{section.4}
 \contentsline {subsection}{\numberline {4.1}Joint left Bousfield localizations}{27}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Complete equivariant dendroidal Segal spaces}{30}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Equivariant Segal operads}{33}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}Equivariant Segal operads}{34}{subsection.4.3}
 \contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{36}{section.5}
-\contentsline {subsection}{\numberline {5.1}The homotopy genuine operad and Dwyer Kan equivalences}{36}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Rezk completion and fibrant Segal operads}{42}{subsection.5.2}
-\contentsline {section}{\numberline {6}Indexing system analogue results}{47}{section.6}
-\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{49}{appendix.A}
+\contentsline {subsection}{\numberline {5.1}The homotopy genuine operad and Dwyer Kan equivalences}{37}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Rezk completion and fibrant Segal operads}{43}{subsection.5.2}
+\contentsline {section}{\numberline {6}Indexing system analogue results}{48}{section.6}
+\contentsline {section}{\numberline {A}Equivariant Reedy model structures}{50}{appendix.A}
