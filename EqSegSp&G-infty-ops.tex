@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt
-% ,draft
+ ,draft
 ]{article}%
 
 
@@ -265,11 +265,10 @@ $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
 via largely abstract methods.
 Our approach is inspired by 
 \cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
-
-{\color{red} HERE}
-
-Rather than aiming for a direct equivariant analogue\footnote{Such a result can be found in Remark \ref{INTERP REM}.},
-we instead use this observation as an organizational framework for understanding and comparing the many model structures on $\mathsf{sdSet}^G$.
+In fact, we will prefer to use the common localization perspective to define (cf. Definition \ref{JOINREED DEF} and Remark \ref{JOINREED REM}) the equivariant Rezk/complete model structure on $\mathsf{sdSet}^G$,
+and then ``work backward'' (cf. Remark \ref{RECOVDEF REM}) to obtain the analogues of the definitions in \cite{CM13a} and of \cite[Thm. 6.6]{CM13a}.
+%Rather than aiming for a direct equivariant analogue\footnote{Such a result can be found in Remark \ref{INTERP REM}.},
+%we instead use this observation as an organizational framework for understanding and comparing the many model structures on $\mathsf{sdSet}^G$.
 %
 As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common localizations, 
 which is then applied in \S \ref{CEDSS SEC} to obtain the Quillen equivalence
@@ -4102,21 +4101,54 @@ The claims concerning the simplicial Reedy structure are standard. For the dendr
 
 We call the saturation of the maps in \eqref{JOINTCOF EQ} the class of \textit{normal monomorphisms} of $\mathsf{sdSet}^G$.
 
-\begin{corollary}\label{JOINTFIBCHAR COR}
+
+\begin{remark}\label{MAPSPACE REM}
+$\mathsf{sdSet}^G$ is simplicialy tensored and cotensored via the pointwise 
+%(in the dendroidal direction)
+formulas $(K \times X)(U) = K \times X(U)$ and
+$\left(X^K\right)(U) = X(U)^K$
+for $K \in \mathsf{sSet}, X \in \mathsf{sdSet}^G$, 
+and hence becomes a simplicial category with mapping spaces
+$\underline{\mathsf{Hom}}(A,X)_{\bullet} = \mathsf{Hom}(\Delta[\bullet] \times A,X)$.
+
+The generating sets \eqref{JOINTCOF EQ},\eqref{DENDTRIVCOF EQ} then show that these mapping spaces make the dendroidal Reedy model structure into a simplicial model structure, though the same does not hold for the simplicial Reedy model structure
+(since the pushout product of an anodyne map in $\mathsf{sSet}$ with a map in \eqref{JOINTCOF EQ} will be in the saturation of \eqref{DENDTRIVCOF EQ} rather than in that of \eqref{SIMPTRIVCOF EQ}).
+\end{remark}
+
+
+\begin{definition}\label{JOINREED DEF}
+The \textit{joint Reedy model structure} on $\mathsf{sdSet}^G$ is the smallest joint left Bousfield localization (cf. Proposition \ref{COMBMODSTR PROP}) of the dendroidal and simplical Reedy model structures.
+\end{definition}
+
+
+\begin{remark}\label{JOINREED REM}
+Historically, the joint Reedy model structure has been called the \textit{Rezk model structure} and its fibrant objects have been called 
+\textit{complete (dendroidal) Segal spaces}.
+This is because most discussions in the literature 
+\cite{Rez01,CM13a}
+prefer to first introduce the Segal space model structure on
+$\mathsf{ssSet}$/$\mathsf{sdSet}$, which is an intermediate localization of the 
+horizontal/dendroidal Reedy model structure.
+In this work we first focus on the properties of the Rezk model structure that are consequences of the joint perspective, 
+postponing the Segal space perspective to \S \ref{EDSS_SEC}.
+\end{remark}
+
+
+\begin{proposition}\label{JOINTFIBCHAR PROP}
 The joint fibrant objects $X \in \mathsf{sdSet}^G$ have the following equivalent characterizations:
 \begin{itemize}
 	\item[(i)] $X$ is both simplicial Reedy fibrant and dendroidal Reedy fibrant;
 	\item[(ii)] $X$ is simplicial Reedy fibrant and all the simplicial structure maps 
 	$X_0 \to X_n$ are weak equivalences in $\mathsf{dSet}^{G}$;
 	\item[(iii)] $X$ is dendroidal Reedy fibrant and all the natural maps
-\[
+\begin{equation}\label{JOINTFIBCHAR EQ}
 	X\left(\Omega[T]\right) \to X\left(Sc[T]\right)
 \qquad \text{and} \qquad
 	X\left(\Omega[T]\right) \to X(\Omega[T]\otimes J)
-\]
+\end{equation}
 for $T \in \Omega_G$ are Kan equivalences in $\mathsf{sSet}$.
 \end{itemize}
-\end{corollary}
+\end{proposition}
 
 
 \begin{proof}
@@ -4169,17 +4201,40 @@ $\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$).
 
 
 
-\begin{remark}
-Historically, the joint Reedy model structure has been called the \textit{Rezk model structure} and its fibrant objects have been called 
-\textit{complete (dendroidal) Segal spaces}.
-This is because most discussions in the literature 
-\cite{Rez01,CM13a}
-prefer to first introduce the Segal space model structure on
-$\mathsf{ssSet}$/$\mathsf{sdSet}$, which is an intermediate localization of the 
-horizontal/dendroidal Reedy model structure.
-In this work we first focus on the properties of the Rezk model structure that are consequences of the joint perspective, 
-postponing the Segal space perspective to \S \ref{EDSS_SEC}.
+
+
+\begin{remark}\label{RECOVDEF REM}
+The characterizations of joint fibrant objects in Proposition \ref{JOINTFIBCHAR PROP} show that, to obtain the joint Reedy structure, 
+one needs not localize the dendroidal Reedy structure with respect to \emph{all generating trivial cofibrations}
+of the simplicial Reedy structure, and vice-versa. 
+
+Indeed, since all objects appearing in 
+\eqref{JOINTFIBCHAR EQ}
+can be regarded as mapping spaces (cf. Remark \ref{MAPSPACE REM}), 
+one needs only localize the dendroidal Reedy model structure with respect to the maps
+\[
+Sc[T] \to \Omega[T], \qquad \Omega[T] \otimes J \to \Omega[T], \qquad T \in \Omega_G,
+\]
+recovering 
+%the analogue of 
+the definition of the \emph{dendroidal Rezk model category} %definition
+from \cite[Defs. 5.4, 6.2]{CM13a}.
+
+Similarly, Proposition \ref{JOINTFIBCHAR PROP}(ii) shows that one needs only localize the simplicial Reedy model structure with respect to the maps
+$(\Delta[0] \to \Delta[n])\square (\partial \Omega[T] \to \Omega[T])$ (since then for $X$ locally fibrant the maps $X_n \to X_0$ must be trivial fibrations in $\mathsf{dSet}^G$), and the argument at the end of the proof of Proposition \ref{JOINTFIBCHAR PROP}
+implies it is also enough to localize the vertex maps 
+$\Omega[T] \to \Delta[n] \times \Omega[T]$, which is the same as localizing with respect to the projection maps
+\[\Delta[n] \times \Omega[T] \to \Omega[T],
+\qquad n\geq 0, T \in \Omega_G\]
+recovering
+%the analogue of
+the definition of the \emph{locally constant model category} %definition
+from \cite[Def. 4.6]{CM13a}.
+
+Lastly, the fact that the two localizations just described coincide recovers \cite[Thm. 6.6]{CM13a}.
 \end{remark}
+
+
 
 We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}. Note that the equivalences in the simplicial Reedy model structure are the dendroidal equivalences and vice versa.
 
@@ -4199,7 +4254,7 @@ We now obtain the following partial analogue of Proposition \ref{SSSETJREE PROP}
 \begin{proof}
 	The proof adapts that of Proposition \ref{SSSETJREE PROP}.
 	(i) follows since $X$ then has the right lifting property with respect to all maps 
-	$(\Delta[0] \to \Delta[m]) \square (\partial \Omega[T] \to \Omega[T])$. (ii) follows from (i) and the characterization in  Corollary \ref{JOINTFIBCHAR COR} (ii). The first ``iff'' in (iii) follows from (ii) since the simplicial fibrant replacement maps 
+	$(\Delta[0] \to \Delta[m]) \square (\partial \Omega[T] \to \Omega[T])$. (ii) follows from (i) and the characterization in  Proposition \ref{JOINTFIBCHAR PROP} (ii). The first ``iff'' in (iii) follows from (ii) since the simplicial fibrant replacement maps 
 	$X \to \tilde{X}$ are dendroidal equivalences
 	and the second ``iff'' in (iii) follows from (i).
 	(iv) follows from (i).
@@ -4225,7 +4280,7 @@ c_!(A) \overset{\sim}{\rightarrowtail} \widetilde{c_!(A)} \twoheadrightarrow X
 A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
 \]
 	for the simplicial Reedy model structure. 
-	Corollary \ref{JOINTFIBCHAR COR}(ii) now implies that 
+	Proposition \ref{JOINTFIBCHAR PROP}(ii) now implies that 
 	$\widetilde{c_!(A)}$ is in fact joint fibrant
 	and thus that the leftmost composite is a joint equivalence iff $\widetilde{c_!(A)} \to X$ is a dendroidal equivalence in $\mathsf{sdSet}^G$ iff $\widetilde{c_!(A)}_0 \to X_0$ is an equivalence in  $\mathsf{dSet}^G$ iff the rightmost composite is an equivalence in $\mathsf{dSet}^G$.
 \end{proof}
@@ -4241,7 +4296,7 @@ A \xrightarrow{\sim} \widetilde{c_!(A)}_0 \to X_0
       Indeed, since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object in $\mathsf{dSet}^G$ (cf. Remark \ref{JREEDYCOF REM}),
       one has that $X^{J^{\bullet}} \in \mathsf{sdSet}^G$
       is simplicial fibrant.
-      Hence, by Corollary \ref{JOINTFIBCHAR COR}(ii)
+      Hence, by Proposition \ref{JOINTFIBCHAR PROP}(ii)
       $c_{!}(X) \to X^{J^{\bullet}}$
       will be a joint fibrant replacement provided that it is a dendroidal equivalence.
       But this follows from \cite[Cor. 8.21]{Per18},
@@ -5863,14 +5918,14 @@ showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof
       \] 
       where $\gamma_{\**}X$ is a fibrant preoperad and $\tilde{X}$ is
       a complete dendroidal Segal space.
-      
-      In fact, the joint/Rezk model structure on $\mathsf{sdSet}^G$ is the localization of the dendroidal Segal space model structure
-      with respect to the maps
-      $\Omega[T] \otimes (\set{i} \to J)$
-      (regarded as constant in the simplicial direction),
-      generalizing \cite[Thm. 6.6]{CM13a}.
-      Indeed, they both have the same cofibrations, and so it suffices to show that they have the same fibrant objects;
-      this is immediate from Corollaries \ref{JOINTFIBCHAR COR}(iii) and \ref{FIB_PREOP_COR}.
+%    
+%    In fact, the joint/Rezk model structure on $\mathsf{sdSet}^G$ is the localization of the dendroidal Segal space model structure
+%      with respect to the maps
+%      $\Omega[T] \otimes (\set{i} \to J)$
+%      (regarded as constant in the simplicial direction),
+%      generalizing \cite[Thm. 6.6]{CM13a}.
+%      Indeed, they both have the same cofibrations, and so it suffices to show that they have the same fibrant objects;
+%      this is immediate from Corollaries \ref{JOINTFIBCHAR COR}(iii) and \ref{FIB_PREOP_COR}.
 \end{remark}
 
 
