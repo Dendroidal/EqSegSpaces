@@ -3556,7 +3556,7 @@ Our perspective will be that these Quillen equivalences are best understood in l
 which says that the complete dendroidal Segal space model structure
 on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
 %
-Using the existance of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
+Using the existence of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
 as one of these ``joint left Bousfield localizations'' --- though with a different choice of second localization\footnote{
   As a result of this choice, the direct analogue of \cite[Thm. 6.6]{CM13a}, found in Remark \ref{INTERP REM} at the end of \S \ref{EDSS_SEC}, does not form an essential or even necessary piece of our analysis.}.
 %
@@ -5446,11 +5446,14 @@ which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
 \begin{remark}
-      In the non-equivariant simplicial context, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
+\eqref{OTIMESOC_EQ} is the (equivariant) dendroidal extension of the familiar 
+%simplicial
+decomposition
+%      In the non-equivariant simplicial context, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
       \[
             \Delta[1] \times \Delta[1] \simeq \Delta[2] \coprod_{\Delta[1]} \Delta[2]
       \]
-      when we choose $C = [1]$. 
+%      when we choose $C = [1]$. 
 \end{remark}
 
 
@@ -6732,22 +6735,31 @@ The duality of their proofs reflects the duality in
 Corollary \ref{RESGEN COR}.
 \end{remark}
 
+
 In the following, given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
-we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck fibration associated to the functor $K \to \Cat$ encoding the action of $K$ on $\mathbb R$.
-Informally, the objects are unchanged, but we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
-$e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \to r'$ in $\mathbb R$.
+we write $K \ltimes \mathbb{R} \to K$ 
+for the category obtained from $\mathbb{R}$ by formally adding action arrows
+$r \to kr$ for $r \in \mathbb{R},k \in K$,
+which satisfy three natural relations:
+the maps $r \xrightarrow{e} e r$
+are the identity $id_r$ and the two diagrams below commute
+for all $k,\bar{k} \in K$ and maps $f: r \to r'$ in $\mathbb R$.
+%
+%for the Grothendieck fibration associated to the functor $K \to \Cat$ encoding the action of $K$ on $\mathbb R$.
+%Informally, the objects are unchanged, but we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
+%$e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \to r'$ in $\mathbb R$.
 \[
       \begin{tikzcd}% [row sep = small, column sep = small]
-            r \arrow[rr, "k"] \arrow[dr, "hk"']
+            r \arrow[rr, "k"] \arrow[dr, "\bar{k}k"']
             &&
-            k r \arrow[dl, "h"]
+            k r \arrow[dl, "\bar{h}"]
             & % ----------
             r \arrow[r, "k"] \arrow[d, "f"']
             &
             k r \arrow[d, "k f"]
             \\
             &
-            h k r
+            \bar{k} k r
             &
             & % ----------
             r' \arrow[r, "k"]
@@ -6755,20 +6767,40 @@ $e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \
             k r'
       \end{tikzcd}
 \]
-Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
-the map $K \ltimes \mathbb R \to K$ sends $(k,f)$ to $k$.
+Note that 
+%\begin{inparaenum}
+%\item[(i)]
+if $\mathbb{R}=G$ is a group (regarding groups as one object categories) this recovers the usual $K \ltimes G$ construction and
+%\item[(ii)]
+if $K$ acts trivially on $\mathbb{R}$ this recovers the product of categories $K \times \mathbb{R}$.
+%\end{inparaenum}
+%Alternatively, if one regards $\mathbb{R}$ as a
+%functor $\mathbb{R} \colon G \to \mathsf{Cat}$, 
+%so the natural map $K \ltimes \mathbb{R} \to K$ is the associated Grothendiek fibration.
+
+Alternatively, $K \ltimes \mathbb{R}$
+admits a succint formal definition: 
+if one regards $\mathbb{R}$ as a
+functor $%\mathbb{R} \colon
+ K \xrightarrow{\mathbb{R}} \mathsf{Cat}$, 
+ the associated Grothendiek fibration is the natural functor $K \ltimes \mathbb{R} \to K$.% is the associated Grothendiek fibration.
+
+%Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
+%the map $K \ltimes \mathbb R \to K$ sends $(k,f)$ to $k$.
 
 
-\begin{remark}
-      $K \ltimes \mathbb R$ recovers familiar constructions:
-      \begin{itemize}
-      \item In the case where $\mathbb R$ is simply a group (thought of as a category with a single object), $K \ltimes R$ is
-            precisely the semi-direct product of $K$ on $\mathbb R$.
-      \item For a general category $\mathbb R$ with trivial $K$-action, $K \ltimes \mathbb R$ is just the product $K \times \mathbb R$.
-      \end{itemize}
-\end{remark}
 
-Further, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
+
+%\begin{remark}
+%      $K \ltimes \mathbb R$ recovers familiar constructions:
+%      \begin{itemize}
+%      \item In the case where $\mathbb R$ is simply a group (thought of as a category with a single object), $K \ltimes R$ is
+%            precisely the semi-direct product of $K$ on $\mathbb R$.
+%      \item For a general category $\mathbb R$ with trivial $K$-action, $K \ltimes \mathbb R$ is just the product $K \times \mathbb R$.
+%      \end{itemize}
+%\end{remark}
+
+Lastly, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
 the category of arrows
 $r' \xrightarrow{+} r$ in $\mathbb{R}^+$
 (resp. 
