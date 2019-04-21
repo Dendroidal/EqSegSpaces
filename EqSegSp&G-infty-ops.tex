@@ -442,7 +442,7 @@ $T_{\underline{t} \leq t}$
 such that
 $r_{T_{\underline{t} \leq t}} = t$ and
 $\underline{l}_{T_{\underline{t} \leq t}} = \underline{t}$
-(in fact, by Proposition \ref{UNIQUEFACT PROP} this is the maximal such face).
+(in fact, by Proposition \ref{UNIQUEFACT PROP} this is the largest such face).
 Moreover, the edges $s$ of $T_{\underline{t} \leq t}$ are the edges of $T$ such that
 $s \leq_d t$ and $\forall_{i} s \not < t_i$ while the vertices are the $s^{\uparrow} \leq s$ such that 
 $s \leq_d t$ and $\forall_{i} s \not \leq t_i$ 
@@ -2622,7 +2622,7 @@ $(g \xi)_s \in t_s^{\uparrow T}$ for some $t_s$
 (pictorially, this says that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then hold.
 For (Ch2), only the argument for the interesting case of
 $V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
-changes. In this case, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
+changes. In this case, there is then a largest edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
 and (Ch2) follows.
 
 Lastly, we note that \cite[Thm. 7.2]{Per18} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per18} when $S$ is linear.
@@ -4406,11 +4406,14 @@ induces a pushout square
 \end{remark}
 
 
-Noting that the assignment
-$U \mapsto \prod_{\boldsymbol{E}(U)} Y(\eta)$
-is the coskeleton $\mathsf{csk}_{\eta} Y$
-leads to the following.
 
+The assignment
+$U \mapsto \prod_{\boldsymbol{E}(U)} Y(\eta)$
+is the $0$-coskeleton of $Y$ in the dendroidal Reedy direction
+(see \eqref{SKELADJ EQ}).
+To avoid confusion with the coskeleton in the simplicial direction,
+and since $\eta$ is the only tree of degree $0$, 
+we denote this dendroidal coskeleton by $\mathsf{csk}_{\eta} Y$. We then have the following.
 
 \begin{proposition}\label{CSKETALT PROP}
 Let $X \in \mathsf{sdSet}^G$. Then:
@@ -4861,9 +4864,9 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
 	$\Delta \times \mathsf{O}_G \to 
 	\Omega \times \mathsf{O}_G \to
 	\Omega_G$,
-        unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of nerves of categories
+        unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of nerves of categories $\left(\iota_G^{\**}ho(X)\right)(G/H)$ for $H \leq G$,
         %\footnote{Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
-        formed by the simplicial sets with $m$-simplices
+        which are the simplicial sets with $m$-simplices
         % the homotopy categories
 	\begin{equation}\label{HOCOEFF EQ}
               ho(X)\left(G \cdot_H [m]\right) =
@@ -4876,7 +4879,6 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
         % ho \left(\iota^{\**}\left(X^H\right)\right) =
         % \pi_0 \left(\iota^{\**} \gamma_{\**}
         %       \left(X^H\right)\right)$
-        for $H \leq G$,
         where the second identity follows from
         % \eqref{GAMMASTAR_EQ} and 
         the discussion following \eqref{DSETG_EQ},
@@ -5845,10 +5847,10 @@ $\mathsf{sdSet}^G$
 as the \textit{horizontal Reedy model structure} on 
 $\mathsf{ssdSet}^G$.
 
-Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}), it follows that 
+Since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}), it follows that 
 $X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
 $X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
-is a horizontal fibration in $\mathsf{ssdSet}^G$ as well.
+is a horizontal fibration in $\mathsf{ssdSet}^G$ as well (the $\mathsf{csk}_{\eta}$ notation is discussed after \eqref{GAMMASH EQ}).
 As such, it follows from Lemma \ref{REEDYTRFIB LEM}(i) that for $T \in \Omega_G$
 the evaluations 
 \begin{equation}\label{MOREOVER EQ}
@@ -6600,7 +6602,7 @@ which depends on the extra axiom
 
 Since axioms (i),(ii),(iii) in Definition \ref{GENRED DEF} repeat \cite[Def. 1.1]{BM11}(i),(ii),(iii), we will only briefly recall the definitions of latching and matching objects.
 Writing $\iota_n \colon \mathbb{R}_{\leq n} \to \mathbb{R}$ for the inclusion of the full subcategory of those $r \in \mathbb{R}$ with $|r|\leq n$, we have adjunctions
-\begin{equation}
+\begin{equation}\label{SKELADJ EQ}
 \begin{tikzcd}[column sep =5em]
 	\mathcal{C}^{\mathbb{R}} \ar{r}[swap]{\iota_n^{\**}} 
 	&
