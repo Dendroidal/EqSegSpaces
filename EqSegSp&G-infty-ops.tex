@@ -3242,11 +3242,13 @@ Remark \ref{DESTIAL REM} below).
 To relate these presheaf categories, note that the fully faithful inclusion
 $\upsilon \colon \Omega \times G^{op} \to \Omega_G$
 given by $U \mapsto G \cdot U$ induces an adjunction
+(note that $\upsilon_{\**}$ is itself fully faithful, being a right Kan extension along a fully faithful functor \cite[Cor. 1.4.5]{Ri14})
 \begin{equation}\label{DSETG_EQ}
 	\upsilon^{\**}: \dSet_G \rightleftarrows \dSet^G : \upsilon_{\**}
 \end{equation}
 Explicitly, one has 
-$\upsilon_{\**}X(T) \simeq X(T_{\**})^H$,
+$\upsilon_{\**}X(T) \simeq X(T_{\**})^H \simeq
+\mathsf{dSet}^G(\Omega[T],X)$,
 where $T \simeq G \cdot_H T_{\**}$ for 
 $T_{\**} \in \Omega^H$,
 and the $H$-action on 
@@ -3255,7 +3257,11 @@ $X(T_{\**}) \xrightarrow{X(h^{-1})}
 X(T_{\**}) \xrightarrow{h} X(T_{\**})$.
 
 
-\begin{remark}
+\begin{remark}\label{UPSPUSHMON REM}
+$\upsilon_{\**}$ does not preserve arbitrary colimits, due to the presence of fixed points in its formula. Nonetheless, $\upsilon_{\**}$ does however preserve pushouts where one leg is a monomorphism.
+\end{remark}
+
+\begin{remark}\label{TWOYON REM}
 Mimicking the notation in \S \ref{EQDENDSETS SEC},
 we write $\Omega_G[-] \colon \Omega_G \to \mathsf{dSet}_G$
 for the Yoneda embedding.
@@ -3265,6 +3271,9 @@ to obtain a functor $\Omega[-] \colon \Omega_G \to \mathsf{dSet}^G$.
 These two ``representable functors'' are related by 
 $\Omega_G[T] \simeq \upsilon_{\**} \Omega[T]$.
 \end{remark}
+
+
+
 
 The following definition is then the main purpose of this section.
 
@@ -3280,6 +3289,7 @@ The following definition is then the main purpose of this section.
 	\end{equation}
 Equivalently, by Propositions \ref{HYPER PROP} and \ref{HYPERLP PROP}, one may replace Segal core inclusions with either orbital $G$-inner horn inclusions or $G$-inner horn inclusions.
 \end{definition}
+
 
 
 \begin{example}\label{STRICTLIFT EX}
@@ -3561,12 +3571,17 @@ Our perspective will be that these Quillen equivalences are best understood in l
 which says that the complete dendroidal Segal space model structure
 on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
 %
-Using the existence of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
-as one of these ``joint left Bousfield localizations'', though our localizations are organized differently \footnote{As a result of this choice, the direct analogue of \cite[Thm. 6.6]{CM13a}, Corollary \ref{JOINTCSS_COR}, does not form an essential or even necessary piece of our analysis.}.
+%Using the existence of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
+%as one of these ``joint left Bousfield localizations'', though our localizations are organized differently.
 %
-As such, we will find it helpful to first focus on the abstract properties of these constructions. % such ``joint left Bousfield localizations'',
-
-
+As such, we will find it helpful to first discuss an abstract framework for 
+%these constructions. %
+such ``joint left Bousfield localizations'',
+and then \textit{define} the model structure on 
+$\mathsf{sdSet}^G$ within that framework
+(Definition \ref{JOINREED DEF}),
+with the analogues of the original definitions in
+\cite{CM13a} recovered a posteriori (Remark \ref{RECOVDEF REM}).
 
 
 \subsection{Joint left Bousfield localizations}\label{JOINBOUS SEC}
@@ -3655,7 +3670,7 @@ for each $m \geq 0$, and dually for the vertical Reedy structure.
 	$X_{(-)} \colon \mathsf{sSet}^{op} \to \mathsf{sSet}$
 	for the unique limit preserving functor such that
 	$X_{\Delta[n]} = X_n$.
-	
+	Explicitly, $X_K(m) = \mathsf{sSet}(K,X(m))$.
 %	Note that for fixed $K\in \mathsf{sSet}$ one then has an adjunction
 %	$K\times (-) \colon \mathsf{sSet} \rightleftarrows 
 %	\mathsf{ssSet} \colon (-)_K$ (in fact, this is part of a two-variable adjunction, but we will not need that fact. See Remark \ref{TWOVARADJ REM}).
@@ -3913,6 +3928,9 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 \]
 	for the unique limit preserving functors such that
 	$X(\Omega[G \cdot U]) = X(U)$, $X_{\Delta[n]} = X_n$.
+	
+	Explicitly, $\left(X(A)\right)_n = \mathsf{dSet}^G(A,X_n)$
+	and $X_K(U) = \mathsf{sSet}(K,X(U))$.
 %        As in Definition \ref{UNIQUELIM NOT}, these can be realized by the Yoneda Lemma as
 %        \[
 %              X(A) = \Hom_{\mathsf{dSet}^G}(A, X_{\bullet}) \in \sSet,
@@ -4113,7 +4131,7 @@ formulas $(K \times X)(U) = K \times X(U)$ and
 $\left(X^K\right)(U) = X(U)^K$
 for $K \in \mathsf{sSet}, X \in \mathsf{sdSet}^G$, 
 and hence becomes a simplicial category with mapping spaces
-$\underline{\mathsf{Hom}}(A,X)_{\bullet} = \mathsf{Hom}(\Delta[\bullet] \times A,X)$.
+$\left(\underline{\mathsf{sdSet}}^G(A,X)\right)_{\bullet} = \mathsf{sdSet}^G(\Delta[\bullet] \times A,X)$.
 
 The generating sets \eqref{JOINTCOF EQ},\eqref{DENDTRIVCOF EQ} then show that these mapping spaces make the dendroidal Reedy model structure into a simplicial model structure, though the same does not hold for the simplicial Reedy model structure
 (since the pushout product of an anodyne map in $\mathsf{sSet}$ with a map in \eqref{JOINTCOF EQ} will be in the saturation of \eqref{DENDTRIVCOF EQ} rather than in that of \eqref{SIMPTRIVCOF EQ}).
@@ -4663,7 +4681,7 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 %for our extension, we will use $G$-corollas.
 
 
-To define fully-faithfulness for dendroidal Segal spaces, we now
+To define fully faithfulness for dendroidal Segal spaces, we now
 discuss mapping spaces. Non-equivariantly, these are indexed by tuples of objects and described using corollas \cite[3.6]{CM13a}.
 Equivariantly, these are indexed by ``equivariant tuples'' of objects, as suggested by $G$-corollas.
 
@@ -4752,16 +4770,88 @@ by
 	ho(X) = \pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right) \right),
     \]
 where $\upsilon_{\**}$  and $\gamma_{\**}$ are defined in \eqref{DSETG_EQ} and \eqref{GAMMASTAR_EQ}.
-Note that
-the Segal condition on $\gamma_{\**}X$ (cf. Proposition \ref{DSSFIB_PROP}) 
-implies $\gamma_{\**}X$ has the lifting property against $Sc[T] \to \Omega[T]$ in $\mathsf{sdSet}$, 
-and as $\upsilon_{\**}$ (cf. \eqref{DSETG_EQ}) is fully-faithful, 
-this implies that after taking $\pi_0$,  
+%Note that
+%the Segal condition on $\gamma_{\**}X$ (cf. Proposition \ref{DSSFIB_PROP}) 
+%implies $\gamma_{\**}X$ has the lifting property against $Sc[T] \to \Omega[T]$ in $\mathsf{sdSet}$, 
+%and as $\upsilon_{\**}$ (cf. \eqref{DSETG_EQ}) is fully faithful, 
+%this implies that after taking $\pi_0$,  
 %the Segal condition Proposition \ref{DSSCHAR_PROP}(ii) on $X$,
 %combined with Proposition \ref{CSKETALT PROP} and Notation \ref{UNILIMDEN NOT}, implies that 
-$ho(X)$ is a genuine equivariant operad in the sense of
-Definition \ref{GEN_OP_DEF}.
+%$ho(X)$ is a genuine equivariant operad in the sense of
+%Definition \ref{GEN_OP_DEF}.
 \end{definition}
+
+
+\begin{proposition}
+For any dendroidal Segal space $X \in \mathsf{sdSet}^G$ one has that 
+$ho(X) \in \mathsf{dSet}_G$ is a genuine equivariant operad (cf. Definition \ref{GEN_OP_DEF}).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{DSSFIB_PROP} we are free to assume 
+$X$ is in $\mathsf{PreOp}^G \subset \mathsf{sdSet}^G$, so we suppress $\gamma_{\**}$ from the notation throughout.
+
+The required strict lifting condition is equivalent to the 
+%natural
+ maps
+$\mathsf{dSet}_G\left(\upsilon_{\**}\Omega[T], ho(X)\right)
+\to
+\mathsf{dSet}_G\left(\upsilon_{\**}Sc[T], ho(X)\right)$
+being isomorphisms.
+On the other hand, the Segal condition for $X$ says that the maps 
+$X(\Omega[T]) \to X(Sc[T])$
+are trivial Kan fibrations, so that the maps 
+$\pi_0\left(X(\Omega[T])\right) \to \pi_0\left(X(Sc[T])\right)$
+are isomorphisms. 
+Hence, noting that
+for $A \in \mathsf{dSet}^G$
+there is a natural transformation
+(where $\bullet$ highlights the index with regards to which the $\pi_0$ are computed)
+\begin{equation}\label{HOGENEQOP EQ}
+\begin{split}
+	\pi_0\left( X_{\bullet}(A) \right)=
+	\pi_0 \left(
+	\mathsf{dSet}^G(A,X_{\bullet})
+	\right)
+= &
+	\pi_0 \left(
+	\mathsf{dSet}_G(\upsilon_{\**} A,\upsilon_{\**} X_{\bullet})
+	\right)
+\to 
+\\
+\to &
+	\mathsf{dSet}_G(\upsilon_{\**} A,\pi_0 \upsilon_{\**} X_{\bullet})
+=
+	\mathsf{dSet}_G(\upsilon_{\**} A,ho(X_{\bullet}))
+\end{split}
+\end{equation}
+it is enough to show that \eqref{HOGENEQOP EQ}
+is an isomorphism when $A$ is of the form $\Omega[T]$ or $Sc[T]$.
+The case of $A=\Omega[T]$
+is tautological since, by Remark \ref{TWOYON REM},
+$\mathsf{dSet}_G(\upsilon_{\**}\Omega[T],Y) = Y(T)$
+for any $Y \in \mathsf{dSet}_G$. 
+
+It remains to tackle the case $A=Sc[T]$.
+We argue by induction on the number of $G$-vertices of $T$.
+The base cases of $T$ either a $G$-corolla or a single $G$-edge orbit are automatic since then $Sc[T] = \Omega[T]$.
+Otherwise, choosing an equivariant grafting decomposition
+$T = R \circ_{Ge} S$
+one has a pushout decomposition
+$Sc[T] \simeq Sc[R] \amalg_{\Omega[Ge]} Sc[S]$
+so that, by induction, it suffices to check that both sides of 
+\eqref{HOGENEQOP EQ} turn this pushout into a pullback.
+For the right side this follows since by 
+Remark \ref{UPSPUSHMON REM}
+one has the analogue decomposition
+$\upsilon_{\**} Sc[T] \simeq \upsilon_{\**} Sc[R] \amalg_{\upsilon_{\**}\Omega[Ge]} \upsilon_{\**} Sc[S]$.
+For the left side this follows since $\pi_0$
+preserves the pullback decomposition
+$X(Sc[T]) \simeq X(Sc[R]) \times_{X(\Omega[Ge])} X(Sc[S])$ due to
+$X(\Omega[Ge])$ being discrete.
+\end{proof}
+
+
 
 In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with objects the $G$-sets $G/H$ for $H \leq G$ and arrows the $G$-equivariant maps between them.
 
