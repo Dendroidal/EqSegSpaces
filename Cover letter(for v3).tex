@@ -11,6 +11,26 @@
 
 \input{commands.tex}%
 
+%-------- TIKZ -----------------------------------------
+\usepackage{tikz}%
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,
+cd,patterns,calc}
+\tikzset{%
+  treenode/.style = {shape=rectangle, rounded corners,%
+                     draw, align=center,%
+                     top color=white, bottom color=blue!20},%
+  root/.style     = {treenode, font=\Large, bottom color=red!30},%
+  env/.style      = {treenode, font=\ttfamily\normalsize},%
+  dummy/.style    = {circle,draw,inner sep=0pt,minimum size=2mm}%
+}%
+
+\usetikzlibrary[decorations.pathreplacing]
+% \usetikzlibrary{external}\tikzexternalize
+% \makeatletters
+% \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
+
+% \makeatother
+
 \begin{document} 
  
 \title{Edits to ``Equivariant dendroidal Segal spaces and $G$-$\infty$-operads'' (version 3)
@@ -121,6 +141,36 @@ In further addition, made an observation as to why cofibrant approximation is a 
 \section{Departures from suggestions/direct answer to comments}
 
 \begin{itemize}
+\item[4.] we are firmly convinced that the definitions of node, stump and root from [Per18, Defs. 5.7 and 5.9]
+are correct as stated. For example, consider the tree
+\begin{equation}\label{FIRSTTREE EQ}
+	\begin{tikzpicture}[auto,grow=up,
+	level distance = 2.2em,
+	every node/.style={font=\footnotesize,minimum size=1.5mm}]%
+	\tikzstyle{level 2}=[sibling distance=4.25em]%
+	\tikzstyle{level 3}=[sibling distance=1.5em]%
+		\node at (0,0)[font=\normalsize]{}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap] {$c$}}%
+				edge from parent node [swap] {$e$}}%
+				child{node [dummy] {}%
+					child{node[dummy] {}%
+					edge from parent node [very near end,swap] {$b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{b}a$}}%
+				edge from parent node {$d$}}%
+			edge from parent node [swap] {$r$}};%
+	\end{tikzpicture}%
+\end{equation}
+The tuples $\underline{e}$ such that $\underline{e} < r$
+are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these.
+
+We are also unsure of how replacing ``maximum'' with ``upper bound'' would change these definitions, since an upper bound of a subset $A$ that is also in $A$ is automatically the maximum of $A$. 
+
+\item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances were the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest'').
+
 \item[24.] clarified the class of cellular maps, and added references for nomenclature.
       % (in particular, distinguished it from the class of saturated maps)
       % Reworded ``is cellular on'' to ``is built by attaching'' $G$-inner horn inclusions
