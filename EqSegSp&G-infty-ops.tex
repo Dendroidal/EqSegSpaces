@@ -143,7 +143,7 @@ where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
 is the category of presheaves on $\Omega$, 
 which are called \textit{dendroidal sets},
 and 
-$\mathsf{sOp}$ is the category of simplicial colored operads (also referred to as simplicial multicategories).
+$\mathsf{sOp}$ is the category of \textit{simplicial colored operads} (also referred to as simplicially enriched multicategories).
 Their program was carried out in three main steps:
 \begin{inparaenum}
 	\item[(i)] \cite{CM11} established the existence of the \textit{$\infty$-operad} model structure on $\mathsf{dSet}$ 
@@ -293,6 +293,7 @@ the weak equivalences are Dwyer Kan equivalences
 (i.e. characterized by fully faithfulness and essential surjectivity), 
 we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer Kan type description of the weak equivalences 
 between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$.
+% (which are themselves charaterized in Proposition \ref{DSSCHAR_PROP} and Theorem \ref{FIB_PREOP_COR}).
 
 \S \ref{INDEX SEC}, which is transversal to the rest of the paper, generalizes all our main results by replacing the category $\Omega_G$ of $G$-trees
 with certain special subcategories
@@ -1949,17 +1950,13 @@ If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{
 		A \to A \cup \bigcup_{i \in I} \Omega[U_i]
 	\end{equation}
 is $G$-inner anodyne. 
-In fact, \eqref{CHARLEM EQ} is cellular\footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
+In fact, \eqref{CHARLEM EQ} is built cellularly \footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
 %\cite[Cor. 2.1.15]{Hov99}
 \cite[Example 12.6.12]{Ri14}.
-%
-%Given a class of maps $I$, an arrow $f$ is said to be \textit{cellular on $I$} or \textit{built cellularly from $I$} if
-%  it is a relative $I$-cell complex in the sense of \cite[Def. 2.1.9]{Hov99}, and without retracts (see also \cite[Cor. 2.1.15]{Hov99}, \cite[Example 12.6.12]{Ri14}).
-  % \cite[Example 12.6.12, Cor. 12.8.5]{Ri14}).
   % If $I$ is a set of generating cofibrations, then the closure of cellular maps under retracts is the class of all cofibrations \cite[Cor. 2.1.15]{Hov99}.
   % In particular, cellular maps are closed under pushouts and transfinite composition, but not retracts.
 }
-on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+from $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
 Recall that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called \textit{convex}\footnote{Here our terminology follows that in \cite[\S 0]{Go91}. Such subsets are sometimes also called \textit{downward closed}.} if $s \in S$ and 
@@ -3263,7 +3260,7 @@ X(T_{\**}) \xrightarrow{h} X(T_{\**})$.
 
 
 \begin{remark}\label{UPSPUSHMON REM}
-$\upsilon_{\**}$ does not preserve arbitrary colimits, due to the presence of fixed points in its formula. Nonetheless, $\upsilon_{\**}$ does however preserve pushouts where one leg is a monomorphism.
+$\upsilon_{\**}$ does not preserve arbitrary colimits, due to the presence of fixed points in its formula. Nonetheless, $\upsilon_{\**}$ does preserve pushouts where one leg is a monomorphism.
 \end{remark}
 
 \begin{remark}\label{TWOYON REM}
@@ -3532,7 +3529,7 @@ the $X \in \mathsf{dSet}^G$ with such a lifting property
 would be simply the nerves of $G$-operads.
 To see why this is an unsatisfactory situation we recall a fundamental basic example.
 The category $\mathsf{Top}^G$ of $G$-spaces admits two main equivariant notions of weak equivalence:
-the fine/genuine equivalences, which care about all fixed point spaces, and the coarse/naive equivalences, 
+the fine/genuine equivalences, which care about all fixed point spaces, and the coarse/na\:ive equivalences, 
 which care only about the total spaces.
 However, this distinction vanishes when working in the discrete setting of $G$-sets $\mathsf{Set}^G$,
 unless one instead works with 
@@ -4214,7 +4211,7 @@ $\otimes$)
 \end{equation}
 (note that the case $K=\emptyset$ shows that the $X_L$ are fibrant).
 
-It now suffices to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
+It now suffices by adjunction to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
 To conclude the proof, we use Remark \ref{HYPERMODEL REM}
 combined with Proposition \ref{HYPER PROP}
 and the observation that the maps 
@@ -6847,7 +6844,7 @@ for the category obtained from $\mathbb{R}$ by formally adding action arrows
 $r \to kr$ for $r \in \mathbb{R},k \in K$,
 which satisfy three natural relations:
 the maps $r \xrightarrow{e} e r$
-are the identity $id_r$ and the two diagrams below commute
+are the identity $id_r$, and the two diagrams below commute
 for all $k,\bar{k} \in K$ and maps $f: r \to r'$ in $\mathbb R$.
 %
 %for the Grothendieck fibration associated to the functor $K \to \Cat$ encoding the action of $K$ on $\mathbb R$.
@@ -6857,7 +6854,7 @@ for all $k,\bar{k} \in K$ and maps $f: r \to r'$ in $\mathbb R$.
       \begin{tikzcd}% [row sep = small, column sep = small]
             r \arrow[rr, "k"] \arrow[dr, "\bar{k}k"']
             &&
-            k r \arrow[dl, "\bar{h}"]
+            k r \arrow[dl, "\bar{k}"]
             & % ----------
             r \arrow[r, "k"] \arrow[d, "f"']
             &
@@ -6885,9 +6882,9 @@ if $K$ acts trivially on $\mathbb{R}$ this recovers the product of categories $K
 
 Alternatively, $K \ltimes \mathbb{R}$
 admits a succint formal definition: 
-if one regards $\mathbb{R}$ as a
-functor $%\mathbb{R} \colon
- K \xrightarrow{\mathbb{R}} \mathsf{Cat}$, 
+if one regards $\mathbb{R}$ with its $K$-action as a
+functor $ %\mathbb{R} \colon
+K \xrightarrow{\mathbb{R}} \mathsf{Cat}$, 
  the associated Grothendiek fibration is the natural functor $K \ltimes \mathbb{R} \to K$.% is the associated Grothendiek fibration.
 
 %Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
