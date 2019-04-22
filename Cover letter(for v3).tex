@@ -11,6 +11,26 @@
 
 \input{commands.tex}%
 
+%-------- TIKZ -----------------------------------------
+\usepackage{tikz}%
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,
+cd,patterns,calc}
+\tikzset{%
+  treenode/.style = {shape=rectangle, rounded corners,%
+                     draw, align=center,%
+                     top color=white, bottom color=blue!20},%
+  root/.style     = {treenode, font=\Large, bottom color=red!30},%
+  env/.style      = {treenode, font=\ttfamily\normalsize},%
+  dummy/.style    = {circle,draw,inner sep=0pt,minimum size=2mm}%
+}%
+
+\usetikzlibrary[decorations.pathreplacing]
+% \usetikzlibrary{external}\tikzexternalize
+% \makeatletters
+% \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
+
+% \makeatother
+
 \begin{document} 
  
 \title{Edits to ``Equivariant dendroidal Segal spaces and $G$-$\infty$-operads'' (version 3)
@@ -33,10 +53,7 @@ The following lists the corrections of typos listed in the preliminary referee r
 
 \begin{itemize}
 \item[1.] added the names of the fibrant objects when naming the model structures in question, as well as included a version of the table produced by the reviewer (and references to the categorical narrative) for additonal clarity
-\item[2.] 
-added Remark RECOVDEF REM which explains why our results extend [CM13a, Thm. 6.6] and clarified clarified the influence of [CM13a, Thm. 6.6] in the introduction (to the paper and \S 4), 
-%and extended the last remark of \S 5 to include an analogue of the precise statement in the equivariant setting
-%\item[2.] clarified the influence of [CM13a, Thm. 6.6] in the introduction (to the paper and \S 4), and added a result after JOINTFIBCHAR COR to include a analogue of that statement in the equivariant setting
+
 \item[3.] added missing relation $aef \leq r$ to ``The other broad relations obtained by broad transitivity are \dots''
 \item[7.] added ``$\varphi$''
 \item[10.] reworded to ``denote the category of $G$-objects''
@@ -55,7 +72,7 @@ added Remark RECOVDEF REM which explains why our results extend [CM13a, Thm. 6.6
 \item[36.] reworded the definition of hypersaturated class
 \item[38.] fixed $\Lambda^EF[T]$ typo
 \item[45.] Changed ``Theorem 6.1'' to ``Thm. 6.1'' when citing MW09 (in the Remark discussing why strict lifting properties in $\mathsf{dSet}^G$ are unsatisfactory)
-\item[46.] changed ``genuine'' and ``na\'ive'' to ``fine'' and ``weak''.
+\item[46.] changed ``genuine'' and ``naive'' to ``fine'' and ``coarse''.
 \item[47.] Added missing dot to ``Thm. 2.1'' in the citation from Per17 (at the beggining of \S 4)
 \item[50.] added comment saying that ``$\square$ denotes the pushout product''
 \item[51.] added $n \geq 1$ condition
@@ -68,7 +85,6 @@ added Remark RECOVDEF REM which explains why our results extend [CM13a, Thm. 6.6
 \item[71.] added ``normal'' to ``a map $X\to Y$ in $\mathsf{PreOp}^G$ will have the right lifting property against all monomorphisms''
 \item[73.] fixed $\mathsf{Preop}^G$ typo
 \item[75.] fixed $x_n$ instead of $x_k$ typos
-\item[76.] added internal references which combine to show that $ho(X)$ is a genuine equivariant operad
 \item[77.] Recalled that $\mathsf{O}_G$ is the orbit category.
 
 Similarly, a similar comment was added in the remark immediately preceding \S 4.
@@ -106,7 +122,8 @@ In further addition, made an observation as to why cofibrant approximation is a 
 \begin{itemize}
 \item[8.] Clarified the definition of ``outer face map'' and corrected ``non-identity'' to be ``non-isomorphism''.
 \item[41.] added a Remark to the end of \S 2.1 comparing $\Omega$ to $\mathsf{sSet}$, and introduced the stick tree $\eta$.
-\item[78.] Corrected and clarifed the equation describing the levels of the homotopy genuine operad, including references to the defined functors.
+\item[56.] Added adjunction equations, highlighed second definition, 
+\item[78.] Corrected and clarifed equation describing the coefficient system of categories part of the homotopy genuine operad.
 \item fixed typo in the remark stating that $N[m] \to N \widetilde{[m]}$ is built from $0$-horns. Namely, ``$m$-simplex $\underline{a}$'' should have been ``$k$-simplex $\underline{a}$''
 \end{itemize}
 
@@ -124,6 +141,36 @@ In further addition, made an observation as to why cofibrant approximation is a 
 \section{Departures from suggestions/direct answer to comments}
 
 \begin{itemize}
+\item[4.] we are firmly convinced that the definitions of node, stump and root from [Per18, Defs. 5.7 and 5.9]
+are correct as stated. For example, consider the tree
+\begin{equation}\label{FIRSTTREE EQ}
+	\begin{tikzpicture}[auto,grow=up,
+	level distance = 2.2em,
+	every node/.style={font=\footnotesize,minimum size=1.5mm}]%
+	\tikzstyle{level 2}=[sibling distance=4.25em]%
+	\tikzstyle{level 3}=[sibling distance=1.5em]%
+		\node at (0,0)[font=\normalsize]{}%
+			child{node [dummy] {}%
+				child{node [dummy] {}%
+					child{node {}%
+					edge from parent node [swap] {$c$}}%
+				edge from parent node [swap] {$e$}}%
+				child{node [dummy] {}%
+					child{node[dummy] {}%
+					edge from parent node [very near end,swap] {$b$}}%
+					child{node {}%
+					edge from parent node [very near end] {$\phantom{b}a$}}%
+				edge from parent node {$d$}}%
+			edge from parent node [swap] {$r$}};%
+	\end{tikzpicture}%
+\end{equation}
+The tuples $\underline{e}$ such that $\underline{e} < r$
+are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these.
+
+We are also unsure of how replacing ``maximum'' with ``upper bound'' would change these definitions, since an upper bound of a subset $A$ that is also in $A$ is automatically the maximum of $A$. 
+
+\item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances were the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest'').
+
 \item[24.] clarified the class of cellular maps, and added references for nomenclature.
       % (in particular, distinguished it from the class of saturated maps)
       % Reworded ``is cellular on'' to ``is built by attaching'' $G$-inner horn inclusions
@@ -168,6 +215,11 @@ Moreover, expanded Remark FACEGACT REM to explain why $\Omega[gV] = g\Omega[V]$ 
 
 
 \begin{itemize}
+\item[2.] 
+added Remark RECOVDEF REM which explains why our results extend [CM13a, Thm. 6.6] and clarified clarified the influence of [CM13a, Thm. 6.6] in the introduction (to the paper and \S 4), 
+%and extended the last remark of \S 5 to include an analogue of the precise statement in the equivariant setting
+%\item[2.] clarified the influence of [CM13a, Thm. 6.6] in the introduction (to the paper and \S 4), and added a result after JOINTFIBCHAR COR to include a analogue of that statement in the equivariant setting
+
 \item[9.] Rephrased the language in the ``$U^{\cup}$ and $U^{\cap}$'' proof to explain why the argument isn't circular. The main point being that ``edge'' and ``vertex'' are simply suggestive names for ``element'' and ``generating relation'' of the broad poset.
 
 
@@ -239,6 +291,8 @@ and added Remark concerning the fibrant objects being the Reedy fibrant Segal op
 %as fibrant objects
 %%the Segal operads are not exactly the fibrant objects. It is convenient to have a larger class. This is used in the third paper once tame model structures enter the picture, since the tame fibrant stuff still satisfies the Segal operad condition, despite not being dendroidal Reedy fibrant
 
+\item[68.] Explained the $\mathsf{csk}_{\eta}$ notation.
+
 \item[69.] Reworded the proof describing the normal generators of $\mathsf{PreOp}^G$ to avoid the confusing wording.
 
 \item[70.] Completed the proof describing the normal generators of $\mathsf{PreOp}^G$ by indicating why the generators are normal.
@@ -246,6 +300,16 @@ and added Remark concerning the fibrant objects being the Reedy fibrant Segal op
 \item[72.] added explanation for why $X \otimes J$ is a cylinder object.
 
 \item[74.] Added Proposition to beginning of \S 5.1 characterizing equivariant dendroidal Segal spaces in the vein of [CM13a, Cor. 5.6]
+
+\item[76.] Turned the claim that $ho(X)$ is a genuine equivariant operad into a proposition, and gave a full proof.
+
+%added the actual formulas for $X(A)$, since they get used here...
+
+added an alternate formula for $\upsilon_{\**}$ after DSETG EQ.
+
+added remark UPSPUSHMON REM noting that $\upsilon_{\**}$ preserves certain pushouts
+
+%added internal references which show that $ho(X)$ is a genuine equivariant operad
 
 \item[81.] added an explanation for why $X^h(J) = X(J)$.
 
@@ -261,11 +325,17 @@ and added Remark concerning the fibrant objects being the Reedy fibrant Segal op
 
 \item Added a little more detail to the discussion of THM71 EX to better explain the role of elementary trees.
 
-\item Added further references in the outline
-
 \end{itemize}
 
 
 
 
 \end{document} 
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -49,7 +49,7 @@ cd,patterns,calc}
 \usepackage{ifdraft}
 \ifdraft{
   \color[RGB]{63,63,63}
-  \pagecolor[RGB]{220,220,204}
+%  \pagecolor[RGB]{220,220,204}
   % \color[rgb]{1,1,1}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   
@@ -81,7 +81,7 @@ cd,patterns,calc}
 
 
 \begin{abstract}
-	We introduce the analogues of the notions of complete Segal space and Segal category in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
+	We introduce the analogues of the notions of complete Segal space and of Segal category in the context of equivariant operads with norm maps, and build model categories with these as the fibrant objects. We then show that these model categories are Quillen equivalent to each other and to the model category for 
 	$G$-$\infty$-operads built in a previous paper.
 
 	Moreover, we establish variants of these results for the Blumberg-Hill indexing systems. 
@@ -143,16 +143,15 @@ where $\mathsf{dSet} = \mathsf{Set}^{\Omega^{op}} $
 is the category of presheaves on $\Omega$, 
 which are called \textit{dendroidal sets},
 and 
-$\mathsf{sOp}$ is the category of simplicial colored operads\footnote{These objects have also been referred to as \textit{multicategories enriched in simplicial sets}.
-}.
+$\mathsf{sOp}$ is the category of simplicial colored operads (also referred to as simplicial multicategories).
 Their program was carried out in three main steps:
 \begin{inparaenum}
-\item[(i)] \cite{CM11} established the existence of the \textit{$\infty$-operad} model structure on $\mathsf{dSet}$ 
-      (with some of the key combinatorial analysis based on Moerdijk and Weiss' previous work in \cite{MW09});
-\item[(ii)] \cite{CM13a} established auxiliary model structures on the categories $\mathsf{sdSet}$ and $\mathsf{PreOp}$
-      of dendroidal spaces and pre-operads, with fibrant objects the \textit{complete dendroidal Segal spaces} and \textit{Segal operads},
-      and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
-\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers and generalizes the Bergner-Joyal-Lurie-Rezk-Tierney program studying the various models for $(\infty,1)$-categories. A survey of these models can be found at \cite{Ber10}.}.
+	\item[(i)] \cite{CM11} established the existence of the \textit{$\infty$-operad} model structure on $\mathsf{dSet}$ 
+	(with some of the key combinatorial analysis based on Moerdijk and Weiss' previous work in \cite{MW09});
+	\item[(ii)] \cite{CM13a} established auxiliary model structures on the categories $\mathsf{sdSet}$ and $\mathsf{PreOp}$
+              of dendroidal spaces and pre-operads, with fibrant objects the \textit{complete dendroidal Segal spaces} and \textit{Segal operads},
+              and showed that all three of $\mathsf{dSet}$, $\mathsf{sdSet}$ and $\mathsf{PreOp}$ are Quillen equivalent;
+	\item[(iii)] lastly, \cite{CM13b} established the existence of the model structure on $\mathsf{sOp}$ as well as the Quillen equivalence between $\mathsf{sOp}$ and $\mathsf{PreOp}$, finishing the proof of the main result of the program\footnote{Recall that by using the inclusions of simplicial categories and simplicial sets into simplicial operads and dendroidal sets (cf. the introduction to \cite{CM13b}), the Cisinski-Moerdijk program recovers and generalizes the Bergner-Joyal-Lurie-Rezk-Tierney program studying the various models for $(\infty,1)$-categories. A survey of these models can be found at \cite{Ber10}.}.
 \end{inparaenum}
 
 
@@ -271,11 +270,13 @@ and then ``work backward'' (cf. Remark \ref{RECOVDEF REM}) to obtain the analogu
 %Rather than aiming for a direct equivariant analogue\footnote{Such a result can be found in Remark \ref{INTERP REM}.},
 %we instead use this observation as an organizational framework for understanding and comparing the many model structures on $\mathsf{sdSet}^G$.
 %
-As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common or \textit{joint} localizations,
-as well as characterizations of the ``joint fibrant'' objects and equivalences in Proposition \ref{COMBMODSTR PROP}.
-This is then applied in \S \ref{CEDSS SEC} to obtain
-a charaterization for complete equivariant dendroidal Segal spaces in Proposition \ref{JOINTFIBCHAR PROP}
-and the Quillen equivalence
+As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common
+% or \textit{joint}
+localizations,
+% as well as characterizations of the ``joint fibrant'' objects and equivalences in Proposition \ref{COMBMODSTR PROP}.
+which is then applied in \S \ref{CEDSS SEC} to obtain
+% a charaterization for complete equivariant dendroidal Segal spaces in Proposition \ref{JOINTFIBCHAR PROP} and
+the Quillen equivalence
 $\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
 in Theorem \ref{INC0AGJ THM}.
 \S \ref{PREOP SEC} then uses purely formal techniques to induce the model structure on
@@ -291,8 +292,7 @@ motivated by the fact that in our desired model structure on simplicial $G$-oper
 the weak equivalences are Dwyer Kan equivalences
 (i.e. characterized by fully faithfulness and essential surjectivity), 
 we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer Kan type description of the weak equivalences 
-between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
-(which are themselves charaterized in Proposition \ref{DSSCHAR_PROP} and Theorem \ref{FIB_PREOP_COR}).
+between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$.
 
 \S \ref{INDEX SEC}, which is transversal to the rest of the paper, generalizes all our main results by replacing the category $\Omega_G$ of $G$-trees
 with certain special subcategories
@@ -310,8 +310,12 @@ which is a fairly non-obvious equivariant generalization of one of the generaliz
 
 \subsection{Acknowledgements}
 
-The authors would like to thank the anonymous referee for their helpful suggestions and comments,
+The authors would like to thank the anonymous referee for their helpful suggestions and comments, 
 including Table \ref{TABLE}.
+
+
+
+
 
 \section{Preliminaries}\label{PREL SEC}
 
@@ -443,7 +447,7 @@ $T_{\underline{t} \leq t}$
 such that
 $r_{T_{\underline{t} \leq t}} = t$ and
 $\underline{l}_{T_{\underline{t} \leq t}} = \underline{t}$
-(in fact, by Proposition \ref{UNIQUEFACT PROP} this is the maximal such face).
+(in fact, by Proposition \ref{UNIQUEFACT PROP} this is the largest such face).
 Moreover, the edges $s$ of $T_{\underline{t} \leq t}$ are the edges of $T$ such that
 $s \leq_d t$ and $\forall_{i} s \not < t_i$ while the vertices are the $s^{\uparrow} \leq s$ such that 
 $s \leq_d t$ and $\forall_{i} s \not \leq t_i$ 
@@ -546,7 +550,6 @@ Additionally, we will as usual write $\eta =  \iota([0])$ for the ``stick tree''
 %     and an arrow $f$ in $\Delta$ is an (inner,outer) face or degeneracy iff it is so in $\Omega$.
 %      Moreover, letting $\eta$ denote the ``stick'', the unique tree with one edge, the image of $\Delta$ is equal to the overcategory $\Omega \downarrow \eta$.
 \end{notation}
-
 
 \subsection{The category of $G$-trees $\Omega_G$}
 
@@ -1933,20 +1936,20 @@ or else $U_i$ would be in $A_{<i}$.
 
 
 \begin{remark}\label{SOMEMAIN REM}
-      In some of the main examples (see Propositions \ref{ORB_HORN_PROP} and \ref{REG_HORN_PROP}), there exists a $G$-equivariant set 
-      $\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap \boldsymbol{E}^{\mathsf{i}}(U_i)$.
-      
-      We caution that, for fixed $A$ and $\{U_i\}$, our characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2),(Ch3) more restrictive.
+In some of the main examples (see Propositions \ref{ORB_HORN_PROP} and \ref{REG_HORN_PROP}), there exists a $G$-equivariant set 
+$\Xi$ of inner edges of $T$ such that $\Xi^i = \Xi \cap \boldsymbol{E}^{\mathsf{i}}(U_i)$.
+	
+We caution that, for fixed $A$ and $\{U_i\}$, our characteristic conditions are \textit{not} monotone on such $\Xi$ since increasing $\Xi$ makes (Ch1) more permissive while making (Ch2),(Ch3) more restrictive.
 \end{remark}
 
 
 \begin{lemma}\label{CHAREDGE LEM}
-      If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{i\in I}$ with respect to $A$, then the map
-      \begin{equation}\label{CHARLEM EQ}
-            A \to A \cup \bigcup_{i \in I} \Omega[U_i]
-      \end{equation}
-      is $G$-inner anodyne. 
-      In fact, \eqref{CHARLEM EQ} is built cellularly \footnote{Recall that a map $f$ is \textit{built cellularly} from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
+If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{i\in I}$ with respect to $A$, then the map
+	\begin{equation}\label{CHARLEM EQ}
+		A \to A \cup \bigcup_{i \in I} \Omega[U_i]
+	\end{equation}
+is $G$-inner anodyne. 
+In fact, \eqref{CHARLEM EQ} is cellular\footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
 %\cite[Cor. 2.1.15]{Hov99}
 \cite[Example 12.6.12]{Ri14}.
 %
@@ -1956,7 +1959,7 @@ or else $U_i$ would be in $A_{<i}$.
   % If $I$ is a set of generating cofibrations, then the closure of cellular maps under retracts is the class of all cofibrations \cite[Cor. 2.1.15]{Hov99}.
   % In particular, cellular maps are closed under pushouts and transfinite composition, but not retracts.
 }
-from $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
+on $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
 Recall that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called \textit{convex}\footnote{Here our terminology follows that in \cite[\S 0]{Go91}. Such subsets are sometimes also called \textit{downward closed}.} if $s \in S$ and 
@@ -2570,7 +2573,7 @@ $(V - \Xi^{U_i}_V) \hookrightarrow U_j$.
 Then it follows from \cite[Lemma 7.37]{Per18}
 that there exists a generating relation $U_k < U_i$
 such that $(V - \Xi^{U_i}_V) \hookrightarrow U_k$
-(indeed, \cite[Lemma 7.37]{Per18} makes the claim that such a relation can be performed on an ``elementary subtree'' \cite[Def. 7.16]{Per18} or, in our notation, on the outer closure $\bar{V}^{U_i}$; via grafting, it is straightforward to extend such a $<$ relation for $\bar{V}^{U_i}$ to one for $U_i$ \cite[Rem. 7.30]{Per18}). But then, as one sees from \eqref{GENLEXREL EQ},
+(indeed, \cite[Lemma 7.37]{Per18} makes the claim that such a relation can be performed on an ``elementary subtree'' \cite[Def. 7.16]{Per18} or, in our notation, on the outer closure $\bar{V}^{U_i}$; and, via grafting, it is straightforward to extend such a $<$ relation for $\bar{V}^{U_i}$ to one for $U_i$ \cite[Rem. 7.30]{Per18}). But then, as one sees from \eqref{GENLEXREL EQ},
 all edges $e$ of $U_i$ that are not in $U_k$ are topped by the $S$-vertex $e^{\uparrow S}\leq e$, and thus it is $e \not \in \Xi^{U_i}$. Therefore $V \hookrightarrow U_k$, as desired.
 
 Lastly, for (Ch2), suppose $V \hookrightarrow U$ and 
@@ -2624,7 +2627,7 @@ $(g \xi)_s \in t_s^{\uparrow T}$ for some $t_s$
 (pictorially, this says that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then hold.
 For (Ch2), only the argument for the interesting case of
 $V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
-changes. In this case, there is then a maximal edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
+changes. In this case, there is then a largest edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
 and (Ch2) follows.
 
 Lastly, we note that \cite[Thm. 7.2]{Per18} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per18} when $S$ is linear.
@@ -3244,11 +3247,13 @@ Remark \ref{DESTIAL REM} below).
 To relate these presheaf categories, note that the fully faithful inclusion
 $\upsilon \colon \Omega \times G^{op} \to \Omega_G$
 given by $U \mapsto G \cdot U$ induces an adjunction
+(note that $\upsilon_{\**}$ is itself fully faithful, being a right Kan extension along a fully faithful functor \cite[Cor. 1.4.5]{Ri14})
 \begin{equation}\label{DSETG_EQ}
 	\upsilon^{\**}: \dSet_G \rightleftarrows \dSet^G : \upsilon_{\**}
 \end{equation}
 Explicitly, one has 
-$\upsilon_{\**}X(T) \simeq X(T_{\**})^H$,
+$\upsilon_{\**}X(T) \simeq X(T_{\**})^H \simeq
+\mathsf{dSet}^G(\Omega[T],X)$,
 where $T \simeq G \cdot_H T_{\**}$ for 
 $T_{\**} \in \Omega^H$,
 and the $H$-action on 
@@ -3257,7 +3262,11 @@ $X(T_{\**}) \xrightarrow{X(h^{-1})}
 X(T_{\**}) \xrightarrow{h} X(T_{\**})$.
 
 
-\begin{remark}
+\begin{remark}\label{UPSPUSHMON REM}
+$\upsilon_{\**}$ does not preserve arbitrary colimits, due to the presence of fixed points in its formula. Nonetheless, $\upsilon_{\**}$ does however preserve pushouts where one leg is a monomorphism.
+\end{remark}
+
+\begin{remark}\label{TWOYON REM}
 Mimicking the notation in \S \ref{EQDENDSETS SEC},
 we write $\Omega_G[-] \colon \Omega_G \to \mathsf{dSet}_G$
 for the Yoneda embedding.
@@ -3267,6 +3276,9 @@ to obtain a functor $\Omega[-] \colon \Omega_G \to \mathsf{dSet}^G$.
 These two ``representable functors'' are related by 
 $\Omega_G[T] \simeq \upsilon_{\**} \Omega[T]$.
 \end{remark}
+
+
+
 
 The following definition is then the main purpose of this section.
 
@@ -3282,6 +3294,7 @@ The following definition is then the main purpose of this section.
 	\end{equation}
 Equivalently, by Propositions \ref{HYPER PROP} and \ref{HYPERLP PROP}, one may replace Segal core inclusions with either orbital $G$-inner horn inclusions or $G$-inner horn inclusions.
 \end{definition}
+
 
 
 \begin{example}\label{STRICTLIFT EX}
@@ -3519,7 +3532,7 @@ the $X \in \mathsf{dSet}^G$ with such a lifting property
 would be simply the nerves of $G$-operads.
 To see why this is an unsatisfactory situation we recall a fundamental basic example.
 The category $\mathsf{Top}^G$ of $G$-spaces admits two main equivariant notions of weak equivalence:
-the fine/genuine equivalences, which care about all fixed point spaces, and the weak/na\:ive equivalences, 
+the fine/genuine equivalences, which care about all fixed point spaces, and the coarse/naive equivalences, 
 which care only about the total spaces.
 However, this distinction vanishes when working in the discrete setting of $G$-sets $\mathsf{Set}^G$,
 unless one instead works with 
@@ -3563,12 +3576,17 @@ Our perspective will be that these Quillen equivalences are best understood in l
 which says that the complete dendroidal Segal space model structure
 on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
 %
-Using the existance of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
-as one of these ``joint left Bousfield localizations'', though our localizations are organized differently \footnote{As a result of this choice, the direct analogue of \cite[Thm. 6.6]{CM13a}, found in Remark \ref{RECOVDEF REM}, does not form an essential or even necessary piece of our analysis.}.
+%Using the existence of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
+%as one of these ``joint left Bousfield localizations'', though our localizations are organized differently.
 %
-As such, we will find it helpful to first focus on the abstract properties of these constructions. % such ``joint left Bousfield localizations'',
-
-
+As such, we will find it helpful to first discuss an abstract framework for 
+%these constructions. %
+such ``joint left Bousfield localizations'',
+and then \textit{define} the model structure on 
+$\mathsf{sdSet}^G$ within that framework
+(Definition \ref{JOINREED DEF}),
+with the analogues of the original definitions in
+\cite{CM13a} recovered a posteriori (Remark \ref{RECOVDEF REM}).
 
 
 \subsection{Joint left Bousfield localizations}\label{JOINBOUS SEC}
@@ -3657,7 +3675,7 @@ for each $m \geq 0$, and dually for the vertical Reedy structure.
 	$X_{(-)} \colon \mathsf{sSet}^{op} \to \mathsf{sSet}$
 	for the unique limit preserving functor such that
 	$X_{\Delta[n]} = X_n$.
-	
+	Explicitly, $X_K(m) = \mathsf{sSet}(K,X(m))$.
 %	Note that for fixed $K\in \mathsf{sSet}$ one then has an adjunction
 %	$K\times (-) \colon \mathsf{sSet} \rightleftarrows 
 %	\mathsf{ssSet} \colon (-)_K$ (in fact, this is part of a two-variable adjunction, but we will not need that fact. See Remark \ref{TWOVARADJ REM}).
@@ -3915,6 +3933,9 @@ $U \in \Omega \times G^{op}$ is given by $\Omega[G \cdot U] = G \cdot \Omega[U]$
 \]
 	for the unique limit preserving functors such that
 	$X(\Omega[G \cdot U]) = X(U)$, $X_{\Delta[n]} = X_n$.
+	
+	Explicitly, $\left(X(A)\right)_n = \mathsf{dSet}^G(A,X_n)$
+	and $X_K(U) = \mathsf{sSet}(K,X(U))$.
 %        As in Definition \ref{UNIQUELIM NOT}, these can be realized by the Yoneda Lemma as
 %        \[
 %              X(A) = \Hom_{\mathsf{dSet}^G}(A, X_{\bullet}) \in \sSet,
@@ -4115,7 +4136,7 @@ formulas $(K \times X)(U) = K \times X(U)$ and
 $\left(X^K\right)(U) = X(U)^K$
 for $K \in \mathsf{sSet}, X \in \mathsf{sdSet}^G$, 
 and hence becomes a simplicial category with mapping spaces
-$\underline{\mathsf{Hom}}(A,X)_{\bullet} = \mathsf{Hom}(\Delta[\bullet] \times A,X)$.
+$\left(\underline{\mathsf{sdSet}}^G(A,X)\right)_{\bullet} = \mathsf{sdSet}^G(\Delta[\bullet] \times A,X)$.
 
 The generating sets \eqref{JOINTCOF EQ},\eqref{DENDTRIVCOF EQ} then show that these mapping spaces make the dendroidal Reedy model structure into a simplicial model structure, though the same does not hold for the simplicial Reedy model structure
 (since the pushout product of an anodyne map in $\mathsf{sSet}$ with a map in \eqref{JOINTCOF EQ} will be in the saturation of \eqref{DENDTRIVCOF EQ} rather than in that of \eqref{SIMPTRIVCOF EQ}).
@@ -4193,7 +4214,7 @@ $\otimes$)
 \end{equation}
 (note that the case $K=\emptyset$ shows that the $X_L$ are fibrant).
 
-It now suffices by adjunction to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
+It now suffices to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
 To conclude the proof, we use Remark \ref{HYPERMODEL REM}
 combined with Proposition \ref{HYPER PROP}
 and the observation that the maps 
@@ -4204,21 +4225,6 @@ $ \Omega[T] \otimes \left( \{i\} \to J\right)$
 $\emptyset \to \partial \Omega[T]$ is built cellularly from boundary inclusions
 $\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$).
 \end{proof}
-
-% \begin{corollary}[{cf. \cite[Thm. 6.6]{CM13a}}]
-%       \label{JOINTCSS_COR}
-%       The joint model structure is the localization of the dendroidal Reedy model structure with respect to all maps in $\mathsf{sdSet}^G$ of the form
-%       \[
-%             Sc[T] \longto \Omega[T],
-%             \qquad
-%             \Omega[T] \otimes (\{i\} \longto J),
-%       \]
-%       for $T \in \Omega_G$, with all objects simplicially constant.
-% \end{corollary}
-% \begin{proof}
-%       This is immediate from Corollary \ref{JOINTFIBCHAR COR}, as for all $A \in \dSet^G \into \mathsf{sdSet}^G$ and $X \in \mathsf{sdSet}^G$,
-%       the space of maps in $\mathsf{sdSet}^G$ from $A$ to $X$ is $X(A)$.
-% \end{proof}
 
 
 
@@ -4404,11 +4410,14 @@ induces a pushout square
 \end{remark}
 
 
-Noting that the assignment
-$U \mapsto \prod_{\boldsymbol{E}(U)} Y(\eta)$
-is the coskeleton $\mathsf{csk}_{\eta} Y$
-leads to the following.
 
+The assignment
+$U \mapsto \prod_{\boldsymbol{E}(U)} Y(\eta)$
+is the $0$-coskeleton of $Y$ in the dendroidal Reedy direction
+(see \eqref{SKELADJ EQ}).
+To avoid confusion with the coskeleton in the simplicial direction,
+and since $\eta$ is the only tree of degree $0$, 
+we denote this dendroidal coskeleton by $\mathsf{csk}_{\eta} Y$. We then have the following.
 
 \begin{proposition}\label{CSKETALT PROP}
 Let $X \in \mathsf{sdSet}^G$. Then:
@@ -4651,11 +4660,11 @@ The following is the equivariant analogue of \cite[Cor. 5.6]{CM13a}, and is an i
       \label{DSSCHAR_PROP}
       Suppose $X \in \mathsf{sdSet}^G$ is dendroidal Reedy fibrant. The following are equivalent:
       \begin{enumerate}[label = (\roman*)]
-      \item $X$ is an equivariant dendroidal Segal space.
-      \item $X(\Omega[T]) \to X(Sc[T])$ is a trivial Kan fibration for all $T \in \Omega_G$.
-      \item $X(\Omega[T]) \to X(\Lambda^{Ge}[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $e \in \boldsymbol E^{\mathsf{i}}(T)$.
-      \item $X(\Omega[T]) \to X(\Lambda^E[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $G$-subsets $\varnothing \neq E \subseteq \boldsymbol E^i(T)$.
-      \item $X(\Omega[T]) \to X(\Lambda_o^E[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $G$-subsets $\varnothing \neq E \subseteq \boldsymbol E^i(T)$.
+      \item $X$ is an equivariant dendroidal Segal space;
+      \item $X(\Omega[T]) \to X(Sc[T])$ is a trivial Kan fibration for all $T \in \Omega_G$;
+	\item $X(\Omega[T]) \to X(\Lambda^{Ge}[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $e \in \boldsymbol E^{\mathsf{i}}(T)$;
+      \item $X(\Omega[T]) \to X(\Lambda^E[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $G$-subsets $\varnothing \neq E \subseteq \boldsymbol E^{\mathsf{i}}(T)$;
+      \item $X(\Omega[T]) \to X(\Lambda_o^E[T])$ is a trivial Kan fibration for all $T \in \Omega_G$, $G$-subsets $\varnothing \neq E \subseteq \boldsymbol E^{\mathsf{i}}(T)$.
       \end{enumerate}
 \end{proposition}
 
@@ -4673,12 +4682,13 @@ $\gamma_{\**}X \in \mathsf{PreOp}^G$ is fibrant.
 	is a trivial Kan fibration.
 \end{proof}
 
+
 %To define fully-faithfulness for dendroidal Segal spaces, we need to describe mappings spaces.
 %Non-equivariantly \cite[\S 3.6]{CM13a}, these are indexed over corollas;
 %for our extension, we will use $G$-corollas.
 
 
-To define fully-faithfulness for dendroidal Segal spaces, we now
+To define fully faithfulness for dendroidal Segal spaces, we now
 discuss mapping spaces. Non-equivariantly, these are indexed by tuples of objects and described using corollas \cite[3.6]{CM13a}.
 Equivariantly, these are indexed by ``equivariant tuples'' of objects, as suggested by $G$-corollas.
 
@@ -4767,14 +4777,88 @@ by
 	ho(X) = \pi_0 \left( \upsilon_{\**} \left( \gamma_{\**}X \right) \right),
     \]
 where $\upsilon_{\**}$  and $\gamma_{\**}$ are defined in \eqref{DSETG_EQ} and \eqref{GAMMASTAR_EQ}.
-Note that
-the Segal condition on $\gamma_{\**}X$ (cf. Proposition \ref{DSSFIB_PROP})
-implies $\gamma_{\**}X$ has the lifting property against $Sc[T] \to \Omega[T]$ in $\mathsf{sdSet}$,
-and as $\upsilon_{\**}$ (cf. \eqref{DSETG_EQ}) is fully-faithful,
-this implies that after taking $\pi_0$, 
-$ho(X)$ is a genuine equivariant operad in the sense of
-Definition \ref{GEN_OP_DEF}.
+%Note that
+%the Segal condition on $\gamma_{\**}X$ (cf. Proposition \ref{DSSFIB_PROP}) 
+%implies $\gamma_{\**}X$ has the lifting property against $Sc[T] \to \Omega[T]$ in $\mathsf{sdSet}$, 
+%and as $\upsilon_{\**}$ (cf. \eqref{DSETG_EQ}) is fully faithful, 
+%this implies that after taking $\pi_0$,  
+%the Segal condition Proposition \ref{DSSCHAR_PROP}(ii) on $X$,
+%combined with Proposition \ref{CSKETALT PROP} and Notation \ref{UNILIMDEN NOT}, implies that 
+%$ho(X)$ is a genuine equivariant operad in the sense of
+%Definition \ref{GEN_OP_DEF}.
 \end{definition}
+
+
+\begin{proposition}
+For any dendroidal Segal space $X \in \mathsf{sdSet}^G$ one has that 
+$ho(X) \in \mathsf{dSet}_G$ is a genuine equivariant operad (cf. Definition \ref{GEN_OP_DEF}).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{DSSFIB_PROP} we are free to assume 
+$X$ is in $\mathsf{PreOp}^G \subset \mathsf{sdSet}^G$, so we suppress $\gamma_{\**}$ from the notation throughout.
+
+The required strict lifting condition is equivalent to the 
+%natural
+ maps
+$\mathsf{dSet}_G\left(\upsilon_{\**}\Omega[T], ho(X)\right)
+\to
+\mathsf{dSet}_G\left(\upsilon_{\**}Sc[T], ho(X)\right)$
+being isomorphisms.
+On the other hand, the Segal condition for $X$ says that the maps 
+$X(\Omega[T]) \to X(Sc[T])$
+are trivial Kan fibrations, so that the maps 
+$\pi_0\left(X(\Omega[T])\right) \to \pi_0\left(X(Sc[T])\right)$
+are isomorphisms. 
+Hence, noting that
+for $A \in \mathsf{dSet}^G$
+there is a natural transformation
+(where $\bullet$ highlights the index with regards to which the $\pi_0$ are computed)
+\begin{equation}\label{HOGENEQOP EQ}
+\begin{split}
+	\pi_0\left( X_{\bullet}(A) \right)=
+	\pi_0 \left(
+	\mathsf{dSet}^G(A,X_{\bullet})
+	\right)
+= &
+	\pi_0 \left(
+	\mathsf{dSet}_G(\upsilon_{\**} A,\upsilon_{\**} X_{\bullet})
+	\right)
+\to 
+\\
+\to &
+	\mathsf{dSet}_G(\upsilon_{\**} A,\pi_0 \upsilon_{\**} X_{\bullet})
+=
+	\mathsf{dSet}_G(\upsilon_{\**} A,ho(X_{\bullet}))
+\end{split}
+\end{equation}
+it is enough to show that \eqref{HOGENEQOP EQ}
+is an isomorphism when $A$ is of the form $\Omega[T]$ or $Sc[T]$.
+The case of $A=\Omega[T]$
+is tautological since, by Remark \ref{TWOYON REM},
+$\mathsf{dSet}_G(\upsilon_{\**}\Omega[T],Y) = Y(T)$
+for any $Y \in \mathsf{dSet}_G$. 
+
+It remains to tackle the case $A=Sc[T]$.
+We argue by induction on the number of $G$-vertices of $T$.
+The base cases of $T$ either a $G$-corolla or a single $G$-edge orbit are automatic since then $Sc[T] = \Omega[T]$.
+Otherwise, choosing an equivariant grafting decomposition
+$T = R \amalg_{Ge} S$ (cf. \cite[(5.18) and Prop. 6.19]{Per18})
+one has a pushout decomposition
+$Sc[T] \simeq Sc[R] \amalg_{\Omega[Ge]} Sc[S]$
+so that, by induction, it suffices to check that both sides of 
+\eqref{HOGENEQOP EQ} turn this pushout into a pullback.
+For the right side this follows since by 
+Remark \ref{UPSPUSHMON REM}
+one has the analogue decomposition
+$\upsilon_{\**} Sc[T] \simeq \upsilon_{\**} Sc[R] \amalg_{\upsilon_{\**}\Omega[Ge]} \upsilon_{\**} Sc[S]$.
+For the left side this follows since $\pi_0$
+preserves the pullback decomposition
+$X(Sc[T]) \simeq X(Sc[R]) \times_{X(\Omega[Ge])} X(Sc[S])$ due to
+$X(\Omega[Ge])$ being discrete.
+\end{proof}
+
+
 
 In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with objects the $G$-sets $G/H$ for $H \leq G$ and arrows the $G$-equivariant maps between them.
 
@@ -4784,9 +4868,9 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
 	$\Delta \times \mathsf{O}_G \to 
 	\Omega \times \mathsf{O}_G \to
 	\Omega_G$,
-        unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of nerves of categories
+        unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of nerves of categories $\left(\iota_G^{\**}ho(X)\right)(G/H)$ for $H \leq G$,
         %\footnote{Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
-        formed by the simplicial sets with $m$-simplices
+        which are the simplicial sets with $m$-simplices
         % the homotopy categories
 	\begin{equation}\label{HOCOEFF EQ}
               ho(X)\left(G \cdot_H [m]\right) =
@@ -4799,7 +4883,6 @@ In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with object
         % ho \left(\iota^{\**}\left(X^H\right)\right) =
         % \pi_0 \left(\iota^{\**} \gamma_{\**}
         %       \left(X^H\right)\right)$
-        for $H \leq G$,
         where the second identity follows from
         % \eqref{GAMMASTAR_EQ} and 
         the discussion following \eqref{DSETG_EQ},
@@ -5467,11 +5550,14 @@ which is an exceptional case since then
 $[1] \otimes C = C \star \eta$.
 
 \begin{remark}
-      In the non-equivariant simplicial context, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
+\eqref{OTIMESOC_EQ} is the (equivariant) dendroidal extension of the familiar 
+%simplicial
+decomposition
+%      In the non-equivariant simplicial context, \eqref{OTIMESOC_EQ} recovers the decomposition of the product of simplicial sets
       \[
             \Delta[1] \times \Delta[1] \simeq \Delta[2] \coprod_{\Delta[1]} \Delta[2]
       \]
-      when we choose $C = [1]$. 
+%      when we choose $C = [1]$. 
 \end{remark}
 
 
@@ -5765,10 +5851,10 @@ $\mathsf{sdSet}^G$
 as the \textit{horizontal Reedy model structure} on 
 $\mathsf{ssdSet}^G$.
 
-Noting that $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}), it follows that 
+Since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}), it follows that 
 $X^{J^{\bullet}}$ is horizontal Reedy fibrant, and it is thus formal that  
 $X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
-is a horizontal fibration in $\mathsf{ssdSet}^G$ as well.
+is a horizontal fibration in $\mathsf{ssdSet}^G$ as well (the $\mathsf{csk}_{\eta}$ notation is discussed after \eqref{GAMMASH EQ}).
 As such, it follows from Lemma \ref{REEDYTRFIB LEM}(i) that for $T \in \Omega_G$
 the evaluations 
 \begin{equation}\label{MOREOVER EQ}
@@ -6521,7 +6607,7 @@ which depends on the extra axiom
 
 Since axioms (i),(ii),(iii) in Definition \ref{GENRED DEF} repeat \cite[Def. 1.1]{BM11}(i),(ii),(iii), we will only briefly recall the definitions of latching and matching objects.
 Writing $\iota_n \colon \mathbb{R}_{\leq n} \to \mathbb{R}$ for the inclusion of the full subcategory of those $r \in \mathbb{R}$ with $|r|\leq n$, we have adjunctions
-\begin{equation}
+\begin{equation}\label{SKELADJ EQ}
 \begin{tikzcd}[column sep =5em]
 	\mathcal{C}^{\mathbb{R}} \ar{r}[swap]{\iota_n^{\**}} 
 	&
@@ -6754,22 +6840,31 @@ The duality of their proofs reflects the duality in
 Corollary \ref{RESGEN COR}.
 \end{remark}
 
+
 In the following, given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
-we write $K \ltimes \mathbb{R} \to K$ for the Grothendieck fibration associated to the functor $K \to \Cat$ encoding the action of $K$ on $\mathbb R$.
-Informally, the objects are unchanged, but we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
-$e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \to r'$ in $\mathbb R$.
+we write $K \ltimes \mathbb{R} \to K$ 
+for the category obtained from $\mathbb{R}$ by formally adding action arrows
+$r \to kr$ for $r \in \mathbb{R},k \in K$,
+which satisfy three natural relations:
+the maps $r \xrightarrow{e} e r$
+are the identity $id_r$ and the two diagrams below commute
+for all $k,\bar{k} \in K$ and maps $f: r \to r'$ in $\mathbb R$.
+%
+%for the Grothendieck fibration associated to the functor $K \to \Cat$ encoding the action of $K$ on $\mathbb R$.
+%Informally, the objects are unchanged, but we have added arrows $k \colon r \to kr$ for all $k \in K$ and $r \in \mathbb R$, such that
+%$e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \to r'$ in $\mathbb R$.
 \[
       \begin{tikzcd}% [row sep = small, column sep = small]
-            r \arrow[rr, "k"] \arrow[dr, "hk"']
+            r \arrow[rr, "k"] \arrow[dr, "\bar{k}k"']
             &&
-            k r \arrow[dl, "h"]
+            k r \arrow[dl, "\bar{h}"]
             & % ----------
             r \arrow[r, "k"] \arrow[d, "f"']
             &
             k r \arrow[d, "k f"]
             \\
             &
-            h k r
+            \bar{k} k r
             &
             & % ----------
             r' \arrow[r, "k"]
@@ -6777,20 +6872,40 @@ $e = id_r$, and the diagrams below commute, for all $k,h \in K$ and maps $f: r \
             k r'
       \end{tikzcd}
 \]
-Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
-the map $K \ltimes \mathbb R \to K$ sends $(k,f)$ to $k$.
+Note that 
+%\begin{inparaenum}
+%\item[(i)]
+if $\mathbb{R}=G$ is a group (regarding groups as one object categories) this recovers the usual $K \ltimes G$ construction and
+%\item[(ii)]
+if $K$ acts trivially on $\mathbb{R}$ this recovers the product of categories $K \times \mathbb{R}$.
+%\end{inparaenum}
+%Alternatively, if one regards $\mathbb{R}$ as a
+%functor $\mathbb{R} \colon G \to \mathsf{Cat}$, 
+%so the natural map $K \ltimes \mathbb{R} \to K$ is the associated Grothendiek fibration.
+
+Alternatively, $K \ltimes \mathbb{R}$
+admits a succint formal definition: 
+if one regards $\mathbb{R}$ as a
+functor $%\mathbb{R} \colon
+ K \xrightarrow{\mathbb{R}} \mathsf{Cat}$, 
+ the associated Grothendiek fibration is the natural functor $K \ltimes \mathbb{R} \to K$.% is the associated Grothendiek fibration.
+
+%Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
+%the map $K \ltimes \mathbb R \to K$ sends $(k,f)$ to $k$.
 
 
-\begin{remark}
-      $K \ltimes \mathbb R$ recovers familiar constructions:
-      \begin{itemize}
-      \item In the case where $\mathbb R$ is simply a group (thought of as a category with a single object), $K \ltimes R$ is
-            precisely the semi-direct product of $K$ on $\mathbb R$.
-      \item For a general category $\mathbb R$ with trivial $K$-action, $K \ltimes \mathbb R$ is just the product $K \times \mathbb R$.
-      \end{itemize}
-\end{remark}
 
-Further, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
+
+%\begin{remark}
+%      $K \ltimes \mathbb R$ recovers familiar constructions:
+%      \begin{itemize}
+%      \item In the case where $\mathbb R$ is simply a group (thought of as a category with a single object), $K \ltimes R$ is
+%            precisely the semi-direct product of $K$ on $\mathbb R$.
+%      \item For a general category $\mathbb R$ with trivial $K$-action, $K \ltimes \mathbb R$ is just the product $K \times \mathbb R$.
+%      \end{itemize}
+%\end{remark}
+
+Lastly, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
 the category of arrows
 $r' \xrightarrow{+} r$ in $\mathbb{R}^+$
 (resp. 
