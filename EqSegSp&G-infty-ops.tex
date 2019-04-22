@@ -274,7 +274,7 @@ and then ``work backward'' (cf. Remark \ref{RECOVDEF REM}) to obtain the analogu
 As such, in \S \ref{JOINBOUS SEC} we first discuss an abstract setting for such common or \textit{joint} localizations,
 as well as characterizations of the ``joint fibrant'' objects and equivalences in Proposition \ref{COMBMODSTR PROP}.
 This is then applied in \S \ref{CEDSS SEC} to obtain
-a charaterization for complete equivariant dendroidal Segal spaces in Corollary \ref{JOINTFIBCHAR COR}
+a charaterization for complete equivariant dendroidal Segal spaces in Proposition \ref{JOINTFIBCHAR PROP}
 and the Quillen equivalence
 $\mathsf{dSet}^G \rightleftarrows \mathsf{sdSet}^G$
 in Theorem \ref{INC0AGJ THM}.
@@ -3564,7 +3564,7 @@ which says that the complete dendroidal Segal space model structure
 on $\mathsf{sdSet} = \mathsf{dSet}^{\Delta^{op}}$ can be obtained via two distinct left Bousfield localization procedures.
 %
 Using the existance of such a result as inspiration and as an organizational principle, we will \textit{define} our desired model structure on $\mathsf{sdSet}^G$
-as one of these ``joint left Bousfield localizations'', though our localizations are organized differently \footnote{As a result of this choice, the direct analogue of \cite[Thm. 6.6]{CM13a}, Corollary \ref{JOINTCSS_COR}, does not form an essential or even necessary piece of our analysis.}.
+as one of these ``joint left Bousfield localizations'', though our localizations are organized differently \footnote{As a result of this choice, the direct analogue of \cite[Thm. 6.6]{CM13a}, found in Remark \ref{RECOVDEF REM}, does not form an essential or even necessary piece of our analysis.}.
 %
 As such, we will find it helpful to first focus on the abstract properties of these constructions. % such ``joint left Bousfield localizations'',
 
@@ -4205,20 +4205,20 @@ $\emptyset \to \partial \Omega[T]$ is built cellularly from boundary inclusions
 $\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$).
 \end{proof}
 
-\begin{corollary}[{cf. \cite[Thm. 6.6]{CM13a}}]
-      \label{JOINTCSS_COR}
-      The joint model structure is the localization of the dendroidal Reedy model structure with respect to all maps in $\mathsf{sdSet}^G$ of the form
-      \[
-            Sc[T] \longto \Omega[T],
-            \qquad
-            \Omega[T] \otimes (\{i\} \longto J),
-      \]
-      for $T \in \Omega_G$, with all objects simplicially constant.
-\end{corollary}
-\begin{proof}
-      This is immediate from Corollary \ref{JOINTFIBCHAR COR}, as for all $A \in \dSet^G \into \mathsf{sdSet}^G$ and $X \in \mathsf{sdSet}^G$,
-      the space of maps in $\mathsf{sdSet}^G$ from $A$ to $X$ is $X(A)$.
-\end{proof}
+% \begin{corollary}[{cf. \cite[Thm. 6.6]{CM13a}}]
+%       \label{JOINTCSS_COR}
+%       The joint model structure is the localization of the dendroidal Reedy model structure with respect to all maps in $\mathsf{sdSet}^G$ of the form
+%       \[
+%             Sc[T] \longto \Omega[T],
+%             \qquad
+%             \Omega[T] \otimes (\{i\} \longto J),
+%       \]
+%       for $T \in \Omega_G$, with all objects simplicially constant.
+% \end{corollary}
+% \begin{proof}
+%       This is immediate from Corollary \ref{JOINTFIBCHAR COR}, as for all $A \in \dSet^G \into \mathsf{sdSet}^G$ and $X \in \mathsf{sdSet}^G$,
+%       the space of maps in $\mathsf{sdSet}^G$ from $A$ to $X$ is $X(A)$.
+% \end{proof}
 
 
 
@@ -5453,7 +5453,7 @@ node [name=Kone,swap] {}}
 \end{tikzpicture}
 \end{equation}
 Moreover, just as in \eqref{GENLEXREL EQ}, 
-$C \star \eta$ and $\eta \star C$ have a common orbital face, which we denote simply by $C$
+$C \star \eta$ and $\eta \star C$ have a common orbital inner face, which we denote simply by $C$
 (since this face is canonically isomorphic to the original $C$),
 leading to a decomposition
 \begin{equation}
@@ -5598,7 +5598,7 @@ Moreover, we will find it convenient to slightly repackage these properties. Reg
 \end{tikzcd}
 \end{equation}
 Noting next that fibers (in the category of square diagrams)
-of a fibration between pullback squares are fibrant pullback squares, if follows that the 
+of a fibration between pullback squares are fibrant pullback squares, it follows that the 
 fibers of the top left vertical map in \eqref{BIGCUBEDU EQ}
 are homotopy pullbacks of the fibers of the remaining vertical maps.
 And since this top left vertical map is the right vertical map in \eqref{BIGSQ EQ}, the desired claim that the total diagram in \eqref{BIGSQ EQ}
@@ -5658,7 +5658,7 @@ where the horizontal maps are the obvious degeneracies.
 \end{tikzcd}
 \]
 But this is clear from the fact that the top right vertical
-maps in these diagrams are trivial Kan fibrations(by the Segal condition for $X$) and the fact that the bottom squares are pullback squares.
+maps in these diagrams are trivial Kan fibrations (by the Segal condition for $X$) and the fact that the bottom squares are pullback squares.
 
 
 Lastly, to check essential surjectivity, 
@@ -5670,11 +5670,11 @@ where $(-)^H$ denotes fixed points,
 so we reduce to the case of $X \in \mathsf{ssSet}$ a (simplicial) Segal space.
 Since $J$ is a contractible Kan complex,
 one has a map 
-$H \colon J \times J \to \{0\} \times J$
+$F \colon J \times J \to \{0\} \times J$
 such that 
-$H|_{\{0\}\times J} = id_{\{0\} \times J}$
+$F|_{\{0\}\times J} = id_{\{0\} \times J}$
 and
-$H|_{\{1\}\times J} = (0,0)$.
+$F|_{\{1\}\times J} = (0,0)$.
 But noting that 
 $X(J \times J) \to X(\{0\} \times J)$
 can be written as 
@@ -5851,9 +5851,10 @@ Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(
 is a Kan equivalence in $\mathsf{sSet}$. 
 Indeed, the completion condition states that
 $X(\eta)^H = X(G \cdot \Omega[\eta])^H
-\xrightarrow{\sim} X(G\cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram below are weakly equivalent to the homotopy fibers of the right diagram,
-i.e. to the loop spaces 
-$\Omega\left(X(\eta)^H,x\right)$.
+\xrightarrow{\sim} X(G\cdot J)^H$ is a weak equivalence, so that the fibers of any diagram of the form on the left below
+are weakly equivalent to the homotopy fibers of diagrams as on the right, i.e. loop spaces.
+% i.e. to the loop spaces of $X(\eta)^H$ at $x$.
+% $\Omega\left(X(\eta)^H,x\right)$.
 \begin{equation}\label{WHATEV EQ}
 \begin{tikzcd}[column sep =40]
 	& X(G\cdot J)^H \ar[->>]{d}
@@ -5903,7 +5904,7 @@ $X(\eta)^H \to Y(\eta)^H$ are surjective on components.
 
 
 \begin{corollary}\label{FIB_PREOP_COR}
-	A pre-operad $X \in \mathsf{PreOp}^G$ is fibrant iff $\gamma^{\**}X$ is fibrant in the Segal space model structure on 
+	A pre-operad $X \in \mathsf{PreOp}^G$ is a fibrant object iff $\gamma^{\**}X$ is fibrant in the Segal space model structure on 
 	$\mathsf{sdSet}^G$.
 \end{corollary}
 
