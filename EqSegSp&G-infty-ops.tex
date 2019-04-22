@@ -165,7 +165,7 @@ the second author equipped the category
 $\mathsf{dSet}^G$ of $G$-equivariant dendroidal sets with a model structure whose fibrant objects 
 are ``equivariant operads with norm maps up to homotopy'',
 called $G$-$\infty$-operads.
-Further, it was shown therein that whenever a $G$-operad
+Further, it was shown therein \cite[Prop. 6.15]{Per18} that whenever a $G$-operad
 $\O \in \mathsf{sOp}^G$ is
 suitably fibrant the homotopy coherent nerve
 $N_{hc}(\O)$ is such a 
@@ -180,7 +180,8 @@ as well as the existence of Quillen equivalences
 between all three of 
 $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$.
 
-Table \ref{TABLE} provides a summary of the parallel narratives, listing the different model categories as well as the terminology for the fibrant objects.
+Table \ref{TABLE} provides a summary of the parallel narratives for categories, operads and equivariant operads,
+ listing the different model categories as well as the terminology for the fibrant objects.
 \begin{table}[htbp]
       \label{TABLE}
       \centering
@@ -191,25 +192,25 @@ Table \ref{TABLE} provides a summary of the parallel narratives, listing the dif
           \\ \hline
           simplicial sets $\sSet$ & dendroidal sets $\dSet$ & equivariant dendroidal sets $\dSet^G$
           \\
-          Joyal model structure & model struc. from \cite{CM11} & model structure from \cite{Per18}
+          Joyal model structure & model str. from \cite{CM11} & model structure from \cite{Per18}
           \\
           $\infty$-categories & $\infty$-operads & $G$-$\infty$-operads
           \\ \hline
           bisimplicial sets $\mathsf{ssSet}$ & simp. dend. sets $\mathsf{sdSet}$ & equiv. simp. dend. sets $\mathsf{sdSet}^G$
           \\
-          Rezk model structure & model struc. from \cite{CM13a} & model structure from \S \ref{CEDSS SEC}
+          Rezk model structure & model str. from \cite{CM13a} & model structure from \S \ref{CEDSS SEC}
           \\
           complete Segal spaces & complete dend. Segal spaces & complete equiv. dend. Segal spaces
           \\ \hline
           Segal precategories $\mathsf{SeCat}$ & Segal preoperads $\mathsf{PreOp}$ & equiv. Segal preoperads $\mathsf{PreOp}^G$
           \\
-          Hirschowitz-Simpson & model struc. from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
+          Hirschowitz-Simpson & model str. from \cite{CM13a} & model structure from \S \ref{PREOP SEC}
           \\
           Segal categories & Segal operads & equiv. Segal operads
           \\ \hline
           simplicial categories $\mathsf{sCat}$ & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
           \\
-          Bergner model structure & model struc. from \cite{CM13b} & model structure from \cite{BP_sq}
+          Bergner model structure & model str. from \cite{CM13b} & model structure from \cite{BP_sq}
           \\ \hline
         \end{tabular}
       }
@@ -266,7 +267,7 @@ $\mathsf{dSet}^G$, $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
 via largely abstract methods.
 Our approach is inspired by 
 \cite[Thm. 6.6]{CM13a}, which observes that the Rezk/complete model structure on $\mathsf{sdSet}$ can be built via two distinct localization procedures.
-In fact, we will prefer to use the common localization perspective to define (cf. Definition \ref{JOINREED DEF} and Remark \ref{JOINREED REM}) the equivariant Rezk/complete model structure on $\mathsf{sdSet}^G$,
+In fact, we will prefer to use the common localization perspective to define the equivariant Rezk/complete model structure on $\mathsf{sdSet}^G$ (cf. Definition \ref{JOINREED DEF} and Remark \ref{JOINREED REM}),
 and then ``work backward'' (cf. Remark \ref{RECOVDEF REM}) to obtain the analogues of the definitions in \cite{CM13a} and of \cite[Thm. 6.6]{CM13a}.
 %Rather than aiming for a direct equivariant analogue\footnote{Such a result can be found in Remark \ref{INTERP REM}.},
 %we instead use this observation as an organizational framework for understanding and comparing the many model structures on $\mathsf{sdSet}^G$.
@@ -451,8 +452,8 @@ $r_{T_{\underline{t} \leq t}} = t$ and
 $\underline{l}_{T_{\underline{t} \leq t}} = \underline{t}$
 (in fact, by Proposition \ref{UNIQUEFACT PROP} this is the largest such face).
 Moreover, the edges $s$ of $T_{\underline{t} \leq t}$ are the edges of $T$ such that
-$s \leq_d t$ and $\forall_{i} s \not < t_i$ while the vertices are the $s^{\uparrow} \leq s$ such that 
-$s \leq_d t$ and $\forall_{i} s \not \leq t_i$ 
+$s \leq_d t$ and $\forall_{i} s \not <_d t_i$ while the vertices are the $s^{\uparrow} \leq s$ such that 
+$s \leq_d t$ and $\forall_{i} s \not \leq_d t_i$ 
 (pictorially, $T_{\underline{t} \leq t}$ removes those sections of $T$ not above $t$ and above some $t_i$).
 
 
@@ -502,7 +503,7 @@ Then $\boldsymbol{E}^{\mathsf{i}}(V) =
 	$e \in \boldsymbol{E}^{\mathsf{i}}(U)$ 
 	(resp. $e \in \boldsymbol{E}^{\mathsf{i}}(\bar{U})$)
 	is also in $\boldsymbol{E}^{\mathsf{i}}(V)$ (resp. in $E^{\mathsf{i}}(\bar{V})$) iff
-	$e <_d r$ and $\forall_i e \not \leq l_i$.
+	$e <_d r$ and $\forall_i e \not \leq_d l_i$.
 	But then 
 	$\boldsymbol{E}^{\mathsf{i}}(V) =
 	\boldsymbol{E}^{\mathsf{i}}(U) \cap 
@@ -545,7 +546,7 @@ containing (contained in) all $U_i$.
 \end{proof}
 
 \begin{notation}
-We will write $\iota \colon \Delta \to \Omega$ for the standard inclusion, which sends $[n]$ to the linear tree with $n+1$ edges (note that all notions in this section generalize the usual notions for $\Delta$).
+We will write $\iota \colon \Delta \to \Omega$ for the standard inclusion, which sends $[n]$ to the linear tree with $n+1$ edges (recall that all notions in this section generalize the usual notions for $\Delta$).
 Additionally, we will as usual write $\eta =  \iota([0])$ for the ``stick tree'' containing a single edge and no vertices, and note that $\iota$ induces an identification between $\Delta$ and the overcategory $\Omega \downarrow \eta$.
 %      The category $\Omega$ and the definitions/result given in this section are all generalizations from the simplicial category $\Delta$.
 %      Specifically, we have an inclusions $\Delta \into \Omega$ sending $[n]$ to the linear tree with $n+1$ edges,
@@ -735,7 +736,7 @@ We now introduce the notion of face of a $G$-tree that is suggested by the orbit
 	Let $T \in \Omega_G$ be a $G$-tree.
 	An \textit{orbital face} of $T$ is a map 
 	$S \hookrightarrow T$ in $\Omega_G$ which is injective on edges. Further, an orbital face is called
-	\textit{inner/outer} if any (and thus all) of its  component maps is and \textit{planar} if it is a planar map of forests.
+	\textit{inner/outer} if any (and thus all) of its  component maps is and \textit{planar} if it is a planar map of forests \cite[Def. 3.21]{BP17}.
 \end{definition}
 
 
@@ -956,7 +957,7 @@ The argument at the end of the previous proof has the following two consequences
 	Orbital inner faces $S \hookrightarrow T$ are full (cf. Remark \ref{INNFULL REM}), i.e. all broad relations in $T$ between edges of $S$ are also in $S$. 
 \end{remark}
 
-
+We next discuss the interactions between (non-equivariant) faces and orbital faces.
 
 \begin{proposition}\label{MINGFACT PROP}
 	Let $T \in \Omega_G$.
@@ -1107,7 +1108,7 @@ $\mathsf{Face}(T)/G \to \mathsf{Face}_o(T)$.
 
 
 \begin{remark}\label{ORB_FACE_REM}
-	There is an isomorphism of posets
+	Following the intuition in Example \ref{ORBFACE EX}, there is an isomorphism of posets
 	\begin{equation}
 	\mathsf{Face}_o(T) \xrightarrow{\simeq} \mathsf{Face}(T/G), \qquad S \mapsto S/G,
 	\end{equation}
@@ -1323,7 +1324,7 @@ The saturation of the boundary inclusions
 $\partial \Omega[T] \to \Omega[T]$
 is the class of \textit{$G$-normal monormorphisms},
 i.e. those monomorphisms $X \to Y$ in $\mathsf{dSet}^G$ such that
-$Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$ (non-equivariantly, this is \cite[Prop. 1.5]{CM11}, and also holds equivariantly by \cite[Rem. 6.7]{Per18}; alternatively, it can be shown using \cite[Prop. 6.5(ii)]{Per18} and \cite[Prop. 5.62]{Per18}).
+$Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$ (non-equivariantly, this is \cite[Prop. 1.5]{CM11}, and also holds equivariantly by \cite[Rem. 6.7]{Per18}; alternatively, it can be shown using \cite[Props. 6.5(ii) and 5.62]{Per18}).
 Moreover, since one can forget the $G$-action when verifying this condition, we will usually call these simply \textit{normal monomorphisms}. 
 
 
@@ -1345,7 +1346,7 @@ We can now recall the statement of \cite[Thm 2.1]{Per18}, which was the main res
 The definition of $G$-$\infty$-operads just given is a priori distinct from the original definition \cite[Def. 6.12]{Per18} which used only 
 \textit{generating $G$-inner horn inclusions}, i.e. 
 those inclusions $\Lambda^{Ge}[T] \to \Omega[T]$ with $E=Ge$ an inner edge orbit.
-The present definition has the technical advantages of being naturally compatible with restricting the $G$-action and of allowing for a simpler proof of Lemma \ref{CHAREDGE LEM}, 
+The definition herein has the technical advantages of being naturally compatible with restricting the $G$-action and of allowing for a simpler proof of Lemma \ref{CHAREDGE LEM}, 
 which is our main tool for showing that maps
 are $G$-inner anodyne.
 The equivalence between the two definitions follows from 
@@ -1885,7 +1886,7 @@ which abstractly identifies sufficient conditions for a map to be $G$-inner anod
 (see Remark \ref{RECOVER REM} for a comparison with previous results in the literature).
 %As an illustration of its power, we briefly summarize how 
 %Lemma \ref{CHAREDGE LEM} significantly simplifies the proof of \cite[Thm 7.1]{Per18}.
-Then, in \S \ref{HYPERSAT SEC} we deduce that the desired maps
+Then in \S \ref{HYPERSAT SEC} we deduce that the desired maps
 are $G$-inner anodyne by applying Lemma \ref{CHAREDGE LEM},
 and further establish Proposition \ref{HYPER PROP} which,
 informally,
