@@ -131,14 +131,14 @@ Similarly, a similar comment was added in the remark immediately preceding \S 4.
 \section{Incorrect references}
 
 \begin{itemize}
-\item[6.] Fixed reference \cite[Prop. 3.21]{BP17} to \cite[Prop. 3.23]{BP17}, and clarified the citation for \cite{BP17}.
-\item[48.] Fixed reference \cite[Prop. 3.4.18]{Hir03} to be \cite[Thm. 3.3.18]{Hir03} (I had an old version of the paper).
+\item[6.] Fixed reference [BP17, Prop. 3.21] to [BP17, Prop. 3.23], and clarified the citation for BP17.
+\item[48.] Fixed reference to ``Prop. 3.4.18'' of Hir03 to be ``Thm Prop. 3.3.18'' (I had an old version of the paper).
 
 In addition, some extra detail concerning how \cite[Prop. 3.3.18]{Hir03} was being used was added, and some of the notation in Proposition 4.1 and its proof was adjusted to allow for this.
 
 In further addition, made an observation as to why cofibrant approximation is a non issue.
 
-\item[49.] Fixed reference to \cite[Thm. 3.3.8]{Hir03} to be \cite[Thm. 3.2.13]{Hir03} (I had an old version of the paper)
+\item[49.] Fixed reference to ``Thm. 3.3.8'' of Hir03 to be ``Thm 3.2.13'' (I had an old version of the paper)
 
 \item[85.] Modified the reference \cite[\S 4]{BM11} to \cite[\S 4,\S 6]{BM11}, to note that \S 6 is where (co)skeleta are actually discussed.
       
@@ -214,8 +214,13 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
 
 \section{Important stuff I'm not sure how to qualify}
 
+
+<<<<<<< HEAD
 \begin{itemize}
 \item[1.] Added the names of the fibrant objects to the introduction when naming the model structures in question, as well as included a version of the table produced by the referee (and references to the categorical narrative).
+=======
+
+>>>>>>> refs/remotes/origin/Lpbranch
 
       
 \item[2.] 
