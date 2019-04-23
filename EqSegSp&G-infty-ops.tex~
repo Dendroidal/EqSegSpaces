@@ -546,7 +546,7 @@ containing (contained in) all $U_i$.
 \end{proof}
 
 \begin{notation}
-      \label{DELTAOMEGA NOT}
+      \label{ETA_NOT}
 We will write $\iota \colon \Delta \to \Omega$ for the standard inclusion, which sends $[n]$ to the linear tree with $n+1$ edges (recall that all notions in this section generalize the usual notions for $\Delta$).
 Additionally, we will as usual write $\eta =  \iota([0])$ for the ``stick tree'' containing a single edge and no vertices, and note that $\iota$ induces an identification between $\Delta$ and the overcategory $\Omega \downarrow \eta$.
 %      The category $\Omega$ and the definitions/result given in this section are all generalizations from the simplicial category $\Delta$.
@@ -1956,7 +1956,11 @@ If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{
 		A \to A \cup \bigcup_{i \in I} \Omega[U_i]
 	\end{equation}
 is $G$-inner anodyne. 
+<<<<<<< HEAD
+In fact, \eqref{CHARLEM EQ} is built cellularly \footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
+=======
 In fact, \eqref{CHARLEM EQ} is built cellularly\footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
+>>>>>>> refs/remotes/origin/Lpbranch
 %\cite[Cor. 2.1.15]{Hov99}
 \cite[Example 12.6.12]{Ri14}.
   % If $I$ is a set of generating cofibrations, then the closure of cellular maps under retracts is the class of all cofibrations \cite[Cor. 2.1.15]{Hov99}.
