@@ -96,8 +96,8 @@ The following lists the corrections of typos listed in the preliminary referee r
 \item[35.] added comment saying that in the proof of the second ``anodyne horn inclusion'' lemma we again assume $T \in \Omega^G \subseteq \Omega_G$.
 \item[36.] reworded the definition of hypersaturated class
 \item[38.] fixed $\Lambda^EF[T]$ typo
-\item[40.] changed the $T$'s to $S$'s in Remark \ref{ORBHYPER_REM} % containing \eqref{ORBHORNPUSH EQ}
-%%% When rereading I noticed that I had followed this convention in Corollary REGGENHORN COR, so this is a preferable fix for consistency
+\item[40.] changed the $T$'s to $S$'s in the remark containing ORBHORNPUSH EQ
+%%% When rereading I noticed that I had followed this convention in Corollary REGGENHORN COR, so this is s preferable fix for consistency
 %this is a matter of taste, but I find changing $T$ to $S$ in $\Lambda^E_o[T] \to \Omega[T]$ to contrast with $Sc[T] \to \Omega[T]$ to be a bit confusing. To emphasize that both of the $T$ variables are free, rather than chosen, I've instead added ``$T\in \Omega_G$'' to both expressions.
 \item[45.] Changed ``Theorem 6.1'' to ``Thm. 6.1'' when citing MW09 (in the Remark discussing why strict lifting properties in $\mathsf{dSet}^G$ are unsatisfactory)
 \item[46.] changed ``genuine'' and ``na\"ive'' to ``fine'' and ``coarse''.
@@ -131,14 +131,14 @@ Similarly, a similar comment was added in the remark immediately preceding \S 4.
 \section{Incorrect references}
 
 \begin{itemize}
-\item[6.] Fixed reference \cite[Prop. 3.21]{BP17} to \cite[Prop. 3.23]{BP17}, and clarified the citation for \cite{BP17}.
-\item[48.] Fixed reference \cite[Prop. 3.4.18]{Hir03} to be \cite[Thm. 3.3.18]{Hir03} (I had an old version of the paper).
+\item[6.] Fixed reference [BP17, Prop. 3.21] to [BP17, Prop. 3.23], and clarified the citation for BP17.
+\item[48.] Fixed reference to ``Prop. 3.4.18'' of Hir03 to be ``Thm Prop. 3.3.18'' (I had an old version of the paper).
 
 In addition, some extra detail concerning how \cite[Prop. 3.3.18]{Hir03} was being used was added, and some of the notation in Proposition 4.1 and its proof was adjusted to allow for this.
 
 In further addition, made an observation as to why cofibrant approximation is a non issue.
 
-\item[49.] Fixed reference to \cite[Thm. 3.3.8]{Hir03} to be \cite[Thm. 3.2.13]{Hir03} (I had an old version of the paper)
+\item[49.] Fixed reference to ``Thm. 3.3.8'' of Hir03 to be ``Thm 3.2.13'' (I had an old version of the paper)
 
 \item[85.] Modified the reference \cite[\S 4]{BM11} to \cite[\S 4,\S 6]{BM11}, to note that \S 6 is where (co)skeleta are actually discussed.
       
@@ -199,6 +199,7 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
 \item[39.] In the proof of Proposition \ref{HYPER PROP},
       the given argument for the Segal hypersaturation indeed used $T \in \Omega^G$. Since this made the discussion somewhat awkward, we've moved the argument being made to (the new) Proposition \ref{SCANOD PROP}, and rephrased accordingly. %
 
+\item[40.] For Remark \ref{ORBHYPER_REM}: this is a matter of taste, but I find changing $T$ to $S$ in $\Lambda^E_o[T] \to \Omega[T]$ to contrast with $Sc[T] \to \Omega[T]$ to be a bit confusing. To emphasize that both of the $T$ variables are free, rather than chosen, we've instead added ``$T\in \Omega_G$'' to both expressions. %
 
 \item[53.] The adjunctions from this notation are only used in a single instance, in the proof of part (i) of Proposition \ref{SSSETJREE PROP}; moreover this use is also simpler since only the single $\partial \Delta[m]$ isn't a representable.
       It feels somewhat unnecessary to fully expand on the adjunctions at this point in the discussion,
@@ -213,8 +214,13 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
 
 \section{Important stuff I'm not sure how to qualify}
 
+
+<<<<<<< HEAD
 \begin{itemize}
 \item[1.] Added the names of the fibrant objects to the introduction when naming the model structures in question, as well as included a version of the table produced by the referee (and references to the categorical narrative).
+=======
+
+>>>>>>> refs/remotes/origin/Lpbranch
 
       
 \item[2.] 
@@ -272,7 +278,7 @@ Changed the language in the proof to reflect the restatement and provide some ex
 
 
       
-\item[41.] added Notation \ref{DELTAOMEGA NOT} to the end of \S 2.1 comparing $\Omega$ to $\mathsf{sSet}$, and introduced the stick tree $\eta$. %
+\item[41.] added Notation \ref{ETA_NOT} to the end of \S 2.1 comparing $\Omega$ to $\mathsf{sSet}$, and introduced the stick tree $\eta$. %
       
       
 \item[42.] Clarified the meaning of hypersaturation in the paragraph before Proposition \ref{HYPERLP PROP} when not assuming that the maps are cofibrations. %
