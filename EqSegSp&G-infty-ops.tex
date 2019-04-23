@@ -1075,7 +1075,10 @@ example (where $G = \mathbb{Z}_{/2}=\{\pm1\}$).
 \end{example}
 
 
-
+\begin{remark}\label{GOUT REM}
+If $U \hookrightarrow T$ is outer, the characterization of the roots and leaves of $GU$ in the previous proof shows that
+the inner edges of $GU$ are the $G$-orbits of the inner edges of $U$.
+\end{remark}
 
 
 \begin{remark}\label{GINNER REM}
@@ -1945,7 +1948,7 @@ If $\{\Xi^i\}_{i \in I}$ is a characteristic inner edge collection of $\{U_i\}_{
 		A \to A \cup \bigcup_{i \in I} \Omega[U_i]
 	\end{equation}
 is $G$-inner anodyne. 
-In fact, \eqref{CHARLEM EQ} is cellular\footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
+In fact, \eqref{CHARLEM EQ} is built cellularly\footnote{Recall that a map $f$ is built cellularly from a class of maps $I$ if it can be obtained as a (possibly transfinite) composition of pushouts of maps in $I$ (but without retracts). See \cite[Def. 2.1.9]{Hov99},
 %\cite[Cor. 2.1.15]{Hov99}
 \cite[Example 12.6.12]{Ri14}.
 %
@@ -2024,9 +2027,9 @@ $W - D$, $D \subseteq \Xi_{W}$ is contained in $K$.
 \end{enumerate}
 To see why these claims suffice, write $P$ for the pushout of  \eqref{FIRPUSH EQ} with $A_{C'}$ removed. Surjectivity of $P \to A_{C'}$ is immediate from the assumptions on $C,C'$.
 For injectivity, since $A_C \to A_{C'}$ is certainly injective, it suffices to check that the restriction of the bottom horizontal map in \eqref{FIRPUSH EQ} to the complement of the image of the left vertical map 
-$\iota$ satisfies
+$\iota$ satisfies:
 \begin{inparaenum}
-\item[(i)] it is injective and
+\item[(i)] it is injective and;
 \item[(ii)] its image does not overlap with the image of $A_C$. 
 \end{inparaenum} 
 Condition (ii) follows from (a),(b). As for (i), injectivity is automatic when further restricting to the intersection with an individual conjugate $\Omega[gW] = g\Omega[W]$, with (c) ensuring injectivity across different conjugate intersections.
@@ -2102,7 +2105,7 @@ For each $G$-equivariant convex subset $J$ of $I$, set
 \]
 As before, it suffices to check that for all convex subsets
 $J \subseteq J'$
-the map $A_J \to A_{J'}$ is built cellularly from $G$-inner horns,
+the map $A_J \to A_{J'}$ is built cellularly from $G$-inner horn inclusions,
 and again we can assume that $J'$ is obtained from $J$ by adding a single $G$-orbit $Gj$ of $I$.
 By the $I$ transitive case, it now suffices to check that
 $\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in Gj}$ with respect to $A_J$.
@@ -2110,7 +2113,7 @@ $\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{
 the new (Ch1),(Ch2),(Ch3)
 conditions follow from the original conditions
 (for (Ch2), note that if 
-$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \nin A$, then convexity of $J'$ implies $(V - \Xi^i_V) \hookrightarrow U_j$ for some $j \not \geq i$, so that in this case the new (Ch2) follows from the original (Ch3)).
+$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \nin A$, then convexity of $J$ implies $(V - \Xi^i_V) \hookrightarrow U_j$ for some $j \not \geq i$, so that in this case the new (Ch2) follows from the original (Ch3)).
 \end{proof}
 
 
@@ -2235,7 +2238,7 @@ in the grafting result \cite[Lemma 5.2]{MW09},
 and likewise for the equivariant analogue \cite[Prop. 6.19]{Per18}, are also dendroidal covers.
 
 Lemma \ref{CHAREDGE LEM} implies
-that any inclusion $A \to A'$ of $G$-equivariant (dendroidal) covers of $T\in \Omega_G$
+that any inclusion $A \to A'$ of $G$-equivariant (dendroidal) covers for $T\in \Omega_G$
 is $G$-inner anodyne. 
 Indeed, let $I=\mathsf{Face}_{A'}^{out}(T)$ be the $G$-poset of planar outer faces $V \hookrightarrow T$ contained in $A'$, ordered by inclusion, 
 $\Xi = \boldsymbol{E}^{\mathsf{i}}(T)$ and $U_V = V$.
@@ -2616,14 +2619,14 @@ When $S$ has stumps and $T$ is linear this causes no issues and the proof above 
 $\Xi^U = \emptyset$, in which case (Ch1) demands $U \in A$,
 as indeed follows from the argument).
 
-However, when $S$ is linear and $T$ has stumps the proof above breaks down (more precisely, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
+However, when $S$ is linear and $T$ has stumps the proof above breaks down (more specifically, the tree $U_{(g\xi)_s}^{<s}$ that appears when arguing (Ch2) may now fail to have inner edges). The solution is then to \textit{reverse} the poset structure on 
 $\mathsf{Max}(S\otimes T)$
 and to modify the $\Xi^U$ to be those inner edges $(g \xi)_s$ such that
 $(g \xi)_s \in t_s^{\uparrow T}$ for some $t_s$
 (pictorially, this says that these are the lowermost edges with $T$-coordinate in $G\xi$, whereas before they were the uppermost ones). The arguments for (Ch1),(Ch3) then hold.
 For (Ch2), only the argument for the interesting case of
 $V- \Xi_V^U \hookrightarrow S' \otimes T$, $s \not \in S'$
-changes. In this case, there is then a largest edge $t'_s$ such that $(g \xi)_s < t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
+changes. In this case, there is then a $\leq_d$-largest edge $t'_s$ such that $(g \xi)_s <_d t'_s$, where $s$ can not be the root of $S$ (or else it would be $s \in S'$). Pictorially, $t'_s$ looks like the edge $e_1 \in V$ in \eqref{GENLEXREL EQ} in the case where the $\bullet$ node is unary (since $S$ is assumed linear). But then since $V$ can not contain $t'_s$ there exists a maximal subtree $U' > U$ such that $V \hookrightarrow U'$,
 and (Ch2) follows.
 
 Lastly, we note that \cite[Thm. 7.2]{Per18} follows from a minor variant of the argument for \cite[Thm. 7.1(ii)]{Per18} when $S$ is linear.
@@ -2671,8 +2674,9 @@ $GV = T-E'$ for some $G$-subset
 $E' \subseteq E$.
 
 For (Ch1), the condition $\Xi_{V} = \emptyset$
-says that none of the inner edges of $V$ are in $E$,
-and thus that the orbital outer face $G V$ contains none of the edge orbits in $E$ as inner edge orbits. Since $E \neq \emptyset$, the orbital outer face $GV$ is not $T$ itself, 
+says that none of the inner edges of $V$ are in $E$
+and thus, by Remark \ref{GOUT REM},
+that the orbital outer face $G V$ contains none of the edge orbits in $E$ as inner edge orbits. Since $E \neq \emptyset$, the orbital outer face $GV$ is not $T$ itself, 
 and hence $A=\Lambda_o^{E}[T]$ contains $V$.
 
 For (Ch2), note that if $V \not \in A$, i.e., 
@@ -2712,6 +2716,7 @@ Lastly, (Ch3) follows since	if $V \not \in A$, so that
 $GV = T - E'$ and $G(V - \Xi_V) = T-E'-F'$ with
 $E' \subseteq E$, $F' \subseteq F$,
 then $GV \hookrightarrow T-Ge$ iff $G(V - \Xi_V) \hookrightarrow T-Ge$
+(by fullness of $T-Ge$; see Remark \ref{INNFULLORB REM})
 and thus $V \hookrightarrow T-Ge$ iff $V - \Xi_V \hookrightarrow T-Ge$.
 \end{proof}
 
@@ -2756,7 +2761,7 @@ the poset of non-empty subsets $\emptyset \neq E' \subseteq (E \setminus F)$, or
 We again need to verify the characteristic conditions,
 and as in the previous result we abbreviate
 $\Xi = \Xi^{E'}$, $\Xi_V = \Xi^{E'}_V$.
-(Ch0) is clear. (Ch1) follows from an easier version of the argument in the previous proof.
+(Ch0) is clear. (Ch1) follows as in the previous proof, except noting that $\bar{V}$ (rather than $G \bar{V}$) is not $T$.
 (Ch2) follows since $V \in A$ iff $V-\Xi_V \in A$.
 Similarly,
 (Ch3) follows since 
@@ -2822,7 +2827,7 @@ $\Lambda^{Ge}[S] \to \Omega[S]$.
 \end{corollary}
 
 \begin{proof}
-	The proof is by induction on $|T_{\**}|$ for $T_{\**}\in \Omega$ a tree component (cf. Remark \ref{DEGREE REM}). As in the proof of Proposition \ref{REG_HORN_PROP} one is free to assume $T \in \Omega^G$.	
+	The proof is by induction on $|T_{\**}|$ for $T_{\**}\in \Omega$ a tree component (cf. Remark \ref{DEGREE REM}). As in the proofs of Propositions \ref{ORB_HORN_PROP} and \ref{REG_HORN_PROP} one is free to assume $T \in \Omega^G$.	
 	A choice of edge orbit $Ge$ in $E$ yields a factorization
 	$\Lambda^{E}[T] \to \Lambda^{Ge}[T] \to \Omega[T]$,
 	hence we need only show that 
@@ -2838,7 +2843,7 @@ a class of normal monomorphisms of $\mathsf{dSet}^G$
 (or, more generally, a subclass of the cofibrations in a model category) is called
 \textit{hypersaturated} if it is saturated (i.e. it is closed under
 pushouts, transfinite composition and retracts) and satisfies the following additional cancellation property: 
-if $f,g$ are normal monomorphisms
+if $f,g$ are normal monomorphisms (or, more generally, cofibrations)
 \begin{equation}\label{CANCEL_EQ}
 A \xrightarrow{f} B \xrightarrow{g} C
 \end{equation}
@@ -2931,14 +2936,14 @@ does not hold for (non-orbital) $G$-inner horns,
 so that the proof of Corollary \ref{REGGENHORN COR}
 (see also the original proof in \cite[Prop. 6.17]{Per18})
 is intrinsically harder when $G \neq \**$,
-due to isotropy concerns.
+due to isotropy concerns (this is closely related to the two proofs discussed in Remark \ref{TWOPROOF REM}).
 
 Similarly, \cite[Props. 2.4 and 2.5]{CM13a} 
 (or Remark \ref{RECOVER REM}(i) and Proposition \ref{HYPER PROP} when $G=\**$)
 imply that the Segal core inclusions 
-$Sc[T] \to \Omega[T], T \in \Omega_G$
+$Sc[T] \to \Omega[T]$
 are built cellularly from the orbital horn inclusions
-$\Lambda^E_o[T] \to \Omega[T], T \in \Omega_G$, and that the two classes have the same hypersaturation. 
+$\Lambda^E_o[S] \to \Omega[S]$, and that the two classes have the same hypersaturation. 
 
 	We note that this last observation indicates an alternate route for proving Proposition \ref{HYPER PROP}
 	(which the authors considered in early versions of this work)
@@ -3020,7 +3025,8 @@ We end this section with some necessary remarks about hypersaturations of \texti
 
 \begin{remark}\label{SLICE REM}
 	Setting $G=e$ and restricting to the overcategory
-	$\mathsf{dSet}_{/\eta} \simeq \mathsf{sSet}$,
+	$\mathsf{dSet}_{/\eta} \simeq \mathsf{sSet}$ 
+	(where as usual we abbreviate $\Omega[\eta]$ as just $\eta$; see Notation \ref{DELTAOMEGA NOT}),
 	Proposition \ref{HYPER PROP}
 	recovers the well known claim that 
 	the hypersaturation of the simplicial inner horn inclusions
@@ -3385,7 +3391,10 @@ There is a nerve functor
 \begin{equation}\label{NG EQ}
 N_G \colon \Op_G \to \dSet_G, \qquad N_G\P(T) = \Op_G(\Omega_G(T), \P)
 \end{equation}
-where $\Op_G$ denotes a colored generalization of the genuine equivariant operads of \cite{BP17}. Moreover, $N_G$ is fully faithful and its essential image are the genuine equivariant operads in the sense of Definition \ref{GEN_OP_DEF}.
+where $\Op_G$ denotes a colored generalization of the genuine equivariant operads of \cite{BP17}
+and $\Omega_G(T)$ denotes $\Omega(T)$ upon the standard inclusion
+$\upsilon_{\**} \colon \Op^G \to \Op_G$.
+Moreover, $N_G$ is fully faithful and its essential image are the genuine equivariant operads in the sense of Definition \ref{GEN_OP_DEF}.
 However, we do not presently require these facts, and thus delay their proof to a sequel.
 \end{remark}
 
