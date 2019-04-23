@@ -3636,7 +3636,7 @@ initial weak equivalences.
 
 The prototypical example of Proposition \ref{COMBMODSTR PROP} is given by the category 
 $\mathsf{ssSet} \simeq \mathsf{Set}^{\Delta^{op} \times \Delta^{op}}$
-of bisimplicial sets together with the two possible Reedy structures (over the Kan model structure on $\mathsf{sSet}$).
+of bisimplicial sets together with the two possible Reedy structures over the Kan model structure on $\mathsf{sSet}$.
 Explicitly, writing the levels of 
 $X \in \mathsf{ssSet}$ as $X_n(m)$
 one can either form a Reedy model structure with respect to the 
@@ -3726,14 +3726,16 @@ $(\Delta[0] \to \Delta[n]) \square (\partial \Delta[m] \to \Delta[m])$.
 
 For (ii), the fact that $\tilde{X}$ is vertical fibrant
 implies that for any monomorphism $K \to L$ in $\mathsf{sSet}$
-the induced map $\tilde{X}_L \to \tilde{X}_K$ is a Kan fibration. Therefore, (i) implies that all vertex maps
+the induced map $\tilde{X}_L \to \tilde{X}_K$ is a Kan fibration. 
+Since $X \to \tilde{X}$ is a horizontal equivalence,
+(i) implies that all vertex maps
 $\tilde{X}_{n} \to \tilde{X}_{0}$
 are trivial Kan fibrations, so that by
 Remark \ref{HYPERSATKAN REM} one has that 
 $\tilde{X}_L \to \tilde{X}_K$ is a trivial Kan fibration whenever
 $K \to L$ is anodyne
 (since the $K \to L$ with this property are hypersaturated; see Remark \ref{HYPERMODEL REM} for a similar argument).
-Therefore, $\tilde{X}$ is also horizontal fibrant, as desired.
+Therefore, $\tilde{X}$ also has the right lifting property against \eqref{GTRCOHOR EQ}. That is, $\tilde{X}$ is also horizontal fibrant, as desired.
 
 %(ii) follows since by (i) $\tilde{X}$ is then local
 %(with the vertical Reedy model structure as the initial model structure)
@@ -3764,8 +3766,9 @@ $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 
 \begin{proof}
 	Since horizontal Reedy fibrant replacement maps
-	$X \to \tilde{X}$ are diagonal equivalences, 
-	one reduces to the case of $X,Y$ horizontal Reedy fibrant. The result now follows by combining
+	$X \to \tilde{X}$ are vertical equivalences they are also	
+	diagonal equivalences (since $\delta^{\**}$ is left Quillen), 
+	so one reduces to the case of $X,Y$ horizontal Reedy fibrant. The result now follows by combining
 	parts (iii) and (iv) of Proposition \ref{SSSETJREE PROP}.
 \end{proof}
 
@@ -3791,7 +3794,7 @@ Note that the ``moreover'' claim in this result is not quite formal, since the m
 	Recall that $\delta_!$ is the unique colimit preserving functor such that 
 	$\delta_!(\Delta[n])=\Delta[n] \times \Delta[n]$.
 
-Throughout the proof we write $F$ for both a non-empty subset $F \subseteq \{0,1,\cdots,n\}$ and the corresponding face $F \to [n]$ in $\Delta$, and let $\Delta F \subseteq \Delta[n]$ denote the associated subpresheaf. 
+Throughout the proof we write $F$ for both a non-empty subset $\emptyset \neq F \subseteq \{0,1,\cdots,n\}$ and the corresponding face $F \to [n]$ in $\Delta$, and let $\Delta F \subseteq \Delta[n]$ denote the associated subpresheaf. 
 
 
 Moreover, note that for any simplex
@@ -3863,8 +3866,9 @@ Lastly, the Quillen equivalence condition
 is that for all $X \in \mathsf{sSet}$ and joint fibrant
 $Y \in \mathsf{ssSet}$ a map
 $X \to \delta^{\**} Y$ is a weak equivalence iff 
-$\delta_!X \to Y$ is. 
-But by Corollary \ref{WEAKDIAG COR}
+$\delta_!X \to Y$ is. Factoring the former map as
+$X \to \delta^{\**} \delta_! X \to \delta^{\**} Y$,
+by Corollary \ref{WEAKDIAG COR}
 this reduces to showing
 that the unit maps $X \to \delta^{\**} \delta_! X$
 are weak equivalences. This latter claim follows by cellular induction on $X$, since those pushouts attaching cells are homotopy pushouts (due to $\mathsf{sSet}$ being left proper).
