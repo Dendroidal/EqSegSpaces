@@ -52,7 +52,22 @@ cd,patterns,calc}
  
 \maketitle
  
- 
+The referee's preliminary report had two main sections:
+first, they recorded two locations of great narrative difficulty,
+and second, they offered a numbered list of recommendations and suggestions.
+We have implemented many of the changes recommended by the referee.
+The updates are organized into several classes:
+\begin{itemize}
+\item in ``Requested Revisions'', we address the two hard-stop concerns of the referee.
+\item in ``Minor changes'', we list typos and other small corrections which did not affect understanding.
+\item in ``Changes'', we address suggestions which required more significant edits and/or additional material to the article, or small changes which inhibited understanding.
+\item in ``Comments and departures'', we answer questions posed by the referee, and indicate where and why we departed from the suggestions of the referee.
+\end{itemize}
+
+All references in this response will refer to the new numbering from the updated article.
+
+
+
 \section{Requested revisions}
 \begin{itemize}
 \item[Section 5.2] Corrected typo, replacing $\otimes_{\Omega[C]}$ with $\coprod_{\Omega[C]}$. Added contextualization of this decomposition. 
@@ -64,8 +79,6 @@ cd,patterns,calc}
 The following lists the corrections of typos listed in the preliminary referee report.
 
 \begin{itemize}
-\item[1.] added the names of the fibrant objects when naming the model structures in question, as well as included a version of the table produced by the reviewer (and references to the categorical narrative) for additonal clarity
-
 \item[3.] added missing relation $aef \leq r$ to ``The other broad relations obtained by broad transitivity are \dots''
 \item[7.] added ``$\varphi$''
 \item[10.] reworded to ``denote the category of $G$-objects''
@@ -124,38 +137,20 @@ In further addition, made an observation as to why cofibrant approximation is a 
 
 \item[49.] Fixed reference to ``Thm. 3.3.8'' of Hir03 to be ``Thm 3.2.13'' (I had an old version of the paper)
 
-\item[85.] Modified the reference \cite[\S 4]{BM11} to \cite[\S 4,\S 6]{BM11}, to note that \S 6 is where (co)skeleta are actually discussed. 
+\item[85.] Modified the reference \cite[\S 4]{BM11} to \cite[\S 4,\S 6]{BM11}, to note that \S 6 is where (co)skeleta are actually discussed.
+      
+\item updated the reference to ``Equivariant Dendroidal Sets'' and other articles to reflect their publication,
+      and checked all references to these papers to ensure that they match the final version. %
 \end{itemize}
 
-
-
-\section{Minor corrections}
-
-\begin{itemize}
-\item[8.] Clarified the definition of ``outer face map'' and corrected ``non-identity'' to be ``non-isomorphism''.
-\item[41.] added a Remark to the end of \S 2.1 comparing $\Omega$ to $\mathsf{sSet}$, and introduced the stick tree $\eta$.
-\item[56.] Added adjunction equations, highlighed second definition, 
-\item[78.] Corrected and clarifed equation describing the coefficient system of categories part of the homotopy genuine operad.
-\item fixed typo in the remark stating that $N[m] \to N \widetilde{[m]}$ is built from $0$-horns. Namely, ``$m$-simplex $\underline{a}$'' should have been ``$k$-simplex $\underline{a}$''
-\end{itemize}
-
-\section{Misc.}
-
-
-\begin{itemize}
-\item updated the reference to ``Equivariant Dendroidal Sets'' and other articles to reflect their publication
-
-      Additionally, checked all references to the paper to make sure that they match the final version.
-\item Added minor exposition in \S 5.1
-\end{itemize}
 
 
 \section{Departures from suggestions/direct answer to comments}
 
 \begin{itemize}
-\item[4.] we are firmly convinced that the definitions of node, stump and root from [Per18, Defs. 5.7 and 5.9]
+\item[4.] We are firmly convinced that the definitions of node, stump and root from \cite[Defs. 5.7 and 5.9]{Per18}
 are correct as stated. For example, consider the tree
-\begin{equation}\label{FIRSTTREE EQ}
+\begin{equation}\label{FIRSTTREE2 EQ}
 	\begin{tikzpicture}[auto,grow=up,
 	level distance = 2.2em,
 	every node/.style={font=\footnotesize,minimum size=1.5mm}]%
@@ -179,44 +174,35 @@ are correct as stated. For example, consider the tree
 The tuples $\underline{e}$ such that $\underline{e} < r$
 are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these.
 
-We are also unsure of how replacing ``maximum'' with ``upper bound'' would change these definitions, since an upper bound of a subset $A$ that is also in $A$ is automatically the maximum of $A$. 
+We are also unsure of how replacing ``maximum'' with ``upper bound'' would change these definitions, since an upper bound of a subset $A$ that is also in $A$ is automatically the maximum of $A$.  %
 
-\item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances were the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest'').
+\item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances were the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest''). %
 
-\item[24.] clarified the class of cellular maps, and added references for nomenclature.
+\item[24.] Clarified the definition of ``built cellularly'' from Lemma \ref{CHAREDGE LEM}, and added references for related terminology. %
       % (in particular, distinguished it from the class of saturated maps)
       % Reworded ``is cellular on'' to ``is built by attaching'' $G$-inner horn inclusions
-\item[25.] added a reference to Goodwillie for the use of the adjective ``convex'', and included the name ``downward closed. As our argument is similar in spirit to Goodwillie's, we kept to using his nomenclature
+\item[25.] added a reference to Goodwillie for the use of the adjective ``convex'' before the proof of Lemma \ref{CHAREDGE LEM}, and included the name ``downward closed''.
+      As our argument is similar in spirit to Goodwillie's, we kept to using his nomenclature. %
 
-\item[27.] The new (Ch2) follows from the original conditions, but it requires both the original (Ch2) and (Ch3), which work in tandem. The discussion was expanded to provide more detail on this. 
+\item[27.] At the end of the proof of Lemma \ref{CHAREDGE LEM}, the new (Ch2) follows from the original conditions, but it requires both the original (Ch2) and (Ch3), which work in tandem. The discussion was expanded to provide more detail on this point. %
+      
+      As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined without much worry.
+      However, separating (Ch3) is needed to control the isotropies (which is why (Ch3) is needed when verifying condition (c) in the proof). In fact, in earlier iterations of the characteristic edge lemma condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified. %
+     
 
-As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined without much worry.
-However, separating (Ch3) is needed to control the isotropies (which is why (Ch3) is needed when verifying condition (c) in the proof). In fact, in earlier iterations of the characteristic edge lemma condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified.
+\item[37.] I do not think the proof of Proposition \ref{HYPER PROP} should require anything analogous to the mentioned condition (b) in the proof of Lemma \ref{CHAREDGE LEM}.
+      The point is that for $U \in \Omega$ and $V \hookrightarrow$ a planar face, it is $|V|<|U|$ unless $V=U$. We've added an extra sentence to Remark \ref{FACCES REM} to clarify this point. % that should make this point clearer. %
 
-\item[30.] Corrected $A_C = 
-A \cup \bigcup_{g\in G,V \in C} g b_{[e]}(\Omega[V])$.
+\item[39.] In the proof of Proposition \ref{HYPER PROP},
+      the given argument for the Segal hypersaturation indeed used $T \in \Omega^G$. Since this made the discussion somewhat awkward, we've moved the argument being made to (the new) Proposition \ref{SCANOD PROP}, and rephrased accordingly. %
 
-Similarly, added the alternate $g \Omega[V]$ formula already in the proof of the characteristic edge lemma.
+\item[40.] For Remark \ref{ORBHYPER_REM}: this is a matter of taste, but I find changing $T$ to $S$ in $\Lambda^E_o[T] \to \Omega[T]$ to contrast with $Sc[T] \to \Omega[T]$ to be a bit confusing. To emphasize that both of the $T$ variables are free, rather than chosen, we've instead added ``$T\in \Omega_G$'' to both expressions. %
 
-Moreover, expanded Remark FACEGACT REM to explain why $\Omega[gV] = g\Omega[V]$ and better explain the connection with isotropy of representable subpresheaves.
-
-
-
-\item[37.] I do not think the proof of Proposition HYPER PROP should require anything analogous to the mentioned condition (b) in the proof of Lemma CHAREDGE LEM. The point is that for $U \in \Omega$ and $V \hookrightarrow$ a planar face, it is $|V|<|U|$ unless $V=U$. We've added an extra sentence to Remark FACCES REM that should make this point clearer.
-
-\item[39.] The given argument for the Segal hypersaturation indeed used $T \in \Omega^G$. Since this made the discussion somewhat awkward, we've moved the argument being made to (the  new) Proposition SCANOD PROP, and rephrased accordingly.
-
-
-
-\item[40.] this is a matter of taste, but I find changing $T$ to $S$ in $\Lambda^E_o[T] \to \Omega[T]$ to contrast with $Sc[T] \to \Omega[T]$ to be a bit confusing. To emphasize that both of the $T$ variables are free, rather than chosen, I've instead added ``$T\in \Omega_G$'' to both expressions.
-
-\item[53.] The adjunctions from this notation are barely used in this part of the exposition. At most, part (i) of Proposition SSSETJREE PROP uses a single instance, which is also simpler since only the single $\partial \Delta[m]$ isn't a representable. It feels somewhat unnecessary to fully expand on the adjunctions at this point in the discussion. 
-
-% not used in this part of the exposition, and in general the statements are cleaner and clearer when the two directions have different source categories.
-
-% This is not quite true! The adjunction is necessary when proving part (i) of Proposition SSSETJREE PROP!
-
-\item[65.] As written, Corollary REGGENHORN COR was indeed needed to finish the argument in Corollary JOINTFIBCHAR COR. This has been addressed by adding the generating horn inclusions $\Lambda^{Ge}[T] \to \Omega[T]$ to Proposition HYPER PROP.
+\item[53.] The adjunctions from this notation are only used in a single instance, in the proof of part (i) of Proposition \ref{SSSETJREE PROP}; moreover this use is also simpler since only the single $\partial \Delta[m]$ isn't a representable.
+      It feels somewhat unnecessary to fully expand on the adjunctions at this point in the discussion,
+      rather than wait until Remark \ref{TWOVARADJ REM}. %
+      
+\item[65.] As written, Corollary \ref{REGGENHORN COR} was indeed needed to finish the argument in Proposition \ref{JOINTFIBCHAR PROP} (which was previously called a Corollary). This has been addressed by adding the generating horn inclusions $\Lambda^{Ge}[T] \to \Omega[T]$ to Proposition \ref{HYPER PROP}. %
 
 
 \end{itemize}
@@ -227,116 +213,169 @@ Moreover, expanded Remark FACEGACT REM to explain why $\Omega[gV] = g\Omega[V]$ 
 
 
 \begin{itemize}
+\item[1.] Added the names of the fibrant objects to the introduction when naming the model structures in question, as well as included a version of the table produced by the referee (and references to the categorical narrative).
+
+      
 \item[2.] 
-added Remark RECOVDEF REM which explains why our results extend [CM13a, Thm. 6.6] and clarified clarified the influence of [CM13a, Thm. 6.6] in the introduction (to the paper and \S 4), 
-%and extended the last remark of \S 5 to include an analogue of the precise statement in the equivariant setting
-%\item[2.] clarified the influence of [CM13a, Thm. 6.6] in the introduction (to the paper and \S 4), and added a result after JOINTFIBCHAR COR to include a analogue of that statement in the equivariant setting
+      Added Remark \ref{RECOVDEF REM} which explains why our results extend \cite[Thm. 6.6]{CM13a} and clarified the influence of \cite[Thm. 6.6]{CM13a} in the introduction (to the paper and to \S 4). %
+      
 
-\item[9.] Rephrased the language in the ``$U^{\cup}$ and $U^{\cap}$'' proof to explain why the argument isn't circular. The main point being that ``edge'' and ``vertex'' are simply suggestive names for ``element'' and ``generating relation'' of the broad poset.
-
-
-\item[11.] Converted the previous ``factorization of orbital faces'' remark to a proposition and proved it.
-
-Edited Proposition UNIQUEFACT PROP to also include a statement about planar maps.
-
-Expanded the notation defining ``outer closure'' to clarify both its meaning and why such an outer face exists.
+\item[9.] Rephrased the language in the proof of Lemma \ref{CUPCAP LEM} to explain why the argument isn't circular. The main point comes down to the fact that ``edge'' and ``vertex'' are simply suggestive names for ``element'' and ``generating relation'' of the broad poset. %
 
 
-\item[12.] Reworded the proposition to state that $GU$ is the smallest orbital face containing $U$.
+      % ---------- OUTER/ORBITAL FACES ----------
+\item[8.] Clarified the definition of ``outer face map'' and corrected ``non-identity'' to be ``non-isomorphism'', before Proposition \ref{UNIQUEFACT PROP}.%
 
-Changed the language in the proof to reflect the restatement and provide some extra detail.
+\item[11.] Converted the previous ``factorization of orbital faces'' remark into Proposition \ref{INNOUTORB PROP} and proved it.
+      
+Edited Proposition \ref{UNIQUEFACT PROP} to also include a statement about planar maps.
+
+Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' in to clarify both its meaning and why such an outer face exists. %
+
+\item[23.] Adapted the definition of outer closure from Notation \ref{BARUT NOT} to also include non-planar faces.
 
 
-\item[13.] The ``$\leq_d$-incomparability of components'' language was removed in favor of a better explanation for the remark in point 15 below (which was moved to before this result)
+
+      
+% ----------
+\item[12.] Reworded Proposition \ref{MINGFACT PROP} to state that $GU$ is the smallest orbital face containing $U$.
+
+Changed the language in the proof to reflect the restatement and provide some extra detail. %
+
+\item[13.] The ``$\leq_d$-incomparability of components'' language was removed from the proof of Proposition \ref{MINGFACT PROP} in favor of a better explanation for Remark \ref{ROOTISOMONO REM} from Point 15 below (which was moved to before this result) %
+      
+\item[14.] Reworded the ending of the proof of Proposition \ref{MINGFACT PROP} to clarify the argument and be consistent with the rewording of the proposition itself. %
+
+\item[15.] The remark concerning when $G\cdot_H U \to T$ is injective was moved to an earlier point, Remark \ref{ROOTISOMONO REM}, and a clearer explanation was provided. %
+
+\item[34.] Adapted the definition of $GV$ from Proposition \ref{MINGFACT PROP} to also include non-planar faces.
+      
 
 
-\item[14.] Reworded the ending of the $GU$ proof to clarify the argument and be consistent with the rewording of the proposition itself.
 
-\item[15.] The remark concerning when $G\cdot_H U \to T$ is injective was moved to an earlier point, and a clearer explanation was provided.
+\item[21.] Provided references for the characterization of $G$-normal monomorphisms in the paragraph after Remark \ref{FACEGACT REM}. %
 
-\item[21.] Provided references for the characterization of $G$-normal monomorphisms.
- 
-\item[23.] Adapted the definition of outer closure to also include non-planar faces.
 
-\item[26.] Added a new paragraph explaining why conditions (a)(b)(c) imply that the given square is a pushout.
+      % ---------- CHAREDGE LEM ----------
+\item[26.] Added a new paragraph to the proof of Lemma \ref{CHAREDGE LEM} explaining why conditions (a)(b)(c) imply that the square \eqref{FIRPUSH EQ} is a pushout. %
 
-\item[34.] Adapted the definition of $GV$ to also include non-planar faces.
+\item Added a little more detail to the discussion of Example \ref{THM71 EX} to better explain the role of elementary trees.
 
-\item[42.] Clarified the meaning of hypersaturation when not assuming that the maps are cofibrations.
+\item[30.] Corrected $A_C = 
+      A \cup \bigcup_{g\in G,V \in C} g b_{[e]}(\Omega[V])$ in the final paragraph of Remark \ref{CHAREDGE2 REM}.
+      
+      Similarly, added the alternate $g \Omega[V]$ formula already in the proof of the characteristic edge lemma.
+      
+      Moreover, expanded Remark \ref{FACEGACT REM} to explain why $\Omega[gV] = g\Omega[V]$ and better explain the connection with isotropy of representable subpresheaves. %
 
-\item[43.] Clarified that the ``single colored $G$-operad'' is on the category of sets.
 
-\item[44.] added comment that $\Omega(T)$ is the operad generated by $T$ and added references.
 
-In addition, included the $\Omega(T)$ notation and references near the beginning of \S 2.1 when the similarity between the broad poset and the operad generated by $T$ is mentioned.
+      
+\item[41.] added Notation \ref{ETA_NOT} to the end of \S 2.1 comparing $\Omega$ to $\mathsf{sSet}$, and introduced the stick tree $\eta$. %
+      
+      
+\item[42.] Clarified the meaning of hypersaturation in the paragraph before Proposition \ref{HYPERLP PROP} when not assuming that the maps are cofibrations. %
 
-\item[55.] Fixed the math typo in the proof where $G$ should have been $\Lambda^i[n] \times G$.
+      
+\item[43.] Clarified in Remark \ref{NORMMAP REM} that the ``single colored $G$-operad'' is on the category of sets. %
 
-In addition, a large portion of this proof has been rewritten with some slight changes in notation and more details provided.
+      
+\item[44.] Added comment to Remark \ref{NORMMAP REM} that $\Omega(T)$ is the operad generated by $T$ and added references. %
 
-\item[56.] Added a new remark discussing the two-variable adjunction and associated lifting properties.
+In addition, included the $\Omega(T)$ notation and references in the first paragraph of \S 2.1 when the similarity between the broad poset and the operad generated by $T$ is mentioned. %
 
-\item[58.] A brief discussion of cofibrant generation for Reedy model structures was added to the end of the appendix. The proof of this result was reworded accordingly.
 
-\item[62.] The confusing wording has been changed (the reason for the wording was the fact that I was trying to point out that the condition in the (new) \ref{HYPERMODEL REM} had to be checked).
+\item[55.] Fixed the math typo in the proof of Corollary \ref{SSETSSETADJ COR} where $G$ should have been $\Lambda^i[n] \times G$
 
-Added reference to HYPERMODEL REM in SSSETJREE PROP and in HYPERSIMPL REM
+      In addition, a large portion of this proof has been rewritten with some slight changes in notation and more details provided. %
+      
 
-\item[63.] Edited proof to explain why the given condition shows $X_L,X_k $ are fibrant.
+\item[56.] Added the new Remark \ref{TWOVARADJ REM} discussing the two-variable adjunction and associated lifting properties. %
 
-\item[64.] Edited the proof to explain why the maps $\Omega[T] \otimes (\{i\} \to J)$ suffice.
+      
+\item[58.] A brief discussion of cofibrant generation for Reedy model structures was added to the end of the appendix, in particular Proposition \ref{REEDYCOFGEN PROP}. The proof of this result, Proposition \ref{SDSETJRCOF PROP} was reworded accordingly. %
+   
 
-\item[66.] Edited the Notation defining $J^m$ to provide a little more information.
+      % ---------- JOINTFIBCHAR PROP ----------
+\item[62.] The confusing wording in the proof of Proposition \ref{JOINTFIBCHAR PROP} has been changed (the reason for the wording was the fact that I was trying to point out that the condition in the (new) \ref{HYPERMODEL REM} had to be checked).
 
-Added a new remark immediately after said notation proving that $J^{\bullet}$ is Reedy cofibrant cosimplicial.
+Added reference to Remark \ref{HYPERMODEL REM} in Proposition \ref{SSSETJREE PROP} and in Remark \ref{HYPERSIMPL REM}.
 
-Added reference to this new remark in the discussion in Remark CONCRECOM REM.
+\item[63.] Edited proof of Proposition \ref{JOINTFIBCHAR PROP} to explain why the given condition shows $X_L,X_k $ are fibrant.
 
-Added reference to this new remark in the proof of Proposition COMPLE PROP.
+\item[64.] Edited proof of Proposition \ref{JOINTFIBCHAR PROP} to explain why the maps $\Omega[T] \otimes (\{i\} \to J)$ suffice. %
 
-Added a definition of the bisimplicial $X(-)$ notation immediately before Proposition SESP PROP.
 
-Edited Proposition SESP PROP and its proof to replace appearances of $n$ with $m$.
 
-\item[67.] added Definition after the proof of the model structure on $\mathsf{PreOp}^G$, defining equivariant Segal operads,
-and added Remark concerning the fibrant objects being the Reedy fibrant Segal operads.
+      % ---------- JM STUFF ----------
+\item[66.] Edited Notation \ref{JM NOT} defining $J^m$ to provide a little more information.
+
+Added the new Remark \ref{JREEDYCOF REM} immediately after said notation proving that $J^{\bullet}$ is Reedy cofibrant cosimplicial. 
+
+Added reference to this new remark in the discussion in Remark \ref{CONCRECOM REM}.
+
+Added reference to this new remark in the proof of Proposition \ref{COMPLE PROP}.
+
+Added a definition of the bisimplicial $X(-)$ notation immediately before Proposition \ref{SESP PROP}.
+
+Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ with $m$. %
+
+\item fixed typo in Remark \ref{CONTGR REM} stating that $N[m] \to N \widetilde{[m]}$ is built from $0$-horns. Namely, ``$m$-simplex $\underline{a}$'' should have been ``$k$-simplex $\underline{a}$'' %
+
+
+
+
+\item[67.] added Definition \ref{SEGALOP_DEF} defining equivariant Segal operads after the proof of the model structure on $\mathsf{PreOp}^G$, Theorem \ref{PREOPMOD THM},
+and added Remark \ref{SEGALOP_REM} concerning the fibrant objects being the Reedy fibrant Segal operads. %
 %as fibrant objects
 %%the Segal operads are not exactly the fibrant objects. It is convenient to have a larger class. This is used in the third paper once tame model structures enter the picture, since the tame fibrant stuff still satisfies the Segal operad condition, despite not being dendroidal Reedy fibrant
 
-\item[68.] Explained the $\mathsf{csk}_{\eta}$ notation.
 
-\item[69.] Reworded the proof describing the normal generators of $\mathsf{PreOp}^G$ to avoid the confusing wording.
+\item[68.] Explained the $\mathsf{csk}_{\eta}$ notation in the paragraph before Proposition \ref{CSKETALT PROP}. %
 
-\item[70.] Completed the proof describing the normal generators of $\mathsf{PreOp}^G$ by indicating why the generators are normal.
+      
+\item[69.] Reworded the proof of Lemma \ref{GENSET LEM} describing the normal generators of $\mathsf{PreOp}^G$ to avoid the confusing wording. %
 
-\item[72.] added explanation for why $X \otimes J$ is a cylinder object.
+\item[70.] Completed the proof of Lemma \ref{GENSET LEM} by indicating why the generators are normal. %
 
-\item[74.] Added Proposition to beginning of \S 5.1 characterizing equivariant dendroidal Segal spaces in the vein of [CM13a, Cor. 5.6]
+      
+\item[72.] Added explanation in Lemma \ref{TRIVFIB LEM} for why $X \otimes J$ is a cylinder object. %
 
-\item[76.] Turned the claim that $ho(X)$ is a genuine equivariant operad into a proposition, and gave a full proof.
+      
+\item[74.] Added Proposition \ref{DSSCHAR_PROP} to the beginning of \S 5.1 characterizing equivariant dendroidal Segal spaces in the vein of \cite[Cor. 5.6]{CM13a}. %
+
+
+      % ---------- ho(X) ----------
+\item[76.] Turned the claim that $ho(X)$ is a genuine equivariant operad into the new Proposition \ref{HMTPYGEN PROP}, and gave a full proof.
 
 %added the actual formulas for $X(A)$, since they get used here...
 
-added an alternate formula for $\upsilon_{\**}$ after DSETG EQ.
+      Added an alternate formula for $\upsilon_{\**}$ after \eqref{DSETG_EQ}.
 
-added remark UPSPUSHMON REM noting that $\upsilon_{\**}$ preserves certain pushouts
+      Added Remark \ref{UPSPUSHMON REM} noting that $\upsilon_{\**}$ preserves certain pushouts %
 
-%added internal references which show that $ho(X)$ is a genuine equivariant operad
+      % added internal references which show that $ho(X)$ is a genuine equivariant operad
+      
+\item[78.] Corrected and clarifed the equation in Definition \ref{HMTPYGEN DEF} describing the coefficient system of categories part of the homotopy genuine operad. %
 
-\item[81.] added an explanation for why $X^h(J) = X(J)$.
 
 
-\item expanded the discussion of cube fibrancy/cofibrancy before and during the proof of JDDK PROP, and (hopefully) made the overall argument a little clearer.
+      
+\item[81.] Added an explanation to Proposition \ref{SESP PROP} for why $X^h(J) = X(J)$. %
 
-\item added reference for why $X^{\Omega[T]}$ is Segal space in Proposition JDDK PROP.
 
-\item fixed the incorrect $\iota^{\**}_G$ notation issue by circumventing that notation.
+\item Expanded the discussion of cube fibrancy/cofibrancy before and during the proof of Proposition \ref{JDDK PROP}, and (hopefully) made the overall argument a little clearer. %
 
-\item Added short proof to the family model structure adjunction
- result.
+      
+\item Added reference for why $X^{\Omega[T]}$ is Segal space in Proposition \ref{JDDK PROP}. %
 
-\item Added a little more detail to the discussion of THM71 EX to better explain the role of elementary trees.
+      
+\item Fixed the incorrect $\iota^{\**}_G$ notation issue at the end of the proof of Proposition \ref{JDDK PROP} by circumventing that notation. %
 
+      
+\item Added short proof to Proposition \ref{FGTRL_PROP}. %
+
+      
 \end{itemize}
 
 
