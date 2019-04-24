@@ -4258,9 +4258,9 @@ Indeed, since all objects appearing in
 \eqref{JOINTFIBCHAR EQ}
 can be regarded as mapping spaces (cf. Remark \ref{MAPSPACE REM}), 
 one needs only localize the dendroidal Reedy model structure with respect to the maps
-\[
+\begin{equation}\label{RECOVDEN REM}
 Sc[T] \to \Omega[T], \qquad \Omega[T] \otimes J \to \Omega[T], \qquad T \in \Omega_G,
-\]
+\end{equation}
 recovering 
 %the analogue of 
 the definition of the \emph{dendroidal Rezk model category} %definition
@@ -4659,7 +4659,8 @@ in the categories $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$ (see Remark \ref{INT
 	The \textit{equivariant Segal space model structure} on the category $\mathsf{sdSet}^G$, which we denote 
 	$\mathsf{sdSet}^G_S$, 
 	is the left Bousfield localization of the dendroidal Reedy model structure with respect to the equivariant Segal core inclusions 
-	(regarded as simplicially constant maps in $\mathsf{sdSet}^G$)
+	(see Remark \ref{RECOVDEF REM}, more specifically \eqref{RECOVDEN REM})
+	%(regarded as simplicially constant maps in $\mathsf{sdSet}^G$)
 \[
 	Sc[T] \to \Omega[T], \qquad T \in \Omega_G.
 \]
@@ -4677,7 +4678,7 @@ if $\gamma^{\**}X$ is a dendroidal Segal space
 foreshadowing Corollary \ref{FIB_PREOP_COR}).
 \end{notation}
 
-The following is the equivariant analogue of \cite[Cor. 5.6]{CM13a}, and is an immediate consequence of Proposition \ref{HYPER PROP}.
+The following is the equivariant analogue of \cite[Cor. 5.6]{CM13a}, and is an immediate consequence of Proposition \ref{HYPER PROP} and Remark \ref{MAPSPACE REM}.
 \begin{proposition}
       \label{DSSCHAR_PROP}
       Suppose $X \in \mathsf{sdSet}^G$ is dendroidal Reedy fibrant. The following are equivalent:
@@ -4836,7 +4837,7 @@ are isomorphisms.
 Hence, noting that
 for $A \in \mathsf{dSet}^G$
 there is a natural transformation
-(where $\bullet$ highlights the index with regards to which the $\pi_0$ are computed)
+(where $\bullet$ highlights the index with regards to which the $\pi_0$ are computed; recall that $\upsilon_{\**}$ is fully faithful)
 \begin{equation}\label{HOGENEQOP EQ}
 \begin{split}
 	\pi_0\left( X_{\bullet}(A) \right)=
@@ -4883,20 +4884,25 @@ $X(\Omega[Ge])$ being discrete.
 
 
 
-In the following, $\mathsf{O}_G$ denotes the \textit{orbit category} with objects the $G$-sets $G/H$ for $H \leq G$ and arrows the $G$-equivariant maps between them.
+Recall that $\mathsf{O}_G$ denotes the \textit{orbit category} with objects the $G$-sets $G/H$ for $H \leq G$ and arrows the $G$-equivariant maps between them. In the following, we use the natural inclusion
+$\Omega \times \mathsf{O}_G \to \Omega_G$
+given by 
+$(T,G/H) \mapsto G/H \cdot T$.
 
 \begin{remark}
 	Writing $\iota$ for the inclusion $\Delta \to \Omega$
 	and $\iota_G$ for the composite inclusion
 	$\Delta \times \mathsf{O}_G \to 
-	\Omega \times \mathsf{O}_G \to
+	\Omega \times \mathsf{O}_G 
+	\to
+	%\xrightarrow{(T,G/H) \mapsto G/H \cdot T}
 	\Omega_G$,
         unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of nerves of categories $\left(\iota_G^{\**}ho(X)\right)(G/H)$ for $H \leq G$,
         %\footnote{Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
         which are the simplicial sets with $m$-simplices
         % the homotopy categories
 	\begin{equation}\label{HOCOEFF EQ}
-              ho(X)\left(G \cdot_H [m]\right) =
+              ho(X)\left(G/H \cdot [m]\right) =
               \pi_0 \left( \left(\gamma_{\**}X([m])\right)^H\right) = 
               \pi_0 \left( \iota^{\**} \gamma_{\**}
               \left(X^H\right)\right)(m) = 
@@ -4988,7 +4994,10 @@ $X(x_1,\cdots,x_n;x_0)$.
 
 Suppose $C,D$ are $G$-corollas that can be grafted,
 i.e. that $C$ has a leaf orbit and $D$ a root orbit both isomorphic to $G/H$. Denote this orbit as $G e$
-and write $T= C \amalg_{G e} D$ for the grafted $G$-tree \cite[Def. 5.14, Prop. 6.19]{Per18}. 
+and write $T= C \amalg_{G e} D$ for the grafted $G$-tree 
+\cite[
+%Def. 5.14,
+(5.18) and Prop. 6.19]{Per18}. 
 For any dendroidal Segal space $X$ one then has
 $X(Sc[T]) \simeq X(\Omega[C]) \times_{X(\eta)^H} X(\Omega[D])$
 and one can hence choose a section in the middle row below
@@ -5443,11 +5452,12 @@ $K \in \mathsf{sSet}$.
 Since 
 $\mathsf{sk}_1 (\partial \Delta[m]) = 
 \mathsf{sk}_1 \Delta[m]$
-if $n \geq 2$
+if $m \geq 2$
 it follows that the maps
 $X^h(m) \to X^h(\partial \Delta[m])$, $m \geq 2$
-are Kan fibrations, and since the map $X^h(1)\ \to X(0) \times X(0)$
-is certainly a Kan fibration, $X^h$ is indeed Reedy fibrant. 
+are Kan fibrations, and since the composite
+$X^h(1) \to X(1) \to X(0) \times X(0)$
+is clearly a Kan fibration, $X^h$ is indeed Reedy fibrant. 
 The Segal condition for $X^h$ is obvious from the pullback \eqref{XHDEF EQ}.
 
 For (iii), it suffices by symmetry to establish the first claim.
