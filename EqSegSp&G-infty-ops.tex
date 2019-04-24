@@ -3694,6 +3694,11 @@ for each $m \geq 0$, and dually for the vertical Reedy structure.
 %       $X_K =\Hom_{\mathsf{sSet}}(K, X(\bullet)) \in \sSet$.
         % which induces an adjunction isormorphism
         % $\Hom_{\mathsf{sSet}}(L, X_K) = \Hom_{\mathsf{sSet}}(K, \sSet(L, X_{\bullet}))$.
+        
+        Note that for maps $K\to L$ and $A\to B$ in $\mathsf{sSet}$, $X$ has the right lifting property against
+        $(K \to L) \square (A\to B)$ iff
+        $X_L \to X_K$ has the right lifting property against $A\to B$
+        (see Remark \ref{TWOVARADJ REM}).
 \end{notation}
 
 %\begin{remark}
@@ -3779,7 +3784,7 @@ $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 
 
 \begin{corollary}\label{SSETSSETADJ COR}
-	The adjunction
+	The adjunction (where $\mathsf{ssSet}$ has the joint Reedy model structure)
 \[
 	\delta_{!}\colon \mathsf{sSet} 
 		\rightleftarrows 
@@ -4060,7 +4065,7 @@ J^m = N \widetilde{[m]}
 and abbreviate $J = J^1$.
 %where $N$ is the nerve functor.
 Moreover, we slightly abuse notation by also writing $J^m \in \mathsf{dSet}^G$ for the corresponding dendroidal set 
-(under the standard inclusion $\iota_! \colon \mathsf{sSet} \to \mathsf{dSet}$) with the trivial $G$-action.
+(under the standard inclusion $\iota_! \colon \mathsf{sSet} \to \mathsf{dSet}$; see Notation \ref{DELTAOMEGA NOT}) with the trivial $G$-action.
 In fact, we use $J^m \in \mathsf{dSet}^G$ by default and the few  exceptions,
 Proposition \ref{SESP PROP},
 the end of
@@ -4080,7 +4085,7 @@ $J^{\bullet} \in \left(\mathsf{sSet}\right)^{\Delta}$
 
 To see this, we mimic the notation (and argument) in the proof of
 Corollary \ref{SSETSSETADJ COR} by writing 
-$F$ for both a subset $F \subseteq \{0,1,\cdots,m\}$
+$F$ for both a subset $\emptyset \neq F \subseteq \{0,1,\cdots,m\}$
 and face $F \to [m]$, as well as $\widetilde{F} \to \widetilde{[m]}$ for the natural subgroupoid.
 Further, note that for any simplex $x \in N\widetilde{[m]}$, which can be identified with a non-empty string on $\{0,1,\cdots,n\}$, there is a smallest face $F^x \to [m]$ such that 
 $x \in N\widetilde{F^x}$, namely $F^x$ is the set of ``letters'' of $x$.
@@ -4214,7 +4219,7 @@ By adjunction, this is equivalent to
 $X_L \to X_K$ always being a fibration in $\mathsf{dSet}^G$.
 Further, since for $K=\emptyset$ it is $X_{K}=\**$, this requires $X_L$ to always be fibrant. In other words, $X$ has the right lifting property against \eqref{SIMPTRIVCOF EQ} iff
 $X_L \to X_K$ is always a fibration between fibrant objects in $\mathsf{dSet}^G$.
-By the characterizations of fibrant objects and of fibrations between fibrant objects (see \cite[Prop. 8.8]{Per18} and the beginning of \cite[\S 8.1]{Per18}), it suffices to check that the maps $X_L \to X_K$ have the right lifting property against the maps 
+By the characterizations of fibrant objects and of fibrations between fibrant objects in $\mathsf{dSet}^G$ (see \cite[Prop. 8.8]{Per18} and the beginning of \cite[\S 8.1]{Per18}), it suffices to check that the maps $X_L \to X_K$ have the right lifting property against the maps 
 ($\square^{\otimes}$ denotes the pushout product with respect to
 % the tensor product 
 $\otimes$)
@@ -4227,7 +4232,7 @@ $\otimes$)
 	\phantom{1}
 	T \in \Omega_G, i = \{0,1\}
 \end{equation}
-(note that the case $K=\emptyset$ shows that the $X_L$ are fibrant).
+(note that the case $K=\emptyset$ shows that all the $X_L$ are fibrant).
 
 It now suffices by adjunction to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
 To conclude the proof, we use Remark \ref{HYPERMODEL REM}
@@ -4259,7 +4264,7 @@ Sc[T] \to \Omega[T], \qquad \Omega[T] \otimes J \to \Omega[T], \qquad T \in \Ome
 recovering 
 %the analogue of 
 the definition of the \emph{dendroidal Rezk model category} %definition
-from \cite[Defs. 5.4, 6.2]{CM13a}.
+from \cite[Defs. 5.4 and 6.2]{CM13a}.
 
 Similarly, Proposition \ref{JOINTFIBCHAR PROP}(ii) shows that one needs only localize the simplicial Reedy model structure with respect to the maps
 $(\Delta[0] \to \Delta[n])\square (\partial \Omega[T] \to \Omega[T])$ (since then for $X$ locally fibrant the maps $X_n \to X_0$ must be trivial fibrations in $\mathsf{dSet}^G$), and the argument at the end of the proof of Proposition \ref{JOINTFIBCHAR PROP}
@@ -4469,8 +4474,8 @@ $\mathsf{csk}_{\eta} Y=
 Moreover, it readily follows that
 for $B \in \mathsf{dSet}^G$ it is
 $(\mathsf{csk}_{\eta} Y)(B)=
-\prod_{B(\eta)} Y(\eta)$
-and thus (iii) follows from (ii).
+\prod_{B(\eta)} Y(\eta)$ so that, since $(-)(B)$ preserves pullbacks, 
+(iii) follows from (ii).
 
 For (i), formal considerations imply that if $X$ is dendroidal (Reedy) fibrant then the map 
 $X \to \mathsf{csk}_{\eta} X$ is a dendroidal fibration
@@ -4558,7 +4563,7 @@ our assumption yields the lift below, showing that $p$ is a homotopy equivalence
 \end{theorem}
 
 \begin{proof}
-One repeats the proof of the non-equivariant analogue \cite[Thm. 8.13]{CM13a}, applying J. Smith's theorem \cite[Thm. 1.7]{Bek00} with the required set of generating cofibrations the 
+We repeat the proof of the non-equivariant analogue \cite[Thm. 8.13]{CM13a}, applying J. Smith's theorem \cite[Thm. 1.7]{Bek00} with the required set of generating cofibrations the 
 set $\{\emptyset \to G/H\cdot \eta | H \leq G\} \cup \gamma_! (\mathcal{I}')$ given by Lemma \ref{GENSET LEM}.
 Indeed, conditions c0 and c2 in \cite{Bek00} are inherited from 
 $\mathsf{sdSet}^G$ and c1 follows from Lemma \ref{TRIVFIB LEM}.
