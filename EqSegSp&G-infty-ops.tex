@@ -5409,6 +5409,7 @@ The following roughly summarizes (and slightly refines)
 Adapting Notation \ref{UNILIMDEN NOT}, for fixed $X \in \mathsf{ssSet}$ we write $X(-)\colon \mathsf{sSet}^{op} \to \mathsf{sSet}$ for the limit preserving functor such that
 $X(\Delta[m]) = X(m)$. 
 
+
 \begin{proposition}\label{SESP PROP}
 	Let $X \in \mathsf{ssSet}$ be a Segal space. Then:
 \begin{itemize}
@@ -5431,10 +5432,11 @@ define a Segal space $X^h \subseteq X$, consisting of a union of connected compo
 	$X^h(2) \xrightarrow{(d_0,d_1)} 
 	X^h(\Lambda^2[2])$
 	are trivial fibrations;
-	\item[(iv)] the map $X(J) \to X({\Delta[1]}) = X(1)$ factors through a weak equivalence 
-	$X(J) \xrightarrow{\sim} X^h(1)$.
+	\item[(iv)] the maps $X(J^m) \to X({\Delta[m]}) = X(m)$ factor through weak equivalences 
+	$X(J^m) \xrightarrow{\sim} X^h(m)$.
 \end{itemize}
 \end{proposition}
+
 
 
 \begin{proof}
@@ -5518,11 +5520,11 @@ $\Lambda^0[2] \to \Delta[2]$ and
 $\Lambda^2[2] \to \Delta[2]$, 
 and hence by Remarks 
 \ref{ANHYPER REM} and \ref{CONTGR REM}
-the map 
-$X^h(J) \to X^h(1)$ 
-is a Kan equivalence. 
+the maps 
+$X^h(J^m) \to X^h(m)$ 
+are Kan equivalences. 
 It remains to show
-$X^h(J) = X(J)$, for which we consider
+$X^h(J^m) = X(J^m)$. We first focus on the case of $J=J^1$, for which we consider
 the following diagrams, where maps out of $X(J)$ are labeled as $\partial_{\underline{a}}$ for $\underline{a}$ the associated simplex of $J$ (which is a string on $\{0,1\}$)
 \[
 \begin{tikzcd}[column sep = 20]
@@ -5550,8 +5552,14 @@ This shows that $\partial_{01}, \partial_{10}$
 factor through $X^h(1)$
 so that
 $X(J) \to X(\mathsf{sk}_1 J)$ factors through
-$X^h(\mathsf{sk}_1 J)$, and thus \eqref{XHGENDEF EQ} finishes the proof.
+$X^h(\mathsf{sk}_1 J)$.
+But since all $1$-simplices of $J^m$ are in the image of some map $J \to J^m$, 
+the map $X(J^m) \to X(\mathsf{sk}_1 J^m)$ likewise factors through
+$X^h(\mathsf{sk}_1 J^m)$ for any $m$. 
+The pullback \eqref{XHGENDEF EQ} now finishes the proof.
 \end{proof}
+
+
 
 
 \begin{remark}
