@@ -3783,6 +3783,7 @@ $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 \end{proof}
 
 
+
 \begin{corollary}\label{SSETSSETADJ COR}
 	The adjunction (where $\mathsf{ssSet}$ has the joint Reedy model structure)
 \[
@@ -3791,13 +3792,23 @@ $X_{0} \to X$ is a horizontal weak equivalence in $\mathsf{ssSet}$.
 	\mathsf{ssSet} \colon \delta^{\**}
 \]
 is a Quillen equivalence.
-Moreover if a map $f\colon X \to Y$ in $\mathsf{ssSet}$ has the right lifting property
+Moreover, given $f\colon X \to Y$ in $\mathsf{ssSet}$, 
+\begin{itemize}
+\item $\delta^{\**} (f)$ is a Kan fibration in $\mathsf{sSet}$ if 
+ $f$ has the right lifting property
 against both sets of maps in
-\eqref{GTRCOHOR EQ} and \eqref{GTRCOVER EQ}, then
-$\delta^{\**} (f)$ is a Kan fibration in $\mathsf{sSet}$.
+\eqref{GTRCOHOR EQ} and \eqref{GTRCOVER EQ}.
+\item $\delta^{\**}(X)$ is a Kan complex in $\mathsf{sSet}$ if $X$ has the right lifting property against all maps in \eqref{GTRCOHOR EQ} 
+as well as the maps in \eqref{GTRCOVER EQ}
+with $m \geq 2$ (and dually for \eqref{GTRCOHOR EQ} with $n \geq 2$, all maps in \eqref{GTRCOVER EQ}).
+\end{itemize}
 \end{corollary}
 
-Note that the ``moreover'' claim in this result is not quite formal, since the maps in \eqref{GTRCOHOR EQ},\eqref{GTRCOVER EQ} are not known to be generating trivial cofibrations for the joint model structure on $\mathsf{ssSet}$.
+
+
+Note that the first ``moreover'' claim 
+%in this result
+is not quite formal, since the maps in \eqref{GTRCOHOR EQ},\eqref{GTRCOVER EQ} are not known to be generating trivial cofibrations for the joint model structure on $\mathsf{ssSet}$.
 
 
 \begin{proof}
@@ -3828,8 +3839,7 @@ namely $F^x = F^x_1 \cup F^x_2$.
 \end{inparaenum}
 
 
-
-The claim that $\delta_!$ preserves trivial cofibrations follows easily from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claim.
+The claim that $\delta_!$ preserves trivial cofibrations follows easily from Remark \ref{HYPERSATKAN REM} together with Corollary \ref{WEAKDIAG COR}, but here we give a harder argument needed to establish the stronger ``moreover'' claims.
 Namely, we will argue that the maps
 $\delta_! \left( \Lambda^i[n] \to \Delta[n]\right)$
 are built cellularly out of the maps in 
@@ -3869,7 +3879,19 @@ it follows that \eqref{ANOTHERCONV EQ} is a pushout of the map
 \end{equation}
 where $\Lambda^{F}[n]$ is the union of those $\Delta H$ with $H \not \supseteq [n] - F$ (this is consistent with the horn notation in \S \ref{EQDENDSETS SEC})
 and $\Lambda^i F$ the union of the $\Delta H$ with $F \supseteq H \not \supseteq F - \{i\}$.
-We caution that for $F=[n]$ it is $\Lambda^F[n]=\emptyset$, so that these maps are in general not built out of the maps in \eqref{GTRCOHOR EQ}. 
+%Note that 
+Most maps in \eqref{LAMBDAFPUSH EQ}
+can in fact be built from either \eqref{GTRCOHOR EQ} or \eqref{GTRCOVER EQ}, but there is one crucial exception:
+for $F=[n]$ it is $\Lambda^F[n]=\emptyset$, 
+so only \eqref{GTRCOVER EQ} can be used.
+The first ``moreover'' claim now follows. For the second ``moreover'' claim, note that any $X \in \mathsf{ssSet}$ admits (degenerate) liftings against 
+$\delta_!\left(\Lambda^i[1] \to \Delta[1]\right) =
+ \left(\{i\}^{\times 2} \to \Delta[1]^{\times 2}\right)$,
+and that the only step in the filtration of 
+$\delta_!\left( \Lambda^i[n] \to \Delta[n]\right)$ for $n\geq 2$
+requiring \eqref{GTRCOVER EQ} (i.e. the case $F=[n]$ in \eqref{LAMBDAFPUSH EQ})
+uses the map
+$\Lambda^i[n] \times \left(\Lambda^i[n] \to \Delta[n] \right)$.
 
 
 Lastly, the Quillen equivalence condition 
@@ -3886,19 +3908,27 @@ are weak equivalences. This latter claim follows by cellular induction on $X$, s
 
 
 \begin{remark}\label{HYPERSIMPL REM}
-	Just as in the proof of Proposition \ref{SSSETJREE PROP}, hypersaturations simplify the lifiting condition
+	Just as in the proof of Proposition \ref{SSSETJREE PROP}, hypersaturations simplify the lifiting conditions
 	in the previous result. 
-	Namely,	$X \to Y$ is a vertical fibration (i.e. it has the lifting property against \eqref{GTRCOVER EQ})
+	
+	Indeed,	$X \to Y$ is a vertical fibration (i.e. it has the lifting property against \eqref{GTRCOVER EQ})
 	iff, for each monomorphism $K \to L$ in $\mathsf{sSet}$,
 	$X_L \to X_K \times_{Y_K} Y_L$
 	is a Kan fibration.
-	The lifting property against \eqref{GTRCOVER EQ}
+	The lifting property against \eqref{GTRCOHOR EQ}
 	then requires that 
 	$X_L \to X_K \times_{Y_K} Y_L$ is a trivial Kan fibration
 	when $K \to L$ is a horn inclusion. 
 	But a straightforward argument (cf. Remark \ref{HYPERMODEL REM}) shows that the $K \to L$ with this property are hypersaturated,
 	so that by 
 Remark \ref{HYPERSATKAN REM} it suffices to check that the maps $X_n \to X_0 \times_{Y_0} Y_n$, induced by maps $[0] \to [n]$, are trivial Kan fibrations.
+
+	Similarly, if $X$ is vertical fibrant (i.e. $X$ has the lifting property against \eqref{GTRCOVER EQ}) then, by 
+	Remarks \ref{SLICE REM} and \ref{ANHYPER REM}, to check that $X$ has the lifting property against \eqref{GTRCOHOR EQ} for $n\geq 2$
+	it suffices to check that the maps
+	$X_n \to X_{Sc[n]}$, $n\geq 0$, 
+	$X_2 \to X_{\Lambda^0[2]}$,
+	$X_2 \to X_{\Lambda^2[2]}$ are trivial Kan fibrations.
 \end{remark}
 
 
