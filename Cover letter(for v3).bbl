@@ -1,0 +1,30 @@
+\begin{thebibliography}{CM13}
+
+\bibitem[BM11]{BM11}
+Clemens Berger and Ieke Moerdijk.
+\newblock On an extension of the notion of {R}eedy category.
+\newblock {\em Math. Z.}, 269(3-4):977--1004, 2011.
+
+\bibitem[BP17]{BP17}
+Peter Bonventre and Lu{\'i}s~Alexandre Pereira.
+\newblock Genuine equivariant operads.
+\newblock arXiv preprint:
+  \href{https://arxiv.org/abs/1707.02226v1}{\texttt{1707.02226v1}}, 2017.
+
+\bibitem[CM13]{CM13a}
+Denis-Charles Cisinski and Ieke Moerdijk.
+\newblock Dendroidal {S}egal spaces and {$\infty$}-operads.
+\newblock {\em J. Topol.}, 6(3):675--704, 2013.
+
+\bibitem[Hir03]{Hir03}
+Philip~S. Hirschhorn.
+\newblock {\em Model categories and their localizations}, volume~99 of {\em
+  Mathematical Surveys and Monographs}.
+\newblock American Mathematical Society, Providence, RI, 2003.
+
+\bibitem[Per18]{Per18}
+Lu\'{\i}s~Alexandre Pereira.
+\newblock Equivariant dendroidal sets.
+\newblock {\em Algebr. Geom. Topol.}, 18(4):2179--2244, 2018.
+
+\end{thebibliography}
