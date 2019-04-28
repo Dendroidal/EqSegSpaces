@@ -9,7 +9,7 @@
 \contentsline {subsection}{\numberline {3.2}Segal core, horn and orbital horn inclusions}{20}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Genuine equivariant operads}{24}{subsection.3.3}
 \contentsline {section}{\numberline {4}Quillen equivalences}{27}{section.4}
-\contentsline {subsection}{\numberline {4.1}Joint left Bousfield localizations}{27}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.1}Joint left Bousfield localizations}{28}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Complete equivariant dendroidal Segal spaces}{31}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Equivariant Segal operads}{35}{subsection.4.3}
 \contentsline {section}{\numberline {5}Equivariant dendroidal Segal spaces}{37}{section.5}

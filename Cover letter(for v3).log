@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  28 APR 2019 00:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  28 APR 2019 03:44
 entering extended mode
 **"./Cover letter(for v3).tex"
 ("Cover letter(for v3).tex"
@@ -145,11 +145,8 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
 Package xr Info: IMPORTING LABELS FROM EqSegSp&G-infty-ops.aux on input line 22
 .
-
-
-LaTeX Warning: Label `DKCOM EQ' multiply defined.
-
-(commands.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+ (commands.tex
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip44
 
@@ -1123,39 +1120,48 @@ Overfull \hbox (16.35735pt too wide) in paragraph at lines 161--162
 ted ``non-identity'' to be ``non-isomorphism'',
  []
 
-[3] [4] [5] [6] [7] ("Cover letter(for v3).bbl" [8]) [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
+[3] [4] [5] [6] [7] [8] ("Cover letter(for v3).bbl") [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 449.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 449.
 
 ("Cover letter(for v3).aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 449.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 449.
 Package rerunfilecheck Info: File `"Cover letter(for v3)".out' has not changed.
 
 (rerunfilecheck)             Checksum: 0DF5F3B2A713A8650C6E57188B89D6E7;306.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 449.
  ) 
 Here is how much of TeX's memory you used:
- 24684 strings out of 493312
- 455614 string characters out of 3138900
- 547453 words of memory out of 3000000
- 27631 multiletter control sequences out of 15000+200000
+ 24692 strings out of 493312
+ 455711 string characters out of 3138900
+ 547509 words of memory out of 3000000
+ 27635 multiletter control sequences out of 15000+200000
  31252 words of font info for 119 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,14n,86p,3285b,1490s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{equation.3.23} has been referenced but does not e
+pdfTeX warning (dest): name{equation.5.16} has been referenced but does not e
 xist, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.4.36} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.5.18} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{equation.3.25} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{equation.3.23} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{equation.4.37} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.4.7} has been referenced but does not exis
 t, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.4.34} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.4.35} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.38} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.3.39} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.2.9} has been referenced but does not exis
@@ -1170,19 +1176,19 @@ st, replaced by a fixed one
 pdfTeX warning (dest): name{equation.A.29} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.5.34} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.5.35} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.4.37} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.4.38} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.5.25} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.5.26} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.5.40} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.5.41} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.4.30} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.4.31} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.4.16} has been referenced but does not exi
@@ -1191,22 +1197,22 @@ st, replaced by a fixed one
 pdfTeX warning (dest): name{equation.4.15} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.28} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.3.29} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.5.8} has been referenced but does not exis
 t, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.32} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.3.33} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.31} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.3.32} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.5.9} has been referenced but does not exis
 t, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.30} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.3.31} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.3.18} has been referenced but does not exi
@@ -1215,13 +1221,13 @@ st, replaced by a fixed one
 pdfTeX warning (dest): name{equation.5.3} has been referenced but does not exis
 t, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.4.40} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.4.38} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.4.41} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.4.39} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{equation.4.40} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.3.20} has been referenced but does not exi
@@ -1236,7 +1242,7 @@ st, replaced by a fixed one
 pdfTeX warning (dest): name{equation.4.24} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.4.26} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.4.27} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.2.30} has been referenced but does not exi
@@ -1287,7 +1293,7 @@ t, replaced by a fixed one
 pdfTeX warning (dest): name{equation.A.20} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.5.31} has been referenced but does not exi
+pdfTeX warning (dest): name{equation.5.32} has been referenced but does not exi
 st, replaced by a fixed one
 
  <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tc
@@ -1312,9 +1318,9 @@ s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss1
 0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Cover letter(for v3).pdf" (9 pages, 294997 bytes).
+Output written on "Cover letter(for v3).pdf" (9 pages, 296765 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

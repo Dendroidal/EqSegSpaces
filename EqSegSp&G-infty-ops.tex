@@ -3025,6 +3025,27 @@ $\Lambda^E_o[S] \to \Omega[S]$, and that the two classes have the same hypersatu
 %      and by Proposition \ref{GORB_OHORN_PROP}, the result is proven.
 %\end{proof}
 
+
+
+\begin{remark}\label{DUMBHYPER REM}
+Since for each $T \in \Omega_G$ the cellular decomposition of 
+$\partial \Omega[T]$ is built by attaching boundary inclusions 
+$\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$, it readily follows that the sets
+\[
+\{\partial \Omega[T] \to \Omega[T] \colon T \in \Omega_G\}
+\qquad
+\{\emptyset \to \Omega[T] \colon T \in \Omega_G\}
+\]
+have the same hypersaturation. Similarly, the following sets also have the same hypersaturation.
+\[
+\{\partial \Omega[T] \to \Omega[T] \colon T \in \Omega_G,T \neq G/H \cdot \eta\}
+\qquad
+\{ \coprod_{e \in \boldsymbol{E}(T)} \Omega[\eta] \to \Omega[T] \colon T \in \Omega_G\} 
+\]
+\end{remark}
+
+
+
 We end this section with some necessary remarks about hypersaturations of \textit{simplicial} horns.
 
 
@@ -4257,23 +4278,28 @@ $\otimes$)
 	\Lambda^{G e} [T] \to \Omega[T],
 	\phantom{1}
 	T \in \Omega_G, e \in \boldsymbol{E}^{\mathsf{i}}(T)
-\qquad
+\quad
 	\left( \partial\Omega[T] \to \Omega[T]\right) \square^{\otimes} \left( \{i\} \to J\right),
 	\phantom{1}
 	T \in \Omega_G, i = \{0,1\}
 \end{equation}
 (note that the case $K=\emptyset$ shows that all the $X_L$ are fibrant).
 
-It now suffices by adjunction to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is one of these maps.
-To conclude the proof, we use Remark \ref{HYPERMODEL REM}
+%By adjunction,
+ 
+ It now suffices to check that $X(B) \to X(A)$ is a trivial Kan fibration when $A\to B$ is in \eqref{FIBBFIB EQ}.
+ %one of these maps.
+To finish the proof, we use Remark \ref{HYPERMODEL REM}
 combined with Proposition \ref{HYPER PROP}
-and the observation that the maps 
-$\left( \partial\Omega[T] \to \Omega[T]\right) \square^{\otimes} \left( \{i\} \to J\right)$
-are in the hypersaturation of the maps
-$ \Omega[T] \otimes \left( \{i\} \to J\right)$
-(this follows by induction on $|T_{\**}|$, since the map
-$\emptyset \to \partial \Omega[T]$ is built cellularly from boundary inclusions
-$\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$).
+and Remark \ref{DUMBHYPER REM}.
+%
+%the observation that the maps 
+%$\left( \partial\Omega[T] \to \Omega[T]\right) \square^{\otimes} \left( \{i\} \to J\right)$
+%are in the hypersaturation of the maps
+%$ \Omega[T] \otimes \left( \{i\} \to J\right)$
+%(this follows by induction on $|T_{\**}|$, since the map
+%$\emptyset \to \partial \Omega[T]$ is built cellularly from boundary inclusions
+%$\partial \Omega[S] \to \Omega[S]$ with $|S_{\**}|<|T_{\**}|$).
 \end{proof}
 
 
@@ -4297,9 +4323,12 @@ the definition of the \emph{dendroidal Rezk model category} %definition
 from \cite[Defs. 5.4 and 6.2]{CM13a}.
 
 Similarly, Proposition \ref{JOINTFIBCHAR PROP}(ii) shows that one needs only localize the simplicial Reedy model structure with respect to the maps
-$(\Delta[0] \to \Delta[n])\square (\partial \Omega[T] \to \Omega[T])$ (since then for $X$ locally fibrant the maps $X_n \to X_0$ must be trivial fibrations in $\mathsf{dSet}^G$), and the argument at the end of the proof of Proposition \ref{JOINTFIBCHAR PROP}
-implies it is also enough to localize the vertex maps 
-$\Omega[T] \to \Delta[n] \times \Omega[T]$, which is the same as localizing with respect to the projection maps
+$(\Delta[0] \to \Delta[n])\square (\partial \Omega[T] \to \Omega[T])$ (since then for $X$ locally fibrant the maps $X_n \to X_0$ must be trivial fibrations in $\mathsf{dSet}^G$), and by Remark \ref{DUMBHYPER REM}
+%the argument at the end of the proof of Proposition \ref{JOINTFIBCHAR PROP} implies
+it is also enough to localize the vertex maps 
+$\Omega[T] \to \Delta[n] \times \Omega[T]$, which is the same as localizing 
+%with respect to 
+the projection maps
 \[\Delta[n] \times \Omega[T] \to \Omega[T],
 \qquad n\geq 0, T \in \Omega_G\]
 recovering
@@ -4995,6 +5024,7 @@ for the corresponding class.
 
 
 
+
 \begin{remark}\label{DKCOM REM} 
 Given a map $X \to Y$ between dendroidal Segal spaces and $T \in \Omega_G$, consider the diagram
 \begin{equation}\label{DKCOM EQ}
@@ -5006,21 +5036,28 @@ Given a map $X \to Y$ between dendroidal Segal spaces and $T \in \Omega_G$, cons
 	Y(Sc[T]) \ar[->>]{d}
 \\
 	\underset{[e]_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
-	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+	\underset{[e_i] \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
 \end{tikzcd}
 \end{equation}
 where $H_i \leq G$ is the isotropy of $e_i$.
 Since the fibers of the bottom vertical maps are products of spaces of maps for $G$-profiles and the top vertical maps are trivial fibrations by the Segal conditions, 
 the map $X \to Y$ is fully faithful iff \eqref{DKCOM EQ} 
 induces weak equivalences between the fibers of the vertical composite maps (for the ``if'' direction, consider the case of $T$ a $G$-corolla).
-
-Moreover, it now follows that a 
-fully faithful map $X \to Y$ of dendroidal Segal spaces is a simplicial equivalence iff the maps $X(\eta)^H \to Y(\eta)^H$ for $H\leq G$
-are Kan equivalences.
+%
+%Moreover, it now follows that a 
+%fully faithful map $X \to Y$ of dendroidal Segal spaces is a simplicial equivalence iff the maps $X(\eta)^H \to Y(\eta)^H$ for $H\leq G$
+%are Kan equivalences.
 \end{remark}
 
+This remark readily implies the following.
 
-
+\begin{proposition}\label{DKCOM PROP} 
+Let $f\colon X \to Y$ in $\mathsf{sdSet}_G$ be a map between dendroidal Segal spaces. Then:
+\begin{enumerate}[label=(\roman*)]
+\item if $f$ is a DK-equivalence and the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$ are Kan equivalences then $f$ is a simplicial equivalence;
+\item if $f$ is a simplicial equivalence then $f$ is a DK-equivalence.
+\end{enumerate}
+\end{proposition}
 
 
 \begin{remark}\label{HOMOLIFTS REM}
@@ -6047,11 +6084,8 @@ Remark \ref{LAMBJREAL REM}
 applied to each of the simplicial Segal spaces $\iota^{\**}\left(X^H\right), H\leq G$.
 
 
-{\color{red} HERE}
-
-
-For \eqref{LIFTCSK EQ}, Remark \ref{HYPERSATKAN REM} and 
-arguing by induction on the cellular decomposition of $\partial \Omega[T]$ (see the end of the proof of Proposition \ref{JOINTFIBCHAR PROP}), 
+For \eqref{LIFTCSK EQ}, by Remarks \ref{DUMBHYPER REM} and \ref{HYPERSATKAN REM}
+%arguing by induction on the cellular decomposition of $\partial \Omega[T]$ (see the end of the proof of Proposition \ref{JOINTFIBCHAR PROP}), 
 one needs only show that there are lifts against the maps  
 \[
 \left(\partial \Delta[n] \to \Delta[n]\right)
@@ -6076,19 +6110,25 @@ But lifts against these maps are equivalent to the claim that in the square
 \end{equation}
 the map from 
 $X^{J^m}(\Omega[T])$
-to the pullback of the other terms is a trivial Kan fibration. 
-The Kan fibration claim is already known (from the lifting condition against \eqref{LIFTBASIC EQ}), while the weak equivalence claim follows since, by Remarks \ref{ALLXJK REM} and \ref{DKCOM EQ}, the diagram 
-\eqref{MOREMORE EQ} induces Kan equivalences between the fibers of its vertical maps.
+to the pullback of the other terms is a trivial Kan fibration. That it is a Kan fibration follows from the lifting condition against \eqref{LIFTBASIC EQ}, and that it is a Kan equivalence follows since Remarks \ref{ALLXJK REM} and \ref{DKCOM REM} imply 
+\eqref{MOREMORE EQ} induces Kan equivalences between 
+%the 
+fibers.% of its vertical maps.
+
+
  
-We can now finally establish that 
+We can finally show that 
 $\tilde{X} = \delta^{\**} \left(X^{J^{\bullet}} \right)$
-is dendroidal Reedy fibrant. 
-Indeed, since
+is dendroidal 
+%Reedy
+ fibrant. 
+%Indeed, 
+Since
 $\left(\tilde{X}(\Omega[T]) \to \tilde{X}(\partial\Omega[T])\right) = 
 \delta^{\**} \left( X^{J^{\bullet}}(\Omega[T]) \to X^{J^{\bullet}}(\partial \Omega[T])\right)$,
-the fact that this is a Kan fibration when $T= G/H \cdot \eta$
+the fact that this is a Kan fibration for $T= G/H \cdot \eta$
 follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTETA EQ}
-and the second ``moreover'' condition in Corollary \ref{SSETSSETADJ COR} while when $T \neq G/H \cdot \eta$ it follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ} and the first ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
+and the second ``moreover'' condition in Corollary \ref{SSETSSETADJ COR} while for $T \neq G/H \cdot \eta$ this follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ} and the first ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
 
 
 
@@ -6118,7 +6158,7 @@ for each $T\in \Omega_G$,
 and the lifting conditions against 
 \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ}
 imply that these fibers are joint Reedy fibrant in $\mathsf{ssSet}$, 
-and fully faithfullness now follows from Proposition \ref{SSSETJREE PROP}(iv) applied to these fibers.
+so fully faithfullness now follows from Proposition \ref{SSSETJREE PROP}(iv) applied to these fibers.
 Essential surjectivity is trivial since $X \to \tilde{X}$ is the identity on objects.
 %
 %
@@ -6262,18 +6302,40 @@ Essential surjectivity is trivial since $X \to \tilde{X}$ is the identity on obj
 \end{proof}
 
 
+\begin{remark}
+A notable difference between the proof of Proposition \ref{COMPLE PROP}
+and the arguments in \cite[\S 14]{Rez01} being adapted is that 
+\cite{Rez01} did not establish the analogue of our main fibrancy claim
+% for $\delta^{\**} \left(X^{J^{\bullet}} \right)$
+ when $X \in \mathsf{ssSet}$ is a Segal space, namely that $\delta^{\**} \left(X^{J^{\bullet}} \right)$ is horizontal Reedy fibrant in $\mathsf{ssSet}$.
+Instead, \cite{Rez01} defines $\tilde{X}$ as the horizontal fibrant replacement of $\delta^{\**} \left(X^{J^{\bullet}} \right)$
+and the analogue of \eqref{MOREMORE EQ} is used to conclude that the fibers of 
+$\delta^{\**} \left(X^{J^{\bullet}} \right)$ 
+are homotopy fibers, and thus preserved by the replacement. 
+As such, the lifting conditions against 
+\eqref{LIFTETA EQ} are technically not essential for the proof, serving only to obtain the neat observation that 
+$\delta^{\**} \left(X^{J^{\bullet}} \right)$ 
+needs not be replaced.
+\end{remark}
+
+{\color{red} HERE}
+
+
 \begin{theorem}\label{COMPIFFDK THM}
-	A map $X \to Y$ of dendroidal Segal spaces is a complete/joint equivalence iff it is a DK-equivalence.
+	A map $f\colon X \to Y$ of dendroidal Segal spaces is a complete/joint equivalence iff it is a DK-equivalence.
 \end{theorem}
 
 
 \begin{proof}
-By Proposition \ref{COMPLE PROP}(i) one is free to assume that $X,Y$ are complete/joint fibrant, so that by Proposition \ref{COMBMODSTR PROP}(ii)
-complete/joint equivalences coincide with simplicial equivalences.
+By Proposition \ref{COMPLE PROP}(i) we can assume that $X,Y$ are complete/joint fibrant, so that by Proposition \ref{COMBMODSTR PROP}(ii)
+complete/joint equivalences coincide with simplicial equivalences. But then by Proposition \ref{DKCOM PROP}
+it remains only to show that if $f$ is a DK-equivalence then the maps
+$X(\eta)^H \to Y(\eta)^H, H \leq G$ are Kan equivalences.
+As such, in the remainder we assume $f$ is a DK-equivalence.
 
-Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(\eta)^H \to Y(\eta)^H$
-is a Kan equivalence in $\mathsf{sSet}$. 
-Indeed, the completion condition states that
+%Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(\eta)^H \to Y(\eta)^H$
+%is a Kan equivalence in $\mathsf{sSet}$. 
+The completion condition states that
 $X(\eta)^H = X(G \cdot \Omega[\eta])^H
 \xrightarrow{\sim} X(G \cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram below
 %of any diagram of the form on the left below
@@ -6302,31 +6364,33 @@ Injectivity of $X(\eta)^H \to Y(\eta)^H$
 on components is similar 
 ($x,x'$ are in the same component iff the $(x,x')$ fiber in \eqref{WHATEV EQ} is non-empty) while essential surjectivity implies surjectivity on components,
 and thus $X(\eta)^H \to Y(\eta)^H$ is indeed a Kan equivalence.
-
-We now show that $X(\Omega[T]) \to Y(\Omega[T])$
-is a Kan equivalence for all $T \in \Omega_G$.
-Consider the diagram
-\begin{equation}\label{DKCOM EQ}
-\begin{tikzcd}[row sep=17]
-	X(\Omega[T]) \ar{r} \ar[->>]{d}[swap]{\sim}&
-	Y(\Omega[T]) \ar[->>]{d}{\sim}
-\\
-	X(Sc[T]) \ar{r} \ar[->>]{d}&
-	Y(Sc[T]) \ar[->>]{d}
-\\
-	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
-	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
-\end{tikzcd}
-\end{equation}
-where the maps marked $\sim$ are trivial fibrations by the Segal condition.
-Since the bottom horizontal map is already known to be a Kan equivalence, it suffices to note that by fully faithfulness
-the middle horizontal map induces Kan equivalences on fibers, and is thus a Kan equivalence itself.
-This finishes the proof that DK-equivalences
-$f \colon X \to Y$ are also simplicial equivalences.
-
-Assuming now that $f\colon X \to Y$ is a simplicial equivalence, fully faithfulness follows from \eqref{DKCOM EQ} by considering maps of fibers and essential surjectivity follows since the maps
-$X(\eta)^H \to Y(\eta)^H$ are surjective on components.
+%
+%We now show that $X(\Omega[T]) \to Y(\Omega[T])$
+%is a Kan equivalence for all $T \in \Omega_G$.
+%Consider the diagram
+%\begin{equation}\label{DKCOM EQ}
+%\begin{tikzcd}[row sep=17]
+%	X(\Omega[T]) \ar{r} \ar[->>]{d}[swap]{\sim}&
+%	Y(\Omega[T]) \ar[->>]{d}{\sim}
+%\\
+%	X(Sc[T]) \ar{r} \ar[->>]{d}&
+%	Y(Sc[T]) \ar[->>]{d}
+%\\
+%	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
+%	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+%\end{tikzcd}
+%\end{equation}
+%where the maps marked $\sim$ are trivial fibrations by the Segal condition.
+%Since the bottom horizontal map is already known to be a Kan equivalence, it suffices to note that by fully faithfulness
+%the middle horizontal map induces Kan equivalences on fibers, and is thus a Kan equivalence itself.
+%This finishes the proof that DK-equivalences
+%$f \colon X \to Y$ are also simplicial equivalences.
+%
+%Assuming now that $f\colon X \to Y$ is a simplicial equivalence, fully faithfulness follows from \eqref{DKCOM EQ} by considering maps of fibers and essential surjectivity follows since the maps
+%$X(\eta)^H \to Y(\eta)^H$ are surjective on components.
 \end{proof}
+
+{\color{red} HERE}
 
 
 \begin{corollary}\label{FIB_PREOP_COR}
