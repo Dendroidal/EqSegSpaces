@@ -4994,6 +4994,35 @@ for the corresponding class.
 \end{remark}
 
 
+
+\begin{remark}\label{DKCOM REM} 
+Given a map $X \to Y$ between dendroidal Segal spaces and $T \in \Omega_G$, consider the diagram
+\begin{equation}\label{DKCOM EQ}
+\begin{tikzcd}[row sep=17]
+	X(\Omega[T]) \ar{r} \ar[->>]{d}[swap]{\sim}&
+	Y(\Omega[T]) \ar[->>]{d}{\sim}
+\\
+	X(Sc[T]) \ar{r} \ar[->>]{d}&
+	Y(Sc[T]) \ar[->>]{d}
+\\
+	\underset{[e]_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
+	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+\end{tikzcd}
+\end{equation}
+where $H_i \leq G$ is the isotropy of $e_i$.
+Since the fibers of the bottom vertical maps are products of spaces of maps for $G$-profiles and the top vertical maps are trivial fibrations by the Segal conditions, 
+the map $X \to Y$ is fully faithful iff \eqref{DKCOM EQ} 
+induces weak equivalences between the fibers of the vertical composite maps (for the ``if'' direction, consider the case of $T$ a $G$-corolla).
+
+Moreover, it now follows that a 
+fully faithful map $X \to Y$ of dendroidal Segal spaces is a simplicial equivalence iff the maps $X(\eta)^H \to Y(\eta)^H$ for $H\leq G$
+are Kan equivalences.
+\end{remark}
+
+
+
+
+
 \begin{remark}\label{HOMOLIFTS REM}
 	In what follows, we will repeatedly use the observation that, for $X\to Y$ a trivial Kan fibration
 	in $\mathsf{sSet}$, any two lifts  of the form below are homotopic.
@@ -5567,6 +5596,24 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 \end{remark}
 
 
+\begin{remark}\label{LAMBJREAL REM}
+%Let $X \in \mathsf{ssSet}$ be a Segal space.
+Writing $J\xrightarrow{ij}J^m$ for the map sending $0$ to $i$ and $1$ to $j$, Proposition \ref{SESP PROP}(iv) combined with the Segal condition for $X^h$ and 
+Proposition \ref{SESP PROP}(iii)
+shows that the maps
+\[X\left(J^m \right) 
+\xrightarrow{\left(01,12,\cdots,(m-1)m\right)} X(J) \underset{X(0)}{\times} X(J) \underset{X(0)}{\times} \cdots \underset{X(0)}{\times} X(J)\]
+\[
+X\left(J^2\right) 
+\xrightarrow{\left(01,02 \right)} X(J) \underset{X(0)}{\times} X(J)
+\qquad \qquad
+X\left(J^2\right) 
+\xrightarrow{\left(12,02 \right)} X(J) \underset{X(0)}{\times} X(J)
+\]
+are trivial Kan fibrations.
+\end{remark}
+
+
 
 \subsection{Rezk completion and fibrant Segal operads}
 \label{REZKCOMP SEC}
@@ -5913,59 +5960,107 @@ degenerate object, which is thus in the image of $X\to X^J$.
 \end{remark}
 
 
+
+
+
+
+
+
 \begin{proposition}\label{COMPLE PROP}
 Let $X \in \mathsf{sdSet}^G$ be a dendroidal Segal space. 
 Then there is a complete dendroidal Segal space $\tilde{X}$
 and complete/joint equivalence $X \to \tilde{X}$ such that
 \begin{itemize}
-	\item[(i)] $X \to \tilde{X}$ is a monomorphism and a DK-equivalence;
+	\item[(i)] $X \to \tilde{X}$ is 
+	%a monomorphism and 
+	a DK-equivalence;
 	\item[(ii)] $X_0(\eta) \to \tilde{X}_0(\eta)$ is an isomorphism.
 \end{itemize}
 \end{proposition}
 
 
 \begin{proof}
-Our proof mostly adapts the construction of the completion functor in \cite[\S 14]{Rez01}.
+Our proof adapts the construction of the completion functor in \cite[\S 14]{Rez01}.
 
-Firstly, we let 
+Firstly, let 
 $X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
 = \mathsf{ssdSet}^G$
 be the object whose $m$-th level
-is $X^{J^m}$.
+is $X^{J^m}$. 
+Then, writing
+$\delta^{\**} \colon \mathsf{ssdSet}^G \to \mathsf{sdSet}^G$
+for the diagonal functor in the two simplicial directions
+(adapting the functor in \S \ref{JOINBOUS SEC}), we set
+$\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right)$ with the natural map $X \to \tilde{X}$ induced by degeneracies (cf. Proposition \ref{SSSETJREE PROP})(iv).
+Most of the proof will be spent showing that 
+$\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$ is dendroidal Reedy fibrant
+by establishing the lifting conditions needed to apply 
+Corollary \ref{SSETSSETADJ COR}.
 
-We will regard the new simplicial direction in $\mathsf{ssdSet}^G=(\mathsf{sdSet}^G)^{\Delta^{op}}$ as horizontal and the old one as vertical, and abbreviate the Reedy model structure on $(\mathsf{sdSet}^G)^{\Delta^{op}}$
-with respect to the dendroidal Reedy model structure on 
-$\mathsf{sdSet}^G$
-as the \textit{horizontal Reedy model structure} on 
-$\mathsf{ssdSet}^G$.
-Note that by Remark \ref{ITERREEDY REM} this coincides with the dendroidal Reedy model structure over the
-horizontal Reedy model structure on $\mathsf{ssSet}$ (cf. \S \ref{JOINBOUS SEC}).
-
-{\color{red} HERE}
 
 Since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}),
 it follows from \cite[Prop 7.25]{Per18} that 
-$X^{J^{\bullet}} \in \mathsf{ssdSet}^G$ is horizontal Reedy fibrant, and it is thus formal that  
-$X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
-is a horizontal fibration in $\mathsf{ssdSet}^G$ as well (the $\mathsf{csk}_{\eta}$ notation is discussed after \eqref{GAMMASH EQ}).
-As such, it follows from Lemma \ref{REEDYTRFIB LEM}(i) that for $T \in \Omega_G$
-the evaluations 
-\begin{equation}\label{MOREOVER EQ}
-X^{J^{\bullet}}(\Omega[T]) \to
-\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])
+the maps (where $\square^{\otimes}$ denotes the pushout product with regard to $\otimes$)
+\[
+X \left( \left(L_m J^{\bullet} \to J^m \right) \square^{\otimes} \left( \partial \Omega[T] \to \Omega[T] \right) \right)\]
+are Kan fibrations and thus
+$X^{J^{\bullet}} \in \mathsf{ssdSet}^{G}$
+has the right lifting property against all maps
+\begin{equation}\label{LIFTBASIC EQ}
+	\left( \Lambda^i[n] \to \Delta[n] \right)
+\square
+	\left( \partial \Delta[m] \to \Delta[m] \right)
+\square
+	\left( \partial \Omega[T] \to \Omega[T] \right),
+	\qquad n \geq 1, n \geq i \geq 0, m\geq 0, T \in \Omega_G.
 \end{equation}
-are horizontal Reedy fibrations in $\mathsf{ssSet}$
-in the sense of \S \ref{JOINBOUS SEC}.
-In particular, for each vertex map $[0] \to [m]$ the induced square
-(note that 
-$\left(\mathsf{csk}_{\eta} A\right)\left(\Omega(T)\right) \simeq
-%A\left(\partial \Omega[T]\right)=
-%\underset{[e_i] \in \boldsymbol{E}_G(T)}{\prod}
-\prod_{{[e_i] \in \boldsymbol{E}_G(T)}} 
-A(\eta)^{H_i}$,
-for $H_i \leq G$ the isotropy of $e_i$)
+We next claim that 
+$X^{J^{\bullet}} \in \mathsf{ssdSet}^{G}$
+also has the lifting property against the two sets of maps
+\begin{equation}\label{LIFTETA EQ}
+	\left( \partial \Delta[n] \to \Delta[n] \right)
+\square
+	\left( \Lambda^j [m] \to \Delta[m] \right)
+\times
+	\Omega[G/H \cdot \eta],
+	\quad n \geq 0, m\geq 2, m \geq j \geq 0, H \leq G
+\end{equation}
+\begin{equation}\label{LIFTCSK EQ}
+	\left( \partial \Delta[n] \to \Delta[n] \right)
+\square
+	\left( \Lambda^j [m] \to \Delta[m] \right)
+\square
+	\left( \partial \Omega[T] \to \Omega[T] \right),
+	\quad n \geq 0, m\geq 1, m \geq j \geq 0, T \in \Omega_G \setminus \{G/H \cdot \eta\}
+\end{equation}
+Note that, just as in Remark \ref{HYPERMODEL REM}, one is free to replace the maps
+$\Lambda^j[m] \to \Delta[m]$, $\partial\Omega[T] \to \Omega[T]$
+appearing in \eqref{LIFTETA EQ} and  \eqref{LIFTCSK EQ}
+with a set with the same saturation.
+For \eqref{LIFTETA EQ}, by Remarks \ref{SLICE REM} and \ref{ANHYPER REM}
+one needs only consider the Segal core inclusions 
+$Sc[m] \to \Delta[m]$ and the horn inclusions
+$\Lambda^0[2] \to \Delta[2]$,
+$\Lambda^2[2] \to \Delta[2]$.
+But the claimed lifting condition against \eqref{LIFTETA EQ} then amounts to 
+Remark \ref{LAMBJREAL REM}
+applied to each of the simplicial Segal spaces $\iota^{\**}\left(X^H\right), H\leq G$.
+
 
 {\color{red} HERE}
+
+
+For \eqref{LIFTCSK EQ}, Remark \ref{HYPERSATKAN REM} and 
+arguing by induction on the cellular decomposition of $\partial \Omega[T]$ (see the end of the proof of Proposition \ref{JOINTFIBCHAR PROP}), 
+one needs only show that there are lifts against the maps  
+\[
+\left(\partial \Delta[n] \to \Delta[n]\right)
+\square
+\left(\Delta[0] \to \Delta[m]\right) 
+\square 
+\left( \coprod_{e \in \boldsymbol{E}(T)} \Omega[\eta] \to \Omega[T]\right).
+\]
+But lifts against these maps are equivalent to the claim that in the square
 \begin{equation}\label{MOREMORE EQ}
 \begin{tikzcd}
 	X^{J^m}(\Omega[T]) \ar[->>]{r} \ar[->>]{d}&
@@ -5979,78 +6074,191 @@ for $H_i \leq G$ the isotropy of $e_i$)
 	^{H_i}
 \end{tikzcd}
 \end{equation}
-is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
-induces weak equivalences on fibers,
-so that the map from $X^{J^m}(\Omega[T])$ to the pullback of the remaining diagram is a trivial Kan fibration.
-
-By (the transpose of) Remark \ref{HYPERSIMPL REM} we have just shown that \eqref{MOREOVER EQ}
-satisfies the ``moreover'' condition in 
-Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of
-$\delta^{\**}\left(X^{J^{\bullet}}(\Omega[T])\right) \to
-\delta^{\**}\left(\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])\right)$
-are in fact homotopy fibers.
-Moreover, since $\delta^{\**}$
-commutes with limits and
-the fibers of \eqref{MOREOVER EQ}
-are horizontal Reedy fibrant in $\mathsf{ssSet}$, 
-Proposition \ref{SSSETJREE PROP}(iv) implies that 
-$X(\Omega[T]) = X^{J^{0}}(\Omega[T]) \to 
-\delta^{\**}\left( X^{J^{\bullet}} \right)(\Omega[T])$
-induces Kan equivalences on fibers over
-$\prod_{[e]_i \in \boldsymbol{E}_G(T)} \left(X(\eta)\right)^{H_i}$
-for each $T\in \Omega_G$.
-
-{\color{red} HERE}
+the map from 
+$X^{J^m}(\Omega[T])$
+to the pullback of the other terms is a trivial Kan fibration. 
+The Kan fibration claim is already known (from the lifting condition against \eqref{LIFTBASIC EQ}), while the weak equivalence claim follows since, by Remarks \ref{ALLXJK REM} and \ref{DKCOM EQ}, the diagram 
+\eqref{MOREMORE EQ} induces Kan equivalences between the fibers of its vertical maps.
+ 
+We can now finally establish that 
+$\tilde{X} = \delta^{\**} \left(X^{J^{\bullet}} \right)$
+is dendroidal Reedy fibrant. 
+Indeed, since
+$\left(\tilde{X}(\Omega[T]) \to \tilde{X}(\partial\Omega[T])\right) = 
+\delta^{\**} \left( X^{J^{\bullet}}(\Omega[T]) \to X^{J^{\bullet}}(\partial \Omega[T])\right)$,
+the fact that this is a Kan fibration when $T= G/H \cdot \eta$
+follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTETA EQ}
+and the second ``moreover'' condition in Corollary \ref{SSETSSETADJ COR} while when $T \neq G/H \cdot \eta$ it follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ} and the first ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
 
 
-{\color{red} HERE}
 
-
-We now write $\tilde{X}$ for a dendroidal Reedy fibrant replacement of the diagonal 
-$\delta^{\**} \left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$,
-which we note can be chosen so that
-$\delta^{\**} \left(X^{J^{\bullet}}\right) \to \tilde{X}$
-is a monomorphism and
-$\tilde{X}_0(\eta) = 
-\left(\delta^{\**} \left(X^{J^{\bullet}}\right)\right)_0(\eta)=
-X_0(\eta)$ (this follows since fibrant replacements in the Kan model structure in $\mathsf{sSet}$ can be chosen to preserve $0$-simplices, since existence of lifts against the horn inclusions
-$\Delta[0]=\Lambda^i[1]\to \Delta[1]$, $i=0,1$ 
-%$\Delta[0]=\Lambda^1[1]\to \Delta[1]$
-is automatic, so these are not needed in the small object argument).
-
-To see that $\tilde{X}$ is a complete Segal space, note that in the composite
+To see that $\tilde{X}$ is a complete Segal space, note that the natural  map
 $X_0^{J^{\bullet}} \to
 \delta^{\**}\left( X^{J^{\bullet}} \right)
-\to \tilde{X}$
-the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv) and the second by definition of $\tilde{X}$.
-But since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
+= \tilde{X}$
+is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv), 
+so that since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
 
-For the remaining main claim that the composite
+
+
+For the remaining claim that 
 $X = X^{J^{0}} \to 
 \delta^{\**}\left( X^{J^{\bullet}} \right)
-\to \tilde{X}$
-is a DK equivalence, 
-note that though
-the first map is no longer a dendroidal Reedy equivalence, 
-%but we claim
-it is nonetheless an equivalence
-on fibers over
-$\prod_{e_i \in \boldsymbol{E}_G(T)} \left(X(\eta)\right)^{H_i}$
+= \tilde{X}$
+is a DK equivalence,
+fully faithfulness is the claim that this map induces equivalences on the fibers over
+$\prod_{[e_i]} \left(X(\eta)\right)^{H_i}$
 for each $T\in \Omega_G$.
-Indeed, the fibers of $\delta^{\**}\left( X^{J^{\bullet}}\right)$ are diagonals of bisimplicial sets formed by fibers in \eqref{MOREMORE EQ}, for which the horizontal simplicial operators are Kan equivalences by Remark \ref{ALLXJK REM}
-(compare with the proof of Proposition \ref{SSSETJREE PROP}(iv)).
-%Indeed, regarding $X$ as an object in $\mathsf{ssdSet}^G$ that is constant in the horizontal simplicial direction,
-%Remark \ref{ALLXJK REM} says that 
-
-{\color{red} HERE}
-
-And since we have shown that the fibers of
-$\delta^{\**}\left( X^{J^{\bullet}} \right)(\Omega[T])$
- are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(\Omega[T])$ (since Reedy replacement does not change the homotopy fibers), 
-and thus $X \to \tilde{X}$ is indeed fully faithful.
-
-Essential surjectivity is trivial since the objects coincide.
-The monomorphism condition is clear.
+But the fibers of 
+$\tilde{X} = \delta^{\**}\left( X^{J^{\bullet}} \right) $
+are diagonals of the fibers of 
+$X^{J^{\bullet}}$ over 
+$\prod_{[e_i]} \left(X^{J^{\bullet}}(\eta)\right)^{H_i}$
+for each $T\in \Omega_G$,
+and the lifting conditions against 
+\eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ}
+imply that these fibers are joint Reedy fibrant in $\mathsf{ssSet}$, 
+and fully faithfullness now follows from Proposition \ref{SSSETJREE PROP}(iv) applied to these fibers.
+Essential surjectivity is trivial since $X \to \tilde{X}$ is the identity on objects.
+%
+%
+%\[
+%\begin{tikzcd}[column sep =0]
+%		\left( \partial \Delta[n] \to \Delta[n] \right)
+%\square
+%	\left( \Lambda^j [m] \to \Delta[m] \right)
+%\times
+%	\Omega[G/H \cdot \eta],
+%&
+%	\quad n \geq 0, m\geq 2, m \geq j \geq 0, H \leq G
+%\\
+%	\left( \partial \Delta[n] \to \Delta[n] \right)
+%\square
+%	\left( \Lambda^j [m] \to \Delta[m] \right)
+%\square
+%	\left( \partial \Omega[T] \to \Omega[T] \right),
+%&
+%	n \geq 0, m\geq 1, m \geq j \geq 0, T \in \Omega_G \setminus \{G/H \cdot \eta\}
+%\end{tikzcd}
+%\]
+%
+%
+%
+%
+%
+%We will regard the new simplicial direction in $\mathsf{ssdSet}^G=(\mathsf{sdSet}^G)^{\Delta^{op}}$ as horizontal and the old one as vertical, and abbreviate the Reedy model structure on $(\mathsf{sdSet}^G)^{\Delta^{op}}$
+%with respect to the dendroidal Reedy model structure on 
+%$\mathsf{sdSet}^G$
+%as the \textit{horizontal Reedy model structure} on 
+%$\mathsf{ssdSet}^G$.
+%Note that by Remark \ref{ITERREEDY REM} this coincides with the dendroidal Reedy model structure over the
+%horizontal Reedy model structure on $\mathsf{ssSet}$ (cf. \S \ref{JOINBOUS SEC}).
+%
+%
+%Since $J^{\bullet}$ is a Reedy cofibrant cosimplicial object (cf. Remark \ref{JREEDYCOF REM}),
+%it follows from \cite[Prop 7.25]{Per18} that 
+%$X^{J^{\bullet}} \in \mathsf{ssdSet}^G$ is horizontal Reedy fibrant, and it is thus formal that  
+%$X^{J^{\bullet}} \to \mathsf{csk}_{\eta} X^{J^{\bullet}}$
+%is a horizontal fibration in $\mathsf{ssdSet}^G$ as well (the $\mathsf{csk}_{\eta}$ notation is discussed after \eqref{GAMMASH EQ}).
+%As such, it follows from Lemma \ref{REEDYTRFIB LEM}(i) that for $T \in \Omega_G$
+%the evaluations 
+%\begin{equation}\label{MOREOVER EQ}
+%X^{J^{\bullet}}(\Omega[T]) \to
+%\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])
+%\end{equation}
+%are horizontal Reedy fibrations in $\mathsf{ssSet}$
+%in the sense of \S \ref{JOINBOUS SEC}.
+%In particular, for each vertex map $[0] \to [m]$ the induced square
+%(note that 
+%$\left(\mathsf{csk}_{\eta} A\right)\left(\Omega(T)\right) \simeq
+%A\left(\partial \Omega[T]\right)=
+%\underset{[e_i] \in \boldsymbol{E}_G(T)}{\prod}
+%\prod_{{[e_i] \in \boldsymbol{E}_G(T)}} 
+%A(\eta)^{H_i}$,
+%for $H_i \leq G$ the isotropy of $e_i$)
+%
+%
+%\begin{equation}\label{MOREMORE EQ}
+%\begin{tikzcd}
+%	X^{J^m}(\Omega[T]) \ar[->>]{r} \ar[->>]{d}&
+%	X(\Omega[T]) \ar[->>]{d}
+%\\
+%	\underset{[e_i] \in \boldsymbol{E}_G(T)} {\prod} \left(X^{J^m}(\eta)\right)^{H_i} \ar[->>]{r} &
+%	\underset{[e_i] \in \boldsymbol{E}_G(T)} {\prod} 
+%	%\left(
+%	X(\eta)
+%	%\right)
+%	^{H_i}
+%\end{tikzcd}
+%\end{equation}
+%is an (injective) fibrant square, which by Remark \ref{ALLXJK REM}
+%induces weak equivalences on fibers,
+%so that the map from $X^{J^m}(\Omega[T])$ to the pullback of the remaining diagram is a trivial Kan fibration.
+%
+%By (the transpose of) Remark \ref{HYPERSIMPL REM} we have just shown that \eqref{MOREOVER EQ}
+%satisfies the ``moreover'' condition in 
+%Corollary \ref{SSETSSETADJ COR}. Therefore, applying $\delta^{\**}$ to \eqref{MOREOVER EQ} yields a Kan fibration, so that all fibers of
+%$\delta^{\**}\left(X^{J^{\bullet}}(\Omega[T])\right) \to
+%\delta^{\**}\left(\left(\mathsf{csk}_{\eta}X^{J^{\bullet}}\right)(\Omega[T])\right)$
+%are in fact homotopy fibers.
+%Moreover, since $\delta^{\**}$
+%commutes with limits and
+%the fibers of \eqref{MOREOVER EQ}
+%are horizontal Reedy fibrant in $\mathsf{ssSet}$, 
+%Proposition \ref{SSSETJREE PROP}(iv) implies that 
+%$X(\Omega[T]) = X^{J^{0}}(\Omega[T]) \to 
+%\delta^{\**}\left( X^{J^{\bullet}} \right)(\Omega[T])$
+%induces Kan equivalences on fibers over
+%$\prod_{[e]_i \in \boldsymbol{E}_G(T)} \left(X(\eta)\right)^{H_i}$
+%for each $T\in \Omega_G$.
+%
+%
+%
+%
+%We now write $\tilde{X}$ for a dendroidal Reedy fibrant replacement of the diagonal 
+%$\delta^{\**} \left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$,
+%which we note can be chosen so that
+%$\delta^{\**} \left(X^{J^{\bullet}}\right) \to \tilde{X}$
+%is a monomorphism and
+%$\tilde{X}_0(\eta) = 
+%\left(\delta^{\**} \left(X^{J^{\bullet}}\right)\right)_0(\eta)=
+%X_0(\eta)$ (this follows since fibrant replacements in the Kan model structure in $\mathsf{sSet}$ can be chosen to preserve $0$-simplices, since existence of lifts against the horn inclusions
+%$\Delta[0]=\Lambda^i[1]\to \Delta[1]$, $i=0,1$ 
+%%$\Delta[0]=\Lambda^1[1]\to \Delta[1]$
+%is automatic, so these are not needed in the small object argument).
+%
+%To see that $\tilde{X}$ is a complete Segal space, note that in the composite
+%$X_0^{J^{\bullet}} \to
+%\delta^{\**}\left( X^{J^{\bullet}} \right)
+%\to \tilde{X}$
+%the first map is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv) and the second by definition of $\tilde{X}$.
+%But since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
+%
+%For the remaining main claim that the composite
+%$X = X^{J^{0}} \to 
+%\delta^{\**}\left( X^{J^{\bullet}} \right)
+%\to \tilde{X}$
+%is a DK equivalence, 
+%note that though
+%the first map is no longer a dendroidal Reedy equivalence, 
+%%but we claim
+%it is nonetheless an equivalence
+%on fibers over
+%$\prod_{e_i \in \boldsymbol{E}_G(T)} \left(X(\eta)\right)^{H_i}$
+%for each $T\in \Omega_G$.
+%Indeed, the fibers of $\delta^{\**}\left( X^{J^{\bullet}}\right)$ are diagonals of bisimplicial sets formed by fibers in \eqref{MOREMORE EQ}, for which the horizontal simplicial operators are Kan equivalences by Remark \ref{ALLXJK REM}
+%(compare with the proof of Proposition \ref{SSSETJREE PROP}(iv)).
+%%Indeed, regarding $X$ as an object in $\mathsf{ssdSet}^G$ that is constant in the horizontal simplicial direction,
+%%Remark \ref{ALLXJK REM} says that 
+%
+%
+%And since we have shown that the fibers of
+%$\delta^{\**}\left( X^{J^{\bullet}} \right)(\Omega[T])$
+% are homotopy fibers, these are equivalent to the fibers of $\tilde{X}(\Omega[T])$ (since Reedy replacement does not change the homotopy fibers), 
+%and thus $X \to \tilde{X}$ is indeed fully faithful.
+%
+%Essential surjectivity is trivial since the objects coincide.
+%The monomorphism condition is clear.
 \end{proof}
 
 
@@ -6067,9 +6275,11 @@ Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(
 is a Kan equivalence in $\mathsf{sSet}$. 
 Indeed, the completion condition states that
 $X(\eta)^H = X(G \cdot \Omega[\eta])^H
-\xrightarrow{\sim} X(G \cdot J)^H$ is a weak equivalence, so that the fibers of any diagram of the form on the left below
-are weakly equivalent to the homotopy fibers of diagrams as on the right, i.e. loop spaces.
-% i.e. to the loop spaces of $X(\eta)^H$ at $x$.
+\xrightarrow{\sim} X(G \cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram below
+%of any diagram of the form on the left below
+are weakly equivalent to the homotopy fibers of the right diagram,
+% diagrams as on the right, i.e. loop spaces.
+i.e. to the loop space of $X(\eta)^H$ at $x$.
 % $\Omega\left(X(\eta)^H,x\right)$.
 \begin{equation}\label{WHATEV EQ}
 \begin{tikzcd}[column sep =40]
