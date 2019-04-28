@@ -5041,23 +5041,29 @@ Given a map $X \to Y$ between dendroidal Segal spaces and $T \in \Omega_G$, cons
 \end{equation}
 where $H_i \leq G$ is the isotropy of $e_i$.
 Since the fibers of the bottom vertical maps are products of spaces of maps for $G$-profiles and the top vertical maps are trivial fibrations by the Segal conditions, 
-the map $X \to Y$ is fully faithful iff \eqref{DKCOM EQ} 
-induces weak equivalences between the fibers of the vertical composite maps (for the ``if'' direction, consider the case of $T$ a $G$-corolla).
+%the map 
+$X \to Y$ is fully faithful iff \eqref{DKCOM EQ} 
+induces Kan equivalences between the fibers of the vertical composite maps 
+(for the ``if'' claim, let 
+%the case of
+ $T$ be a $G$-corolla, cf. \cite[Prop. 5.7]{CM13a}).
 %
 %Moreover, it now follows that a 
 %fully faithful map $X \to Y$ of dendroidal Segal spaces is a simplicial equivalence iff the maps $X(\eta)^H \to Y(\eta)^H$ for $H\leq G$
 %are Kan equivalences.
 \end{remark}
 
-This remark readily implies the following.
+This remark readily implies the following, which is the analogue of  
+\cite[Cor. 5.10]{CM13a}.
 
-\begin{proposition}\label{DKCOM PROP} 
+\begin{corollary}\label{DKCOM COR} 
 Let $f\colon X \to Y$ in $\mathsf{sdSet}_G$ be a map between dendroidal Segal spaces. Then:
 \begin{enumerate}[label=(\roman*)]
-\item if $f$ is a DK-equivalence and the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$ are Kan equivalences then $f$ is a simplicial equivalence;
-\item if $f$ is a simplicial equivalence then $f$ is a DK-equivalence.
+\item if $f$ is a simplicial equivalence then $f$ is fully faithful;
+\item if $f$ is fully faithful then $f$ is also a simplicial equivalence iff
+the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$ are Kan equivalences.
 \end{enumerate}
-\end{proposition}
+\end{corollary}
 
 
 \begin{remark}\label{HOMOLIFTS REM}
@@ -6328,7 +6334,7 @@ needs not be replaced.
 
 \begin{proof}
 By Proposition \ref{COMPLE PROP}(i) we can assume that $X,Y$ are complete/joint fibrant, so that by Proposition \ref{COMBMODSTR PROP}(ii)
-complete/joint equivalences coincide with simplicial equivalences. But then by Proposition \ref{DKCOM PROP}
+complete/joint equivalences coincide with simplicial equivalences. But then by Corollary \ref{DKCOM COR}
 it remains only to show that if $f$ is a DK-equivalence then the maps
 $X(\eta)^H \to Y(\eta)^H, H \leq G$ are Kan equivalences.
 As such, in the remainder we assume $f$ is a DK-equivalence.
