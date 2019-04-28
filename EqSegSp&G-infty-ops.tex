@@ -6337,63 +6337,114 @@ By Proposition \ref{COMPLE PROP}(i) we can assume that $X,Y$ are complete/joint 
 complete/joint equivalences coincide with simplicial equivalences. But then by Corollary \ref{DKCOM COR}
 it remains only to show that if $f$ is a DK-equivalence then the maps
 $X(\eta)^H \to Y(\eta)^H, H \leq G$ are Kan equivalences.
-As such, in the remainder we assume $f$ is a DK-equivalence.
+Since the induced maps 
+$\iota^{\**}\left(X^H\right) \to \iota^{\**}\left(Y^H\right)$
+in $\mathsf{ssSet}$
+are DK-equivalences of simplicial Segal spaces, this last claim is immediate from the simplicial analogue \cite[Thm. 7.7]{Rez01}, but we nonetheless include a full argument for
+the sake of
+completeness.
 
-%Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(\eta)^H \to Y(\eta)^H$
-%is a Kan equivalence in $\mathsf{sSet}$. 
+As such, assuming that 
+$f\colon X \to Y$ in $\mathsf{ssSet}$
+is a DK-equivalence of complete simplicial Segal spaces, it remains to show $X(0)\to Y(0)$ is a Kan equivalence.
+%
 The completion condition states that
-$X(\eta)^H = X(G \cdot \Omega[\eta])^H
-\xrightarrow{\sim} X(G \cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram below
+$Z(J) \xrightarrow{\sim} Z(0)$ for $Z=X,Y$ are Kan equivalencs, so that the fibers of the left diagram below
 %of any diagram of the form on the left below
 are weakly equivalent to the homotopy fibers of the right diagram,
 % diagrams as on the right, i.e. loop spaces.
-i.e. to the loop space of $X(\eta)^H$ at $x$.
+i.e. the loop space of $Z(0)$ at $z$.
 % $\Omega\left(X(\eta)^H,x\right)$.
 \begin{equation}\label{WHATEV EQ}
 \begin{tikzcd}[column sep =40]
-	& X(G\cdot J)^H \ar[->>]{d}
+	& Z(J) \ar[->>]{d}
 &
-	& X(\eta)^H \ar{d}
+	& Z(0) \ar{d}
 \\
-	\Delta[0] \ar{r}{(x,x)} &
-	X(\eta)^H \times X(\eta)^H
+	\Delta[0] \ar{r}{(z,z)} &
+	Z(0) \times X(0)
 &
-	\Delta[0] \ar{r}{(x,x)} &
-	X(\eta)^H \times X(\eta)^H
+	\Delta[0] \ar{r}{(z,z)} &
+	Z(0) \times Z(0)
 \end{tikzcd}
 \end{equation}
-Therefore, since $X(G\cdot J)^H \to X(G\cdot \Omega[1])^H = X(C_{H/H})$ is a homotopy monomorphism,
-fully faithfulness implies that 
-$X(\eta)^H \to Y(\eta)^H$
-induces isomorphisms on homotopy groups.
-Injectivity of $X(\eta)^H \to Y(\eta)^H$
-on components is similar 
-($x,x'$ are in the same component iff the $(x,x')$ fiber in \eqref{WHATEV EQ} is non-empty) while essential surjectivity implies surjectivity on components,
-and thus $X(\eta)^H \to Y(\eta)^H$ is indeed a Kan equivalence.
 %
-%We now show that $X(\Omega[T]) \to Y(\Omega[T])$
-%is a Kan equivalence for all $T \in \Omega_G$.
-%Consider the diagram
-%\begin{equation}\label{DKCOM EQ}
-%\begin{tikzcd}[row sep=17]
-%	X(\Omega[T]) \ar{r} \ar[->>]{d}[swap]{\sim}&
-%	Y(\Omega[T]) \ar[->>]{d}{\sim}
+%
+Therefore, since $Z(J) \to Z(1)$ is a homotopy monomorphism (cf. Proposition \ref{SESP PROP}(i)(iv)),
+fully faithfulness implies that 
+$X(0) \to Y(0)$
+induces isomorphisms on homotopy groups.
+Injectivity of $X(0) \to Y(0)$
+on components is similar 
+($z,z'\in Z_0(0)$ are in the same component iff the $(z,z')$ fiber in \eqref{WHATEV EQ} is non-empty) 
+while essential surjectivity implies surjectivity on components
+(the equivalences $Z(0) \xrightarrow{\sim} Z(J) \xrightarrow{\sim} Z^h(1)$ 
+imply both vertex maps $Z^h(1) \rightrightarrows Z(0)$ are equivalences, 
+and hence $z,z'\in Z_0(0)$ are isomorphic in $ho(Z)$ iff they are connected in $Z(0)$).
+
+It follows that $X(0) \to Y(0)$ is indeed a Kan equivalence, as required.
+%
+%
+%
+%
+%
+%As such, in the remainder we assume $f$ is a DK-equivalence.
+%
+%Assume first that $f \colon X \to Y$ is a DK-equivalence. We first show that $X(\eta)^H \to Y(\eta)^H$
+%is a Kan equivalence in $\mathsf{sSet}$. 
+%The completion condition states that
+%$X(\eta)^H = X(G \cdot \Omega[\eta])^H
+%\xrightarrow{\sim} X(G \cdot J)^H$ is a weak equivalence, so that the fibers of the left diagram below
+%%of any diagram of the form on the left below
+%are weakly equivalent to the homotopy fibers of the right diagram,
+%% diagrams as on the right, i.e. loop spaces.
+%i.e. to the loop space of $X(\eta)^H$ at $x$.
+%% $\Omega\left(X(\eta)^H,x\right)$.
+%\begin{equation}\label{WHATEV EQ}
+%\begin{tikzcd}[column sep =40]
+%	& X(G\cdot J)^H \ar[->>]{d}
+%&
+%	& X(\eta)^H \ar{d}
 %\\
-%	X(Sc[T]) \ar{r} \ar[->>]{d}&
-%	Y(Sc[T]) \ar[->>]{d}
-%\\
-%	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
-%	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+%	\Delta[0] \ar{r}{(x,x)} &
+%	X(\eta)^H \times X(\eta)^H
+%&
+%	\Delta[0] \ar{r}{(x,x)} &
+%	X(\eta)^H \times X(\eta)^H
 %\end{tikzcd}
 %\end{equation}
-%where the maps marked $\sim$ are trivial fibrations by the Segal condition.
-%Since the bottom horizontal map is already known to be a Kan equivalence, it suffices to note that by fully faithfulness
-%the middle horizontal map induces Kan equivalences on fibers, and is thus a Kan equivalence itself.
-%This finishes the proof that DK-equivalences
-%$f \colon X \to Y$ are also simplicial equivalences.
-%
-%Assuming now that $f\colon X \to Y$ is a simplicial equivalence, fully faithfulness follows from \eqref{DKCOM EQ} by considering maps of fibers and essential surjectivity follows since the maps
-%$X(\eta)^H \to Y(\eta)^H$ are surjective on components.
+%Therefore, since $X(G\cdot J)^H \to X(G\cdot \Omega[1])^H = X(C_{H/H})$ %is a homotopy monomorphism,
+%fully faithfulness implies that 
+%$X(\eta)^H \to Y(\eta)^H$
+%induces isomorphisms on homotopy groups.
+%Injectivity of $X(\eta)^H \to Y(\eta)^H$
+%on components is similar 
+%($x,x'$ are in the same component iff the $(x,x')$ fiber in \eqref{WHATEV EQ} is non-empty) while essential surjectivity implies surjectivity on components,
+%and thus $X(\eta)^H \to Y(\eta)^H$ is indeed a Kan equivalence.
+%%
+%%We now show that $X(\Omega[T]) \to Y(\Omega[T])$
+%%is a Kan equivalence for all $T \in \Omega_G$.
+%%Consider the diagram
+%%\begin{equation}\label{DKCOM EQ}
+%%\begin{tikzcd}[row sep=17]
+%%	X(\Omega[T]) \ar{r} \ar[->>]{d}[swap]{\sim}&
+%%	Y(\Omega[T]) \ar[->>]{d}{\sim}
+%%\\
+%%	X(Sc[T]) \ar{r} \ar[->>]{d}&
+%%	Y(Sc[T]) \ar[->>]{d}
+%%\\
+%%	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
+%%	\underset{e_i \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
+%%\end{tikzcd}
+%%\end{equation}
+%%where the maps marked $\sim$ are trivial fibrations by the Segal condition.
+%%Since the bottom horizontal map is already known to be a Kan equivalence, it suffices to note that by fully faithfulness
+%%the middle horizontal map induces Kan equivalences on fibers, and is thus a Kan equivalence itself.
+%%This finishes the proof that DK-equivalences
+%%$f \colon X \to Y$ are also simplicial equivalences.
+%%
+%%Assuming now that $f\colon X \to Y$ is a simplicial equivalence, fully faithfulness follows from \eqref{DKCOM EQ} by considering maps of fibers and essential surjectivity follows since the maps
+%%$X(\eta)^H \to Y(\eta)^H$ are surjective on components.
 \end{proof}
 
 {\color{red} HERE}
