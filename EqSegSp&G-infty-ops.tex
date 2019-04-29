@@ -1340,7 +1340,7 @@ with the right lifting property against all $G$-inner horn inclusions are called
 
 We can now recall the statement of \cite[Thm 2.1]{Per18}, which was the main result therein.
 
-\begin{theorem}
+\begin{theorem}\label{DSETGMODEL THM}
 	There is a model structure on $\mathsf{dSet^G}$
 	such that the cofibrations are the normal monomorphisms and the fibrant objects are the $G$-$\infty$-operads.
 \end{theorem}
@@ -6324,7 +6324,6 @@ $\delta^{\**} \left(X^{J^{\bullet}} \right)$
 needs not be replaced.
 \end{remark}
 
-{\color{red} HERE}
 
 
 \begin{theorem}\label{COMPIFFDK THM}
@@ -6447,11 +6446,34 @@ It follows that $X(0) \to Y(0)$ is indeed a Kan equivalence, as required.
 %%$X(\eta)^H \to Y(\eta)^H$ are surjective on components.
 \end{proof}
 
-{\color{red} HERE}
+
+\begin{remark}\label{COMPLENOR REM}
+It is clear from the construction of the completion $\tilde{X}$
+in Proposition \ref{COMPLE PROP}
+that the map $X \to \tilde{X}$
+is a monomorphism. 
+However, it seems unlikely that this is a 
+\emph{normal} monomorphism (unless $X$ is assumed normal).
+To address this while preserving the properties in Proposition \ref{COMPLE PROP}, 
+note that the identification 
+$X_0(\eta) = \tilde{X}_0(\eta)$
+means that one can perform a
+``cofibration followed by trivial fibration'' factorization
+\[
+X \rightarrowtail \hat{X} \overset{\sim}{\twoheadrightarrow}  \tilde{X}
+\]
+in the dendroidal Reedy model structure in such a way that 
+$X_0(\eta) = \hat{X}_0(\eta) = \tilde{X}_0(\eta)$. Indeed, this follows by performing the small object argument against \eqref{JOINTCOF EQ} with the maps $\emptyset \to \Delta[0] \times \Omega[G/H \cdot \eta], H\leq G$ omitted (note that $\hat{X} \to \tilde{X}$ will still have the lifting property against the omitted maps).
+The claims that $\hat{X}$ is complete and $X \to \hat{X}$ is a DK-equivalence are inherited from the analogous properties of $\tilde{X}$.
+\end{remark}
 
 
 \begin{corollary}\label{FIB_PREOP_COR}
-	A pre-operad $X \in \mathsf{PreOp}^G$ is a fibrant object iff $\gamma^{\**}X$ is fibrant in the Segal space model structure on 
+	A pre-operad $X \in \mathsf{PreOp}^G$ is 
+	%a
+	fibrant (in the model structure from Theorem \ref{PREOPMOD THM})
+	% object
+	iff $\gamma^{\**}X$ is fibrant in the dendroidal Segal space model structure on 
 	$\mathsf{sdSet}^G$.
 \end{corollary}
 
@@ -6473,19 +6495,21 @@ Thus, if $X \in \mathsf{PreOp}^G$ is fibrant, an adjunction argument shows that 
 $\gamma^{\**}(X)$ is a dendroidal Segal space.
 
 For the ``if'' direction, we form the completion 
-$\gamma^{\**}X \to \tilde{X}$
-described in Proposition \ref{COMPLE PROP}.
-Then $\gamma_{\**}\tilde{X} \in \mathsf{PreOp}^G$
+$\gamma^{\**}X \to \hat{X}$
+described in Remark \ref{COMPLENOR REM}.
+Then $\gamma_{\**}\hat{X} \in \mathsf{PreOp}^G$
 is fibrant by Theorem \ref{ANOQUEQUIV THM}
 and the adjoint map $X \to \gamma_{\**}\tilde{X}$
+and the adjoint map $X \to \gamma_{\**}\hat{X}$
 has the following properties:
 \begin{inparaenum}
-	\item[(i)] it is a monomorphism;
+	\item[(i)] it is a normal monomorphism (this is inherited from $\gamma^{\**}X \to \hat{X}$; see the characterization of normal monomorphisms given before Theorem \ref{DSETGMODEL THM});
 	\item[(ii)] it is an isomorphism at the $\eta$-level;
 	\item[(iii)] it is a DK-equivalence when regarded as a map
 	in $\mathsf{sdSet}^G$
-	(since by Remark \ref{ONLYPREOP REM} $\gamma^{\**}\gamma_{\**}\tilde{X} \to \tilde{X}$ is tautologically a DK-equivalence);
-	\item[(iv)] it is hence a trivial dendroidal Reedy cofibration when regarded as a map
+	(since by Remark \ref{ONLYPREOP REM} $\gamma^{\**}\gamma_{\**}\hat{X} \to \hat{X}$ is tautologically a DK-equivalence);
+	\item[(iv)] by Corollary \ref{DKCOM COR}(ii) it is hence a simplicial equivalence and thus
+	a trivial dendroidal Reedy cofibration when regarded as a map
 	in $\mathsf{sdSet}^G$. 
 \end{inparaenum}	
 	But then the hypothesis that
@@ -6495,10 +6519,10 @@ has the following properties:
       \gamma^{\**} X \ar[equal]{r} \ar{d}&
       \gamma^{\**} X
       \\
-      \gamma^{\**}\gamma_{\**}\tilde{X} \ar[dashed]{ru}
+      \gamma^{\**}\gamma_{\**}\hat{X} \ar[dashed]{ru}
 \end{tikzcd}
 \]
-showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof.
+showing that $X$ is a retract of $\gamma_{\**}\hat{X}$ and finishing the proof.
 \end{proof}
 
 \begin{remark}\label{INTERP REM}
@@ -6518,6 +6542,9 @@ showing that $X$ is a retract of $\gamma_{\**}\tilde{X}$ and finishing the proof
 %      Indeed, they both have the same cofibrations, and so it suffices to show that they have the same fibrant objects;
 %      this is immediate from Corollaries \ref{JOINTFIBCHAR COR}(iii) and \ref{FIB_PREOP_COR}.
 \end{remark}
+
+{\color{red} HERE}
+
 
 
 %The following is the equivariant generalization of 
