@@ -4874,7 +4874,7 @@ where $\upsilon_{\**}$  and $\gamma_{\**}$ are defined in \eqref{DSETG_EQ} and \
 \begin{proposition}
       \label{HMTPYGEN PROP}
 For any dendroidal Segal space $X \in \mathsf{sdSet}^G$ one has that 
-$ho(X) \in \mathsf{dSet}_G$ is a genuine equivariant operad (cf. Definition \ref{GEN_OP_DEF}).
+$ho(X) \in \mathsf{dSet}_G$ is a genuine equivariant operad. % (cf. Definition \ref{GEN_OP_DEF}).
 \end{proposition}
 
 \begin{proof}
@@ -4896,7 +4896,7 @@ are isomorphisms.
 Hence, noting that
 for $A \in \mathsf{dSet}^G$
 there is a natural transformation
-(where $\bullet$ highlights the index with regards to which the $\pi_0$ are computed; recall that $\upsilon_{\**}$ is fully faithful)
+(letting $\bullet$ highlight the index with regards to which the $\pi_0$ are computed, and using that $\upsilon_{\**}$ is fully faithful)
 \begin{equation}\label{HOGENEQOP EQ}
 \begin{split}
 	\pi_0\left( X_{\bullet}(A) \right)=
@@ -4949,24 +4949,28 @@ given by
 $(T,G/H) \mapsto G/H \cdot T$.
 
 \begin{remark}
-	Writing $\iota$ for the inclusion $\Delta \to \Omega$
-	and $\iota_G$ for the composite inclusion
-	$\Delta \times \mathsf{O}_G \to 
-	\Omega \times \mathsf{O}_G 
-	\to
-	%\xrightarrow{(T,G/H) \mapsto G/H \cdot T}
-	\Omega_G$,
+      Writing $\iota \colon \Delta \to \Omega$ and
+      $\iota_G \colon \Delta \times \mathsf{O}_G \to \Omega \times \mathsf{O}_G \to \Omega_G$
+      for the (composite) inclusions,
+      % Writing $\iota$ for the inclusion $\Delta \to \Omega$
+      % and $\iota_G$ for the composite inclusion
+      % $\Delta \times \mathsf{O}_G \to 
+      % \Omega \times \mathsf{O}_G 
+      % \to
+      % % \xrightarrow{(T,G/H) \mapsto G/H \cdot T}
+      % \Omega_G$,
         unpacking definitions shows that $\iota_G^{\**}ho(X)$ is the $G$-coefficient system of nerves of categories $\left(\iota_G^{\**}ho(X)\right)(G/H)$ for $H \leq G$,
         %\footnote{Proposition \ref{DSSFIB_PROP} and \cite[Prop. 6.5]{CM13b} imply these evaluations are isomorphic to nerves of categories.}
         which are the simplicial sets with $m$-simplices
         % the homotopy categories
 	\begin{equation}\label{HOCOEFF EQ}
+              % (\iota_G^{\**} ho(X))(G/H)(m) = 
               ho(X)\left(G/H \cdot [m]\right) =
               \pi_0 \left( \left(\gamma_{\**}X([m])\right)^H\right) = 
               \pi_0 \left( \iota^{\**} \gamma_{\**}
               \left(X^H\right)\right)(m) = 
               ho\left(\iota^{\**}\left(X^H\right)\right)(m),
-    \end{equation}
+        \end{equation}
         % $ ho(X)(C_{H/H})=
         % ho \left(\iota^{\**}\left(X^H\right)\right) =
         % \pi_0 \left(\iota^{\**} \gamma_{\**}
@@ -4991,8 +4995,9 @@ $(T,G/H) \mapsto G/H \cdot T$.
 \]
 are Kan equivalences in $\mathsf{sSet}$;
 	\item \textit{essentially surjective} if
-	the map $\iota_G^{\**}ho(X) \to \iota_G^{\**}ho(Y)$
-	is essentially surjective on all category levels of the $G$-coefficient system;
+              the map $\iota_G^{\**}ho(X) \to \iota_G^{\**}ho(Y)$
+              of $G$-coefficient systems of categories is levelwise essentially surjective;
+              % is essentially surjective on all category levels of the $G$-coefficient system;
 	\item a \textit{DK-equivalence} if it is both fully faithful and essentially surjective.
 \end{itemize}
 \end{definition}
@@ -5035,7 +5040,7 @@ Given a map $X \to Y$ between dendroidal Segal spaces and $T \in \Omega_G$, cons
 	X(Sc[T]) \ar{r} \ar[->>]{d}&
 	Y(Sc[T]) \ar[->>]{d}
 \\
-	\underset{[e]_i \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
+	\underset{[e_i] \in \boldsymbol{E}_G(T)} {\prod} \left(X(\eta)\right)^{H_i} \ar{r} &
 	\underset{[e_i] \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
 \end{tikzcd}
 \end{equation}
@@ -5060,8 +5065,8 @@ This remark readily implies the following, which is the analogue of
 Let $f\colon X \to Y$ in $\mathsf{sdSet}_G$ be a map between dendroidal Segal spaces. Then:
 \begin{enumerate}[label=(\roman*)]
 \item if $f$ is a simplicial equivalence then $f$ is fully faithful;
-\item if $f$ is fully faithful then $f$ is also a simplicial equivalence iff
-the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$ are Kan equivalences.
+\item if $f$ is fully faithful, then $f$ is also a simplicial equivalence iff
+the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$, are Kan equivalences.
 \end{enumerate}
 \end{corollary}
 
@@ -5087,7 +5092,7 @@ the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$ are Kan equivalences.
 	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
 	\textit{$H$-equivalence} 
 	if $[f]$ is an isomorphism in the category
-	$ho\left(\iota^{\**}\left( X^H \right)\right)$.
+	$ho\left(\iota^{\**}\left( X^H \right)\right) = \iota_G^{\**} ho(X)(G/H)$.
 \end{definition}
 
 In what follows, and in analogy to \cite[\S 11.2]{Rez01},
@@ -5644,14 +5649,16 @@ The proof of (ii) shows that the inclusion $X^h \to X$ is a Reedy fibration.
 Writing $J\xrightarrow{ij}J^m$ for the map sending $0$ to $i$ and $1$ to $j$, Proposition \ref{SESP PROP}(iv) combined with the Segal condition for $X^h$ and 
 Proposition \ref{SESP PROP}(iii)
 shows that the maps
-\[X\left(J^m \right) 
-\xrightarrow{\left(01,12,\cdots,(m-1)m\right)} X(J) \underset{X(0)}{\times} X(J) \underset{X(0)}{\times} \cdots \underset{X(0)}{\times} X(J)\]
 \[
-X\left(J^2\right) 
-\xrightarrow{\left(01,02 \right)} X(J) \underset{X(0)}{\times} X(J)
-\qquad \qquad
-X\left(J^2\right) 
-\xrightarrow{\left(12,02 \right)} X(J) \underset{X(0)}{\times} X(J)
+      X\left(J^m \right) 
+      \xrightarrow{\left(01,12,\cdots,(m-1)m\right)} X(J) \underset{X(0)}{\times} X(J) \underset{X(0)}{\times} \cdots \underset{X(0)}{\times} X(J),
+\]
+\[
+      X\left(J^2\right) 
+      \xrightarrow{\left(01,02 \right)} X(J) \underset{X(0)}{\times} X(J),
+      \qquad \qquad
+      X\left(J^2\right) 
+      \xrightarrow{\left(12,02 \right)} X(J) \underset{X(0)}{\times} X(J),
 \]
 are trivial Kan fibrations.
 \end{remark}
@@ -5796,7 +5803,7 @@ are pushout squares.
 %	= \left(\iota^{\**}\left(X^{\Omega[T]}\right)\right)(1)
 	$,
 	where $X^{\Omega[T]} \in \mathsf{ssSet}$ is defined 
-	by $X^{\Omega[T]}(n) = X(\Omega[m] \otimes \Omega[T])$,
+	by $X^{\Omega[T]}(m) = X(\Omega[m] \otimes \Omega[T])$,
 	with $[m]$ given the $G$-trivial action (i.e., we are restricting Notation \ref{UNILIMDEN NOT}).
 	Since $X^{\Omega[T]}$
 	is a (simplicial) Segal space (by adjunction together with \cite[Prop. 7.25, Thm. 7.1]{Per18}),
@@ -5859,7 +5866,8 @@ of a fibration between pullback squares are fibrant pullback squares, it follows
 fibers of the top left vertical map in \eqref{BIGCUBEDU EQ}
 are homotopy pullbacks of the fibers of the remaining vertical maps.
 And since this top left vertical map is the right vertical map in \eqref{BIGSQ EQ}, the desired claim that the total diagram in \eqref{BIGSQ EQ}
-induces equivalences on fibers will follow provided that the same holds for the following total diagrams 
+induces equivalences on fibers will follow provided that the same holds for the following
+composites of \eqref{BIGSQ EQ} with the left and back faces from \eqref{BIGCUBEDU EQ} % total diagrams 
 (which adapt \cite[Lemma 12.4]{Rez01}),
 where the horizontal maps are the obvious degeneracies.
 
@@ -5920,7 +5928,7 @@ maps in these diagrams are trivial Kan fibrations
 
 
 Lastly, to check essential surjectivity, 
-since $G$ acts trivially on $J$ equation \eqref{HOCOEFF EQ} yields
+since $G$ acts trivially on $J$, \eqref{HOCOEFF EQ} yields
 $\iota_G^{\**} ho\left( X^J \right)(G/H)=
 ho\left(\iota^{\**}\left(X^J\right)^H\right)=
 ho\left(\iota^{\**}\left(X^H\right)^J\right)$,
@@ -6046,7 +6054,7 @@ it follows from \cite[Prop 7.25]{Per18} that
 the maps (where $\square^{\otimes}$ denotes the pushout product with regard to $\otimes$)
 \[
 X \left( \left(L_m J^{\bullet} \to J^m \right) \square^{\otimes} \left( \partial \Omega[T] \to \Omega[T] \right) \right)\]
-are Kan fibrations and thus
+are Kan fibrations, and thus
 $X^{J^{\bullet}} \in \mathsf{ssdSet}^{G}$
 has the right lifting property against all maps
 \begin{equation}\label{LIFTBASIC EQ}
