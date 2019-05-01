@@ -6982,9 +6982,9 @@ defined by modifying the usual characterizations of
 Reedy cofibrations, weak equivalences and fibrations
 (see \cite[Thm. 1.6]{BM11} or
 Theorem \ref{REEDYADM THM} below)
- to be determined by the $\mathsf{Aut}(r)$-projective model structures
+to be determined by the $\mathsf{Aut}(r)$-projective model structures
 on $\mathcal{C}^{\mathsf{Aut}(r)}$
-for each $r \in \mathbb{R}$. 
+for each $r \in \mathbb{R}$.
 
 The purpose of this appendix is to show that,
 under suitable conditions, this can also be done by replacing
@@ -7022,7 +7022,10 @@ and a degree function $|\minus| \colon ob(\mathbb{R}) \to \mathbb{N}$ such that:
 	\item[(i)] non-invertible maps in $\mathbb{R}^+$ (resp. $\mathbb{R}^-$) raise (lower) degree; isomorphisms preserve degree;
 	\item[(ii)] $\mathbb{R}^+ \cap \mathbb{R}^- = \mathsf{Iso}(\mathbb{R})$;
 	\item[(iii)] every map $f$ in $\mathbb{R}$ factors as
-	$f = f^{+} \circ f^{-}$ with $f^{+} \in \mathbb{R}^+$, $f^{-} \in \mathbb{R}^-$, and this factorization is unique up to isomorphism.
+	$f = f^{+} \circ f^{-}$ with $f^{+} \in \mathbb{R}^+$, $f^{-} \in \mathbb{R}^-$, and this factorization is unique up to isomorphism
+	(meaning that if 
+	$f = \tilde{f}^{+} \circ \tilde{f}^{-}$ is another such factorization, then
+	$f^+ = \tilde{f}^+ \circ \phi$, $\phi \circ f^- = \tilde{f}^-$ for some isomorphism $\phi$).
 \end{itemize}
 Let $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$
 be a collection of families of subgroups of the groups $\mathsf{Aut}(r)$.
@@ -7036,7 +7039,7 @@ The collection $\{\mathcal{F}_r\}$ is called
 \end{itemize}
 \end{definition}
 
-We note that condition (iv) above should be thought as of a constraint on the pair 
+We note that condition (iv) above should be thought of as a constraint on the pair 
 $(\mathbb{R},\{\mathcal{F}_r\})$.
 The original setup of \cite{BM11} then deals with the case
 where $\{ \mathcal{F}_r \} =
@@ -7044,7 +7047,7 @@ where $\{ \mathcal{F}_r \} =
 is the collection of trivial families. Indeed, our setup recovers
 the setup in \cite{BM11}, as follows.
 
-\begin{example}
+\begin{example}\label{RECAXIV EX}
 	When $\{ \mathcal{F}_r \} =
  \left\{ \left\{ e \right\} \right\}$, Reedy-admissibility coincides with axiom (iv) in \cite[Def. 1.1]{BM11},
 stating that if $\theta \circ f^{-} = f^{-}$
@@ -7076,10 +7079,10 @@ is Reedy-admissible.
 
 
 \begin{example}\label{GGRAPHREEDY EX}
-	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} and $G$ a group,
+	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} (cf. Example \ref{RECAXIV EX}) and $G$ a group,
 	we set $\mathbb{R} = G \times \mathbb{S}$
 	with $\mathbb{R}^+ = G \times \mathbb{S}^+$ and 
-	$\mathbb{R}^- = G \times \mathbb{S}^+$.
+	$\mathbb{R}^- = G \times \mathbb{S}^-$.
 	Further, for each $s \in \mathbb{S}$ we write
 	$\mathcal{F}_s^{\Gamma}$ for the family of 
 	$G$-graph subgroups of $G \times \mathsf{Aut}_{\mathbb{S}}(s)$, i.e., those subgroups 
@@ -7087,11 +7090,11 @@ is Reedy-admissible.
 	which are graphs of partial homomorphisms
 	$G \geq H \to \mathsf{Aut}_{\mathbb{S}}(s)$. We note that $G$-graph subgroups are also characterized by the condition $\Gamma \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
 	
-	Reedy admissibility of $\{\mathcal{F}_s^{\Gamma}\}$ follows since for every map 
+	Reedy admissibility of $\left\{\mathcal{F}_s^{\Gamma}\right\}$ follows since for every map 
 	$s \twoheadrightarrow s'$ in $\mathbb{S}^-$ one has that the homomorphism
 	$\pi_s \colon \mathsf{Aut}_{\mathbb{S}}(s \twoheadrightarrow s')
 	\to \mathsf{Aut}_{\mathbb{S}}(s)$ is injective
-	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
+	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$; see Example \ref{RECAXIV EX}).
 \end{example}
 
 Our primary example of interest is obtained by setting
@@ -7100,7 +7103,7 @@ Moreover, in this case we are also interested
 in certain subfamilies
 $\{\mathcal{F}_U\}_{U \in \Omega}
 \subseteq
-\{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
+\left\{\mathcal{F}_U^{\Gamma}\right\}_{U \in \Omega}$.
 
 
 \begin{example}\label{FGRAPHREEDY EX}
@@ -7113,7 +7116,7 @@ $\{\mathcal{F}_U\}_{U \in \Omega}
 	Given a face map $\varphi \colon U' \hookrightarrow U$, 
 	the subgroup $\pi^{-1}_U(\Gamma)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
 	$U'$ inherits the $\bar{H}$-action from $U$ along $\varphi$ (thus making $\varphi$ a $\bar{H}$-map), 
-	so that $\pi_{U'}(\pi^{-1}_U(\Gamma))$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
+	so that $\pi_{U'}\left(\pi^{-1}_U(\Gamma)\right)$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
 	Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
 	$G \cdot_{\bar{H}} U' \to G \cdot_H U$.
 \end{example}
@@ -7229,7 +7232,7 @@ the model structure
 $\C^G_{\mathcal{F}_{\text{all}}}$ is called the 
 \textit{fine/genuine model structure}.
 We regard this as the default model structure, 
-and as such denote it simply as $\C^G$.
+and hence denote it simply as $\C^G$.
 
 \begin{corollary}\label{RESGEN COR}
 For any homomorphism $\phi \colon G \to \bar{G}$, the functor
