@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  28 APR 2019 20:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  1 MAY 2019 15:16
 entering extended mode
 **./EqSegSp&G-infty-ops.tex
 (EqSegSp&G-infty-ops.tex
@@ -1206,14 +1206,43 @@ Overfull \hbox (0.38733pt too wide) in paragraph at lines 3850--3861
 n/10 is a monomor-|
  []
 
-[30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
-[45] [46]
-Overfull \hbox (0.26787pt too wide) detected at line 5916
+[30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
+Overfull \hbox (0.62883pt too wide) in paragraph at lines 5068--5070
+[]\OT1/cmr/m/it/10 if $\OML/cmm/m/it/10 f$ \OT1/cmr/m/it/10 is fully faith-ful,
+ then $\OML/cmm/m/it/10 f$ \OT1/cmr/m/it/10 is also a sim-pli-cial equiv-a-lenc
+e iff the maps $\OML/cmm/m/it/10 X\OMX/MnSymbolE/m/n/10 à\OML/cmm/m/it/10 \OMX
+/MnSymbolE/m/n/10 ç[] \U/MnSymbolA/m/n/10   \OML/cmm/m/it/10 Y\OMX/MnSymbolE/m/
+n/10 à\OML/cmm/m/it/10 \OMX/MnSymbolE/m/n/10 ç[]\OML/cmm/m/it/10 ; H \U/MnSymb
+olD/m/n/10 B|
+ []
+
+
+Overfull \hbox (3.242pt too wide) in paragraph at lines 5090--5096
+\OML/cmm/m/it/10 X[]\OMX/MnSymbolE/m/n/10 à\OT1/cmr/m/n/10 
+\OMX/MnSymbolE/m/n/10  \OML/cmm/m/it/10 C[]\OMX/MnSymbolE/m/n/10 ç \U/MnSymbol
+D/m/n/10   \OML/cmm/m/it/10 X[]\OMX/MnSymbolE/m/n/10 à \OT1/cmr/m/n/10 1\OMX/Mn
+SymbolE/m/n/10 ç[]$ \OT1/cmr/m/n/10 a $\OML/cmm/m/it/10 H$\OT1/cmr/m/it/10 -eq
+uivalence \OT1/cmr/m/n/10 if $\OMX/MnSymbolE/m/n/10  \OML/cmm/m/it/10 f\OMX/MnS
+ymbolE/m/n/10 $ \OT1/cmr/m/n/10 is an iso-mor-phism in the cat-e-gory $\OML/cm
+m/m/it/10 ho [] \U/MnSymbolD/m/n/10  |
+ []
+
+[40] [41] [42] [43] [44] [45] [46]
+Overfull \hbox (0.26787pt too wide) detected at line 5924
 []|
  []
 
 
-Overfull \hbox (3.85019pt too wide) in paragraph at lines 5974--5979
+Overfull \hbox (11.95958pt too wide) in paragraph at lines 5930--5950
+[]\OT1/cmr/m/n/10 Lastly, to check es-sen-tial sur-jec-tiv-ity, since $\OML/cmm
+/m/it/10 G$ \OT1/cmr/m/n/10 acts triv-ially on $\OML/cmm/m/it/10 J$\OT1/cmr/m/n
+/10 , [][][] yields $\OML/cmm/m/it/10 []ho [] \OMX/MnSymbolE/m/n/10 à\OML/cmm/
+m/it/10 G\OMX/MnSymbolE/m/n/10 ~\OML/cmm/m/it/10 H\OMX/MnSymbolE/m/n/10 ç \U/Mn
+SymbolD/m/n/10  |
+ []
+
+
+Overfull \hbox (3.85019pt too wide) in paragraph at lines 5982--5987
 [][]\OT1/cmr/bx/n/10 Definition 5.38. []\OT1/cmr/m/n/10 Two maps $\OML/cmm/m/it
 /10 f; f[]\U/MnSymbolC/m/n/10  \OML/cmm/m/it/10 X \U/MnSymbolA/m/n/10 ê \OML/c
 mm/m/it/10 Y$ \OT1/cmr/m/n/10 be-tween den-droidal Se-gal spaces are called $\O
@@ -1221,7 +1250,7 @@ ML/cmm/m/it/10 J$\OT1/cmr/m/it/10 -homotopic\OT1/cmr/m/n/10 ,|
  []
 
 [47]
-Overfull \hbox (2.79128pt too wide) detected at line 6078
+Overfull \hbox (2.79128pt too wide) detected at line 6131
 [] \U/MnSymbolC/m/n/10 j [] j [] \OML/cmm/m/it/10 ;  n \U/MnSymbolD/m/n/10 C \O
 T1/cmr/m/n/10 0\OML/cmm/m/it/10 ; m \U/MnSymbolD/m/n/10 C \OT1/cmr/m/n/10 1\OML
 /cmm/m/it/10 ; m \U/MnSymbolD/m/n/10 C \OML/cmm/m/it/10 j \U/MnSymbolD/m/n/10 C
@@ -1231,44 +1260,41 @@ E/m/n/10 ~\OML/cmm/m/it/10 H \U/MnSymbolC/m/n/10   \OML/cmm/m/it/10 \OMX/MnSym
 bolE/m/n/10 ù|
  []
 
-[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] (EqSegSp&G-infty-ops.bbl
-[59]
+[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
+(EqSegSp&G-infty-ops.bbl [60]
 Underfull \hbox (badness 1014) in paragraph at lines 110--113
 []\OT1/cmr/m/n/10 Lus Alexan-dre Pereira.  Equiv-ari-ant den-droidal sets.  \
 OT1/cmr/m/it/10 Al-gebr. Geom. Topol.\OT1/cmr/m/n/10 ,
  []
 
-[60]) [61]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7769.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7769.
+) [61]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7834.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 7834.
  (EqSegSp&G-infty-ops.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7769.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7769.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 7834.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7834.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7769.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7834.
  ) 
 Here is how much of TeX's memory you used:
- 30751 strings out of 493312
- 588873 string characters out of 3138900
- 686557 words of memory out of 3000000
- 33368 multiletter control sequences out of 15000+200000
+ 30754 strings out of 493312
+ 588912 string characters out of 3138900
+ 685017 words of memory out of 3000000
+ 33370 multiletter control sequences out of 15000+200000
  48071 words of font info for 178 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,20n,86p,3282b,1894s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{C:/Progr
-am Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolF.enc} <C:\Users\luisa\App
-Data\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk>{C:/Progra
-m Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{C:/Program Files/MiK
-TeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolD.enc} <C:\Users\luisa\AppData\Local\M
-iKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm0800.pk>{C:/Program Files/MiKT
-eX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{C:/Program Files/MiKTeX 2.9/font
-s/enc/dvips/mnsymbol/MnSymbolA.enc} <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fo
+am Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolF.enc} <C:\Users\luisa\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcti1000.pk>{C:/Program Files/MiK
+TeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{C:/Program Files/MiKTeX 2.9/fon
+ts/enc/dvips/mnsymbol/MnSymbolD.enc} <C:\Users\luisa\AppData\Local\MiKTeX\2.9\f
+onts\pk\ljfour\jknappen\ec\dpi600\tcrm0800.pk>{C:/Program Files/MiKTeX 2.9/font
+s/enc/dvips/mnsymbol/MnSymbolE.enc} <C:\Users\luisa\AppData\Local\MiKTeX\2.9\fo
 nts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/mnsymbol/MnSymbol10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/mnsymbol/MnSymbol12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
@@ -1305,9 +1331,9 @@ s/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
 KTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on EqSegSp&G-infty-ops.pdf (61 pages, 1134853 bytes).
+Output written on EqSegSp&G-infty-ops.pdf (61 pages, 1141994 bytes).
 PDF statistics:
- 1596 PDF objects out of 1728 (max. 8388607)
- 332 named destinations out of 1000 (max. 500000)
+ 1607 PDF objects out of 1728 (max. 8388607)
+ 333 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

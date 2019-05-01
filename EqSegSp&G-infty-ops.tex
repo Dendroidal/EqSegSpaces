@@ -6029,9 +6029,7 @@ and complete/joint equivalence $X \to \tilde{X}$ such that
 \end{itemize}
 \end{proposition}
 
-
-\begin{proof}
-Our proof adapts the construction of the completion functor in \cite[\S 14]{Rez01}.
+Our proof will adapt the construction of the completion functor in \cite[\S 14]{Rez01}.
 
 Firstly, let 
 $X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
@@ -6043,6 +6041,53 @@ $\delta^{\**} \colon \mathsf{ssdSet}^G \to \mathsf{sdSet}^G$
 for the diagonal functor in the two simplicial directions
 (adapting the functor in \S \ref{JOINBOUS SEC}), we set
 $\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right)$ with the natural map $X \to \tilde{X}$ induced by degeneracies (cf. Proposition \ref{SSSETJREE PROP})(iv).
+
+
+\begin{remark}\label{NOTTRANS REM}
+For fixed $n$ and $K\in \mathsf{sSet}$, and regarding 
+$X_n^{J^{\bullet}} \in \mathsf{sdSet}^G$,
+one can translate between the 
+$(-)_{(-)}$ and $(-)^{(-)}$ notations in Notation \ref{UNILIMDEN NOT} via
+\[
+	\left(X^{J^{\bullet}}_n\right)_K
+=
+	\left(X^{J^{\bullet}}_n\right)_{
+	\left(\colim_{\Delta[k] \to K} \Delta[k]\right)}
+=
+	\lim_{
+	%\left(
+	\Delta[k] \to K
+	%\right)
+	% \in (\Delta \downarrow K)
+	} X^{J^k}_n
+=
+	X^{\left(\colim_{\Delta[k] \to K} J^k\right)}_n
+\]
+where $K \simeq \colim_{\Delta[k] \to K} \Delta[k]$ is the standard
+decomposition of $K\in \mathsf{sSet}$ as a colimit of simplices.
+In the special cases of $K$ either $\partial \Delta[m]$ or $Sc[m]$
+one has (recall that $L_m$ is the latching object)
+\[	\left(\colim_{\Delta[k] \to \partial \Delta[m]} J^k\right) \simeq L_m J^{\bullet}
+\qquad
+	\left(\colim_{\Delta[k] \to Sc[m]} J^k\right) \simeq 
+	J \amalg_{\Delta[0]} \cdots \amalg_{\Delta[0]} J
+\]
+\end{remark}
+
+
+\begin{proof}[Proof of Proposition \ref{COMPLE PROP}]
+%Our proof adapts the construction of the completion functor in \cite[\S 14]{Rez01}.
+
+%Firstly, let 
+%$X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
+%= \mathsf{ssdSet}^G$
+%be the object whose $m$-th level
+%is $X^{J^m}$. 
+%Then, writing
+%$\delta^{\**} \colon \mathsf{ssdSet}^G \to \mathsf{sdSet}^G$
+%for the diagonal functor in the two simplicial directions
+%(adapting the functor in \S \ref{JOINBOUS SEC}), we set
+%$\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right)$ with the natural map $X \to \tilde{X}$ induced by degeneracies (cf. Proposition \ref{SSSETJREE PROP})(iv).
 Most of the proof will be spent showing that 
 $\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$ is dendroidal Reedy fibrant
 by establishing the lifting conditions needed to apply 
@@ -6054,7 +6099,7 @@ it follows from \cite[Prop 7.25]{Per18} that
 the maps (where $\square^{\otimes}$ denotes the pushout product with regard to $\otimes$)
 \[
 X \left( \left(L_m J^{\bullet} \to J^m \right) \square^{\otimes} \left( \partial \Omega[T] \to \Omega[T] \right) \right)\]
-are Kan fibrations, and thus
+are Kan fibrations. Remark \ref{NOTTRANS REM} then implies that
 $X^{J^{\bullet}} \in \mathsf{ssdSet}^{G}$
 has the right lifting property against all maps
 \begin{equation}\label{LIFTBASIC EQ}
@@ -6084,18 +6129,21 @@ also has the lifting property against the two sets of maps
 	\left( \partial \Omega[T] \to \Omega[T] \right),
 	\quad n \geq 0, m\geq 1, m \geq j \geq 0, T \in \Omega_G \setminus \{G/H \cdot \eta\}
 \end{equation}
-Note that, just as in Remark \ref{HYPERMODEL REM}, one is free to replace the maps
+Note that, just as in Remark \ref{HYPERMODEL REM}, one can replace the maps
 $\Lambda^j[m] \to \Delta[m]$, $\partial\Omega[T] \to \Omega[T]$
 appearing in \eqref{LIFTETA EQ} and  \eqref{LIFTCSK EQ}
-with a set with the same saturation.
+with a set with the same hypersaturation.
 For \eqref{LIFTETA EQ}, by Remarks \ref{SLICE REM} and \ref{ANHYPER REM}
-one needs only consider the Segal core inclusions 
-$Sc[m] \to \Delta[m]$ and the horn inclusions
+one needs only consider the 
+%Segal core
+inclusions 
+$Sc[m] \to \Delta[m]$ and
+% the horn inclusions
 $\Lambda^0[2] \to \Delta[2]$,
 $\Lambda^2[2] \to \Delta[2]$.
 But the claimed lifting condition against \eqref{LIFTETA EQ} then amounts to 
 Remark \ref{LAMBJREAL REM}
-applied to each of the simplicial Segal spaces $\iota^{\**}\left(X^H\right), H\leq G$.
+applied to each of the simplicial Segal spaces $\iota^{\**}\left(X^H\right), H\leq G$ (also, see Remark \ref{NOTTRANS REM}).
 
 
 For \eqref{LIFTCSK EQ}, by Remarks \ref{DUMBHYPER REM} and \ref{HYPERSATKAN REM}
@@ -6141,6 +6189,7 @@ Since
 $\left(\tilde{X}(\Omega[T]) \to \tilde{X}(\partial\Omega[T])\right) = 
 \delta^{\**} \left( X^{J^{\bullet}}(\Omega[T]) \to X^{J^{\bullet}}(\partial \Omega[T])\right)$,
 the fact that this is a Kan fibration for $T= G/H \cdot \eta$
+(in which case the target is the terminal object)
 follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTETA EQ}
 and the second ``moreover'' condition in Corollary \ref{SSETSSETADJ COR} while for $T \neq G/H \cdot \eta$ this follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ} and the first ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
 
@@ -6737,7 +6786,7 @@ though additional conditions are needed to ensure compatibility with the operadi
 In the following, we abbreviate 
 $\delta_{\mathcal{F}} = \delta_{\Omega_{\mathcal{F}}}$ and,
 for each $G$-vertex $v$ of $T \in \Omega_G$, we write 
-$T_v$ for the orbital outer face whose only
+$T_v \hookrightarrow T$ for the orbital outer face whose only
 $G$-vertex is $v$.
 
 \begin{definition}
@@ -6759,7 +6808,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 
 
 \begin{remark}\label{SEGCOMB REM}
-	Condition (ii) can be reinterpreted as combining the following two conditions:
+Given (i), condition (ii) can be reinterpreted as combining the following: % two conditions:
 \begin{itemize}
 	\item[(ii')] the characteristic presheaf $\delta_{\mathcal{F}}$ is Segal, i.e. 
 	$\delta_{\mathcal{F}}(T) = 
@@ -6825,10 +6874,11 @@ which \cite[Def. 3.22]{BH15} makes explicit.
 
 
 All results in the paper now extend to the context of a general weak indexing system $\Omega_{\mathcal{F}}$
-by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The following are some notable consequences:
+by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The following are some notable modifications:
 \begin{itemize}
 \item notions in $\mathsf{dSet}^G$ discussed in \S \ref{PREL SEC} such as 
-	``$G$-normal monomorphism'', ``$G$-inner horn'', ``$G$-inner anodyne'', ``$G$-$\infty$-operad'' are replaced with
+	``$G$-normal monomorphism'', ``$G$-inner horn'', ``$G$-inner anodyne'', ``$G$-$\infty$-operad'' are replaced
+	(by restricting $T \in \Omega_{G}$ to $T \in \Omega_{\mathcal{F}}$) with
 	``$\mathcal{F}$-normal monomorphism'', ``$\mathcal{F}$-inner horn'', ``$\mathcal{F}$-inner anodyne'', ``$\mathcal{F}$-$\infty$-operad'';
 \item the model structure on $\mathsf{dSet}^G$ from 
 \cite[Thm. 2.1]{Per18} is replaced with the model structure
@@ -6842,7 +6892,7 @@ $\mathcal{F}$-dendroidal sets
 \end{itemize}
 We briefly outline the main reasons why these substitutions do not affect our proofs.
 
-Firstly, the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, extends automatically. Indeed, if $T \in \Omega_{\mathcal{F}}$ the sieve condition implies
+Firstly, the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, extends automatically. Indeed, if $T \in \Omega_{\mathcal{F}}$ the sieve condition for $\Omega_{\mathcal{F}}$ implies 
 that the filtrations produced by the original 
 Lemma \ref{CHAREDGE LEM} must necessarily use only 
 $\mathcal{F}$-inner horn inclusions.
@@ -6891,7 +6941,11 @@ The adjunction
 \]
 is a Quillen equivalence.
 \end{theorem}
-In \S \ref{HMPTYGEN SEC} $\mathcal{F}$-dendroidal Segal spaces are defined in the natural way. The most notable difference is then that one works only with 
+In \S \ref{HMPTYGEN SEC} $\mathcal{F}$-dendroidal Segal spaces
+$X \in \mathsf{sdSet}^G$
+are defined in the natural way by localizing the $\mathcal{F}$-dendroidal Reedy model structure against the Segal core inclusions
+$Sc[T] \to \Omega[T], T \in \Omega_{\mathcal{F}}$.
+The most notable difference is then that in Notation \ref{GCOR NOT} and afterwards one works only with 
 $\mathcal{F}$-corollas, i.e. $G$-corollas
 $C \in \Omega_{\mathcal{F}}$,
 and thus only with $\mathcal{F}$-profiles, thus obtaining a notion of $\mathcal{F}$-fully faithfullness and of $\mathcal{F}$-DK-equivalence 
@@ -6928,9 +6982,9 @@ defined by modifying the usual characterizations of
 Reedy cofibrations, weak equivalences and fibrations
 (see \cite[Thm. 1.6]{BM11} or
 Theorem \ref{REEDYADM THM} below)
- to be determined by the $\mathsf{Aut}(r)$-projective model structures
+to be determined by the $\mathsf{Aut}(r)$-projective model structures
 on $\mathcal{C}^{\mathsf{Aut}(r)}$
-for each $r \in \mathbb{R}$. 
+for each $r \in \mathbb{R}$.
 
 The purpose of this appendix is to show that,
 under suitable conditions, this can also be done by replacing
@@ -6968,7 +7022,10 @@ and a degree function $|\minus| \colon ob(\mathbb{R}) \to \mathbb{N}$ such that:
 	\item[(i)] non-invertible maps in $\mathbb{R}^+$ (resp. $\mathbb{R}^-$) raise (lower) degree; isomorphisms preserve degree;
 	\item[(ii)] $\mathbb{R}^+ \cap \mathbb{R}^- = \mathsf{Iso}(\mathbb{R})$;
 	\item[(iii)] every map $f$ in $\mathbb{R}$ factors as
-	$f = f^{+} \circ f^{-}$ with $f^{+} \in \mathbb{R}^+$, $f^{-} \in \mathbb{R}^-$, and this factorization is unique up to isomorphism.
+	$f = f^{+} \circ f^{-}$ with $f^{+} \in \mathbb{R}^+$, $f^{-} \in \mathbb{R}^-$, and this factorization is unique up to isomorphism
+	(meaning that if 
+	$f = \tilde{f}^{+} \circ \tilde{f}^{-}$ is another such factorization, then
+	$f^+ = \tilde{f}^+ \circ \phi$, $\phi \circ f^- = \tilde{f}^-$ for some isomorphism $\phi$).
 \end{itemize}
 Let $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$
 be a collection of families of subgroups of the groups $\mathsf{Aut}(r)$.
@@ -6982,7 +7039,7 @@ The collection $\{\mathcal{F}_r\}$ is called
 \end{itemize}
 \end{definition}
 
-We note that condition (iv) above should be thought as of a constraint on the pair 
+We note that condition (iv) above should be thought of as a constraint on the pair 
 $(\mathbb{R},\{\mathcal{F}_r\})$.
 The original setup of \cite{BM11} then deals with the case
 where $\{ \mathcal{F}_r \} =
@@ -6990,7 +7047,7 @@ where $\{ \mathcal{F}_r \} =
 is the collection of trivial families. Indeed, our setup recovers
 the setup in \cite{BM11}, as follows.
 
-\begin{example}
+\begin{example}\label{RECAXIV EX}
 	When $\{ \mathcal{F}_r \} =
  \left\{ \left\{ e \right\} \right\}$, Reedy-admissibility coincides with axiom (iv) in \cite[Def. 1.1]{BM11},
 stating that if $\theta \circ f^{-} = f^{-}$
@@ -7022,10 +7079,10 @@ is Reedy-admissible.
 
 
 \begin{example}\label{GGRAPHREEDY EX}
-	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} and $G$ a group,
+	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} (cf. Example \ref{RECAXIV EX}) and $G$ a group,
 	we set $\mathbb{R} = G \times \mathbb{S}$
 	with $\mathbb{R}^+ = G \times \mathbb{S}^+$ and 
-	$\mathbb{R}^- = G \times \mathbb{S}^+$.
+	$\mathbb{R}^- = G \times \mathbb{S}^-$.
 	Further, for each $s \in \mathbb{S}$ we write
 	$\mathcal{F}_s^{\Gamma}$ for the family of 
 	$G$-graph subgroups of $G \times \mathsf{Aut}_{\mathbb{S}}(s)$, i.e., those subgroups 
@@ -7033,11 +7090,11 @@ is Reedy-admissible.
 	which are graphs of partial homomorphisms
 	$G \geq H \to \mathsf{Aut}_{\mathbb{S}}(s)$. We note that $G$-graph subgroups are also characterized by the condition $\Gamma \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
 	
-	Reedy admissibility of $\{\mathcal{F}_s^{\Gamma}\}$ follows since for every map 
+	Reedy admissibility of $\left\{\mathcal{F}_s^{\Gamma}\right\}$ follows since for every map 
 	$s \twoheadrightarrow s'$ in $\mathbb{S}^-$ one has that the homomorphism
 	$\pi_s \colon \mathsf{Aut}_{\mathbb{S}}(s \twoheadrightarrow s')
 	\to \mathsf{Aut}_{\mathbb{S}}(s)$ is injective
-	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
+	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$; see Example \ref{RECAXIV EX}).
 \end{example}
 
 Our primary example of interest is obtained by setting
@@ -7046,7 +7103,7 @@ Moreover, in this case we are also interested
 in certain subfamilies
 $\{\mathcal{F}_U\}_{U \in \Omega}
 \subseteq
-\{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
+\left\{\mathcal{F}_U^{\Gamma}\right\}_{U \in \Omega}$.
 
 
 \begin{example}\label{FGRAPHREEDY EX}
@@ -7059,7 +7116,7 @@ $\{\mathcal{F}_U\}_{U \in \Omega}
 	Given a face map $\varphi \colon U' \hookrightarrow U$, 
 	the subgroup $\pi^{-1}_U(\Gamma)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
 	$U'$ inherits the $\bar{H}$-action from $U$ along $\varphi$ (thus making $\varphi$ a $\bar{H}$-map), 
-	so that $\pi_{U'}(\pi^{-1}_U(\Gamma))$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
+	so that $\pi_{U'}\left(\pi^{-1}_U(\Gamma)\right)$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
 	Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
 	$G \cdot_{\bar{H}} U' \to G \cdot_H U$.
 \end{example}
@@ -7175,7 +7232,7 @@ the model structure
 $\C^G_{\mathcal{F}_{\text{all}}}$ is called the 
 \textit{fine/genuine model structure}.
 We regard this as the default model structure, 
-and as such denote it simply as $\C^G$.
+and hence denote it simply as $\C^G$.
 
 \begin{corollary}\label{RESGEN COR}
 For any homomorphism $\phi \colon G \to \bar{G}$, the functor
