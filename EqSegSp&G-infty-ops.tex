@@ -210,7 +210,7 @@ Table \ref{TABLE} provides a summary of the parallel narratives for categories, 
           \\ \hline
           simplicial categories $\mathsf{sCat}$ & simplicial operads $\sOp$ & equiv. simplicial operads $\sOp^G$
           \\
-          Bergner model structure & model str. from \cite{CM13b} & model structure from \cite{BP_sq}
+          Bergner model structure & model str. from \cite{CM13b} & model structure forthcoming
           \\ \hline
         \end{tabular}
       }
@@ -291,9 +291,9 @@ in Theorem \ref{ANOQUEQUIV THM}.
 In our last main section \S \ref{EDSS_SEC},
 motivated by the fact that in our desired model structure on simplicial $G$-operads $\mathsf{sOp}^G$
 (to be described in a follow-up paper)
-the weak equivalences are Dwyer Kan equivalences
+the weak equivalences are Dwyer-Kan equivalences
 (i.e. characterized by fully faithfulness and essential surjectivity), 
-we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer Kan type description of the weak equivalences 
+we establish Theorem \ref{COMPIFFDK THM}, which gives a Dwyer-Kan type description of the weak equivalences 
 between the fibrant objects in either of $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$.
 % (which are themselves charaterized in Proposition \ref{DSSCHAR_PROP} and Theorem \ref{FIB_PREOP_COR}).
 
@@ -311,7 +311,7 @@ The key to this appendix is the \textit{Reedy-admissibility} condition in
 Definition \ref{GENRED DEF}(iv),
 which is a fairly non-obvious equivariant generalization of one of the generalized Reedy axioms in \cite{BM11}.
 
-\subsection{Acknowledgements}
+\subsection{Acknowledgments}
 
 The authors would like to thank the anonymous referee for their many helpful suggestions and comments, 
 including the use of Table \ref{TABLE}.
@@ -469,7 +469,7 @@ $\boldsymbol{E}(T-E) = \boldsymbol{E}(T) \setminus E$.
 \begin{remark}\label{DEGREE REM}
 	Following \cite[Ex. 2.8]{BM11}, one has a degree function 
 	$|-|\colon \Omega \to \mathbb{N}$ given by $|T|=|\boldsymbol{V}(T)|$
-	such that non isomorphim face maps (resp. degeneracies) strictly increase (decrease) $|-|$.
+	such that non isomorphism face maps (resp. degeneracies) strictly increase (decrease) $|-|$.
 	As such, the subcategory of face maps is denoted $\Omega^+$ while that of degeneracies is denoted $\Omega^-$.
 \end{remark}
 
@@ -1326,7 +1326,7 @@ Recall that a class of maps is called \textit{saturated} if it is closed under p
 
 The saturation of the boundary inclusions 
 $\partial \Omega[T] \to \Omega[T]$
-is the class of \textit{$G$-normal monormorphisms},
+is the class of \textit{$G$-normal monomorphisms},
 i.e. those monomorphisms $X \to Y$ in $\mathsf{dSet}^G$ such that
 $Y(U) \setminus X(U)$ has an $\mathsf{Aut}(U)$-free action for all $U \in \Omega$ (non-equivariantly, this is \cite[Prop. 1.5]{CM11}, and also holds equivariantly by \cite[Rem. 6.7]{Per18}; alternatively, it can be shown using \cite[Props. 6.5(ii) and 5.62]{Per18}).
 Moreover, since one can forget the $G$-action when verifying this condition, we will usually call these simply \textit{normal monomorphisms}. 
@@ -3189,7 +3189,7 @@ Moreover, \cite[Cor. 2.6]{CM13a} provides an alternative characterization via st
 In the next result, note that we need not assume that the maps in
 \eqref{CANCEL_EQ} are cofibrations. More precisely,
 we slightly modify the notion of ``hypersaturation'' by using the cancellation property 
-``if $f$ and $gf$ are in the class, then so is $g$'' without further  requirements on $f,g$. Alternatively, this means that normal monomorhipsms/cofibrations are replaced with the class of all maps.
+``if $f$ and $gf$ are in the class, then so is $g$'' without further  requirements on $f,g$. Alternatively, this means that normal monomorphisms/cofibrations are replaced with the class of all maps.
 
 \begin{proposition}\label{HYPERLP PROP}
       If two classes $\mathcal{C},\mathcal{D}$
@@ -4201,7 +4201,7 @@ We call the saturation of the maps in \eqref{JOINTCOF EQ} the class of \textit{n
 
 
 \begin{remark}\label{MAPSPACE REM}
-$\mathsf{sdSet}^G$ is simplicialy tensored and cotensored via the pointwise 
+$\mathsf{sdSet}^G$ is simplicially tensored and cotensored via the pointwise 
 %(in the dendroidal direction)
 formulas $(K \times X)(U) = K \times X(U)$ and
 $\left(X^K\right)(U) = X(U)^K$
@@ -4215,7 +4215,7 @@ The generating sets \eqref{JOINTCOF EQ},\eqref{DENDTRIVCOF EQ} then show that th
 
 
 \begin{definition}\label{JOINREED DEF}
-The \textit{joint Reedy model structure} on $\mathsf{sdSet}^G$ is the smallest joint left Bousfield localization (cf. Proposition \ref{COMBMODSTR PROP}) of the dendroidal and simplical Reedy model structures.
+The \textit{joint Reedy model structure} on $\mathsf{sdSet}^G$ is the smallest joint left Bousfield localization (cf. Proposition \ref{COMBMODSTR PROP}) of the dendroidal and simplicial Reedy model structures.
 \end{definition}
 
 
@@ -4684,18 +4684,18 @@ As outlined in the introduction, one of the main aims of our overall project is 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 defined in \S \ref{CEDSS SEC} and \S \ref{PREOP SEC}
 are Quillen\ equivalent to a suitable model structure on the category 
-$\mathsf{sOp}^G$ of (coloured) $G$-operads.
+$\mathsf{sOp}^G$ of (colored) $G$-operads.
 However, our present description of the weak equivalences in 
 $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$
 is rather different from the description of the desired weak equivalences in $\mathsf{sOp}^G$,
-which are the Dwyer Kan equivalences, 
+which are the Dwyer-Kan equivalences, 
 characterized by fully faithfulness and essential surjectivity requirements.
 
 As such, our goal in this final main section is to prove
 Theorem \ref{COMPIFFDK THM},
 which states that weak equivalences between fibrant objects in either of 
 $\mathsf{sdSet}^G$, $\mathsf{PreOp}^G$
-do indeed admit a Dwyer Kan type description.
+do indeed admit a Dwyer-Kan type description.
 Moreover, in Corollary \ref{FIB_PREOP_COR} we also characterize the fibrant objects
 %, equivariant Segal operads,
 of $\mathsf{PreOp}^G$
@@ -4711,7 +4711,7 @@ in the categories $\mathsf{sdSet}^G$ and $\mathsf{PreOp}^G$ (see Remark \ref{INT
 
 
 
-\subsection{The homotopy genuine operad and Dwyer Kan equivalences}\label{HMPTYGEN SEC}
+\subsection{The homotopy genuine operad and Dwyer-Kan equivalences}\label{HMPTYGEN SEC}
 
 
 \begin{definition}
@@ -5329,7 +5329,7 @@ $Sc[T] \cup \Omega[T[Ge]]$
 of subcomplexes of $\Omega[T]$.
 We now consider the following diagram, 
 where all solid maps are Kan fibrations, 
-and the maps labelled $\sim$ are trivial Kan fibrations
+and the maps labeled $\sim$ are trivial Kan fibrations
 ($Sc_{T[Ge]}[T]$ is a cover in the sense of Remark \ref{RECOVER REM}(i),
 hence both maps $Sc[T] \to Sc_{T[Ge]}[T] \to \Omega[T]$ are $G$-inner anodyne), so that one can choose the indicated sections.
 \begin{equation}\label{FOURSQ EQ}
@@ -5428,7 +5428,7 @@ But then since the $G$-tree $T$ is degenerate on the $G$-corolla $D$, such a lif
 	``compatibilities with quotients of $G$-trees'',
 	which reflect the remarks in 
 	Example \ref{STRICTLIFT EX}.
-	Nonetheless, describing these extra compatibilities would require using $G$-trees with more than three $G$-vertices, and since such compatibilites are not needed for our present goals, we omit their discussion. 
+	Nonetheless, describing these extra compatibilities would require using $G$-trees with more than three $G$-vertices, and since such compatibilities are not needed for our present goals, we omit their discussion. 
 \end{remark}
 
 
@@ -6317,6 +6317,7 @@ Essential surjectivity is trivial since $X \to \tilde{X}$ is the identity on obj
 
 
 \begin{remark}
+      \label{COMPLE REM}
 A notable difference between the proof of Proposition \ref{COMPLE PROP}
 and the arguments in \cite[\S 14]{Rez01} being adapted is that 
 \cite{Rez01} did not establish the analogue of our main fibrancy claim
@@ -6356,7 +6357,7 @@ $f\colon X \to Y$ in $\mathsf{ssSet}$
 is a DK-equivalence of complete simplicial Segal spaces, it remains to show $X(0)\to Y(0)$ is a Kan equivalence.
 %
 The completion condition states that
-$Z(J) \xrightarrow{\sim} Z(0)$ for $Z=X,Y$ are Kan equivalencs, so that the fibers of the left diagram below
+$Z(J) \xrightarrow{\sim} Z(0)$ for $Z=X,Y$ are Kan equivalences, so that the fibers of the left diagram below
 %of any diagram of the form on the left below
 are weakly equivalent to the homotopy fibers of the right diagram,
 % diagrams as on the right, i.e. loop spaces.
@@ -7379,11 +7380,11 @@ if $K$ acts trivially on $\mathbb{R}$ this recovers the product of categories $K
 %so the natural map $K \ltimes \mathbb{R} \to K$ is the associated Grothendiek fibration.
 
 Alternatively, $K \ltimes \mathbb{R}$
-admits a succint formal definition: 
+admits a succinct formal definition: 
 if one regards $\mathbb{R}$ with its $K$-action as a
 functor $ %\mathbb{R} \colon
 K \xrightarrow{\mathbb{R}} \mathsf{Cat}$, 
- the associated Grothendiek fibration is the natural functor $K \ltimes \mathbb{R} \to K$.% is the associated Grothendiek fibration.
+ the associated Grothendieck fibration is the natural functor $K \ltimes \mathbb{R} \to K$.% is the associated Grothendiek fibration.
 
 %Explicitly, an arrow $r \to r'$ in $K \ltimes \mathbb R$ is a pair $(k,f)$ with $k \in K$ and $f: k r \to r'$;
 %the map $K \ltimes \mathbb R \to K$ sends $(k,f)$ to $k$.
@@ -7430,8 +7431,8 @@ $L_r A = \mathop{\colim}_{\mathbb{R}^+(r)}A$
 		r \ar{r}[swap]{-} & r''
 	\end{tikzcd}
 \end{equation}
-such that the maps labelled $+$ are in $\mathbb{R}^+$,
-maps labelled $-$ are in $\mathbb{R}^-$,
+such that the maps labeled $+$ are in $\mathbb{R}^+$,
+maps labeled $-$ are in $\mathbb{R}^-$,
 the horizontal maps are non-invertible, and the maps labeled $\simeq$ are automorphisms in $K$. 
 
 In particular, there is thus a \textit{domain} (resp. \textit{target}) functor
@@ -7479,7 +7480,7 @@ One now applies Lemma \ref{GINJ LEM} with
 $K = H$ and 
 $\mathbb{S} = H \ltimes \mathbb{R}^+(r)$
 to the map $d^{\**}A \to d^{\**}B$. Note that $\mathcal{F}$-trivial cofibrations are always genuine trivial cofibrations, for any family, so that the trivial cofibrancy requirements are immediate from Corollary \ref{RESGEN COR}. 
-It thus follows that the maps labelled $\sim$ in
+It thus follows that the maps labeled $\sim$ in
 \begin{equation}\label{WHATEV2 EQ}
 \begin{tikzcd}[row sep=10]
    L_r A \ar[>->]{r}{\sim} \ar[d]  & 
@@ -7527,7 +7528,7 @@ to the map $t^{\**}A \to t^{\**}B$.
 Note that for each $(r \twoheadrightarrow r') \in \mathbb{S}$ one has $\mathsf{Aut}_{\mathbb{S}}(r \to r') = \pi_r^{-1}(H)$
 (where $\pi_r$ is as in \eqref{PIDEFR EQ}), so that the trivial fibrancy requirement in Lemma \ref{GINJMIN LEM} follows from 
 $\{\mathcal{F}_r\}$ being Reedy-admissible.
-It follows that the maps labelled $\sim$ in
+It follows that the maps labeled $\sim$ in
 \[
 \begin{tikzcd}[row sep=10]
 	X_r \ar[->>]{r}&
