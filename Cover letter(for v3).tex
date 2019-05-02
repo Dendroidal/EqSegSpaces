@@ -56,7 +56,7 @@ The referee's preliminary report had two main sections:
 first, they highlighted two specific locations for edits, % of great narrative difficulty,
 and second, they offered a numbered list of recommendations and suggestions.
 We have implemented the vast majority of the changes recommended by the referee, and modified the discussion around several points of confusion.
-The updates are organized into four classes:
+The updates are organized into four groups:
 \begin{itemize}
 \item in ``Requested Revisions'', we address the two unnumbered concerns of the referee.
 \item in ``Comments and departures'', we answer questions posed by the referee, and indicate where and why we departed from the suggestions of the referee.
@@ -65,7 +65,7 @@ The updates are organized into four classes:
 \end{itemize}
 
 Our updates are numbered by the corresponding numbered item in the referee report,
-and all internal references have been modified to mathc the new numbering from the updated article.
+and all internal references have been modified to match the new numbering from the updated article.
 
 
 
@@ -79,8 +79,8 @@ and all internal references have been modified to mathc the new numbering from t
       We have also added context by recalling a similar decomposition of the product of 1-simplexes.
 
 \item The second concerned the category $K \ltimes \mathbb R$, found in the Appendix.
-      We have clarified the definition of this category in the discussion after Remark \ref{GINJ REM},
-      by providing an intuitive description, a precise definition, and two examples.
+      We have clarified the definition of this category in Notation \ref{KLTIMES NOT},
+      providing an intuitive description, a precise definition, and two examples.
 \end{itemize}
 
       
@@ -116,6 +116,8 @@ are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these.
 
 We are also unsure of how replacing ``maximum'' with ``upper bound'' would change these definitions, since an upper bound of a subset $A$ that is also in $A$ is automatically the maximum of $A$.  %
 
+% To show that replacing "maximum" with "maximal" also is insufficient, consider the broad poset $X = \set{a,b_1,b_2}$ with (non-trivial) relations $b_1 \leq a$ and $b_2 \leq a$. Then $a$ is a root, $b_1$ and $b_2$ are leaves, but $a$ is not a node: the unary tuples $b_1$ and $b_2$ are incomparable maximal tuples above $a$.
+
 \item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances were the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest''). %
 
 \item[9.] Rephrased the language in the proof of Lemma \ref{CUPCAP LEM} to explain why the argument isn't circular. The main point comes down to the fact that ``edge'' and ``vertex'' are simply suggestive names for ``element'' and ``generating relation'' of the broad poset. %
@@ -139,7 +141,7 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
       The main idea is that for $U \in \Omega$ and $V \hookrightarrow$ a planar face, it is $|V|<|U|$ unless $V=U$. We've added an extra sentence to Remark \ref{FACCES REM} to clarify this point. % that should make this point clearer. %
       
 
-\item[53.] The adjunctions from this notation are only used in a single instance, in the proof of part (i) of Proposition \ref{SSSETJREE PROP}; moreover this use is also simpler since only the single $\partial \Delta[m]$ isn't a representable.
+\item[53.] The adjunctions from this notation are only used in a single instance, in the proof of part (i) of Proposition \ref{SSSETJREE PROP}; this use is also simpler since only the single $\partial \Delta[m]$ isn't a representable.
       Because of this, it feels somewhat unnecessary to fully expand on the adjunctions at this point in the discussion,
       rather than wait until (the new) Remark \ref{TWOVARADJ REM}. %
 
@@ -231,7 +233,7 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' in to clarify 
 \item[2.] Added Remark \ref{RECOVDEF REM} which explains why our results extend \cite[Thm. 6.6]{CM13a} and clarified the influence of \cite[Thm. 6.6]{CM13a} in the introduction (to the paper and to \S 4). %
       
       % ---------- JOINTFIBCHAR PROP ----------
-\item[62.] The confusing wording in the proof of Proposition \ref{JOINTFIBCHAR PROP} has been changed (the reason for the wording was the fact that I was trying to point out that the condition in the (new) \ref{HYPERMODEL REM} had to be checked).
+\item[62.] The confusing wording in the proof of Proposition \ref{JOINTFIBCHAR PROP} has been changed (the reason for the wording was the fact that I was trying to point out that the condition in the (new) Remark \ref{HYPERMODEL REM} had to be checked).
       
       Added reference to Remark \ref{HYPERMODEL REM} in Proposition \ref{SSSETJREE PROP} and in Remark \ref{HYPERSIMPL REM}.
       
@@ -302,9 +304,9 @@ Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ w
 
 \item Fixed the incorrect $\iota^{\**}_G$ notation issue at the end of the proof of Proposition \ref{JDDK PROP} by circumventing that notation. %
       
-\item Added Remark \ref{DKCOM REM} (which may become a proposition...) which performs the argument about DK equivalences inducing equivalences on fibers
+\item Added Remark \ref{DKCOM REM} which performs the argument about DK equivalences inducing equivalences on fibers
       
-      Added Corollary \ref{DKCOM COR} that spells out some key consequences of \eqref{DKCOM REM}
+      Added Corollary \ref{DKCOM COR} that spells out some key consequences of Remark \ref{DKCOM REM}.
 
       
 \item[55.] Rewrote the proof of and improved Corollary \ref{SSETSSETADJ COR} to add a sufficient condition for when $\delta^{\**}(X)$ is a Kan complex (to be used in the revised proof of Proposition \ref{COMPLE PROP}), and expanded the succeeding Remark \ref{HYPERSIMPL REM} to reflect this.
@@ -320,14 +322,22 @@ Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ w
 
 \item Simplified the notation in the proof of Theorem \ref{COMPIFFDK THM} to simplicial Segal space notation, since now the dendroidal part of the story has already been taken care of elsewhere. Also added a little extra detail to the arguments.
 
-\item Fixed the formula for $(\mathsf{csk}_{\eta} Y)(B)$ in Proposition \ref{CSKETALT PROP}, which was missing the $G$-fixed points.
+
       
       
       % ---------- Appendix ----------
       \subsubsection*{Edits to the appendix}
-\item[58.] A brief discussion of cofibrant generation for Reedy model structures was added to the end of the appendix, in particular Proposition \ref{REEDYCOFGEN PROP}. The proof of this result, Proposition \ref{SDSETJRCOF PROP} was reworded accordingly. %
-      
 \item Added short proof to Proposition \ref{FGTRL_PROP}. %
+
+\item Added Lemma \ref{BLAFACT LEM} to highlight argument used in the proof of Theorem \ref{REEDYADM THM}.
+            
+\item Added Corollary \ref{FTRIVALL COR} and moved Remark \ref{COFNOTRES REM} from later in the appendix to after Proposition \ref{FGTRL_PROP}.
+
+      Rephrased Lemmas \ref{REEDYTRCOF LEM}, \ref{REEDYTRFIB LEM} and their proofs to highlight the duality and breaking of duality.
+      
+\item Added Notation \ref{RPLUSR NOT} to discuss the categories $\mathbb R^+(r)$.
+      
+\item[58.] A brief discussion of cofibrant generation for Reedy model structures was added to the end of the appendix, in particular Proposition \ref{REEDYCOFGEN PROP}. The proof of this result, Proposition \ref{SDSETJRCOF PROP}, was reworded accordingly. %
 
 
       
@@ -367,7 +377,8 @@ Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ w
 
       
 \item[68.] Explained the $\mathsf{csk}_{\eta}$ notation in the paragraph before Proposition \ref{CSKETALT PROP}. %     
-      
+
+      Fixed the formula for $(\mathsf{csk}_{\eta} Y)(B)$ in Proposition \ref{CSKETALT PROP}, which was missing the $G$-fixed points.
 
                            
 \end{itemize}
@@ -431,11 +442,8 @@ Similarly, a similar comment was added in the remark immediately preceding \S 4.
 \end{itemize}
 
 
-\section{Some more stuff in appendix}
 
-\begin{itemize}
-\item Added Corollary \ref{FTRIVALL COR} and moved Remark \ref{COFNOTRES REM} from later in the appendix to after Proposition \ref{FGTRL_PROP}.
-\end{itemize}
+
 
 
 
