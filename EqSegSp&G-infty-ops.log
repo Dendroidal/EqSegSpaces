@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  2 MAY 2019 02:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  2 MAY 2019 14:41
 entering extended mode
 **./EqSegSp&G-infty-ops.tex
 (EqSegSp&G-infty-ops.tex
@@ -1216,32 +1216,12 @@ n/10 ˆ\OML/cmm/m/it/10 \OMX/MnSymbolE/m/n/10 []\OML/cmm/m/it/10 ; H \U/MnSymb
 olD/m/n/10 B|
  []
 
-
-Overfull \hbox (3.242pt too wide) in paragraph at lines 5090--5096
-\OML/cmm/m/it/10 X[]\OMX/MnSymbolE/m/n/10 ˆ\OT1/cmr/m/n/10 
-\OMX/MnSymbolE/m/n/10  \OML/cmm/m/it/10 C[]\OMX/MnSymbolE/m/n/10  \U/MnSymbol
-D/m/n/10   \OML/cmm/m/it/10 X[]\OMX/MnSymbolE/m/n/10 ˆ \OT1/cmr/m/n/10 1\OMX/Mn
-SymbolE/m/n/10 []$ \OT1/cmr/m/n/10 a $\OML/cmm/m/it/10 H$\OT1/cmr/m/it/10 -eq
-uivalence \OT1/cmr/m/n/10 if $\OMX/MnSymbolE/m/n/10  \OML/cmm/m/it/10 f\OMX/MnS
-ymbolE/m/n/10 $ \OT1/cmr/m/n/10 is an iso-mor-phism in the cat-e-gory $\OML/cm
-m/m/it/10 ho [] \U/MnSymbolD/m/n/10  |
- []
-
 [40] [41] [42] [43] [44] [45]
 Overfull \hbox (0.26787pt too wide) detected at line 5923
 []|
  []
 
 [46]
-Overfull \hbox (11.95958pt too wide) in paragraph at lines 5929--5949
-[]\OT1/cmr/m/n/10 Lastly, to check es-sen-tial sur-jec-tiv-ity, since $\OML/cmm
-/m/it/10 G$ \OT1/cmr/m/n/10 acts triv-ially on $\OML/cmm/m/it/10 J$\OT1/cmr/m/n
-/10 , [][][] yields $\OML/cmm/m/it/10 []ho [] \OMX/MnSymbolE/m/n/10 ˆ\OML/cmm/
-m/it/10 G\OMX/MnSymbolE/m/n/10 ~\OML/cmm/m/it/10 H\OMX/MnSymbolE/m/n/10  \U/Mn
-SymbolD/m/n/10  |
- []
-
-
 Overfull \hbox (3.85019pt too wide) in paragraph at lines 5981--5986
 [][]\OT1/cmr/bx/n/10 Definition 5.38. []\OT1/cmr/m/n/10 Two maps $\OML/cmm/m/it
 /10 f; f[]\U/MnSymbolC/m/n/10  \OML/cmm/m/it/10 X \U/MnSymbolA/m/n/10  \OML/c
@@ -1282,7 +1262,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7955.
 Here is how much of TeX's memory you used:
  30770 strings out of 493312
  589089 string characters out of 3138900
- 687154 words of memory out of 3000000
+ 687183 words of memory out of 3000000
  33377 multiletter control sequences out of 15000+200000
  48071 words of font info for 178 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1331,7 +1311,7 @@ s/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
 KTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/symbols/msbm5.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on EqSegSp&G-infty-ops.pdf (62 pages, 1149820 bytes).
+Output written on EqSegSp&G-infty-ops.pdf (62 pages, 1149889 bytes).
 PDF statistics:
  1634 PDF objects out of 1728 (max. 8388607)
  342 named destinations out of 1000 (max. 500000)
