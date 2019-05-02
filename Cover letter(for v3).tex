@@ -53,14 +53,16 @@ cd,patterns,calc}
 \maketitle
  
 The referee's preliminary report had two main sections:
-first, they highlighted two specific locations for edits, % of great narrative difficulty,
+first, they highlighted two key points where unclear notation prevented further reading of those sections; % of great narrative difficulty,
 and second, they offered a numbered list of recommendations and suggestions.
 We have implemented the vast majority of the changes recommended by the referee, and modified the discussion around several points of confusion.
 The updates are organized into four groups:
 \begin{itemize}
-\item in ``Requested Revisions'', we address the two unnumbered concerns of the referee.
+\item in ``Requested Revisions'', we address the two key pieces of unclear notation.
 \item in ``Comments and departures'', we answer questions posed by the referee, and indicate where and why we departed from the suggestions of the referee.
-\item in ``Changes'', we address suggestions which required more significant edits to the article, or small changes regarding errors which had inhibited mathematical understanding. These changes have themselves been grouped thematically.
+\item in ``Changes'', we address suggestions which required more significant edits,
+% to the article, or small changes regarding errors which had inhibited mathematical understanding. These changes have themselves been grouped thematically.
+and which we group thematically.
 \item in ``Minor changes'', we list typos and other small corrections made in response to errors which did not appear to affect the referee's understanding.
 \end{itemize}
 
@@ -78,9 +80,11 @@ and all internal references have been modified to match the new numbering from t
       in \eqref{OTIMESOC_EQ}, $\otimes_{\Omega[C]}$ has been changed to $\coprod_{\Omega[C]}$.
       We have also added context by recalling a similar decomposition of the product of 1-simplexes.
 
-\item The second concerned the category $K \ltimes \mathbb R$, found in the Appendix.
-      We have clarified the definition of this category in Notation \ref{KLTIMES NOT},
-      providing an intuitive description, a precise definition, and two examples.
+\item
+% The second concerned the category $K \ltimes \mathbb R$, found in the Appendix.
+      We have clarified the definition of the category $K \ltimes \mathbb R$ in Notation \ref{KLTIMES NOT},
+      providing an explicit description and motivation for the notation.
+      %, a precise definition, and two examples.
 \end{itemize}
 
       
@@ -112,13 +116,13 @@ are correct as stated. For example, consider the tree
 	\end{tikzpicture}%
 \end{equation}
 The tuples $\underline{e}$ such that $\underline{e} < r$
-are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these.
+are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these (in the partial order on tuples $T^+$ as in \cite[Prop. 5.6]{Per18}). On a side note, that this maximum is unique reflects the statement that the generators of a free category/operad are characterized as the indecomposable operations (with symmetric action caveats in the operad case).
 
-We are also unsure of how replacing ``maximum'' with ``upper bound'' would change these definitions, since an upper bound of a subset $A$ that is also in $A$ is automatically the maximum of $A$.  %
+We are also unsure of how replacing ``maximum'' with ``upper bound'' would change the definitions, since an upper bound of a subset $A$ that is also in $A$ must be the maximum of $A$.  %
 
 % To show that replacing "maximum" with "maximal" also is insufficient, consider the broad poset $X = \set{a,b_1,b_2}$ with (non-trivial) relations $b_1 \leq a$ and $b_2 \leq a$. Then $a$ is a root, $b_1$ and $b_2$ are leaves, but $a$ is not a node: the unary tuples $b_1$ and $b_2$ are incomparable maximal tuples above $a$.
 
-\item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances were the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest''). %
+\item[5.] All instances of minimal/maximal/smallest/etc were checked, and we believe they were correct as stated. A few instances where the article ``the'' was meant to convey uniqueness (i.e. ``the minimal/maximal'') were altered to reduce the potential for misunderstanding (to ``the smallest/largest''). %
 
 \item[9.] Rephrased the language in the proof of Lemma \ref{CUPCAP LEM} to explain why the argument isn't circular. The main point comes down to the fact that ``edge'' and ``vertex'' are simply suggestive names for ``element'' and ``generating relation'' of the broad poset. %
       
@@ -127,18 +131,18 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
       % Reworded ``is cellular on'' to ``is built by attaching'' $G$-inner horn inclusions
 
 
-\item[25.] Added a reference to Goodwillie for the use of the adjective ``convex'' before the proof of Lemma \ref{CHAREDGE LEM}, and included the name ``downward closed''.
-      As our argument is similar in spirit to that of Goodwillie's, we have chosen to continue using his nomenclature. %
+\item[25.] Added a reference to Goodwillie for the use of the ``convex subset'' terminology before the proof of Lemma \ref{CHAREDGE LEM}, and included the name ``downward closed''.
+    %  As our argument is similar in spirit to that of Goodwillie's, we have chosen to continue using his nomenclature. %
 
       
 \item[27.] At the end of the proof of Lemma \ref{CHAREDGE LEM}, the new (Ch2) follows from the original conditions, but it requires both the original (Ch2) and (Ch3), which work in tandem. The discussion was expanded to provide more detail on this point. %
       
-      As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined without much worry.
-      However, separating (Ch3) is needed to control the isotropies (which is why (Ch3) is needed when verifying condition (c) in the proof). In fact, in earlier iterations of the characteristic edge lemma condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified. %
+      As a side note, (Ch2) and (Ch3) are complementary, and if it weren't for the fact that equivariance forces us to worry about isotropies, I believe they could be combined. % without much worry.
+      However, separating (Ch3) is needed to control the isotropies (so that (Ch3) is used when verifying condition (c) in the proof). In fact, in earlier iterations of the lemma, condition (Ch3) used to make explicit reference to elements $g \in G$, before the current version of (Ch0) was identified. %
      
 
 \item[37.] I do not think the proof of Proposition \ref{HYPER PROP} should require anything analogous to the mentioned condition (b) in the proof of Lemma \ref{CHAREDGE LEM}.
-      The main idea is that for $U \in \Omega$ and $V \hookrightarrow$ a planar face, it is $|V|<|U|$ unless $V=U$. We've added an extra sentence to Remark \ref{FACCES REM} to clarify this point. % that should make this point clearer. %
+      The main idea is that for $U \in \Omega$ and $V \hookrightarrow U$ a planar face, it is $|V|<|U|$ unless $V=U$. We added an extra sentence to Remark \ref{FACCES REM} to clarify this point. % that should make this point clearer. %
       
 
 \item[53.] The adjunctions from this notation are only used in a single instance, in the proof of part (i) of Proposition \ref{SSSETJREE PROP}; this use is also simpler since only the single $\partial \Delta[m]$ isn't a representable.
@@ -166,7 +170,7 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
       
 Edited Proposition \ref{UNIQUEFACT PROP} to also include a statement about planar maps.
 
-Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' in to clarify both its meaning and why such an outer face exists. %
+Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' to clarify both its meaning and why such an outer face exists. %
 
 \item[12.] Reworded Proposition \ref{MINGFACT PROP} to state that $GU$ is the smallest orbital face containing $U$.
       
@@ -208,7 +212,7 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' in to clarify 
       
 \item[42.] Clarified the meaning of hypersaturation in the paragraph before Proposition \ref{HYPERLP PROP} when not assuming that the maps are cofibrations. %
 
-\item Added Remark \ref{DUMBHYPER REM} to clarify a hypersaturation argument used repeatedly in the paper.      
+\item Added Remark \ref{DUMBHYPER REM} to clarify a easy hypersaturation argument used repeatedly in the paper.      
 
       
 
@@ -220,7 +224,7 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' in to clarify 
       
 \item[69.] Reworded the proof of Lemma \ref{GENSET LEM} describing the normal generators of $\mathsf{PreOp}^G$ to avoid the confusing wording. %
 
-\item[70.] Completed the proof of Lemma \ref{GENSET LEM} by indicating why the generators are normal. %   
+\item[70.] Reworded the proof of Lemma \ref{GENSET LEM} to indicate why the generators are normal. %   
  
 
 
@@ -278,15 +282,12 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' in to clarify 
 
 \item[66.] Edited Notation \ref{JM NOT} defining $J^m$ to provide a little more information.
 
-Added the new Remark \ref{JREEDYCOF REM} immediately after said notation proving that $J^{\bullet}$ is Reedy cofibrant cosimplicial.
-
-Added reference to this new remark in the discussion in Remark \ref{CONCRECOM REM}.
-
-Added reference to this new remark in the proof of Proposition \ref{COMPLE PROP}.
+Added the new Remark \ref{JREEDYCOF REM} immediately after said notation proving that $J^{\bullet}$ is Reedy cofibrant cosimplicial,
+and added references to it in Remark \ref{CONCRECOM REM}, proof of Proposition \ref{COMPLE PROP}.
 
 Added a definition of the bisimplicial $X(-)$ notation immediately before Proposition \ref{SESP PROP}.
 
-Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ with $m$. %
+%Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ with $m$. %
 
 \item[72.] Added explanation in Lemma \ref{TRIVFIB LEM} for why $X \otimes J$ is a cylinder object. %
 
@@ -302,7 +303,7 @@ Edited Proposition \ref{SESP PROP} and its proof to replace appearances of $n$ w
       
 \item Added reference for why $X^{\Omega[T]}$ is Segal space in Proposition \ref{JDDK PROP}. %
 
-\item Fixed the incorrect $\iota^{\**}_G$ notation issue at the end of the proof of Proposition \ref{JDDK PROP} by circumventing that notation. %
+%\item Fixed the incorrect $\iota^{\**}_G$ notation issue at the end of the proof of Proposition \ref{JDDK PROP} by circumventing that notation. %
       
 \item Added Remark \ref{DKCOM REM} which performs the argument about DK equivalences inducing equivalences on fibers
       
