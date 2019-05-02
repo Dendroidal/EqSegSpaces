@@ -5684,6 +5684,16 @@ where $[1]$ is the $1$-simplex regarded as a $G$-trivial $G$-tree, and $C$ is a 
 (see Notation \ref{GCOR NOT}). Adapting the discussion
 in Example \ref{THM71 EX}, $[1] \otimes C$ is the union of two maximal $G$-subtrees $C \star \eta$ and $\eta \star C$,
 whose orbital representations are depicted below.
+%
+%
+Explicitly, and noting that the edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
+are $\{0,1\} \times \boldsymbol{E}(C)$,
+the tree
+$C \star \eta$ (resp. $\eta \star C$)
+has the edges $(i,e)$ such that
+$i=0$ or $e\in \boldsymbol{E}(C)$ is a root 
+(resp. $i=1$ or $e \in \boldsymbol{E}(C)$ is a leaf),
+where we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root.
 \begin{equation}\label{OTIMESDECOMP EQ}
 \begin{tikzpicture}
 [grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
@@ -5746,9 +5756,12 @@ Proposition \ref{JDDK PROP} will make use of the cube diagram below, where
 $\partial \Omega[C] = \partial^l \Omega[C] \amalg \partial^r \Omega[C]$ is the decomposition of the edges of $C$ into leaves and roots. All maps are the inclusions determined by the decomposition \eqref{OTIMESOC_EQ}, but it seems worthwhile to be explicit regarding how 
 $\partial^l \Omega[C]$ and $\partial^r \Omega[C]$
 include into
-$\Omega[1] \otimes \Omega[C]$. The edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
-are $\{0,1\} \times \boldsymbol{E}(C)$
-so that an edge $l$ in $\partial^l \Omega[C]$ includes as $(0,l)$ while an edge $r$ in $\partial^r \Omega[C]$ includes as $(1,r)$ (we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root).
+$\Omega[1] \otimes \Omega[C]$. 
+%The edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
+%are $\{0,1\} \times \boldsymbol{E}(C)$
+%so that
+An edge $l$ in $\partial^l \Omega[C]$ includes as $(0,l)$ while an edge $r$ in $\partial^r \Omega[C]$ includes as $(1,r)$.
+%(we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root).
 \begin{equation}\label{BIGCUBE EQ}
 \begin{tikzcd}[column sep=1pt,row sep=10pt]
 	\partial \Omega[C] \ar{rr} \ar{rd} \ar{dd} && 
@@ -7860,26 +7873,26 @@ Abbreviating $\mathbb{R}_{\leq n-1}$ as $\mathbb{R}_{<n}$, this follows from the
 \simeq
 	\int_{\bar{r} \in \mathbb{R}_{<|r|}} 
 \left\{\mathbb{R}(r,\bar{r}),
-	\int_{\hat{r} \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},\hat{r}) ,X \right\}\right\}\simeq
+	\int_{\hat{r} \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}\right\}\simeq
 \\
 \simeq&
 	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{\hat{r} \in \mathbb{R}}
 \left\{\mathbb{R}(r,\bar{r}),
-	\left\{\mathbb{R}(\bar{r},\hat{r}) ,X \right\}\right\}
+	\left\{\mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}\right\}
 \simeq
 %	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{r \in \mathbb{R}}
-%\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}\simeq
+%\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X_{\hat{r}} \right\}\simeq
 %\\
 %\simeq &
 	\int_{\hat{r} \in \mathbb{R}} \int_{\bar{r} \in \mathbb{R}_{<|r|}}
-\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X \right\}\simeq
+\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}\simeq
 \\
 \simeq &
 	\int_{\hat{r} \in \mathbb{R}} 
-\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X \right\}
+\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}
 \simeq
 	\int_{\hat{r} \in \mathbb{R}} 
-\left\{\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-)\right)(\hat{r}) ,X \right\} =
+\left\{\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-)\right)(\hat{r}) ,X_{\hat{r}} \right\} =
 \{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-),X \}_{\mathbb{R}} 
 \end{align}
 where the second step is the Yoneda lemma, the fourth step is Fubini together with adjointness for $\{-,-\}$, and the sixth step is the coYoneda lemma \cite[Ex. 1.4.6]{Ri14}.
@@ -7929,7 +7942,7 @@ $\mathsf{sk}_{n-1} \Delta^{op}(n,-) = \mathsf{sk}_{n-1} \Delta[n] = \partial \De
 
 Similarly, letting $\mathbb{R} = G \times \Omega^{op}$ as in 
 Example \ref{FGRAPHREEDY EX} and letting 
-$\Gamma \in \mathcal{F}_U$ be a graph subgroup encoding a $H$ action on $U$, then
+$\Gamma \in \mathcal{F}_U$ be a graph subgroup encoding a $H$-action on $U$, then
 \begin{align}
 	\left( \mathsf{sk}_{|U|-1} \left( G \times \Omega^{op} \right)(U,-) \right)/\Gamma
 = &
