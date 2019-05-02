@@ -5044,7 +5044,7 @@ Given a map $X \to Y$ between dendroidal Segal spaces and $T \in \Omega_G$, cons
 	\underset{[e_i] \in \boldsymbol{E}_G(T)} {\prod} \left(Y(\eta)\right)^{H_i}
 \end{tikzcd}
 \end{equation}
-where $H_i \leq G$ is the isotropy of $e_i$.
+where $H_i \leq G$ is the isotropy of $e_i \in \boldsymbol{E}(T)$.
 Since the fibers of the bottom vertical maps are products of spaces of maps for $G$-profiles and the top vertical maps are trivial fibrations by the Segal conditions, 
 %the map 
 $X \to Y$ is fully faithful iff \eqref{DKCOM EQ} 
@@ -5088,11 +5088,13 @@ the maps $X(\eta)^H \to Y(\eta)^H, H\leq G$, are Kan equivalences.
 
 \begin{definition}\label{HEQUIV DEF}
 	Let $X\in \mathsf{sdSet}^G$ be a dendroidal Segal space.
+	
+	
 	For $H \leq G$, we call 
 	$f \in X_0(\Omega[C_{H/H}]) = X_0([1])^H$ a 
 	\textit{$H$-equivalence} 
 	if $[f]$ is an isomorphism in the category
-	$ho\left(\iota^{\**}\left( X^H \right)\right) = \iota_G^{\**} ho(X)(G/H)$.
+	$\iota_G^{\**} ho(X)(G/H) = ho\left(\iota^{\**}\left( X^H \right)\right)$.
 \end{definition}
 
 In what follows, and in analogy to \cite[\S 11.2]{Rez01},
@@ -5865,12 +5867,10 @@ of a fibration between pullback squares are fibrant pullback squares, it follows
 fibers of the top left vertical map in \eqref{BIGCUBEDU EQ}
 are homotopy pullbacks of the fibers of the remaining vertical maps.
 And since this top left vertical map is the right vertical map in \eqref{BIGSQ EQ}, the desired claim that the total diagram in \eqref{BIGSQ EQ}
-induces equivalences on fibers will follow provided that the same holds for the following
-composites of \eqref{BIGSQ EQ} with the left and back faces from \eqref{BIGCUBEDU EQ} % total diagrams 
-(which adapt \cite[Lemma 12.4]{Rez01}),
+induces equivalences on fibers will follow provided that the same holds for the following total diagrams
+(which are also the composites of \eqref{BIGSQ EQ} with the left and back faces of \eqref{BIGCUBEDU EQ}; compare with % total diagrams 
+\cite[Lemma 12.4]{Rez01}),
 where the horizontal maps are the obvious degeneracies.
-
-
 %\begin{equation}\label{OTBIGSQ EQ}
 %\begin{tikzcd}[column sep=14]
 %	X\left(\Omega[1] \otimes \Omega[C]\right)
@@ -5927,7 +5927,7 @@ maps in these diagrams are trivial Kan fibrations
 
 
 Lastly, to check essential surjectivity, 
-since $G$ acts trivially on $J$, \eqref{HOCOEFF EQ} yields
+since $G$ acts trivially on $J$, equation \eqref{HOCOEFF EQ} yields
 $\iota_G^{\**} ho\left( X^J \right)(G/H)=
 ho\left(\iota^{\**}\left(X^J\right)^H\right)=
 ho\left(\iota^{\**}\left(X^H\right)^J\right)$,
@@ -5947,7 +5947,7 @@ $X^J(0) \to X^J(J)$, the composites below
 show that any object in $\left(X^J\right)_0$ is equivalent to a 
 degenerate object, which is thus in the image of $X\to X^J$.
 \[
-	X^J(0) \xrightarrow{X(H)} 
+	X^J(0) \xrightarrow{X(F)} 
 	X^{J}(J) \to
 	X^J(1) \rightrightarrows X^J(0)
 \]
