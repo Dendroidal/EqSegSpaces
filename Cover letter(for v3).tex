@@ -59,11 +59,11 @@ We have implemented the vast majority of the changes recommended by the referee,
 The updates are organized into four categories:
 \begin{itemize}
 \item in ``Requested Revisions'', we address the two key pieces of unclear notation.
-\item in ``Comments and departures'', we answer questions posed by the referee, and indicate where and why we departed from the suggestions of the referee.
+\item in ``Comments and departures'', we answer questions posed by the referee, and indicate where and why we departed from the referee's suggestions.
 \item in ``Changes'', we address suggestions which required more significant edits,
 % to the article, or small changes regarding errors which had inhibited mathematical understanding. These changes have themselves been grouped thematically.
 and which we group thematically.
-\item in ``Minor changes'', we list typos and other small corrections made in response to errors which did not appear to affect the referee's understanding.
+\item in ``Minor changes'', we list fixed typos and other small corrections. % made in response to errors which did not appear to affect the referee's understanding.
 \end{itemize}
 
 Our updates are numbered by the corresponding numbered item in the referee report,
@@ -76,7 +76,7 @@ and all internal references have been modified to match the new numbering from t
 % The two locations which caused the referee confusion have been been updated.
 
 \begin{itemize}
-\item The first location, at the beginning of Section 5.2, was an unfortunate typo: %, if a maximally confusing one:
+\item The first location, at the beginning of \S 5.2, was an unfortunate typo: %, if a maximally confusing one:
       in \eqref{OTIMESOC_EQ}, $\otimes_{\Omega[C]}$ has been changed to $\coprod_{\Omega[C]}$.
       We have also added context by recalling a similar decomposition of the product of 1-simplexes.
 
@@ -197,10 +197,12 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' to clarify bot
 
 \item[30.] Corrected $A_C = 
       A \cup \bigcup_{g\in G,V \in C} g b_{[e]}(\Omega[V])$ in the final paragraph of Remark \ref{CHAREDGE2 REM}.
+
+      Expanded Remark \ref{FACEGACT REM} to explain why $\Omega[gV] = g\Omega[V]$ and better explain the connection with isotropy of representable subpresheaves. % 
+     
+%      Added the alternate $g \Omega[V]$ formula already in the proof of the characteristic edge lemma.
       
-      Similarly, added the alternate $g \Omega[V]$ formula already in the proof of the characteristic edge lemma.
-      
-      Moreover, expanded Remark \ref{FACEGACT REM} to explain why $\Omega[gV] = g\Omega[V]$ and better explain the connection with isotropy of representable subpresheaves. %
+
       
 
       
@@ -212,7 +214,7 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' to clarify bot
       
 \item[42.] Clarified the meaning of hypersaturation in the paragraph before Proposition \ref{HYPERLP PROP} when not assuming that the maps are cofibrations. %
 
-\item Added Remark \ref{DUMBHYPER REM} to clarify a easy hypersaturation argument used repeatedly in the paper.      
+\item Added Remark \ref{DUMBHYPER REM} to clarify an easy hypersaturation argument used repeatedly in the paper.      
 
       
 
@@ -232,7 +234,7 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' to clarify bot
 
       % ---------- fibrant objects ----------
       \subsubsection*{Joint localizations and characterizations of fibrant objects}
-\item[1.] Added the names of the fibrant objects to the introduction when naming the model structures in question, as well as included a version of the table produced by the referee (and references to the categorical narrative).
+\item[1.] Added the names of the fibrant objects to the introduction when naming the model structures in question, as well as included a version of the table produced by the referee. % (and references to the categorical narrative).
       
 \item[2.] Added Remark \ref{RECOVDEF REM} which explains why our results extend \cite[Thm. 6.6]{CM13a} and clarified the influence of \cite[Thm. 6.6]{CM13a} in the introduction (to the paper and to \S 4). %
       
@@ -265,9 +267,7 @@ Expanded Notation \ref{BARUT NOT} when defining ``outer closure'' to clarify bot
       
       % added the actual formulas for $X(A)$, since they get used here...
       
-      Added an alternate formula for $\upsilon_{\**}$ after \eqref{DSETG_EQ}.
-      
-      Added Remark \ref{UPSPUSHMON REM} noting that $\upsilon_{\**}$ preserves certain pushouts %
+      Added an alternate formula for $\upsilon_{\**}$ after \eqref{DSETG_EQ} and Remark \ref{UPSPUSHMON REM} noting that $\upsilon_{\**}$ preserves certain pushouts. %
       
       % added internal references which show that $ho(X)$ is a genuine equivariant operad
       
@@ -291,7 +291,7 @@ Added a definition of the bisimplicial $X(-)$ notation immediately before Propos
 
 \item[72.] Added explanation in Lemma \ref{TRIVFIB LEM} for why $X \otimes J$ is a cylinder object. %
 
-\item[81.] Added an explanation to Proposition \ref{SESP PROP} for why $X^h(J) = X(J)$. %     
+\item[81.] Added an explanation to the proof of Proposition \ref{SESP PROP} for why $X^h(J) = X(J)$. %     
 
       Slightly strengthened Proposition \ref{SESP PROP}(iv) to include weak equivalences $X(J^m) \to X^h(m)$ for all $m$ (to be used in the revised proof of Proposition \ref{COMPLE PROP}).
 
@@ -300,24 +300,24 @@ Added a definition of the bisimplicial $X(-)$ notation immediately before Propos
       % ---------- Section 5.2 ----------
       \subsubsection*{Edits related to \S 5.2}
 
-      We have reorganized this section and revised proofs to increase readability. Major such changes follow below.
+      We have reorganized this section and revised proofs to increase readability. The major changes follow below.
       
 \item[55.] Rewrote the proof of and improved Corollary \ref{SSETSSETADJ COR} to add a sufficient condition for when $\delta^{\**}(X)$ is a Kan complex (to be used in the revised proof of Proposition \ref{COMPLE PROP}), and expanded the succeeding Remark \ref{HYPERSIMPL REM} to reflect this.
       
-\item Expanded the discussion of cube fibrancy/cofibrancy before and during the proof of Proposition \ref{JDDK PROP}, and (hopefully) made the overall argument a little clearer. %
+\item Expanded the discussion of cube fibrancy/cofibrancy before and during the proof of Proposition \ref{JDDK PROP}, and (hopefully) made the overall argument clearer. %
       
 %\item Added reference for why $X^{\Omega[T]}$ is Segal space in Proposition \ref{JDDK PROP}. %
 
 %\item Fixed the incorrect $\iota^{\**}_G$ notation issue at the end of the proof of Proposition \ref{JDDK PROP} by circumventing that notation. %
       
-\item Added Remark \ref{DKCOM REM} to \S 5.1, which performs the argument about DK equivalences inducing equivalences on fibers.
+\item Added Remark \ref{DKCOM REM} to \S 5.1, stating that DK equivalences inducing equivalences on suitable fibers (this originally took place midway through a proof in \S 5.2).
       
-      Added Corollary \ref{DKCOM COR} to \S 5.1, which spells out some key consequences of Remark \ref{DKCOM REM}.     
+      Added Corollary \ref{DKCOM COR} to \S 5.1, which gives some key consequences of Remark \ref{DKCOM REM}.     
       
       % A Large portion of this proof has been rewritten with some slight changes in notation and more details provided, including fixing the math typo where $G$ should have been $\Lambda^i[n] \times G$.
 
       
-\item Major rewrite of the proof of Proposition \ref{COMPLE PROP}.
+\item Significant rewrite of proof of Proposition \ref{COMPLE PROP} to increase readability and slightly strengthen the claims in the proof.
       
       % Added Remark \ref{LAMBJREAL REM}, which does a quick argument needed for the proof of the revised proof of Proposition \ref{COMPLE PROP}.
 
@@ -333,15 +333,16 @@ Added a definition of the bisimplicial $X(-)$ notation immediately before Propos
       
 \item Added short proof to Proposition \ref{FGTRL_PROP}. %
 
-\item Added Lemma \ref{BLAFACT LEM} to highlight argument used in the proof of Theorem \ref{REEDYADM THM}.
+%\item Added Lemma \ref{BLAFACT LEM} to highlight argument used in the proof of Theorem \ref{REEDYADM THM}.
             
 \item Added Corollary \ref{FTRIVALL COR} and moved Remark \ref{COFNOTRES REM} from later in the appendix to after Proposition \ref{FGTRL_PROP}.
 
-      Rephrased Lemmas \ref{REEDYTRCOF LEM}, \ref{REEDYTRFIB LEM} and their proofs to highlight the duality and breaking of duality.
+      Rephrased the proofs of the key Lemmas \ref{REEDYTRCOF LEM}, \ref{REEDYTRFIB LEM} to clarify the argument.
+      % and their proofs to highlight the duality and breaking of duality.
       
-\item Added Notation \ref{RPLUSR NOT} to discuss the categories $\mathbb R^+(r)$.
+\item Added Notation \ref{RPLUSR NOT} to discuss the categories $\mathbb R^+(r)$ in more depth.
       
-\item[58.] A brief discussion of cofibrant generation for Reedy model structures was added to the end of the appendix, in particular Proposition \ref{REEDYCOFGEN PROP}. The proof of this result, Proposition \ref{SDSETJRCOF PROP}, was reworded accordingly. %
+\item[58.] A brief discussion of cofibrant generation for Reedy model structures was added to the end of the appendix in Proposition \ref{REEDYCOFGEN PROP}. The proof of Proposition \ref{SDSETJRCOF PROP}, was reworded accordingly. %
 
 
       
@@ -442,7 +443,9 @@ Similarly, a similar comment was added in the remark immediately preceding \S 4.
 \item[83.] removed the word ``degeneracy'' in the discussion of generalized Reedy category structure on $G \times \mathbb{S}$
 \item[84.] added comment saying that ``$L_r$ and $M_r$ are recalled below'' before the theorem
 \item[86.] changed ``genuine'' to ``fine''
-\item[87.] Fixed the indexes in the ``extension of partial factorizations'' lemma
+\item[87.] Fixed the indexes in 
+%the ``extension of partial factorizations''
+Lemma \ref{BLAFACT LEM}
 \end{itemize}
 
 
