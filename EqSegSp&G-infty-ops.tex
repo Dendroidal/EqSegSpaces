@@ -3684,7 +3684,7 @@ Further, in the horizontal Reedy model structure the generating trivial cofibrat
 	\left( \Lambda^i[n] \to \Delta[n] \right)
 \square
 	\left( \partial \Delta[m] \to \Delta[m] \right),
-\qquad n \geq 1, m\geq 0, n \geq i \geq 0,
+\qquad n \geq 1, n \geq i \geq 0, m\geq 0, 
 \end{equation}
 while for the vertical Reedy model structure the generating trivial cofibrations are the maps
 \begin{equation}\label{GTRCOVER EQ}
@@ -5329,7 +5329,7 @@ $Sc[T] \cup \Omega[T[Ge]]$
 of subcomplexes of $\Omega[T]$.
 We now consider the following diagram, 
 where all solid maps are Kan fibrations, 
-and the maps labeled $\sim$ are trivial Kan fibrations
+and the maps labelled $\sim$ are trivial Kan fibrations
 ($Sc_{T[Ge]}[T]$ is a cover in the sense of Remark \ref{RECOVER REM}(i),
 hence both maps $Sc[T] \to Sc_{T[Ge]}[T] \to \Omega[T]$ are $G$-inner anodyne), so that one can choose the indicated sections.
 \begin{equation}\label{FOURSQ EQ}
@@ -5602,7 +5602,7 @@ $X^h(J^m) \to X^h(m)$
 are Kan equivalences. 
 It remains to show
 $X^h(J^m) = X(J^m)$. We first focus on the case of $J=J^1$, for which we consider
-the following diagrams, where maps out of $X(J)$ are labeled as $\partial_{\underline{a}}$ for $\underline{a}$ the associated simplex of $J$ (which is a string on $\{0,1\}$)
+the following diagrams, where maps out of $X(J)$ are labelled as $\partial_{\underline{a}}$ for $\underline{a}$ the associated simplex of $J$ (which is a string on $\{0,1\}$)
 \[
 \begin{tikzcd}[column sep = 20]
 	X(J) \ar[bend left=19]{rr}{\partial_{00}} \ar{r}{\partial_{010}}
@@ -5836,7 +5836,6 @@ is the statement that the leftmost square in \eqref{BIGSQ EQ} induces weak equiv
 Now note that
 $X^{\Omega[1]}(\Omega[C]) = X\left(\Omega[1] \otimes \Omega[C]\right)$, so that \eqref{BIGCUBE EQ} induces the cube \eqref{BIGCUBEDU EQ} below with dual properties: this is an injective fibrant cube whose horizontal faces are pullback squares.
 Moreover, we will find it convenient to slightly repackage these properties. Regarding the top and bottom faces of \eqref{BIGCUBEDU EQ} as objects in the category of square diagrams, the vertical maps in \eqref{BIGCUBEDU EQ} can then be collectively regarded as a projective fibration between projective fibrant pullback squares.
-
 \begin{equation}\label{BIGCUBEDU EQ}
 \begin{tikzcd}[column sep=1pt,row sep=10pt]
 	X\left(\Omega[1] \otimes \Omega[C]\right) \ar[->>]{rr} \ar[->>]{rd} \ar[->>]{dd} && 
@@ -6029,9 +6028,7 @@ and complete/joint equivalence $X \to \tilde{X}$ such that
 \end{itemize}
 \end{proposition}
 
-
-\begin{proof}
-Our proof adapts the construction of the completion functor in \cite[\S 14]{Rez01}.
+Our proof will adapt the construction of the completion functor in \cite[\S 14]{Rez01}.
 
 Firstly, let 
 $X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
@@ -6043,6 +6040,53 @@ $\delta^{\**} \colon \mathsf{ssdSet}^G \to \mathsf{sdSet}^G$
 for the diagonal functor in the two simplicial directions
 (adapting the functor in \S \ref{JOINBOUS SEC}), we set
 $\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right)$ with the natural map $X \to \tilde{X}$ induced by degeneracies (cf. Proposition \ref{SSSETJREE PROP})(iv).
+
+
+\begin{remark}\label{NOTTRANS REM}
+For fixed $n$ and $K\in \mathsf{sSet}$, and regarding 
+$X_n^{J^{\bullet}} \in \mathsf{sdSet}^G$,
+one can translate between the 
+$(-)_{(-)}$ and $(-)^{(-)}$ notations in Notation \ref{UNILIMDEN NOT} via
+\[
+	\left(X^{J^{\bullet}}_n\right)_K
+=
+	\left(X^{J^{\bullet}}_n\right)_{
+	\left(\colim_{\Delta[k] \to K} \Delta[k]\right)}
+=
+	\lim_{
+	%\left(
+	\Delta[k] \to K
+	%\right)
+	% \in (\Delta \downarrow K)
+	} X^{J^k}_n
+=
+	X^{\left(\colim_{\Delta[k] \to K} J^k\right)}_n
+\]
+where $K \simeq \colim_{\Delta[k] \to K} \Delta[k]$ is the standard
+decomposition of $K\in \mathsf{sSet}$ as a colimit of simplices.
+In the special cases of $K$ either $\partial \Delta[m]$ or $Sc[m]$
+one has (recall that $L_m$ is the latching object)
+\[	\left(\colim_{\Delta[k] \to \partial \Delta[m]} J^k\right) \simeq L_m J^{\bullet}
+\qquad
+	\left(\colim_{\Delta[k] \to Sc[m]} J^k\right) \simeq 
+	J \amalg_{\Delta[0]} \cdots \amalg_{\Delta[0]} J
+\]
+\end{remark}
+
+
+\begin{proof}[Proof of Proposition \ref{COMPLE PROP}]
+%Our proof adapts the construction of the completion functor in \cite[\S 14]{Rez01}.
+
+%Firstly, let 
+%$X^{J^{\bullet}} \in (\mathsf{sdSet}^G)^{\Delta^{op}}
+%= \mathsf{ssdSet}^G$
+%be the object whose $m$-th level
+%is $X^{J^m}$. 
+%Then, writing
+%$\delta^{\**} \colon \mathsf{ssdSet}^G \to \mathsf{sdSet}^G$
+%for the diagonal functor in the two simplicial directions
+%(adapting the functor in \S \ref{JOINBOUS SEC}), we set
+%$\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right)$ with the natural map $X \to \tilde{X}$ induced by degeneracies (cf. Proposition \ref{SSSETJREE PROP})(iv).
 Most of the proof will be spent showing that 
 $\tilde{X} = \delta^{\**}\left(X^{J^{\bullet}}\right) \in \mathsf{sdSet}^G$ is dendroidal Reedy fibrant
 by establishing the lifting conditions needed to apply 
@@ -6054,7 +6098,7 @@ it follows from \cite[Prop 7.25]{Per18} that
 the maps (where $\square^{\otimes}$ denotes the pushout product with regard to $\otimes$)
 \[
 X \left( \left(L_m J^{\bullet} \to J^m \right) \square^{\otimes} \left( \partial \Omega[T] \to \Omega[T] \right) \right)\]
-are Kan fibrations, and thus
+are Kan fibrations. Remark \ref{NOTTRANS REM} then implies that
 $X^{J^{\bullet}} \in \mathsf{ssdSet}^{G}$
 has the right lifting property against all maps
 \begin{equation}\label{LIFTBASIC EQ}
@@ -6084,18 +6128,21 @@ also has the lifting property against the two sets of maps
 	\left( \partial \Omega[T] \to \Omega[T] \right),
 	\quad n \geq 0, m\geq 1, m \geq j \geq 0, T \in \Omega_G \setminus \{G/H \cdot \eta\}
 \end{equation}
-Note that, just as in Remark \ref{HYPERMODEL REM}, one is free to replace the maps
+Note that, just as in Remark \ref{HYPERMODEL REM}, one can replace the maps
 $\Lambda^j[m] \to \Delta[m]$, $\partial\Omega[T] \to \Omega[T]$
 appearing in \eqref{LIFTETA EQ} and  \eqref{LIFTCSK EQ}
-with a set with the same saturation.
+with a set with the same hypersaturation.
 For \eqref{LIFTETA EQ}, by Remarks \ref{SLICE REM} and \ref{ANHYPER REM}
-one needs only consider the Segal core inclusions 
-$Sc[m] \to \Delta[m]$ and the horn inclusions
+one needs only consider the 
+%Segal core
+inclusions 
+$Sc[m] \to \Delta[m]$ and
+% the horn inclusions
 $\Lambda^0[2] \to \Delta[2]$,
 $\Lambda^2[2] \to \Delta[2]$.
 But the claimed lifting condition against \eqref{LIFTETA EQ} then amounts to 
 Remark \ref{LAMBJREAL REM}
-applied to each of the simplicial Segal spaces $\iota^{\**}\left(X^H\right), H\leq G$.
+applied to each of the simplicial Segal spaces $\iota^{\**}\left(X^H\right), H\leq G$ (also, see Remark \ref{NOTTRANS REM}).
 
 
 For \eqref{LIFTCSK EQ}, by Remarks \ref{DUMBHYPER REM} and \ref{HYPERSATKAN REM}
@@ -6131,27 +6178,33 @@ fibers.% of its vertical maps.
 
 
  
-We can finally show that 
+We 
+%can
+finally show that 
 $\tilde{X} = \delta^{\**} \left(X^{J^{\bullet}} \right)$
 is dendroidal 
 %Reedy
- fibrant. 
+ fibrant, i.e. that % the maps
 %Indeed, 
-Since
 $\left(\tilde{X}(\Omega[T]) \to \tilde{X}(\partial\Omega[T])\right) = 
-\delta^{\**} \left( X^{J^{\bullet}}(\Omega[T]) \to X^{J^{\bullet}}(\partial \Omega[T])\right)$,
-the fact that this is a Kan fibration for $T= G/H \cdot \eta$
+\delta^{\**} \left( X^{J^{\bullet}}(\Omega[T]) \to X^{J^{\bullet}}(\partial \Omega[T])\right)$
+is a Kan fibration for any $T \in \Omega_G$.
+%
+%the fact that this is a Kan fibration
+When $T= G/H \cdot \eta$ the target is the terminal object so this
 follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTETA EQ}
-and the second ``moreover'' condition in Corollary \ref{SSETSSETADJ COR} while for $T \neq G/H \cdot \eta$ this follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ} and the first ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
-
+and the second ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
+%
+For $T \neq G/H \cdot \eta$ this follows from the lifting conditions against \eqref{LIFTBASIC EQ},\eqref{LIFTCSK EQ} and the first ``moreover'' condition in Corollary \ref{SSETSSETADJ COR}.
+%
 
 
 To see that $\tilde{X}$ is a complete Segal space, note that the natural  map
 $X_0^{J^{\bullet}} \to
 \delta^{\**}\left( X^{J^{\bullet}} \right)
 = \tilde{X}$
-is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv), 
-so that since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
+is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
+so that, since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
 
 
 
@@ -6738,7 +6791,7 @@ though additional conditions are needed to ensure compatibility with the operadi
 In the following, we abbreviate 
 $\delta_{\mathcal{F}} = \delta_{\Omega_{\mathcal{F}}}$ and,
 for each $G$-vertex $v$ of $T \in \Omega_G$, we write 
-$T_v$ for the orbital outer face whose only
+$T_v \hookrightarrow T$ for the orbital outer face whose only
 $G$-vertex is $v$.
 
 \begin{definition}
@@ -6760,7 +6813,7 @@ $\Omega_{\mathcal{F}} \subseteq \Omega_G$ such that:
 
 
 \begin{remark}\label{SEGCOMB REM}
-	Condition (ii) can be reinterpreted as combining the following two conditions:
+Given (i), condition (ii) can be reinterpreted as combining the following: % two conditions:
 \begin{itemize}
 	\item[(ii')] the characteristic presheaf $\delta_{\mathcal{F}}$ is Segal, i.e. 
 	$\delta_{\mathcal{F}}(T) = 
@@ -6826,10 +6879,11 @@ which \cite[Def. 3.22]{BH15} makes explicit.
 
 
 All results in the paper now extend to the context of a general weak indexing system $\Omega_{\mathcal{F}}$
-by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The following are some notable consequences:
+by essentially replacing $\Omega_G$ with $\Omega_{\mathcal{F}}$ throughout. The following are some notable modifications:
 \begin{itemize}
 \item notions in $\mathsf{dSet}^G$ discussed in \S \ref{PREL SEC} such as 
-	``$G$-normal monomorphism'', ``$G$-inner horn'', ``$G$-inner anodyne'', ``$G$-$\infty$-operad'' are replaced with
+	``$G$-normal monomorphism'', ``$G$-inner horn'', ``$G$-inner anodyne'', ``$G$-$\infty$-operad'' are replaced
+	(by restricting $T \in \Omega_{G}$ to $T \in \Omega_{\mathcal{F}}$) with
 	``$\mathcal{F}$-normal monomorphism'', ``$\mathcal{F}$-inner horn'', ``$\mathcal{F}$-inner anodyne'', ``$\mathcal{F}$-$\infty$-operad'';
 \item the model structure on $\mathsf{dSet}^G$ from 
 \cite[Thm. 2.1]{Per18} is replaced with the model structure
@@ -6843,7 +6897,7 @@ $\mathcal{F}$-dendroidal sets
 \end{itemize}
 We briefly outline the main reasons why these substitutions do not affect our proofs.
 
-Firstly, the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, extends automatically. Indeed, if $T \in \Omega_{\mathcal{F}}$ the sieve condition implies
+Firstly, the characteristic edge lemma, Lemma \ref{CHAREDGE LEM}, extends automatically. Indeed, if $T \in \Omega_{\mathcal{F}}$ the sieve condition for $\Omega_{\mathcal{F}}$ implies 
 that the filtrations produced by the original 
 Lemma \ref{CHAREDGE LEM} must necessarily use only 
 $\mathcal{F}$-inner horn inclusions.
@@ -6892,7 +6946,11 @@ The adjunction
 \]
 is a Quillen equivalence.
 \end{theorem}
-In \S \ref{HMPTYGEN SEC} $\mathcal{F}$-dendroidal Segal spaces are defined in the natural way. The most notable difference is then that one works only with 
+In \S \ref{HMPTYGEN SEC} $\mathcal{F}$-dendroidal Segal spaces
+$X \in \mathsf{sdSet}^G$
+are defined in the natural way by localizing the $\mathcal{F}$-dendroidal Reedy model structure against the Segal core inclusions
+$Sc[T] \to \Omega[T], T \in \Omega_{\mathcal{F}}$.
+The most notable difference is then that in Notation \ref{GCOR NOT} and afterwards one works only with 
 $\mathcal{F}$-corollas, i.e. $G$-corollas
 $C \in \Omega_{\mathcal{F}}$,
 and thus only with $\mathcal{F}$-profiles, thus obtaining a notion of $\mathcal{F}$-fully faithfullness and of $\mathcal{F}$-DK-equivalence 
@@ -6929,9 +6987,9 @@ defined by modifying the usual characterizations of
 Reedy cofibrations, weak equivalences and fibrations
 (see \cite[Thm. 1.6]{BM11} or
 Theorem \ref{REEDYADM THM} below)
- to be determined by the $\mathsf{Aut}(r)$-projective model structures
+to be determined by the $\mathsf{Aut}(r)$-projective model structures
 on $\mathcal{C}^{\mathsf{Aut}(r)}$
-for each $r \in \mathbb{R}$. 
+for each $r \in \mathbb{R}$.
 
 The purpose of this appendix is to show that,
 under suitable conditions, this can also be done by replacing
@@ -6969,7 +7027,10 @@ and a degree function $|\minus| \colon ob(\mathbb{R}) \to \mathbb{N}$ such that:
 	\item[(i)] non-invertible maps in $\mathbb{R}^+$ (resp. $\mathbb{R}^-$) raise (lower) degree; isomorphisms preserve degree;
 	\item[(ii)] $\mathbb{R}^+ \cap \mathbb{R}^- = \mathsf{Iso}(\mathbb{R})$;
 	\item[(iii)] every map $f$ in $\mathbb{R}$ factors as
-	$f = f^{+} \circ f^{-}$ with $f^{+} \in \mathbb{R}^+$, $f^{-} \in \mathbb{R}^-$, and this factorization is unique up to isomorphism.
+	$f = f^{+} \circ f^{-}$ with $f^{+} \in \mathbb{R}^+$, $f^{-} \in \mathbb{R}^-$, and this factorization is unique up to isomorphism
+	(meaning that if 
+	$f = \tilde{f}^{+} \circ \tilde{f}^{-}$ is another such factorization, then
+	$f^+ = \tilde{f}^+ \circ \phi$, $\phi \circ f^- = \tilde{f}^-$ for some isomorphism $\phi$).
 \end{itemize}
 Let $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$
 be a collection of families of subgroups of the groups $\mathsf{Aut}(r)$.
@@ -6983,7 +7044,7 @@ The collection $\{\mathcal{F}_r\}$ is called
 \end{itemize}
 \end{definition}
 
-We note that condition (iv) above should be thought as of a constraint on the pair 
+We note that condition (iv) above should be thought of as a constraint on the pair 
 $(\mathbb{R},\{\mathcal{F}_r\})$.
 The original setup of \cite{BM11} then deals with the case
 where $\{ \mathcal{F}_r \} =
@@ -6991,7 +7052,7 @@ where $\{ \mathcal{F}_r \} =
 is the collection of trivial families. Indeed, our setup recovers
 the setup in \cite{BM11}, as follows.
 
-\begin{example}
+\begin{example}\label{RECAXIV EX}
 	When $\{ \mathcal{F}_r \} =
  \left\{ \left\{ e \right\} \right\}$, Reedy-admissibility coincides with axiom (iv) in \cite[Def. 1.1]{BM11},
 stating that if $\theta \circ f^{-} = f^{-}$
@@ -7023,10 +7084,10 @@ is Reedy-admissible.
 
 
 \begin{example}\label{GGRAPHREEDY EX}
-	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} and $G$ a group,
+	Letting $\mathbb{S}$ denote any generalized Reedy category in the sense of \cite[Def. 1.1]{BM11} (cf. Example \ref{RECAXIV EX}) and $G$ a group,
 	we set $\mathbb{R} = G \times \mathbb{S}$
 	with $\mathbb{R}^+ = G \times \mathbb{S}^+$ and 
-	$\mathbb{R}^- = G \times \mathbb{S}^+$.
+	$\mathbb{R}^- = G \times \mathbb{S}^-$.
 	Further, for each $s \in \mathbb{S}$ we write
 	$\mathcal{F}_s^{\Gamma}$ for the family of 
 	$G$-graph subgroups of $G \times \mathsf{Aut}_{\mathbb{S}}(s)$, i.e., those subgroups 
@@ -7034,11 +7095,11 @@ is Reedy-admissible.
 	which are graphs of partial homomorphisms
 	$G \geq H \to \mathsf{Aut}_{\mathbb{S}}(s)$. We note that $G$-graph subgroups are also characterized by the condition $\Gamma \cap \mathsf{Aut}_{\mathbb{S}}(s) = \{e\}$.
 	
-	Reedy admissibility of $\{\mathcal{F}_s^{\Gamma}\}$ follows since for every map 
+	Reedy admissibility of $\left\{\mathcal{F}_s^{\Gamma}\right\}$ follows since for every map 
 	$s \twoheadrightarrow s'$ in $\mathbb{S}^-$ one has that the homomorphism
 	$\pi_s \colon \mathsf{Aut}_{\mathbb{S}}(s \twoheadrightarrow s')
 	\to \mathsf{Aut}_{\mathbb{S}}(s)$ is injective
-	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$).
+	(we note that this is a restatement of axiom (iv) in \cite[Def. 1.1]{BM11} for $\mathbb{S}$; see Example \ref{RECAXIV EX}).
 \end{example}
 
 Our primary example of interest is obtained by setting
@@ -7047,7 +7108,7 @@ Moreover, in this case we are also interested
 in certain subfamilies
 $\{\mathcal{F}_U\}_{U \in \Omega}
 \subseteq
-\{\mathcal{F}_U^{\Gamma}\}_{U \in \Omega}$.
+\left\{\mathcal{F}_U^{\Gamma}\right\}_{U \in \Omega}$.
 
 
 \begin{example}\label{FGRAPHREEDY EX}
@@ -7060,7 +7121,7 @@ $\{\mathcal{F}_U\}_{U \in \Omega}
 	Given a face map $\varphi \colon U' \hookrightarrow U$, 
 	the subgroup $\pi^{-1}_U(\Gamma)$ is then determined by the largest subgroup $\bar{H}\leq H$ such that 
 	$U'$ inherits the $\bar{H}$-action from $U$ along $\varphi$ (thus making $\varphi$ a $\bar{H}$-map), 
-	so that $\pi_{U'}(\pi^{-1}_U(\Gamma))$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
+	so that $\pi_{U'}\left(\pi^{-1}_U(\Gamma)\right)$ is the graph subgroup encoding the $\bar{H}$-action on $U'$.
 	Thus, we see that Reedy-admissibility is simply the sieve condition for the induced map of $G$-trees
 	$G \cdot_{\bar{H}} U' \to G \cdot_H U$.
 \end{example}
@@ -7169,14 +7230,13 @@ show that the right adjoints preserve (trivial) fibrations.
 
 
 
-
 For $\mathcal{F}_{\text{all}}$
 the family of all subgroups of $G$
 the model structure
 $\C^G_{\mathcal{F}_{\text{all}}}$ is called the 
 \textit{fine/genuine model structure}.
 We regard this as the default model structure, 
-and as such denote it simply as $\C^G$.
+and hence denote it simply as $\C^G$.
 
 \begin{corollary}\label{RESGEN COR}
 For any homomorphism $\phi \colon G \to \bar{G}$, the functor
@@ -7185,6 +7245,40 @@ $\mathsf{res}^{\bar{G}}_G \colon
 preserves all four genuine classes of 
 cofibrations, trivial cofibrations, fibrations and trivial fibrations.
 \end{corollary}
+
+\begin{corollary}\label{FTRIVALL COR}
+For any $\mathcal{F}$, a $\mathcal{F}$-(trivial) cofibration is also a genuine
+$G$-(trivial) cofibration.	
+\end{corollary}
+
+
+\begin{remark}\label{COFNOTRES REM}
+%	Given a family $\mathcal{F}$ of subgroups of $G$,
+	It is clear
+	from the definitions
+	that 
+	$X \to Y$ is a $\mathcal{F}$-weak equivalence/$\mathcal{F}$-fibration iff it is a genuine
+	$H$-weak equivalence/$H$-fibration
+	for each $H \in \mathcal{F}$.
+	However, while a $\mathcal{F}$-cofibration is necessarily a genuine $H$-cofibration for each $H \in \mathcal{F}$, the converse is rarely true.
+	
+For example, consider $\mathcal{C} = \mathsf{sSet}$ and
+	$\mathcal{F}=\{\{e\}\}$ the family consisting only of the trivial subgroup. Then the $\mathcal{F}$-cofibrant objects
+	% can be shown to be exactly
+	turn out to be the $G$-free objects of $\mathsf{sSet}^G$, but all objects are
+	genuine $\{e\}$-cofibrant, since this just means that their restriction to
+	$\mathsf{sSet}^{\{e\}}=\mathsf{sSet}$ is cofibrant.
+%	
+%	the analogue claim fails for cofibrations.
+%	For an example, consider $\mathcal{C} = \mathsf{sSet}$ and
+%	$\mathcal{F}=\{\{e\}\}$ the family containing only the trivial subgroup. Then the $\mathcal{F}$-cofibrant objects are the projective cofibrant objects, which can be shown to be exactly the $G$-free objects of $\mathsf{sSet}^G$.
+%	On the other hand, all objects of $\mathsf{sSet}^G$ are genuine $\{e\}$-cofibrant,
+%	since this simply means that their restriction to
+%	$\mathsf{sSet}^{\{e\}}=\mathsf{sSet}$ is cofibrant.
+\end{remark}
+
+
+
 
 Lemmas \ref{BLALIFT LEM} and \ref{BLAFACT LEM} below formalize straightforward arguments implicit in the proofs of \cite[Lemma 5.2]{BM11} and \cite[Thm 1.6]{BM11}.
 
@@ -7337,7 +7431,9 @@ Corollary \ref{RESGEN COR}.
 \end{remark}
 
 
-In the following, given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
+
+\begin{notation}\label{KLTIMES NOT}
+Given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
 we write $K \ltimes \mathbb{R} \to K$ 
 for the category obtained from $\mathbb{R}$ by formally adding action arrows
 $r \to kr$ for $r \in \mathbb{R},k \in K$,
@@ -7401,15 +7497,48 @@ K \xrightarrow{\mathbb{R}} \mathsf{Cat}$,
 %      \end{itemize}
 %\end{remark}
 
-Lastly, we borrow the $\mathbb{R}^+(r)$ (resp. $\mathbb{R}^-(r)$) notation from \cite{BM11} for
-the category of arrows
+We note that for a functor
+$A\colon K \ltimes \mathbb{R} \to \mathcal{C}$
+the Kan extension
+$\mathsf{Ran}_{K \ltimes \mathbb{R} \to K} A$
+(resp. $\mathsf{Lan}_{K \ltimes \mathbb{R} \to K} A$)
+is simply the (co)limit
+$\lim_{\mathbb{R}} A$
+(resp. $\colim_{\mathbb{R}} A$)
+together with the naturally induced $K$-action.
+\end{notation}
+
+
+
+\begin{notation}\label{RPLUSR NOT}
+We borrow the $\mathbb{R}^+(r)$ notation introduced after \cite[Rem. 1.5]{BM11} for the full subcategory of the overcategory $\mathbb{R} \downarrow r$
+with objects the arrows 
 $r' \xrightarrow{+} r$ in $\mathbb{R}^+$
-(resp. 
-$r \xrightarrow{-} r'$ in $\mathbb{R}^-$)
-with $|r'|<|r|$
-so that
-$L_r A = \mathop{\colim}_{\mathbb{R}^+(r)}A$
-($M_r X = \mathop{\lim}_{\mathbb{R}^-(r)}X$).
+with $|r'|<|r|$.
+One has a \emph{domain} 
+functor $d\colon \mathbb{R}^+(r) \to \mathbb{R}$ given by 
+$(r'\to r) \mapsto r'$ such that
+(cf. the discussion after \cite[Rem. 1.5]{BM11} and 
+\cite[Lemma 4.4(i)]{BM11}):
+\begin{enumerate}[label=(\roman*)]
+\item by Definition \ref{GENRED DEF}(iii)
+arrows in $\mathbb{R}^+(r)$ forget under $d$ to arrows in $\mathbb{R}^+$, so that
+$\mathbb{R}^+(r)$ becomes generalized Reedy with
+$|r' \to r| = |r'|$,
+$\left(\mathbb{R}^+(r)\right)^+ = \mathbb{R}^+(r)$,
+$\left(\mathbb{R}^+(r)\right)^- = \mathsf{Iso}\left(\mathbb{R}^+(r)\right)$;
+\item for $(r' \to r) \in \mathbb{R}^+(r)$ the functor $d$ induces isomorphisms
+$\left(\mathbb{R}^+(r)\right)^+(r'\to r) \xrightarrow{\simeq} \mathbb{R}^+(r')$;
+\item for $A \in \mathcal{C}^{\mathbb{R}}$, $(r' \to r) \in \mathbb{R}^+(r)$
+there are natural isomorphisms 
+$L_{r' \to r} \left(d^{\**} A \right) \simeq L_{r'} A$;
+\item for $A \in \mathcal{C}^{\mathbb{R}}$ there are natural isomorphisms  $L_r A = \mathop{\colim}_{\mathbb{R}^+(r)} 
+\left(d^{\**}A \right)$.
+\end{enumerate}
+Moreover, writing $\mathbb{R}^-(r)$ for the full subcategory of $r\downarrow \mathbb{R}$ with objects the 
+$r \xrightarrow{-} r'$ in $\mathbb{R}^-$ with $|r'|<|r|$, 
+one has a \emph{target} functor $t \colon \mathbb{R}^-(r) \to \mathbb{R}$ satisfying the dual properties of (i),(ii),(iii),(iv).
+\end{notation}
 
 
 \begin{remark}
@@ -7419,39 +7548,50 @@ $L_r A = \mathop{\colim}_{\mathbb{R}^+(r)}A$
 	Similarly, Lemma \ref{GINJMIN LEM} will be applied when
 	$\mathbb{S} = K \ltimes \mathbb{R}^-(r)$.
 	It is straightforward to check that in the $\mathbb{R}^+$ (resp. $\mathbb{R}^-$) case
-	maps in $\mathbb{S}$ can be identified with squares as on the left (right)
-	\begin{equation}
+	maps in $\mathbb{S}$ are identified with squares as on the left (right)
+\begin{equation}\label{ARRINS EQ}
 	\begin{tikzcd}
-		r' \ar{r}{+} \ar{d}[swap]{+} & r \ar{d}{\simeq}
+		r'' \ar{r}{+} \ar{d}[swap]{+} & r \ar{d}{\simeq}
 	& &
 		r \ar{r}{-} \ar{d}[swap]{\simeq} & r' \ar{d}{-}
 	\\
-		r'' \ar{r}[swap]{+} & r
+		r' \ar{r}[swap]{+} & r
 	& &
 		r \ar{r}[swap]{-} & r''
 	\end{tikzcd}
 \end{equation}
-such that the maps labeled $+$ are in $\mathbb{R}^+$,
-maps labeled $-$ are in $\mathbb{R}^-$,
-the horizontal maps are non-invertible, and the maps labeled $\simeq$ are automorphisms in $K$. 
-
-In particular, there is thus a \textit{domain} (resp. \textit{target}) functor
+where maps labelled $+$ are in $\mathbb{R}^+$,
+maps labelled $-$ are in $\mathbb{R}^-$,
+the horizontal maps are non-invertible, and the maps labelled $\simeq$ are automorphisms in $K$. 
+Using the projection $\pi \colon \mathbb{S} \to K$ and the domain (resp. target) functor
 $d \colon \mathbb{S} \to \mathbb{R}$ 
-($t \colon \mathbb{S} \to \mathbb{R}$), and our interest is in maps  
-$d^{\**}A \to d^{\**} B$
-($t^{\**}A \to t^{\**} B$) in $\mathcal{C}^{\mathbb{S}}$
+($t \colon \mathbb{S} \to \mathbb{R}$), 
+Lemma \ref{GINJ LEM} (\ref{GINJMIN LEM}) will be applied to maps  
+$d^{\**}A \to d^{\**} B$ ($t^{\**}A \to t^{\**} B$) in $\mathcal{C}^{\mathbb{S}}$
 induced from maps
-$A \to B$ in $\C^{\mathbb{R}}$ so that
+$A \to B$ in $\C^{\mathbb{R}}$ so that Notations \ref{KLTIMES NOT} and \ref{RPLUSR NOT}(iv) give the natural identifications below, compatibly with the $K$-actions.
 \[
-\mathsf{Lan}_{\pi} d^{\**} (A \to B) = 
+\mathsf{Lan}_{\pi} d^{\**} (A \to B) \simeq
 (L_r A \to L_r B),
 	\qquad
-\mathsf{Ran}_{\pi} t^{\**} (A \to B) = 
+\mathsf{Ran}_{\pi} t^{\**} (A \to B) \simeq
 (M_r A \to M_r B).
 \]
+Lastly, note that (in the $\mathbb{R}^+$ case) the natural inclusion
+$\left(\mathbb{R}^+(r)\right)^+(r'\to r) \xrightarrow{\iota} \mathbb{S}^+(r \to r')$ is an equivalence of categories (indeed, by adding a $\searrow$ arrow to the left square in \eqref{ARRINS EQ}, the bottom left triangle becomes an object in the source of $\iota$ and the top right triangle an isomorphism in the target of $\iota$). 
+Hence Notation \ref{RPLUSR NOT}(iii) (and its dual) also apply to $\mathbb{S}$.
 \end{remark}
 
-We now have the tools to prove the following lemmas, which are the essence of Theorem \ref{REEDYADM THM}.
+
+We can now 
+%have the tools to 
+prove the following lemmas, which are the key to Theorem \ref{REEDYADM THM}
+(to simplify our proofs, 
+the lemmas are stated %to be
+%we formulate the lemmas to be 
+as dually as possible, but some care is needed; see Remark \ref{COFNOTRES REM}).
+%  and \ref{NOTDUAL REM}
+%).
 
 
 \begin{lemma}\label{REEDYTRCOF LEM}
@@ -7469,18 +7609,41 @@ in $\mathcal{C}^{\mathbb{R}}$. Then:
 \end{lemma}
 
 \begin{proof}
-We start with (ii), arguing by induction on $n$
-that the analogous claim restricted to $|r|\leq n$ also holds. The $n=0$ case is obvious. Otherwise, letting $r$ range over representatives of the isomorphism classes of $r$ with $|r|=n$,
-it suffices to check that for each $H \in \mathcal{F}_r$
+We start with (ii), arguing by induction on $|r|$
+that the analogue claim
+restricted to
+%for
+$|r|\leq n$ holds.
+The $n=0$ case is obvious. 
+Otherwise, if suffices to show that, for each $r$ 
+%representatives of the isomorphism classes of $r$
+with $|r|=n$
+%it suffices to show that for
+and $H \in \mathcal{F}_r$,
 the map
 $A_r \to B_r$ is a $H$-genuine weak equivalence iff 
 so is $A_r \amalg_{L_r A} L_r B \to B_r$.
 
-One now applies Lemma \ref{GINJ LEM} with 
+We apply Lemma \ref{GINJ LEM} with 
 $K = H$ and 
 $\mathbb{S} = H \ltimes \mathbb{R}^+(r)$
-to the map $d^{\**}A \to d^{\**}B$. Note that $\mathcal{F}$-trivial cofibrations are always genuine trivial cofibrations, for any family, so that the trivial cofibrancy requirements are immediate from Corollary \ref{RESGEN COR}. 
-It thus follows that the maps labeled $\sim$ in
+to the map $d^{\**}A \to d^{\**}B$. 
+By Notation \ref{RPLUSR NOT}(iii), the hypothesis to be checked is that, for each $(r' \to r) \in \mathbb{S}$,
+the map $A_{r'} \amalg_{L_{r'}A} L_{r'}B \to B_{r'}$ is a genuine trivial cofibration for the group
+$\mathsf{Aut}_{\mathbb{S}}(r' \to r)$.
+% \simeq \pi_r^{-1}(H)$ (where $\pi_r$ is as in \eqref{PIDEFR EQ}). 
+But by induction this map is a $\mathcal{F}_{r'}$-trivial cofibration, so this holds by Corollaries \ref{FTRIVALL COR} and \ref{RESGEN COR}.
+%
+%
+%, with
+%the required trivial cofibrancy hypothesis in Lemma \ref{GINJ LEM}
+%following by Notation \ref{RPLUSR NOT}(ii), induction, and the fact that
+%$\mathcal{F}$-trivial cofibrations are genuine trivial cofibrations for \emph{any} family $\mathcal{F}$.
+%
+%Note that $\mathcal{F}$-trivial cofibrations are always genuine trivial cofibrations, for any family, so that the trivial cofibrancy requirements are immediate from Corollary \ref{RESGEN COR}. 
+%Thus
+It now follows that
+the maps labelled $\sim$ in
 \begin{equation}\label{WHATEV2 EQ}
 \begin{tikzcd}[row sep=10]
    L_r A \ar[>->]{r}{\sim} \ar[d]  & 
@@ -7493,12 +7656,13 @@ It thus follows that the maps labeled $\sim$ in
 \end{equation}
 are $H$-genuine trivial cofibrations, finishing the proof of (ii).
 
-Lastly (i) follows from a streamlined version of the argument above, 
+Lastly, (i) follows from a streamlined version of the argument above (with no induction needed), 
 with the same instance of Lemma \ref{GINJ LEM} showing that the maps 
 $L_r A \to L_r B$ are $H$-genuine cofibrations and thus,
-by again considering the diagram \eqref{WHATEV2 EQ},
+by again considering \eqref{WHATEV2 EQ},
 that so are the maps $A_r \to B_r$. 
 \end{proof}
+
 
 
 \begin{lemma}\label{REEDYTRFIB LEM}
@@ -7516,19 +7680,29 @@ in $\mathcal{C}^{\mathbb{R}}$. Then:
 \end{lemma}
 
 \begin{proof}
-For (ii), one repeats the same induction argument on $|r|$ as in the previous proof.
-In the induction step, it suffices to verify that, for each $r$ with $|r|=n$ and $H \in \mathcal{F}_r$, the map
+For (ii) we again argue by induction on $|r|$. We need to
+show that, for $r$ with $|r|=n$ and $H \in \mathcal{F}_r$, the map
 $X_r \to Y_r$ is a $H$-genuine weak equivalence iff 
 so is $X_r \to Y_r \times_{M_r Y} M_r X$.
 
-One now applies Lemma \ref{GINJMIN LEM} with 
+We apply Lemma \ref{GINJMIN LEM} with 
 $K = H$ and 
 $\mathbb{S} = H \ltimes \mathbb{R}^-(r)$
 to the map $t^{\**}A \to t^{\**}B$. 
-Note that for each $(r \twoheadrightarrow r') \in \mathbb{S}$ one has $\mathsf{Aut}_{\mathbb{S}}(r \to r') = \pi_r^{-1}(H)$
-(where $\pi_r$ is as in \eqref{PIDEFR EQ}), so that the trivial fibrancy requirement in Lemma \ref{GINJMIN LEM} follows from 
-$\{\mathcal{F}_r\}$ being Reedy-admissible.
-It follows that the maps labeled $\sim$ in
+By the dual of Notation \ref{RPLUSR NOT}(iii), the hypothesis to be checked is that, for each $(r \to r') \in \mathbb{S}$, 
+the map $X_{r'} \to Y_{r'} \times_{M_{r'}Y} M_{r'} X$ is a genuine trivial fibration for the group
+$\mathsf{Aut}_{\mathbb{S}}(r \to r') \simeq \pi_r^{-1}(H)$,
+where $\pi_r$ is as in \eqref{PIDEFR EQ}.
+But since $\{\mathcal{F}_r\}$ is Reedy-admissible (cf. Definition \ref{GENRED DEF}(iv)), we know by induction that this map is a 
+$\pi_{r'}\left(\pi_r^{-1}(H)\right)$-trivial fibration, and this suffices by Corollary \ref{RESGEN COR}.
+%
+%
+%Note that for each $(r \twoheadrightarrow r') \in \mathbb{S}$ one has $\mathsf{Aut}_{\mathbb{S}}(r \to r') \simeq \pi_r^{-1}(H)$
+%(where $\pi_r$ is as in \eqref{PIDEFR EQ}), so that the trivial fibrancy requirement in Lemma \ref{GINJMIN LEM} now follows by
+%the dual of Notation \ref{RPLUSR NOT}(ii), induction, \emph{ and
+%from 
+%$\{\mathcal{F}_r\}$ being Reedy-admissible} (cf. Definition \ref{GENRED DEF}(iv)).
+It now follows that the maps labelled $\sim$ in
 \[
 \begin{tikzcd}[row sep=10]
 	X_r \ar[->>]{r}&
@@ -7541,25 +7715,24 @@ It follows that the maps labeled $\sim$ in
 \end{tikzcd}
 \]
 are $H$-genuine trivial fibrations, finishing the proof of (ii).
-
-(i) again follows from a streamlined argument.
+(i) again follows similarly.
 \end{proof}
 
-\begin{remark}
-	Given a family $\mathcal{F}$ of subgroups of $G$,
-	it is immediate from the definitions that 
-	$X \to Y$ is a $\mathcal{F}$-weak equivalence/$\mathcal{F}$-fibration iff it is a genuine
-	$H$-weak equivalence/$H$-fibration
-	for each $H \in \mathcal{F}$.
-	However, the analogue claim fails for cofibrations.
-	For an example, consider $\mathcal{C} = \mathsf{sSet}$ and
-	$\mathcal{F}=\{\{e\}\}$ the family containing only the trivial subgroup. Then the $\mathcal{F}$-cofibrant objects are the projective cofibrant objects, which can be shown to be exactly the $G$-free objects of $\mathsf{sSet}^G$.
-	On the other hand, all objects of $\mathsf{sSet}^G$ are genuine $\{e\}$-cofibrant,
-	since this simply means that their restriction to
-	$\mathsf{sSet}^{\{e\}}=\mathsf{sSet}$ is cofibrant.
-\end{remark}
+%\begin{remark}\label{COFNOTRES REM}
+%	Given a family $\mathcal{F}$ of subgroups of $G$,
+%	it is immediate from the definitions that 
+%	$X \to Y$ is a $\mathcal{F}$-weak equivalence/$\mathcal{F}$-fibration iff it is a genuine
+%	$H$-weak equivalence/$H$-fibration
+%	for each $H \in \mathcal{F}$.
+%	However, the analogue claim fails for cofibrations.
+%	For an example, consider $\mathcal{C} = \mathsf{sSet}$ and
+%	$\mathcal{F}=\{\{e\}\}$ the family containing only the trivial subgroup. Then the $\mathcal{F}$-cofibrant objects are the projective cofibrant objects, which can be shown to be exactly the $G$-free objects of $\mathsf{sSet}^G$.
+%	On the other hand, all objects of $\mathsf{sSet}^G$ are genuine $\{e\}$-cofibrant,
+%	since this simply means that their restriction to
+%	$\mathsf{sSet}^{\{e\}}=\mathsf{sSet}$ is cofibrant.
+%\end{remark}
 
-\begin{remark}
+\begin{remark}\label{NOTDUAL REM}
 The proofs of Lemmas \ref{REEDYTRCOF LEM} and \ref{REEDYTRFIB LEM}
 are similar, but not dual, since
 Lemma \ref{REEDYTRFIB LEM} uses Reedy-admissibility 
@@ -7573,8 +7746,13 @@ $\mathsf{lim}_{\mathbb{S}} (A \to B)$ is a cofibration provided that $A \to B$ i
 On the other hand, the proof of \cite[Lemma 5.3]{BM11} argues that 
 $\mathsf{lim}_{\mathbb{S}} (A \to B)$ is a cofibration provided that $A \to B$ is a projective Reedy cofibration, i.e. a Reedy cofibration for $\{\{e\}\}$ the collection of trivial families 
 (note that all projective cofibrations are genuine cofibrations, so that our claim is more general).
-Since the cofibration half of the projective analogue of Corollary \ref{RESGEN COR} only holds if 
-$\phi \colon G \to \bar{G}$ is injective, the argument in the proof of \cite[Lemma 5.3]{BM11} also requires an injectivity check that is not needed in our proof of Lemma \ref{REEDYTRCOF LEM}.
+Since the cofibration half of the 
+%projective 
+analogue of Corollary \ref{RESGEN COR}
+for projective model structures only holds if 
+$\phi \colon G \to \bar{G}$ is injective, 
+%the argument in
+the proof of \cite[Lemma 5.3]{BM11} also requires an injectivity check that is not needed in our proof of Lemma \ref{REEDYTRCOF LEM}.
 \end{remark}
 
 
@@ -7583,7 +7761,7 @@ Lemmas \ref{REEDYTRCOF LEM}(ii) and \ref{REEDYTRFIB LEM}(ii) say that the charac
 
 	We refer to the model category axioms in \cite[Def. 1.1.3]{Hov99}. 	
 	Both 2-out-of-3 and the retract axioms are immediate
-(recall that retracts commute with Kan extensions).	
+(note that retracts commute with Kan extensions).	
 	The lifting axiom follows from Corollary \ref{BLALIFT COR}
 	while the task of building factorizations $X \to A \to Y$ of a given map $X \to Y$ follows by a similar standard argument from Lemma \ref{BLAFACT LEM} by iteratively factoring the maps
 \[
@@ -7609,15 +7787,15 @@ $\left(\mathbb{R} \times \mathbb{S}\right)^- =
 \mathbb{R}^- \times \mathbb{S}^-$.
 Moreover, given corresponding Reedy admissible families
 $\{\mathcal{F}_r\}_{r \in \mathbb{R}}$,
-$\{\mathcal{F}_s\}_{r \in \mathbb{S}}$,
-one has an induced admissible family 
+$\{\mathcal{F}_s\}_{s \in \mathbb{S}}$,
+one has induced admissible families 
 $\{\mathcal{F}_{(r,s)}\}_{(r,s) \in \mathbb{R} \times \mathbb{S}}$
 where 
 $\mathcal{F}_{(r,s)} =
 \{H \times \bar{H} \colon H \in \mathcal{F}_r,\bar{H} \in \mathcal{F}_s\}$.
 It is then straightforward to check that the $\{\mathcal{F}_{(r,s)}\}$-Reedy model structure on 
 $\mathcal{C}^{\mathbb{R} \times \mathbb{S}}
-\simeq \left(\mathcal{C}^{\mathbb{R}} \right)^{\mathbb{S}}$
+\simeq (\mathcal{C}^{\mathbb{R}} )^{\mathbb{S}}$
 can also be obtained iteratively as the
 $\{\mathcal{F}_{s}\}$-Reedy model structure over the 
 $\{\mathcal{F}_{r}\}$-Reedy model structure over the model structure on $\mathcal{C}$ (and vice-versa).
@@ -7660,7 +7838,7 @@ $\{K_{\bullet},X_{\bullet}\}_{\mathbb{R}} =
 
 
 
-The following is essentially \cite[Lemma 3.5]{RV14}, converted to our notation.
+The following is essentially \cite[Lemma 3.5]{RV14}, rewritten in our notation.
 
 
 \begin{lemma} For $X \in \mathcal{C}^{\mathbb{R}}, r \in \mathbb{R}$ there is a natural identification
@@ -7679,26 +7857,26 @@ Abbreviating $\mathbb{R}_{\leq n-1}$ as $\mathbb{R}_{<n}$, this follows from the
 \simeq
 	\int_{\bar{r} \in \mathbb{R}_{<|r|}} 
 \left\{\mathbb{R}(r,\bar{r}),
-	\int_{r \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},-) ,X \right\}\right\}\simeq
+	\int_{\hat{r} \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},\hat{r}) ,X \right\}\right\}\simeq
 \\
 \simeq&
-	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{r \in \mathbb{R}}
+	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{\hat{r} \in \mathbb{R}}
 \left\{\mathbb{R}(r,\bar{r}),
-	\left\{\mathbb{R}(\bar{r},-) ,X \right\}\right\}
+	\left\{\mathbb{R}(\bar{r},\hat{r}) ,X \right\}\right\}
 \simeq
 %	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{r \in \mathbb{R}}
 %\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}\simeq
 %\\
 %\simeq &
-	\int_{r \in \mathbb{R}} \int_{\bar{r} \in \mathbb{R}_{<|r|}}
-\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}\simeq
+	\int_{\hat{r} \in \mathbb{R}} \int_{\bar{r} \in \mathbb{R}_{<|r|}}
+\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X \right\}\simeq
 \\
 \simeq &
-	\int_{r \in \mathbb{R}} 
-\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}
+	\int_{\hat{r} \in \mathbb{R}} 
+\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X \right\}
 \simeq
-	\int_{r \in \mathbb{R}} 
-\left\{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-) ,X \right\} =
+	\int_{\hat{r} \in \mathbb{R}} 
+\left\{\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-)\right)(\hat{r}) ,X \right\} =
 \{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-),X \}_{\mathbb{R}} 
 \end{align}
 where the second step is the Yoneda lemma, the fourth step is Fubini together with adjointness for $\{-,-\}$, and the sixth step is the coYoneda lemma \cite[Ex. 1.4.6]{Ri14}.
