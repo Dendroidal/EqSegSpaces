@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  2 MAY 2019 15:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.1)  2 MAY 2019 16:06
 entering extended mode
 **"./Cover letter(for v3).tex"
 ("Cover letter(for v3).tex"
@@ -1133,8 +1133,8 @@ Package rerunfilecheck Info: File `"Cover letter(for v3)".out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 456.
  ) 
 Here is how much of TeX's memory you used:
- 24711 strings out of 493312
- 455966 string characters out of 3138900
+ 24710 strings out of 493312
+ 455953 string characters out of 3138900
  547876 words of memory out of 3000000
  27645 multiletter control sequences out of 15000+200000
  31252 words of font info for 119 fonts, out of 3000000 for 9000
@@ -1180,9 +1180,6 @@ pdfTeX warning (dest): name{equation.A.18} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.A.10} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.5.48} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{equation.5.47} has been referenced but does not exi
@@ -1348,9 +1345,9 @@ s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss1
 0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Cover letter(for v3).pdf" (9 pages, 297428 bytes).
+Output written on "Cover letter(for v3).pdf" (9 pages, 296545 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 94 named destinations out of 1000 (max. 500000)
+ 371 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
