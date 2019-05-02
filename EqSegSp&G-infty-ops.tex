@@ -5684,6 +5684,16 @@ where $[1]$ is the $1$-simplex regarded as a $G$-trivial $G$-tree, and $C$ is a 
 (see Notation \ref{GCOR NOT}). Adapting the discussion
 in Example \ref{THM71 EX}, $[1] \otimes C$ is the union of two maximal $G$-subtrees $C \star \eta$ and $\eta \star C$,
 whose orbital representations are depicted below.
+%
+%
+Explicitly, and noting that the edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
+are $\{0,1\} \times \boldsymbol{E}(C)$,
+the tree
+$C \star \eta$ (resp. $\eta \star C$)
+has the edges $(i,e)$ such that
+$i=0$ or $e\in \boldsymbol{E}(C)$ is a root 
+(resp. $i=1$ or $e \in \boldsymbol{E}(C)$ is a leaf),
+where we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root.
 \begin{equation}\label{OTIMESDECOMP EQ}
 \begin{tikzpicture}
 [grow=up,auto,level distance=2.3em,every node/.style = {font=\footnotesize},dummy/.style={circle,draw,inner sep=0pt,minimum size=1.75mm}]
@@ -5746,9 +5756,12 @@ Proposition \ref{JDDK PROP} will make use of the cube diagram below, where
 $\partial \Omega[C] = \partial^l \Omega[C] \amalg \partial^r \Omega[C]$ is the decomposition of the edges of $C$ into leaves and roots. All maps are the inclusions determined by the decomposition \eqref{OTIMESOC_EQ}, but it seems worthwhile to be explicit regarding how 
 $\partial^l \Omega[C]$ and $\partial^r \Omega[C]$
 include into
-$\Omega[1] \otimes \Omega[C]$. The edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
-are $\{0,1\} \times \boldsymbol{E}(C)$
-so that an edge $l$ in $\partial^l \Omega[C]$ includes as $(0,l)$ while an edge $r$ in $\partial^r \Omega[C]$ includes as $(1,r)$ (we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root).
+$\Omega[1] \otimes \Omega[C]$. 
+%The edges (i.e. $\eta$-dendrices) of $\Omega[1] \otimes \Omega[C]$
+%are $\{0,1\} \times \boldsymbol{E}(C)$
+%so that
+An edge $l$ in $\partial^l \Omega[C]$ includes as $(0,l)$ while an edge $r$ in $\partial^r \Omega[C]$ includes as $(1,r)$.
+%(we recall that in our convention $0$ is the leaf of $[1]$ while $1$ is the root).
 \begin{equation}\label{BIGCUBE EQ}
 \begin{tikzcd}[column sep=1pt,row sep=10pt]
 	\partial \Omega[C] \ar{rr} \ar{rd} \ar{dd} && 
