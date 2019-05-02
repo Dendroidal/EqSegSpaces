@@ -7873,26 +7873,26 @@ Abbreviating $\mathbb{R}_{\leq n-1}$ as $\mathbb{R}_{<n}$, this follows from the
 \simeq
 	\int_{\bar{r} \in \mathbb{R}_{<|r|}} 
 \left\{\mathbb{R}(r,\bar{r}),
-	\int_{\hat{r} \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},\hat{r}) ,X \right\}\right\}\simeq
+	\int_{\hat{r} \in \mathbb{R}} \left\{\mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}\right\}\simeq
 \\
 \simeq&
 	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{\hat{r} \in \mathbb{R}}
 \left\{\mathbb{R}(r,\bar{r}),
-	\left\{\mathbb{R}(\bar{r},\hat{r}) ,X \right\}\right\}
+	\left\{\mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}\right\}
 \simeq
 %	\int_{\bar{r} \in \mathbb{R}_{<|r|}} \int_{r \in \mathbb{R}}
-%\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X \right\}\simeq
+%\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},-) ,X_{\hat{r}} \right\}\simeq
 %\\
 %\simeq &
 	\int_{\hat{r} \in \mathbb{R}} \int_{\bar{r} \in \mathbb{R}_{<|r|}}
-\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X \right\}\simeq
+\left\{\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}\simeq
 \\
 \simeq &
 	\int_{\hat{r} \in \mathbb{R}} 
-\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X \right\}
+\left\{\int^{\bar{r} \in \mathbb{R}_{<|r|}}\mathbb{R}(r,\bar{r})\times \mathbb{R}(\bar{r},\hat{r}) ,X_{\hat{r}} \right\}
 \simeq
 	\int_{\hat{r} \in \mathbb{R}} 
-\left\{\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-)\right)(\hat{r}) ,X \right\} =
+\left\{\left(\mathsf{sk}_{|r|-1} \mathbb{R}(r,-)\right)(\hat{r}) ,X_{\hat{r}} \right\} =
 \{\mathsf{sk}_{|r|-1} \mathbb{R}(r,-),X \}_{\mathbb{R}} 
 \end{align}
 where the second step is the Yoneda lemma, the fourth step is Fubini together with adjointness for $\{-,-\}$, and the sixth step is the coYoneda lemma \cite[Ex. 1.4.6]{Ri14}.
@@ -7942,7 +7942,7 @@ $\mathsf{sk}_{n-1} \Delta^{op}(n,-) = \mathsf{sk}_{n-1} \Delta[n] = \partial \De
 
 Similarly, letting $\mathbb{R} = G \times \Omega^{op}$ as in 
 Example \ref{FGRAPHREEDY EX} and letting 
-$\Gamma \in \mathcal{F}_U$ be a graph subgroup encoding a $H$ action on $U$, then
+$\Gamma \in \mathcal{F}_U$ be a graph subgroup encoding a $H$-action on $U$, then
 \begin{align}
 	\left( \mathsf{sk}_{|U|-1} \left( G \times \Omega^{op} \right)(U,-) \right)/\Gamma
 = &
