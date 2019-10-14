@@ -5552,9 +5552,25 @@ as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)
 \end{equation}
 showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
 
+
 For (ii), that $X^h$ is closed under the simplicial operators follows since equivalences are closed under composition.
-Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted as on the left below {\color{red} no it can't, need to mention that composites of equivalences are equivalences...},
-cellular induction yields the more general right pullbacks for all 
+Moreover, this closure under composition further gives
+pullbacks
+\begin{equation}
+\begin{tikzcd}[row sep=1.5em]
+	X^h(\mathsf{sk}_1 \Delta[m]) \ar{r} \ar{d} &
+	X(\mathsf{sk}_1 \Delta[m]) \ar{d}
+\\
+	X^h(1) \times_{X(0)} \cdots \times_{X(0)} X^h(1) \ar{r} &
+	X(1) \times_{X(0)} \cdots \times_{X(0)} X(1)
+\arrow[lu, phantom, "\lrcorner", very near start]
+\end{tikzcd}
+\end{equation}
+so that the pullbacks in \eqref{XHDEF EQ}
+are equivalent to the left pullbacks below,
+%
+%Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted as on the left below {\color{red} no it can't, need to mention that composites of equivalences are equivalences...},
+and cellular induction yields the more general right pullbacks for all 
 $K \in \mathsf{sSet}$.
 \begin{equation}\label{XHGENDEF EQ}
 \begin{tikzcd}[row sep=1.5em]
