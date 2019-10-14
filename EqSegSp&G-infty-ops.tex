@@ -2893,7 +2893,8 @@ of the orbital horn (resp. Segal core) inclusions as the orbital (resp. Segal) h
 	But then the induction hypothesis says that 
 	$\Lambda_o^E[T] \to \Lambda^E[T]$ is in the orbital hypersaturation, and by the cancellation property \eqref{CANCEL_EQ} so is $\Lambda^E[T] \to \Omega[T]$.
 
-	For the claim that the $G$-inner horn inclusions are in the Segal hypersaturation, note that Proposition \ref{SCANOD PROP} sets
+	For the claim that the $G$-inner horn inclusions are in the Segal hypersaturation,
+	note that the proof of Proposition \ref{SCANOD PROP} sets
 	$I=\**$, $U_{\**} = T$, $\Xi^{\**} = \boldsymbol{E}^{\mathsf{i}}(T)$.
 	Therefore, arguing exactly as above for the factorization
 	$Sc[T] \to \Lambda^{\boldsymbol{E}^{\mathsf{i}}(T)}[T] \to \Omega[T]$,
@@ -4125,7 +4126,8 @@ and
 Theorem \ref{COMPIFFDK THM},
 should be clear from context.
 
-Lastly, we make a notational remark that may avoid confusion. $J^m$ will always feature in expressions $X(J^m)$, $X^{J^m}$ (or slight variants) as defined in Notation \ref{UNILIMDEN NOT}. As such, $J^{m}$ as $m$ changes should be thought of as ``varying in the dendroidal direction'' (which corresponds to the horizontal simplicial direction $m$), never in the (vertical) simplicial direction $n$.
+Lastly, we make a notational remark that may avoid confusion. 
+The term $J^m$ will always feature in expressions $X(J^m)$, $X^{J^m}$ (or slight variants) as defined in Notation \ref{UNILIMDEN NOT}. As such, $J^{m}$ as $m$ changes should be thought of as ``varying in the dendroidal direction'' (which corresponds to the horizontal simplicial direction $m$), never in the (vertical) simplicial direction $n$.
 % and further abbreviate $J = J^1$.
 \end{notation}
 
@@ -4327,7 +4329,7 @@ $(\Delta[0] \to \Delta[n])\square (\partial \Omega[T] \to \Omega[T])$ (since the
 %the argument at the end of the proof of Proposition \ref{JOINTFIBCHAR PROP} implies
 it is also enough to localize the vertex maps 
 $\Omega[T] \to \Delta[n] \times \Omega[T]$, which is the same as localizing 
-%with respect to 
+with respect to 
 the projection maps
 \[\Delta[n] \times \Omega[T] \to \Omega[T],
 \qquad n\geq 0, T \in \Omega_G\]
@@ -4633,21 +4635,22 @@ $\mathsf{sdSet}^G$
 \end{proof}
 
 
-\begin{definition}
-      \label{SEGALOP_DEF}
+\begin{definition}\label{SEGALOP_DEF}
 	Following \cite[Def. 5.5]{CM13b} (compare with \cite[Def. 8.1]{CM13a}), an equivariant pre-operad $X \in \mathsf{PreOp}^G$ is called an \textit{equivariant Segal operad} if the maps
-	\[
-	\gamma^{\**} X (T) \to \gamma^{\**} X (Sc(T))
-	\]
+\[
+	\gamma^{\**} X (\Omega[T]) \to \gamma^{\**} X (Sc(T))
+\]
 are Kan equivalences in $\mathsf{sSet}$ for every $T \in \Omega_G$.
 \end{definition}
 
-\begin{remark}
-      \label{SEGALOP_REM}
-Combining Corollary \ref{FIB_PREOP_COR} with the characterization in Proposition \ref{DSSCHAR_PROP}
-one obtains that the fibrant objects of $\mathsf{PreOp}^G$ are the equivariant Segal operads $X$ such that
-$\gamma^{\**} X$ is dendroidal Reedy fibrant.
-\end{remark}
+The work in \S \ref{EDSS_SEC}
+will allow us to show that 
+the fibrant objects in $\mathsf{PreOp}^G$ are the equivariant Segal operads $X$ such that
+$\gamma^{\**} X$ is dendroidal Reedy fibrant. 
+See Corollary \ref{SEGALOP_COR}.
+
+
+
 
 \begin{theorem}\label{ANOQUEQUIV THM}
 The adjunction
@@ -6601,6 +6604,18 @@ has the following properties:
 showing that $X$ is a retract of $\gamma_{\**}\hat{X}$ and finishing the proof.
 \end{proof}
 
+
+
+\begin{corollary}\label{SEGALOP_COR}
+The fibrant objects of $\mathsf{PreOp}^G$ are the equivariant Segal operads $X$ (cf. Definition \ref{SEGALOP_DEF})
+such that $\gamma^{\**} X$ is dendroidal Reedy fibrant.
+\end{corollary}
+
+\begin{proof}
+	This simply combines Corollary \ref{FIB_PREOP_COR} with the characterization in Proposition \ref{DSSCHAR_PROP}.
+\end{proof}
+
+
 \begin{remark}\label{INTERP REM}
       For any dendroidal Segal space 
       $X \in \mathsf{sdSet}^G$ one hence has complete equivalences
@@ -7448,8 +7463,13 @@ Corollary \ref{RESGEN COR}.
 
 
 \begin{notation}\label{KLTIMES NOT}
-Given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
-we write $K \ltimes \mathbb{R} \to K$ 
+	Suppose a group $K$ acts on a category $\mathbb{R}$,
+	i.e. that one has a homomorphism
+	$K \to \mathsf{Aut}_{\Cat}(\mathbb{R})$,
+	where the target is the group of automorphisms of $\mathbb R$ as a category.
+%	
+%Given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
+We write $K \ltimes \mathbb{R} \to K$ 
 for the category obtained from $\mathbb{R}$ by formally adding action arrows
 $r \to kr$ for $r \in \mathbb{R},k \in K$,
 which satisfy three natural relations:
@@ -7814,7 +7834,8 @@ can also be obtained iteratively as the
 $\{\mathcal{F}_{s}\}$-Reedy model structure over the 
 $\{\mathcal{F}_{r}\}$-Reedy model structure over the model structure on $\mathcal{C}$ (and vice-versa).
 
-We note that, given a map $f \colon A \to B$ in $\mathcal{C}$
+We note that, given a map $f \colon A \to B$ in 
+$\mathcal{C}^{\mathbb{R} \times \mathbb{S}}$
 and writing $l_{(-)}f$
 for the relative latching map
 $A_{(-)} \amalg_{L_{(-)}A} L_{(-)}B
