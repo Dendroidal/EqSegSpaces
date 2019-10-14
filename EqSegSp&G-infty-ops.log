@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.5.28)  14 OCT 2019 16:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.5.28)  14 OCT 2019 16:35
 entering extended mode
 **./EqSegSp&G-infty-ops.tex
 (EqSegSp&G-infty-ops.tex
@@ -1405,7 +1405,7 @@ Overfull \hbox (0.26787pt too wide) detected at line 5949
  []
 
 [46]
-Overfull \hbox (3.85019pt too wide) in paragraph at lines 6007--6012
+Overfull \hbox (3.85019pt too wide) in paragraph at lines 6016--6021
 [][]\OT1/cmr/bx/n/10 Definition 5.38. []\OT1/cmr/m/n/10 Two maps $\OML/cmm/m/it
 /10 f; f[]\U/MnSymbolC/m/n/10  \OML/cmm/m/it/10 X \U/MnSymbolA/m/n/10  \OML/c
 mm/m/it/10 Y$ \OT1/cmr/m/n/10 be-tween den-droidal Se-gal spaces are called $\O
@@ -1413,7 +1413,7 @@ ML/cmm/m/it/10 J$\OT1/cmr/m/it/10 -homotopic\OT1/cmr/m/n/10 ,|
  []
 
 [47]
-Overfull \hbox (2.79128pt too wide) detected at line 6156
+Overfull \hbox (2.79128pt too wide) detected at line 6165
 [] \U/MnSymbolC/m/n/10 j [] j [] \OML/cmm/m/it/10 ;  n \U/MnSymbolD/m/n/10 C \O
 T1/cmr/m/n/10 0\OML/cmm/m/it/10 ; m \U/MnSymbolD/m/n/10 C \OT1/cmr/m/n/10 1\OML
 /cmm/m/it/10 ; m \U/MnSymbolD/m/n/10 C \OML/cmm/m/it/10 j \U/MnSymbolD/m/n/10 C
@@ -1424,7 +1424,7 @@ bolE/m/n/10 |
  []
 
 [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
-Overfull \hbox (3.74422pt too wide) detected at line 7943
+Overfull \hbox (3.74422pt too wide) detected at line 7952
 []|
  []
 
@@ -1435,16 +1435,16 @@ OT1/cmr/m/it/10 Al-gebr. Geom. Topol.\OT1/cmr/m/n/10 ,
  []
 
 [61]) [62]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8018.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 8018.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8027.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 8027.
  (EqSegSp&G-infty-ops.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 8018.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 8018.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 8027.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 8027.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8018.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8027.
  ) 
 Here is how much of TeX's memory you used:
  31913 strings out of 492895
@@ -1510,7 +1510,7 @@ rs/luisa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/
 msbm10.pfb><C:/Users/luisa/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
 /amsfonts/symbols/msbm5.pfb><C:/Users/luisa/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on EqSegSp&G-infty-ops.pdf (62 pages, 1162790 bytes).
+Output written on EqSegSp&G-infty-ops.pdf (62 pages, 1162828 bytes).
 PDF statistics:
  1668 PDF objects out of 1728 (max. 8388607)
  343 named destinations out of 1000 (max. 500000)
