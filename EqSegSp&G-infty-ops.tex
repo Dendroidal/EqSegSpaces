@@ -54,10 +54,10 @@ cd,patterns,calc}
   % \color[rgb]{1,1,1}
   % \pagecolor[rgb]{0.5,0.5,0.5}
   
-  \usepackage{showkeys}
+%  \usepackage{showkeys}
 }
 {
-  \usepackage[notref]{showkeys}
+%  \usepackage[notref]{showkeys}
 }
 
 % -------- Reference Numbering
@@ -399,7 +399,11 @@ and as maps $\varphi \colon T \to S$ the monotone maps of broad posets
 (meaning that if $t_1 \cdots t_k \leq t$ then
 $\varphi(t_1) \cdots \varphi(t_k) \leq \varphi(t)$).
 In fact, in \cite{Wei12} Weiss characterized 
-those broad posets associated to trees (see \cite[Defs. 5.1 and 5.9]{Per18}),
+those broad posets associated to trees (see\footnote{For clarity, we note that throughout 
+	\cite{Per18} the term \emph{maximum}
+	is used to mean the \emph{greatest element},
+	i.e. an element which is the unique maximal element.}
+ \cite[Defs. 5.1 and 5.9]{Per18}),
 so that one is free to work intrinsically with broad posets.
 
 Moreover, our discussion will be somewhat simplified by the assumption that $\Omega$
@@ -5548,9 +5552,25 @@ as on the left diagram below. But for any path $H$ between $f$ and $f'$ in $X(1)
 \end{equation}
 showing that $f'$ is also left-invertible. The situation for right inverses is identical, thus (i) follows.
 
+
 For (ii), that $X^h$ is closed under the simplicial operators follows since equivalences are closed under composition.
-Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted as on the left below {\color{red} no it can't, need to mention that composites of equivalences are equivalences...},
-cellular induction yields the more general right pullbacks for all 
+Moreover, this closure under composition further gives
+pullbacks
+\begin{equation}
+\begin{tikzcd}[row sep=1.5em]
+	X^h(\mathsf{sk}_1 \Delta[m]) \ar{r} \ar{d} &
+	X(\mathsf{sk}_1 \Delta[m]) \ar{d}
+\\
+	X^h(1) \times_{X(0)} \cdots \times_{X(0)} X^h(1) \ar{r} &
+	X(1) \times_{X(0)} \cdots \times_{X(0)} X(1)
+\arrow[lu, phantom, "\lrcorner", very near start]
+\end{tikzcd}
+\end{equation}
+so that the pullbacks in \eqref{XHDEF EQ}
+are equivalent to the left pullbacks below,
+%
+%Moreover, noting that \eqref{XHDEF EQ} can be reinterpreted as on the left below {\color{red} no it can't, need to mention that composites of equivalences are equivalences...},
+and cellular induction yields the more general right pullbacks for all 
 $K \in \mathsf{sSet}$.
 \begin{equation}\label{XHGENDEF EQ}
 \begin{tikzcd}[row sep=1.5em]
@@ -5962,17 +5982,26 @@ such that
 $F|_{\{0\}\times J} = id_{\{0\} \times J}$
 and
 $F|_{\{1\}\times J} = (0,0)$.
+%
 But noting that 
-$X(J \times J) \to X(\{0\} \times J)$
-can be written as {\color{red} there is some typo here}
-$X^J(0) \to X^J(J)$, the composites below
-show that any object in $\left(X^J\right)_0$ is equivalent to a 
-degenerate object, which is thus in the image of $X\to X^J$.
+$X(\{0\} \times J) \to X(J \times J)$
+can be rewritten as $X^J(0) \to X^J(J)$, 
+one has that one of the composites
+below is the identity on $X^J(0)$
+while the other factors through
+$X(0) \to X^J(0)$
 \[
-	X^J(0) \xrightarrow{X(F)} 
-	X^{J}(J) \to
-	X^J(1) \rightrightarrows X^J(0)
+X^J(0) \xrightarrow{X(F)} 
+X^{J}(J) \to
+X^J(1) \rightrightarrows X^J(0),
 \]
+showing that any object in
+$\left(X^J\right)_0(\eta)$
+is equivalent to
+% a degenerate object, i.e.
+one in the image of 
+$X_0(\eta)\to \left(X^J\right)_0(\eta)$.
+%
 %
 %\[	
 %\begin{tikzcd}[column sep =12]
@@ -6222,12 +6251,25 @@ For $T \neq G/H \cdot \eta$ this follows from the lifting conditions against \eq
 %
 
 
-To see that $\tilde{X}$ is a complete Segal space, note that the natural  map
+To see that $\tilde{X}$ is a complete Segal space, 
+note that by Proposition \ref{SSSETJREE PROP}(iv)
+the natural map
 $X_0^{J^{\bullet}} \to
 \delta^{\**}\left( X^{J^{\bullet}} \right)
 = \tilde{X}$
-is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
-so that, since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
+is a simplicial equivalence,
+so that this map is an equivalence between fibrant objects in 
+the dendroidal Reedy model structure.
+Thus, since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM},
+\cite[Lemma 3.2.1]{Hir03}
+implies that so is $\tilde{X}$
+(alternatively,
+by $2$-out-of-$3$
+the completion conditions in
+\eqref{JOINTFIBCHAR EQ}
+applied to $X_0^{J^{\bullet}}$
+readily imply those same conditions for $\tilde{X}$).
+
 
 We now address conditions (i),(ii) in the statement.
 The natural map
@@ -6617,7 +6659,8 @@ showing that $X$ is a retract of $\gamma_{\**}\hat{X}$ and finishing the proof.
 
 \begin{corollary}\label{SEGALOP_COR}
 The fibrant objects of $\mathsf{PreOp}^G$ are the equivariant Segal operads $X$ (cf. Definition \ref{SEGALOP_DEF})
-such that $\gamma^{\**} X$ is dendroidal Reedy fibrant.
+such that $\gamma^{\**} X$ is dendroidal Reedy fibrant
+in $\mathsf{sdSet}^G$.
 \end{corollary}
 
 \begin{proof}

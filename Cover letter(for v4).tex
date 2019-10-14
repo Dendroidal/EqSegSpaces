@@ -51,100 +51,54 @@ cd,patterns,calc}
 \author{Bonventre, P. and Pereira, L. A.}
  
 \maketitle
- 
-The referee's preliminary report had two main sections:
-first, they highlighted two key points where unclear notation prevented further reading of those sections; % of great narrative difficulty,
-and second, they offered a numbered list of recommendations and suggestions.
-We have implemented the vast majority of the changes recommended by the referee, and modified the discussion at many points to minimize confusion and provide additional detail.
-The updates are organized into four categories:
-\begin{itemize}
-\item in ``Requested Revisions'', we address the two key pieces of unclear notation.
-\item in ``Comments and departures'', we answer questions posed by the referee, and indicate where and why we departed from the referee's suggestions.
-\item in ``Changes'', we address suggestions which required more significant edits,
-% to the article, or small changes regarding errors which had inhibited mathematical understanding. These changes have themselves been grouped thematically.
-and which we group thematically.
-\item in ``Minor changes and typos'', we list fixed typos and other small corrections. % made in response to errors which did not appear to affect the referee's understanding.
-\end{itemize}
 
-Our updates are numbered by the corresponding numbered item in the referee report,
-and all internal references have been modified to match the new numbering from the updated article.
+The referee's second report listed 14 points that needed revision,
+all of which we believe have been addressed, as detailed below.
 
 
 
-\section{Requested revisions}
+
+
+
+
+
+\section{Outstanding issues from previous report}
 
 % The two locations which caused the referee confusion have been been updated.
 
 \begin{itemize}
-\item The first location, at the beginning of \S 5.2, was an unfortunate typo: %, if a maximally confusing one:
-      in \eqref{OTIMESOC_EQ}, $\otimes_{\Omega[C]}$ has been changed to $\coprod_{\Omega[C]}$.
-      We have also added context by recalling a similar decomposition of the product of 1-simplexes.
-
-\item
-% The second concerned the category $K \ltimes \mathbb R$, found in the Appendix.
-      We have clarified the definition of the category $K \ltimes \mathbb R$ in Notation \ref{KLTIMES NOT},
-      providing an explicit description and motivation for the notation.
-      %, a precise definition, and two examples.
-\end{itemize}
-
-      
-
-\section{Comments and departures} % Departures from suggestions/direct answer to comments
-
-\begin{itemize}
-\item[4.] We are firmly convinced that the definitions of node, stump and root from \cite[Defs. 5.7 and 5.9]{Per18}
-are correct as stated. For example, consider the tree
-\begin{equation}\label{FIRSTTREE2 EQ}
-	\begin{tikzpicture}[auto,grow=up,
-	level distance = 2.2em,
-	every node/.style={font=\footnotesize,minimum size=1.5mm}]%
-	\tikzstyle{level 2}=[sibling distance=4.25em]%
-	\tikzstyle{level 3}=[sibling distance=1.5em]%
-		\node at (0,0)[font=\normalsize]{}%
-			child{node [dummy] {}%
-				child{node [dummy] {}%
-					child{node {}%
-					edge from parent node [swap] {$c$}}%
-				edge from parent node [swap] {$e$}}%
-				child{node [dummy] {}%
-					child{node[dummy] {}%
-					edge from parent node [very near end,swap] {$b$}}%
-					child{node {}%
-					edge from parent node [very near end] {$\phantom{b}a$}}%
-				edge from parent node {$d$}}%
-			edge from parent node [swap] {$r$}};%
-	\end{tikzpicture}%
-\end{equation}
-The tuples $\underline{e}$ such that $\underline{e} < r$
-are $de, dc, abe, abc, ae, ac$, and $r^{\uparrow} = de$ is the maximum of these (in the partial order on tuples $T^+$ as in \cite[Prop. 5.6]{Per18}). On a side note, that this maximum is unique reflects the statement that the generators of a free category/operad are characterized as the indecomposable operations (with symmetric action caveats in the operad case).
-
-We are also unsure of how replacing ``maximum'' with ``upper bound'' would change the definitions, since an upper bound of a subset $A$ that is also in $A$ must be the maximum of $A$.  %
-
-% To show that replacing "maximum" with "maximal" also is insufficient, consider the broad poset $X = \set{a,b_1,b_2}$ with (non-trivial) relations $b_1 \leq a$ and $b_2 \leq a$. Then $a$ is a root, $b_1$ and $b_2$ are leaves, but $a$ is not a node: the unary tuples $b_1$ and $b_2$ are incomparable maximal tuples above $a$.
-    
-
-
-\end{itemize}
-
-
-
-{\color{red} HERE}
-
-\section{Outstanding issues from previous version}
-
-% The two locations which caused the referee confusion have been been updated.
-
-\begin{itemize}
-	\item[4.] cat
+	\item[4.] In the introductory discussion to \S 2,
+	a footnote was added clarifying that the term 
+	\emph{maximum} as used in \cite{Per18}
+	is meant to refer to a ``greatest element'' or 
+	an ``unique maximal element''.
+	
+	Given the referee's clarification on the issue, 
+	it seems that we agree on the correct definition of node/root,
+	and that the confusion is actually one of nomenclature.
+	The convention I (Luis) was taught is that the term \emph{maximum}
+	is reserved for an unique maximal element
+	(so that ``maximum'' and ``maximal element'' aren't synonyms),
+	though in retrospect this may be because the expression 
+	``greatest element'' (which is more common in English) doesn't translate well to Portuguese.
+	
+	On a side note, Weiss' original draft \cite{Wei12}
+	uses the same convention, 
+	as does the Wikipedia page on ``Maximal and minimal elements'',
+	so my usage is not unprecedented in English.
+	
+	We would be happy to add further clarification
+	on this point, should that seem necessary.
+		
 	\item[25.] All instances of ``convex subset'' (and ``convexity'') were suitably replaced with ``lower set''.
 	
-	Personally, I (Luis) was a bit averse to this change,
-	since I have already used the term ``convex'' in the
+	Personally, I (Luis) was averse to this change,
+	since I used the term ``convex'' in the
 	``Equivariant Dendroidal Sets'' prequel \cite{Per18},
 	and changing terminology mid project seems like bad practice,
-	but if this clashes with terminology that is indeed commonly used, I'm fine with changing it.
+	but if this clashes with commonly used terminology, I'm fine with changing it.
 	
-	Though I feel obliged to note a rather peculiar irony of this situation:
+	Though I feel obliged to note a peculiar irony of this situation:
 	In a draft to a previous paper I used the term
 	``downward closed'' to refer to such subsets,
 	and was then asked by the referee to 
@@ -156,9 +110,8 @@ We are also unsure of how replacing ``maximum'' with ``upper bound'' would chang
 
 
 
-{\color{red} HERE}
 
-\section{Minor appendix changes}
+\section{Requested appendix changes}
 
 \begin{itemize}
 	
@@ -169,7 +122,7 @@ not just $K \leq \mathsf{Aut}_{\mathsf{Cat}}(\mathbb{R})$.
 \item[2.] Fixed $\{\mathcal{F}_r\}$
 to $\mathcal{F}_r$ in Lemma \ref{REEDYTRCOF LEM}(ii)
      
-\item[3.] Replaced ``analogue'' with ``analogous'' in the proof of Lemma \ref{REEDYTRCOF LEM}(ii)
+\item[3.] Replaced ``analogue'' with ``analogous'' at the beginning of in the proof of Lemma \ref{REEDYTRCOF LEM}(ii)
 
 \item[4.]
 In the last line of the proof of Lemma \ref{REEDYTRFIB LEM}(ii),
@@ -190,21 +143,25 @@ so that $f\colon A \to B$ is a map of diagrams
 
 
 
-\section{Minor changes in \S \ref{REZKCOMP SEC}}
+\section{Requested changes in \S \ref{REZKCOMP SEC}}
  
 % The following lists the corrections of typos and other smaller mistakes listed in the preliminary referee report.
 
 \begin{itemize}
 	\item[1.]
-	Revised the wording at the end of the proof of 
+	Revised the wording in the last paragraph of the proof of 
 	Proposition \ref{COMPLE PROP}
 	to make explicit reference to the conditions (i),(ii)
 	in the statement
+	\item[2.]
+	The paragraph in the proof of Proposition \ref{COMPLE PROP}
+	explaining why $\widetilde{X}$
+	is complete Segal was revised to make the argument and terminology clear.
 \end{itemize}
 
 
 
-\section{Minor changes suggested by the referee elsewhere}
+\section{Requested changes elsewhere}
 
 % The following lists the corrections of typos and other smaller mistakes listed in the preliminary referee report.
 
@@ -222,6 +179,25 @@ so that $f\colon A \to B$ is a map of diagrams
 	where it is now Corollary \ref{SEGALOP_COR}.
 \end{itemize}
 
+
+\section{Other changes}
+
+% The following lists the corrections of typos and other smaller mistakes listed in the preliminary referee report.
+
+\begin{itemize}
+	\item Added a little more detail to the proof of 
+	Proposition \ref{SESP PROP}(ii).
+	The previous wording might have been misinterpreted as saying that the spine $\mathsf{Spi}[m] = \Delta[1] \vee_{\Delta[0]} \cdots \vee_{\Delta[0]} \Delta[1]$
+	coincided with the $1$-skeleton $\mathsf{sk}_1\Delta[m]$
+	\item Slightly rephrased the last paragraph 
+	(concerning essential surjectivity)
+	of the proof of Proposition \ref{JDDK PROP}
+	to clarify the argument
+	and fix a typo
+	(the map
+	$X(\{0\} \times J) \to X (J \times J)$
+	was written backwards). 
+\end{itemize}
 
 
 
