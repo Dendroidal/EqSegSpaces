@@ -4327,7 +4327,7 @@ $(\Delta[0] \to \Delta[n])\square (\partial \Omega[T] \to \Omega[T])$ (since the
 %the argument at the end of the proof of Proposition \ref{JOINTFIBCHAR PROP} implies
 it is also enough to localize the vertex maps 
 $\Omega[T] \to \Delta[n] \times \Omega[T]$, which is the same as localizing 
-%with respect to 
+with respect to 
 the projection maps
 \[\Delta[n] \times \Omega[T] \to \Omega[T],
 \qquad n\geq 0, T \in \Omega_G\]
@@ -4636,9 +4636,9 @@ $\mathsf{sdSet}^G$
 \begin{definition}
       \label{SEGALOP_DEF}
 	Following \cite[Def. 5.5]{CM13b} (compare with \cite[Def. 8.1]{CM13a}), an equivariant pre-operad $X \in \mathsf{PreOp}^G$ is called an \textit{equivariant Segal operad} if the maps
-	\[
-	\gamma^{\**} X (T) \to \gamma^{\**} X (Sc(T))
-	\]
+\[
+	\gamma^{\**} X (\Omega[T]) \to \gamma^{\**} X (Sc(T))
+\]
 are Kan equivalences in $\mathsf{sSet}$ for every $T \in \Omega_G$.
 \end{definition}
 
@@ -7448,8 +7448,13 @@ Corollary \ref{RESGEN COR}.
 
 
 \begin{notation}\label{KLTIMES NOT}
-Given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
-we write $K \ltimes \mathbb{R} \to K$ 
+	Suppose a group $K$ acts on a category $\mathbb{R}$,
+	i.e. that one has a homomorphism
+	$K \to \mathsf{Aut}_{\Cat}(\mathbb{R})$,
+	where the target is the group of automorphisms of $\mathbb R$ as a category.
+%	
+%Given a subgroup $K \leq \mathsf{Aut}_{\Cat}(\mathbb{R})$ of the group of automorphisms of $\mathbb R$ as a category,
+We write $K \ltimes \mathbb{R} \to K$ 
 for the category obtained from $\mathbb{R}$ by formally adding action arrows
 $r \to kr$ for $r \in \mathbb{R},k \in K$,
 which satisfy three natural relations:
@@ -7814,7 +7819,8 @@ can also be obtained iteratively as the
 $\{\mathcal{F}_{s}\}$-Reedy model structure over the 
 $\{\mathcal{F}_{r}\}$-Reedy model structure over the model structure on $\mathcal{C}$ (and vice-versa).
 
-We note that, given a map $f \colon A \to B$ in $\mathcal{C}$
+We note that, given a map $f \colon A \to B$ in 
+$\mathcal{C}^{\mathbb{R} \times \mathbb{S}}$
 and writing $l_{(-)}f$
 for the relative latching map
 $A_{(-)} \amalg_{L_{(-)}A} L_{(-)}B
