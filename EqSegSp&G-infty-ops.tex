@@ -1965,7 +1965,9 @@ In fact, \eqref{CHARLEM EQ} is built cellularly\footnote{Recall that a map $f$ i
 from $G$-inner horn inclusions $\Lambda^E[S] \to \Omega[S]$, $S \in \Omega_G$.
 \end{lemma}
 
-Recall that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called \textit{convex}\footnote{Here our terminology follows that in \cite[\S 0]{Go91}. Such subsets are sometimes also called \textit{downward closed}.} if $s \in S$ and 
+Recall that a subset $S \subseteq \mathcal{P}$ of a poset $\mathcal{P}$ is called a \textit{lower set}\footnote{
+	In \cite[\S 7, \S 8]{Per18} such sets were called
+	\emph{convex}, following the terminology in \cite[\S 0]{Go91}.} if $s \in S$ and 
 $p<s$ implies $p \in S$.
 
 \begin{proof}
@@ -1989,7 +1991,7 @@ $V \leq V'$ if either
 We note that here and in the remainder of the proof all outer closures are implicitly taken in $U$ (rather than $T$), i.e. 
 $\bar{V}=\bar{V}^U$.
 
-For any $H$-equivariant convex subset $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write (for the identity $\Omega[gV]=g\Omega[V]$, see Remark \ref{FACEGACT REM})
+For any $H$-equivariant lower set $C$ of $\mathsf{Face}_{\Xi}^{lex}(U)$ we write (for the identity $\Omega[gV]=g\Omega[V]$, see Remark \ref{FACEGACT REM})
 \[
 A_C = 
 A \cup \bigcup_{g\in G,V \in C} \Omega[gV]= 
@@ -2074,7 +2076,8 @@ If it were $g \not \in H$,
 then it would be $W' \hookrightarrow gV \hookrightarrow g U \neq U$, and (Ch3) would imply $W\in A$. Thus we need only consider $g\in H$, and since $C$ is $H$-equivariant, we can set $g=e$.
 It now suffices to show that if $W' \hookrightarrow V$
 then it must be $W \leq V$ in $\mathsf{Face}_{\Xi}^{lex}(U)$,
-since by convexity of $C$ this would contradict $W \not \in C$.
+as this would then contradict $W \not \in C$ due to $C$ being a lower set.
+%since by convexity of $C$ this would contradict.
 Since $W' \hookrightarrow V$ implies 
 $\bar{W} = \bar{W}' \hookrightarrow \bar{V}$,
 the condition $W \leq V$ is automatic from the definition of $\leq$ unless $\bar{W} = \bar{V}$.
@@ -2102,22 +2105,24 @@ have the same outer closure and the same inner edges, and thus
 $hW=W$, establishing (c).
 
 Lastly, we address the case of general $I$.
-For each $G$-equivariant convex subset $J$ of $I$, set
+For each $G$-equivariant lower set $J$ of $I$, set
 \[
 	A_J = 
 	A \cup \bigcup_{j \in J} \Omega[U_j].
 \]
-As before, it suffices to check that for all convex subsets
+As before, it suffices to check that for all lower sets
 $J \subseteq J'$
 the map $A_J \to A_{J'}$ is built cellularly from $G$-inner horn inclusions,
 and again we can assume that $J'$ is obtained from $J$ by adding a single $G$-orbit $Gj$ of $I$.
 By the $I$ transitive case, it now suffices to check that
 $\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{U_{g j}\}_{g j \in Gj}$ with respect to $A_J$.
-(Ch0) is clear, and since by $G$-equivariance and convexity it is $A_{<gj} \subseteq A_J$,
+(Ch0) is clear, and since by $G$-equivariance and lower set property it is $A_{<gj} \subseteq A_J$,
 the new (Ch1),(Ch2),(Ch3)
 conditions follow from the original conditions
 (for (Ch2), note that if 
-$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \nin A$, then convexity of $J$ implies $(V - \Xi^i_V) \hookrightarrow U_j$ for some $j \not \geq i$, so that in this case the new (Ch2) follows from the original (Ch3)).
+$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \nin A$, then 
+the fact that $J$ is a lower set implies
+$(V - \Xi^i_V) \hookrightarrow U_j$ for some $j \not \geq i$, so that in this case the new (Ch2) follows from the original (Ch3)).
 \end{proof}
 
 
@@ -3882,7 +3887,7 @@ can be factored as a sequence of maps of the form
 \to
 \delta_! \Lambda^i[n] \cup \bigcup_{G \in C'} \Lambda^i[n] \times \Delta G
 \end{equation}
-for convex
+for lower sets
 $C \subseteq C' \subseteq \mathsf{Face}_{\supsetneq \{i\}}$ such that $C' = C \amalg \{F\}$ for some face $F\supsetneq \{i\}$.
 Note that a simplex 
 $x \in \Lambda^i[n] \times \Delta F$
@@ -6224,12 +6229,16 @@ $X_0^{J^{\bullet}} \to
 is a dendroidal Reedy equivalence by Proposition \ref{SSSETJREE PROP}(iv)
 so that, since $X_0^{J^{\bullet}}$ is a complete Segal space by Remark \ref{CONCRECOM REM}, so is $\tilde{X}$.
 
-
-
-For the remaining claim that 
+We now address conditions (i),(ii) in the statement.
+The natural map
 $X = X^{J^{0}} \to 
 \delta^{\**}\left( X^{J^{\bullet}} \right)
 = \tilde{X}$
+clearly satisfies (ii).
+For the remaining claim in (i) that this 
+%$X = X^{J^{0}} \to 
+%\delta^{\**}\left( X^{J^{\bullet}} \right)
+%= \tilde{X}$
 is a DK equivalence,
 fully faithfulness is the claim that this map induces equivalences on the fibers over
 $\prod_{[e_i]} \left(X(\eta)\right)^{H_i}$
@@ -6387,8 +6396,8 @@ Essential surjectivity is trivial since $X \to \tilde{X}$ is the identity on obj
 \end{proof}
 
 
-\begin{remark}
-      \label{COMPLE REM}
+
+\begin{remark}\label{COMPLE REM}
 A notable difference between the proof of Proposition \ref{COMPLE PROP}
 and the arguments in \cite[\S 14]{Rez01} being adapted is that 
 \cite{Rez01} did not establish the analogue of our main fibrancy claim
