@@ -1,75 +1,250 @@
-\documentclass[a4paper,10pt
- ,draft
-]{article}%
+\documentclass[microtype,a4paper,10pt]{gtpart}%
+
+\agtart
 
 
-\usepackage[hidelinks]{hyperref}
-\hypersetup{
-  % colorlinks,
-  final,
-  pdftitle={Equivariant Dendroidal Segal Spaces},
-  pdfauthor={Bonventre, P. and Pereira, L. A.},
-  % pdfsubject={Your subject here},
-  % pdfkeywords={keyword1, keyword2},
-  linktoc=page
-}
+% ------ New Characters --------------------------------------
 
-\usepackage[open=false]{bookmark}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}%
+\usepackage[T1]{fontenc}
+%\usepackage{MnSymbol}
+% \usepackage[
+% cal = cm,
+% bb = ams,
+% frak = euler,
+% scr = rsfs
+% ]{mathalpha}
+% \usepackage{bbm}%
+%\usepackage{dsfont}%
+
+% \usepackage[normalem]{ulem}%
+
+% \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
+% %\usepackage{stmaryrd}
+% %\usepackage{upgreek}
+% \usepackage{mathrsfs}
+% % \usepackage[T1]{fontenc}
+% % \usepackage[english]{babel}
+% % \usepackage{fouriernc}
+% % \DeclareMathAlphabet{\mathscr}{U}{mathrsfs}{m}{n}`
+% %\usepackage{pifont}
+% %\newcommand{\cmark}{\text{\ding{51}}}
+% %\newcommand{\xmark}{\text{\ding{55}}}
 
 
-\input{commands.tex}%
-
-\usepackage{todonotes}
-\usepackage{multirow}
 
 
 
-%-------- TIKZ -----------------------------------------
+
+%----- Enumerate ---------------------------------------------
+\usepackage{paralist} % for inparaenum
+% \usepackage{enumerate}%
+\usepackage[inline,shortlabels]{enumitem}%
+\setenumerate{label=(\roman*)}
+
+% ---------- Page Typesetting ----------
+%\usepackage[final]{microtype}
+\usepackage{relsize}
+\usepackage{geometry}
+
+%-------- Tikz ---------------------------
+
 \usepackage{tikz}%
 \usetikzlibrary{matrix,arrows,decorations.pathmorphing,
 cd,patterns,calc}
 \tikzset{%
-  treenode/.style = {shape=rectangle, rounded corners,%
-                     draw, align=center,%
-                     top color=white, bottom color=blue!20},%
-  root/.style     = {treenode, font=\Large, bottom color=red!30},%
-  env/.style      = {treenode, font=\ttfamily\normalsize},%
+  % treenode/.style = {shape=rectangle, rounded corners, draw, align=center, font=\footnotesize,
+  %                    top color=white, bottom color=blue!20},%
+  % root/.style     = {treenode, font=\Large, bottom color=red!30},%
+  % env/.style      = {treenode, font=\ttfamily\normalsize},%
   dummy/.style    = {circle,draw,inner sep=0pt,minimum size=2mm}%
 }%
 
 \usetikzlibrary[decorations.pathreplacing]
-% \usetikzlibrary{external}\tikzexternalize
-% \makeatletters
-% \renewcommand{\todo}[2][]{\tikzexternaldisable\@todo[#1]{#2}\tikzexternalenable}
-
-% \makeatother
 
 
-% -------- COMMANDS ON DRAFT--------------------------
 
-\usepackage{ifdraft}
-\ifdraft{
-  \color[RGB]{63,63,63}
-%  \pagecolor[RGB]{220,220,204}
-  % \color[rgb]{1,1,1}
-  % \pagecolor[rgb]{0.5,0.5,0.5}
-  
-%  \usepackage{showkeys}
+
+% ----- Labels Changed? --------
+
+\makeatletter
+
+\def\@testdef #1#2#3{%
+  \def\reserved@a{#3}\expandafter \ifx \csname #1@#2\endcsname
+  \reserved@a  \else
+  \typeout{^^Jlabel #2 changed:^^J%
+    \meaning\reserved@a^^J%
+    \expandafter\meaning\csname #1@#2\endcsname^^J}%
+  \@tempswatrue \fi}
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%% INTERNAL REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\numberwithin{equation}{section} 
+\numberwithin{figure}{section}
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs,showmanualtags} % Only number equations which are referenced with eqref
+
+
+% ------- New Theorems/ Definition/ Names-----------------------
+
+ % \theoremstyle{plain} % bold name, italic text
+\newtheorem{theorem}[equation]{Theorem}%
+\newtheorem*{theorem*}{Theorem}%
+\newtheorem{lemma}[equation]{Lemma}%
+\newtheorem{proposition}[equation]{Proposition}%
+\newtheorem{corollary}[equation]{Corollary}%
+\newtheorem{conjecture}[equation]{Conjecture}%
+\newtheorem*{conjecture*}{Conjecture}%
+\newtheorem{claim}[equation]{Claim}%
+
+%%%%%% Fancy Numbering for Theorems
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
 }
-{
-%  \usepackage[notref]{showkeys}
-}
 
-% -------- Reference Numbering
-% \numberwithin{equation}{section}%
-% \numberwithin{figure}{section} 
+\newcustomtheorem{customthm}{Theorem}
+\newcustomtheorem{customcor}{Corollary}
+%%%%%%%%%%%%%
+
+\theoremstyle{definition} % bold name, plain text
+\newtheorem{definition}[equation]{Definition}%
+\newtheorem*{definition*}{Definition}%
+\newtheorem{example}[equation]{Example}%
+\newtheorem{remark}[equation]{Remark}%
+\newtheorem{notation}[equation]{Notation}%
+\newtheorem{convention}[equation]{Convention}%
+\newtheorem{assumption}[equation]{Assumption}%
+\newtheorem{exercise}{Exercise}%
 
 
-% ------- Author Info -----------------------
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ------------------------------ COMMANDS ------------------------------
 
-\author{Peter Bonventre, Lu\'is A. Pereira}%
-\title{Equivariant dendroidal Segal spaces and $G$-$\infty$-operads}%
-\date{\today}
+% ---------- macros
+
+\newcommand{\set}[1]{\left\{#1\right\}}%
+\newcommand{\sets}[2]{\left\{ #1 \;|\; #2\right\}}%
+\newcommand{\longto}{\longrightarrow}%
+\newcommand{\into}{\hookrightarrow}%
+\newcommand{\onto}{\twoheadrightarrow}%
+
+\usepackage{harpoon}
+\newcommand{\vect}[1]{\text{\overrightharp{\ensuremath{#1}}}}
+
+
+% ---------- operators
+
+\newcommand{\Sym}{\ensuremath{\mathsf{Sym}}}%
+\newcommand{\Fin}{\mathsf{F}}%
+\newcommand{\Set}{\ensuremath{\mathsf{Set}}}
+\newcommand{\Top}{\ensuremath{\mathsf{Top}}}
+\newcommand{\sSet}{\ensuremath{\mathsf{sSet}}}%
+\newcommand{\Cat}{\mathsf{Cat}}
+\newcommand{\sCat}{\mathsf{sCat}}
+\newcommand{\Op}{\mathsf{Op}}%
+\newcommand{\sOp}{\ensuremath{\mathsf{sOp}}}%
+\newcommand{\sSym}{\ensuremath{\mathsf{sSym}}}%
+\newcommand{\fgt}{\ensuremath{\mathsf{fgt}}}%
+\newcommand{\dSet}{\mathsf{dSet}}
+\newcommand{\sdSet}{\mathsf{sdSet}}
+\newcommand{\PreOp}{\mathsf{PreOp}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Fib}{\mathsf{Fib}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Kl}{\mathsf{Kl}}
+
+
+
+\DeclareMathOperator{\hocmp}{hocmp}%
+\DeclareMathOperator{\cmp}{cmp}%
+\DeclareMathOperator{\hofiber}{hofiber}%
+\DeclareMathOperator{\fiber}{fiber}%
+\DeclareMathOperator{\hocofiber}{hocof}%
+\DeclareMathOperator{\hocof}{hocof}%
+\DeclareMathOperator{\holim}{holim}%
+\DeclareMathOperator{\hocolim}{hocolim}%
+\DeclareMathOperator{\colim}{colim}%
+\DeclareMathOperator{\Lan}{Lan}%
+\DeclareMathOperator{\Ran}{Ran}%
+\DeclareMathOperator{\Map}{Map}%
+\DeclareMathOperator{\Id}{Id}%
+\DeclareMathOperator{\mlf}{mlf}%
+\DeclareMathOperator{\Hom}{Hom}%
+\DeclareMathOperator{\Ho}{Ho}
+\DeclareMathOperator{\Aut}{Aut}%
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Iso}{Iso}
+\DeclareMathOperator{\Ob}{Ob}
+
+% ---------- shortcuts
+
+\newcommand{\F}{\ensuremath{\mathcal F}}
+\newcommand{\V}{\ensuremath{\mathcal V}}
+\renewcommand{\Q}{\ensuremath{\mathcal Q}}
+\renewcommand{\O}{\ensuremath{\mathcal O}}
+\renewcommand{\P}{\ensuremath{\mathcal P}}
+\renewcommand{\C}{\ensuremath{\mathcal C}}
+\newcommand{\A}{\ensuremath{\mathcal A}}
+
+\newcommand{\del}{\partial}%
+
+\newcommand{\ki}{\chi}
+\newcommand{\ksi}{\xi}
+\newcommand{\Ksi}{\Xi}
+
+\newcommand{\lltimes}{\underline{\ltimes}}
+
+% detecting $\V$-categories:
+
+\newcommand{\I}{\mathbb I}
+\renewcommand{\J}{\mathbb J}
+\newcommand{\1}{\ensuremath{\mathbbm 1}}%{\ensuremath{\mathbb{id}}} %\eta
+
+% lazy shortcuts
+
+\newcommand{\SC}{\Sigma_{\mathfrak C}}
+\newcommand{\OC}{\Omega_{\mathfrak C}}
+\newcommand{\UV}{\underline{\mathcal V}}
+\newcommand{\UC}{\underline{\mathfrak C}}
+
+
+
+
+% ------- Metadata Info -----------------------
+
+\title[Equivariant dendroidal Segal spaces]{Equivariant dendroidal Segal spaces and $G$-$\infty$-operads}%
+
+\author{Peter Bonventre}
+\givenname{Peter}
+\surname{Bonventre}
+\address{University of Kentucky \\ Lexington, KY, United States}
+\email{peterbonventre@uky.edu}
+
+\author{Lu\'is Alexandre Pereira}
+\givenname{Lu\'is}
+\surname{Pereira}
+\address{Duke University \\ Durham, NC, United States}
+\email{luisalexandrepereira@outlook.com}
+
+
+\keyword{operads}
+\subject{primary}{msc2010}{55P91}
+\subject{secondary}{msc2010}{55U40}
+\subject{secondary}{msc2010}{18D50}
+
+\arxivreference{1801.02110}
 
 
 
@@ -77,7 +252,7 @@ cd,patterns,calc}
 
 
 
-\begin{document}	\maketitle%
+\begin{document}	
 
 
 
@@ -90,9 +265,9 @@ cd,patterns,calc}
 	In an appendix, we discuss Reedy categories in the equivariant context.
 \end{abstract}
 
+ \maketitle%
 
-
-\tableofcontents
+% \tableofcontents
 
 
 %\section{Overview}
@@ -2124,7 +2299,7 @@ $\{\Xi^{gj}\}_{gj \in Gj}$ is also a characteristic inner edge collection of $\{
 the new (Ch1),(Ch2),(Ch3)
 conditions follow from the original conditions
 (for (Ch2), note that if 
-$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \nin A$, then 
+$(V - \Xi^i_V) \in A_J$ but $(V - \Xi^i_V) \notin A$, then 
 the fact that $J$ is a lower set implies
 $(V - \Xi^i_V) \hookrightarrow U_j$ for some $j \not \geq i$, so that in this case the new (Ch2) follows from the original (Ch3)).
 \end{proof}
@@ -7104,7 +7279,7 @@ A \textit{generalized Reedy category structure} on a
 small category $\mathbb{R}$ consists of
 wide subcategories 
 $\mathbb{R}^+$, $\mathbb{R}^-$
-and a degree function $|\minus| \colon ob(\mathbb{R}) \to \mathbb{N}$ such that:
+and a degree function $|-| \colon ob(\mathbb{R}) \to \mathbb{N}$ such that: % \minus
 \begin{itemize}
 	\item[(i)] non-invertible maps in $\mathbb{R}^+$ (resp. $\mathbb{R}^-$) raise (lower) degree; isomorphisms preserve degree;
 	\item[(ii)] $\mathbb{R}^+ \cap \mathbb{R}^- = \mathsf{Iso}(\mathbb{R})$;
@@ -7280,7 +7455,7 @@ $\mathcal{F}$, $\bar{\mathcal{F}}$ families of subgroups of
 $G, \bar{G}$. Then the leftmost (resp. rightmost) adjunction below
 is a Quillen adjunction 
 \[
-	\bar{G} \cdot_G (\minus)
+	\bar{G} \cdot_G (-) % \minus
 	\colon \C^G_{\mathcal{F}}
 		\rightleftarrows
 	\C^{\bar{G}}_{\bar{\mathcal{F}}} \colon
@@ -7290,7 +7465,7 @@ is a Quillen adjunction
 	\colon	\C^{\bar{G}}_{\bar{\mathcal{F}}}
 		\rightleftarrows
 	\C^G_{\mathcal{F}} \colon
-	\mathsf{Hom}_G(\bar{G},\minus)
+	\mathsf{Hom}_G(\bar{G},-) % \minus
 \]
 provided that for $H \in \mathcal{F}$ it is
 $\phi(H) \in \bar{\mathcal{F}}$
@@ -7415,8 +7590,8 @@ Then extensions
 are determined uniquely up to unique isomorphism (in $\mathcal{C}^{\mathbb{R}_{\leq n}}$)
 by choices of $\mathsf{Aut}(r)$-equivariant factorizations
 \[
-\left(\iota_{n-1,!}A \right)_r \dashedrightarrow
-\tilde{A}_r \dashedrightarrow
+\left(\iota_{n-1,!}A \right)_r \dashrightarrow %\dashedrightarrow
+\tilde{A}_r \dashrightarrow
 \left(\iota_{n-1,\**}A\right)_r
 \]
 for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
@@ -7430,8 +7605,8 @@ $\iota_{\leq n}^{\**}X \to \tilde{A} \to \iota_{\leq n}^{\**} Y$ in $\mathcal{C}
 are determined uniquely up to unique isomorphism 
 by choices of $\mathsf{Aut}(r)$-equivariant factorizations
 \[
-	X_r \amalg_{L_r X} \left(\iota_{n-1,!}A \right)_r \dashedrightarrow
-	\tilde{A}_r \dashedrightarrow
+	X_r \amalg_{L_r X} \left(\iota_{n-1,!}A \right)_r \dashrightarrow %\dashedrightarrow
+	\tilde{A}_r xdashrightarrow{} % \dashedrightarrow
 	Y_r \times_{M_r Y} \left(\iota_{n-1,\**}A\right)_r
 \]
 for $r$ ranging over representatives of the isomorphism classes of $r \in \mathbb{R}$ with $|r|=n$.
@@ -8033,11 +8208,12 @@ and the last equality is \eqref{T_DECOMP_EQ}.
 
 
 
+
 \bibliography{biblio}{}
 
 
 
-\bibliographystyle{alpha}
+\bibliographystyle{gtart}
 
 
 
